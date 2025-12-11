@@ -1,0 +1,91 @@
+# 宝可梦红版 AI 智能体配置文件
+
+# 游戏设置
+game:
+  rom_path: "PokemonRed.gb"
+  speed: 0  # 0 = 无限速度, 1 = 正常速度, 2+ = 较慢速度
+  headless: true  # 不显示PyBoy窗口（推荐 - 改用Web仪表板）
+  save_state_dir: "data/checkpoints"
+
+# AI设置
+ai:
+  provider: "anthropic"
+  model: "claude-sonnet-4-5-20250929"  # Claude Sonnet 4.5
+  temperature: 0.7
+  max_tokens: 4096
+
+  # 智能体特定设置
+  agents:
+    main:
+      model: "claude-sonnet-4-5-20250929"
+      temperature: 0.7
+    pathfinder:
+      model: "claude-sonnet-4-5-20250929"
+      temperature: 0.3  # 较低温度以获得更确定性的寻路
+    puzzle_solver:
+      model: "claude-sonnet-4-5-20250929"
+      temperature: 0.3
+    critic:
+      model: "claude-sonnet-4-5-20250929"
+      temperature: 0.5
+
+# 记忆管理
+memory:
+  max_context_turns: 100  # 在此回合数后进行摘要
+  summarization_enabled: true
+  keep_recent_turns: 20  # 保留最近N回合的完整细节
+  map_memory_enabled: true
+  save_interval: 50  # 每N回合保存地图记忆
+
+# 行动设置
+actions:
+  delay_ms: 100  # 按键之间的延迟
+  timeout_seconds: 30  # 等待状态改变的最长时间
+  stuck_threshold: 10  # 重复相同行动N次 = 卡住
+  screenshot_interval: 1  # 每N帧捕获一次
+
+# 目标系统
+goals:
+  primary_goal: "通过击败四天王并成为冠军来完成宝可梦红版"
+  secondary_goal: null  # 将动态设置
+  tertiary_goal: null   # 将动态设置
+  goal_update_interval: 10  # 每N回合重新评估目标
+
+# 日志记录
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_dir: "logs"
+  log_actions: true
+  log_states: true
+  log_decisions: true
+  save_screenshots: true
+  screenshot_dir: "logs/screenshots"
+
+# 进度追踪
+progress:
+  checkpoint_interval: 100  # 每N回合自动保存
+  track_badges: true
+  track_pokemon: true
+  track_items: true
+  track_exploration: true
+
+# 性能
+performance:
+  enable_caching: true
+  cache_dir: "data/cache"
+  parallel_agents: false  # 并行运行子智能体（实验性）
+  async_decisions: true  # 使用异步AI决策以保持PyBoy响应
+
+# 可视化
+visualization:
+  enabled: true  # 启用基于Web的实时仪表板
+  port: 5000  # 可视化服务器端口
+  update_screenshots: true  # 向仪表板流式传输截图
+  update_interval: 1  # 更新频率（每N回合）
+
+# 调试
+debug:
+  enabled: false
+  break_on_error: false
+  verbose_state: false
+  save_ram_dumps: false

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宝可梦AI智能体 - 实时仪表板</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            margin: 10px 5px 0 5px;
+            background: #4CAF50;
+            border-radius: 20px;
+            font-size: 0.9em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .panel h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .game-screen {
+            text-align: center;
+        }
+
+        #screenshot {
+            max-width: 100%;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 5px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .decision-box {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .decision-action {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .decision-reasoning {
+            font-size: 0.95em;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .goal-item {
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 4px solid #FF9800;
+        }
+
+        .goal-type {
+            font-weight: bold;
+            color: #FF9800;
+            margin-bottom: 5px;
+        }
+
+        .history-section {
+            grid-column: 1 / -1;
+        }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        .history-item {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #2196F3;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .history-turn {
+            color: #2196F3;
+        }
+
+        .history-action {
+            color: #4CAF50;
+        }
+
+        .history-reasoning {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .party-pokemon {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+        }
+
+        .pokemon-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .hp-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .hp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            transition: width 0.3s;
+        }
+
+        .hp-fill.low {
+            background: linear-gradient(90deg, #f44336, #FF5722);
+        }
+
+        .hp-fill.medium {
+            background: linear-gradient(90deg, #FF9800, #FFC107);
+        }
+
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .badge-item {
+            background: rgba(0,0,0,0.2);
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.85em;
+        }
+
+        .badge-item.obtained {
+            background: rgba(76, 175, 80, 0.3);
+            border: 2px solid #4CAF50;
+        }
+
+        .event-log {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .event-item {
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .event-milestone {
+            background: rgba(255, 152, 0, 0.3);
+            border-left: 3px solid #FF9800;
+        }
+
+        .event-achievement {
+            background: rgba(76, 175, 80, 0.3);
+            border-left: 3px solid #4CAF50;
+        }
+
+        .event-error {
+            background: rgba(244, 67, 54, 0.3);
+            border-left: 3px solid #f44336;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .timestamp {
+            font-size: 0.85em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>宝可梦AI智能体 - 实时仪表板</h1>
+            <div class="subtitle">由Claude (Anthropic)驱动 - 实时可视化</div>
+            <span class="status-badge" id="connectionStatus">正在连接...</span>
+            <span class="status-badge" id="turnCounter">回合: 0</span>
+        </header>
+
+        <div class="dashboard">
+            <!-- Left Panel: Game State -->
+            <div class="panel">
+                <h2>游戏状态</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">回合</div>
+                        <div class="stat-value" id="statTurn">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">徽章</div>
+                        <div class="stat-value" id="statBadges">0/8</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">金钱</div>
+                        <div class="stat-value" id="statMoney">$0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">队伍</div>
+                        <div class="stat-value" id="statParty">0</div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 20px; margin-bottom: 10px;">位置</h3>
+                <div class="stat-box">
+                    <div id="positionInfo">地图: ?, 坐标: (?, ?)</div>
+                </div>
+
+                <h3 style="margin-top: 20px; margin-bottom: 10px;">徽章</h3>
+                <div class="badge-grid" id="badgeGrid">
+                    <div class="badge-item">岩石</div>
+                    <div class="badge-item">蓝色</div>
+                    <div class="badge-item">橙色</div>
+                    <div class="badge-item">彩虹</div>
+                    <div class="badge-item">灵魂</div>
+                    <div class="badge-item">粉色</div>
+                    <div class="badge-item">深红</div>
+                    <div class="badge-item">绿色</div>
+                </div>
+
+                <h3 style="margin-top: 20px; margin-bottom: 10px;">队伍宝可梦</h3>
+                <div id="partyList">
+                    <div style="opacity: 0.5; text-align: center;">无宝可梦</div>
+                </div>
+
+                <h3 style="margin-top: 20px; margin-bottom: 10px;">探索进度</h3>
+                <div class="stat-box">
+                    <div id="explorationInfo">当前地图: 0.0%</div>
+                    <div style="margin-top: 5px;" id="explorationDetails">格子: 0/0</div>
+                </div>
+            </div>
+
+            <!-- Center Panel: Game Screen -->
+            <div class="panel game-screen">
+                <h2>游戏画面</h2>
+                <img id="screenshot" src="" alt="游戏画面" style="display: none;">
+                <div id="screenshotPlaceholder" style="padding: 100px; background: rgba(0,0,0,0.2); border-radius: 5px;">
+                    等待游戏画面...
+                </div>
+
+                <h2 style="margin-top: 30px;">最新AI决策</h2>
+                <div class="decision-box" id="latestDecision">
+                    <div class="decision-action">等待首次决策...</div>
+                    <div class="decision-reasoning"></div>
+                </div>
+
+                <h2 style="margin-top: 20px;">视觉分析</h2>
+                <div class="stat-box" id="visualAnalysis">
+                    <div>描述: -</div>
+                    <div style="margin-top: 5px;">元素: -</div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Goals & Events -->
+            <div class="panel">
+                <h2>当前目标</h2>
+                <div id="goalsList">
+                    <div style="opacity: 0.5; text-align: center;">未设置目标</div>
+                </div>
+
+                <h2 style="margin-top: 30px;">事件</h2>
+                <div class="event-log" id="eventLog">
+                    <div class="event-item event-milestone">系统已初始化</div>
+                </div>
+            </div>
+
+            <!-- Bottom Panel: Decision History -->
+            <div class="panel history-section">
+                <h2>决策历史</h2>
+                <div class="history-list" id="historyList">
+                    <div style="opacity: 0.5; text-align: center; padding: 20px;">等待决策...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Connect to SocketIO
+        const socket = io();
+
+        socket.on('connect', () => {
+            document.getElementById('connectionStatus').textContent = '已连接';
+            document.getElementById('connectionStatus').style.background = '#4CAF50';
+            console.log('Connected to server');
+        });
+
+        socket.on('disconnect', () => {
+            document.getElementById('connectionStatus').textContent = '已断开';
+            document.getElementById('connectionStatus').style.background = '#f44336';
+            console.log('Disconnected from server');
+        });
+
+        // State update
+        socket.on('state_update', (data) => {
+            console.log('State update:', data);
+            updateState(data);
+        });
+
+        // Decision update
+        socket.on('decision_update', (data) => {
+            console.log('Decision update:', data);
+            updateDecision(data);
+            addToHistory(data);
+        });
+
+        // Screenshot update
+        socket.on('screenshot_update', (data) => {
+            console.log('Screenshot update received');
+            updateScreenshot(data.image);
+        });
+
+        // Goals update
+        socket.on('goals_update', (data) => {
+            console.log('Goals update:', data);
+            updateGoals(data.goals);
+        });
+
+        // Event
+        socket.on('event', (data) => {
+            console.log('Event:', data);
+            addEvent(data);
+        });
+
+        function updateState(state) {
+            document.getElementById('statTurn').textContent = state.turn || 0;
+            document.getElementById('turnCounter').textContent = `回合: ${state.turn || 0}`;
+            document.getElementById('statBadges').textContent = `${state.badges || 0}/8`;
+            document.getElementById('statMoney').textContent = `$${state.money || 0}`;
+            document.getElementById('statParty').textContent = state.party_size || 0;
+
+            // Position
+            if (state.position) {
+                document.getElementById('positionInfo').innerHTML =
+                    `地图: ${state.position.map_id || '?'}, 坐标: (${state.position.x || '?'}, ${state.position.y || '?'})`;
+            }
+
+            // Visual analysis
+            if (state.visual) {
+                document.getElementById('visualAnalysis').innerHTML =
+                    `<div>描述: ${state.visual.description || '-'}</div>
+                     <div style="margin-top: 5px;">元素: ${(state.visual.elements || []).join(', ') || '-'}</div>`;
+            }
+
+            // Exploration
+            if (state.exploration) {
+                const percent = state.exploration.exploration_percent || 0;
+                const explored = state.exploration.explored_tiles || 0;
+                const total = state.exploration.total_tiles || 0;
+                document.getElementById('explorationInfo').textContent = `当前地图: ${percent.toFixed(1)}%`;
+                document.getElementById('explorationDetails').textContent = `格子: ${explored}/${total}`;
+            }
+
+            // Party
+            if (state.party && state.party.length > 0) {
+                let partyHTML = '';
+                state.party.forEach((pokemon, index) => {
+                    const hpPercent = pokemon.max_hp > 0 ? (pokemon.current_hp / pokemon.max_hp * 100) : 0;
+                    const hpClass = hpPercent > 50 ? '' : (hpPercent > 25 ? 'medium' : 'low');
+                    partyHTML += `
+                        <div class="party-pokemon">
+                            <div class="pokemon-header">
+                                <span>${pokemon.species || '未知'} Lv.${pokemon.level || '?'}</span>
+                                <span>${pokemon.current_hp}/${pokemon.max_hp}</span>
+                            </div>
+                            <div class="hp-bar">
+                                <div class="hp-fill ${hpClass}" style="width: ${hpPercent}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('partyList').innerHTML = partyHTML;
+            } else {
+                document.getElementById('partyList').innerHTML = '<div style="opacity: 0.5; text-align: center;">无宝可梦</div>';
+            }
+        }
+
+        function updateDecision(decision) {
+            const actionText = decision.action || '未知';
+            const reasoning = decision.reasoning || '无推理说明';
+
+            document.getElementById('latestDecision').innerHTML = `
+                <div class="decision-action">行动: ${actionText.toUpperCase()}</div>
+                <div class="decision-reasoning">${reasoning}</div>
+                <div class="timestamp">回合 ${decision.turn} - ${new Date(decision.timestamp).toLocaleTimeString()}</div>
+            `;
+        }
+
+        function updateScreenshot(imageData) {
+            if (imageData) {
+                const img = document.getElementById('screenshot');
+                img.src = imageData;
+                img.style.display = 'block';
+                document.getElementById('screenshotPlaceholder').style.display = 'none';
+            }
+        }
+
+        function updateGoals(goals) {
+            if (goals && goals.length > 0) {
+                let goalsHTML = '';
+                goals.forEach(goal => {
+                    goalsHTML += `
+                        <div class="goal-item">
+                            <div class="goal-type">${goal.type}</div>
+                            <div>${goal.description}</div>
+                        </div>
+                    `;
+                });
+                document.getElementById('goalsList').innerHTML = goalsHTML;
+            } else {
+                document.getElementById('goalsList').innerHTML = '<div style="opacity: 0.5; text-align: center;">未设置目标</div>';
+            }
+        }
+
+        function addToHistory(decision) {
+            const historyList = document.getElementById('historyList');
+
+            // Remove placeholder if exists
+            if (historyList.querySelector('div[style*="opacity: 0.5"]')) {
+                historyList.innerHTML = '';
+            }
+
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+                <div class="history-header">
+                    <span class="history-turn">回合 ${decision.turn}</span>
+                    <span class="history-action">${decision.action.toUpperCase()}</span>
+                    <span class="timestamp">${new Date(decision.timestamp).toLocaleTimeString()}</span>
+                </div>
+                <div class="history-reasoning">${decision.reasoning}</div>
+            `;
+
+            historyList.insertBefore(historyItem, historyList.firstChild);
+
+            // Keep only last 50 items
+            while (historyList.children.length > 50) {
+                historyList.removeChild(historyList.lastChild);
+            }
+        }
+
+        function addEvent(event) {
+            const eventLog = document.getElementById('eventLog');
+            const eventItem = document.createElement('div');
+            eventItem.className = `event-item event-${event.type}`;
+            eventItem.innerHTML = `
+                <strong>[${event.type.toUpperCase()}]</strong> ${event.message}
+                <div class="timestamp">${new Date(event.timestamp).toLocaleTimeString()}</div>
+            `;
+            eventLog.insertBefore(eventItem, eventLog.firstChild);
+
+            // Keep only last 30 events
+            while (eventLog.children.length > 30) {
+                eventLog.removeChild(eventLog.lastChild);
+            }
+        }
+
+        // Poll for initial data
+        fetch('/api/state')
+            .then(r => r.json())
+            .then(data => {
+                if (Object.keys(data).length > 0) {
+                    updateState(data);
+                }
+            });
+
+        fetch('/api/decision')
+            .then(r => r.json())
+            .then(data => {
+                if (Object.keys(data).length > 0) {
+                    updateDecision(data);
+                }
+            });
+
+        fetch('/api/screenshot')
+            .then(r => r.json())
+            .then(data => {
+                if (data.image) {
+                    updateScreenshot(data.image);
+                }
+            });
+
+        fetch('/api/goals')
+            .then(r => r.json())
+            .then(data => {
+                if (data.goals && data.goals.length > 0) {
+                    updateGoals(data.goals);
+                }
+            });
+
+        fetch('/api/history')
+            .then(r => r.json())
+            .then(data => {
+                if (data.decisions && data.decisions.length > 0) {
+                    data.decisions.reverse().forEach(decision => {
+                        addToHistory(decision);
+                    });
+                }
+            });
+    </script>
+</body>
+</html>

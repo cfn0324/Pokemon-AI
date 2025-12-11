@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# PyBoy
+*.state
+
+# Logs and data
+logs/
+data/maps/*.json
+data/checkpoints/
+data/cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# ROM file (not distributable)
+*.gb
+*.gbc
+
+# Screenshots (too large)
+*.png
+!docs/*.png
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+nul
+
+# RAM saves
+*.gb.ram
+*.gbc.ram
+
+# Claude Code
+.claude/
