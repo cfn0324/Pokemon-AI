@@ -7,6 +7,8 @@ import signal
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
+from io import BytesIO
+from PIL import Image
 
 # 从.env文件加载环境变量
 from dotenv import load_dotenv
@@ -56,6 +58,9 @@ class PokemonAIAgent:
         self.running = False
         self.turn_count = 0
         self.last_checkpoint_turn = 0
+        self._prev_screen_type = None
+        self._dialogue_exit_grace = 0
+        self._text_entry_step = 0
 
         # 设置信号处理器
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -86,7 +91,8 @@ class PokemonAIAgent:
             self.emulator,
             self.memory_reader,
             self.vision,
-            self.map_memory
+            self.map_memory,
+            visual_enabled=self.config.get('performance.visual_enabled', False)
         )
 
         self.logger.info("状态系统初始化完成")
@@ -148,14 +154,56 @@ class PokemonAIAgent:
 
         # 更新游戏状态
         current_state = self.game_state.update()
+
+        # 捕获当帧截图供可视化和视觉AI使用
+        screen_image = self.emulator.get_screen_image()
+        screen_type = self._detect_screen_type(screen_image)
+        if (
+            screen_type
+            and isinstance(current_state.get("visual"), dict)
+            and current_state["visual"].get("screen_type") == "memory_only"
+        ):
+            current_state["visual"]["screen_type"] = screen_type
+
+        # 离开文本输入界面时重置自动序列
+        if screen_type != "text_entry":
+            self._text_entry_step = 0
+
+        # 对话结束后给一个短暂缓冲，避免重复对话循环
+        previous_screen_type = self._prev_screen_type
+        self._prev_screen_type = screen_type
+        if previous_screen_type == "dialogue" and screen_type != "dialogue":
+            self._dialogue_exit_grace = 2
+        elif self._dialogue_exit_grace > 0:
+            self._dialogue_exit_grace -= 1
+
         state_text = self.game_state.get_text_representation(current_state)
+        screenshot_bytes = None
+        if screen_image:
+            # Upscale the tiny Game Boy frame to help vision models read UI text.
+            scale = int(self.config.get("ai.screenshot_scale", 4) or 4)
+            ai_image = screen_image
+            if scale > 1:
+                resample = (
+                    Image.Resampling.NEAREST
+                    if hasattr(Image, "Resampling")
+                    else Image.NEAREST
+                )
+                ai_image = screen_image.resize(
+                    (screen_image.width * scale, screen_image.height * scale),
+                    resample=resample,
+                )
+
+            buffer = BytesIO()
+            ai_image.save(buffer, format="PNG")
+            screenshot_bytes = buffer.getvalue()
 
         # 使用当前状态更新可视化器
         if self.config.get('visualization.enabled', True):
             self.visualizer.update_state(current_state)
             # 每回合更新截图以实现实时显示
-            screen_image = self.emulator.get_screen_image()
-            self.visualizer.update_screenshot(screen_image)
+            if screen_image:
+                self.visualizer.update_screenshot(screen_image)
             # 从主智能体更新目标
             if hasattr(self.main_agent, 'goal_manager') and self.main_agent.goal_manager:
                 goals = self.main_agent.goal_manager.get_all_goals()
@@ -174,14 +222,37 @@ class PokemonAIAgent:
 
         # 检查是否卡住
         if self.action_executor.is_stuck():
-            self.logger.warning("智能体似乎卡住了 - 请求评论者评估")
-            if self.config.get('visualization.enabled', True):
-                self.visualizer.log_event('error', '智能体卡住 - 请求评论者评估')
-            self._handle_stuck_state(current_state)
-            self.action_executor.reset_stuck_detection()
+            # 长对话中重复按 A 很常见，避免误判导致干预
+            if screen_type in {"dialogue", "text_entry"}:
+                self.action_executor.reset_stuck_detection()
+            else:
+                self.logger.warning("智能体似乎卡住了 - 请求评论者评估")
+                if self.config.get('visualization.enabled', True):
+                    self.visualizer.log_event('error', '智能体卡住 - 请求评论者评估')
+                self._handle_stuck_state(current_state)
+                self.action_executor.reset_stuck_detection()
 
         # 获取AI决策（使用异步支持以保持PyBoy响应）
-        decision = self._get_ai_decision_responsive(current_state, state_text)
+        if screen_type == "dialogue":
+            # 对话阶段由程序自动推进，避免 LLM 选出无效动作导致卡住
+            decision = {"action": "a", "reasoning": "Auto: advance dialogue", "goal_update": None}
+        elif screen_type == "text_entry":
+            # 命名/文本输入阶段通常需要 Start->End 或 End->A 退出；自动执行简单序列脱困
+            seq = ["a", "start", "a", "wait"]
+            action = seq[self._text_entry_step % len(seq)]
+            self._text_entry_step += 1
+            decision = {"action": action, "reasoning": "Auto: complete text entry", "goal_update": None}
+        else:
+            decision = self._get_ai_decision_responsive(current_state, state_text, screenshot_bytes)
+
+            # 刚结束对话时，如果继续按 A/B/Start 很容易又与 NPC 触发对话
+            if self._dialogue_exit_grace > 0 and decision.get("action") in {"a", "b", "start", "select"}:
+                move = self._choose_recovery_move(current_state)
+                decision = {
+                    "action": move,
+                    "reasoning": f"Auto: move away after dialogue (suppressed {decision.get('action')})",
+                    "goal_update": None,
+                }
 
         # 使用决策更新可视化器
         if self.config.get('visualization.enabled', True):
@@ -207,12 +278,54 @@ class PokemonAIAgent:
         # Tick模拟器
         self.emulator.tick(10)
 
-    def _get_ai_decision_responsive(self, current_state: dict, state_text: str) -> dict:
+    def _detect_screen_type(self, screen_image) -> Optional[str]:
+        """轻量识别当前屏幕类型（对话/菜单/战斗/标题等）。"""
+        if not screen_image or not hasattr(self, "vision") or not self.vision:
+            return None
+        try:
+            import numpy as np
+
+            img_array = np.array(screen_image.convert("RGB"))
+            ui = self.vision._detect_ui_elements(img_array)
+            if ui.get("text_entry"):
+                return "text_entry"
+            # In Pokemon, dialogue boxes are large and can trip simplistic "menu" heuristics.
+            if ui.get("text_box") and not ui.get("battle_ui"):
+                return "dialogue"
+            return self.vision._identify_screen_type(img_array, ui)
+        except Exception:
+            return None
+
+    def _choose_recovery_move(self, current_state: dict) -> str:
+        """选择一个简单的移动动作，用于打破反复对话/交互循环。"""
+        try:
+            pos = current_state.get("memory", {}).get("position", {})
+            x = int(pos.get("x", 0))
+            y = int(pos.get("y", 0))
+            tiles = current_state.get("exploration", {}).get("nearby_unexplored", [])
+            if tiles:
+                tx, ty = tiles[0]
+                dx = tx - x
+                dy = ty - y
+                if abs(dy) >= abs(dx):
+                    return "down" if dy > 0 else "up"
+                return "right" if dx > 0 else "left"
+        except Exception:
+            pass
+        return "down"
+
+    def _get_ai_decision_responsive(
+        self,
+        current_state: dict,
+        state_text: str,
+        screenshot_bytes: Optional[bytes] = None
+    ) -> dict:
         """在保持PyBoy窗口响应的同时获取AI决策。
 
         参数:
             current_state: 当前游戏状态
             state_text: 状态的文本表示
+            screenshot_bytes: 当前屏幕的PNG字节（用于视觉模型）
 
         返回:
             包含行动和推理的决策字典
@@ -221,10 +334,21 @@ class PokemonAIAgent:
 
         if not use_async or not hasattr(self, 'async_ai'):
             # 回退到同步模式（会阻塞）
-            return self.main_agent.decide_action(current_state, state_text)
+            return self.main_agent.decide_action(
+                current_state,
+                state_text,
+                screenshot_bytes=screenshot_bytes
+            )
 
         # 异步请求决策
-        self.async_ai.request_decision(current_state, state_text)
+        queued = self.async_ai.request_decision(current_state, state_text, screenshot_bytes)
+        if not queued:
+            self.logger.debug("异步决策队列已满，改用同步决策")
+            return self.main_agent.decide_action(
+                current_state,
+                state_text,
+                screenshot_bytes=screenshot_bytes
+            )
 
         # 等待决策的同时保持PyBoy响应
         max_wait_time = 60.0  # 最多60秒
@@ -333,7 +457,7 @@ def main():
     """主入口点。"""
     print("=" * 60)
     print("宝可梦AI智能体")
-    print("由Claude (Anthropic)驱动")
+    print("由 GPT-5.1 Codex 驱动")
     print("=" * 60)
     print()
 

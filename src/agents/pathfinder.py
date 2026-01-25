@@ -36,11 +36,16 @@ PATH: <comma-separated list of moves, e.g., "up,up,right,right,up">
 
         # Initialize AI client with custom base_url if provided
         import os
-        base_url = os.getenv('ANTHROPIC_BASE_URL')
+        api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
+        base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
+        client_kwargs = {}
+        if api_key:
+            client_kwargs['api_key'] = api_key
         if base_url:
-            self.client = Anthropic(base_url=base_url)
-        else:
-            self.client = Anthropic()
+            client_kwargs['base_url'] = base_url
+            self.logger.info(f"Using custom API endpoint: {base_url}")
+
+        self.client = Anthropic(**client_kwargs)
 
         self.model = self.config.get('ai.agents.pathfinder.model')
         self.temperature = self.config.get('ai.agents.pathfinder.temperature')

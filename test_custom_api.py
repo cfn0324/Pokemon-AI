@@ -17,13 +17,13 @@ print("Custom API Configuration Test")
 print("=" * 60)
 print()
 
-# Check environment variables
-api_key = os.getenv('ANTHROPIC_API_KEY')
-base_url = os.getenv('ANTHROPIC_BASE_URL')
+# Check environment variables (prefer OPENAI_* for GPT-5.1 Codex, fallback to ANTHROPIC_*)
+api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
+base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
 
 print("Configuration:")
 print(f"  API Key: {api_key[:20]}..." if api_key else "  API Key: NOT SET")
-print(f"  Base URL: {base_url}" if base_url else "  Base URL: Using default Anthropic endpoint")
+print(f"  Base URL: {base_url}" if base_url else "  Base URL: Using default endpoint")
 print()
 
 # Test API connection
@@ -31,16 +31,20 @@ print("Testing API connection...")
 try:
     from anthropic import Anthropic
 
+    client_kwargs = {}
+    if api_key:
+        client_kwargs["api_key"] = api_key
     if base_url:
-        client = Anthropic(base_url=base_url)
+        client_kwargs["base_url"] = base_url
         print(f"  [OK] Using custom endpoint: {base_url}")
     else:
-        client = Anthropic()
-        print(f"  [OK] Using default Anthropic endpoint")
+        print(f"  [OK] Using default endpoint")
+
+    client = Anthropic(**client_kwargs)
 
     print("  Sending test request...")
     response = client.messages.create(
-        model="claude-sonnet-4-5-20250929",
+        model="gpt-5.1-codex-max",
         max_tokens=50,
         messages=[{
             "role": "user",

@@ -58,7 +58,11 @@ class ActionExecutor:
 
         # Execute the action
         if action == 'wait':
-            time.sleep(0.5)
+            # Sleep alone does not advance the emulator; tick some frames to let
+            # dialogues/animations/scripts progress.
+            wait_frames = int(self.config.get('actions.wait_frames', 30) or 30)
+            self.emulator.tick(max(1, wait_frames))
+            time.sleep(0.05)
         else:
             self.emulator.press_button(action)
 

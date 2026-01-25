@@ -1,4 +1,4 @@
-# Advanced Usage Guide
+﻿# Advanced Usage Guide
 
 This guide covers advanced features and customization options for Pokemon AI Agent.
 
@@ -38,29 +38,29 @@ game:
 
 ```yaml
 ai:
-  model: "claude-sonnet-4-5-20250929"  # Main model
+  model: "GPT-5.1 Codex-sonnet-4-5-20250929"  # Main model
   temperature: 0.7                      # Creativity level
   max_tokens: 4096                      # Response size
 
   agents:
     main:
-      model: "claude-sonnet-4-5-20250929"
+      model: "GPT-5.1 Codex-sonnet-4-5-20250929"
       temperature: 0.7
     pathfinder:
-      model: "claude-sonnet-4-5-20250929"
+      model: "GPT-5.1 Codex-sonnet-4-5-20250929"
       temperature: 0.3        # Lower for deterministic routing
     puzzle_solver:
-      model: "claude-sonnet-4-5-20250929"
+      model: "GPT-5.1 Codex-sonnet-4-5-20250929"
       temperature: 0.3
     critic:
-      model: "claude-sonnet-4-5-20250929"
+      model: "GPT-5.1 Codex-sonnet-4-5-20250929"
       temperature: 0.5
 ```
 
 **Model Options**:
-- `claude-sonnet-4-5-20250929`: Best quality, higher cost
-- `claude-haiku-20250307`: Faster, cheaper (recommended for cost savings)
-- `claude-opus-4-5-20250929`: Maximum capability (expensive)
+- `GPT-5.1 Codex-sonnet-4-5-20250929`: Best quality, higher cost
+- `GPT-5.1 Codex-haiku-20250307`: Faster, cheaper (recommended for cost savings)
+- `GPT-5.1 Codex-opus-4-5-20250929`: Maximum capability (expensive)
 
 **Temperature Guide**:
 - `0.0-0.3`: Deterministic, consistent
@@ -237,9 +237,9 @@ Every `max_context_turns` turns:
 
 ```
 Turn 1-100: [full detail]
-Turn 100: Summarize → "Started in Pallet Town, got Charmander, ..."
+Turn 100: Summarize 鈫?"Started in Pallet Town, got Charmander, ..."
 Turn 101-200: [full detail]
-Turn 200: Summarize → "Traveled to Pewter City, defeated Brock, ..."
+Turn 200: Summarize 鈫?"Traveled to Pewter City, defeated Brock, ..."
 ...
 ```
 
@@ -342,7 +342,7 @@ game:
   headless: true       # No rendering
 
 ai:
-  model: "claude-haiku-20250307"  # Faster model
+  model: "GPT-5.1 Codex-haiku-20250307"  # Faster model
 
 actions:
   delay_ms: 50         # Minimal delay
@@ -362,7 +362,7 @@ memory:
 
 ```yaml
 ai:
-  model: "claude-haiku-20250307"  # Cheapest model
+  model: "GPT-5.1 Codex-haiku-20250307"  # Cheapest model
   max_tokens: 2048     # Lower token limit
 
 memory:
@@ -379,7 +379,7 @@ actions:
 
 ```yaml
 ai:
-  model: "claude-sonnet-4-5-20250929"
+  model: "GPT-5.1 Codex-sonnet-4-5-20250929"
   temperature: 0.7
   max_tokens: 8192     # Longer responses
 
@@ -428,7 +428,7 @@ my_value = self.memory_reader.read_my_value()
 
 ```python
 # src/agents/my_agent.py
-from anthropic import Anthropic
+from OpenAI import OpenAI
 from ..utils.logger import get_logger
 
 class MyAgent:
@@ -436,11 +436,11 @@ class MyAgent:
 
     def __init__(self):
         self.logger = get_logger('MyAgent')
-        self.client = Anthropic()
+        self.client = OpenAI()
 
     def process(self, input_data):
         response = self.client.messages.create(
-            model="claude-sonnet-4-5-20250929",
+            model="GPT-5.1 Codex-sonnet-4-5-20250929",
             max_tokens=1000,
             messages=[{"role": "user", "content": input_data}]
         )

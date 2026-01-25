@@ -1,4 +1,4 @@
-# Architecture Documentation
+﻿# Architecture Documentation
 
 ## System Overview
 
@@ -7,38 +7,7 @@ Pokemon AI Agent is a multi-agent AI system that autonomously plays Pokemon Red 
 ## High-Level Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     Main Orchestrator                        │
-│                   (PokemonAIAgent)                          │
-└───────────────┬────────────────────────────────────┬────────┘
-                │                                     │
-       ┌────────▼────────┐                  ┌────────▼────────┐
-       │  Emulator Layer │                  │   AI Layer      │
-       └────────┬────────┘                  └────────┬────────┘
-                │                                     │
-    ┌───────────┼───────────┐              ┌────────┼────────┐
-    │           │           │              │        │        │
-┌───▼───┐ ┌────▼─────┐ ┌──▼────┐    ┌────▼─┐ ┌───▼──┐ ┌──▼──┐
-│PyBoy  │ │  Memory  │ │Vision │    │Main  │ │Path  │ │Critic│
-│       │ │  Reader  │ │       │    │Agent │ │finder│ │      │
-└───┬───┘ └────┬─────┘ └──┬────┘    └────┬─┘ └───┬──┘ └──┬──┘
-    │          │           │              │       │       │
-    └──────────┴───────────┴──────────────┴───────┴───────┘
-                           │
-                  ┌────────▼────────┐
-                  │  State Manager  │
-                  │  - Game State   │
-                  │  - Map Memory   │
-                  │  - Context Mgr  │
-                  └────────┬────────┘
-                           │
-                  ┌────────▼────────┐
-                  │  Tool Layer     │
-                  │  - Goals        │
-                  │  - Actions      │
-                  │  - Progress     │
-                  └─────────────────┘
-```
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹?                    Main Orchestrator                        鈹?鈹?                  (PokemonAIAgent)                          鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                鈹?                                    鈹?       鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                 鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?       鈹? Emulator Layer 鈹?                 鈹?  AI Layer      鈹?       鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                 鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                鈹?                                    鈹?    鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?             鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?    鈹?          鈹?          鈹?             鈹?       鈹?       鈹?鈹屸攢鈹€鈹€鈻尖攢鈹€鈹€鈹?鈹屸攢鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹?鈹屸攢鈹€鈻尖攢鈹€鈹€鈹€鈹?   鈹屸攢鈹€鈹€鈹€鈻尖攢鈹?鈹屸攢鈹€鈹€鈻尖攢鈹€鈹?鈹屸攢鈹€鈻尖攢鈹€鈹?鈹侾yBoy  鈹?鈹? Memory  鈹?鈹俈ision 鈹?   鈹侻ain  鈹?鈹侾ath  鈹?鈹侰ritic鈹?鈹?      鈹?鈹? Reader  鈹?鈹?      鈹?   鈹侫gent 鈹?鈹俧inder鈹?鈹?     鈹?鈹斺攢鈹€鈹€鈹攢鈹€鈹€鈹?鈹斺攢鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹?鈹斺攢鈹€鈹攢鈹€鈹€鈹€鈹?   鈹斺攢鈹€鈹€鈹€鈹攢鈹?鈹斺攢鈹€鈹€鈹攢鈹€鈹?鈹斺攢鈹€鈹攢鈹€鈹?    鈹?         鈹?          鈹?             鈹?      鈹?      鈹?    鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹粹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹?                           鈹?                  鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                  鈹? State Manager  鈹?                  鈹? - Game State   鈹?                  鈹? - Map Memory   鈹?                  鈹? - Context Mgr  鈹?                  鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                           鈹?                  鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈻尖攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?                  鈹? Tool Layer     鈹?                  鈹? - Goals        鈹?                  鈹? - Actions      鈹?                  鈹? - Progress     鈹?                  鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?```
 
 ## Component Details
 
@@ -90,12 +59,8 @@ get_game_state_summary() -> Dict          # Comprehensive state
 
 **Data Flow**:
 ```
-RAM Data ──┐
-           ├──> GameState ──> Text Representation ──> AI
-Vision ────┤
-           │
-Map Memory─┘
-```
+RAM Data 鈹€鈹€鈹?           鈹溾攢鈹€> GameState 鈹€鈹€> Text Representation 鈹€鈹€> AI
+Vision 鈹€鈹€鈹€鈹€鈹?           鈹?Map Memory鈹€鈹?```
 
 #### VisionProcessor (`src/state/vision.py`)
 - **Purpose**: Analyzes game screen visually
@@ -129,7 +94,7 @@ Map Memory─┘
 
 #### MainAgent (`src/agents/main_agent.py`)
 - **Purpose**: Primary decision-making agent
-- **Model**: Claude Sonnet 4.5
+- **Model**: GPT-5.1 Codex GPT-5.1 Codex
 - **Temperature**: 0.7 (configurable)
 
 **Decision Loop**:
@@ -137,7 +102,7 @@ Map Memory─┘
 1. Receive game state
 2. Get context (summaries + recent history)
 3. Get current goals
-4. Call Claude API with prompt
+4. Call GPT-5.1 Codex API with prompt
 5. Parse response (reasoning + action)
 6. Add to context
 7. Return decision
@@ -157,7 +122,7 @@ GOAL_UPDATE: <goal changes or "none">
 
 #### PathfinderAgent (`src/agents/pathfinder.py`)
 - **Purpose**: Specialized navigation and routing
-- **Model**: Claude Sonnet 4.5
+- **Model**: GPT-5.1 Codex GPT-5.1 Codex
 - **Temperature**: 0.3 (more deterministic)
 
 **Use Cases**:
@@ -180,7 +145,7 @@ path: ["up", "up", "right", "right", ...]
 
 #### PuzzleSolverAgent (`src/agents/puzzle_solver.py`)
 - **Purpose**: Solve Sokoban-style boulder puzzles
-- **Model**: Claude Sonnet 4.5
+- **Model**: GPT-5.1 Codex GPT-5.1 Codex
 - **Temperature**: 0.3
 
 **Puzzle Types**:
@@ -196,7 +161,7 @@ path: ["up", "up", "right", "right", ...]
 
 #### CriticAgent (`src/agents/critic.py`)
 - **Purpose**: Evaluate strategy and identify issues
-- **Model**: Claude Sonnet 4.5
+- **Model**: GPT-5.1 Codex GPT-5.1 Codex
 - **Temperature**: 0.5
 
 **Evaluation Criteria**:
@@ -304,45 +269,36 @@ completion_percentage = (badges/8 * 80) +
 
 ```
 1. Tick Emulator (10 frames)
-   ↓
-2. Read Game State
+   鈫?2. Read Game State
    - RAM data (position, party, badges)
    - Screen capture
    - Visual analysis
-   ↓
-3. Update Map Memory
+   鈫?3. Update Map Memory
    - Mark current tile explored
    - Find nearby unexplored
-   ↓
-4. Build State Representation
+   鈫?4. Build State Representation
    - Combine all data sources
    - Generate text description
-   ↓
-5. AI Decision
+   鈫?5. AI Decision
    - Check context size (summarize if needed)
    - Build prompt (context + goals + state)
-   - Call Claude API
+   - Call GPT-5.1 Codex API
    - Parse response
-   ↓
-6. Execute Action
+   鈫?6. Execute Action
    - Validate action
    - Press button
    - Check for stuck
-   ↓
-7. Update Context
+   鈫?7. Update Context
    - Add turn to history
    - Process goal updates
-   ↓
-8. Track Progress
+   鈫?8. Track Progress
    - Check for new badges
    - Update statistics
-   ↓
-9. Checkpoint (every 100 turns)
+   鈫?9. Checkpoint (every 100 turns)
    - Save emulator state
    - Save agent state
    - Save progress
-   ↓
-10. Repeat
+   鈫?10. Repeat
 ```
 
 ## Prompt Engineering
@@ -416,10 +372,10 @@ Position, badges, party, visual analysis, exploration
 
 ```
 data/checkpoints/checkpoint_TURN/
-├── emulator.state       # PyBoy save state
-├── context.json         # AI context + summaries
-├── goals.json           # Current goals
-└── progress.json        # Statistics
+鈹溾攢鈹€ emulator.state       # PyBoy save state
+鈹溾攢鈹€ context.json         # AI context + summaries
+鈹溾攢鈹€ goals.json           # Current goals
+鈹斺攢鈹€ progress.json        # Statistics
 ```
 
 ### Recovery
@@ -440,7 +396,7 @@ class NewAgent:
     SYSTEM_PROMPT = "..."
 
     def process(self, input):
-        # Call Claude API
+        # Call GPT-5.1 Codex API
         # Parse response
         return result
 
@@ -548,7 +504,7 @@ Track in `ProgressTracker`:
    - Pattern recognition
 
 4. **Multi-Modal**:
-   - Direct image input to Claude (when available)
+   - Direct image input to GPT-5.1 Codex (when available)
    - Reduce reliance on RAM reading
 
 5. **Distributed**:

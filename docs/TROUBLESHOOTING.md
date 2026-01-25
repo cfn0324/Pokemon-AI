@@ -1,4 +1,4 @@
-# Troubleshooting Guide
+﻿# Troubleshooting Guide
 
 Common issues and solutions for Pokemon AI Agent.
 
@@ -29,7 +29,7 @@ ERROR: Could not find a version that satisfies the requirement pyboy
 python -m pip install --upgrade pip
 
 # Install dependencies one by one
-pip install anthropic
+pip install OpenAI
 pip install pyboy
 pip install pillow numpy pyyaml colorlog opencv-python
 ```
@@ -71,7 +71,7 @@ brew install sdl2
 
 **Error:**
 ```
-ANTHROPIC_API_KEY environment variable not set
+OPENAI_API_KEY environment variable not set
 ```
 
 **Solution:**
@@ -79,17 +79,17 @@ ANTHROPIC_API_KEY environment variable not set
 **Temporary (current session only):**
 ```bash
 # Windows
-set ANTHROPIC_API_KEY=sk-ant-...
+set OPENAI_API_KEY=sk-ant-...
 
 # Linux/Mac
-export ANTHROPIC_API_KEY='sk-ant-...'
+export OPENAI_API_KEY='sk-ant-...'
 ```
 
 **Permanent:**
 
 Create `.env` file in project root:
 ```
-ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
+OPENAI_API_KEY=sk-ant-api03-your-key-here
 ```
 
 Or set system environment variable.
@@ -105,7 +105,7 @@ Or set system environment variable.
 - Verify API key is correct
 - Check API key hasn't expired
 - Ensure no extra spaces in key
-- Regenerate key at [console.anthropic.com](https://console.anthropic.com/)
+- Regenerate key at [console.OpenAI.com](https://console.OpenAI.com/)
 
 ### Rate Limit Exceeded
 
@@ -133,7 +133,7 @@ Running the agent is expensive.
 1. **Use Haiku instead of Sonnet:**
    ```yaml
    ai:
-     model: "claude-haiku-20250307"  # Much cheaper
+     model: "GPT-5.1 Codex-haiku-20250307"  # Much cheaper
    ```
 
 2. **Reduce context window:**
@@ -150,7 +150,7 @@ Running the agent is expensive.
    ```
 
 4. **Set budget limit:**
-   - Configure in Anthropic console
+   - Configure in OpenAI console
    - Stop agent when budget reached
 
 ## ROM Issues
@@ -290,7 +290,7 @@ Agent runs very slowly.
 3. **Use faster model:**
    ```yaml
    ai:
-     model: "claude-haiku-20250307"  # Faster
+     model: "GPT-5.1 Codex-haiku-20250307"  # Faster
    ```
 
 4. **Disable logging:**
@@ -576,7 +576,7 @@ python test_setup.py
 
 ## Performance Optimization Checklist
 
-- [ ] Use Claude Haiku for cost savings
+- [ ] Use GPT-5.1 Codex Haiku for cost savings
 - [ ] Set `headless: true` to save resources
 - [ ] Disable screenshot saving
 - [ ] Lower `max_context_turns` to 50

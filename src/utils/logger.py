@@ -2,10 +2,65 @@
 
 import logging
 import sys
+import io
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
 import colorlog
+
+
+_SAFE_CONSOLE_STREAM = None
+
+
+class _SafeStream:
+    """Stream wrapper that never raises during logging."""
+
+    def __init__(self, stream):
+        self._stream = stream
+
+    def write(self, msg: str) -> int:
+        try:
+            return self._stream.write(msg)
+        except Exception:
+            return 0
+
+    def flush(self) -> None:
+        try:
+            self._stream.flush()
+        except Exception:
+            return
+
+    def isatty(self) -> bool:
+        try:
+            fn = getattr(self._stream, "isatty", None)
+            return bool(fn()) if callable(fn) else False
+        except Exception:
+            return False
+
+    @property
+    def encoding(self) -> str:
+        return getattr(self._stream, "encoding", "utf-8")
+
+
+def _get_console_stream():
+    """Best-effort console stream for logs (UTF-8 + error-tolerant)."""
+    global _SAFE_CONSOLE_STREAM
+    if _SAFE_CONSOLE_STREAM is not None:
+        return _SAFE_CONSOLE_STREAM
+
+    stream = sys.stdout
+    try:
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        elif hasattr(stream, "buffer"):
+            stream = io.TextIOWrapper(
+                stream.buffer, encoding="utf-8", errors="replace", line_buffering=True
+            )
+    except Exception:
+        stream = sys.stdout
+
+    _SAFE_CONSOLE_STREAM = _SafeStream(stream)
+    return _SAFE_CONSOLE_STREAM
 
 
 class PokemonLogger:
@@ -32,7 +87,7 @@ class PokemonLogger:
             return
 
         # Console handler with colors
-        console_handler = colorlog.StreamHandler(sys.stdout)
+        console_handler = colorlog.StreamHandler(_get_console_stream())
         console_handler.setLevel(getattr(logging, level.upper()))
 
         console_format = colorlog.ColoredFormatter(

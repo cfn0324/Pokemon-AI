@@ -1,11 +1,11 @@
-# Quick Start Guide
+﻿# Quick Start Guide
 
 This guide will help you get the Pokemon AI Agent running quickly.
 
 ## Prerequisites
 
 1. **Python 3.9+** - [Download Python](https://www.python.org/downloads/)
-2. **Anthropic API Key** - [Get one here](https://console.anthropic.com/)
+2. **OpenAI API Key** - [Get one here](https://console.OpenAI.com/)
 3. **Pokemon Red ROM** - You must legally own this
 
 ## Installation Steps
@@ -16,19 +16,19 @@ This guide will help you get the Pokemon AI Agent running quickly.
 
 Windows:
 ```cmd
-set ANTHROPIC_API_KEY=your-api-key-here
+set OPENAI_API_KEY=your-api-key-here
 ```
 
 Linux/Mac:
 ```bash
-export ANTHROPIC_API_KEY='your-api-key-here'
+export OPENAI_API_KEY='your-api-key-here'
 ```
 
 **Option B: .env File**
 
 Create a `.env` file in the project root:
 ```
-ANTHROPIC_API_KEY=your-api-key-here
+OPENAI_API_KEY=your-api-key-here
 ```
 
 ### 2. Install Dependencies
@@ -123,7 +123,7 @@ game:
 ### AI Model
 ```yaml
 ai:
-  model: "claude-sonnet-4-5-20250929"
+  model: "GPT-5.1 Codex-sonnet-4-5-20250929"
   temperature: 0.7  # Higher = more creative
 ```
 
@@ -190,7 +190,7 @@ Set `headless: false` in config.yaml.
 
 ### High API costs
 - Lower `max_context_turns` to reduce token usage
-- Use Claude Haiku instead of Sonnet (cheaper)
+- Use GPT-5.1 Codex Haiku instead of Sonnet (cheaper)
 - Add delays: `delay_ms: 500`
 
 ## Stopping the Agent

@@ -1,62 +1,52 @@
-# 🎉 项目已配置完成！
+﻿# 馃帀 椤圭洰宸查厤缃畬鎴愶紒
 
-您的 Pokemon AI Agent 现在已配置为使用您的自定义 API 端点。
+鎮ㄧ殑 Pokemon AI Agent 鐜板湪宸查厤缃负浣跨敤鎮ㄧ殑鑷畾涔?API 绔偣銆?
+## 鉁?閰嶇疆鎽樿
 
-## ✅ 配置摘要
+- **API 绔偣**: `https://api.ququ233.com/v1`
+- **API 瀵嗛挜**: 宸茶缃紙瀛樺偍鍦?`.env` 鏂囦欢涓級
+- **鑷姩鍔犺浇**: 宸查厤缃?`python-dotenv` 鑷姩鍔犺浇鐜鍙橀噺
 
-- **API 端点**: `https://api.ququ233.com/v1`
-- **API 密钥**: 已设置（存储在 `.env` 文件中）
-- **自动加载**: 已配置 `python-dotenv` 自动加载环境变量
-
-## 🚀 立即开始
-
-### 步骤 1: 安装依赖
+## 馃殌 绔嬪嵆寮€濮?
+### 姝ラ 1: 瀹夎渚濊禆
 
 ```bash
 pip install -r requirements.txt
 ```
 
-这会安装所有必需的包，包括：
-- `anthropic` - Claude API 客户端
-- `pyboy` - Game Boy 模拟器
-- `python-dotenv` - 环境变量加载
-- 以及其他依赖...
+杩欎細瀹夎鎵€鏈夊繀闇€鐨勫寘锛屽寘鎷細
+- `OpenAI` - GPT-5.1 Codex API 瀹㈡埛绔?- `pyboy` - Game Boy 妯℃嫙鍣?- `python-dotenv` - 鐜鍙橀噺鍔犺浇
+- 浠ュ強鍏朵粬渚濊禆...
 
-### 步骤 2: 测试 API 连接
+### 姝ラ 2: 娴嬭瘯 API 杩炴帴
 
-运行快速测试脚本：
+杩愯蹇€熸祴璇曡剼鏈細
 
 ```bash
 python test_custom_api.py
 ```
 
-这会：
-- ✅ 检查 API 密钥和端点配置
-- ✅ 测试与自定义 API 的连接
-- ✅ 发送测试请求验证一切正常
-
-### 步骤 3: 运行完整验证
+杩欎細锛?- 鉁?妫€鏌?API 瀵嗛挜鍜岀鐐归厤缃?- 鉁?娴嬭瘯涓庤嚜瀹氫箟 API 鐨勮繛鎺?- 鉁?鍙戦€佹祴璇曡姹傞獙璇佷竴鍒囨甯?
+### 姝ラ 3: 杩愯瀹屾暣楠岃瘉
 
 ```bash
 python test_setup.py
 ```
 
-这会检查：
-- ✅ Python 版本
-- ✅ 所有依赖是否安装
-- ✅ API 配置
-- ✅ ROM 文件
-- ✅ 配置文件
-- ✅ 目录结构
-- ✅ API 连接
+杩欎細妫€鏌ワ細
+- 鉁?Python 鐗堟湰
+- 鉁?鎵€鏈変緷璧栨槸鍚﹀畨瑁?- 鉁?API 閰嶇疆
+- 鉁?ROM 鏂囦欢
+- 鉁?閰嶇疆鏂囦欢
+- 鉁?鐩綍缁撴瀯
+- 鉁?API 杩炴帴
 
-### 步骤 4: 启动 AI 代理！
-
+### 姝ラ 4: 鍚姩 AI 浠ｇ悊锛?
 ```bash
 python main.py
 ```
 
-或使用快速启动脚本：
+鎴栦娇鐢ㄥ揩閫熷惎鍔ㄨ剼鏈細
 
 **Windows:**
 ```cmd
@@ -69,176 +59,154 @@ chmod +x run.sh
 ./run.sh
 ```
 
-## 📊 您将看到什么
-
-AI 代理启动后，您会看到：
-
-1. **初始化日志**：
-   ```
+## 馃搳 鎮ㄥ皢鐪嬪埌浠€涔?
+AI 浠ｇ悊鍚姩鍚庯紝鎮ㄤ細鐪嬪埌锛?
+1. **鍒濆鍖栨棩蹇?*锛?   ```
    POKEMON AI AGENT STARTING
    Using custom API endpoint: https://api.ququ233.com/v1
    Initializing emulator...
    Initializing AI agents...
    ```
 
-2. **游戏循环**：
-   - 每个回合显示游戏状态
-   - AI 的推理过程
-   - 执行的动作
-   - 进度更新
+2. **娓告垙寰幆**锛?   - 姣忎釜鍥炲悎鏄剧ず娓告垙鐘舵€?   - AI 鐨勬帹鐞嗚繃绋?   - 鎵ц鐨勫姩浣?   - 杩涘害鏇存柊
 
-3. **里程碑**：
-   ```
+3. **閲岀▼纰?*锛?   ```
    MILESTONE: EARNED BADGE: Boulder Badge (Turn 1523)
    ```
 
-4. **检查点**：
-   - 每 100 回合自动保存
-   - 显示进度摘要
+4. **妫€鏌ョ偣**锛?   - 姣?100 鍥炲悎鑷姩淇濆瓨
+   - 鏄剧ず杩涘害鎽樿
 
-## 🎮 游戏进度监控
+## 馃幃 娓告垙杩涘害鐩戞帶
 
-### 实时日志
+### 瀹炴椂鏃ュ織
 
 ```bash
-# 查看主日志
-tail -f logs/Main_*.log
+# 鏌ョ湅涓绘棩蹇?tail -f logs/Main_*.log
 
-# 查看 AI 决策日志
+# 鏌ョ湅 AI 鍐崇瓥鏃ュ織
 tail -f logs/MainAgent_*.log
 ```
 
-### 进度文件
+### 杩涘害鏂囦欢
 
 ```bash
-# 查看最新进度
-cat data/checkpoints/latest/progress.json
+# 鏌ョ湅鏈€鏂拌繘搴?cat data/checkpoints/latest/progress.json
 ```
 
-### 截图
+### 鎴浘
 
-如果启用了截图保存：
+濡傛灉鍚敤浜嗘埅鍥句繚瀛橈細
 ```bash
 ls -lh logs/screenshots/
 ```
 
-## ⚙️ 配置选项
+## 鈿欙笍 閰嶇疆閫夐」
 
-编辑 `config.yaml` 来自定义：
-
-### 更改速度
+缂栬緫 `config.yaml` 鏉ヨ嚜瀹氫箟锛?
+### 鏇存敼閫熷害
 ```yaml
 game:
-  speed: 0  # 0=最快, 1=正常速度
+  speed: 0  # 0=鏈€蹇? 1=姝ｅ父閫熷害
 ```
 
-### 调整 AI 参数
+### 璋冩暣 AI 鍙傛暟
 ```yaml
 ai:
-  model: "claude-sonnet-4-5-20250929"
-  temperature: 0.7  # 0.0-1.0, 越高越有创造性
-```
+  model: "GPT-5.1 Codex-sonnet-4-5-20250929"
+  temperature: 0.7  # 0.0-1.0, 瓒婇珮瓒婃湁鍒涢€犳€?```
 
-### 内存管理
+### 鍐呭瓨绠＄悊
 ```yaml
 memory:
-  max_context_turns: 100  # 每 N 回合总结一次
-  keep_recent_turns: 20   # 保留最近 N 回合的完整细节
-```
+  max_context_turns: 100  # 姣?N 鍥炲悎鎬荤粨涓€娆?  keep_recent_turns: 20   # 淇濈暀鏈€杩?N 鍥炲悎鐨勫畬鏁寸粏鑺?```
 
-### 节省成本
+### 鑺傜渷鎴愭湰
 ```yaml
 ai:
-  model: "claude-haiku-20250307"  # 使用更便宜的模型
+  model: "GPT-5.1 Codex-haiku-20250307"  # 浣跨敤鏇翠究瀹滅殑妯″瀷
 actions:
-  delay_ms: 500  # 增加延迟，减少 API 调用
+  delay_ms: 500  # 澧炲姞寤惰繜锛屽噺灏?API 璋冪敤
 ```
 
-## 📁 重要文件位置
+## 馃搧 閲嶈鏂囦欢浣嶇疆
 
-- **配置**: `config.yaml`
-- **环境变量**: `.env`
-- **日志**: `logs/`
-- **检查点**: `data/checkpoints/`
-- **进度数据**: `data/checkpoints/*/progress.json`
-- **截图**: `logs/screenshots/`
+- **閰嶇疆**: `config.yaml`
+- **鐜鍙橀噺**: `.env`
+- **鏃ュ織**: `logs/`
+- **妫€鏌ョ偣**: `data/checkpoints/`
+- **杩涘害鏁版嵁**: `data/checkpoints/*/progress.json`
+- **鎴浘**: `logs/screenshots/`
 
-## 🛠️ 常见问题
+## 馃洜锔?甯歌闂
 
-### Q: API 连接失败
-**A**: 运行 `python test_custom_api.py` 检查配置。验证：
-- API 端点 URL 正确
-- API 密钥有效
-- 网络可以访问端点
+### Q: API 杩炴帴澶辫触
+**A**: 杩愯 `python test_custom_api.py` 妫€鏌ラ厤缃€傞獙璇侊細
+- API 绔偣 URL 姝ｇ‘
+- API 瀵嗛挜鏈夋晥
+- 缃戠粶鍙互璁块棶绔偣
 
-### Q: 模型名称错误
-**A**: 您的自定义 API 可能使用不同的模型名称。在 `config.yaml` 中更改：
+### Q: 妯″瀷鍚嶇О閿欒
+**A**: 鎮ㄧ殑鑷畾涔?API 鍙兘浣跨敤涓嶅悓鐨勬ā鍨嬪悕绉般€傚湪 `config.yaml` 涓洿鏀癸細
 ```yaml
 ai:
   model: "your-api-supported-model"
 ```
 
-### Q: 运行速度太慢
-**A**: 在 `config.yaml` 中设置：
+### Q: 杩愯閫熷害澶參
+**A**: 鍦?`config.yaml` 涓缃細
 ```yaml
 game:
   speed: 0
   headless: true
 ```
 
-### Q: API 成本太高
-**A**: 使用更便宜的模型或增加延迟：
+### Q: API 鎴愭湰澶珮
+**A**: 浣跨敤鏇翠究瀹滅殑妯″瀷鎴栧鍔犲欢杩燂細
 ```yaml
 ai:
-  model: "claude-haiku-20250307"
+  model: "GPT-5.1 Codex-haiku-20250307"
 actions:
   delay_ms: 1000
 ```
 
-## 📚 文档
+## 馃摎 鏂囨。
 
-完整文档位于 `docs/` 目录：
+瀹屾暣鏂囨。浣嶄簬 `docs/` 鐩綍锛?
+- **QUICK_START.md** - 蹇€熷叆闂ㄦ寚鍗?- **ARCHITECTURE.md** - 鎶€鏈灦鏋勮瑙?- **ADVANCED_USAGE.md** - 楂樼骇鐢ㄦ硶鍜岃嚜瀹氫箟
+- **TROUBLESHOOTING.md** - 鏁呴殰鎺掗櫎鎸囧崡
+- **CUSTOM_API_SETUP.md** - 鑷畾涔?API 閰嶇疆璇存槑
 
-- **QUICK_START.md** - 快速入门指南
-- **ARCHITECTURE.md** - 技术架构详解
-- **ADVANCED_USAGE.md** - 高级用法和自定义
-- **TROUBLESHOOTING.md** - 故障排除指南
-- **CUSTOM_API_SETUP.md** - 自定义 API 配置说明
+## 馃挕 鎻愮ず
 
-## 💡 提示
+1. **鐩戞帶鎴愭湰**: 瀹氭湡妫€鏌?API 浣跨敤鎯呭喌
+2. **淇濆瓨妫€鏌ョ偣**: 椤圭洰浼氳嚜鍔ㄤ繚瀛橈紝浣嗘偍鍙互鎵嬪姩澶囦唤 `data/checkpoints/`
+3. **璋冩暣绛栫暐**: 缂栬緫 `src/agents/main_agent.py` 涓殑绯荤粺鎻愮ず璇嶆潵鏀瑰彉 AI 琛屼负
+4. **瑙傚療鏃ュ織**: 鏌ョ湅鏃ュ織浜嗚В AI 鐨勫喅绛栬繃绋?
+## 馃幆 棰勬湡鎬ц兘
 
-1. **监控成本**: 定期检查 API 使用情况
-2. **保存检查点**: 项目会自动保存，但您可以手动备份 `data/checkpoints/`
-3. **调整策略**: 编辑 `src/agents/main_agent.py` 中的系统提示词来改变 AI 行为
-4. **观察日志**: 查看日志了解 AI 的决策过程
+鏍规嵁 Gemini 2.5 Pro 鐨勫熀鍑嗘祴璇曪細
 
-## 🎯 预期性能
+- **绗竴涓窘绔?*: ~10-50 灏忔椂
+- **瀹屾垚娓告垙**: 400-800 灏忔椂
+- **Token 浣跨敤**: 鏁扮櫨涓?- **鎴愭湰**: 鍙栧喅浜庢偍鐨?API 瀹氫环
 
-根据 Gemini 2.5 Pro 的基准测试：
+**娉ㄦ剰**: 杩欓渶瑕佽繛缁繍琛屻€傛偍鍙互闅忔椂鍋滄锛圕trl+C锛夊苟浠庢渶鍚庣殑妫€鏌ョ偣鎭㈠銆?
+## 鉁?寮€濮嬬帺鍚э紒
 
-- **第一个徽章**: ~10-50 小时
-- **完成游戏**: 400-800 小时
-- **Token 使用**: 数百万
-- **成本**: 取决于您的 API 定价
-
-**注意**: 这需要连续运行。您可以随时停止（Ctrl+C）并从最后的检查点恢复。
-
-## ✨ 开始玩吧！
-
-一切就绪！运行以下命令开始：
+涓€鍒囧氨缁紒杩愯浠ヤ笅鍛戒护寮€濮嬶細
 
 ```bash
 python main.py
 ```
 
-观看 AI 自主玩 Pokemon Red！🎮🤖
+瑙傜湅 AI 鑷富鐜?Pokemon Red锛侌煄煠?
+## 馃摓 闇€瑕佸府鍔╋紵
 
-## 📞 需要帮助？
-
-- 查看 `docs/TROUBLESHOOTING.md`
-- 检查日志文件在 `logs/`
-- 运行 `python test_setup.py` 诊断问题
+- 鏌ョ湅 `docs/TROUBLESHOOTING.md`
+- 妫€鏌ユ棩蹇楁枃浠跺湪 `logs/`
+- 杩愯 `python test_setup.py` 璇婃柇闂
 
 ---
 
-**祝您的 AI 代理旅程愉快！** 🚀
+**绁濇偍鐨?AI 浠ｇ悊鏃呯▼鎰夊揩锛?* 馃殌

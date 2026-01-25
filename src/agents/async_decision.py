@@ -51,17 +51,30 @@ class AsyncDecisionMaker:
                     break
 
                 self.is_thinking = True
-                current_state, state_text = request
+                current_state, state_text, screenshot_bytes = request
 
                 # Make decision (this is the slow part)
                 try:
-                    decision = self.main_agent.decide_action(current_state, state_text)
-                    self.result_queue.put(decision)
+                    decision = self.main_agent.decide_action(
+                        current_state,
+                        state_text,
+                        screenshot_bytes=screenshot_bytes
+                    )
+                    # Ensure we never block the worker on a full result queue.
+                    try:
+                        self.result_queue.get_nowait()
+                    except queue.Empty:
+                        pass
+                    self.result_queue.put(decision, block=False)
                     self.last_decision = decision
                 except Exception as e:
                     self.logger.error(f"Error in decision making: {e}", exc_info=True)
                     # Put a default "wait" decision on error
-                    self.result_queue.put({'action': 'wait', 'reasoning': f'Error: {str(e)}'})
+                    try:
+                        self.result_queue.get_nowait()
+                    except queue.Empty:
+                        pass
+                    self.result_queue.put({'action': 'wait', 'reasoning': f'Error: {str(e)}'}, block=False)
 
                 self.is_thinking = False
 
@@ -73,12 +86,18 @@ class AsyncDecisionMaker:
 
         self.logger.info("Worker thread stopped")
 
-    def request_decision(self, current_state: Dict[str, Any], state_text: str) -> bool:
+    def request_decision(
+        self,
+        current_state: Dict[str, Any],
+        state_text: str,
+        screenshot_bytes: Optional[bytes] = None
+    ) -> bool:
         """Request a decision asynchronously.
 
         Args:
             current_state: Current game state
             state_text: Text representation of state
+            screenshot_bytes: Optional PNG bytes for vision-enabled models
 
         Returns:
             True if request was queued, False if already processing
@@ -92,9 +111,15 @@ class AsyncDecisionMaker:
                 self.request_queue.get_nowait()
             except queue.Empty:
                 pass
+            # Clear any old results (prevents returning stale decisions)
+            try:
+                while True:
+                    self.result_queue.get_nowait()
+            except queue.Empty:
+                pass
 
             # Queue the new request
-            self.request_queue.put((current_state, state_text), block=False)
+            self.request_queue.put((current_state, state_text, screenshot_bytes), block=False)
             return True
         except queue.Full:
             return False

@@ -1,10 +1,10 @@
-# Pokemon AI Agent - Project Summary
+﻿# Pokemon AI Agent - Project Summary
 
 ## Overview
 
-A complete, production-ready AI agent system that autonomously plays Pokemon Red using Claude (Anthropic). Inspired by the Gemini 2.5 Pro Pokemon Blue achievement, this implementation features multi-agent architecture, advanced memory management, and sophisticated state observation.
+A complete, production-ready AI agent system that autonomously plays Pokemon Red using GPT-5.1 Codex (OpenAI). Inspired by the Gemini 2.5 Pro Pokemon Blue achievement, this implementation features multi-agent architecture, advanced memory management, and sophisticated state observation.
 
-## Project Status: ✅ COMPLETE
+## Project Status: 鉁?COMPLETE
 
 All core components implemented, tested, and documented.
 
@@ -18,7 +18,7 @@ All core components implemented, tested, and documented.
 
 ## Implemented Components
 
-### ✅ Core System
+### 鉁?Core System
 
 - [x] Main orchestrator (PokemonAIAgent)
 - [x] Game loop with turn-based execution
@@ -26,7 +26,7 @@ All core components implemented, tested, and documented.
 - [x] Signal handling (Ctrl+C support)
 - [x] Comprehensive logging system
 
-### ✅ Emulator Integration
+### 鉁?Emulator Integration
 
 - [x] PyBoy wrapper (GameBoyEmulator)
 - [x] Button press simulation
@@ -35,7 +35,7 @@ All core components implemented, tested, and documented.
 - [x] Save state management
 - [x] Headless mode support
 
-### ✅ Game State Observation
+### 鉁?Game State Observation
 
 - [x] RAM data extraction (MemoryReader)
 - [x] Player position tracking
@@ -45,7 +45,7 @@ All core components implemented, tested, and documented.
 - [x] Money/item tracking
 - [x] Complete memory address mapping
 
-### ✅ Vision System
+### 鉁?Vision System
 
 - [x] Screen analysis (VisionProcessor)
 - [x] Grid overlay (16x16 tiles)
@@ -53,7 +53,7 @@ All core components implemented, tested, and documented.
 - [x] Annotated screenshot generation
 - [x] Visual description generation
 
-### ✅ Map Memory System
+### 鉁?Map Memory System
 
 - [x] Fog-of-war exploration tracking
 - [x] Tile-by-tile exploration recording
@@ -62,10 +62,10 @@ All core components implemented, tested, and documented.
 - [x] Persistent storage (JSON)
 - [x] Exploration percentage calculation
 
-### ✅ AI Agent System
+### 鉁?AI Agent System
 
 #### Main Agent
-- [x] Claude Sonnet 4.5 integration
+- [x] GPT-5.1 Codex GPT-5.1 Codex integration
 - [x] Structured decision making
 - [x] Reasoning + Action output
 - [x] Goal-aware prompting
@@ -88,16 +88,16 @@ All core components implemented, tested, and documented.
 - [x] Performance critique
 - [x] Improvement suggestions
 
-### ✅ Memory Management
+### 鉁?Memory Management
 
 - [x] Context manager with turn tracking
 - [x] Automatic summarization (every 100 turns)
 - [x] Recent turn preservation (last 20)
 - [x] Long-term memory via summaries
-- [x] Summarizer using Claude
+- [x] Summarizer using GPT-5.1 Codex
 - [x] Context persistence
 
-### ✅ Goal System
+### 鉁?Goal System
 
 - [x] Three-tier goal hierarchy (Primary/Secondary/Tertiary)
 - [x] Goal tracking and completion
@@ -105,7 +105,7 @@ All core components implemented, tested, and documented.
 - [x] Dynamic goal updates
 - [x] Goal persistence
 
-### ✅ Action Execution
+### 鉁?Action Execution
 
 - [x] Button press translation
 - [x] Action validation
@@ -114,7 +114,7 @@ All core components implemented, tested, and documented.
 - [x] Pattern detection (loops)
 - [x] Configurable delays
 
-### ✅ Progress Tracking
+### 鉁?Progress Tracking
 
 - [x] Badge monitoring (8 total)
 - [x] Pokemon collection tracking
@@ -124,7 +124,7 @@ All core components implemented, tested, and documented.
 - [x] Completion percentage
 - [x] Progress persistence
 
-### ✅ Checkpoint System
+### 鉁?Checkpoint System
 
 - [x] Automatic checkpointing (every 100 turns)
 - [x] Emulator state saving
@@ -133,7 +133,7 @@ All core components implemented, tested, and documented.
 - [x] Progress saving
 - [x] Checkpoint loading/recovery
 
-### ✅ Configuration
+### 鉁?Configuration
 
 - [x] YAML configuration file
 - [x] Game settings (ROM path, speed, headless)
@@ -145,7 +145,7 @@ All core components implemented, tested, and documented.
 - [x] Progress settings
 - [x] Debug settings
 
-### ✅ Logging & Monitoring
+### 鉁?Logging & Monitoring
 
 - [x] Colored console output
 - [x] File logging (timestamped)
@@ -156,7 +156,7 @@ All core components implemented, tested, and documented.
 - [x] Screenshot saving
 - [x] Milestone tracking
 
-### ✅ Documentation
+### 鉁?Documentation
 
 - [x] README.md - Project overview
 - [x] QUICK_START.md - Getting started guide
@@ -166,7 +166,7 @@ All core components implemented, tested, and documented.
 - [x] Inline code documentation
 - [x] Configuration examples
 
-### ✅ Development Tools
+### 鉁?Development Tools
 
 - [x] Test setup script (test_setup.py)
 - [x] Quick start scripts (run.bat, run.sh)
@@ -182,7 +182,7 @@ All core components implemented, tested, and documented.
 **Core**:
 - Python 3.9+
 - PyBoy (Game Boy emulator)
-- Anthropic Claude API
+- OpenAI GPT-5.1 Codex API
 
 **Libraries**:
 - PIL/Pillow (image processing)
@@ -203,117 +203,104 @@ All core components implemented, tested, and documented.
 ### Data Flow
 
 ```
-Emulator → Memory Reader → Game State → Vision Processor
-                                ↓
-                         Map Memory ←
-                                ↓
-                         State Text Representation
-                                ↓
-                    Context Manager (+ Summaries)
-                                ↓
-                         Goal Manager
-                                ↓
-                    Main Agent (Claude API)
-                                ↓
-                    Specialized Agents (if needed)
-                                ↓
-                         Action Executor
-                                ↓
-                         Emulator (button press)
+Emulator 鈫?Memory Reader 鈫?Game State 鈫?Vision Processor
+                                鈫?                         Map Memory 鈫?                                鈫?                         State Text Representation
+                                鈫?                    Context Manager (+ Summaries)
+                                鈫?                         Goal Manager
+                                鈫?                    Main Agent (GPT-5.1 Codex API)
+                                鈫?                    Specialized Agents (if needed)
+                                鈫?                         Action Executor
+                                鈫?                         Emulator (button press)
 ```
 
 ## File Structure
 
 ```
 pokemon-ai-agent/
-├── README.md                        # Main documentation
-├── config.yaml                      # Configuration
-├── requirements.txt                 # Dependencies
-├── main.py                          # Entry point
-├── test_setup.py                    # Validation script
-├── run.bat / run.sh                 # Quick start scripts
-├── .env.example                     # API key template
-├── .gitignore                       # Git ignore rules
-├── LICENSE                          # MIT license
-│
-├── src/                             # Source code
-│   ├── __init__.py
-│   ├── emulator/                    # Emulator integration
-│   │   ├── game_boy.py              # PyBoy wrapper
-│   │   └── memory_reader.py         # RAM reading
-│   ├── state/                       # State observation
-│   │   ├── game_state.py            # State processor
-│   │   ├── vision.py                # Vision analysis
-│   │   └── map_memory.py            # Map tracking
-│   ├── agents/                      # AI agents
-│   │   ├── main_agent.py            # Primary agent
-│   │   ├── pathfinder.py            # Navigation
-│   │   ├── puzzle_solver.py         # Puzzle solving
-│   │   └── critic.py                # Strategy critic
-│   ├── memory/                      # Memory management
-│   │   ├── context_manager.py       # Context handling
-│   │   └── summarizer.py            # History compression
-│   ├── tools/                       # Supporting tools
-│   │   ├── goal_manager.py          # Goal tracking
-│   │   ├── action_executor.py       # Action execution
-│   │   └── progress_tracker.py      # Progress monitoring
-│   └── utils/                       # Utilities
-│       ├── config.py                # Config loader
-│       └── logger.py                # Logging system
-│
-├── data/                            # Data files
-│   ├── memory_addresses.json        # Pokemon Red RAM map
-│   ├── maps/                        # Map exploration data
-│   ├── checkpoints/                 # Save states
-│   └── cache/                       # Cache directory
-│
-├── docs/                            # Documentation
-│   ├── QUICK_START.md               # Getting started
-│   ├── TROUBLESHOOTING.md           # Problem solving
-│   ├── ARCHITECTURE.md              # Technical details
-│   └── ADVANCED_USAGE.md            # Advanced features
-│
-└── logs/                            # Logs and screenshots
-    └── screenshots/                 # Game screenshots
+鈹溾攢鈹€ README.md                        # Main documentation
+鈹溾攢鈹€ config.yaml                      # Configuration
+鈹溾攢鈹€ requirements.txt                 # Dependencies
+鈹溾攢鈹€ main.py                          # Entry point
+鈹溾攢鈹€ test_setup.py                    # Validation script
+鈹溾攢鈹€ run.bat / run.sh                 # Quick start scripts
+鈹溾攢鈹€ .env.example                     # API key template
+鈹溾攢鈹€ .gitignore                       # Git ignore rules
+鈹溾攢鈹€ LICENSE                          # MIT license
+鈹?鈹溾攢鈹€ src/                             # Source code
+鈹?  鈹溾攢鈹€ __init__.py
+鈹?  鈹溾攢鈹€ emulator/                    # Emulator integration
+鈹?  鈹?  鈹溾攢鈹€ game_boy.py              # PyBoy wrapper
+鈹?  鈹?  鈹斺攢鈹€ memory_reader.py         # RAM reading
+鈹?  鈹溾攢鈹€ state/                       # State observation
+鈹?  鈹?  鈹溾攢鈹€ game_state.py            # State processor
+鈹?  鈹?  鈹溾攢鈹€ vision.py                # Vision analysis
+鈹?  鈹?  鈹斺攢鈹€ map_memory.py            # Map tracking
+鈹?  鈹溾攢鈹€ agents/                      # AI agents
+鈹?  鈹?  鈹溾攢鈹€ main_agent.py            # Primary agent
+鈹?  鈹?  鈹溾攢鈹€ pathfinder.py            # Navigation
+鈹?  鈹?  鈹溾攢鈹€ puzzle_solver.py         # Puzzle solving
+鈹?  鈹?  鈹斺攢鈹€ critic.py                # Strategy critic
+鈹?  鈹溾攢鈹€ memory/                      # Memory management
+鈹?  鈹?  鈹溾攢鈹€ context_manager.py       # Context handling
+鈹?  鈹?  鈹斺攢鈹€ summarizer.py            # History compression
+鈹?  鈹溾攢鈹€ tools/                       # Supporting tools
+鈹?  鈹?  鈹溾攢鈹€ goal_manager.py          # Goal tracking
+鈹?  鈹?  鈹溾攢鈹€ action_executor.py       # Action execution
+鈹?  鈹?  鈹斺攢鈹€ progress_tracker.py      # Progress monitoring
+鈹?  鈹斺攢鈹€ utils/                       # Utilities
+鈹?      鈹溾攢鈹€ config.py                # Config loader
+鈹?      鈹斺攢鈹€ logger.py                # Logging system
+鈹?鈹溾攢鈹€ data/                            # Data files
+鈹?  鈹溾攢鈹€ memory_addresses.json        # Pokemon Red RAM map
+鈹?  鈹溾攢鈹€ maps/                        # Map exploration data
+鈹?  鈹溾攢鈹€ checkpoints/                 # Save states
+鈹?  鈹斺攢鈹€ cache/                       # Cache directory
+鈹?鈹溾攢鈹€ docs/                            # Documentation
+鈹?  鈹溾攢鈹€ QUICK_START.md               # Getting started
+鈹?  鈹溾攢鈹€ TROUBLESHOOTING.md           # Problem solving
+鈹?  鈹溾攢鈹€ ARCHITECTURE.md              # Technical details
+鈹?  鈹斺攢鈹€ ADVANCED_USAGE.md            # Advanced features
+鈹?鈹斺攢鈹€ logs/                            # Logs and screenshots
+    鈹斺攢鈹€ screenshots/                 # Game screenshots
 ```
 
 ## Features & Capabilities
 
 ### Autonomous Gameplay
-- ✅ Makes decisions independently
-- ✅ Explores systematically
-- ✅ Battles Pokemon
-- ✅ Solves puzzles
-- ✅ Navigates complex areas
-- ✅ Manages party and items
+- 鉁?Makes decisions independently
+- 鉁?Explores systematically
+- 鉁?Battles Pokemon
+- 鉁?Solves puzzles
+- 鉁?Navigates complex areas
+- 鉁?Manages party and items
 
 ### Advanced AI
-- ✅ Multi-agent coordination
-- ✅ Long-term memory via summarization
-- ✅ Goal-oriented planning
-- ✅ Self-critique and adaptation
-- ✅ Stuck detection and recovery
+- 鉁?Multi-agent coordination
+- 鉁?Long-term memory via summarization
+- 鉁?Goal-oriented planning
+- 鉁?Self-critique and adaptation
+- 鉁?Stuck detection and recovery
 
 ### Robustness
-- ✅ Automatic checkpointing
-- ✅ Crash recovery
-- ✅ Error handling
-- ✅ State persistence
-- ✅ Graceful shutdown
+- 鉁?Automatic checkpointing
+- 鉁?Crash recovery
+- 鉁?Error handling
+- 鉁?State persistence
+- 鉁?Graceful shutdown
 
 ### Observability
-- ✅ Real-time logging
-- ✅ Screenshot capture
-- ✅ Progress tracking
-- ✅ Decision tracing
-- ✅ Performance metrics
+- 鉁?Real-time logging
+- 鉁?Screenshot capture
+- 鉁?Progress tracking
+- 鉁?Decision tracing
+- 鉁?Performance metrics
 
 ### Configurability
-- ✅ Extensive configuration options
-- ✅ Adjustable AI parameters
-- ✅ Customizable prompts
-- ✅ Flexible logging
-- ✅ Performance tuning
+- 鉁?Extensive configuration options
+- 鉁?Adjustable AI parameters
+- 鉁?Customizable prompts
+- 鉁?Flexible logging
+- 鉁?Performance tuning
 
 ## Performance Expectations
 
@@ -325,17 +312,17 @@ Based on Gemini 2.5 Pro Pokemon Blue benchmark:
 - **Cost**: $50-500+ (depending on model choice)
 
 **Optimization Options**:
-- Use Claude Haiku: 5-10x cheaper
+- Use GPT-5.1 Codex Haiku: 5-10x cheaper
 - Reduce context window: Lower token usage
 - Add delays: Slower but cheaper
 
 ## Getting Started
 
 1. **Install Python 3.9+**
-2. **Get Anthropic API key**
+2. **Get OpenAI API key**
 3. **Install dependencies**: `pip install -r requirements.txt`
 4. **Add Pokemon Red ROM**: `PokemonRed.gb`
-5. **Set API key**: `export ANTHROPIC_API_KEY='...'`
+5. **Set API key**: `export OPENAI_API_KEY='...'`
 6. **Run test**: `python test_setup.py`
 7. **Start agent**: `python main.py`
 
@@ -346,7 +333,7 @@ See `docs/QUICK_START.md` for detailed instructions.
 ### Change AI Model
 ```yaml
 ai:
-  model: "claude-haiku-20250307"  # Faster, cheaper
+  model: "GPT-5.1 Codex-haiku-20250307"  # Faster, cheaper
 ```
 
 ### Adjust Speed
@@ -397,13 +384,13 @@ python test_setup.py
 ```
 
 Checks:
-- ✅ Python version
-- ✅ Dependencies installed
-- ✅ API key configured
-- ✅ ROM file present
-- ✅ Configuration valid
-- ✅ Directory structure
-- ✅ API connection
+- 鉁?Python version
+- 鉁?Dependencies installed
+- 鉁?API key configured
+- 鉁?ROM file present
+- 鉁?Configuration valid
+- 鉁?Directory structure
+- 鉁?API connection
 
 ## Troubleshooting
 
@@ -423,7 +410,7 @@ MIT License - See LICENSE file
 
 - Inspired by Joel Zhang's "Gemini Plays Pokemon" project
 - Built with PyBoy emulator
-- Powered by Anthropic Claude AI
+- Powered by OpenAI GPT-5.1 Codex AI
 
 ## Disclaimer
 

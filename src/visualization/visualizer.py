@@ -4,6 +4,7 @@ import io
 import json
 import base64
 import threading
+import numpy as np
 from typing import Dict, Any, Optional
 from datetime import datetime
 from flask import Flask, render_template, jsonify
@@ -11,6 +12,33 @@ from flask_socketio import SocketIO, emit
 from PIL import Image
 
 from ..utils.logger import get_logger
+
+
+def make_json_serializable(obj):
+    """将对象转换为JSON可序列化的格式
+
+    处理numpy类型、datetime等特殊对象
+    """
+    if isinstance(obj, (np.integer, np.floating)):
+        return obj.item()  # 转换numpy数字为Python原生类型
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()  # 转换numpy数组为列表
+    elif isinstance(obj, np.bool_):
+        return bool(obj)  # 转换numpy布尔值为Python布尔值
+    elif isinstance(obj, dict):
+        return {key: make_json_serializable(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [make_json_serializable(item) for item in obj]
+    elif isinstance(obj, (str, int, float, bool, type(None))):
+        return obj
+    elif isinstance(obj, datetime):
+        return obj.isoformat()
+    else:
+        # 尝试转换为字符串
+        try:
+            return str(obj)
+        except:
+            return None
 
 
 class GameVisualizer:
@@ -119,7 +147,8 @@ class GameVisualizer:
         Args:
             state: Game state dict
         """
-        self.current_state = {
+        # 清理数据以确保JSON可序列化
+        self.current_state = make_json_serializable({
             'turn': state.get('turn', 0),
             'timestamp': datetime.now().isoformat(),
             'position': state.get('memory', {}).get('position', {}),
@@ -130,7 +159,7 @@ class GameVisualizer:
             'in_battle': state.get('memory', {}).get('in_battle', False),
             'visual': state.get('visual', {}),
             'exploration': state.get('map_memory', {}),
-        }
+        })
 
         # Broadcast to connected clients
         if self.running:
