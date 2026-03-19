@@ -7,24 +7,23 @@ game:
   save_state_dir: "data/checkpoints"
 
 ai:
-  provider: "anthropic"
-  model: "gpt-5.2"  # 视觉模型
+  model: ""  # 在这里填写模型 ID，或通过 AI_MODEL 提供
   temperature: 0.7
   max_tokens: 4096
 
   # 智能体特定设置
   agents:
     main:
-      model: "gpt-5.2"
+      model: ""  # 留空时继承 ai.model 或对应环境变量
       temperature: 0.7
     pathfinder:
-      model: "gpt-5.2"
+      model: ""
       temperature: 0.3  # 较低温度以获得更确定性的寻路
     puzzle_solver:
-      model: "gpt-5.2"
+      model: ""
       temperature: 0.3
     critic:
-      model: "gpt-5.2"
+      model: ""
       temperature: 0.5
 
 memory:

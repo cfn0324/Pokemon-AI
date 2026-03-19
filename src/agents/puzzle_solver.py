@@ -1,10 +1,10 @@
 """Puzzle solver agent for boulder puzzles and complex challenges."""
 
 from typing import Dict, Any, Optional, List
-from anthropic import Anthropic
 
 from ..utils.logger import get_logger
 from ..utils.config import get_config
+from ..utils.ai_client import AIClient
 
 
 class PuzzleSolverAgent:
@@ -31,19 +31,7 @@ SOLUTION: <comma-separated sequence of moves>
         """Initialize puzzle solver agent."""
         self.logger = get_logger('PuzzleSolver')
         self.config = get_config()
-
-        # Initialize AI client with custom base_url if provided
-        import os
-        api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
-        base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
-        client_kwargs = {}
-        if api_key:
-            client_kwargs['api_key'] = api_key
-        if base_url:
-            client_kwargs['base_url'] = base_url
-            self.logger.info(f"Using custom API endpoint: {base_url}")
-
-        self.client = Anthropic(**client_kwargs)
+        self.client = AIClient(logger=self.logger)
 
         self.model = self.config.get('ai.agents.puzzle_solver.model')
         self.temperature = self.config.get('ai.agents.puzzle_solver.temperature')
@@ -69,12 +57,12 @@ Current state: {puzzle_state}
 Provide a solution as a sequence of moves."""
 
         try:
-            response = self.client.messages.create(
+            response = self.client.create_message(
                 model=self.model,
+                messages=[{"role": "user", "content": prompt}],
                 max_tokens=3000,
                 temperature=self.temperature,
                 system=self.SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": prompt}]
             )
 
             response_text = response.content[0].text

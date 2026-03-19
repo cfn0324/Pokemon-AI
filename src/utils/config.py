@@ -25,10 +25,34 @@ class Config:
             raise FileNotFoundError(f"Configuration file not found: {self.config_path}")
 
         with open(self.config_path, 'r', encoding='utf-8') as f:
-            self.config = yaml.safe_load(f)
+            self.config = yaml.safe_load(f) or {}
 
+        self._apply_ai_model_defaults()
         self._validate()
         self._setup_directories()
+
+    def _apply_ai_model_defaults(self) -> None:
+        """Resolve model IDs from config and environment variables."""
+        ai_config = self.config.setdefault('ai', {})
+        shared_model = (
+            os.getenv('AI_MODEL')
+            or ai_config.get('model')
+        )
+        if shared_model:
+            ai_config['model'] = shared_model
+
+        agent_env_map = {
+            'main': 'AI_MAIN_MODEL',
+            'pathfinder': 'AI_PATHFINDER_MODEL',
+            'puzzle_solver': 'AI_PUZZLE_SOLVER_MODEL',
+            'critic': 'AI_CRITIC_MODEL',
+        }
+        agents = ai_config.setdefault('agents', {})
+        for agent_name, env_var in agent_env_map.items():
+            agent_config = agents.setdefault(agent_name, {})
+            agent_model = os.getenv(env_var) or agent_config.get('model') or shared_model
+            if agent_model:
+                agent_config['model'] = agent_model
 
     def _validate(self) -> None:
         """Validate required configuration fields."""
@@ -44,8 +68,17 @@ class Config:
             raise FileNotFoundError(f"ROM file not found: {rom_path}")
 
         # Validate API key
-        if not os.getenv('ANTHROPIC_API_KEY'):
-            raise ValueError("ANTHROPIC_API_KEY environment variable not set")
+        if not os.getenv('AI_API_KEY'):
+            raise ValueError("AI_API_KEY environment variable not set")
+
+        if not os.getenv('AI_BASE_URL'):
+            raise ValueError("AI_BASE_URL environment variable not set")
+
+        # Validate AI model
+        if not self.config['ai'].get('model'):
+            raise ValueError(
+                "AI model not set. Configure ai.model in config.yaml or set AI_MODEL."
+            )
 
     def _setup_directories(self) -> None:
         """Create necessary directories."""

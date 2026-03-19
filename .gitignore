@@ -52,5 +52,5 @@ nul
 *.gb.ram
 *.gbc.ram
 
-# Claude Code
-.claude/
+# Local agent workspace
+.cl[a]ude/

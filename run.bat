@@ -12,15 +12,35 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Check for API key
-if not defined ANTHROPIC_API_KEY (
-    echo ERROR: ANTHROPIC_API_KEY environment variable not set
+REM Check for API settings
+if not defined AI_API_KEY (
+    echo ERROR: AI_API_KEY environment variable not set
     echo.
     echo Please set it with:
-    echo   set ANTHROPIC_API_KEY=your-api-key-here
+    echo   set AI_API_KEY=your-api-key-here
     echo.
     echo Or create a .env file with:
-    echo   ANTHROPIC_API_KEY=your-api-key-here
+    echo   AI_API_KEY=your-api-key-here
+    echo.
+    pause
+    exit /b 1
+)
+
+if not defined AI_BASE_URL (
+    echo ERROR: AI_BASE_URL environment variable not set
+    echo.
+    echo Please set it with:
+    echo   set AI_BASE_URL=https://api.your-endpoint.com/v1
+    echo.
+    pause
+    exit /b 1
+)
+
+if not defined AI_MODEL (
+    echo ERROR: AI_MODEL environment variable not set
+    echo.
+    echo Please set it with:
+    echo   set AI_MODEL=your-model-id
     echo.
     pause
     exit /b 1

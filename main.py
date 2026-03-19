@@ -457,14 +457,24 @@ def main():
     """主入口点。"""
     print("=" * 60)
     print("宝可梦AI智能体")
-    print("由 GPT-5.1 Codex 驱动")
+    print("由已配置 AI 模型驱动")
     print("=" * 60)
     print()
 
     # 检查API密钥
-    if not os.getenv('ANTHROPIC_API_KEY'):
-        print("错误: 未设置ANTHROPIC_API_KEY环境变量")
-        print("请使用以下方式设置: export ANTHROPIC_API_KEY='your-api-key'")
+    if not os.getenv('AI_API_KEY'):
+        print("错误: 未设置 API 密钥环境变量")
+        print("请设置 AI_API_KEY")
+        sys.exit(1)
+
+    if not os.getenv('AI_BASE_URL'):
+        print("错误: 未设置 AI 接口地址环境变量")
+        print("请设置 AI_BASE_URL")
+        sys.exit(1)
+
+    if not os.getenv('AI_MODEL'):
+        print("错误: 未设置 AI 模型环境变量")
+        print("请设置 AI_MODEL")
         sys.exit(1)
 
     # 检查ROM

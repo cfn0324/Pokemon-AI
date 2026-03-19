@@ -21,7 +21,6 @@ def test_dependencies():
     print("Testing dependencies...")
 
     required_packages = [
-        'anthropic',
         'pyboy',
         'PIL',
         'numpy',
@@ -48,18 +47,20 @@ def test_dependencies():
 
 
 def test_api_key():
-    """Test API key presence (prefers OPENAI_API_KEY, fallback ANTHROPIC_API_KEY)."""
+    """Test AI API configuration."""
     print("Testing API key...", end=" ")
 
     # Load .env file
     from dotenv import load_dotenv
     load_dotenv()
 
-    api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
+    api_key = os.getenv('AI_API_KEY')
+    base_url = os.getenv('AI_BASE_URL')
+    model = os.getenv('AI_MODEL')
 
     if not api_key:
         print("FAIL")
-        print("  OPENAI_API_KEY (or fallback ANTHROPIC_API_KEY) environment variable not set")
+        print("  AI_API_KEY environment variable not set")
         return False
 
     if api_key == 'your-api-key-here':
@@ -72,14 +73,18 @@ def test_api_key():
         print("  API key seems too short")
         return False
 
-    # Check for custom endpoint
-    base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
-    if base_url:
-        print("OK")
-        print(f"  Using custom endpoint: {base_url}")
-    else:
-        print("OK")
+    if not base_url:
+        print("FAIL")
+        print("  AI_BASE_URL environment variable not set")
+        return False
 
+    if not model:
+        print("FAIL")
+        print("  AI_MODEL environment variable not set")
+        return False
+
+    print("OK")
+    print(f"  Using endpoint: {base_url}")
     return True
 
 
@@ -167,26 +172,31 @@ def test_api_connection():
     print("Testing API connection...", end=" ")
 
     try:
-        from anthropic import Anthropic
+        from src.utils.ai_client import AIClient
         from dotenv import load_dotenv
         load_dotenv()
 
-        # Check for custom endpoint
-        api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
-        base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
-        client_kwargs = {}
-        if api_key:
-            client_kwargs["api_key"] = api_key
-        if base_url:
-            client_kwargs["base_url"] = base_url
+        api_key = os.getenv('AI_API_KEY')
+        base_url = os.getenv('AI_BASE_URL')
+        model = os.getenv('AI_MODEL')
 
-        client = Anthropic(**client_kwargs)
+        if not model:
+            print("FAIL")
+            print("  AI_MODEL environment variable not set")
+            return False
+
+        if not base_url:
+            print("FAIL")
+            print("  AI_BASE_URL environment variable not set")
+            return False
+
+        client = AIClient(api_key=api_key, base_url=base_url)
 
         # Try a minimal API call
-        client.messages.create(
-            model="gpt-5.1-codex-max",
+        client.create_message(
+            model=model,
+            messages=[{"role": "user", "content": "Hi"}],
             max_tokens=10,
-            messages=[{"role": "user", "content": "Hi"}]
         )
 
         print("OK")

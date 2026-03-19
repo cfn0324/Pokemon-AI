@@ -17,39 +17,39 @@ print("Custom API Configuration Test")
 print("=" * 60)
 print()
 
-# Check environment variables (prefer OPENAI_* for GPT-5.1 Codex, fallback to ANTHROPIC_*)
-api_key = os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
-base_url = os.getenv('OPENAI_BASE_URL') or os.getenv('ANTHROPIC_BASE_URL')
+# Check environment variables
+api_key = os.getenv('AI_API_KEY')
+base_url = os.getenv('AI_BASE_URL')
+model = os.getenv('AI_MODEL')
 
 print("Configuration:")
 print(f"  API Key: {api_key[:20]}..." if api_key else "  API Key: NOT SET")
 print(f"  Base URL: {base_url}" if base_url else "  Base URL: Using default endpoint")
+print(f"  Model: {model}" if model else "  Model: NOT SET")
 print()
 
 # Test API connection
 print("Testing API connection...")
 try:
-    from anthropic import Anthropic
+    from src.utils.ai_client import AIClient
 
-    client_kwargs = {}
-    if api_key:
-        client_kwargs["api_key"] = api_key
-    if base_url:
-        client_kwargs["base_url"] = base_url
-        print(f"  [OK] Using custom endpoint: {base_url}")
-    else:
-        print(f"  [OK] Using default endpoint")
+    client = AIClient(api_key=api_key, base_url=base_url)
 
-    client = Anthropic(**client_kwargs)
+    if not model:
+        raise ValueError("AI_MODEL is not set")
+    if not base_url:
+        raise ValueError("AI_BASE_URL is not set")
+
+    print(f"  [OK] Using endpoint: {base_url}")
 
     print("  Sending test request...")
-    response = client.messages.create(
-        model="gpt-5.1-codex-max",
-        max_tokens=50,
+    response = client.create_message(
+        model=model,
         messages=[{
             "role": "user",
             "content": "Say 'API connection successful!' and nothing else."
-        }]
+        }],
+        max_tokens=50,
     )
 
     print(f"  [OK] Response: {response.content[0].text}")
@@ -73,5 +73,5 @@ except Exception as e:
     print("  1. Verify your API key is correct")
     print("  2. Verify the base URL is correct")
     print("  3. Check if the API endpoint is accessible")
-    print("  4. Ensure the model name is supported by your API")
+    print("  4. Ensure the configured model ID is supported by your API")
     print()
