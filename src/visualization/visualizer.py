@@ -7,7 +7,7 @@ import threading
 import numpy as np
 from typing import Dict, Any, Optional
 from datetime import datetime
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from flask_socketio import SocketIO, emit
 from PIL import Image
 
@@ -67,6 +67,17 @@ class GameVisualizer:
         self.decision_history = []
         self.goal_stack = []
         self.exploration_data = {}
+        self.control_handler = None
+        self.control_state = {
+            'running': False,
+            'paused': False,
+            'step_budget': 0,
+            'manual_queue_size': 0,
+            'last_command': '',
+            'last_command_at': None,
+            'last_error': None,
+            'turn': 0,
+        }
 
         # Setup routes
         self._setup_routes()
@@ -114,6 +125,47 @@ class GameVisualizer:
         def get_goals():
             """Get current goals."""
             return jsonify({'goals': self.goal_stack})
+
+        @self.app.route('/api/control/state')
+        def get_control_state():
+            """Get current dashboard control state."""
+            return jsonify(self._resolve_control_state())
+
+        @self.app.route('/api/control', methods=['POST'])
+        def post_control():
+            """Handle dashboard control actions."""
+            if not self.control_handler:
+                return jsonify({
+                    'ok': False,
+                    'message': '当前未注册控制处理器',
+                    'state': self.control_state,
+                }), 503
+
+            payload = request.get_json(silent=True) or {}
+            command = payload.get('command')
+            value = payload.get('value')
+            result = self.control_handler.handle_visualizer_command(command, value)
+            status_code = 200 if result.get('ok') else 400
+            state = result.get('state')
+            if isinstance(state, dict):
+                self.update_control_state(state)
+            return jsonify(result), status_code
+
+    def set_control_handler(self, handler: Any) -> None:
+        """Register the object that handles dashboard control commands."""
+        self.control_handler = handler
+        self.control_state = self._resolve_control_state()
+
+    def _resolve_control_state(self) -> Dict[str, Any]:
+        """Read control state from the handler when available."""
+        if self.control_handler and hasattr(self.control_handler, 'get_visualizer_control_state'):
+            try:
+                state = self.control_handler.get_visualizer_control_state()
+                if isinstance(state, dict):
+                    self.control_state = make_json_serializable(state)
+            except Exception as exc:
+                self.logger.warning(f"Failed to resolve control state: {exc}")
+        return self.control_state
 
     def start(self):
         """Start visualization server in background thread."""
@@ -226,6 +278,12 @@ class GameVisualizer:
         # Broadcast to connected clients
         if self.running:
             self.socketio.emit('goals_update', {'goals': self.goal_stack})
+
+    def update_control_state(self, state: Dict[str, Any]):
+        """Update and broadcast dashboard control state."""
+        self.control_state = make_json_serializable(state or {})
+        if self.running:
+            self.socketio.emit('control_state_update', self.control_state)
 
     def update_exploration(self, exploration_data: Dict[str, Any]):
         """Update exploration data.

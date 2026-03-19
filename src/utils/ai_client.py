@@ -6,7 +6,10 @@ import json
 import os
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
-from urllib import error, request
+
+import requests
+
+from .env import apply_env_aliases
 
 
 @dataclass
@@ -33,12 +36,14 @@ class AIClient:
         logger: Any = None,
         timeout: int = 120,
     ):
+        apply_env_aliases()
         self.api_key = api_key or os.getenv("AI_API_KEY")
         self.base_url = (base_url or os.getenv("AI_BASE_URL") or "").rstrip("/")
         self.version = os.getenv("AI_API_VERSION")
         self.version_header = os.getenv("AI_API_VERSION_HEADER")
         self.timeout = timeout
         self.logger = logger
+        self.api_style: Optional[str] = None
 
         if self.base_url and self.logger:
             self.logger.info(f"Using AI endpoint: {self.base_url}")
@@ -59,6 +64,70 @@ class AIClient:
         if not model:
             raise ValueError("AI model is not set")
 
+        headers = {
+            "Content-Type": "application/json",
+            "x-api-key": self.api_key,
+            "Authorization": f"Bearer {self.api_key}",
+        }
+        if self.version and self.version_header:
+            headers[self.version_header] = self.version
+
+        if self.api_style == "messages":
+            data = self._post_messages(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                system=system,
+                headers=headers,
+            )
+        elif self.api_style == "chat_completions":
+            data = self._post_chat_completions(
+                model=model,
+                messages=messages,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                system=system,
+                headers=headers,
+            )
+        else:
+            try:
+                data = self._post_messages(
+                    model=model,
+                    messages=messages,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    system=system,
+                    headers=headers,
+                )
+                self.api_style = "messages"
+            except RuntimeError as exc:
+                if not self._should_try_chat_fallback(exc):
+                    raise
+                data = self._post_chat_completions(
+                    model=model,
+                    messages=messages,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    system=system,
+                    headers=headers,
+                )
+                self.api_style = "chat_completions"
+                if self.logger:
+                    self.logger.info("Falling back to OpenAI-style /chat/completions API")
+
+        text = self._extract_text(data)
+        return AIResponse(content=[AITextBlock(text=text)])
+
+    def _post_messages(
+        self,
+        model: str,
+        messages: List[Dict[str, Any]],
+        max_tokens: int,
+        temperature: Optional[float],
+        system: Optional[str],
+        headers: Dict[str, str],
+    ) -> Dict[str, Any]:
         payload: Dict[str, Any] = {
             "model": model,
             "messages": messages,
@@ -69,42 +138,107 @@ class AIClient:
         if system:
             payload["system"] = system
 
-        headers = {
-            "Content-Type": "application/json",
-            "x-api-key": self.api_key,
-            "Authorization": f"Bearer {self.api_key}",
-        }
-        if self.version and self.version_header:
-            headers[self.version_header] = self.version
-
         endpoint = (
             self.base_url
             if self.base_url.endswith("/messages")
             else f"{self.base_url}/messages"
         )
-        req = request.Request(
-            endpoint,
-            data=json.dumps(payload).encode("utf-8"),
-            headers=headers,
-            method="POST",
+        return self._post_json(endpoint, payload, headers)
+
+    def _post_chat_completions(
+        self,
+        model: str,
+        messages: List[Dict[str, Any]],
+        max_tokens: int,
+        temperature: Optional[float],
+        system: Optional[str],
+        headers: Dict[str, str],
+    ) -> Dict[str, Any]:
+        payload_messages: List[Dict[str, Any]] = []
+        if system:
+            payload_messages.append({"role": "system", "content": system})
+
+        for message in messages:
+            converted = dict(message)
+            converted["content"] = self._convert_content_for_chat(message.get("content"))
+            payload_messages.append(converted)
+
+        payload: Dict[str, Any] = {
+            "model": model,
+            "messages": payload_messages,
+            "max_tokens": max_tokens,
+        }
+        if temperature is not None:
+            payload["temperature"] = temperature
+
+        endpoint = (
+            self.base_url
+            if self.base_url.endswith("/chat/completions")
+            else f"{self.base_url}/chat/completions"
         )
+        return self._post_json(endpoint, payload, headers)
+
+    def _post_json(
+        self,
+        endpoint: str,
+        payload: Dict[str, Any],
+        headers: Dict[str, str],
+    ) -> Dict[str, Any]:
+        try:
+            response = requests.post(
+                endpoint,
+                headers=headers,
+                json=payload,
+                timeout=self.timeout,
+            )
+        except requests.RequestException as exc:
+            raise RuntimeError(f"AI request failed: {exc}") from exc
+
+        if response.status_code >= 400:
+            detail = response.text.strip()
+            raise RuntimeError(
+                f"AI request failed with status {response.status_code}: {detail}"
+            )
 
         try:
-            with request.urlopen(req, timeout=self.timeout) as resp:
-                raw = resp.read().decode("utf-8")
-        except error.HTTPError as exc:
-            detail = exc.read().decode("utf-8", errors="replace").strip()
-            raise RuntimeError(f"AI request failed with status {exc.code}: {detail}") from exc
-        except error.URLError as exc:
-            raise RuntimeError(f"AI request failed: {exc.reason}") from exc
-
-        try:
-            data = json.loads(raw)
+            return response.json()
         except json.JSONDecodeError as exc:
-            raise RuntimeError(f"Invalid AI response: {raw[:500]}") from exc
+            raise RuntimeError(f"Invalid AI response: {response.text[:500]}") from exc
 
-        text = self._extract_text(data)
-        return AIResponse(content=[AITextBlock(text=text)])
+    def _convert_content_for_chat(self, content: Any) -> Any:
+        """Convert Anthropic-style content blocks to chat.completions format."""
+        if isinstance(content, str):
+            return content
+        if not isinstance(content, list):
+            return content
+
+        converted: List[Dict[str, Any]] = []
+        for block in content:
+            if not isinstance(block, dict):
+                continue
+            block_type = block.get("type")
+            if block_type == "text":
+                text = block.get("text")
+                if isinstance(text, str):
+                    converted.append({"type": "text", "text": text})
+            elif block_type == "image":
+                source = block.get("source", {})
+                media_type = source.get("media_type", "image/png")
+                data = source.get("data")
+                if isinstance(data, str):
+                    converted.append({
+                        "type": "image_url",
+                        "image_url": {"url": f"data:{media_type};base64,{data}"},
+                    })
+            elif block_type == "image_url":
+                converted.append(block)
+
+        return converted or content
+
+    def _should_try_chat_fallback(self, exc: RuntimeError) -> bool:
+        """Decide whether a failed /messages request should try /chat/completions."""
+        message = str(exc)
+        return any(status in message for status in ("status 400", "status 403", "status 404", "status 405"))
 
     def _extract_text(self, data: Dict[str, Any]) -> str:
         """Extract plain text from common response shapes."""
@@ -132,6 +266,13 @@ class AIClient:
                     content_text = message.get("content")
                     if isinstance(content_text, str) and content_text.strip():
                         return content_text.strip()
+                    if isinstance(content_text, list):
+                        parts = []
+                        for block in content_text:
+                            if isinstance(block, dict) and isinstance(block.get("text"), str):
+                                parts.append(block["text"])
+                        if parts:
+                            return "\n".join(parts).strip()
 
         output = data.get("output")
         if isinstance(output, list):

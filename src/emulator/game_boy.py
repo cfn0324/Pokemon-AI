@@ -85,26 +85,44 @@ class GameBoyEmulator:
             self.pyboy.tick()
             self.frame_count += 1
 
-    def press_button(self, button: str, duration: int = 20) -> None:
+    def press_button(
+        self,
+        button: str,
+        duration: Optional[int] = None,
+        release_delay: Optional[int] = None,
+    ) -> None:
         """Press a button for specified duration.
 
         Args:
             button: Button name (a, b, start, select, up, down, left, right)
             duration: Number of frames to hold button
+            release_delay: Frames to wait after releasing the button
         """
         if button not in self.BUTTONS:
             self.logger.warning(f"Invalid button: {button}")
             return
 
+        if duration is None:
+            if button in {"up", "down", "left", "right"}:
+                duration = int(self.config.get("actions.direction_press_frames", 2) or 2)
+            else:
+                duration = int(self.config.get("actions.button_press_frames", 3) or 3)
+
+        if release_delay is None:
+            if button in {"up", "down", "left", "right"}:
+                release_delay = int(self.config.get("actions.direction_release_frames", 4) or 4)
+            else:
+                release_delay = int(self.config.get("actions.button_release_frames", 6) or 6)
+
         self.logger.debug(f"Pressing button: {button} for {duration} frames")
 
         # Press
         self.pyboy.send_input(self.BUTTONS[button])
-        self.tick(duration)
+        self.tick(max(1, duration))
 
         # Release
         self.pyboy.send_input(self.RELEASE_BUTTONS[button])
-        self.tick(5)  # Small delay after release
+        self.tick(max(1, release_delay))
 
     def get_screen_image(self) -> Image.Image:
         """Get current screen as PIL Image.

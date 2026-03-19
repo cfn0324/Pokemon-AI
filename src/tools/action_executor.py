@@ -66,10 +66,19 @@ class ActionExecutor:
         else:
             self.emulator.press_button(action)
 
-        # Delay between actions
+        # Let movement/menu transitions settle before the next observation.
+        self.emulator.tick(self._get_settle_frames(action))
         time.sleep(self.action_delay)
 
         return True
+
+    def _get_settle_frames(self, action: str) -> int:
+        """Return post-action settle frames for stable observation."""
+        if action in {'up', 'down', 'left', 'right'}:
+            return max(0, int(self.config.get('actions.direction_settle_frames', 8) or 8))
+        if action in {'a', 'b', 'start', 'select'}:
+            return max(0, int(self.config.get('actions.button_settle_frames', 10) or 10))
+        return max(0, int(self.config.get('actions.wait_settle_frames', 2) or 2))
 
     def execute_sequence(self, actions: List[str]) -> bool:
         """Execute a sequence of actions.

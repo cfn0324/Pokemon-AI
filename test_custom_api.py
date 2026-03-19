@@ -4,6 +4,8 @@ import os
 import sys
 from dotenv import load_dotenv
 
+from src.utils.env import apply_env_aliases
+
 # Set UTF-8 encoding for Windows console
 if sys.platform == "win32":
     import io
@@ -11,6 +13,7 @@ if sys.platform == "win32":
 
 # Load environment variables
 load_dotenv()
+apply_env_aliases()
 
 print("=" * 60)
 print("Custom API Configuration Test")

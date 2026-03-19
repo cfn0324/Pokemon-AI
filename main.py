@@ -4,10 +4,13 @@ import os
 import sys
 import time
 import signal
+import queue
+import threading
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
 from io import BytesIO
+import numpy as np
 from PIL import Image
 
 # 从.env文件加载环境变量
@@ -15,6 +18,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.utils.config import get_config
+from src.utils.env import apply_env_aliases
 from src.utils.logger import get_logger
 from src.emulator.game_boy import GameBoyEmulator
 from src.emulator.memory_reader import MemoryReader
@@ -29,6 +33,8 @@ from src.tools.action_executor import ActionExecutor
 from src.tools.progress_tracker import ProgressTracker
 from src.visualization.visualizer import GameVisualizer
 from src.agents.async_decision import AsyncDecisionMaker
+
+apply_env_aliases()
 
 
 class PokemonAIAgent:
@@ -48,12 +54,6 @@ class PokemonAIAgent:
 
         self.logger.milestone("宝可梦AI智能体启动中")
 
-        # 初始化组件
-        self._init_emulator()
-        self._init_state_systems()
-        self._init_agents()
-        self._init_tools()
-
         # 运行时状态
         self.running = False
         self.turn_count = 0
@@ -61,6 +61,22 @@ class PokemonAIAgent:
         self._prev_screen_type = None
         self._dialogue_exit_grace = 0
         self._text_entry_step = 0
+
+        # 可视化控制状态
+        self._control_lock = threading.Lock()
+        self._paused = False
+        self._step_budget = 0
+        self._checkpoint_requested = False
+        self._manual_actions: queue.Queue[str] = queue.Queue(maxsize=32)
+        self._last_control_command = ""
+        self._last_control_timestamp = None
+        self._last_control_error = None
+
+        # 初始化组件
+        self._init_emulator()
+        self._init_state_systems()
+        self._init_agents()
+        self._init_tools()
 
         # 设置信号处理器
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -124,21 +140,26 @@ class PokemonAIAgent:
         # 初始化可视化器
         vis_port = self.config.get('visualization.port', 5000)
         self.visualizer = GameVisualizer(port=vis_port)
+        self.visualizer.set_control_handler(self)
 
         # 如果启用则启动可视化器
         if self.config.get('visualization.enabled', True):
             self.visualizer.start()
             self.logger.info(f"可视化仪表板可访问：http://localhost:{vis_port}")
+            self._broadcast_control_state()
 
         self.logger.info("工具初始化完成")
 
     def run(self) -> None:
         """运行AI智能体。"""
         self.running = True
+        self._broadcast_control_state()
         self.logger.milestone("开始游戏")
 
         try:
             while self.running and self.emulator.is_running():
+                if self._process_control_cycle():
+                    continue
                 self._game_loop_iteration()
 
         except KeyboardInterrupt:
@@ -152,18 +173,10 @@ class PokemonAIAgent:
         """游戏循环的单次迭代，使用异步AI以保持PyBoy响应。"""
         self.turn_count += 1
 
-        # 更新游戏状态
-        current_state = self.game_state.update()
-
-        # 捕获当帧截图供可视化和视觉AI使用
-        screen_image = self.emulator.get_screen_image()
-        screen_type = self._detect_screen_type(screen_image)
-        if (
-            screen_type
-            and isinstance(current_state.get("visual"), dict)
-            and current_state["visual"].get("screen_type") == "memory_only"
-        ):
-            current_state["visual"]["screen_type"] = screen_type
+        # 先抓稳定后的观测帧，再基于同一帧生成状态，避免状态与截图错位。
+        screen_image = self._capture_observation_frame()
+        current_state = self.game_state.update(screen_image=screen_image)
+        screen_type = self._apply_screen_type_hint(current_state, screen_image)
 
         # 离开文本输入界面时重置自动序列
         if screen_type != "text_entry":
@@ -199,15 +212,7 @@ class PokemonAIAgent:
             screenshot_bytes = buffer.getvalue()
 
         # 使用当前状态更新可视化器
-        if self.config.get('visualization.enabled', True):
-            self.visualizer.update_state(current_state)
-            # 每回合更新截图以实现实时显示
-            if screen_image:
-                self.visualizer.update_screenshot(screen_image)
-            # 从主智能体更新目标
-            if hasattr(self.main_agent, 'goal_manager') and self.main_agent.goal_manager:
-                goals = self.main_agent.goal_manager.get_all_goals()
-                self.visualizer.update_goals(goals)
+        self._publish_visualizer_state(current_state, screen_image)
 
         # 定期记录状态
         if self.turn_count % 10 == 0:
@@ -266,6 +271,8 @@ class PokemonAIAgent:
 
         if not success:
             self.logger.warning(f"行动失败: {action}")
+        else:
+            self._publish_post_action_screenshot()
 
         # 定期保存检查点
         checkpoint_interval = self.config.get('progress.checkpoint_interval', 100)
@@ -275,8 +282,240 @@ class PokemonAIAgent:
             self._save_checkpoint()
             self.last_checkpoint_turn = self.turn_count
 
-        # Tick模拟器
-        self.emulator.tick(10)
+    def _process_control_cycle(self) -> bool:
+        """Process queued dashboard controls before the next AI turn."""
+        if self._consume_checkpoint_request():
+            self._save_checkpoint()
+            return True
+
+        manual_action = self._pop_manual_action()
+        if manual_action:
+            self._execute_manual_action(manual_action)
+            return True
+
+        if self._consume_step_request():
+            self._game_loop_iteration()
+            return True
+
+        if self._is_paused():
+            time.sleep(0.05)
+            return True
+
+        return False
+
+    def _apply_screen_type_hint(self, current_state: dict, screen_image) -> Optional[str]:
+        """Patch memory-only visual state with lightweight UI heuristics."""
+        screen_type = self._detect_screen_type(screen_image)
+        if (
+            screen_type
+            and isinstance(current_state.get("visual"), dict)
+            and current_state["visual"].get("screen_type") == "memory_only"
+        ):
+            current_state["visual"]["screen_type"] = screen_type
+        return screen_type
+
+    def _publish_visualizer_state(self, current_state: dict, screen_image) -> None:
+        """Push state, screenshot, goals, and control status to the dashboard."""
+        if not self.config.get('visualization.enabled', True):
+            return
+
+        self.visualizer.update_state(current_state)
+        if screen_image:
+            self.visualizer.update_screenshot(screen_image)
+        if hasattr(self.main_agent, 'goals') and self.main_agent.goals:
+            self.visualizer.update_goals(self.main_agent.goals.get_current_goals())
+        self._broadcast_control_state()
+
+    def _publish_post_action_screenshot(self) -> None:
+        """Push the latest post-action frame so the dashboard is not one action behind."""
+        if not self.config.get('visualization.enabled', True):
+            return
+
+        latest_image = self._capture_observation_frame()
+        if latest_image:
+            self.visualizer.update_screenshot(latest_image)
+
+    def _capture_observation_frame(self):
+        """Capture a stable frame, skipping transient black/white transition frames."""
+        screen_image = self.emulator.get_screen_image()
+        max_retries = int(self.config.get('actions.observation_retry_frames', 4) or 4)
+        settle_ticks = int(self.config.get('actions.observation_retry_tick_frames', 2) or 2)
+
+        for _ in range(max_retries):
+            if not self._is_transition_frame(screen_image):
+                return screen_image
+            self.emulator.tick(max(1, settle_ticks))
+            screen_image = self.emulator.get_screen_image()
+
+        return screen_image
+
+    def _is_transition_frame(self, screen_image) -> bool:
+        """Detect mostly blank transition frames that are poor inputs for AI and UI."""
+        if not screen_image:
+            return False
+
+        img_array = np.array(screen_image.convert("RGB"))
+        brightness = float(np.mean(img_array)) / 255.0
+        contrast = float(np.std(img_array)) / 255.0
+
+        too_dark = brightness < 0.04 and contrast < 0.05
+        too_bright = brightness > 0.96 and contrast < 0.05
+        return too_dark or too_bright
+
+    def _execute_manual_action(self, action: str) -> None:
+        """Execute one manual action while AI autoplay is paused."""
+        self.turn_count += 1
+        self.logger.info(f"执行手动操作: {action}")
+
+        success = self.action_executor.execute(action)
+        if not success:
+            self.logger.warning(f"手动操作失败: {action}")
+            self._record_control_event(f"manual:{action}", error="manual action failed")
+            self._broadcast_control_state()
+            return
+
+        screen_image = self._capture_observation_frame()
+        current_state = self.game_state.update(screen_image=screen_image)
+        self._apply_screen_type_hint(current_state, screen_image)
+        self._publish_visualizer_state(current_state, screen_image)
+        self.progress_tracker.update(self.turn_count, current_state)
+        self.visualizer.update_decision(action, f"Manual control: {action}", self.turn_count)
+        self.visualizer.log_event('info', f'手动操作: {action}')
+
+    def _record_control_event(self, command: str, error: Optional[str] = None) -> None:
+        """Record the latest dashboard command outcome."""
+        self._last_control_command = command
+        self._last_control_timestamp = datetime.now().isoformat()
+        self._last_control_error = error
+
+    def _broadcast_control_state(self) -> None:
+        """Broadcast the latest dashboard control state if visualization is active."""
+        if hasattr(self, 'visualizer') and self.config.get('visualization.enabled', True):
+            self.visualizer.update_control_state(self.get_visualizer_control_state())
+
+    def _is_paused(self) -> bool:
+        """Return whether autoplay is currently paused."""
+        with self._control_lock:
+            return self._paused
+
+    def _consume_step_request(self) -> bool:
+        """Consume one queued single-step request."""
+        with self._control_lock:
+            if self._step_budget <= 0:
+                return False
+            self._step_budget -= 1
+            return True
+
+    def _consume_checkpoint_request(self) -> bool:
+        """Consume a pending checkpoint request."""
+        with self._control_lock:
+            if not self._checkpoint_requested:
+                return False
+            self._checkpoint_requested = False
+            return True
+
+    def _pop_manual_action(self) -> Optional[str]:
+        """Pop one queued manual action if any."""
+        try:
+            return self._manual_actions.get_nowait()
+        except queue.Empty:
+            return None
+
+    def get_visualizer_control_state(self) -> dict:
+        """Expose dashboard control state for the web UI."""
+        with self._control_lock:
+            return {
+                "running": self.running and self.emulator.is_running(),
+                "paused": self._paused,
+                "step_budget": self._step_budget,
+                "manual_queue_size": self._manual_actions.qsize(),
+                "last_command": self._last_control_command,
+                "last_command_at": self._last_control_timestamp,
+                "last_error": self._last_control_error,
+                "turn": self.turn_count,
+            }
+
+    def handle_visualizer_command(self, command: str, value: Optional[str] = None) -> dict:
+        """Handle a dashboard-issued control command."""
+        normalized = (command or "").strip().lower()
+        value = (value or "").strip().lower() if isinstance(value, str) else value
+
+        if normalized == "pause":
+            with self._control_lock:
+                self._paused = True
+                self._record_control_event("pause")
+            self.logger.info("已从仪表板暂停自动运行")
+            self.visualizer.log_event('info', '已暂停自动运行')
+        elif normalized == "resume":
+            with self._control_lock:
+                self._paused = False
+                self._step_budget = 0
+                self._record_control_event("resume")
+            self.logger.info("已从仪表板恢复自动运行")
+            self.visualizer.log_event('info', '已恢复自动运行')
+        elif normalized == "step":
+            with self._control_lock:
+                self._paused = True
+                self._step_budget += 1
+                self._record_control_event("step")
+            self.logger.info("已从仪表板请求单步执行")
+        elif normalized == "checkpoint":
+            with self._control_lock:
+                self._checkpoint_requested = True
+                self._record_control_event("checkpoint")
+            self.logger.info("已从仪表板请求保存检查点")
+            self.visualizer.log_event('milestone', '已请求保存检查点')
+        elif normalized == "stop":
+            with self._control_lock:
+                self.running = False
+                self._record_control_event("stop")
+            self.logger.warning("已从仪表板请求停止运行")
+            self.visualizer.log_event('error', '已请求停止运行')
+        elif normalized == "manual_action":
+            if value not in ActionExecutor.VALID_ACTIONS:
+                self._record_control_event("manual", error=f"invalid action: {value}")
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": f"无效动作: {value}",
+                    "state": self.get_visualizer_control_state(),
+                }
+            with self._control_lock:
+                if not self._paused:
+                    self._record_control_event(f"manual:{value}", error="pause required")
+                    self._broadcast_control_state()
+                    return {
+                        "ok": False,
+                        "message": "请先暂停自动运行，再发送手动操作",
+                        "state": self.get_visualizer_control_state(),
+                    }
+            try:
+                self._manual_actions.put_nowait(value)
+            except queue.Full:
+                self._record_control_event(f"manual:{value}", error="manual queue full")
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": "手动操作队列已满，请稍后重试",
+                    "state": self.get_visualizer_control_state(),
+                }
+            self._record_control_event(f"manual:{value}")
+            self.logger.info(f"已从仪表板排队手动操作: {value}")
+        else:
+            self._record_control_event(normalized or "unknown", error="unknown command")
+            self._broadcast_control_state()
+            return {
+                "ok": False,
+                "message": f"未知控制命令: {command}",
+                "state": self.get_visualizer_control_state(),
+            }
+
+        self._broadcast_control_state()
+        return {
+            "ok": True,
+            "message": "命令已接受",
+            "state": self.get_visualizer_control_state(),
+        }
 
     def _detect_screen_type(self, screen_image) -> Optional[str]:
         """轻量识别当前屏幕类型（对话/菜单/战斗/标题等）。"""
@@ -430,10 +669,12 @@ class PokemonAIAgent:
         """处理中断信号。"""
         self.logger.info("收到中断信号")
         self.running = False
+        self._broadcast_control_state()
 
     def _shutdown(self) -> None:
         """优雅地关闭。"""
         self.logger.info("正在关闭...")
+        self._broadcast_control_state()
 
         # 停止异步AI
         if hasattr(self, 'async_ai'):
@@ -472,14 +713,20 @@ def main():
         print("请设置 AI_BASE_URL")
         sys.exit(1)
 
-    if not os.getenv('AI_MODEL'):
-        print("错误: 未设置 AI 模型环境变量")
-        print("请设置 AI_MODEL")
-        sys.exit(1)
-
     # 检查ROM
     if not os.path.exists('PokemonRed.gb'):
         print("错误: 当前目录未找到PokemonRed.gb")
+        sys.exit(1)
+
+    try:
+        config = get_config()
+    except Exception as e:
+        print(f"错误: 配置校验失败: {e}")
+        sys.exit(1)
+
+    if not config.get('ai.model'):
+        print("错误: 未配置 AI 模型")
+        print("请在 config.yaml 中设置 ai.model，或设置 AI_MODEL")
         sys.exit(1)
 
     print("正在初始化...")

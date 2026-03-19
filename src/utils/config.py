@@ -5,6 +5,8 @@ import os
 from pathlib import Path
 from typing import Dict, Any
 
+from .env import apply_env_aliases
+
 
 class Config:
     """Configuration manager for the Pokemon AI Agent."""
@@ -21,6 +23,7 @@ class Config:
 
     def load(self) -> None:
         """Load configuration from YAML file."""
+        apply_env_aliases()
         if not os.path.exists(self.config_path):
             raise FileNotFoundError(f"Configuration file not found: {self.config_path}")
 

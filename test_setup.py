@@ -4,6 +4,8 @@ import os
 import sys
 from pathlib import Path
 
+from src.utils.env import apply_env_aliases
+
 
 def test_python_version():
     """Test Python version."""
@@ -53,6 +55,7 @@ def test_api_key():
     # Load .env file
     from dotenv import load_dotenv
     load_dotenv()
+    apply_env_aliases()
 
     api_key = os.getenv('AI_API_KEY')
     base_url = os.getenv('AI_BASE_URL')
@@ -175,6 +178,7 @@ def test_api_connection():
         from src.utils.ai_client import AIClient
         from dotenv import load_dotenv
         load_dotenv()
+        apply_env_aliases()
 
         api_key = os.getenv('AI_API_KEY')
         base_url = os.getenv('AI_BASE_URL')

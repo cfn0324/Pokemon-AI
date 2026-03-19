@@ -42,7 +42,7 @@ class GameState:
         self._last_memory_state: Optional[Dict[str, Any]] = None
         self._position_history: List[Dict[str, int]] = []
 
-    def update(self) -> Dict[str, Any]:
+    def update(self, screen_image=None) -> Dict[str, Any]:
         """Update and return current game state."""
         self.turn_count += 1
         self.last_update = datetime.now()
@@ -52,7 +52,8 @@ class GameState:
         deltas = self._compute_memory_deltas(memory_state)
 
         # Get visual analysis or placeholder
-        screen_image = self.emulator.get_screen_image()
+        if screen_image is None:
+            screen_image = self.emulator.get_screen_image()
         visual_analysis = self._get_visual_analysis(screen_image)
 
         # Update map memory
