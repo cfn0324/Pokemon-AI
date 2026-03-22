@@ -1,5 +1,6 @@
 """Game Boy emulator wrapper using PyBoy."""
 
+import threading
 from typing import Optional, Tuple
 import numpy as np
 from PIL import Image
@@ -58,6 +59,7 @@ class GameBoyEmulator:
 
         self.speed = speed
         self.frame_count = 0
+        self._lock = threading.RLock()
 
         self.logger.info("Emulator initialized successfully")
 
@@ -68,8 +70,9 @@ class GameBoyEmulator:
             ticks: Number of ticks to advance
         """
         for _ in range(ticks):
-            self.pyboy.tick()
-            self.frame_count += 1
+            with self._lock:
+                self.pyboy.tick()
+                self.frame_count += 1
 
     def tick_with_events(self, ticks: int = 1) -> None:
         """Advance emulator by N ticks while processing window events.
@@ -80,10 +83,11 @@ class GameBoyEmulator:
             ticks: Number of ticks to advance
         """
         for _ in range(ticks):
-            # PyBoy's tick() already handles events internally
-            # Just call tick() which processes both game logic and window events
-            self.pyboy.tick()
-            self.frame_count += 1
+            with self._lock:
+                # PyBoy's tick() already handles events internally
+                # Just call tick() which processes both game logic and window events
+                self.pyboy.tick()
+                self.frame_count += 1
 
     def press_button(
         self,
@@ -116,12 +120,12 @@ class GameBoyEmulator:
 
         self.logger.debug(f"Pressing button: {button} for {duration} frames")
 
-        # Press
-        self.pyboy.send_input(self.BUTTONS[button])
+        with self._lock:
+            self.pyboy.send_input(self.BUTTONS[button])
         self.tick(max(1, duration))
 
-        # Release
-        self.pyboy.send_input(self.RELEASE_BUTTONS[button])
+        with self._lock:
+            self.pyboy.send_input(self.RELEASE_BUTTONS[button])
         self.tick(max(1, release_delay))
 
     def get_screen_image(self) -> Image.Image:
@@ -131,7 +135,8 @@ class GameBoyEmulator:
             PIL Image of current screen
         """
         # Get screen buffer from PyBoy
-        screen_array = self.pyboy.screen.ndarray
+        with self._lock:
+            screen_array = self.pyboy.screen.ndarray.copy()
 
         # Convert to PIL Image
         image = Image.fromarray(screen_array)
@@ -144,7 +149,8 @@ class GameBoyEmulator:
         Returns:
             Numpy array of screen (160x144x3)
         """
-        return self.pyboy.screen.ndarray
+        with self._lock:
+            return self.pyboy.screen.ndarray.copy()
 
     def read_memory(self, address: int) -> int:
         """Read a byte from memory.
@@ -155,7 +161,8 @@ class GameBoyEmulator:
         Returns:
             Byte value at address
         """
-        return self.pyboy.memory[address]
+        with self._lock:
+            return self.pyboy.memory[address]
 
     def read_memory_range(self, address: int, length: int) -> bytes:
         """Read multiple bytes from memory.
@@ -167,7 +174,8 @@ class GameBoyEmulator:
         Returns:
             Bytes from memory
         """
-        return bytes([self.pyboy.memory[address + i] for i in range(length)])
+        with self._lock:
+            return bytes([self.pyboy.memory[address + i] for i in range(length)])
 
     def write_memory(self, address: int, value: int) -> None:
         """Write a byte to memory.
@@ -176,7 +184,8 @@ class GameBoyEmulator:
             address: Memory address to write
             value: Byte value to write
         """
-        self.pyboy.memory[address] = value
+        with self._lock:
+            self.pyboy.memory[address] = value
 
     def save_state(self, filename: str) -> None:
         """Save emulator state.
@@ -185,8 +194,9 @@ class GameBoyEmulator:
             filename: Path to save state file
         """
         self.logger.info(f"Saving state to: {filename}")
-        with open(filename, "wb") as f:
-            self.pyboy.save_state(f)
+        with self._lock:
+            with open(filename, "wb") as f:
+                self.pyboy.save_state(f)
 
     def load_state(self, filename: str) -> None:
         """Load emulator state.
@@ -195,13 +205,15 @@ class GameBoyEmulator:
             filename: Path to state file
         """
         self.logger.info(f"Loading state from: {filename}")
-        with open(filename, "rb") as f:
-            self.pyboy.load_state(f)
+        with self._lock:
+            with open(filename, "rb") as f:
+                self.pyboy.load_state(f)
 
     def stop(self) -> None:
         """Stop the emulator."""
         self.logger.info("Stopping emulator")
-        self.pyboy.stop()
+        with self._lock:
+            self.pyboy.stop()
 
     def get_sprite_positions(self) -> list:
         """Get all sprite positions on screen.

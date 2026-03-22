@@ -1,209 +1,590 @@
-"""Map memory system with fog-of-war tracking."""
+"""Map memory system with fog-of-war tracking and a learned navigation graph."""
+
+from __future__ import annotations
 
 import json
-from typing import Dict, List, Tuple, Set, Any
+from collections import defaultdict, deque
 from pathlib import Path
-from collections import defaultdict
+from typing import Any, Deque, Dict, List, Optional, Set, Tuple
 
 from ..utils.logger import get_logger
 
 
+Position = Tuple[int, int]
+Node = Tuple[int, int, int]
+
+
 class MapMemory:
-    """Tracks explored areas with fog-of-war system."""
+    """Tracks explored tiles plus learned navigation structure."""
+
+    CARDINALS: Dict[str, Position] = {
+        "up": (0, -1),
+        "down": (0, 1),
+        "left": (-1, 0),
+        "right": (1, 0),
+    }
 
     def __init__(self, save_dir: str = "data/maps"):
-        """Initialize map memory.
-
-        Args:
-            save_dir: Directory to save map data
-        """
-        self.logger = get_logger('MapMemory')
+        """Initialize map memory."""
+        self.logger = get_logger("MapMemory")
         self.save_dir = Path(save_dir)
         self.save_dir.mkdir(parents=True, exist_ok=True)
 
-        # Map ID -> Set of (x, y) tuples for explored tiles
-        self.explored_tiles: Dict[int, Set[Tuple[int, int]]] = defaultdict(set)
-
-        # Map ID -> Dict of map properties
+        self.explored_tiles: Dict[int, Set[Position]] = defaultdict(set)
+        self.visit_counts: Dict[int, Dict[Position, int]] = defaultdict(
+            lambda: defaultdict(int)
+        )
+        self.edges: Dict[int, Dict[Position, Dict[str, Position]]] = defaultdict(
+            lambda: defaultdict(dict)
+        )
+        self.blocked_moves: Dict[int, Dict[Position, Dict[str, int]]] = defaultdict(
+            lambda: defaultdict(dict)
+        )
+        self.warp_points: Dict[Node, Dict[str, int]] = {}
         self.map_properties: Dict[int, Dict[str, Any]] = {}
 
-        # Current position
-        self.current_map = None
-        self.current_position = None
+        self.current_map: Optional[int] = None
+        self.current_position: Optional[Position] = None
 
         self.load()
-
         self.logger.info("Map memory initialized")
 
-    def update_position(self, map_id: int, x: int, y: int) -> None:
-        """Update current position and mark as explored.
-
-        Args:
-            map_id: Current map ID
-            x: X coordinate
-            y: Y coordinate
-        """
+    def update_position(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+        previous_position: Optional[Dict[str, int]] = None,
+    ) -> None:
+        """Update current position, visit counts, and discovered transitions."""
+        current = (x, y)
         self.current_map = map_id
-        self.current_position = (x, y)
+        self.current_position = current
 
-        # Mark current tile as explored
-        self.explored_tiles[map_id].add((x, y))
+        self.explored_tiles[map_id].add(current)
+        self.visit_counts[map_id][current] += 1
 
-        # Also mark adjacent tiles as visible (but not necessarily explored)
-        for dx in [-1, 0, 1]:
-            for dy in [-1, 0, 1]:
-                adj_x, adj_y = x + dx, y + dy
-                # Don't mark as fully explored, just visible
-                # This creates a fog-of-war effect
+        if not previous_position:
+            return
+
+        prev_map = int(previous_position.get("map_id", map_id))
+        prev = (int(previous_position.get("x", x)), int(previous_position.get("y", y)))
+
+        if prev_map == map_id and prev == current:
+            return
+
+        self.explored_tiles[prev_map].add(prev)
+        self.visit_counts[prev_map][prev] += 0
+
+        if prev_map != map_id:
+            self._record_warp(prev_map, prev, map_id, current)
+            return
+
+        direction = self._infer_direction(prev, current)
+        if direction:
+            self.edges[map_id][prev][direction] = current
+            self.blocked_moves[map_id][prev].pop(direction, None)
+
+    def record_failed_move(self, map_id: int, x: int, y: int, direction: str) -> None:
+        """Remember a movement direction that appeared blocked from a tile."""
+        direction = (direction or "").strip().lower()
+        if direction not in self.CARDINALS:
+            return
+
+        pos = (x, y)
+        blocked = self.blocked_moves[map_id][pos]
+        blocked[direction] = int(blocked.get(direction, 0)) + 1
 
     def is_tile_explored(self, map_id: int, x: int, y: int) -> bool:
-        """Check if a tile has been explored.
-
-        Args:
-            map_id: Map ID
-            x: X coordinate
-            y: Y coordinate
-
-        Returns:
-            True if explored
-        """
+        """Check if a tile has been explored."""
         return (x, y) in self.explored_tiles.get(map_id, set())
 
-    def get_explored_tiles(self, map_id: int) -> List[Tuple[int, int]]:
-        """Get all explored tiles for a map.
-
-        Args:
-            map_id: Map ID
-
-        Returns:
-            List of (x, y) tuples
-        """
+    def get_explored_tiles(self, map_id: int) -> List[Position]:
+        """Return all explored tiles for a map."""
         return list(self.explored_tiles.get(map_id, set()))
 
-    def get_unexplored_adjacent(self, map_id: int, x: int, y: int,
-                                radius: int = 5) -> List[Tuple[int, int]]:
-        """Get unexplored tiles near a position.
+    def get_visit_count(self, map_id: int, x: int, y: int) -> int:
+        """Return how many times a tile has been visited."""
+        return int(self.visit_counts.get(map_id, {}).get((x, y), 0))
 
-        Args:
-            map_id: Map ID
-            x: Center X coordinate
-            y: Center Y coordinate
-            radius: Search radius
-
-        Returns:
-            List of unexplored (x, y) positions
-        """
-        unexplored = []
+    def get_unexplored_adjacent(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+        radius: int = 5,
+    ) -> List[Position]:
+        """Get unexplored coordinates near a position."""
+        unexplored: List[Position] = []
         explored_set = self.explored_tiles.get(map_id, set())
 
         for dx in range(-radius, radius + 1):
             for dy in range(-radius, radius + 1):
                 pos = (x + dx, y + dy)
-                if pos not in explored_set:
-                    # Basic bounds check (maps are typically 0-255)
-                    if 0 <= pos[0] <= 255 and 0 <= pos[1] <= 255:
-                        unexplored.append(pos)
+                if pos in explored_set:
+                    continue
+                if 0 <= pos[0] <= 255 and 0 <= pos[1] <= 255:
+                    unexplored.append(pos)
 
-        # Sort by distance from current position
         unexplored.sort(key=lambda p: abs(p[0] - x) + abs(p[1] - y))
-
         return unexplored
 
-    def get_exploration_status(self, map_id: int) -> Dict[str, Any]:
-        """Get exploration statistics for a map.
-
-        Args:
-            map_id: Map ID
-
-        Returns:
-            Dict with exploration stats
-        """
+    def get_frontier_tiles(
+        self,
+        map_id: int,
+        current_position: Optional[Position] = None,
+    ) -> List[Dict[str, Any]]:
+        """Return explored tiles that still border unknown space."""
         explored = self.explored_tiles.get(map_id, set())
-        nearby_unexplored = []
+        if not explored:
+            return []
+
+        current_position = current_position or self.current_position
+        frontier_tiles: List[Dict[str, Any]] = []
+
+        for pos in explored:
+            unknown_dirs: List[str] = []
+            known_edges = self.edges.get(map_id, {}).get(pos, {})
+            blocked = self.blocked_moves.get(map_id, {}).get(pos, {})
+
+            for direction, (dx, dy) in self.CARDINALS.items():
+                if direction in known_edges:
+                    continue
+                if int(blocked.get(direction, 0)) >= 2:
+                    continue
+                neighbor = (pos[0] + dx, pos[1] + dy)
+                if neighbor not in explored:
+                    unknown_dirs.append(direction)
+
+            if not unknown_dirs:
+                continue
+
+            distance = None
+            if current_position:
+                distance = abs(pos[0] - current_position[0]) + abs(pos[1] - current_position[1])
+
+            frontier_tiles.append(
+                {
+                    "position": pos,
+                    "unknown_directions": unknown_dirs,
+                    "visit_count": int(self.visit_counts.get(map_id, {}).get(pos, 0)),
+                    "distance": distance,
+                }
+            )
+
+        frontier_tiles.sort(
+            key=lambda item: (
+                item.get("visit_count", 0),
+                item.get("distance", 999),
+                item["position"][1],
+                item["position"][0],
+            )
+        )
+        return frontier_tiles
+
+    def find_shortest_path(
+        self,
+        map_id: int,
+        start: Position,
+        target: Position,
+        max_depth: int = 64,
+    ) -> Optional[List[str]]:
+        """Find a movement path over the learned directed graph."""
+        if start == target:
+            return []
+
+        queue: Deque[Tuple[Position, List[str]]] = deque([(start, [])])
+        visited = {start}
+
+        while queue:
+            pos, path = queue.popleft()
+            if len(path) >= max_depth:
+                continue
+
+            for direction, neighbor in self.edges.get(map_id, {}).get(pos, {}).items():
+                if neighbor in visited:
+                    continue
+                next_path = path + [direction]
+                if neighbor == target:
+                    return next_path
+                visited.add(neighbor)
+                queue.append((neighbor, next_path))
+
+        return None
+
+    def find_path_to_nearest_frontier(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+        max_depth: int = 40,
+    ) -> Optional[Dict[str, Any]]:
+        """Find a path to a reachable frontier tile on the current map."""
+        start = (x, y)
+        frontier_tiles = self.get_frontier_tiles(map_id, current_position=start)
+        if not frontier_tiles:
+            return None
+
+        best: Optional[Dict[str, Any]] = None
+        for frontier in frontier_tiles:
+            target = frontier["position"]
+            path = self.find_shortest_path(map_id, start, target, max_depth=max_depth)
+            if path is None and target != start:
+                continue
+
+            candidate = {
+                "target": target,
+                "path": path or [],
+                "unknown_directions": frontier["unknown_directions"],
+                "visit_count": frontier["visit_count"],
+                "distance": frontier["distance"],
+            }
+
+            if best is None:
+                best = candidate
+                continue
+
+            current_key = (
+                len(candidate["path"]),
+                candidate["visit_count"],
+                candidate.get("distance", 999),
+            )
+            best_key = (
+                len(best["path"]),
+                best["visit_count"],
+                best.get("distance", 999),
+            )
+            if current_key < best_key:
+                best = candidate
+
+        return best
+
+    def get_navigation_advice(self, map_id: int, x: int, y: int) -> Dict[str, Any]:
+        """Return a structured navigation summary for the current tile and map."""
+        pos = (x, y)
+        current_edges = self.edges.get(map_id, {}).get(pos, {})
+        blocked = self.blocked_moves.get(map_id, {}).get(pos, {})
+        frontier_tiles = self.get_frontier_tiles(map_id, current_position=pos)
+        frontier_plan = self.find_path_to_nearest_frontier(map_id, x, y)
+        warps = self._get_map_warps(map_id)
+
+        return {
+            "current_visit_count": int(self.visit_counts.get(map_id, {}).get(pos, 0)),
+            "known_exits": {
+                direction: {"x": target[0], "y": target[1]}
+                for direction, target in current_edges.items()
+            },
+            "blocked_directions": [
+                direction
+                for direction, count in sorted(blocked.items())
+                if int(count) >= 1
+            ],
+            "frontier_count": len(frontier_tiles),
+            "nearest_frontier": frontier_plan,
+            "known_warps": warps[:6],
+            "local_map": self.render_local_map(map_id, x, y),
+        }
+
+    def get_navigation_text(self, map_id: int, x: int, y: int) -> str:
+        """Return a compact prompt-friendly text summary."""
+        advice = self.get_navigation_advice(map_id, x, y)
+        lines = [
+            "NAVIGATION ADVISOR:",
+            f"- Current tile visit count: {advice['current_visit_count']}",
+        ]
+
+        known_exits = advice.get("known_exits", {})
+        if known_exits:
+            exits_text = ", ".join(
+                f"{direction}->({target['x']},{target['y']})"
+                for direction, target in known_exits.items()
+            )
+            lines.append(f"- Known successful exits from this tile: {exits_text}")
+        else:
+            lines.append("- Known successful exits from this tile: none yet")
+
+        blocked = advice.get("blocked_directions", [])
+        lines.append(
+            f"- Known blocked directions from this tile: {', '.join(blocked) if blocked else 'none recorded'}"
+        )
+
+        frontier = advice.get("nearest_frontier")
+        if frontier:
+            path = frontier.get("path", [])
+            target = frontier.get("target")
+            unknown_dirs = ", ".join(frontier.get("unknown_directions", [])) or "none"
+            if path:
+                lines.append(
+                    f"- Suggested route to the nearest low-visit frontier tile {target}: {', '.join(path[:12])}"
+                )
+            else:
+                lines.append(
+                    f"- You are already standing on a frontier tile {target}; unexplored directions from here: {unknown_dirs}"
+                )
+        else:
+            lines.append("- No reachable frontier route is currently known on this map.")
+
+        warps = advice.get("known_warps", [])
+        if warps:
+            warp_text = ", ".join(
+                f"({warp['src_x']},{warp['src_y']}) -> map {warp['dest_map']} ({warp['dest_x']},{warp['dest_y']})"
+                for warp in warps
+            )
+            lines.append(f"- Known warp points on this map: {warp_text}")
+
+        lines.append("- Local explored map window:")
+        lines.extend(f"  {row}" for row in advice.get("local_map", []))
+        return "\n".join(lines)
+
+    def render_local_map(self, map_id: int, x: int, y: int, radius: int = 4) -> List[str]:
+        """Render a small text map around the player."""
+        explored = self.explored_tiles.get(map_id, set())
+        frontiers = {
+            item["position"] for item in self.get_frontier_tiles(map_id, current_position=(x, y))
+        }
+        warp_positions = {
+            (warp["src_x"], warp["src_y"]) for warp in self._get_map_warps(map_id)
+        }
+
+        rows: List[str] = []
+        for py in range(y - radius, y + radius + 1):
+            chars: List[str] = []
+            for px in range(x - radius, x + radius + 1):
+                pos = (px, py)
+                if pos == (x, y):
+                    chars.append("P")
+                elif pos in warp_positions:
+                    chars.append("W")
+                elif pos in frontiers:
+                    chars.append("F")
+                elif pos in explored:
+                    chars.append(".")
+                else:
+                    chars.append("?")
+            rows.append("".join(chars))
+        return rows
+
+    def get_exploration_status(self, map_id: int) -> Dict[str, Any]:
+        """Get exploration statistics for a map."""
+        explored = self.explored_tiles.get(map_id, set())
+        nearby_unexplored: List[Position] = []
+        navigation = None
 
         if self.current_map == map_id and self.current_position:
             nearby_unexplored = self.get_unexplored_adjacent(
                 map_id,
                 self.current_position[0],
                 self.current_position[1],
-                radius=5
+                radius=5,
+            )
+            navigation = self.get_navigation_advice(
+                map_id,
+                self.current_position[0],
+                self.current_position[1],
             )
 
-        # Estimate total tiles (typical Pokemon Red map is 10x9 to 20x18)
-        # We'll use explored count as a lower bound
-        estimated_total = max(len(explored), 200)  # Rough estimate
-
+        estimated_total = max(len(explored), 200)
         return {
-            'map_id': map_id,
-            'explored_count': len(explored),
-            'total_tiles': estimated_total,
-            'exploration_percent': len(explored) / estimated_total * 100,
-            'nearby_unexplored': nearby_unexplored[:10],  # Top 10 nearest
+            "map_id": map_id,
+            "explored_count": len(explored),
+            "total_tiles": estimated_total,
+            "exploration_percent": len(explored) / estimated_total * 100 if estimated_total else 0.0,
+            "nearby_unexplored": nearby_unexplored[:10],
+            "frontier_count": len(self.get_frontier_tiles(map_id, current_position=self.current_position)),
+            "navigation": navigation,
         }
 
     def get_all_explored_maps(self) -> List[int]:
-        """Get list of all explored map IDs.
-
-        Returns:
-            List of map IDs
-        """
+        """Get list of all explored map IDs."""
         return list(self.explored_tiles.keys())
 
-    def save(self) -> None:
+    def save(self, filepath: Optional[str] = None) -> None:
         """Save map memory to disk."""
-        save_file = self.save_dir / "map_memory.json"
-
-        # Convert sets to lists for JSON serialization
+        save_file = Path(filepath) if filepath else self.save_dir / "map_memory.json"
+        save_file.parent.mkdir(parents=True, exist_ok=True)
         data = {
-            'explored_tiles': {
-                str(map_id): [list(pos) for pos in tiles]
+            "explored_tiles": {
+                str(map_id): [list(pos) for pos in sorted(tiles)]
                 for map_id, tiles in self.explored_tiles.items()
             },
-            'map_properties': self.map_properties,
+            "visit_counts": {
+                str(map_id): {
+                    self._position_key(pos): count
+                    for pos, count in positions.items()
+                }
+                for map_id, positions in self.visit_counts.items()
+            },
+            "edges": {
+                str(map_id): {
+                    self._position_key(pos): {
+                        direction: list(target)
+                        for direction, target in directions.items()
+                    }
+                    for pos, directions in positions.items()
+                }
+                for map_id, positions in self.edges.items()
+            },
+            "blocked_moves": {
+                str(map_id): {
+                    self._position_key(pos): directions
+                    for pos, directions in positions.items()
+                    if directions
+                }
+                for map_id, positions in self.blocked_moves.items()
+            },
+            "warp_points": [
+                {
+                    "src_map": src[0],
+                    "src_x": src[1],
+                    "src_y": src[2],
+                    "dest_map": dest["dest_map"],
+                    "dest_x": dest["dest_x"],
+                    "dest_y": dest["dest_y"],
+                    "count": dest.get("count", 1),
+                }
+                for src, dest in self.warp_points.items()
+            ],
+            "map_properties": self.map_properties,
         }
 
-        with open(save_file, 'w') as f:
-            json.dump(data, f, indent=2)
+        with open(save_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
 
         self.logger.debug(f"Saved map memory to {save_file}")
 
-    def load(self) -> None:
+    def load(self, filepath: Optional[str] = None) -> None:
         """Load map memory from disk."""
-        save_file = self.save_dir / "map_memory.json"
-
+        save_file = Path(filepath) if filepath else self.save_dir / "map_memory.json"
         if not save_file.exists():
             self.logger.info("No saved map memory found, starting fresh")
             return
 
         try:
-            with open(save_file, 'r') as f:
+            with open(save_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            # Convert lists back to sets
             self.explored_tiles = defaultdict(set)
-            for map_id_str, tiles in data.get('explored_tiles', {}).items():
+            for map_id_str, tiles in data.get("explored_tiles", {}).items():
                 map_id = int(map_id_str)
-                self.explored_tiles[map_id] = set(tuple(pos) for pos in tiles)
+                self.explored_tiles[map_id] = {tuple(pos) for pos in tiles}
 
-            self.map_properties = data.get('map_properties', {})
+            self.visit_counts = defaultdict(lambda: defaultdict(int))
+            for map_id_str, positions in data.get("visit_counts", {}).items():
+                map_id = int(map_id_str)
+                for pos_key, count in positions.items():
+                    self.visit_counts[map_id][self._parse_position_key(pos_key)] = int(count)
 
+            self.edges = defaultdict(lambda: defaultdict(dict))
+            for map_id_str, positions in data.get("edges", {}).items():
+                map_id = int(map_id_str)
+                for pos_key, directions in positions.items():
+                    pos = self._parse_position_key(pos_key)
+                    self.edges[map_id][pos] = {
+                        direction: tuple(target)
+                        for direction, target in directions.items()
+                    }
+
+            self.blocked_moves = defaultdict(lambda: defaultdict(dict))
+            for map_id_str, positions in data.get("blocked_moves", {}).items():
+                map_id = int(map_id_str)
+                for pos_key, directions in positions.items():
+                    self.blocked_moves[map_id][self._parse_position_key(pos_key)] = {
+                        direction: int(count)
+                        for direction, count in directions.items()
+                    }
+
+            self.warp_points = {}
+            for warp in data.get("warp_points", []):
+                src = (
+                    int(warp["src_map"]),
+                    int(warp["src_x"]),
+                    int(warp["src_y"]),
+                )
+                self.warp_points[src] = {
+                    "dest_map": int(warp["dest_map"]),
+                    "dest_x": int(warp["dest_x"]),
+                    "dest_y": int(warp["dest_y"]),
+                    "count": int(warp.get("count", 1)),
+                }
+
+            self.map_properties = data.get("map_properties", {})
             self.logger.info(f"Loaded map memory: {len(self.explored_tiles)} maps explored")
-
-        except Exception as e:
-            self.logger.error(f"Failed to load map memory: {e}")
+        except Exception as exc:
+            self.logger.error(f"Failed to load map memory: {exc}")
 
     def reset_map(self, map_id: int) -> None:
-        """Reset exploration for a specific map.
-
-        Args:
-            map_id: Map ID to reset
-        """
-        if map_id in self.explored_tiles:
-            del self.explored_tiles[map_id]
+        """Reset exploration for a specific map."""
+        self.explored_tiles.pop(map_id, None)
+        self.visit_counts.pop(map_id, None)
+        self.edges.pop(map_id, None)
+        self.blocked_moves.pop(map_id, None)
+        self.map_properties.pop(map_id, None)
+        self.warp_points = {
+            src: dest for src, dest in self.warp_points.items() if src[0] != map_id
+        }
         self.logger.info(f"Reset exploration for map {map_id}")
 
     def reset_all(self) -> None:
         """Reset all exploration data."""
         self.explored_tiles.clear()
+        self.visit_counts.clear()
+        self.edges.clear()
+        self.blocked_moves.clear()
+        self.warp_points.clear()
         self.map_properties.clear()
         self.logger.info("Reset all map memory")
+
+    def _record_warp(
+        self,
+        src_map: int,
+        src_pos: Position,
+        dest_map: int,
+        dest_pos: Position,
+    ) -> None:
+        """Record a known warp transition."""
+        key = (src_map, src_pos[0], src_pos[1])
+        existing = self.warp_points.get(key, {})
+        self.warp_points[key] = {
+            "dest_map": dest_map,
+            "dest_x": dest_pos[0],
+            "dest_y": dest_pos[1],
+            "count": int(existing.get("count", 0)) + 1,
+        }
+
+    def _get_map_warps(self, map_id: int) -> List[Dict[str, int]]:
+        """Return known warps originating on a map."""
+        warps: List[Dict[str, int]] = []
+        for src, dest in self.warp_points.items():
+            if src[0] != map_id:
+                continue
+            warps.append(
+                {
+                    "src_map": src[0],
+                    "src_x": src[1],
+                    "src_y": src[2],
+                    "dest_map": int(dest["dest_map"]),
+                    "dest_x": int(dest["dest_x"]),
+                    "dest_y": int(dest["dest_y"]),
+                    "count": int(dest.get("count", 1)),
+                }
+            )
+        warps.sort(key=lambda item: (item["src_y"], item["src_x"], item["dest_map"]))
+        return warps
+
+    def _infer_direction(self, previous: Position, current: Position) -> Optional[str]:
+        """Infer the movement direction between adjacent tiles."""
+        dx = current[0] - previous[0]
+        dy = current[1] - previous[1]
+        for direction, delta in self.CARDINALS.items():
+            if (dx, dy) == delta:
+                return direction
+        return None
+
+    def _position_key(self, position: Position) -> str:
+        """Serialize a position tuple."""
+        return f"{position[0]},{position[1]}"
+
+    def _parse_position_key(self, value: str) -> Position:
+        """Deserialize a serialized position tuple."""
+        x_str, y_str = value.split(",", 1)
+        return int(x_str), int(y_str)

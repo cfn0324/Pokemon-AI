@@ -1,0 +1,521 @@
+{
+  "requested_checkpoint": "checkpoint_18483",
+  "restored_checkpoint": "checkpoint_18483",
+  "latest_checkpoint": "checkpoint_18513",
+  "start_turn": 18483,
+  "end_turn": 18513,
+  "turn_delta": 30,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18513,
+    "timestamp": "2026-03-22T13:58:14.139807",
+    "position": {
+      "map_id": 0,
+      "x": 3,
+      "y": 7
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18513,
+      "local_analysis_enabled": false,
+      "ram_screen_type": "overworld",
+      "model_screen_type_hint": "overworld"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 1,
+      "total_tiles": 200,
+      "exploration_percent": 0.5
+    },
+    "navigation": {
+      "current_visit_count": 1,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 1,
+      "nearest_frontier": {
+        "target": [
+          3,
+          7
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 1,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18483,
+      "action": "a",
+      "reasoning": "The screenshot still shows the bedroom with the entire lower half covered by a blank black text box area, and RAM confirms Text box active is True while no menu choices are visible. Since the scripted dialogue/UI is still active and control has not clearly returned, the safest action is to continue advancing it with A.",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18484,
+      "action": "left",
+      "reasoning": "The screenshot shows a normal bedroom overworld view with the player standing below the PC, and the black lower half appears to be the emulator crop rather than a visible dialogue panel; after many consecutive A presses with no change and with the state itself warning the text flag may be stale, the safest progress action is to resume room exploration on an unexplored adjacent tile, starting left.",
+      "result": "After left:; moved from (3,7) to (2,7) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18485,
+      "action": "down",
+      "reasoning": "The screenshot shows normal free movement in the bedroom with the player standing left of center, the bed on the left, and no visible dialogue text or menu, so the stale text flag should be ignored and exploration should continue toward the lower part of the room where the stairs are typically located.",
+      "result": "After down:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18486,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in the bedroom with no visible dialogue or menu. The player is near the lower part of the room, and the failed down move suggests the black lower area is not walkable boundary rather than a text box. Since the stairs are usually toward the lower-left in this room, the best next step is to continue exploring left along the bottom edge.",
+      "result": "After left:; moved from (2,7) to (1,7) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18487,
+      "action": "left",
+      "reasoning": "The screenshot shows normal bedroom movement with no visible dialogue or menu. The player is at the left side beside the bed near the bottom edge, and the black lower half is clearly just off-room boundary/crop, not an active text box. Since down was blocked from this bottom row and the current frontier lists up, down, and left as unknown from this tile, the best progress is to check the left e...",
+      "result": "After left:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 1,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18488,
+      "action": "up",
+      "reasoning": "The screenshot shows normal room exploration with no visible dialogue text or menu, the player is standing by the bed at the lower-left side of the bedroom, and since moving left failed on the previous turn, the most useful unexplored direction is up along the left wall to search for the stairs path.",
+      "result": "After up:; moved from (1,7) to (1,6) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 1,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18489,
+      "action": "up",
+      "reasoning": "The screenshot shows free movement in the bedroom with no visible dialogue box; the player is on the left side near the bed, and the bottom black area is room boundary/crop rather than UI. Since left was blocked and the exploration memory says up, left, and right are unknown from the current tile, moving up along the left wall is the best way to continue searching for the stairs/exit path.",
+      "result": "After up:; moved from (1,6) to (1,5) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 1,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18490,
+      "action": "up",
+      "reasoning": "The screenshot shows normal free movement in the bedroom with no visible dialogue box, and the player is on the left side of the room with open floor directly above toward the top wall where the stairs/room exit are typically found, so continuing up explores the most likely path out.",
+      "result": "After up:; moved from (1,5) to (1,4) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 1,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18491,
+      "action": "right",
+      "reasoning": "The screenshot shows normal bedroom exploration with no visible dialogue or menu, and the player is on the left side of the room near the upper half where continuing up would soon meet the top wall and furniture, so moving right across the open floor is the best way to search for the stairs/exit area.",
+      "result": "After right:; moved from (1,4) to (2,4) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18492,
+      "action": "right",
+      "reasoning": "The screenshot shows normal free movement in the bedroom with no visible dialogue box. The player is in the upper-middle part of the room, facing right, with open floor to the right and the staircase visible at the upper-right edge. Since the goal is to leave the room and the stairs are clearly in that direction, moving right is the best progress.",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 2,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18493,
+      "action": "up",
+      "reasoning": "The screenshot shows free movement in the bedroom with no visible dialogue box. The player is in the middle of the room just left of the TV table, and the staircase is clearly visible at the upper-right corner. The previous right move from a different tile was likely blocked by furniture, so the best progress is to move up from here to line up with the stairs and head out of the room.",
+      "result": "After up:; moved from (2,4) to (2,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 2,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18494,
+      "action": "right",
+      "reasoning": "The screenshot clearly shows normal bedroom movement with no visible dialogue box or menu. The staircase is visible on the upper-right edge, and from the current position near the upper-middle of the room, moving right should continue lining up toward that exit path.",
+      "result": "After right:; moved from (2,3) to (3,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18495,
+      "action": "right",
+      "reasoning": "The screenshot shows normal bedroom movement with no dialogue box or menu. The staircase is clearly visible at the upper-right, and from the current position near the upper-middle of the room, moving right continues toward lining up with the stairs to exit the room.",
+      "result": "After right:; moved from (3,3) to (4,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18496,
+      "action": "right",
+      "reasoning": "The bedroom is fully visible with no actual dialogue box obstructing movement. The staircase is clearly at the upper-right, and from the current position near the center-right, moving right is the direct way to align with and approach the stairs.",
+      "result": "After right:; moved from (4,3) to (5,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 4,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18497,
+      "action": "right",
+      "reasoning": "The screenshot shows free movement in the bedroom with no visible dialogue or menu. The staircase is clearly visible at the upper-right, and the player is one tile left of the approach path. Continuing right is the direct move to align with the stairs and exit the room.",
+      "result": "After right:; moved from (5,3) to (6,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18498,
+      "action": "right",
+      "reasoning": "The screenshot shows normal bedroom movement with no visible dialogue box or menu. The staircase is immediately to the player’s upper-right, and from the current position at (6,3), the most direct move is to step right to align with and enter the stairs area.",
+      "result": "After right:; moved from (6,3) to (7,3) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 6,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18499,
+      "action": "up",
+      "reasoning": "The screenshot shows normal bedroom movement with no visible dialogue box or menu, and the staircase is directly above the player at the upper-right, so stepping up is the clearest move to enter the stairs and leave the room.",
+      "result": "After up:; moved from (7,3) to (7,2) on map 38",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 7,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18500,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly in front of the staircase at the upper-right of the bedroom with no visible dialogue or menu. To leave the room, the correct move is to step onto the stairs tile above.",
+      "result": "After up:; warped from map 38 (7,2) to map 37 (7,1)",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 7,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18501,
+      "action": "a",
+      "reasoning": "The screenshot is completely black immediately after stepping from the upstairs map to map 37, which is strong evidence of an in-progress stair/fade transition rather than normal controllable overworld movement, so the safest action is to wait through or advance the transition with A instead of moving away.",
+      "result": "After a:; no visible state change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18502,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room of the house with normal overworld control: a table and TV are visible, and the player sprite is standing near the table. There is no visible dialogue box despite the stale text flag. Since the immediate objective is to leave the house, the best move is to head toward the front door, which in the player house is along the bottom edge. From the cur...",
+      "result": "After down:; moved from (7,1) to (7,2) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18503,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room with normal movement control: the player is by the staircase at the upper-right, there is no visible dialogue box, and the front door is typically at the bottom center of the house. From the current position, continuing downward is the most direct progress toward leaving the house.",
+      "result": "After down:; moved from (7,2) to (7,3) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18504,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room with free movement and no visible dialogue box. The player is near the upper-right by the stairs, and the front door should be along the bottom center/left area. Continuing downward is the most direct progress toward exiting the house.",
+      "result": "After down:; moved from (7,3) to (7,4) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18505,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room with free movement, no visible dialogue box, and the player standing to the right of the dining table. In this room the front door is along the bottom-left area, and from the current position the most direct progress toward exiting the house is to move down toward the lower side of the room before angling left.",
+      "result": "After down:; moved from (7,4) to (7,5) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18506,
+      "action": "down",
+      "reasoning": "The screenshot shows normal movement in the downstairs living room with no visible dialogue box. The player is to the right of the dining table, and the bottom-left rug/front-door area is visible. To exit the house, the correct path is to continue moving downward toward the lower part of the room before turning left to the door.",
+      "result": "After down:; moved from (7,5) to (7,6) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18507,
+      "action": "left",
+      "reasoning": "The screenshot shows the downstairs living room with free movement and no visible dialogue box. The player is near the lower-right side of the room, while the front-door area is toward the lower-left side near the rug. To reach the exit, the best next step is to move left across the bottom part of the room.",
+      "result": "After left:; moved from (7,6) to (6,6) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 7,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18508,
+      "action": "left",
+      "reasoning": "The screenshot shows the downstairs living room with the player standing to the lower-right of the dining table, no visible dialogue box or menu, and the entrance rug/front-door area visible toward the lower-left, so moving left continues the direct path toward exiting the house.",
+      "result": "After left:; moved from (6,6) to (5,6) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 6,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18509,
+      "action": "left",
+      "reasoning": "The screenshot shows the downstairs living room with free movement and no visible dialogue box. The player is at the lower-right side of the dining table, and the entrance rug/front-door area is visible down-left. Continuing left is the clearest path toward the house exit while avoiding optional interactions.",
+      "result": "After left:; moved from (5,6) to (4,6) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18510,
+      "action": "left",
+      "reasoning": "The screenshot shows normal movement in the downstairs living room with no visible dialogue box. The player is now below the dining table, and the front-door rug is visible down-left. To continue toward exiting the house, the best move is to go left toward the rug/door area while avoiding the NPC and furniture.",
+      "result": "After left:; moved from (4,6) to (3,6) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 4,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18511,
+      "action": "down",
+      "reasoning": "The screenshot shows normal indoor movement in the downstairs living room with no visible dialogue box or menu, and the player is standing just above the entrance rug and slightly left of center, so moving down is the direct way to step onto the rug and line up with the front door.",
+      "result": "After down:; moved from (3,6) to (3,7) on map 37",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18512,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room with free movement, no visible dialogue box, and the player standing directly below the entrance rug near the bottom of the room; in Red, the front door is at the bottom edge aligned with this rug, so moving down is the correct step to exit the house.",
+      "result": "After down:; warped from map 37 (3,7) to map 0 (3,7); screen changed from indoor to overworld",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18513,
+      "action": "up",
+      "reasoning": "The screenshot shows the exterior of the house in Pallet Town with the player just outside the front door on the welcome mat. There is no visible dialogue or menu; the lower black area is just the cropped screen area seen previously, not an active textbox. To progress the mandatory opening story before getting a starter, the correct move is to leave the house entrance area and head north into t...",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 0
+    }
+  ]
+}

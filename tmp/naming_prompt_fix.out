@@ -1,0 +1,375 @@
+============================================================
+������AI������
+�������� AI ģ������
+============================================================
+
+���ڳ�ʼ��...
+
+[32m03:18:47 - Main - INFO[0m - ==================================================[0m
+[32m03:18:47 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体启动中[0m
+[32m03:18:47 - Main - INFO[0m - ==================================================[0m
+[32m03:18:47 - Main - INFO[0m - 正在初始化模拟器...[0m
+[32m03:18:47 - Emulator - INFO[0m - Initializing emulator with ROM: PokemonRed.gb[0m
+[32m03:18:47 - Emulator - INFO[0m - Emulator initialized successfully[0m
+[32m03:18:47 - MemoryReader - INFO[0m - Memory reader initialized[0m
+[32m03:18:47 - Main - INFO[0m - 模拟器初始化完成[0m
+[32m03:18:47 - Main - INFO[0m - 正在初始化状态系统...[0m
+[32m03:18:47 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m03:18:47 - MapMemory - INFO[0m - Map memory initialized[0m
+[32m03:18:47 - MapMemory - INFO[0m - Reset exploration for map 0[0m
+[32m03:18:47 - MapMemory - INFO[0m - Reset exploration for map 37[0m
+[32m03:18:47 - MapMemory - INFO[0m - Reset exploration for map 38[0m
+[32m03:18:47 - MapMemory - INFO[0m - Reset exploration for map 40[0m
+[32m03:18:47 - Main - INFO[0m - Reset stale opening-area map memory for a fresh pre-starter run[0m
+[32m03:18:47 - Main - INFO[0m - Harness-side pixel vision disabled; using raw screenshots plus RAM only[0m
+[32m03:18:47 - Main - INFO[0m - 状态系统初始化完成[0m
+[32m03:18:47 - Main - INFO[0m - 正在初始化AI智能体...[0m
+[32m03:18:47 - MainAgent - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:18:47 - ContextManager - INFO[0m - Context manager initialized (max_turns=100, keep_recent=20)[0m
+[32m03:18:47 - Summarizer - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:18:47 - Summarizer - INFO[0m - Summarizer initialized[0m
+[32m03:18:47 - GoalManager - INFO[0m - Goal manager initialized[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - MILESTONE: LONG-TERM MISSION: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - MainAgent - INFO[0m - Main agent initialized[0m
+[32m03:18:47 - Pathfinder - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:18:47 - Pathfinder - INFO[0m - Pathfinder agent initialized[0m
+[32m03:18:47 - PuzzleSolver - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:18:47 - PuzzleSolver - INFO[0m - Puzzle solver agent initialized[0m
+[32m03:18:47 - Critic - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:18:47 - Critic - INFO[0m - Critic agent initialized[0m
+[32m03:18:47 - Main - INFO[0m - AI智能体初始化完成[0m
+[32m03:18:47 - Main - INFO[0m - 正在初始化工具...[0m
+[32m03:18:47 - ActionExecutor - INFO[0m - Action executor initialized[0m
+[32m03:18:47 - ProgressTracker - INFO[0m - Progress tracker initialized[0m
+[32m03:18:47 - Visualizer - INFO[0m - Visualizer initialized on port 5000[0m
+[32m03:18:47 - Main - INFO[0m - 工具初始化完成[0m
+[32m03:18:47 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18369\emulator.state[0m
+[32m03:18:47 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18369/context.json (0 summaries, 91 recent turns)[0m
+[32m03:18:47 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18369/goals.json[0m
+[32m03:18:47 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18369[0m
+[32m03:18:47 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18369\progress.json[0m
+[32m03:18:47 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: Get through the boot, title, intro dialogue, and naming flow.[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - MILESTONE: COMPLETED SECONDARY GOAL: Use the screenshot itself to identify when to press A, Start, or directional inputs during the intro.[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - MILESTONE: COMPLETED TERTIARY GOAL: Do not trust map coordinates or exploration memory until a real room or outdoor map appears.[0m
+[32m03:18:47 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): Do not think about the Champion yet. First leave the room, leave the house, and obtain the first Pokemon. If the exit is not visible, explore unseen tiles until it appears.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the current room.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the house or current building.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If the exit or stairs is not visible, explore the room perimeter and unseen tiles until you find it.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Walk toward the first mandatory NPC or lab.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If a person or script blocks progress, face them and press A.[0m
+[32m03:18:47 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Obtain the first Pokemon.[0m
+[32m03:18:47 - Main - INFO[0m - Auto-restored latest checkpoint checkpoint_18369[0m
+[32m03:18:47 - Visualizer - INFO[0m - Visualizer server started on http://localhost:5000[0m
+[32m03:18:47 - Main - INFO[0m - 可视化仪表板可访问：http://localhost:5000[0m
+ * Serving Flask app 'src.visualization.visualizer'
+ * Debug mode: off
+[32m03:18:47 - Main - INFO[0m - 宝可梦AI智能体初始化成功[0m
+[32m03:18:47 - Main - INFO[0m - ==================================================[0m
+[32m03:18:47 - Main - INFO[0m - MILESTONE: 开始游戏[0m
+[32m03:18:47 - Main - INFO[0m - ==================================================[0m
+[32m03:18:47 - Main - INFO[0m - 
+=== GAME STATE (Turn 18370) ===
+
+POSITION:
+- Map ID: 38
+- Coordinates: (3, 6)
+- Facing: down
+- Harness UI Classification: indoor
+- External UI Hint: unknown
+- Harness Local Vision: disabled
+
+BADGES: 0/8
+  [ ] Boulder Badge
+  [ ] Cascade Badge
+  [ ] Thunder Badge
+  [ ] Rainbow Badge
+  [ ] Soul Badge
+  [ ] Marsh Badge
+  [ ] Volcano Badge
+  [ ] Earth Badge
+
+MONEY: $3000
+ITEMS IN BAG: 0
+
+PARTY: 0 Pokemon
+
+UI FLAGS:
+  Text box active (RAM): False
+  Menu active (RAM): False
+
+PERCEPTION SUMMARY:
+  Harness note: Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.
+
+STATE DELTAS (memory-based):
+  Position changed: False
+  Money delta: 0
+  Battle toggled: False
+  Movement stall turns: 1
+  Stuck hint: slight stall
+
+EXPLORATION:
+  Current Map Explored: 0.5%
+  Tiles Explored: 1/200
+  Nearby Unexplored Tiles: 10
+    - (2, 6)
+    - (3, 5)
+    - (3, 7)
+    - (4, 6)
+    - (1, 6)
+
+NAVIGATION MEMORY:
+  Current Tile Visits: 28
+  Known exits from current tile: none yet
+  Known blocked directions from current tile: none
+  Reachable frontier tiles on this map: 1
+  Suggested frontier target: (3, 6)
+  Suggested route to frontier: already there
+  Unknown directions from frontier: up, down, left, right
+  Local Map Window:
+    ?????????
+    ?????????
+    ?????????
+    ?????????
+    ????P????
+    ?????????
+    ?????????
+    ?????????
+    ?????????
+
+==================================================
+[0m
+[33m03:18:49 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:18:53 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is completely white with no visible text box, menu, cursor, or overworld elements, and the immediately previous action was pressing START on a fully entered rival name (“AAAAAA”), which strongly indicates the game is in an intro transition that should be advanced with the confirm button rather than movement.[0m
+[32m03:18:53 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get through the boot, title, intro dialogue, and naming flow.[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Use the screenshot itself to identify when to press A, Start, or directional inputs during the intro.[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m03:18:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW TERTIARY GOAL: Do not trust map coordinates or exploration memory until a real room or outdoor map appears.[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): The game is still in boot/title/intro. Ignore overworld navigation ideas and use the screenshot to progress into a real playable room.[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance past the boot or title screen.[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Start a new game if the main menu appears.[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance the intro dialogue and any naming screens.[0m
+[32m03:18:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Reach the first real controllable in-game room.[0m
+[33m03:18:57 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:03 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an empty bottom text box and no cursor or menu choices, which indicates the scripted opening sequence is still waiting for a confirm input to continue to the next line.[0m
+[32m03:19:03 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:08 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:12 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active text box reading “That’s ri”, which is clearly mid-sentence in the scripted opening dialogue after rival naming, so the correct next step is to advance the text with the confirm button.[0m
+[32m03:19:12 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:14 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:17 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active text box reading “That’s right! I re”, which is clearly mid-sentence in Professor Oak’s scripted opening, so the correct next step is to advance the dialogue with the confirm button.[0m
+[32m03:19:17 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:20 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:24 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active text box reading “That’s right! I remember n”, which is clearly mid-sentence in Professor Oak’s scripted opening dialogue, so the correct way to continue is to advance the text with the confirm button.[0m
+[32m03:19:24 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:27 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:31 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active text box reading “That’s right! I remember now! His” and a continuation arrow in the lower-right, which means the scripted intro dialogue is still waiting for a confirm input to reveal the rest of the sentence.[0m
+[32m03:19:31 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:38 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:41 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active dialogue box containing the unfinished line “remember now! His nam”, so this is still scripted Professor Oak intro text that should be advanced with the confirm button.[0m
+[32m03:19:41 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:43 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:19:48 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite with an active text box reading “remember now! His name is AAA” and a continuation marker, which means Professor Oak’s intro dialogue is still unfolding and the correct way to progress is to advance the text.[0m
+[32m03:19:48 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:19:50 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:20:00 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite on the white intro background with an active text box reading “remember now! His name is AAAAAA!” and a continuation arrow in the lower-right, which is clear evidence that the scripted intro dialogue is waiting for a confirm input to advance.[0m
+[32m03:20:00 - ContextManager - INFO[0m - Reached 100 turns, triggering summarization[0m
+[32m03:20:00 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:20:03 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:20:06 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is completely white with no visible menu, cursor, overworld, or text box, and the immediately preceding turns were still advancing Professor Oak’s scripted intro after confirming the rival name, so this is most likely an in-between transition that should be progressed with the confirm button.[0m
+[32m03:20:06 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:20:06 - Main - INFO[0m - 
+=== GAME STATE (Turn 18380) ===
+
+POSITION:
+- Map ID: 38
+- Coordinates: (3, 6)
+- Facing: down
+- Harness UI Classification: dialogue
+- External UI Hint: dialogue
+- Harness Local Vision: disabled
+
+BADGES: 0/8
+  [ ] Boulder Badge
+  [ ] Cascade Badge
+  [ ] Thunder Badge
+  [ ] Rainbow Badge
+  [ ] Soul Badge
+  [ ] Marsh Badge
+  [ ] Volcano Badge
+  [ ] Earth Badge
+
+MONEY: $3000
+ITEMS IN BAG: 0
+
+PARTY: 0 Pokemon
+
+UI FLAGS:
+  Text box active (RAM): False
+  Menu active (RAM): False
+
+PERCEPTION SUMMARY:
+  Harness note: Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.
+  World-state note: early scripted intro is still active before the first Pokemon. Even if map coordinates are populated, do not treat them as free-movement navigation state yet; rely on the screenshot until control is clearly returned.
+
+STATE DELTAS (memory-based):
+  Position changed: False
+  Money delta: 0
+  Battle toggled: False
+  Movement stall turns: 11
+  Stuck hint: possibly stuck - explore a different direction or unseen tile
+
+EXPLORATION:
+  Not available yet. Wait until the game reaches a real map or indoor room.
+
+NAVIGATION MEMORY:
+  Not available yet. Do not treat the current coordinates as a real walkable map.
+
+==================================================
+[0m
+[33m03:20:06 - ActionExecutor - WARNING[0m - Stuck detected: repeating 'a' 10 times[0m
+[31m03:21:59 - MainAgent - ERROR[0m - Failed to get AI decision: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1028)')))[0m
+[32m03:21:59 - ActionExecutor - INFO[0m - ACTION: wait[0m
+[33m03:22:02 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:06 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character sprite on the white Professor Oak intro background with a bottom text box beginning a new line (“…i…n” visible) and no menu or movement control, so this is still scripted intro dialogue that should be advanced with the confirm button.[0m
+[32m03:22:06 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:08 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:12 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character sprite on the white Professor Oak intro background with an active text box ending in an exclamation mark and a continuation arrow in the lower-right, which indicates the scripted intro dialogue is waiting for a confirm input to advance.[0m
+[32m03:22:12 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:16 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:19 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character sprite on the white Professor Oak introduction background with an empty bottom text box, indicating the scripted intro is still active and waiting for a confirm input to display or advance the next line.[0m
+[32m03:22:19 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:23 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:27 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character sprite on the white Professor Oak introduction background with a text box actively displaying the beginning of a new line, “Your ve”, so this is still scripted intro dialogue that should be advanced with the confirm button.[0m
+[32m03:22:27 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:30 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:34 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on Professor Oak’s white intro background with an active text box reading “Your very own PO,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.[0m
+[32m03:22:34 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:38 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:41 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on Professor Oak’s white introduction background with an active text box reading “Your very own POKéMON le,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.[0m
+[32m03:22:41 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:43 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:48 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on the white Professor Oak intro background with a text box reading “Your very own POKéMON legend is” and a continuation arrow, so this is still scripted dialogue that should be advanced with the confirm button.[0m
+[32m03:22:48 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:51 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:22:56 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on Professor Oak’s white intro background with an active text box reading “POKéMON legend is ab,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.[0m
+[32m03:22:56 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:22:58 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:03 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player sprite on Professor Oak’s white intro background with an active text box reading “POKéMON legend is about to un,” which is clearly mid-sentence in the scripted opening, so the correct next step is to advance the dialogue with the confirm button.[0m
+[32m03:23:03 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:23:03 - Main - INFO[0m - 
+=== GAME STATE (Turn 18390) ===
+
+POSITION:
+- Map ID: 38
+- Coordinates: (3, 6)
+- Facing: down
+- Harness UI Classification: dialogue
+- External UI Hint: dialogue
+- Harness Local Vision: disabled
+
+BADGES: 0/8
+  [ ] Boulder Badge
+  [ ] Cascade Badge
+  [ ] Thunder Badge
+  [ ] Rainbow Badge
+  [ ] Soul Badge
+  [ ] Marsh Badge
+  [ ] Volcano Badge
+  [ ] Earth Badge
+
+MONEY: $3000
+ITEMS IN BAG: 0
+
+PARTY: 0 Pokemon
+
+UI FLAGS:
+  Text box active (RAM): False
+  Menu active (RAM): False
+
+PERCEPTION SUMMARY:
+  Harness note: Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.
+  World-state note: early scripted intro is still active before the first Pokemon. Even if map coordinates are populated, do not treat them as free-movement navigation state yet; rely on the screenshot until control is clearly returned.
+
+STATE DELTAS (memory-based):
+  Position changed: False
+  Money delta: 0
+  Battle toggled: False
+  Movement stall turns: 21
+  Stuck hint: possibly stuck - explore a different direction or unseen tile
+
+EXPLORATION:
+  Not available yet. Wait until the game reaches a real map or indoor room.
+
+NAVIGATION MEMORY:
+  Not available yet. Do not treat the current coordinates as a real walkable map.
+
+==================================================
+[0m
+[33m03:23:03 - ActionExecutor - WARNING[0m - Stuck detected: alternating pattern ['a', 'a', 'a', 'a'][0m
+[33m03:23:05 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:10 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on the white Professor Oak intro background with a text box reading “POKéMON legend is about to unfold!” and a continuation arrow in the lower-right, so this is still scripted dialogue that should be advanced with the confirm button.[0m
+[32m03:23:10 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:23:13 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:17 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character sprite on the white Professor Oak intro background with an empty dialogue box at the bottom, which indicates the scripted introduction is still active and waiting for a confirm input to display the next line.[0m
+[32m03:23:17 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:23:19 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:23 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on the white Professor Oak intro background with an active text box reading “A world,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.[0m
+[32m03:23:23 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:23:26 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:30 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player character on Professor Oak’s white intro background with an active text box reading “A world of drea,” which is clearly mid-sentence in the scripted opening dialogue and should be advanced with the confirm button.[0m
+[32m03:23:30 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:23:37 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:41 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player sprite on the white Professor Oak introduction background with an active text box reading “A world of dreams and ad,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.[0m
+[32m03:23:41 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:23:42 - Main - WARNING[0m - 已从仪表板请求停止运行[0m
+[32m03:23:42 - Visualizer - INFO[0m - Event [error]: 已请求停止运行[0m
+[33m03:23:44 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:23:48 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the player sprite on the white Professor Oak intro background with the text box reading “A world of dreams and adventures,” which is still mid-scripted opening dialogue and should be advanced with the confirm button.[0m
+[32m03:23:48 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:23:48 - Main - INFO[0m - 正在关闭...[0m
+[32m03:23:48 - Main - INFO[0m - 正在保存回合18395的检查点[0m
+[32m03:23:48 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18395\emulator.state[0m
+[32m03:23:48 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18395/context.json[0m
+[32m03:23:48 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18395[0m
+[32m03:23:48 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18395\progress.json[0m
+[32m03:23:48 - Main - INFO[0m - Pruned old checkpoint checkpoint_18000[0m
+[32m03:23:48 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18395[0m
+[32m03:23:48 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1660.1 hours
+Total Turns: 18395
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m03:23:48 - Visualizer - INFO[0m - Visualizer stopped[0m
+[32m03:23:48 - Emulator - INFO[0m - Stopping emulator[0m
+[32m03:23:48 - Main - INFO[0m - ==================================================[0m
+[32m03:23:48 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体已停止[0m
+[32m03:23:48 - Main - INFO[0m - ==================================================[0m
+[32m03:23:48 - Main - INFO[0m - 总回合数: 18395[0m

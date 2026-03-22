@@ -1,0 +1,429 @@
+{
+  "start_turn": 18339,
+  "end_turn": 18369,
+  "turn_delta": 30,
+  "restored_checkpoint": "checkpoint_18338",
+  "latest_checkpoint": "checkpoint_18338",
+  "final_state": {
+    "badges": 0,
+    "deltas": {
+      "battle_toggled": false,
+      "money_delta": 0,
+      "movement_stall_turns": 31,
+      "position_changed": false,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    },
+    "exploration": {
+      "current_map": null,
+      "exploration_percent": 0.0,
+      "explored_tiles": 0,
+      "total_tiles": 0
+    },
+    "in_battle": false,
+    "money": 3000,
+    "navigation": {
+      "available": false,
+      "blocked_directions": [],
+      "current_visit_count": 0,
+      "frontier_count": 0,
+      "known_exits": {},
+      "local_map": [],
+      "nearest_frontier": null
+    },
+    "party": [],
+    "party_size": 0,
+    "phase_hint": "naming_screen",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "pre_starter_script": true,
+    "pre_world": false,
+    "timestamp": "2026-03-22T03:17:01.537060",
+    "turn": 18369,
+    "visual": {
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "frame_number": 18369,
+      "local_analysis_enabled": false,
+      "model_screen_type_hint": "naming_screen",
+      "ram_screen_type": "naming_screen",
+      "screen_size": "(160, 144)",
+      "screen_type": "naming_screen"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18338,
+      "action": "restore",
+      "screen_type": "indoor",
+      "reasoning": "Restored checkpoint checkpoint_18338",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18339,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival’s intro sprite with an open text box reading “Right! So your name is j”, which is clearly mid-introduction dialogue after naming, and with no menu active the correct way to continue the scripted sequence is to advance the text.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18340,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival intro sprite with a dialogue box reading “Right! So your name is jjnnnn!” and a continuation arrow in the lower-right, which indicates the game is waiting for a confirm input to advance the scripted introduction.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18341,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot is completely white with no visible menu, cursor, or overworld scene, and the immediately preceding turns were scripted intro dialogue after confirming the player name, so this is most likely a brief intro transition that should be advanced with a confirm input.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18342,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival’s sprite alone on a blank white background with no text box, menu, or cursor, which matches the ongoing scripted intro transition after the naming dialogue and indicates the next step is to advance the sequence with a confirm input.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18343,
+      "action": "a",
+      "screen_type": "cutscene",
+      "reasoning": "The screenshot shows only the rival’s full-body sprite on a blank white background with no menu, overworld, or selectable cursor, which matches the scripted Professor Oak intro transition and is typically advanced by pressing A.",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18344,
+      "action": "a",
+      "screen_type": "cutscene",
+      "reasoning": "The screenshot shows the rival’s full-body sprite alone on a blank white background with no text box, menu, or cursor, which matches the ongoing scripted intro sequence and is typically advanced by pressing the confirm button.",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18345,
+      "action": "a",
+      "screen_type": "cutscene",
+      "reasoning": "The screenshot shows the rival’s full-body sprite alone on a blank white background with no text box, menu, or cursor, which matches the ongoing scripted intro sequence and is typically advanced by pressing the confirm button.",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18346,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box beginning “This i”, which is clearly mid-intro dialogue after naming, so the correct next step is to advance the text with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18347,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box reading “This is my gra”, which is clearly mid-intro dialogue and indicates the game is waiting for the confirm button to continue the scripted sequence.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18348,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot clearly shows the rival’s sprite with an active text box reading “This is my grand-son.”, which is mid-intro scripted dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18349,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box reading “This is my grand-son. He’s been”, which is clearly ongoing Professor Oak intro dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18350,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box reading “son. He’s been yo”, which is clearly mid-intro scripted dialogue from Professor Oak, so the correct next step is to advance the text with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18351,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box reading part of Professor Oak’s intro sentence (“...son. He’s been your rival”), so the game is in scripted dialogue and the correct way to continue is to advance the text with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18352,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box reading “...He’s been your rival since” and a continuation arrow in the lower-right, which means the intro dialogue is waiting for the confirm button to advance.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18353,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with an active text box containing the partial intro line “your rival since yo,” which is clearly ongoing scripted Professor Oak dialogue, so the correct next step is to advance the text with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18354,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the white intro background with a dialogue box containing the unfinished sentence “your rival since you were a,” so the game is still in scripted Professor Oak intro dialogue and the correct way to continue is to advance the text with A.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18355,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the intro white background with a dialogue box reading “your rival since you were a baby.” and a continuation arrow in the lower-right, which means the scripted intro text is waiting to be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18356,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the white intro background with an empty dialogue box at the bottom, which indicates the scripted Professor Oak introduction is still in progress and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18357,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the white intro background with an active dialogue box reading \"... Erm,\" which is clearly mid-scripted Professor Oak introduction dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18358,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the white intro background with an active dialogue box reading \"...Erm, what is\", which is clearly ongoing Professor Oak intro dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18359,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite on the white intro background with a dialogue box reading \"...Erm, what is his name\", which is still Professor Oak's scripted introduction and should be advanced to reach the rival naming prompt.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18360,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival sprite with the text box reading \"...Erm, what is his name again?\" plus the continuation arrow, which is the scripted Professor Oak intro dialogue immediately before the rival naming selection, so the correct next step is to advance the dialogue with A.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18361,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows Professor Oak’s intro with the rival sprite and the text box reading “…Erm, what is his name again?”, which is the prompt immediately before the rival naming selection, so pressing A should advance from dialogue into the name-choice screen.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18362,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot shows the rival-naming screen with the cursor already highlighting “NEW NAME,” and selecting that is the correct way to proceed into the rival name entry flow rather than choosing a preset name.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18363,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is completely white with no visible cursor, text box, or menu, and the immediately previous state was selecting “NEW NAME” on the rival naming screen, so this is most likely the transition into the rival name entry interface and the safest way to continue the scripted intro is to press A.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18364,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot clearly shows the rival naming entry screen labeled “RIVAL’S NAME?” with the cursor positioned on the letter “A” in the top-left of the character grid, so pressing A will enter the first rival-name character and correctly progress the intro.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18365,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the rival naming entry screen labeled “RIVAL’S NAME?” and the cursor is clearly pointing at the letter “A” in the top-left of the character grid, so pressing A will enter the first character of the rival’s name and move the intro forward.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18366,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot shows the rival naming screen labeled “RIVAL'S NAME?” with the current name already containing “AA,” and the cursor is still positioned on the letter “A” at the top-left, so pressing A again will continue entering characters and make progress toward finishing the rival name.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18367,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot clearly shows the “RIVAL’S NAME?” entry screen with the current rival name already partially filled as “AAA,” and the triangular cursor is still positioned on the letter “A” in the top-left of the character grid, so pressing A will continue entering a fourth character and make progress toward completing the rival name.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    },
+    {
+      "turn": 18368,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the rival naming interface labeled “RIVAL’S NAME?”, the current entered name already shows “AAAA,” and the cursor is still positioned on the letter “A” at the top-left, so pressing A again will add another character and continue progressing toward a full rival name.",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      }
+    }
+  ]
+}

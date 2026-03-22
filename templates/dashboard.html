@@ -3,546 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宝可梦AI - 实时仪表盘</title>
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background:
-                radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 28%),
-                radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 22%),
-                #0f172a;
-            color: #e2e8f0;
-            padding: 20px;
-        }
-        .container { max-width: 1480px; margin: 0 auto; }
-        header {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-        h1 { font-size: 26px; margin-bottom: 6px; }
-        .subtitle { opacity: 0.85; }
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            margin-right: 8px;
-            background: #22c55e;
-            color: #0f172a;
-            border-radius: 14px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-        .badge.warning { background: #f59e0b; color: #111827; }
-        .badge.danger { background: #ef4444; color: #f8fafc; }
-        .badge.muted { background: #475569; color: #e2e8f0; }
-        .panel {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
-            padding: 16px;
-        }
-        .panel h2 { font-size: 18px; margin-bottom: 12px; }
-        .controls-panel { margin-bottom: 16px; }
-        .controls-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 16px;
-        }
-        .control-block {
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 12px;
-        }
-        .control-stack { display: grid; gap: 12px; }
-        .button-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .control-btn {
-            border: 1px solid #475569;
-            background: #111827;
-            color: #e2e8f0;
-            border-radius: 8px;
-            padding: 10px 12px;
-            min-width: 78px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
-        }
-        .control-btn:hover:not(:disabled) {
-            transform: translateY(-1px);
-            border-color: #94a3b8;
-            background: #1f2937;
-        }
-        .control-btn:disabled {
-            opacity: 0.45;
-            cursor: not-allowed;
-        }
-        .control-btn.primary { background: #0f3d2e; border-color: #22c55e; }
-        .control-btn.warning { background: #4a340d; border-color: #f59e0b; }
-        .control-btn.danger { background: #4c1d1d; border-color: #ef4444; }
-        .control-btn.accent { background: #0c4a6e; border-color: #38bdf8; }
-        .dpad {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(72px, 88px));
-            gap: 8px;
-            justify-content: start;
-        }
-        .dpad .spacer { visibility: hidden; }
-        .control-meta {
-            display: grid;
-            gap: 8px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr 0.8fr;
-            gap: 16px;
-        }
-        .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .stat {
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .stat .label { opacity: 0.7; font-size: 13px; margin-bottom: 6px; }
-        .stat .value { font-size: 20px; font-weight: 700; }
-        .section-title { margin: 14px 0 8px; font-size: 15px; opacity: 0.9; }
-        #screenshot {
-            width: 100%;
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            display: none;
-            image-rendering: pixelated;
-        }
-        .placeholder {
-            padding: 40px;
-            text-align: center;
-            background: #0f172a;
-            border: 1px dashed #475569;
-            border-radius: 8px;
-        }
-        .list {
-            max-height: 260px;
-            overflow-y: auto;
-            border: 1px solid #334155;
-            border-radius: 8px;
-        }
-        .item { padding: 10px; border-bottom: 1px solid #334155; }
-        .item:last-child { border-bottom: none; }
-        .history {
-            max-height: 220px;
-            overflow-y: auto;
-            border: 1px solid #334155;
-            border-radius: 8px;
-        }
-        .history .item { display: grid; gap: 6px; }
-        .event.milestone { border-left: 4px solid #f59e0b; }
-        .event.error { border-left: 4px solid #ef4444; }
-        .event.info { border-left: 4px solid #38bdf8; }
-        .small { font-size: 13px; opacity: 0.8; }
-        .status-line { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .muted { opacity: 0.74; }
-
-        @media (max-width: 1180px) {
-            .grid { grid-template-columns: 1fr; }
-            .controls-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 640px) {
-            body { padding: 12px; }
-            .stats { grid-template-columns: 1fr 1fr; }
-            .dpad { grid-template-columns: repeat(3, minmax(60px, 1fr)); }
-            .control-btn { min-width: 64px; padding: 10px; }
-        }
-    </style>
+    <title>Pokemon Red AI Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>宝可梦AI智能体 - 实时仪表盘</h1>
-            <div class="subtitle">运行监控、暂停恢复、单步调试和手动按键都集中在这里</div>
-            <div class="status-line">
-                <span class="badge" id="connectionStatus">正在连接...</span>
-                <span class="badge" id="turnCounter">回合: 0</span>
-                <span class="badge muted" id="runStateBadge">状态: 未知</span>
-                <span class="badge muted" id="manualQueueBadge">手动队列: 0</span>
+    <div class="app-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Pokemon Red AI Control Room</p>
+                <h1>实时画面、模型决策、任务焦点、检查点</h1>
+                <p class="subtitle">
+                    页面只保留真正有用的内容。核心是当前画面、当前决策、当前任务、运行控制和多检查点恢复。
+                    “视觉分析”不再单独占一个大面板，只保留对当前屏幕判断有帮助的紧凑提示。
+                </p>
+            </div>
+            <div class="header-status">
+                <div class="status-grid">
+                    <div class="pill" id="connectionPill" data-tone="warning">数据连接中</div>
+                    <div class="pill" id="runPill" data-tone="neutral">运行状态未知</div>
+                    <div class="pill" id="turnPill">回合 <strong id="turnPillValue">0</strong></div>
+                    <div class="pill" id="checkpointPill">检查点 <strong id="checkpointPillValue">0</strong></div>
+                    <div class="pill" id="resumePill">自动续跑 <strong id="resumePillValue">-</strong></div>
+                </div>
+                <div class="pill mono" id="statusDetailPill">最近更新: -</div>
             </div>
         </header>
 
-        <div class="panel controls-panel">
-            <h2>控制台</h2>
-            <div class="controls-grid">
-                <div class="control-stack">
-                    <div class="control-block">
-                        <div class="section-title">自动运行控制</div>
-                        <div class="button-row">
-                            <button class="control-btn warning" id="pauseBtn">暂停</button>
-                            <button class="control-btn primary" id="resumeBtn">继续</button>
-                            <button class="control-btn accent" id="stepBtn">单步</button>
-                            <button class="control-btn" id="checkpointBtn">存检查点</button>
-                            <button class="control-btn danger" id="stopBtn">停止</button>
+        <main class="layout">
+            <section class="stack">
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Live Screen</p>
+                            <h2>游戏画面</h2>
+                            <p class="panel-note">优先使用 MJPEG 实时流。只有当流不可用时，才退回低频截图。</p>
+                        </div>
+                        <div class="tag-row">
+                            <span class="tag" id="screenTypeTag">SCREEN_TYPE unknown</span>
+                            <span class="tag" id="visionModeTag">raw screenshot + RAM</span>
+                            <span class="tag" id="phaseTag">phase unknown</span>
                         </div>
                     </div>
 
-                    <div class="control-block">
-                        <div class="section-title">手动按键</div>
-                        <div class="small muted" style="margin-bottom: 10px;">手动操作前建议先暂停自动运行，避免和模型决策互相抢按键。</div>
-                        <div class="dpad" style="margin-bottom: 12px;">
-                            <div class="spacer control-btn">.</div>
-                            <button class="control-btn" data-manual-action="up">上</button>
-                            <div class="spacer control-btn">.</div>
-                            <button class="control-btn" data-manual-action="left">左</button>
-                            <button class="control-btn" data-manual-action="wait">等待</button>
-                            <button class="control-btn" data-manual-action="right">右</button>
-                            <div class="spacer control-btn">.</div>
-                            <button class="control-btn" data-manual-action="down">下</button>
-                            <div class="spacer control-btn">.</div>
+                    <div class="stream-shell">
+                        <img id="streamImage" src="/stream.mjpg" alt="游戏实时画面">
+                        <img id="fallbackImage" alt="游戏截图" hidden>
+                        <div class="stream-placeholder" id="streamPlaceholder">等待游戏画面和模型状态…</div>
+                    </div>
+
+                    <div class="screen-insights">
+                        <div class="insight-card">
+                            <span class="insight-label">屏幕理解</span>
+                            <p class="insight-value" id="screenSummary">等待状态更新</p>
                         </div>
-                        <div class="button-row">
-                            <button class="control-btn" data-manual-action="a">A</button>
-                            <button class="control-btn" data-manual-action="b">B</button>
-                            <button class="control-btn" data-manual-action="start">Start</button>
-                            <button class="control-btn" data-manual-action="select">Select</button>
+                        <div class="insight-card">
+                            <span class="insight-label">Harness 提示</span>
+                            <p class="insight-value" id="harnessSummary">-</p>
+                        </div>
+                        <div class="insight-card">
+                            <span class="insight-label">移动反馈</span>
+                            <p class="insight-value" id="movementSummary">-</p>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="control-block control-meta">
-                    <div class="stat">
-                        <div class="label">控制状态</div>
-                        <div class="value" id="controlMode">未知</div>
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Model Decision</p>
+                            <h2>模型当前决策</h2>
+                            <p class="panel-note">解释直接放在画面下方，便于对照当前屏幕判断模型是否在真正思考。</p>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="label">最近命令</div>
-                        <div id="lastControlCommand">-</div>
-                        <div class="small" id="lastControlAt">-</div>
+
+                    <div class="decision-grid">
+                        <div class="decision-card">
+                            <div class="metric-label">动作</div>
+                            <div class="decision-action mono" id="decisionAction">WAIT</div>
+                            <div class="decision-meta">
+                                <div>决策回合: <span id="decisionTurn">-</span></div>
+                                <div>模型屏幕类型: <span id="decisionScreenType">-</span></div>
+                                <div>时间: <span id="decisionTime">-</span></div>
+                            </div>
+                        </div>
+                        <div class="decision-card">
+                            <div class="metric-label">解释</div>
+                            <p class="reasoning" id="decisionReasoning">等待首个模型决策…</p>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="label">控制反馈</div>
-                        <div id="controlFeedback">等待控制命令</div>
-                        <div class="small" id="controlError">-</div>
+                </section>
+
+                <div class="split-grid">
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Recent Decisions</p>
+                                <h2>近期决策</h2>
+                            </div>
+                        </div>
+                        <div class="history-list" id="historyList">
+                            <div class="list-item empty-state">还没有决策记录。</div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Runtime Events</p>
+                                <h2>运行事件</h2>
+                            </div>
+                        </div>
+                        <div class="event-list" id="eventList">
+                            <div class="list-item empty-state">等待运行事件。</div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <aside class="stack">
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Session Controls</p>
+                            <h2>运行控制</h2>
+                            <p class="panel-note">保留最需要的控制。手动按键被下沉到高级工具，避免误触和页面拥挤。</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="grid">
-            <div class="panel">
-                <h2>游戏状态</h2>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="label">回合</div>
-                        <div class="value" id="statTurn">0</div>
+                    <div class="button-grid">
+                        <button type="button" data-command="pause">暂停</button>
+                        <button type="button" data-command="resume" data-variant="primary">继续</button>
+                        <button type="button" data-command="step">单步</button>
+                        <button type="button" data-command="checkpoint" data-variant="warning">保存检查点</button>
+                        <button type="button" data-command="load_latest_checkpoint">加载最新</button>
+                        <button type="button" data-command="stop" data-variant="danger">停止运行</button>
                     </div>
-                    <div class="stat">
-                        <div class="label">徽章</div>
-                        <div class="value" id="statBadges">0/8</div>
+
+                    <div class="control-summary">
+                        <div class="metric-card">
+                            <div class="metric-label">执行状态</div>
+                            <div class="metric-value" id="controlStateValue">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">单步预算</div>
+                            <div class="metric-value" id="stepBudgetValue">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">手动队列</div>
+                            <div class="metric-value" id="manualQueueValue">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">最近命令</div>
+                            <div class="metric-value mono" id="lastCommandValue">-</div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="label">金币</div>
-                        <div class="value" id="statMoney">$0</div>
+
+                    <div class="list-block">
+                        <p class="list-title">恢复状态</p>
+                        <div class="list">
+                            <div class="list-item">
+                                <strong>最近保存</strong>
+                                <p id="latestCheckpointInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>当前恢复源</strong>
+                                <p id="restoredCheckpointInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>API 冷却</strong>
+                                <p id="apiCooldownInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>控制错误</strong>
+                                <p id="controlErrorInfo">无</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="label">队伍</div>
-                        <div class="value" id="statParty">0</div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Goals And Todo</p>
+                            <h2>当前任务</h2>
+                            <p class="panel-note">展示即时焦点、阶段目标和待办。已完成项保留少量历史，够用即可。</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="section-title">位置</div>
-                <div class="stat">
-                    <div id="positionInfo">地图: ?, 坐标: (?, ?)</div>
-                </div>
+                    <div class="focus-card">
+                        <div class="focus-label">即时焦点</div>
+                        <p class="focus-text" id="focusText">等待目标加载…</p>
+                    </div>
 
-                <div class="section-title">徽章</div>
-                <div class="list" id="badgeGrid">
-                    <div class="item">岩石</div>
-                    <div class="item">蓝色</div>
-                    <div class="item">橙色</div>
-                    <div class="item">彩虹</div>
-                    <div class="item">灵魂</div>
-                    <div class="item">粉色</div>
-                    <div class="item">深红</div>
-                    <div class="item">绿色</div>
-                </div>
+                    <div class="list-block">
+                        <p class="list-title">进行中的目标</p>
+                        <div class="list" id="activeGoalsList">
+                            <div class="list-item empty-state">暂无活动目标。</div>
+                        </div>
+                    </div>
 
-                <div class="section-title">队伍宝可梦</div>
-                <div class="list" id="partyList">
-                    <div class="item small" style="text-align:center;">无宝可梦</div>
-                </div>
+                    <div class="list-block">
+                        <p class="list-title">待办</p>
+                        <div class="list" id="todoList">
+                            <div class="list-item empty-state">暂无待办。</div>
+                        </div>
+                    </div>
 
-                <div class="section-title">探索进度</div>
-                <div class="stat">
-                    <div id="explorationInfo">当前地图: 0.0%</div>
-                    <div class="small" id="explorationDetails">格子: 0/0</div>
-                </div>
-            </div>
+                    <div class="list-block">
+                        <p class="list-title">最近完成</p>
+                        <div class="list" id="doneList">
+                            <div class="list-item empty-state">暂无已完成记录。</div>
+                        </div>
+                    </div>
+                </section>
 
-            <div class="panel">
-                <h2>游戏画面</h2>
-                <img id="screenshot" alt="游戏画面">
-                <div class="placeholder" id="screenshotPlaceholder">等待游戏画面...</div>
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Checkpoint Slots</p>
+                            <h2>多检查点</h2>
+                            <p class="panel-note">最近检查点直接可见、可恢复。默认支持自动从最新检查点续跑，不再每次都从命名开始。</p>
+                        </div>
+                    </div>
 
-                <h2 style="margin-top: 16px;">最新AI决策</h2>
-                <div class="stat" id="latestDecision">
-                    <div class="value" id="latestAction">等待首次决策...</div>
-                    <div class="small" id="latestReasoning"></div>
-                </div>
+                    <div class="checkpoint-list" id="checkpointList">
+                        <div class="checkpoint-card">
+                            <p class="empty-state">暂无检查点。</p>
+                        </div>
+                    </div>
+                </section>
 
-                <h2 style="margin-top: 16px;">视觉分析</h2>
-                <div class="stat" id="visualAnalysis">
-                    <div id="visualDesc">描述: -</div>
-                    <div class="small" id="visualElements">元素: -</div>
-                </div>
-            </div>
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Compact Summary</p>
+                            <h2>会话摘要</h2>
+                        </div>
+                    </div>
 
-            <div class="panel">
-                <h2>当前目标</h2>
-                <div class="list" id="goalsList">
-                    <div class="item small" style="text-align:center;">未设置目标</div>
-                </div>
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <div class="metric-label">回合</div>
+                            <div class="metric-value" id="statTurn">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">徽章</div>
+                            <div class="metric-value" id="statBadges">0 / 8</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">金钱</div>
+                            <div class="metric-value mono" id="statMoney">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">队伍</div>
+                            <div class="metric-value" id="statParty">0</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">地图</div>
+                            <div class="metric-value mono" id="statMap">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">坐标</div>
+                            <div class="metric-value mono" id="statCoords">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">探索率</div>
+                            <div class="metric-value" id="statExplore">0%</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-label">前沿点</div>
+                            <div class="metric-value" id="statFrontier">0</div>
+                        </div>
+                    </div>
+                </section>
 
-                <h2 style="margin-top: 16px;">事件</h2>
-                <div class="list" id="eventLog">
-                    <div class="item event milestone">系统已初始化</div>
-                </div>
-            </div>
-        </div>
+                <section class="panel">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Party</p>
+                            <h2>队伍</h2>
+                        </div>
+                    </div>
 
-        <div class="panel" style="margin-top: 16px;">
-            <h2>决策历史</h2>
-            <div class="history" id="historyList">
-                <div class="item small" style="text-align:center; padding: 12px;">等待决策...</div>
-            </div>
-        </div>
+                    <div class="party-list" id="partyList">
+                        <div class="list-item empty-state">尚未获得宝可梦。</div>
+                    </div>
+                </section>
+
+                <details class="panel">
+                    <summary>
+                        <div class="panel-head" style="margin-bottom: 0;">
+                            <div>
+                                <p class="panel-kicker">Advanced Tools</p>
+                                <h2>高级工具</h2>
+                                <p class="panel-note">仅在暂停时发送手动按键。保留给调试和救援，不作为主交互。</p>
+                            </div>
+                        </div>
+                    </summary>
+
+                    <div class="advanced-grid">
+                        <button type="button" data-manual="up">上</button>
+                        <button type="button" data-manual="down">下</button>
+                        <button type="button" data-manual="left">左</button>
+                        <button type="button" data-manual="right">右</button>
+                        <button type="button" data-manual="a">A</button>
+                        <button type="button" data-manual="b">B</button>
+                        <button type="button" data-manual="start">Start</button>
+                        <button type="button" data-manual="select">Select</button>
+                        <button type="button" data-manual="wait">Wait</button>
+                        <button type="button" id="refreshButton">刷新数据</button>
+                    </div>
+                </details>
+            </aside>
+        </main>
     </div>
 
-    <script>
-        const socket = io();
-
-        const pauseBtn = document.getElementById('pauseBtn');
-        const resumeBtn = document.getElementById('resumeBtn');
-        const stepBtn = document.getElementById('stepBtn');
-        const checkpointBtn = document.getElementById('checkpointBtn');
-        const stopBtn = document.getElementById('stopBtn');
-        const manualButtons = Array.from(document.querySelectorAll('[data-manual-action]'));
-
-        function setFeedback(message, error = '') {
-            document.getElementById('controlFeedback').textContent = message || '等待控制命令';
-            document.getElementById('controlError').textContent = error || '-';
-        }
-
-        function formatTime(isoText) {
-            if (!isoText) return '-';
-            const d = new Date(isoText);
-            return Number.isNaN(d.getTime()) ? isoText : d.toLocaleString();
-        }
-
-        function updateControlState(state) {
-            if (!state) return;
-
-            const running = !!state.running;
-            const paused = !!state.paused;
-            const stepBudget = state.step_budget || 0;
-            const manualQueueSize = state.manual_queue_size || 0;
-
-            const runStateBadge = document.getElementById('runStateBadge');
-            const controlMode = document.getElementById('controlMode');
-            const manualQueueBadge = document.getElementById('manualQueueBadge');
-
-            runStateBadge.className = 'badge';
-            if (!running) {
-                runStateBadge.textContent = '状态: 已停止';
-                runStateBadge.classList.add('danger');
-                controlMode.textContent = '已停止';
-            } else if (paused) {
-                runStateBadge.textContent = '状态: 已暂停';
-                runStateBadge.classList.add('warning');
-                controlMode.textContent = `已暂停${stepBudget ? ` / 单步剩余 ${stepBudget}` : ''}`;
-            } else {
-                runStateBadge.textContent = '状态: 运行中';
-                controlMode.textContent = '自动运行中';
-            }
-
-            manualQueueBadge.textContent = `手动队列: ${manualQueueSize}`;
-            document.getElementById('lastControlCommand').textContent = state.last_command || '-';
-            document.getElementById('lastControlAt').textContent = formatTime(state.last_command_at);
-            if (state.last_error) {
-                setFeedback('最近命令执行有反馈', state.last_error);
-            }
-
-            pauseBtn.disabled = !running || paused;
-            resumeBtn.disabled = !running || !paused;
-            stepBtn.disabled = !running;
-            checkpointBtn.disabled = !running;
-            stopBtn.disabled = !running;
-            manualButtons.forEach(btn => {
-                btn.disabled = !running || !paused;
-            });
-        }
-
-        async function refreshControlState() {
-            try {
-                const resp = await fetch('/api/control/state');
-                if (!resp.ok) return;
-                const state = await resp.json();
-                updateControlState(state);
-            } catch (err) {
-                setFeedback('读取控制状态失败', String(err));
-            }
-        }
-
-        async function sendControl(command, value = null) {
-            try {
-                const resp = await fetch('/api/control', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ command, value })
-                });
-                const data = await resp.json();
-                if (data.state) {
-                    updateControlState(data.state);
-                }
-                setFeedback(data.message || '命令已发送', data.ok ? '' : (data.message || '控制命令失败'));
-            } catch (err) {
-                setFeedback('控制命令发送失败', String(err));
-            }
-        }
-
-        pauseBtn.addEventListener('click', () => sendControl('pause'));
-        resumeBtn.addEventListener('click', () => sendControl('resume'));
-        stepBtn.addEventListener('click', () => sendControl('step'));
-        checkpointBtn.addEventListener('click', () => sendControl('checkpoint'));
-        stopBtn.addEventListener('click', () => sendControl('stop'));
-        manualButtons.forEach(btn => {
-            btn.addEventListener('click', () => sendControl('manual_action', btn.dataset.manualAction));
-        });
-
-        socket.on('connect', () => {
-            const cs = document.getElementById('connectionStatus');
-            cs.textContent = '已连接';
-            cs.style.background = '#22c55e';
-            refreshControlState();
-        });
-
-        socket.on('disconnect', () => {
-            const cs = document.getElementById('connectionStatus');
-            cs.textContent = '已断开';
-            cs.style.background = '#ef4444';
-        });
-
-        socket.on('control_state_update', (state) => {
-            updateControlState(state);
-        });
-
-        socket.on('state_update', (state) => {
-            document.getElementById('turnCounter').textContent = `回合: ${state.turn || 0}`;
-            document.getElementById('statTurn').textContent = state.turn || 0;
-            document.getElementById('statBadges').textContent = `${state.badges || 0}/8`;
-            document.getElementById('statMoney').textContent = state.money ? `$${state.money}` : '$0';
-            document.getElementById('statParty').textContent = state.party_size || 0;
-
-            const pos = state.position || {};
-            document.getElementById('positionInfo').textContent =
-                `地图: ${pos.map_id ?? '?'}, 坐标: (${pos.x ?? '?'}, ${pos.y ?? '?'})`;
-
-            if (state.exploration) {
-                const explored = state.exploration.explored_tiles || 0;
-                const total = state.exploration.total_tiles || 0;
-                const percent = state.exploration.percentage ?? state.exploration.exploration_percent ?? 0;
-                document.getElementById('explorationInfo').textContent = `当前地图: ${percent}%`;
-                document.getElementById('explorationDetails').textContent = `格子: ${explored}/${total}`;
-            }
-
-            if (state.visual) {
-                const elements = state.visual.detailed_elements || state.visual.elements || '-';
-                document.getElementById('visualDesc').textContent = `描述: ${state.visual.description || '-'}`;
-                document.getElementById('visualElements').textContent =
-                    `元素: ${Array.isArray(elements) ? elements.join(' / ') : elements}`;
-            }
-
-            if (typeof state.badges === 'number') {
-                const badgeGrid = document.getElementById('badgeGrid').children;
-                for (let i = 0; i < badgeGrid.length; i++) {
-                    badgeGrid[i].style.opacity = i < state.badges ? '1' : '0.4';
-                }
-            }
-
-            const partyList = document.getElementById('partyList');
-            partyList.innerHTML = '';
-            const party = state.party || [];
-            if (!party.length) {
-                partyList.innerHTML = '<div class="item small" style="text-align:center;">无宝可梦</div>';
-            } else {
-                party.forEach(p => {
-                    const div = document.createElement('div');
-                    const hpText = p.max_hp ? `${p.current_hp || 0}/${p.max_hp}` : (p.hp || '?');
-                    div.className = 'item';
-                    div.innerHTML = `<strong>${p.species || p.name || '未知'}</strong> — 等级 ${p.level || '?'} | HP ${hpText}`;
-                    partyList.appendChild(div);
-                });
-            }
-        });
-
-        socket.on('decision_update', (decision) => {
-            document.getElementById('latestAction').textContent = `动作: ${decision.action || 'wait'}`;
-            document.getElementById('latestReasoning').textContent = decision.reasoning || '';
-
-            const history = document.getElementById('historyList');
-            const item = document.createElement('div');
-            item.className = 'item';
-            item.innerHTML = `<div><strong>回合 ${decision.turn ?? '-'}</strong> — 动作: ${decision.action || 'wait'}</div>
-                              <div class="small">${decision.reasoning || ''}</div>
-                              <div class="small">${decision.timestamp || ''}</div>`;
-            if (history.children.length && history.children[0].classList.contains('small')) {
-                history.innerHTML = '';
-            }
-            history.prepend(item);
-            while (history.children.length > 100) history.removeChild(history.lastChild);
-        });
-
-        socket.on('screenshot_update', (data) => {
-            const img = document.getElementById('screenshot');
-            const ph = document.getElementById('screenshotPlaceholder');
-            img.src = data.image;
-            img.style.display = 'block';
-            ph.style.display = 'none';
-        });
-
-        socket.on('goals_update', (data) => {
-            const list = document.getElementById('goalsList');
-            list.innerHTML = '';
-            const goals = data.goals || [];
-            if (!goals.length) {
-                list.innerHTML = '<div class="item small" style="text-align:center;">未设置目标</div>';
-                return;
-            }
-            goals.forEach(g => {
-                if (!g.description) return;
-                const div = document.createElement('div');
-                div.className = 'item';
-                div.innerHTML = `<strong>${g.type}</strong>: ${g.description}`;
-                list.appendChild(div);
-            });
-        });
-
-        socket.on('event', (evt) => {
-            const log = document.getElementById('eventLog');
-            const div = document.createElement('div');
-            div.className = `item event ${evt.type || 'info'}`;
-            div.innerHTML = `<div>${evt.message || ''}</div><div class="small">${evt.timestamp || ''}</div>`;
-            log.prepend(div);
-            while (log.children.length > 50) log.removeChild(log.lastChild);
-        });
-
-        refreshControlState();
-    </script>
+    <div class="toast" id="toast"></div>
+    <script src="/static/dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,446 @@
+{
+  "start_turn": 18396,
+  "end_turn": 18433,
+  "turn_delta": 37,
+  "reached_playable": false,
+  "final_state": {
+    "badges": 0,
+    "deltas": {
+      "battle_toggled": false,
+      "money_delta": 0,
+      "movement_stall_turns": 9,
+      "position_changed": false,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    },
+    "exploration": {
+      "current_map": null,
+      "exploration_percent": 0.0,
+      "explored_tiles": 0,
+      "total_tiles": 0
+    },
+    "in_battle": false,
+    "money": 3000,
+    "navigation": {
+      "available": false,
+      "blocked_directions": [],
+      "current_visit_count": 0,
+      "frontier_count": 0,
+      "known_exits": {},
+      "local_map": [],
+      "nearest_frontier": null
+    },
+    "party": [],
+    "party_size": 0,
+    "phase_hint": null,
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 7
+    },
+    "pre_starter_script": true,
+    "pre_world": false,
+    "timestamp": "2026-03-22T03:28:36.613654",
+    "turn": 18433,
+    "visual": {
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "frame_number": 18433,
+      "local_analysis_enabled": false,
+      "model_screen_type_hint": "dialogue",
+      "ram_screen_type": "dialogue",
+      "screen_size": "(160, 144)",
+      "screen_type": "dialogue"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18395,
+      "action": "restore",
+      "screen_type": "indoor",
+      "reasoning": "Restored checkpoint checkpoint_18395",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18396,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot still shows the player sprite on Professor Oak’s white intro background with an active bottom text box reading “and adventures wi,” which is clearly mid-sentence in the scripted opening sequence, so pressing A is the correct way to continue the dialogue.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18397,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot still shows the player sprite on Professor Oak’s white intro background with an active text box reading “and adventures with POKéM,” which is clearly mid-sentence in the scripted opening and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18398,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on Professor Oak’s white intro background with an active text box reading “and adventures with POKéMON” and a continuation arrow in the lower-right, which indicates the scripted opening dialogue is still waiting for the confirm button to advance.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18399,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on Professor Oak’s white intro background with an active text box reading “with POKéMON awa,” which is clearly mid-sentence in the scripted opening sequence and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18400,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player character on the white Professor Oak intro background with an active text box reading “with POKéMON awaits! Le”, which is clearly mid-sentence in the scripted opening sequence, so pressing A will advance the dialogue.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18401,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on Professor Oak’s white intro background with an active text box reading “with POKéMON awaits! Let’s go!”, which is still scripted introduction dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18402,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on Professor Oak’s white intro background with the dialogue box displaying “with POKéMON awaits! Let’s go!” and no menu choices, so this is still scripted intro text that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18403,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on Professor Oak’s white intro background with a bottom text box reading “with POKéMON awaits! Let’s go!” and no menu options, so this is still scripted intro dialogue that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18404,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on the white Professor Oak intro background with a bottom text box reading “with POKéMON awaits! Let’s go!”, which is still scripted dialogue and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18405,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on the white Professor Oak intro background with a visible dialogue box reading “with POKéMON awaits! Let’s go!”, so this is still scripted intro text that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18406,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on the white Professor Oak intro background with a bottom text box reading “with POKéMON awaits! Let’s go!”, so the scripted introduction is still active and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18407,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on the white Professor Oak intro background with an active text box reading “with POKéMON awaits! Let’s go!”, so this is still scripted intro dialogue that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18408,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot still shows the player sprite on the white Professor Oak intro background with an active bottom text box reading “with POKéMON awaits! Let’s go!”, so this is scripted dialogue that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18409,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player sprite on the white Professor Oak intro background with a bottom text box clearly reading “with POKéMON awaits! Let’s go!”, so this is still scripted opening dialogue and the correct way to continue is to press the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18410,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot is completely white with no visible menu, cursor, overworld, or text box, and after many intro-dialogue advances this most likely indicates a scripted transition that should be progressed with the confirm button rather than movement.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18411,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot is entirely white with no visible text box, menu, cursor, or overworld scene, and the RAM flags also show no active text box or menu, which strongly indicates a scripted transition at the end of Professor Oak’s intro that should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18412,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom with no text box or menu open, facing the PC directly in front of him, which means the intro is over and control has returned; interacting with the PC is the correct immediate progress step to access the potion in the item storage.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18413,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player in the bedroom facing the PC with a large empty dialogue box already open at the bottom, which means the PC interaction has started and the next step is to advance that text rather than move.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18414,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom directly facing the PC with an active text box at the bottom displaying the start of the PC message (“…nnnn”), so the PC interaction is in progress and should be advanced with the confirm button rather than movement.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18415,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom facing the PC with an active text box that is already printing the PC message (“… is playi”), so the interaction is still in progress and the correct way to continue is to advance the text with A rather than move away.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18416,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom facing the PC with an active text box that currently reads part of the PC message (“… is playing the S”), so the interaction is still printing scripted text and should be advanced with the confirm button rather than moving.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18417,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom facing the PC with an active text box reading part of the standard PC message, “... is playing the SNES!”, and the continuation arrow is visible, so the interaction is still in progress and should be advanced with the confirm button.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18418,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the bedroom PC interaction with the text box reading “Playing the SNES! ...” and a continuation marker, so the text is still active and should be advanced with the confirm button rather than moving away.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18419,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the bedroom PC interaction with the text box fully reading “Playing the SNES! ...Okay!” and a continuation arrow in the lower-right, so the text is still active and should be advanced with the confirm button rather than moving away.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18420,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player still facing the bedroom PC with a text box open reading \"...Okay!\" and the next line beginning with \"It\", so the PC interaction text is still actively progressing and should be advanced with the confirm button rather than moving away.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18421,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player still facing the bedroom PC with a text box open reading “…Okay! It’s time to”, which is the middle of the PC interaction text and means the dialogue should be advanced rather than moving away.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18422,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom directly in front of the PC with a text box still open reading “…Okay! It’s time to go!”, so the PC interaction dialogue has not finished yet and should be advanced with the confirm button rather than moving.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18423,
+      "action": "down",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the player standing in the bedroom facing the PC with no visible text box or menu, which means the PC interaction has ended and control has returned, so the correct next step is to move down away from the PC to begin leaving the room.",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18433,
+      "action": "wait",
+      "screen_type": null,
+      "reasoning": "API cooldown active for 4.4s after recent request failures",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 0
+    }
+  ]
+}

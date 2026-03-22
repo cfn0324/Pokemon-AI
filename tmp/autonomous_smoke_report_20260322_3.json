@@ -1,0 +1,623 @@
+{
+  "requested_checkpoint": "checkpoint_18513",
+  "restored_checkpoint": "checkpoint_18513",
+  "latest_checkpoint": "checkpoint_18553",
+  "start_turn": 18513,
+  "end_turn": 18553,
+  "turn_delta": 40,
+  "reached_playable": false,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 4.0,
+  "final_state": {
+    "turn": 18553,
+    "timestamp": "2026-03-22T14:01:55.751607",
+    "position": {
+      "map_id": 0,
+      "x": 10,
+      "y": 1
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18553,
+      "local_analysis_enabled": false,
+      "ram_screen_type": "dialogue",
+      "model_screen_type_hint": "dialogue"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18514,
+      "action": "up",
+      "reasoning": "The screenshot shows the player outside the house in Pallet Town with free overworld control and no visible dialogue or menu. To trigger the mandatory opening event with Oak, the correct progress is to leave the house area and head north toward the tall grass above town. From the current position just south of the house door, moving up is the direct next step.",
+      "result": "After up:; moved from (5,5) to (5,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18515,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing outside the house in Pallet Town with no visible dialogue box or menu, and the mandatory early-game progress is to move away from the house and head north toward Route 1 where Oak stops you before the tall grass, so continuing upward is the correct next step.",
+      "result": "After up:; warped from map 0 (5,6) to map 37 (2,7); screen changed from overworld to indoor",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18516,
+      "action": "a",
+      "reasoning": "The screenshot is completely black, which matches the brief fade/warp transition seen when entering or exiting buildings. The last action accidentally re-entered the house from outside, and the current map/position already places the player indoors at the entrance. During this kind of transition, movement inputs are risky and often ignored or can mis-time; the safest choice is to wait through/a...",
+      "result": "After a:; no visible state change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18517,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room, not a dialogue box: the player is standing on the entrance rug facing upward, with the table and mom visible above. Since we accidentally re-entered the house and are already lined up with the front door at the bottom edge, the fastest progress is to step back out immediately. The black lower half is the same crop/boundary artifact seen earlier,...",
+      "result": "After down:; warped from map 37 (2,7) to map 0 (2,7); screen changed from indoor to overworld",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 37,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18518,
+      "action": "down",
+      "reasoning": "The screenshot shows the downstairs living room again, with the player standing on the entrance rug just inside the front door and no visible dialogue or menu. We accidentally re-entered the house from outside, so the immediate correction is to step back out through the door at the bottom edge. The text-box RAM flag is stale and should be ignored because movement is clearly available.",
+      "result": "After down:; moved from (2,7) to (5,5) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18519,
+      "action": "up",
+      "reasoning": "The screenshot clearly shows the player outside the house in Pallet Town, standing just below the door with full overworld control and no visible dialogue or menu. To trigger the mandatory opening event, we should move away from the house and head north toward the grass. Since the last accidental re-entry happened by stepping onto the doorway tile, the safest immediate move is to go up only onc...",
+      "result": "After up:; moved from (5,5) to (5,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18520,
+      "action": "left",
+      "reasoning": "The screenshot clearly shows Pallet Town outside the player house with full movement control and no visible dialogue or menu. The player is standing directly below the door, so continuing straight up risks stepping back onto the entrance tile again. To make progress toward Oak's mandatory event, first move away from the doorway and then head north through town. From this position, moving left i...",
+      "result": "After left:; moved from (5,6) to (4,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18521,
+      "action": "left",
+      "reasoning": "The screenshot shows the player outside the house in Pallet Town, standing left of the front door area and no longer directly on the doorway tile. There is no visible dialogue or menu. To avoid re-entering the house and continue the mandatory opening sequence, the best move is to keep moving away from the house while heading generally north toward the town exit. From the current position, movin...",
+      "result": "After left:; moved from (4,6) to (3,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 4,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18522,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside the player's house with full overworld control. The player is already left of the doorway and is facing left beside the northern sign/front yard area, so continuing left moves farther away from the house without risking re-entry and also positions us toward the town's west/north path toward the mandatory Oak event.",
+      "result": "After left:; moved from (3,6) to (2,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18523,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside the player’s house with full movement control and no visible dialogue or menu. The player is already safely left of the doorway, near the western edge of town, and the next mandatory progress is to head north toward the route/tall grass so Oak can trigger the opening event. From the current tile, moving up advances toward that objective while avoiding th...",
+      "result": "After up:; moved from (2,6) to (2,5) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18524,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside the player's house with normal overworld control. The player is on the west side of the house near the sign, and there is no visible dialogue or menu. To advance the mandatory opening event, we should continue heading north toward the route/tall grass area while staying away from the doorway. From the current position, moving up is open and directly prog...",
+      "result": "After up:; moved from (2,5) to (2,4) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18525,
+      "action": "up",
+      "reasoning": "The screenshot shows the player outside in Pallet Town on the west side of the house, with free movement and no visible dialogue or menu. To advance the mandatory opening sequence, we should keep moving north toward the town exit and tall grass where Oak will intercept us. From the current position, moving up continues that route and avoids the house entrance.",
+      "result": "After up:; moved from (2,4) to (2,3) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18526,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outdoors with the player standing on the west side of the house near the fence line, facing upward, and there is no visible dialogue box or menu; the open path toward the mandatory Oak trigger continues north, so moving up is the clearest progress.",
+      "result": "After up:; moved from (2,3) to (2,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18527,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outdoors in Pallet Town on the west side of the house, directly below the horizontal fence line. There is no visible dialogue or menu. The path north toward Route 1 is blocked here by the fence, while the open path continues to the right along the fence toward the town exit and the mandatory Oak event. Therefore the best progress is to move right.",
+      "result": "After right:; moved from (2,2) to (3,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18528,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outdoors on the west side of the player house. The player is directly below the horizontal fence, so going up is blocked. The open route toward the northern town exit continues to the right along the fence. There is no visible dialogue or menu, so continue navigating toward the mandatory Oak event.",
+      "result": "After right:; moved from (3,2) to (4,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18529,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outdoors in Pallet Town standing directly below the top fence line on the west side of the house, with the fence blocking movement upward and open path continuing to the right along the fence toward the town exit and the mandatory Oak event.",
+      "result": "After right:; moved from (4,2) to (5,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 4,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18530,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outside in Pallet Town above the house, standing directly below the top fence line. Up is blocked by the fence, while the open path toward the northern exit and Oak event continues to the right along this corridor. There is no visible dialogue or menu, so movement should continue right.",
+      "result": "After right:; moved from (5,2) to (6,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18531,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outdoors in Pallet Town standing directly below the horizontal fence at the top of town, so moving up is blocked, while the path clearly continues to the right toward the town exit and the mandatory Oak event; there is no visible dialogue box or menu.",
+      "result": "After right:; moved from (6,2) to (7,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 6,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18532,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outdoors with the player directly below the top fence and just left of the tall grass corridor; up is blocked by the fence, there is no visible dialogue or menu, and the open path toward the mandatory Oak event continues to the right.",
+      "result": "After right:; moved from (7,2) to (8,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 7,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18533,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outdoors with full movement control, no visible dialogue box, and the player standing directly below the top fence just left of the tall-grass corridor; since moving up is blocked by the fence and the mandatory opening event is triggered by approaching the grass from the rightward path, continuing right is the clearest progress.",
+      "result": "After right:; moved from (8,2) to (9,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18534,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Pallet Town directly below the northern tall grass entrance, centered in front of the gap between the fence posts. There is no visible dialogue box or menu. The mandatory opening event is triggered by stepping up toward/into this grass so Oak can stop us. From the current position, moving up is the correct progress.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18535,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly below the central tall grass gap in north Pallet Town. The prior up input did not move, which strongly suggests the mandatory Oak interception/script has started or is about to start from this position. There is no visible text box yet, so the safest way to advance the script is to press A rather than walk away; this matches the standing instruc...",
+      "result": "After a:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18536,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly below the tall grass entrance in north Pallet Town with no visible dialogue box yet. The previous up input did not move, which is consistent with being at the trigger point for Oak’s interception. Since the live goal says to face a blocker/script and press A if progress is blocked, the best next step is to interact/advance the pending script rat...",
+      "result": "After a:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18537,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly below the narrow entrance to the tall grass in north Pallet Town, facing up, with no visible dialogue box or menu. This is exactly where Professor Oak’s mandatory interception triggers. Since pressing up previously did not move and A did nothing, the most likely correct trigger is to attempt to step into the grass again so the script can fire.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18538,
+      "action": "up",
+      "reasoning": "The screenshot shows the player still standing directly below the tall grass entrance in north Pallet Town with no visible dialogue box. This is the exact trigger spot for Professor Oak’s interception, and repeated up from one tile below has not advanced anything. In Gen 1 the trigger is typically activated by stepping into the grass area itself from the opening, so the likely issue is that we...",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18539,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing one tile below the central fence post at the top of Pallet Town, not aligned with the actual opening into the grass. That explains why repeated up inputs were blocked. The visible gap/path into the grass is immediately to the right, between the two vertical fence columns. The correct next step is to move right to line up with the opening and then proceed...",
+      "result": "After right:; moved from (9,2) to (10,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18540,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in north Pallet Town now correctly aligned directly below the opening between the fence posts that leads into the tall grass. There is no visible dialogue box or menu, so the stale text flag should be ignored. The mandatory opening event with Professor Oak should trigger by attempting to move up into the grass from this exact position.",
+      "result": "After up:; moved from (10,2) to (10,1) on map 0; screen changed from overworld to dialogue",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18541,
+      "action": "a",
+      "reasoning": "The screenshot shows the player one step into the tall grass with a blank text box already open, and the RAM text flag is active, which means Professor Oak’s mandatory interception dialogue has started and needs to be advanced rather than moving.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18542,
+      "action": "a",
+      "reasoning": "Professor Oak's interception text has appeared with “OAK: Hey”, so the scripted dialogue is active and needs to be advanced. Movement would be ignored or incorrect here; pressing A is the standard way to continue the text.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18543,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 500: {\"error\":{\"message\":\"An error occurred while processing your request. You can retry your request, or contact us through our help center at ***.***.com if the error persists. Please include the request ID bc351056-1d61-4883-b685-f292eaaff947 in your message.（traceid: 1b39484f7e149f1812e5e768a6fde7de） (request id: 202603220601509307171714qZEiMXc)...",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18544,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.8s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18545,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.7s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18546,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.5s after recent request failures",
+      "result": "After wait:; screen changed from dialogue to overworld",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18547,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.3s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18548,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.1s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18549,
+      "action": "wait",
+      "reasoning": "API cooldown active for 5.0s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18550,
+      "action": "wait",
+      "reasoning": "API cooldown active for 4.8s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18551,
+      "action": "wait",
+      "reasoning": "API cooldown active for 4.6s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18552,
+      "action": "wait",
+      "reasoning": "API cooldown active for 4.5s after recent request failures",
+      "result": "After wait:; screen changed from overworld to dialogue",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18553,
+      "action": "wait",
+      "reasoning": "API cooldown active for 4.3s after recent request failures",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    }
+  ]
+}

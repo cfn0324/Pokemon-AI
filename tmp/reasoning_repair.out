@@ -1,0 +1,118 @@
+============================================================
+������AI������
+�������� AI ģ������
+============================================================
+
+���ڳ�ʼ��...
+
+[32m02:19:32 - Main - INFO[0m - ==================================================[0m
+[32m02:19:32 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体启动中[0m
+[32m02:19:32 - Main - INFO[0m - ==================================================[0m
+[32m02:19:32 - Main - INFO[0m - 正在初始化模拟器...[0m
+[32m02:19:32 - Emulator - INFO[0m - Initializing emulator with ROM: PokemonRed.gb[0m
+[32m02:19:32 - Emulator - INFO[0m - Emulator initialized successfully[0m
+[32m02:19:32 - MemoryReader - INFO[0m - Memory reader initialized[0m
+[32m02:19:32 - Main - INFO[0m - 模拟器初始化完成[0m
+[32m02:19:32 - Main - INFO[0m - 正在初始化状态系统...[0m
+[32m02:19:32 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m02:19:32 - MapMemory - INFO[0m - Map memory initialized[0m
+[32m02:19:32 - MapMemory - INFO[0m - Reset exploration for map 0[0m
+[32m02:19:32 - MapMemory - INFO[0m - Reset exploration for map 37[0m
+[32m02:19:32 - MapMemory - INFO[0m - Reset exploration for map 38[0m
+[32m02:19:32 - MapMemory - INFO[0m - Reset exploration for map 40[0m
+[32m02:19:32 - Main - INFO[0m - Reset stale opening-area map memory for a fresh pre-starter run[0m
+[32m02:19:32 - Main - INFO[0m - Harness-side pixel vision disabled; using raw screenshots plus RAM only[0m
+[32m02:19:32 - Main - INFO[0m - 状态系统初始化完成[0m
+[32m02:19:32 - Main - INFO[0m - 正在初始化AI智能体...[0m
+[32m02:19:32 - MainAgent - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:19:32 - ContextManager - INFO[0m - Context manager initialized (max_turns=100, keep_recent=20)[0m
+[32m02:19:32 - Summarizer - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:19:32 - Summarizer - INFO[0m - Summarizer initialized[0m
+[32m02:19:32 - GoalManager - INFO[0m - Goal manager initialized[0m
+[32m02:19:32 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:32 - GoalManager - INFO[0m - MILESTONE: LONG-TERM MISSION: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m02:19:32 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:32 - MainAgent - INFO[0m - Main agent initialized[0m
+[32m02:19:32 - Pathfinder - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:19:32 - Pathfinder - INFO[0m - Pathfinder agent initialized[0m
+[32m02:19:32 - PuzzleSolver - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:19:32 - PuzzleSolver - INFO[0m - Puzzle solver agent initialized[0m
+[32m02:19:32 - Critic - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:19:32 - Critic - INFO[0m - Critic agent initialized[0m
+[32m02:19:32 - Main - INFO[0m - AI智能体初始化完成[0m
+[32m02:19:32 - Main - INFO[0m - 正在初始化工具...[0m
+[32m02:19:32 - ActionExecutor - INFO[0m - Action executor initialized[0m
+[32m02:19:32 - ProgressTracker - INFO[0m - Progress tracker initialized[0m
+[32m02:19:32 - Visualizer - INFO[0m - Visualizer initialized on port 5000[0m
+[32m02:19:32 - Main - INFO[0m - 工具初始化完成[0m
+[32m02:19:32 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18314\emulator.state[0m
+[32m02:19:32 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18314/context.json (0 summaries, 36 recent turns)[0m
+[32m02:19:32 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18314/goals.json[0m
+[32m02:19:32 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18314[0m
+[32m02:19:32 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18314\progress.json[0m
+[32m02:19:32 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m02:19:32 - GoalManager - INFO[0m - REMOVED TODO: Explore unseen tiles systematically until you find the door, stairs, or story trigger.[0m
+[32m02:19:32 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): Do not think about the Champion yet. First leave the room, leave the house, and obtain the first Pokemon. If the exit is not visible, explore unseen tiles until it appears.[0m
+[32m02:19:32 - Main - INFO[0m - Auto-restored latest checkpoint checkpoint_18314[0m
+[32m02:19:32 - Visualizer - INFO[0m - Visualizer server started on http://localhost:5000[0m
+[32m02:19:32 - Main - INFO[0m - 可视化仪表板可访问：http://localhost:5000[0m
+ * Serving Flask app 'src.visualization.visualizer'
+ * Debug mode: off
+[32m02:19:32 - Main - INFO[0m - 宝可梦AI智能体初始化成功[0m
+[32m02:19:32 - Main - INFO[0m - ==================================================[0m
+[32m02:19:32 - Main - INFO[0m - MILESTONE: 开始游戏[0m
+[32m02:19:32 - Main - INFO[0m - ==================================================[0m
+[33m02:19:36 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m02:19:39 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot clearly shows the “YOUR NAME?” naming screen with the cursor currently on the bottom option “lower case,” so we are in the player-name entry step of the intro and should confirm the highlighted option to proceed with text entry.[0m
+[32m02:19:39 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get through the boot, title, intro dialogue, and naming flow.[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - MILESTONE: COMPLETED SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Use the screenshot itself to identify when to press A, Start, or directional inputs during the intro.[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - MILESTONE: COMPLETED TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m02:19:39 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW TERTIARY GOAL: Do not trust map coordinates or exploration memory until a real room or outdoor map appears.[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): The game is still in boot/title/intro. Ignore overworld navigation ideas and use the screenshot to progress into a real playable room.[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance past the boot or title screen.[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Start a new game if the main menu appears.[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance the intro dialogue and any naming screens.[0m
+[32m02:19:39 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Reach the first real controllable in-game room.[0m
+[33m02:19:41 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m02:19:44 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the “YOUR NAME?” entry screen with the cursor at the bottom-left option “UPPER CASE,” which indicates the game is waiting for a naming-screen selection rather than dialogue, so pressing A should confirm the highlighted keyboard mode and proceed with entering the player name.[0m
+[32m02:19:44 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m02:19:46 - Main - WARNING[0m - 已从仪表板请求停止运行[0m
+[32m02:19:46 - Visualizer - INFO[0m - Event [error]: 已请求停止运行[0m
+[33m02:19:46 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m02:19:49 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the “YOUR NAME?” character-entry screen, and the cursor is clearly pointing at the bottom option “lower case,” so the correct next step is to confirm that highlighted keyboard mode before entering letters.[0m
+[32m02:19:49 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m02:19:49 - Main - INFO[0m - 正在关闭...[0m
+[32m02:19:49 - Main - INFO[0m - 正在保存回合18317的检查点[0m
+[32m02:19:49 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18317\emulator.state[0m
+[32m02:19:49 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18317/context.json[0m
+[32m02:19:49 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18317[0m
+[32m02:19:49 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18317\progress.json[0m
+[32m02:19:49 - Main - INFO[0m - Pruned old checkpoint checkpoint_17700[0m
+[32m02:19:49 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18317[0m
+[32m02:19:49 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1659.1 hours
+Total Turns: 18317
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m02:19:49 - Visualizer - INFO[0m - Visualizer stopped[0m
+[32m02:19:49 - Emulator - INFO[0m - Stopping emulator[0m
+[32m02:19:49 - Main - INFO[0m - ==================================================[0m
+[32m02:19:49 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体已停止[0m
+[32m02:19:49 - Main - INFO[0m - ==================================================[0m
+[32m02:19:49 - Main - INFO[0m - 总回合数: 18317[0m

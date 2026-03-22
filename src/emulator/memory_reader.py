@@ -75,6 +75,16 @@ class MemoryReader:
 
         return {'x': x, 'y': y, 'map_id': map_id}
 
+    def read_player_direction(self) -> str:
+        """Read player facing direction."""
+        direction_meta = self.memory_map.get("player", {}).get("direction", {})
+        address = direction_meta.get("address")
+        if not address:
+            return "unknown"
+
+        raw = self.emulator.read_memory(int(address, 16))
+        return direction_meta.get("values", {}).get(str(raw), "unknown")
+
     def read_badges(self) -> Dict[str, bool]:
         """Read badge status.
 
@@ -200,6 +210,14 @@ class MemoryReader:
 
         return money
 
+    def read_item_count(self) -> int:
+        """Read the bag item count."""
+        item_meta = self.memory_map.get("items", {}).get("count", {})
+        address = item_meta.get("address")
+        if not address:
+            return 0
+        return self.emulator.read_memory(int(address, 16))
+
     def is_in_battle(self) -> bool:
         """Check if currently in battle.
 
@@ -209,6 +227,57 @@ class MemoryReader:
         battle_type = self.emulator.read_memory(int(self.memory_map['battle']['in_battle']['address'], 16))
         return battle_type != 0
 
+    def read_battle_info(self) -> Dict[str, Any]:
+        """Read basic enemy battle information when available."""
+        if not self.is_in_battle():
+            return {
+                "active": False,
+                "battle_type": "none",
+                "enemy_species": None,
+                "enemy_level": None,
+                "enemy_current_hp": None,
+            }
+
+        battle_meta = self.memory_map.get("battle", {})
+        battle_type_meta = battle_meta.get("type", {})
+        battle_type_raw = self.emulator.read_memory(int(battle_type_meta["address"], 16))
+        battle_type = battle_type_meta.get("values", {}).get(str(battle_type_raw), "unknown")
+
+        enemy_meta = battle_meta.get("enemy_mon", {})
+        species_id = self.emulator.read_memory(int(enemy_meta["species"]["address"], 16))
+        enemy_species = (
+            self.POKEMON_NAMES[species_id]
+            if species_id < len(self.POKEMON_NAMES)
+            else "Unknown"
+        )
+
+        return {
+            "active": True,
+            "battle_type": battle_type,
+            "enemy_species": enemy_species,
+            "enemy_level": self.emulator.read_memory(int(enemy_meta["level"]["address"], 16)),
+            "enemy_current_hp": self._read_uint16(int(enemy_meta["current_hp"]["address"], 16)),
+        }
+
+    def read_ui_state(self) -> Dict[str, Any]:
+        """Read lightweight RAM-backed UI flags."""
+        game_state_meta = self.memory_map.get("game_state", {})
+        text_box_meta = game_state_meta.get("text_box_active", {})
+        menu_meta = game_state_meta.get("menu_active", {})
+
+        text_box_active = False
+        if text_box_meta.get("address"):
+            text_box_active = self.emulator.read_memory(int(text_box_meta["address"], 16)) != 0
+
+        menu_active = False
+        if menu_meta.get("address"):
+            menu_active = self.emulator.read_memory(int(menu_meta["address"], 16)) != 0
+
+        return {
+            "text_box_active": text_box_active,
+            "menu_active": menu_active,
+        }
+
     def get_game_state_summary(self) -> Dict[str, Any]:
         """Get comprehensive game state summary.
 
@@ -217,9 +286,13 @@ class MemoryReader:
         """
         return {
             'position': self.read_player_position(),
+            'direction': self.read_player_direction(),
             'badges': self.read_badges(),
             'badge_count': self.count_badges(),
             'party': self.read_party(),
             'money': self.read_money(),
+            'item_count': self.read_item_count(),
             'in_battle': self.is_in_battle(),
+            'battle': self.read_battle_info(),
+            'ui': self.read_ui_state(),
         }

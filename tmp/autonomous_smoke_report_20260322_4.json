@@ -1,0 +1,413 @@
+{
+  "requested_checkpoint": "checkpoint_18553",
+  "restored_checkpoint": "checkpoint_18553",
+  "latest_checkpoint": "checkpoint_18578",
+  "start_turn": 18553,
+  "end_turn": 18578,
+  "turn_delta": 25,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18578,
+    "timestamp": "2026-03-22T14:04:48.138798",
+    "position": {
+      "map_id": 0,
+      "x": 10,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18578,
+      "local_analysis_enabled": false,
+      "ram_screen_type": "overworld",
+      "model_screen_type_hint": "dialogue"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18554,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak standing in front of the player with a text box displaying “OAK:”. This is the mandatory opening dialogue after stepping into the tall grass. Since text is active, the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18555,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s mandatory Pallet Town interception dialogue with the text box active reading “OAK: It’s unsa…”. This is an in-progress text sequence, so the correct action is to advance the dialogue rather than move.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18556,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s scripted opening dialogue in Pallet Town with the text box active: “OAK: It’s unsafe! Wild”. This is an in-progress mandatory text sequence, so the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18557,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s scripted interception text box in Pallet Town: “OAK: It’s unsafe! Wild POKEMON”. This is mandatory dialogue with the text box active, so the correct next step is to advance it with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18558,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's scripted interception text with an active dialogue box: “OAK: It’s unsafe! Wild POKEMON live▼”. The down-arrow indicates more text remains, so the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18559,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s mandatory opening dialogue with an active text box reading “Wild POKEMON live in”. This is still scripted text and the next step is to advance it with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18560,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s mandatory opening dialogue still active, with the text box reading “Wild POKEMON live in tall gra…”. This is mid-sentence and the text box is active, so the correct action is to continue advancing the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18561,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's mandatory opening dialogue still active, with the text box reading “Wild POKEMON live in tall grass!” and a continuation arrow in the lower-right. Since text is active and more dialogue remains, the correct action is to press A to advance.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18562,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak blocking the player at the tall grass with an empty but active text box. This indicates the scripted dialogue is still in progress and waiting to be advanced. Movement is not appropriate here; pressing A should continue the next line.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18563,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak standing in front of the player with an active text box reading “You nee”, which is mid-sentence in the mandatory opening script. Since dialogue is active and more text remains, the correct action is to press A to advance.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18564,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's active dialogue box reading “You need your o”, which is mid-sentence in the mandatory opening script. Text is active and there is no player control for movement yet, so the correct next action is to advance the dialogue.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18565,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s active text box during the mandatory opening script, currently reading “You need your own POKéMO”, which is mid-sentence. Text is still active, so the correct action is to continue advancing the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18566,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s scripted text box still active in Pallet Town, currently reading “You need your own POKéMON for yo”, which is mid-sentence. Since dialogue is in progress and player movement is not appropriate, the correct next step is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18567,
+      "action": "a",
+      "reasoning": "Professor Oak’s mandatory opening dialogue is still active. The text box reads “You need your own POKéMON for your” with a continuation arrow, so the correct action is to advance the text rather than move.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18568,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s active scripted text box in Pallet Town, currently reading “POKéMON for your pro”, which is mid-sentence in the mandatory opening sequence. Text is still active, so the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18569,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s mandatory opening dialogue still active, with the text box reading “POKéMON for your protection,” which is part of the same scripted sequence and not a point for movement. The correct action is to continue advancing the text.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18570,
+      "action": "a",
+      "reasoning": "Professor Oak’s mandatory opening dialogue is still active. The text box shows “POKéMON for your protection.” with a continuation arrow, indicating more scripted text remains. Movement is not available here; the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18571,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's active dialogue box in Pallet Town. The text has advanced to “protection. I k”, indicating the mandatory opening script is still mid-sentence and awaiting input. Since dialogue is active and movement is not appropriate, the correct next action is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18572,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s mandatory opening dialogue still active at the tall grass. The text box reads “protection. I know!” with the continuation marker, so the correct input is to advance the scripted text rather than move.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18573,
+      "action": "a",
+      "reasoning": "Professor Oak is standing in front of the player with an active text box, currently blank between dialogue pages. This indicates the mandatory opening script is still in progress and awaiting advancement. Movement is not appropriate while the text box is open.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18574,
+      "action": "a",
+      "reasoning": "Professor Oak’s scripted interception is still in progress. The text box reads “Here, c”, which is mid-line and indicates more dialogue remains. Since the text box is active, the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18575,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s scripted opening scene with an active text box reading “Here, come with”. This is still mandatory dialogue before free control returns, so the correct input is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18576,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak blocking the player with an active text box that reads “Here, come with me!” and the text box remains open, so the scripted opening dialogue should be advanced with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18577,
+      "action": "down",
+      "reasoning": "The text box is gone and Professor Oak is standing directly below the player, facing up after finishing the interception dialogue. This is the scripted moment where he walks the player back to his lab. Control may not be fully restored yet, but the next correct step is to move downward toward town/lab with Oak.",
+      "result": "After down:; moved from (10,1) to (10,3) on map 0",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18578,
+      "action": "down",
+      "reasoning": "The screenshot shows Professor Oak directly above the player in Pallet Town with no visible text box, indicating the dialogue page has ended and the escort sequence is active, so moving down to follow him toward the lab is the correct progression.",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

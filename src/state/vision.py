@@ -81,6 +81,7 @@ class VisionProcessor:
         screen_type = self._identify_screen_type(img_array, ui_elements)
         color_analysis = self._analyze_colors(img_array)
         motion_info = self._detect_motion(img_array)
+        navigation_hints = self._estimate_navigation_hints(img_array)
 
         # 生成详细描述
         description = self._generate_detailed_description(
@@ -100,6 +101,7 @@ class VisionProcessor:
             'objects': objects,
             'color_distribution': color_analysis,
             'motion': motion_info,
+            'navigation_hints': navigation_hints,
             'regions': regions,
             'description': description,
             'detailed_elements': self._format_elements_list(ui_elements, objects, terrain_info),
@@ -116,10 +118,16 @@ class VisionProcessor:
         # 战斗屏幕
         if ui_elements.get('battle_ui'):
             return 'battle'
+        if ui_elements.get('options_menu'):
+            return 'options_menu'
+        if ui_elements.get('startup_menu'):
+            return 'startup_menu'
+        if ui_elements.get('naming_screen'):
+            return 'naming_screen'
 
-        # 文本输入/命名等全屏界面
-        if ui_elements.get('text_entry'):
-            return 'text_entry'
+        # 对话屏幕
+        if ui_elements.get('text_box') and not ui_elements.get('battle_ui'):
+            return 'dialogue'
 
         # 菜单屏幕
         if ui_elements.get('menu_open'):
@@ -131,9 +139,12 @@ class VisionProcessor:
                 return 'save_menu'
             return 'menu'
 
-        # 对话屏幕
-        if ui_elements.get('text_box') and not ui_elements.get('battle_ui'):
-            return 'dialogue'
+        if ui_elements.get('title_screen'):
+            return 'title'
+
+        # 文本输入/命名等全屏界面
+        if ui_elements.get('text_entry'):
+            return 'text_entry'
 
         # 标题屏幕（高对比度，简单布局）
         if self._is_title_screen(img_array):
@@ -150,26 +161,74 @@ class VisionProcessor:
         """检测UI元素"""
         elements = {}
         h, w = img_array.shape[:2]
+        white_ratio = self._calculate_color_ratio(img_array, 'light')
+        dark_ratio = self._calculate_color_ratio(img_array, 'dark')
+        border_row_count = self._count_full_width_dark_rows(img_array)
 
         # 检测文本框（底部深色区域）
+        elements['menu_open'] = self._has_side_menu_box(img_array)
+        elements['button_prompt'] = self._has_button_prompt(img_array)
+        elements['hp_bars'] = self._detect_hp_bars(img_array)
+        elements['options_menu'] = self._is_options_menu(
+            img_array,
+            white_ratio=white_ratio,
+            dark_ratio=dark_ratio,
+            border_row_count=border_row_count,
+        )
+        elements['startup_menu'] = self._is_startup_menu(
+            img_array,
+            white_ratio=white_ratio,
+            dark_ratio=dark_ratio,
+        )
+        elements['title_screen'] = self._is_title_screen(
+            img_array,
+            white_ratio=white_ratio,
+            border_row_count=border_row_count,
+            button_prompt=elements['button_prompt'],
+            side_menu_box=elements['menu_open'],
+            hp_bars=elements['hp_bars'],
+        )
+        elements['naming_screen'] = self._is_naming_screen(
+            img_array,
+            white_ratio=white_ratio,
+            border_row_count=border_row_count,
+        )
+        elements['menu_open'] = elements['menu_open'] or any(
+            (
+                elements['options_menu'],
+                elements['startup_menu'],
+                elements['title_screen'],
+                elements['naming_screen'],
+            )
+        )
+
         bottom_region = img_array[int(h*0.7):, :, :]
-        elements['text_box'] = self._has_text_box(bottom_region)
-
-        # 检测菜单（大面积白色背景）
-        white_ratio = self._calculate_color_ratio(img_array, 'light')
-        elements['menu_open'] = white_ratio > 0.4
-
-        # 检测命名/文本输入屏（高白底 + 高文字密度）
-        elements['text_entry'] = self._is_text_entry_screen(img_array, white_ratio=white_ratio)
+        elements['text_box'] = self._has_text_box(
+            bottom_region,
+            full_img=img_array,
+            border_row_count=border_row_count,
+            options_menu=elements['options_menu'],
+            startup_menu=elements['startup_menu'],
+            title_screen=elements['title_screen'],
+            naming_screen=elements['naming_screen'],
+        )
 
         # 检测战斗UI（HP条、战斗菜单）
         elements['battle_ui'] = self._has_battle_ui(img_array)
 
+        # 检测命名/文本输入屏（高白底 + 高文字密度）
+        elements['text_entry'] = (
+            self._is_text_entry_screen(img_array, white_ratio=white_ratio)
+            and not elements['text_box']
+            and not elements['battle_ui']
+            and not elements['options_menu']
+            and not elements['startup_menu']
+            and not elements['title_screen']
+            and not elements['naming_screen']
+        )
+
         # 检测HP条
         elements['hp_bars'] = self._detect_hp_bars(img_array)
-
-        # 检测按钮提示
-        elements['button_prompt'] = self._has_button_prompt(img_array)
 
         # 检测特定菜单类型
         if elements['menu_open']:
@@ -189,18 +248,22 @@ class VisionProcessor:
             white_ratio = self._calculate_color_ratio(img_array, 'light')
 
         # 命名界面几乎为“全屏白”，阈值故意设高以规避普通对话框
-        if white_ratio < 0.72:
+        if white_ratio < 0.86:
             return False
 
         dark_ratio = self._calculate_color_ratio(img_array, 'dark')
-        if dark_ratio < 0.008:
+        if dark_ratio < 0.015:
             return False
 
         h, w = img_array.shape[:2]
         center = img_array[int(h * 0.25): int(h * 0.85), int(w * 0.05): int(w * 0.95), :]
         center_dark = self._calculate_color_ratio(center, 'dark')
+        top = img_array[: int(h * 0.18), :, :]
+        top_light = self._calculate_color_ratio(top, 'light')
+        bottom = img_array[int(h * 0.75):, :, :]
+        bottom_dark = self._calculate_color_ratio(bottom, 'dark')
 
-        return center_dark > 0.012
+        return center_dark > 0.04 and top_light > 0.80 and bottom_dark < 0.18
 
     def _analyze_terrain(self, img_array: np.ndarray) -> Dict[str, Any]:
         """分析地形构成"""
@@ -251,6 +314,228 @@ class VisionProcessor:
         objects.extend(items)
 
         return objects
+
+    def _estimate_navigation_hints(self, img_array: np.ndarray) -> Dict[str, Any]:
+        """Estimate which movement directions look visually blocked."""
+        player_box = self._estimate_player_bbox(img_array)
+        if not player_box:
+            return self._estimate_navigation_hints_from_view(img_array)
+
+        px = int((player_box["x1"] + player_box["x2"]) / 2)
+        py = int((player_box["y1"] + player_box["y2"]) / 2)
+        directions = {
+            "up": (0, -self.GRID_SIZE),
+            "down": (0, self.GRID_SIZE),
+            "left": (-self.GRID_SIZE, 0),
+            "right": (self.GRID_SIZE, 0),
+        }
+
+        analyses: Dict[str, Dict[str, float]] = {}
+        walkable: List[Tuple[str, float]] = []
+        blocked: List[str] = []
+
+        for direction, (dx, dy) in directions.items():
+            sample = self._sample_square(img_array, px + dx, py + dy, radius=6)
+            far_sample = self._sample_square(img_array, px + (dx * 2), py + (dy * 2), radius=6)
+            if sample.size == 0:
+                blocked.append(direction)
+                analyses[direction] = {"void_ratio": 1.0, "score": -1.0}
+                continue
+
+            grayscale = np.mean(sample, axis=2)
+            void_ratio = float(np.mean(grayscale < 16))
+            dark_ratio = float(np.mean(grayscale < 48))
+            contrast = float(np.std(grayscale)) / 255.0
+            far_void_ratio = float(np.mean(np.mean(far_sample, axis=2) < 16)) if far_sample.size else 1.0
+            far_dark_ratio = float(np.mean(np.mean(far_sample, axis=2) < 48)) if far_sample.size else 1.0
+            combined_void_ratio = (void_ratio * 0.6) + (far_void_ratio * 0.4)
+            combined_dark_ratio = (dark_ratio * 0.6) + (far_dark_ratio * 0.4)
+            score = (1.0 - combined_void_ratio) + contrast - (combined_dark_ratio * 0.35)
+
+            analyses[direction] = {
+                "void_ratio": round(void_ratio, 3),
+                "far_void_ratio": round(far_void_ratio, 3),
+                "combined_void_ratio": round(combined_void_ratio, 3),
+                "dark_ratio": round(dark_ratio, 3),
+                "contrast": round(contrast, 3),
+                "score": round(score, 3),
+            }
+
+            if combined_void_ratio > 0.45 or (combined_void_ratio > 0.3 and contrast < 0.08):
+                blocked.append(direction)
+            else:
+                walkable.append((direction, score))
+
+        walkable.sort(key=lambda item: item[1], reverse=True)
+        unsafe = [
+            direction
+            for direction, values in analyses.items()
+            if direction not in blocked and float(values.get("combined_void_ratio", values.get("void_ratio", 0.0))) >= 0.30
+        ]
+
+        return {
+            "available": True,
+            "player_box": player_box,
+            "blocked_directions": blocked,
+            "unsafe_directions": unsafe,
+            "walkable_directions": [direction for direction, _ in walkable],
+            "direction_scores": {direction: score for direction, score in walkable},
+            "raw_direction_analysis": analyses,
+        }
+
+    def _estimate_navigation_hints_from_view(self, img_array: np.ndarray) -> Dict[str, Any]:
+        """Fallback navigation hints using screen-center directional sectors."""
+        h, w = img_array.shape[:2]
+        cx = w // 2
+        cy = h // 2
+        sectors = {
+            "up": img_array[max(0, cy - 20):cy, max(0, cx - 18):min(w, cx + 18)],
+            "down": img_array[cy:min(h, cy + 28), max(0, cx - 18):min(w, cx + 18)],
+            "left": img_array[max(0, cy - 18):min(h, cy + 18), max(0, cx - 28):cx],
+            "right": img_array[max(0, cy - 18):min(h, cy + 18), cx:min(w, cx + 28)],
+        }
+
+        analyses: Dict[str, Dict[str, float]] = {}
+        walkable: List[Tuple[str, float]] = []
+        blocked: List[str] = []
+
+        for direction, sample in sectors.items():
+            grayscale = np.mean(sample, axis=2)
+            void_ratio = float(np.mean(grayscale < 16))
+            dark_ratio = float(np.mean(grayscale < 48))
+            contrast = float(np.std(grayscale)) / 255.0
+            if direction == "up":
+                far_sample = img_array[max(0, cy - 36):max(0, cy - 12), max(0, cx - 16):min(w, cx + 16)]
+            elif direction == "down":
+                far_sample = img_array[min(h, cy + 12):min(h, cy + 40), max(0, cx - 16):min(w, cx + 16)]
+            elif direction == "left":
+                far_sample = img_array[max(0, cy - 16):min(h, cy + 16), max(0, cx - 40):max(0, cx - 12)]
+            else:
+                far_sample = img_array[max(0, cy - 16):min(h, cy + 16), min(w, cx + 12):min(w, cx + 40)]
+
+            far_gray = np.mean(far_sample, axis=2) if far_sample.size else np.zeros((1, 1))
+            far_void_ratio = float(np.mean(far_gray < 16)) if far_sample.size else 1.0
+            far_dark_ratio = float(np.mean(far_gray < 48)) if far_sample.size else 1.0
+            combined_void_ratio = (void_ratio * 0.6) + (far_void_ratio * 0.4)
+            combined_dark_ratio = (dark_ratio * 0.6) + (far_dark_ratio * 0.4)
+            score = (1.0 - combined_void_ratio) + contrast - (combined_dark_ratio * 0.25)
+            analyses[direction] = {
+                "void_ratio": round(void_ratio, 3),
+                "far_void_ratio": round(far_void_ratio, 3),
+                "combined_void_ratio": round(combined_void_ratio, 3),
+                "dark_ratio": round(dark_ratio, 3),
+                "contrast": round(contrast, 3),
+                "score": round(score, 3),
+            }
+
+            if combined_void_ratio > 0.58:
+                blocked.append(direction)
+            else:
+                walkable.append((direction, score))
+
+        walkable.sort(key=lambda item: item[1], reverse=True)
+        unsafe = [
+            direction
+            for direction, values in analyses.items()
+            if direction not in blocked and float(values.get("combined_void_ratio", values.get("void_ratio", 0.0))) >= 0.30
+        ]
+        return {
+            "available": True,
+            "player_box": None,
+            "blocked_directions": blocked,
+            "unsafe_directions": unsafe,
+            "walkable_directions": [direction for direction, _ in walkable],
+            "direction_scores": {direction: score for direction, score in walkable},
+            "raw_direction_analysis": analyses,
+        }
+
+    def _estimate_player_bbox(self, img_array: np.ndarray) -> Optional[Dict[str, int]]:
+        """Estimate the player's on-screen bounding box from dark connected components."""
+        grayscale = np.mean(img_array, axis=2)
+        h, w = grayscale.shape
+        search_mask = np.zeros((h, w), dtype=bool)
+        search_mask[int(h * 0.2):int(h * 0.82), int(w * 0.18):int(w * 0.82)] = True
+        dark_mask = (grayscale < 140) & (grayscale > 8) & search_mask
+
+        best_box: Optional[Dict[str, int]] = None
+        best_score = float("-inf")
+        anchor_x = w * 0.45
+        anchor_y = h * 0.58
+
+        for component in self._connected_components(dark_mask):
+            area = len(component)
+            if area < 35 or area > 260:
+                continue
+
+            ys = [pos[0] for pos in component]
+            xs = [pos[1] for pos in component]
+            x1, x2 = min(xs), max(xs)
+            y1, y2 = min(ys), max(ys)
+            box_w = x2 - x1 + 1
+            box_h = y2 - y1 + 1
+
+            if box_w < 6 or box_w > 20 or box_h < 8 or box_h > 24:
+                continue
+
+            center_x = (x1 + x2) / 2
+            center_y = (y1 + y2) / 2
+            distance_penalty = abs(center_x - anchor_x) + abs(center_y - anchor_y)
+            box = grayscale[y1:y2 + 1, x1:x2 + 1]
+            contrast_bonus = float(np.std(box)) / 255.0
+            score = contrast_bonus + (area / 220.0) - (distance_penalty / 120.0)
+
+            if score > best_score:
+                best_score = score
+                best_box = {
+                    "x1": int(x1),
+                    "y1": int(y1),
+                    "x2": int(x2),
+                    "y2": int(y2),
+                }
+
+        return best_box
+
+    def _connected_components(self, mask: np.ndarray) -> List[List[Tuple[int, int]]]:
+        """Return 4-connected components for a boolean mask."""
+        h, w = mask.shape
+        visited = np.zeros((h, w), dtype=bool)
+        components: List[List[Tuple[int, int]]] = []
+
+        for y in range(h):
+            for x in range(w):
+                if not mask[y, x] or visited[y, x]:
+                    continue
+
+                stack = [(y, x)]
+                visited[y, x] = True
+                component: List[Tuple[int, int]] = []
+
+                while stack:
+                    cy, cx = stack.pop()
+                    component.append((cy, cx))
+                    for ny, nx in ((cy - 1, cx), (cy + 1, cx), (cy, cx - 1), (cy, cx + 1)):
+                        if 0 <= ny < h and 0 <= nx < w and mask[ny, nx] and not visited[ny, nx]:
+                            visited[ny, nx] = True
+                            stack.append((ny, nx))
+
+                components.append(component)
+
+        return components
+
+    def _sample_square(
+        self,
+        img_array: np.ndarray,
+        center_x: int,
+        center_y: int,
+        radius: int = 6,
+    ) -> np.ndarray:
+        """Sample a square around a pixel center."""
+        h, w = img_array.shape[:2]
+        x1 = max(0, center_x - radius)
+        x2 = min(w, center_x + radius + 1)
+        y1 = max(0, center_y - radius)
+        y2 = min(h, center_y + radius + 1)
+        return img_array[y1:y2, x1:x2]
 
     def _analyze_colors(self, img_array: np.ndarray) -> Dict[str, float]:
         """分析颜色分布"""
@@ -331,6 +616,9 @@ class VisionProcessor:
         type_descriptions = {
             'battle': '战斗画面',
             'dialogue': '对话场景',
+            'naming_screen': 'naming screen',
+            'startup_menu': 'startup menu',
+            'options_menu': 'options menu',
             'menu': '菜单界面',
             'pokemon_menu': '宝可梦菜单',
             'item_menu': '物品菜单',
@@ -343,6 +631,12 @@ class VisionProcessor:
         # UI元素
         if ui_elements.get('text_box'):
             parts.append('显示对话框')
+        if ui_elements.get('naming_screen'):
+            parts.append('naming keyboard visible')
+        if ui_elements.get('startup_menu'):
+            parts.append('startup menu visible')
+        if ui_elements.get('options_menu'):
+            parts.append('options menu visible')
         if ui_elements.get('battle_ui'):
             parts.append('战斗界面激活')
         if ui_elements.get('hp_bars'):
@@ -395,6 +689,12 @@ class VisionProcessor:
         # UI元素
         if ui_elements.get('text_box'):
             elements.append('对话框')
+        if ui_elements.get('naming_screen'):
+            elements.append('naming screen')
+        if ui_elements.get('startup_menu'):
+            elements.append('startup menu')
+        if ui_elements.get('options_menu'):
+            elements.append('options menu')
         if ui_elements.get('menu_open'):
             elements.append('菜单')
         if ui_elements.get('battle_ui'):
@@ -424,12 +724,28 @@ class VisionProcessor:
         ratio = np.sum(mask) / (img_array.shape[0] * img_array.shape[1])
         return float(ratio)
 
-    def _has_text_box(self, region: np.ndarray) -> bool:
+    def _has_text_box(
+        self,
+        region: np.ndarray,
+        full_img: Optional[np.ndarray] = None,
+        border_row_count: Optional[int] = None,
+        options_menu: bool = False,
+        startup_menu: bool = False,
+        title_screen: bool = False,
+        naming_screen: bool = False,
+    ) -> bool:
         """检测是否有文本框"""
+        if options_menu or startup_menu or title_screen or naming_screen:
+            return False
+
         # Pokémon 红版的对话框通常是底部的浅色（白底）矩形区域，
         # 带有黑色边框与深色文字；因此应同时满足“浅色占比较高 + 有一定深色像素”。
         light_ratio = self._calculate_color_ratio(region, "light")
         dark_ratio = self._calculate_color_ratio(region, "dark")
+        if border_row_count is None and full_img is not None:
+            border_row_count = self._count_full_width_dark_rows(full_img)
+        if border_row_count is not None and not (4 <= border_row_count <= 8):
+            return False
         return light_ratio > 0.25 and dark_ratio > 0.02
 
     def _has_battle_ui(self, img_array: np.ndarray) -> bool:
@@ -469,8 +785,150 @@ class VisionProcessor:
         variance = np.var(bottom_corner)
         return variance > 500  # 有图案
 
-    def _is_title_screen(self, img_array: np.ndarray) -> bool:
+    def _has_side_menu_box(self, img_array: np.ndarray) -> bool:
+        """Detect a compact right-side menu box such as the Gen 1 START menu."""
+        h, w = img_array.shape[:2]
+        top = int(h * 0.04)
+        bottom = int(h * 0.84)
+        left = int(w * 0.56)
+        right = int(w * 0.97)
+        if bottom - top < 12 or right - left < 12:
+            return False
+
+        box = img_array[top:bottom, left:right, :]
+        border = 2
+        inner = box[border:-border, border:-border, :]
+        if inner.size == 0:
+            return False
+
+        top_band = box[:border, :, :]
+        bottom_band = box[-border:, :, :]
+        left_band = box[:, :border, :]
+        right_band = box[:, -border:, :]
+
+        top_dark = self._calculate_color_ratio(top_band, 'dark')
+        right_dark = self._calculate_color_ratio(right_band, 'dark')
+        inner_light = self._calculate_color_ratio(inner, 'light')
+        inner_dark = self._calculate_color_ratio(inner, 'dark')
+        return top_dark > 0.35 and right_dark > 0.30 and inner_light > 0.80 and inner_dark < 0.18
+
+    def _count_full_width_dark_rows(self, img_array: np.ndarray, threshold: float = 0.7) -> int:
+        """Count rows that look like full-width menu borders."""
+        gray = np.mean(img_array, axis=2)
+        row_dark = np.mean(gray < 60, axis=1)
+        return int(np.sum(row_dark > threshold))
+
+    def _is_options_menu(
+        self,
+        img_array: np.ndarray,
+        white_ratio: Optional[float] = None,
+        dark_ratio: Optional[float] = None,
+        border_row_count: Optional[int] = None,
+    ) -> bool:
+        """Detect the full-screen Pokemon options page."""
+        if white_ratio is None:
+            white_ratio = self._calculate_color_ratio(img_array, 'light')
+        if dark_ratio is None:
+            dark_ratio = self._calculate_color_ratio(img_array, 'dark')
+        if border_row_count is None:
+            border_row_count = self._count_full_width_dark_rows(img_array)
+
+        if white_ratio < 0.6 or dark_ratio < 0.12:
+            return False
+        if border_row_count < 12:
+            return False
+
+        h = img_array.shape[0]
+        upper = img_array[:int(h * 0.82), :, :]
+        bottom = img_array[int(h * 0.75):, :, :]
+        upper_dark = self._calculate_color_ratio(upper, 'dark')
+        bottom_dark = self._calculate_color_ratio(bottom, 'dark')
+        return upper_dark > 0.14 and bottom_dark < 0.18
+
+    def _is_startup_menu(
+        self,
+        img_array: np.ndarray,
+        white_ratio: Optional[float] = None,
+        dark_ratio: Optional[float] = None,
+    ) -> bool:
+        """Detect the small NEW GAME / OPTION pre-game menu."""
+        if white_ratio is None:
+            white_ratio = self._calculate_color_ratio(img_array, 'light')
+        if dark_ratio is None:
+            dark_ratio = self._calculate_color_ratio(img_array, 'dark')
+
+        if white_ratio < 0.90 or not (0.02 <= dark_ratio <= 0.12):
+            return False
+
+        h, w = img_array.shape[:2]
+        top_left = img_array[:int(h * 0.30), :int(w * 0.45), :]
+        rest = img_array[int(h * 0.30):, int(w * 0.45):, :]
+        bottom = img_array[int(h * 0.65):, :, :]
+
+        top_left_dark = self._calculate_color_ratio(top_left, 'dark')
+        rest_dark = self._calculate_color_ratio(rest, 'dark')
+        bottom_dark = self._calculate_color_ratio(bottom, 'dark')
+        return top_left_dark > 0.12 and rest_dark < 0.03 and bottom_dark < 0.02
+
+    def _is_naming_screen(
+        self,
+        img_array: np.ndarray,
+        white_ratio: Optional[float] = None,
+        border_row_count: Optional[int] = None,
+    ) -> bool:
+        """Detect the Gen 1 naming keyboard screen."""
+        if white_ratio is None:
+            white_ratio = self._calculate_color_ratio(img_array, 'light')
+        if border_row_count is None:
+            border_row_count = self._count_full_width_dark_rows(img_array)
+
+        if white_ratio < 0.78 or not (4 <= border_row_count <= 8):
+            return False
+
+        h = img_array.shape[0]
+        top = img_array[:int(h * 0.22), :, :]
+        middle = img_array[int(h * 0.22):int(h * 0.75), :, :]
+        bottom = img_array[int(h * 0.75):, :, :]
+
+        top_dark = self._calculate_color_ratio(top, 'dark')
+        middle_dark = self._calculate_color_ratio(middle, 'dark')
+        bottom_dark = self._calculate_color_ratio(bottom, 'dark')
+        middle_gray = np.mean(middle, axis=2)
+        dark_columns = int(np.sum(np.mean(middle_gray < 60, axis=0) > 0.08))
+
+        return (
+            top_dark > 0.03
+            and middle_dark > 0.09
+            and 0.08 < bottom_dark < 0.18
+            and dark_columns > 45
+        )
+
+    def _is_title_screen(
+        self,
+        img_array: np.ndarray,
+        white_ratio: Optional[float] = None,
+        border_row_count: Optional[int] = None,
+        button_prompt: Optional[bool] = None,
+        side_menu_box: Optional[bool] = None,
+        hp_bars: Optional[bool] = None,
+    ) -> bool:
         """检测标题画面"""
+        if white_ratio is None:
+            white_ratio = self._calculate_color_ratio(img_array, 'light')
+        if border_row_count is None:
+            border_row_count = self._count_full_width_dark_rows(img_array)
+        if button_prompt is None:
+            button_prompt = self._has_button_prompt(img_array)
+        if side_menu_box is None:
+            side_menu_box = self._has_side_menu_box(img_array)
+        if hp_bars is None:
+            hp_bars = self._detect_hp_bars(img_array)
+
+        if hp_bars or side_menu_box or border_row_count >= 4 or not button_prompt:
+            return False
+        if not (0.60 <= white_ratio <= 0.88):
+            return False
+
         # 标题画面通常有高对比度和简单布局
         contrast = np.std(img_array) / 255
 
@@ -479,7 +937,7 @@ class VisionProcessor:
         center = img_array[int(h*0.3):int(h*0.7), int(w*0.2):int(w*0.8), :]
         light_ratio = self._calculate_color_ratio(center, 'light')
 
-        return contrast > 0.3 and light_ratio > 0.4
+        return contrast > 0.18 and light_ratio > 0.4
 
     def _is_indoor(self, img_array: np.ndarray) -> bool:
         """检测室内场景"""

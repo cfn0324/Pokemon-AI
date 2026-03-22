@@ -1,0 +1,349 @@
+============================================================
+������AI������
+�������� AI ģ������
+============================================================
+
+���ڳ�ʼ��...
+
+[32m02:11:58 - Main - INFO[0m - ==================================================[0m
+[32m02:11:58 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体启动中[0m
+[32m02:11:58 - Main - INFO[0m - ==================================================[0m
+[32m02:11:58 - Main - INFO[0m - 正在初始化模拟器...[0m
+[32m02:11:58 - Emulator - INFO[0m - Initializing emulator with ROM: PokemonRed.gb[0m
+[32m02:11:58 - Emulator - INFO[0m - Emulator initialized successfully[0m
+[32m02:11:58 - MemoryReader - INFO[0m - Memory reader initialized[0m
+[32m02:11:58 - Main - INFO[0m - 模拟器初始化完成[0m
+[32m02:11:58 - Main - INFO[0m - 正在初始化状态系统...[0m
+[32m02:11:58 - MapMemory - INFO[0m - Loaded map memory: 3 maps explored[0m
+[32m02:11:58 - MapMemory - INFO[0m - Map memory initialized[0m
+[32m02:11:58 - MapMemory - INFO[0m - Reset exploration for map 0[0m
+[32m02:11:58 - MapMemory - INFO[0m - Reset exploration for map 37[0m
+[32m02:11:58 - MapMemory - INFO[0m - Reset exploration for map 38[0m
+[32m02:11:58 - MapMemory - INFO[0m - Reset exploration for map 40[0m
+[32m02:11:58 - Main - INFO[0m - Reset stale opening-area map memory for a fresh pre-starter run[0m
+[32m02:11:58 - Main - INFO[0m - Harness-side pixel vision disabled; using raw screenshots plus RAM only[0m
+[32m02:11:58 - Main - INFO[0m - 状态系统初始化完成[0m
+[32m02:11:58 - Main - INFO[0m - 正在初始化AI智能体...[0m
+[32m02:11:58 - MainAgent - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:11:58 - ContextManager - INFO[0m - Context manager initialized (max_turns=100, keep_recent=20)[0m
+[32m02:11:58 - Summarizer - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:11:58 - Summarizer - INFO[0m - Summarizer initialized[0m
+[32m02:11:58 - GoalManager - INFO[0m - Goal manager initialized[0m
+[32m02:11:58 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:11:58 - GoalManager - INFO[0m - MILESTONE: LONG-TERM MISSION: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m02:11:58 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:11:58 - MainAgent - INFO[0m - Main agent initialized[0m
+[32m02:11:58 - Pathfinder - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:11:58 - Pathfinder - INFO[0m - Pathfinder agent initialized[0m
+[32m02:11:58 - PuzzleSolver - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:11:58 - PuzzleSolver - INFO[0m - Puzzle solver agent initialized[0m
+[32m02:11:58 - Critic - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:11:58 - Critic - INFO[0m - Critic agent initialized[0m
+[32m02:11:58 - Main - INFO[0m - AI智能体初始化完成[0m
+[32m02:11:58 - Main - INFO[0m - 正在初始化工具...[0m
+[32m02:11:58 - ActionExecutor - INFO[0m - Action executor initialized[0m
+[32m02:11:58 - ProgressTracker - INFO[0m - Progress tracker initialized[0m
+[32m02:11:59 - Visualizer - INFO[0m - Visualizer initialized on port 5000[0m
+[32m02:11:59 - Visualizer - INFO[0m - Visualizer server started on http://localhost:5000[0m
+[32m02:11:59 - Main - INFO[0m - 可视化仪表板可访问：http://localhost:5000[0m
+ * Serving Flask app 'src.visualization.visualizer'
+ * Debug mode: off
+[32m02:11:59 - Main - INFO[0m - 工具初始化完成[0m
+[32m02:11:59 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18300\emulator.state[0m
+[32m02:11:59 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18300/context.json (0 summaries, 10 recent turns)[0m
+[32m02:11:59 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18300/goals.json[0m
+[32m02:11:59 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18300[0m
+[32m02:11:59 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18300\progress.json[0m
+[32m02:11:59 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:11:59 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m02:11:59 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): Do not think about the Champion yet. First leave the room, leave the house, and obtain the first Pokemon. If the exit is not visible, explore unseen tiles until it appears.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the current room.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the house or current building.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If the exit or stairs is not visible, explore the room perimeter and unseen tiles until you find it.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Walk toward the first mandatory NPC or lab.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If a person or script blocks progress, face them and press A.[0m
+[32m02:11:59 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Obtain the first Pokemon.[0m
+[32m02:11:59 - Main - INFO[0m - Auto-restored latest checkpoint checkpoint_18300[0m
+[32m02:11:59 - Main - INFO[0m - 宝可梦AI智能体初始化成功[0m
+[32m02:11:59 - Main - INFO[0m - ==================================================[0m
+[32m02:11:59 - Main - INFO[0m - MILESTONE: 开始游戏[0m
+[32m02:11:59 - Main - INFO[0m - ==================================================[0m
+[32m02:12:00 - Main - INFO[0m - 已从仪表板请求保存检查点[0m
+[32m02:12:00 - Visualizer - INFO[0m - Event [milestone]: 已请求保存检查点[0m
+[32m02:12:02 - MainAgent - INFO[0m - DECISION: a | Reasoning: a[0m
+[32m02:12:02 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m02:12:02 - Main - INFO[0m - 正在保存回合18301的检查点[0m
+[32m02:12:02 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18301\emulator.state[0m
+[32m02:12:02 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18301/context.json[0m
+[32m02:12:02 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18301[0m
+[32m02:12:02 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18301\progress.json[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_17200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_17100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_17000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_16000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_14000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_13000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12800[0m
+[33m02:12:02 - Visualizer - WARNING[0m - Failed to resolve control state: [WinError 2] 系统找不到指定的文件。: 'data\\checkpoints\\checkpoint_12800'[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_12000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_11000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_10000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_9000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_8000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_7000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_6000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_5000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4061[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_4000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_3000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2683[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_2000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1037[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1035[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1030[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1020[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_1000[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_900[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_801[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_800[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_715[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_700[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_683[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_659[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_600[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_531[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_530[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_515[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_500[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_456[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_437[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_426[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_400[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_349[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_322[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_300[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_226[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_222[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_217[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_215[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_200[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_195[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_189[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_180[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_178[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_175[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_170[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_162[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_130[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_122[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_112[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_108[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_100[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_92[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_89[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_72[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_44[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_28[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_24[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_15[0m
+[32m02:12:02 - Main - INFO[0m - Pruned old checkpoint checkpoint_0[0m
+[32m02:12:02 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18301[0m
+[32m02:12:02 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1658.9 hours
+Total Turns: 18301
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m02:12:02 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Explore unseen tiles systematically until you find the door, stairs, or story trigger.[0m
+[32m02:12:02 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): The route is not obvious. Stop pushing the same wall and systematically explore unseen tiles to locate the real exit, door, or stairs.[0m
+[32m02:12:04 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18301\emulator.state[0m
+[32m02:12:04 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18301/context.json (0 summaries, 22 recent turns)[0m
+[32m02:12:04 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18301/goals.json[0m
+[32m02:12:04 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18301[0m
+[32m02:12:04 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18301\progress.json[0m
+[32m02:12:04 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m02:12:04 - Main - INFO[0m - 已从仪表板加载检查点: checkpoint_18301[0m
+[32m02:12:04 - Visualizer - INFO[0m - Event [milestone]: 已加载检查点 checkpoint_18301[0m
+[32m02:12:05 - MainAgent - INFO[0m - DECISION: a | Reasoning: a[0m
+[32m02:12:05 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m02:12:06 - Main - WARNING[0m - 已从仪表板请求停止运行[0m
+[32m02:12:06 - Visualizer - INFO[0m - Event [error]: 已请求停止运行[0m
+[32m02:12:06 - Main - INFO[0m - 正在关闭...[0m
+[32m02:12:06 - Main - INFO[0m - 正在保存回合18301的检查点[0m
+[32m02:12:06 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18301\emulator.state[0m
+[32m02:12:06 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18301/context.json[0m
+[32m02:12:06 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18301[0m
+[32m02:12:06 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18301\progress.json[0m
+[32m02:12:06 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18301[0m
+[32m02:12:06 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1658.9 hours
+Total Turns: 18301
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m02:12:06 - Visualizer - INFO[0m - Visualizer stopped[0m
+[32m02:12:06 - Emulator - INFO[0m - Stopping emulator[0m
+[32m02:12:06 - Main - INFO[0m - ==================================================[0m
+[32m02:12:06 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体已停止[0m
+[32m02:12:06 - Main - INFO[0m - ==================================================[0m
+[32m02:12:06 - Main - INFO[0m - 总回合数: 18301[0m

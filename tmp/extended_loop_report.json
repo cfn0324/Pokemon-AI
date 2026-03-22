@@ -1,0 +1,334 @@
+{
+  "start_turn": 18318,
+  "end_turn": 18338,
+  "turn_delta": 20,
+  "restored_checkpoint": "checkpoint_18317",
+  "latest_checkpoint": "checkpoint_18317",
+  "state": {
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "in_battle": false,
+    "phase_hint": "dialogue",
+    "visual": {
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "frame_number": 18338,
+      "local_analysis_enabled": false,
+      "model_screen_type_hint": "dialogue",
+      "ram_screen_type": "indoor",
+      "screen_size": "(160, 144)",
+      "screen_type": "dialogue"
+    },
+    "exploration": {
+      "current_map": null,
+      "exploration_percent": 0.0,
+      "explored_tiles": 0,
+      "total_tiles": 0
+    },
+    "navigation": {
+      "available": false,
+      "blocked_directions": [],
+      "current_visit_count": 0,
+      "frontier_count": 0,
+      "known_exits": {},
+      "local_map": [],
+      "nearest_frontier": null
+    },
+    "deltas": {
+      "battle_toggled": false,
+      "money_delta": 0,
+      "movement_stall_turns": 21,
+      "position_changed": false,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "sampled_decisions": [
+    {
+      "state_turn": 18319,
+      "decision_turn": 18318,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” character entry screen, and the cursor is on the bottom-left option “UPPER CASE,” which is a naming-screen mode selector rather than the letter grid, so pressing A is the correct way to confirm the highlighted keyboard mode and proceed toward entering the player name."
+    },
+    {
+      "state_turn": 18320,
+      "decision_turn": 18319,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” character-entry screen, and the cursor is visibly on the bottom option “lower case,” so pressing A is the correct input to confirm that highlighted keyboard mode and continue the naming flow."
+    },
+    {
+      "state_turn": 18321,
+      "decision_turn": 18320,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the player naming interface labeled “YOUR NAME?” and the cursor is visibly pointing at the bottom option “UPPER CASE,” so the correct next step is to confirm this highlighted keyboard mode with A to proceed in the naming flow."
+    },
+    {
+      "state_turn": 18322,
+      "decision_turn": 18321,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so pressing A is the correct input to confirm that selection and continue the naming process."
+    },
+    {
+      "state_turn": 18322,
+      "decision_turn": 18322,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly positioned on the bottom-left option “UPPER CASE,” so the correct next step is to confirm that currently highlighted keyboard mode with A before selecting letters."
+    },
+    {
+      "state_turn": 18323,
+      "decision_turn": 18323,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so the correct next step is to press A to confirm that currently selected keyboard mode and proceed with name entry."
+    },
+    {
+      "state_turn": 18325,
+      "decision_turn": 18324,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot shows the “YOUR NAME?” entry screen with the triangular cursor clearly highlighting “UPPER CASE” at the bottom left, so the game is waiting for that selection to be confirmed before moving the cursor into the letter grid."
+    },
+    {
+      "state_turn": 18326,
+      "decision_turn": 18325,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” entry screen, and the triangular cursor is positioned on the bottom option “lower case,” indicating the game is waiting for us to confirm that keyboard mode before entering letters."
+    },
+    {
+      "state_turn": 18327,
+      "decision_turn": 18326,
+      "action": "up",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is visibly on the bottom-left option “UPPER CASE”; since repeated A presses have not advanced and only reconfirm that mode, the correct next step is to press Up to move the cursor into the letter grid and begin selecting name characters."
+    },
+    {
+      "state_turn": 18328,
+      "decision_turn": 18327,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” letter grid, and the triangular cursor is positioned directly on the letter “j” at the far left of the second row, so pressing A will actually enter the first character instead of continuing to stall on keyboard-mode toggles."
+    },
+    {
+      "state_turn": 18329,
+      "decision_turn": 18328,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” character-entry screen, the name field already contains a lowercase “j,” and the black triangular cursor is directly aligned with the letter “j” on the second row, so pressing A will input another “j” and continue name entry rather than toggling keyboard mode."
+    },
+    {
+      "state_turn": 18330,
+      "decision_turn": 18329,
+      "action": "right",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” letter-entry screen, the current name already contains “jj,” and the cursor is positioned on the letter “j” at the far left of the second row, so moving right will avoid entering a third “j” and place the cursor on “k” for continued name entry."
+    },
+    {
+      "state_turn": 18331,
+      "decision_turn": 18330,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot shows the “YOUR NAME?” entry screen with the current name already set to “jj,” and the cursor arrow is visibly pointing at the letter “m” on the second row, so pressing A will input “m” and make concrete progress in the naming flow."
+    },
+    {
+      "state_turn": 18332,
+      "decision_turn": 18331,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, the current name already reads “jjn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will enter “m” and make progress in finishing the player name."
+    },
+    {
+      "state_turn": 18333,
+      "decision_turn": 18332,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the player naming screen (“YOUR NAME?”), the current entered name is “jjnn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will add “m” and continue progressing through the intro naming flow."
+    },
+    {
+      "state_turn": 18334,
+      "decision_turn": 18333,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the player naming screen showing the current name as “jjnnn,” and the triangular cursor is clearly positioned on the letter “m” in the second row, so pressing A will enter “m” and continue progressing through the intro instead of stalling on mode-selection buttons."
+    },
+    {
+      "state_turn": 18335,
+      "decision_turn": 18334,
+      "action": "start",
+      "screen_type": "naming_screen",
+      "reasoning": "The screenshot is the Pokémon Red “YOUR NAME?” entry screen, the six-character name field is already completely filled as “jjnnnn,” and the cursor is still in the letter grid pointing around “m,” so the correct way to finalize a full name and advance the intro is to press START rather than adding another character."
+    },
+    {
+      "state_turn": 18336,
+      "decision_turn": 18335,
+      "action": "a",
+      "screen_type": "naming_screen",
+      "reasoning": "The screen is completely white immediately after using START on a full six-character player name, which is consistent with a brief transition/flash as the intro accepts the name and advances, so the safest way to continue the scripted flow is to press A to move through the next unseen dialogue/state rather than altering input mode again."
+    },
+    {
+      "state_turn": 18336,
+      "decision_turn": 18336,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows Professor Oak’s standing sprite alone on a blank white background with no text box, menu, or cursor, which indicates the intro has advanced past naming and is in a scripted transition that usually proceeds with a simple confirm input."
+    },
+    {
+      "state_turn": 18338,
+      "decision_turn": 18337,
+      "action": "a",
+      "screen_type": "dialogue",
+      "reasoning": "The screenshot shows the rival’s sprite with a text box containing “Right!”, which is standard intro dialogue after naming, so the correct way to continue the scripted sequence is to advance the text with A."
+    }
+  ],
+  "history_tail": [
+    {
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” character entry screen, and the cursor is on the bottom-left option “UPPER CASE,” which is a naming-screen mode selector rather than the letter grid, so pressing A is the correct way to confirm the highlighted keyboard mode and proceed toward entering the player name.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:01.922147",
+      "turn": 18318
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” character-entry screen, and the cursor is visibly on the bottom option “lower case,” so pressing A is the correct input to confirm that highlighted keyboard mode and continue the naming flow.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:14.164128",
+      "turn": 18319
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the player naming interface labeled “YOUR NAME?” and the cursor is visibly pointing at the bottom option “UPPER CASE,” so the correct next step is to confirm this highlighted keyboard mode with A to proceed in the naming flow.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:23.922572",
+      "turn": 18320
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so pressing A is the correct input to confirm that selection and continue the naming process.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:32.869617",
+      "turn": 18321
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly positioned on the bottom-left option “UPPER CASE,” so the correct next step is to confirm that currently highlighted keyboard mode with A before selecting letters.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:38.495916",
+      "turn": 18322
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so the correct next step is to press A to confirm that currently selected keyboard mode and proceed with name entry.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:44.506151",
+      "turn": 18323
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot shows the “YOUR NAME?” entry screen with the triangular cursor clearly highlighting “UPPER CASE” at the bottom left, so the game is waiting for that selection to be confirmed before moving the cursor into the letter grid.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:50.501479",
+      "turn": 18324
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” entry screen, and the triangular cursor is positioned on the bottom option “lower case,” indicating the game is waiting for us to confirm that keyboard mode before entering letters.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:10:57.468592",
+      "turn": 18325
+    },
+    {
+      "action": "up",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is visibly on the bottom-left option “UPPER CASE”; since repeated A presses have not advanced and only reconfirm that mode, the correct next step is to press Up to move the cursor into the letter grid and begin selecting name characters.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:06.844412",
+      "turn": 18326
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the “YOUR NAME?” letter grid, and the triangular cursor is positioned directly on the letter “j” at the far left of the second row, so pressing A will actually enter the first character instead of continuing to stall on keyboard-mode toggles.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:18.364419",
+      "turn": 18327
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” character-entry screen, the name field already contains a lowercase “j,” and the black triangular cursor is directly aligned with the letter “j” on the second row, so pressing A will input another “j” and continue name entry rather than toggling keyboard mode.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:25.921329",
+      "turn": 18328
+    },
+    {
+      "action": "right",
+      "reasoning": "The screenshot is the “YOUR NAME?” letter-entry screen, the current name already contains “jj,” and the cursor is positioned on the letter “j” at the far left of the second row, so moving right will avoid entering a third “j” and place the cursor on “k” for continued name entry.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:37.266922",
+      "turn": 18329
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot shows the “YOUR NAME?” entry screen with the current name already set to “jj,” and the cursor arrow is visibly pointing at the letter “m” on the second row, so pressing A will input “m” and make concrete progress in the naming flow.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:45.270814",
+      "turn": 18330
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the “YOUR NAME?” entry screen, the current name already reads “jjn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will enter “m” and make progress in finishing the player name.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:11:53.308711",
+      "turn": 18331
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the player naming screen (“YOUR NAME?”), the current entered name is “jjnn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will add “m” and continue progressing through the intro naming flow.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:12:00.824136",
+      "turn": 18332
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot is the player naming screen showing the current name as “jjnnn,” and the triangular cursor is clearly positioned on the letter “m” in the second row, so pressing A will enter “m” and continue progressing through the intro instead of stalling on mode-selection buttons.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:12:08.956542",
+      "turn": 18333
+    },
+    {
+      "action": "start",
+      "reasoning": "The screenshot is the Pokémon Red “YOUR NAME?” entry screen, the six-character name field is already completely filled as “jjnnnn,” and the cursor is still in the letter grid pointing around “m,” so the correct way to finalize a full name and advance the intro is to press START rather than adding another character.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:12:18.161457",
+      "turn": 18334
+    },
+    {
+      "action": "a",
+      "reasoning": "The screen is completely white immediately after using START on a full six-character player name, which is consistent with a brief transition/flash as the intro accepts the name and advances, so the safest way to continue the scripted flow is to press A to move through the next unseen dialogue/state rather than altering input mode again.",
+      "screen_type": "naming_screen",
+      "timestamp": "2026-03-22T03:12:25.572532",
+      "turn": 18335
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s standing sprite alone on a blank white background with no text box, menu, or cursor, which indicates the intro has advanced past naming and is in a scripted transition that usually proceeds with a simple confirm input.",
+      "screen_type": "dialogue",
+      "timestamp": "2026-03-22T03:12:31.158130",
+      "turn": 18336
+    },
+    {
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s sprite with a text box containing “Right!”, which is standard intro dialogue after naming, so the correct way to continue the scripted sequence is to advance the text with A.",
+      "screen_type": "dialogue",
+      "timestamp": "2026-03-22T03:12:39.589835",
+      "turn": 18337
+    }
+  ]
+}

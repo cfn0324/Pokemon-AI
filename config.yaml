@@ -5,17 +5,26 @@ game:
   speed: 0  # 0 = 无限制速度, 1 = 正常速度, 2+ = 较慢速度
   headless: true  # 不显示PyBoy窗口（推荐，改用Web仪表板）
   save_state_dir: "data/checkpoints"
+  auto_resume_latest_checkpoint: true
+  resume_checkpoint: null
+  max_checkpoints: 12
 
 ai:
   model: ""  # 在这里填写模型 ID，或通过 AI_MODEL 提供
-  temperature: 0.7
+  temperature: 0.4
   max_tokens: 4096
+  request_timeout_seconds: 45
+  request_retries: 2
+  request_retry_backoff_seconds: 1.0
+  guidance_interval_turns: 25
+  api_error_cooldown_seconds: 6
+  api_error_cooldown_max_seconds: 30
 
   # 智能体特定设置
   agents:
     main:
       model: ""  # 留空时继承 ai.model 或对应环境变量
-      temperature: 0.7
+      temperature: 0.2
     pathfinder:
       model: ""
       temperature: 0.3  # 较低温度以获得更确定性的寻路
@@ -34,10 +43,15 @@ memory:
   save_interval: 50  # 每N回合保存地图记忆
 
 actions:
+  direction_repeat_attempts: 4
   delay_ms: 100  # 按键之间的延迟
   timeout_seconds: 30  # 等待状态改变的最长时间
   stuck_threshold: 10  # 重复相同行动N次 = 卡住
   screenshot_interval: 1  # 每N帧捕获一次
+
+navigation:
+  auto_plan_stall_turns: 3
+  max_plan_path_length: 24
 
 goals:
   primary_goal: "通过击败四天王并成为冠军来完成宝可梦红版"
@@ -65,16 +79,25 @@ performance:
   enable_caching: true
   cache_dir: "data/cache"
   parallel_agents: false  # 并行运行子智能体（实验性）
-  async_decisions: true  # 使用异步AI决策以保持PyBoy响应
+  async_decisions: false  # Headless autonomous play prefers synchronous decisions to avoid stale-state actions
+  visual_enabled: false  # Disable harness-side pixel CV; rely on raw screenshots plus RAM
 
 visualization:
   enabled: true  # 启用基于Web的实时仪表板
   port: 5000  # 可视化服务器端口
   update_screenshots: true  # 向仪表板流式传输截图
   update_interval: 1  # 更新频率（每N回合）
+  stream_enabled: true
+  stream_fps: 15
+  stream_scale: 3
+  stream_quality: 80
+  max_fps: 8
 
 debug:
   enabled: false
   break_on_error: false
   verbose_state: false
   save_ram_dumps: false
+
+testing:
+  max_turns: 0

@@ -1,0 +1,92 @@
+============================================================
+������AI������
+�������� AI ģ������
+============================================================
+
+���ڳ�ʼ��...
+
+[32m02:12:09 - Main - INFO[0m - ==================================================[0m
+[32m02:12:09 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体启动中[0m
+[32m02:12:09 - Main - INFO[0m - ==================================================[0m
+[32m02:12:09 - Main - INFO[0m - 正在初始化模拟器...[0m
+[32m02:12:09 - Emulator - INFO[0m - Initializing emulator with ROM: PokemonRed.gb[0m
+[32m02:12:09 - Emulator - INFO[0m - Emulator initialized successfully[0m
+[32m02:12:09 - MemoryReader - INFO[0m - Memory reader initialized[0m
+[32m02:12:09 - Main - INFO[0m - 模拟器初始化完成[0m
+[32m02:12:09 - Main - INFO[0m - 正在初始化状态系统...[0m
+[32m02:12:09 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m02:12:09 - MapMemory - INFO[0m - Map memory initialized[0m
+[32m02:12:09 - MapMemory - INFO[0m - Reset exploration for map 0[0m
+[32m02:12:09 - MapMemory - INFO[0m - Reset exploration for map 37[0m
+[32m02:12:09 - MapMemory - INFO[0m - Reset exploration for map 38[0m
+[32m02:12:09 - MapMemory - INFO[0m - Reset exploration for map 40[0m
+[32m02:12:09 - Main - INFO[0m - Reset stale opening-area map memory for a fresh pre-starter run[0m
+[32m02:12:09 - Main - INFO[0m - Harness-side pixel vision disabled; using raw screenshots plus RAM only[0m
+[32m02:12:09 - Main - INFO[0m - 状态系统初始化完成[0m
+[32m02:12:09 - Main - INFO[0m - 正在初始化AI智能体...[0m
+[32m02:12:09 - MainAgent - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:12:09 - ContextManager - INFO[0m - Context manager initialized (max_turns=100, keep_recent=20)[0m
+[32m02:12:09 - Summarizer - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:12:09 - Summarizer - INFO[0m - Summarizer initialized[0m
+[32m02:12:09 - GoalManager - INFO[0m - Goal manager initialized[0m
+[32m02:12:09 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:12:09 - GoalManager - INFO[0m - MILESTONE: LONG-TERM MISSION: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m02:12:09 - GoalManager - INFO[0m - ==================================================[0m
+[32m02:12:09 - MainAgent - INFO[0m - Main agent initialized[0m
+[32m02:12:09 - Pathfinder - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:12:09 - Pathfinder - INFO[0m - Pathfinder agent initialized[0m
+[32m02:12:09 - PuzzleSolver - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:12:09 - PuzzleSolver - INFO[0m - Puzzle solver agent initialized[0m
+[32m02:12:09 - Critic - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m02:12:09 - Critic - INFO[0m - Critic agent initialized[0m
+[32m02:12:09 - Main - INFO[0m - AI智能体初始化完成[0m
+[32m02:12:09 - Main - INFO[0m - 正在初始化工具...[0m
+[32m02:12:09 - ActionExecutor - INFO[0m - Action executor initialized[0m
+[32m02:12:09 - ProgressTracker - INFO[0m - Progress tracker initialized[0m
+[32m02:12:09 - Visualizer - INFO[0m - Visualizer initialized on port 5000[0m
+[32m02:12:09 - Visualizer - INFO[0m - Visualizer server started on http://localhost:5000[0m
+[32m02:12:09 - Main - INFO[0m - 可视化仪表板可访问：http://localhost:5000[0m
+ * Serving Flask app 'src.visualization.visualizer'
+ * Debug mode: off
+[32m02:12:09 - Main - INFO[0m - 工具初始化完成[0m
+[32m02:12:09 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18301\emulator.state[0m
+[32m02:12:09 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18301/context.json (0 summaries, 23 recent turns)[0m
+[32m02:12:09 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18301/goals.json[0m
+[32m02:12:09 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18301[0m
+[32m02:12:09 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18301\progress.json[0m
+[32m02:12:09 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m02:12:09 - Main - INFO[0m - Auto-restored latest checkpoint checkpoint_18301[0m
+[32m02:12:09 - Main - INFO[0m - 宝可梦AI智能体初始化成功[0m
+[32m02:12:09 - Main - INFO[0m - ==================================================[0m
+[32m02:12:09 - Main - INFO[0m - MILESTONE: 开始游戏[0m
+[32m02:12:09 - Main - INFO[0m - ==================================================[0m
+[33m02:12:09 - Main - WARNING[0m - 已从仪表板请求停止运行[0m
+[32m02:12:09 - Visualizer - INFO[0m - Event [error]: 已请求停止运行[0m
+[31m02:12:14 - MainAgent - ERROR[0m - Failed to get AI decision: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))[0m
+[32m02:12:14 - ActionExecutor - INFO[0m - ACTION: wait[0m
+[32m02:12:14 - Main - INFO[0m - 正在关闭...[0m
+[32m02:12:14 - Main - INFO[0m - 正在保存回合18302的检查点[0m
+[32m02:12:14 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18302\emulator.state[0m
+[32m02:12:14 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18302/context.json[0m
+[32m02:12:14 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18302[0m
+[32m02:12:14 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18302\progress.json[0m
+[32m02:12:14 - Main - INFO[0m - Pruned old checkpoint checkpoint_17300[0m
+[32m02:12:14 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18302[0m
+[32m02:12:14 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1658.9 hours
+Total Turns: 18302
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m02:12:14 - Visualizer - INFO[0m - Visualizer stopped[0m
+[32m02:12:14 - Emulator - INFO[0m - Stopping emulator[0m
+[32m02:12:14 - Main - INFO[0m - ==================================================[0m
+[32m02:12:14 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体已停止[0m
+[32m02:12:14 - Main - INFO[0m - ==================================================[0m
+[32m02:12:14 - Main - INFO[0m - 总回合数: 18302[0m

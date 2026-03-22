@@ -1,0 +1,581 @@
+{
+  "requested_checkpoint": "checkpoint_18578",
+  "restored_checkpoint": "checkpoint_18578",
+  "latest_checkpoint": "checkpoint_18613",
+  "start_turn": 18578,
+  "end_turn": 18613,
+  "turn_delta": 35,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18613,
+    "timestamp": "2026-03-22T14:08:19.136427",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18613,
+      "local_analysis_enabled": false,
+      "ram_screen_type": "dialogue",
+      "model_screen_type_hint": "dialogue"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18578,
+      "action": "down",
+      "reasoning": "The screenshot shows Professor Oak directly above the player in Pallet Town with no visible text box, indicating the dialogue page has ended and the escort sequence is active, so moving down to follow him toward the lab is the correct progression.",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18578,
+      "action": "down",
+      "reasoning": "The screenshot shows Professor Oak directly above the player in Pallet Town with no visible text box, indicating the dialogue page has ended and the escort sequence is active, so moving down to follow him toward the lab is the correct progression.",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18579,
+      "action": "down",
+      "reasoning": "The screenshot shows Pallet Town overworld with Professor Oak directly below the player, both aligned vertically and no dialogue box visible. This is the escort sequence after Oak stops the player at the grass; the correct progression is to continue following him south toward his lab. Since the player is facing down and already moved south previously, press down again.",
+      "result": "After down:; moved from (10,5) to (10,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18580,
+      "action": "down",
+      "reasoning": "The screenshot shows Professor Oak one tile below the player in Pallet Town with no visible dialogue box. This is the escort sequence to his lab, and the player should continue following him south. The path downward is open.",
+      "result": "After down:; moved from (10,6) to (9,8) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18581,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Pallet Town directly below Professor Oak, with no dialogue box visible. Oak is leading the player toward his lab, which is the large building immediately to the right/southeast of the player. Since Oak is one tile above and the lab entrance is to the right, the correct progression is to move right and follow the escort path toward the lab entrance.",
+      "result": "After right:; moved from (9,8) to (9,11) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18582,
+      "action": "right",
+      "reasoning": "The screenshot shows Professor Oak directly above the player in front of the lab, with no visible dialogue box. This is the escort sequence endpoint; Oak has led the player to the lab entrance. The next required progress is to enter the lab, which is immediately to the player's right. Since the player is currently facing down, first move right to align with the door.",
+      "result": "After right:; moved from (9,11) to (10,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18583,
+      "action": "up",
+      "reasoning": "The screenshot shows Professor Oak and the rival standing just outside the large building, with the player one tile below the fence near the sign. No dialogue box is visible despite the possibly stale text flag. This is the Pallet Town lab area, and the next mandatory progression is to go up to the lab entrance area and interact/follow the script. From the player’s current position, moving up a...",
+      "result": "After up:; moved from (10,12) to (11,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18584,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly in front of Professor Oak at the lab entrance, with the rival visible below the fence. There is no visible dialogue box, but Oak is positioned as a blocker at the doorway during the escort sequence. The correct progression is to face/interact with him to trigger the next mandatory script that leads into the lab.",
+      "result": "After a:; moved from (11,12) to (12,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18585,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly in front of Professor Oak outside his lab, facing up, with no visible dialogue box. Since pressing A last turn appears to have nudged the player into proper position and Oak is still blocking the way, the next correct step is to interact with Oak to trigger the mandatory script that brings the player into the lab and toward choosing the starter.",
+      "result": "After a:; warped from map 0 (12,12) to map 40 (12,11); screen changed from overworld to indoor",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18586,
+      "action": "up",
+      "reasoning": "The screenshot shows the player outside in Pallet Town standing below the fence south of Oak’s Lab, not indoors. The lab door is directly above and slightly left from the player’s current position. There is no visible dialogue box, so the next step is movement toward the lab entrance to continue the mandatory starter sequence.",
+      "result": "After up:; moved from (12,11) to (5,11) on map 40",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18587,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak’s Lab. The player is standing directly below Professor Oak, with the rival to the left and another NPC to the right. There is no visible dialogue box, and this is the mandatory starter sequence. Since Oak is directly in front of the player, the correct next step is to interact with him to trigger the lab dialogue and starter selection event.",
+      "result": "After a:; no visible state change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18588,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak's Lab with the player directly facing Professor Oak one tile above. A large black area occupies the lower part of the screen where the dialogue box normally appears, indicating the mandatory script is active or ready to advance even if text is not yet visible. Since the player has already interacted with Oak and this is the starter sequence, the correct next action...",
+      "result": "After a:; no visible state change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18589,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak’s Lab with the player directly facing Professor Oak. The bottom half is a black text area with no visible letters yet, indicating the interaction/script is active and waiting to be advanced rather than movement. To continue the mandatory starter event, advance the dialogue with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18590,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak's Lab with the player facing Professor Oak and the lower half of the screen occupied by the text area, but no visible letters yet. RAM also indicates a text box is active. This means the interaction/script is still in progress and should be advanced rather than moving.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18591,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak’s Lab with the player facing Professor Oak. The bottom text area is open but blank/black, and RAM confirms a text box is active. This indicates the scripted lab dialogue is still in progress and needs to be advanced, not moved.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18592,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with the lower half occupied by the dialogue area, currently blank, and RAM confirms a text box is active. This indicates the mandatory script is still waiting to be advanced rather than allowing movement.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18593,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with the player standing below the center table area, Professor Oak to the right, and the entire lower half occupied by a black text box region while RAM confirms text is active, so the current scripted lab event is still awaiting advancement rather than movement.",
+      "result": "After a:; moved from (5,11) to (5,10) on map 40",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18594,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with the lower half occupied by a black dialogue box area and no visible text yet. RAM also confirms a text box is active. During scripted dialogue, movement is inappropriate; the correct step is to continue advancing the interaction with Professor Oak.",
+      "result": "After a:; moved from (5,10) to (5,9) on map 40",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18595,
+      "action": "a",
+      "reasoning": "The screenshot is inside Oak’s Lab. The lower portion is a black text box area, and RAM confirms text is active. The player is centered near the starter table while Oak and the rival are visible, indicating the scripted starter event is still ongoing. Since dialogue is active, the correct action is to advance it with A rather than move.",
+      "result": "After a:; moved from (5,9) to (5,8) on map 40",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 9
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18596,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak’s Lab with no visible text box, so the previous dialogue/script state has ended and movement control appears restored. The player is standing just below the starter table, facing up toward the Poké Balls at the top. To progress the mandatory starter event, move up toward the table and interact with a Poké Ball/Oak.",
+      "result": "After up:; moved from (5,8) to (5,5) on map 40; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 8
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18597,
+      "action": "up",
+      "reasoning": "The screenshot is clearly Oak's Lab with the player below the starter table, Oak above, and no visible dialogue box. We already moved up to the table area. To trigger the mandatory starter selection sequence, the best next step is to continue moving up toward the Poké Balls/table so we can interact with one and let Oak stop us if needed.",
+      "result": "After up:; moved from (5,5) to (5,3) on map 40",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18598,
+      "action": "right",
+      "reasoning": "The player is in Oak's Lab directly below Professor Oak and adjacent to the rival, with the starter Poké Balls on the table to the right. There is no visible dialogue box, so control is available. To progress the mandatory opening story and obtain the first Pokémon, the next step is to move toward the Poké Ball table. From the current position, moving right places the player next to the leftmos...",
+      "result": "After right:; position did not change; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18599,
+      "action": "a",
+      "reasoning": "The screenshot shows an active text box in Oak’s Lab: “AAAAA: Gramps! I’m fed up with” with a continuation marker. This is Rival dialogue during the mandatory starter event, so movement should not be attempted. The correct action is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18600,
+      "action": "a",
+      "reasoning": "The screenshot shows an active text box in Oak’s Lab with the rival’s dialogue mid-sentence: “I’m fed up with wai”. Since text is actively displaying and not yet complete, the correct action is to advance the mandatory script with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18601,
+      "action": "a",
+      "reasoning": "The screenshot shows an active text box in Oak’s Lab with the rival’s line “I’m fed up with waiting!” fully displayed, and the game state also confirms a text box is active, so the correct next step is to advance the mandatory dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18602,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible text box. The player is standing at the starter table between the rival and Professor Oak, directly in front of the leftmost Poké Ball. Since the rival dialogue appears to have ended and control is back, the correct progression is to interact with the Poké Ball to trigger Oak’s starter-selection script.",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18603,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with the player standing at the starter table, directly in front of the leftmost Poké Ball, and no visible dialogue box. Professor Oak is above and the rival is to the left. This is the correct position to select a starter. Since the previous A likely closed the rival's interruption and control is back, the next step is to interact with the Poké Ball again to trig...",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18604,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with an active text box displaying “OAK:”. This is the starter-selection script that begins when examining a Poké Ball too early. Since dialogue is active and more text is about to appear, the correct action is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18605,
+      "action": "a",
+      "reasoning": "Oak’s Lab dialogue is active and the text box shows “OAK: AAAAA?” with more text beginning on the next line. This is the mandatory starter-event script after interacting with the Poké Ball, so the correct action is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18606,
+      "action": "a",
+      "reasoning": "The screenshot shows an active text box in Oak’s Lab: “OAK: AAAAA? Let me th…”, which is clearly mid-sentence in the mandatory starter-selection dialogue. Since text is active and more dialogue remains, the correct input is to advance it with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18607,
+      "action": "a",
+      "reasoning": "Oak’s Lab text box is clearly active and reads “OAK: AAAAA? Let me think...” with the continuation marker. This is still the mandatory starter-selection dialogue, so the correct action is to advance the text rather than move.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18608,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with a large open text box covering the bottom of the screen while the player stands at the starter table facing Oak, and the game state confirms text is active, so the mandatory starter dialogue is still in progress and should be advanced rather than moving.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18609,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with an active text box reading “Oh, tha”, which is clearly mid-sentence in Professor Oak’s mandatory starter-event dialogue. Text box active is also confirmed by RAM, so the correct action is to advance the dialogue with A rather than move.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18610,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s active dialogue in the lab: “Oh, that’s right”. The text box is open and RAM confirms text is active, so this is still mandatory starter-event dialogue. The correct action is to advance the text with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18611,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s active dialogue in the lab: “Oh, that’s right, I told”. This is mid-sentence in the mandatory starter-selection script, and the text box is still open, so the correct next input is to advance the dialogue with A.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18612,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak’s dialogue box active in the lab: “Oh, that’s right, I told you to” with a continuation arrow. Text is still mid-sentence and must be advanced. No movement should be attempted while dialogue is active.",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18613,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's text box active in the lab, reading “I told you to com”, which is clearly mid-sentence in the mandatory starter-selection dialogue. Since text is active and more dialogue remains, the correct action is to advance it with A.",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

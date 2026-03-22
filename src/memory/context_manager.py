@@ -20,6 +20,14 @@ class Turn:
     result: Optional[str]
 
 
+@dataclass
+class ContextNote:
+    """External guidance note kept in context for a limited time."""
+    timestamp: str
+    source: str
+    text: str
+
+
 class ContextManager:
     """Manages AI context with periodic summarization."""
 
@@ -39,6 +47,7 @@ class ContextManager:
 
         # Summarized history
         self.summaries: List[str] = []
+        self.notes: List[ContextNote] = []
 
         # Current summary period
         self.current_period_start = 0
@@ -74,6 +83,50 @@ class ContextManager:
             # We'll trigger summarization in the agent
             # For now, just keep recent turns
             self._trim_to_recent()
+
+    def update_last_turn_result(self, result: str) -> None:
+        """Attach the latest observed outcome to the most recent turn."""
+        if not self.recent_turns:
+            return
+
+        cleaned = " ".join((result or "").split()).strip()
+        if not cleaned:
+            return
+        self.recent_turns[-1].result = cleaned
+
+    def add_note(self, text: str, source: str = "system", max_notes: int = 6) -> None:
+        """Add a short guidance note that should stay in prompt context."""
+        cleaned = " ".join((text or "").split()).strip()
+        if not cleaned:
+            return
+
+        self.notes.append(
+            ContextNote(
+                timestamp=datetime.now().isoformat(),
+                source=source,
+                text=cleaned,
+            )
+        )
+        if len(self.notes) > max_notes:
+            self.notes = self.notes[-max_notes:]
+
+    def remove_notes_matching(self, query: str) -> int:
+        """Remove notes whose text contains the query."""
+        needle = " ".join((query or "").split()).strip().lower()
+        if not needle:
+            return 0
+
+        kept: List[ContextNote] = []
+        removed = 0
+        for note in self.notes:
+            if needle in note.text.lower():
+                removed += 1
+                continue
+            kept.append(note)
+
+        if removed:
+            self.notes = kept
+        return removed
 
     def _trim_to_recent(self) -> None:
         """Keep only recent turns, discarding old ones."""
@@ -123,6 +176,11 @@ class ContextManager:
                     turn_text += f"Result: {turn.result}\n"
                 context_parts.append(turn_text)
 
+        if self.notes:
+            context_parts.append("\n=== GUIDANCE NOTES ===\n")
+            for note in self.notes[-6:]:
+                context_parts.append(f"- [{note.source}] {note.text}\n")
+
         return "".join(context_parts)
 
     def needs_summarization(self) -> bool:
@@ -152,6 +210,14 @@ class ContextManager:
         """
         data = {
             'summaries': self.summaries,
+            'notes': [
+                {
+                    'timestamp': note.timestamp,
+                    'source': note.source,
+                    'text': note.text,
+                }
+                for note in self.notes
+            ],
             'recent_turns': [
                 {
                     'turn_number': t.turn_number,
@@ -185,6 +251,15 @@ class ContextManager:
             data = json.load(f)
 
         self.summaries = data.get('summaries', [])
+        self.notes = [
+            ContextNote(
+                timestamp=note.get('timestamp', datetime.now().isoformat()),
+                source=note.get('source', 'system'),
+                text=note.get('text', ''),
+            )
+            for note in data.get('notes', [])
+            if note.get('text')
+        ]
         self.current_period_start = data.get('current_period_start', 0)
 
         # Reconstruct recent turns (without full state data)
@@ -205,5 +280,6 @@ class ContextManager:
         """Clear all context."""
         self.recent_turns.clear()
         self.summaries.clear()
+        self.notes.clear()
         self.current_period_start = 0
         self.logger.info("Cleared all context")

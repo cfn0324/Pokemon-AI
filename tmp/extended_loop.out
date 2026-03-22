@@ -1,0 +1,287 @@
+============================================================
+������AI������
+�������� AI ģ������
+============================================================
+
+���ڳ�ʼ��...
+
+[32m03:09:53 - Main - INFO[0m - ==================================================[0m
+[32m03:09:53 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体启动中[0m
+[32m03:09:53 - Main - INFO[0m - ==================================================[0m
+[32m03:09:53 - Main - INFO[0m - 正在初始化模拟器...[0m
+[32m03:09:53 - Emulator - INFO[0m - Initializing emulator with ROM: PokemonRed.gb[0m
+[32m03:09:53 - Emulator - INFO[0m - Emulator initialized successfully[0m
+[32m03:09:53 - MemoryReader - INFO[0m - Memory reader initialized[0m
+[32m03:09:53 - Main - INFO[0m - 模拟器初始化完成[0m
+[32m03:09:53 - Main - INFO[0m - 正在初始化状态系统...[0m
+[32m03:09:53 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m03:09:53 - MapMemory - INFO[0m - Map memory initialized[0m
+[32m03:09:53 - MapMemory - INFO[0m - Reset exploration for map 0[0m
+[32m03:09:53 - MapMemory - INFO[0m - Reset exploration for map 37[0m
+[32m03:09:53 - MapMemory - INFO[0m - Reset exploration for map 38[0m
+[32m03:09:53 - MapMemory - INFO[0m - Reset exploration for map 40[0m
+[32m03:09:53 - Main - INFO[0m - Reset stale opening-area map memory for a fresh pre-starter run[0m
+[32m03:09:53 - Main - INFO[0m - Harness-side pixel vision disabled; using raw screenshots plus RAM only[0m
+[32m03:09:53 - Main - INFO[0m - 状态系统初始化完成[0m
+[32m03:09:53 - Main - INFO[0m - 正在初始化AI智能体...[0m
+[32m03:09:53 - MainAgent - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:09:53 - ContextManager - INFO[0m - Context manager initialized (max_turns=100, keep_recent=20)[0m
+[32m03:09:53 - Summarizer - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:09:53 - Summarizer - INFO[0m - Summarizer initialized[0m
+[32m03:09:53 - GoalManager - INFO[0m - Goal manager initialized[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - MILESTONE: LONG-TERM MISSION: 通过击败四天王并成为冠军来完成宝可梦红版[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - MainAgent - INFO[0m - Main agent initialized[0m
+[32m03:09:53 - Pathfinder - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:09:53 - Pathfinder - INFO[0m - Pathfinder agent initialized[0m
+[32m03:09:53 - PuzzleSolver - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:09:53 - PuzzleSolver - INFO[0m - Puzzle solver agent initialized[0m
+[32m03:09:53 - Critic - INFO[0m - Using AI endpoint: https://api.ququ233.com/v1[0m
+[32m03:09:53 - Critic - INFO[0m - Critic agent initialized[0m
+[32m03:09:53 - Main - INFO[0m - AI智能体初始化完成[0m
+[32m03:09:53 - Main - INFO[0m - 正在初始化工具...[0m
+[32m03:09:53 - ActionExecutor - INFO[0m - Action executor initialized[0m
+[32m03:09:53 - ProgressTracker - INFO[0m - Progress tracker initialized[0m
+[32m03:09:53 - Visualizer - INFO[0m - Visualizer initialized on port 5000[0m
+[32m03:09:53 - Main - INFO[0m - 工具初始化完成[0m
+[32m03:09:53 - Emulator - INFO[0m - Loading state from: data\checkpoints\checkpoint_18317\emulator.state[0m
+[32m03:09:53 - ContextManager - INFO[0m - Loaded context from data\checkpoints\checkpoint_18317/context.json (0 summaries, 39 recent turns)[0m
+[32m03:09:53 - GoalManager - INFO[0m - Loaded goals from data\checkpoints\checkpoint_18317/goals.json[0m
+[32m03:09:53 - MainAgent - INFO[0m - Loaded agent state from data\checkpoints\checkpoint_18317[0m
+[32m03:09:53 - ProgressTracker - INFO[0m - Loaded progress from data\checkpoints\checkpoint_18317\progress.json[0m
+[32m03:09:53 - MapMemory - INFO[0m - Loaded map memory: 2 maps explored[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: Get through the boot, title, intro dialogue, and naming flow.[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED SECONDARY GOAL: Use the screenshot itself to identify when to press A, Start, or directional inputs during the intro.[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - MILESTONE: COMPLETED TERTIARY GOAL: Do not trust map coordinates or exploration memory until a real room or outdoor map appears.[0m
+[32m03:09:53 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): Do not think about the Champion yet. First leave the room, leave the house, and obtain the first Pokemon. If the exit is not visible, explore unseen tiles until it appears.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the current room.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Exit the house or current building.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If the exit or stairs is not visible, explore the room perimeter and unseen tiles until you find it.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Walk toward the first mandatory NPC or lab.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): If a person or script blocks progress, face them and press A.[0m
+[32m03:09:53 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Obtain the first Pokemon.[0m
+[32m03:09:53 - Main - INFO[0m - Auto-restored latest checkpoint checkpoint_18317[0m
+[32m03:09:53 - Visualizer - INFO[0m - Visualizer server started on http://localhost:5000[0m
+[32m03:09:53 - Main - INFO[0m - 可视化仪表板可访问：http://localhost:5000[0m
+ * Serving Flask app 'src.visualization.visualizer'
+ * Debug mode: off
+[32m03:09:53 - Main - INFO[0m - 宝可梦AI智能体初始化成功[0m
+[32m03:09:53 - Main - INFO[0m - ==================================================[0m
+[32m03:09:53 - Main - INFO[0m - MILESTONE: 开始游戏[0m
+[32m03:09:53 - Main - INFO[0m - ==================================================[0m
+[33m03:09:56 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:01 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot clearly shows the “YOUR NAME?” character entry screen, and the cursor is on the bottom-left option “UPPER CASE,” which is a naming-screen mode selector rather than the letter grid, so pressing A is the correct way to confirm the highlighted keyboard mode and proceed toward entering the player name.[0m
+[32m03:10:01 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - MILESTONE: COMPLETED PRIMARY GOAL: Get the first Pokemon and unlock the opening story route.[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW PRIMARY GOAL: Get through the boot, title, intro dialogue, and naming flow.[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - MILESTONE: COMPLETED SECONDARY GOAL: Exit the current room and building, then follow the mandatory opening script.[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW SECONDARY GOAL: Use the screenshot itself to identify when to press A, Start, or directional inputs during the intro.[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - MILESTONE: COMPLETED TERTIARY GOAL: If movement fails or a person blocks progress, face the blocker and press A.[0m
+[32m03:10:02 - GoalManager - INFO[0m - ==================================================[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW TERTIARY GOAL: Do not trust map coordinates or exploration memory until a real room or outdoor map appears.[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW FOCUS (SYSTEM): The game is still in boot/title/intro. Ignore overworld navigation ideas and use the screenshot to progress into a real playable room.[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance past the boot or title screen.[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Start a new game if the main menu appears.[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Advance the intro dialogue and any naming screens.[0m
+[32m03:10:02 - GoalManager - INFO[0m - NEW TODO (SYSTEM): Reach the first real controllable in-game room.[0m
+[33m03:10:10 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:14 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” character-entry screen, and the cursor is visibly on the bottom option “lower case,” so pressing A is the correct input to confirm that highlighted keyboard mode and continue the naming flow.[0m
+[32m03:10:14 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:10:14 - Main - INFO[0m - 
+=== GAME STATE (Turn 18320) ===
+
+POSITION:
+- Map ID: 38
+- Coordinates: (3, 6)
+- Facing: down
+- Harness UI Classification: naming_screen
+- External UI Hint: naming_screen
+- Harness Local Vision: disabled
+
+BADGES: 0/8
+  [ ] Boulder Badge
+  [ ] Cascade Badge
+  [ ] Thunder Badge
+  [ ] Rainbow Badge
+  [ ] Soul Badge
+  [ ] Marsh Badge
+  [ ] Volcano Badge
+  [ ] Earth Badge
+
+MONEY: $3000
+ITEMS IN BAG: 0
+
+PARTY: 0 Pokemon
+
+UI FLAGS:
+  Text box active (RAM): False
+  Menu active (RAM): False
+
+PERCEPTION SUMMARY:
+  Harness note: Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.
+  World-state note: early scripted intro is still active before the first Pokemon. Even if map coordinates are populated, do not treat them as free-movement navigation state yet; rely on the screenshot until control is clearly returned.
+
+STATE DELTAS (memory-based):
+  Position changed: False
+  Money delta: 0
+  Battle toggled: False
+  Movement stall turns: 3
+  Stuck hint: possibly stuck - explore a different direction or unseen tile
+
+EXPLORATION:
+  Not available yet. Wait until the game reaches a real map or indoor room.
+
+NAVIGATION MEMORY:
+  Not available yet. Do not treat the current coordinates as a real walkable map.
+
+==================================================
+[0m
+[33m03:10:19 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:23 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the player naming interface labeled “YOUR NAME?” and the cursor is visibly pointing at the bottom option “UPPER CASE,” so the correct next step is to confirm this highlighted keyboard mode with A to proceed in the naming flow.[0m
+[32m03:10:23 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:10:28 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:32 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so pressing A is the correct input to confirm that selection and continue the naming process.[0m
+[32m03:10:32 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:10:34 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:38 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly positioned on the bottom-left option “UPPER CASE,” so the correct next step is to confirm that currently highlighted keyboard mode with A before selecting letters.[0m
+[32m03:10:38 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:10:41 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:44 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is clearly highlighting the bottom option “lower case,” so the correct next step is to press A to confirm that currently selected keyboard mode and proceed with name entry.[0m
+[32m03:10:44 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:10:46 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:50 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the “YOUR NAME?” entry screen with the triangular cursor clearly highlighting “UPPER CASE” at the bottom left, so the game is waiting for that selection to be confirmed before moving the cursor into the letter grid.[0m
+[32m03:10:50 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:10:52 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:10:57 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot clearly shows the “YOUR NAME?” entry screen, and the triangular cursor is positioned on the bottom option “lower case,” indicating the game is waiting for us to confirm that keyboard mode before entering letters.[0m
+[32m03:10:57 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:11:00 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:06 - MainAgent - INFO[0m - DECISION: up | Reasoning: The screenshot is the “YOUR NAME?” entry screen, and the triangular cursor is visibly on the bottom-left option “UPPER CASE”; since repeated A presses have not advanced and only reconfirm that mode, the correct next step is to press Up to move the cursor into the letter grid and begin selecting name characters.[0m
+[32m03:11:06 - ActionExecutor - INFO[0m - ACTION: up[0m
+[33m03:11:10 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:18 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot clearly shows the “YOUR NAME?” letter grid, and the triangular cursor is positioned directly on the letter “j” at the far left of the second row, so pressing A will actually enter the first character instead of continuing to stall on keyboard-mode toggles.[0m
+[32m03:11:18 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:11:21 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:25 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” character-entry screen, the name field already contains a lowercase “j,” and the black triangular cursor is directly aligned with the letter “j” on the second row, so pressing A will input another “j” and continue name entry rather than toggling keyboard mode.[0m
+[32m03:11:25 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:11:32 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:37 - MainAgent - INFO[0m - DECISION: right | Reasoning: The screenshot is the “YOUR NAME?” letter-entry screen, the current name already contains “jj,” and the cursor is positioned on the letter “j” at the far left of the second row, so moving right will avoid entering a third “j” and place the cursor on “k” for continued name entry.[0m
+[32m03:11:37 - ActionExecutor - INFO[0m - ACTION: right[0m
+[32m03:11:37 - Main - INFO[0m - 
+=== GAME STATE (Turn 18330) ===
+
+POSITION:
+- Map ID: 38
+- Coordinates: (3, 6)
+- Facing: down
+- Harness UI Classification: naming_screen
+- External UI Hint: naming_screen
+- Harness Local Vision: disabled
+
+BADGES: 0/8
+  [ ] Boulder Badge
+  [ ] Cascade Badge
+  [ ] Thunder Badge
+  [ ] Rainbow Badge
+  [ ] Soul Badge
+  [ ] Marsh Badge
+  [ ] Volcano Badge
+  [ ] Earth Badge
+
+MONEY: $3000
+ITEMS IN BAG: 0
+
+PARTY: 0 Pokemon
+
+UI FLAGS:
+  Text box active (RAM): False
+  Menu active (RAM): False
+
+PERCEPTION SUMMARY:
+  Harness note: Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.
+  World-state note: early scripted intro is still active before the first Pokemon. Even if map coordinates are populated, do not treat them as free-movement navigation state yet; rely on the screenshot until control is clearly returned.
+
+STATE DELTAS (memory-based):
+  Position changed: False
+  Money delta: 0
+  Battle toggled: False
+  Movement stall turns: 13
+  Stuck hint: possibly stuck - explore a different direction or unseen tile
+
+EXPLORATION:
+  Not available yet. Wait until the game reaches a real map or indoor room.
+
+NAVIGATION MEMORY:
+  Not available yet. Do not treat the current coordinates as a real walkable map.
+
+==================================================
+[0m
+[33m03:11:41 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:45 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the “YOUR NAME?” entry screen with the current name already set to “jj,” and the cursor arrow is visibly pointing at the letter “m” on the second row, so pressing A will input “m” and make concrete progress in the naming flow.[0m
+[32m03:11:45 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:11:47 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:11:53 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the “YOUR NAME?” entry screen, the current name already reads “jjn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will enter “m” and make progress in finishing the player name.[0m
+[32m03:11:53 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:11:56 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:00 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the player naming screen (“YOUR NAME?”), the current entered name is “jjnn,” and the triangular cursor is visibly pointing at the letter “m” on the second row, so pressing A will add “m” and continue progressing through the intro naming flow.[0m
+[32m03:12:00 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:12:03 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:08 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot is the player naming screen showing the current name as “jjnnn,” and the triangular cursor is clearly positioned on the letter “m” in the second row, so pressing A will enter “m” and continue progressing through the intro instead of stalling on mode-selection buttons.[0m
+[32m03:12:08 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:12:14 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:18 - MainAgent - INFO[0m - DECISION: start | Reasoning: The screenshot is the Pokémon Red “YOUR NAME?” entry screen, the six-character name field is already completely filled as “jjnnnn,” and the cursor is still in the letter grid pointing around “m,” so the correct way to finalize a full name and advance the intro is to press START rather than adding another character.[0m
+[32m03:12:18 - ActionExecutor - INFO[0m - ACTION: start[0m
+[33m03:12:20 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:25 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screen is completely white immediately after using START on a full six-character player name, which is consistent with a brief transition/flash as the intro accepts the name and advances, so the safest way to continue the scripted flow is to press A to move through the next unseen dialogue/state rather than altering input mode again.[0m
+[32m03:12:25 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:12:27 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:31 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows Professor Oak’s standing sprite alone on a blank white background with no text box, menu, or cursor, which indicates the intro has advanced past naming and is in a scripted transition that usually proceeds with a simple confirm input.[0m
+[32m03:12:31 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:12:34 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:39 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival’s sprite with a text box containing “Right!”, which is standard intro dialogue after naming, so the correct way to continue the scripted sequence is to advance the text with A.[0m
+[32m03:12:39 - ActionExecutor - INFO[0m - ACTION: a[0m
+[33m03:12:41 - Main - WARNING[0m - 已从仪表板请求停止运行[0m
+[32m03:12:41 - Visualizer - INFO[0m - Event [error]: 已请求停止运行[0m
+[33m03:12:42 - MainAgent - WARNING[0m - Model response was too terse or missing required fields; requesting repair[0m
+[32m03:12:45 - MainAgent - INFO[0m - DECISION: a | Reasoning: The screenshot shows the rival sprite with an active text box reading “Right! So your n”, which is clearly mid-intro dialogue after naming, so the correct next step is to advance the text with A.[0m
+[32m03:12:45 - ActionExecutor - INFO[0m - ACTION: a[0m
+[32m03:12:45 - Main - INFO[0m - 正在关闭...[0m
+[32m03:12:45 - Main - INFO[0m - 正在保存回合18338的检查点[0m
+[32m03:12:45 - Emulator - INFO[0m - Saving state to: data\checkpoints\checkpoint_18338\emulator.state[0m
+[32m03:12:45 - ContextManager - INFO[0m - Saved context to data\checkpoints\checkpoint_18338/context.json[0m
+[32m03:12:45 - MainAgent - INFO[0m - Saved agent state to data\checkpoints\checkpoint_18338[0m
+[32m03:12:45 - ProgressTracker - INFO[0m - Saved progress to data\checkpoints\checkpoint_18338\progress.json[0m
+[32m03:12:45 - Main - INFO[0m - Pruned old checkpoint checkpoint_17800[0m
+[32m03:12:45 - Main - INFO[0m - 检查点已保存到 data\checkpoints\checkpoint_18338[0m
+[32m03:12:45 - Main - INFO[0m - 
+=== PROGRESS SUMMARY ===
+Time Elapsed: 1659.9 hours
+Total Turns: 18338
+
+Badges: 0/8
+None yet
+
+Pokemon Caught: 0
+
+
+[0m
+[32m03:12:45 - Visualizer - INFO[0m - Visualizer stopped[0m
+[32m03:12:45 - Emulator - INFO[0m - Stopping emulator[0m
+[32m03:12:45 - Main - INFO[0m - ==================================================[0m
+[32m03:12:45 - Main - INFO[0m - MILESTONE: 宝可梦AI智能体已停止[0m
+[32m03:12:45 - Main - INFO[0m - ==================================================[0m
+[32m03:12:45 - Main - INFO[0m - 总回合数: 18338[0m
