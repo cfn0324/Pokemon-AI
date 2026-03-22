@@ -1,4 +1,4 @@
-const state = {
+﻿const state = {
     game: {},
     decision: {},
     goals: [],
@@ -26,15 +26,6 @@ const els = {
     screenSummary: document.getElementById("screenSummary"),
     harnessSummary: document.getElementById("harnessSummary"),
     movementSummary: document.getElementById("movementSummary"),
-    mapBoard: document.getElementById("mapBoard"),
-    mapLegend: document.getElementById("mapLegend"),
-    mapCurrentLabel: document.getElementById("mapCurrentLabel"),
-    mapBoundsLabel: document.getElementById("mapBoundsLabel"),
-    mapSizeValue: document.getElementById("mapSizeValue"),
-    mapExploredValue: document.getElementById("mapExploredValue"),
-    mapFrontierValue: document.getElementById("mapFrontierValue"),
-    mapWarpValue: document.getElementById("mapWarpValue"),
-    mapPlayerValue: document.getElementById("mapPlayerValue"),
     decisionAction: document.getElementById("decisionAction"),
     decisionTurn: document.getElementById("decisionTurn"),
     decisionScreenType: document.getElementById("decisionScreenType"),
@@ -166,7 +157,6 @@ async function refreshAll() {
         renderEvents();
         renderControl();
         renderCheckpoints();
-        renderMap();
         renderParty();
 
         setConnection(true, "数据已连接");
@@ -210,8 +200,7 @@ function renderState() {
     els.statTurn.textContent = String(game.turn ?? 0);
     els.statBadges.textContent = `${game.badges ?? 0} / 8`;
     els.statMoney.textContent = formatMoney(game.money);
-    const partyCount = game.party_size ?? ((game.party || []).length || 0);
-    els.statParty.textContent = String(partyCount);
+    els.statParty.textContent = String(game.party_size ?? (game.party || []).length || 0);
     els.statMap.textContent = position.map_id ?? "-";
     els.statCoords.textContent = position.x != null && position.y != null
         ? `${position.x}, ${position.y}`
@@ -229,88 +218,6 @@ function renderDecision() {
     els.decisionScreenType.textContent = screenType;
     els.decisionTime.textContent = formatTimestamp(decision.timestamp);
     els.decisionReasoning.textContent = decision.reasoning || "当前还没有模型解释。";
-}
-
-function renderMap() {
-    const snapshot = state.game.navigation?.map_snapshot || {};
-    const position = state.game.position || {};
-
-    if (!els.mapBoard || !els.mapLegend || !els.mapCurrentLabel || !els.mapBoundsLabel) {
-        return;
-    }
-
-    if (!snapshot.available || !Array.isArray(snapshot.rows) || !snapshot.rows.length) {
-        els.mapBoard.innerHTML = `<div class="empty-state">暂无可用地图。进入可自由移动的地图后，这里会显示逆向出来的探索快照。</div>`;
-        els.mapBoard.style.removeProperty("--map-cell-size");
-        els.mapBoard.style.removeProperty("--map-gap");
-        els.mapLegend.innerHTML = "";
-        els.mapCurrentLabel.textContent = `map ${position.map_id ?? "-"}`;
-        els.mapBoundsLabel.textContent = "bounds -";
-        if (els.mapSizeValue) els.mapSizeValue.textContent = "-";
-        if (els.mapExploredValue) els.mapExploredValue.textContent = "0";
-        if (els.mapFrontierValue) els.mapFrontierValue.textContent = "0";
-        if (els.mapWarpValue) els.mapWarpValue.textContent = "0";
-        if (els.mapPlayerValue) {
-            els.mapPlayerValue.textContent = position.x != null && position.y != null
-                ? `${position.x}, ${position.y}`
-                : "-";
-        }
-        return;
-    }
-
-    const cellTone = {
-        " ": "unknown",
-        ".": "explored",
-        "F": "frontier",
-        "#": "wall",
-        "W": "warp",
-        "P": "player",
-    };
-    const bounds = snapshot.bounds || {};
-    const width = Number(bounds.width ?? Math.max(...snapshot.rows.map((row) => String(row || "").length), 0));
-    const height = Number(bounds.height ?? snapshot.rows.length ?? 0);
-    const largestSpan = Math.max(width, height, 1);
-    const cellSize = Math.max(8, Math.min(18, Math.floor(280 / largestSpan)));
-    const gapSize = cellSize <= 10 ? 1 : 2;
-    els.mapBoard.style.setProperty("--map-cell-size", `${cellSize}px`);
-    els.mapBoard.style.setProperty("--map-gap", `${gapSize}px`);
-
-    els.mapBoard.innerHTML = snapshot.rows
-        .map((row, rowIndex) => `
-            <div class="map-row">
-                ${Array.from(String(row || "")).map((cell, colIndex) => {
-                    const tileX = Number(bounds.min_x ?? 0) + colIndex;
-                    const tileY = Number(bounds.min_y ?? 0) + rowIndex;
-                    const tileLabel = (snapshot.legend || {})[cell] || cell;
-                    return `
-                    <span class="map-cell" data-tone="${cellTone[cell] || "unknown"}" title="${escapeHtml(`${tileLabel} (${tileX}, ${tileY})`)}"></span>
-                `;
-                }).join("")}
-            </div>
-        `)
-        .join("");
-
-    els.mapCurrentLabel.textContent = `map ${snapshot.map_id ?? position.map_id ?? "-"}`;
-    els.mapBoundsLabel.textContent = `x ${bounds.min_x ?? "-"}-${bounds.max_x ?? "-"} · y ${bounds.min_y ?? "-"}-${bounds.max_y ?? "-"}`;
-    if (els.mapSizeValue) els.mapSizeValue.textContent = width > 0 && height > 0 ? `${width}×${height}` : "-";
-    if (els.mapExploredValue) els.mapExploredValue.textContent = String(snapshot.explored_count ?? 0);
-    if (els.mapFrontierValue) els.mapFrontierValue.textContent = String(snapshot.frontier_count ?? 0);
-    if (els.mapWarpValue) els.mapWarpValue.textContent = String(snapshot.warp_count ?? 0);
-    if (els.mapPlayerValue) {
-        const player = snapshot.player || {};
-        els.mapPlayerValue.textContent = player.x != null && player.y != null
-            ? `${player.x}, ${player.y}`
-            : position.x != null && position.y != null
-                ? `${position.x}, ${position.y}`
-                : "-";
-    }
-    els.mapLegend.innerHTML = `
-        <span class="legend-pill"><span class="legend-dot" data-tone="player"></span>Player</span>
-        <span class="legend-pill"><span class="legend-dot" data-tone="explored"></span>Explored</span>
-        <span class="legend-pill"><span class="legend-dot" data-tone="frontier"></span>Frontier</span>
-        <span class="legend-pill"><span class="legend-dot" data-tone="wall"></span>Wall</span>
-        <span class="legend-pill"><span class="legend-dot" data-tone="warp"></span>Warp</span>
-    `;
 }
 
 function renderSimpleList(container, items, renderItem, emptyText) {
@@ -504,35 +411,22 @@ function renderCheckpoints() {
 
 function renderParty() {
     const party = state.game.party || [];
-    if (!els.partyList) {
-        return;
-    }
     if (!party.length) {
         els.partyList.innerHTML = `<div class="list-item empty-state">尚未获得宝可梦。</div>`;
         return;
     }
 
-    els.partyList.innerHTML = party.map((pokemon, index) => {
-        const name = pokemon.display_name || pokemon.name || pokemon.species || "未知宝可梦";
-        const currentHp = Number(pokemon.current_hp ?? pokemon.hp ?? 0);
-        const maxHp = Number(pokemon.max_hp ?? 0);
-        const hpRatio = maxHp > 0 ? Math.max(0, Math.min(1, currentHp / maxHp)) : 0;
-        const hpPercent = maxHp > 0 ? `${Math.round(hpRatio * 100)}%` : "N/A";
-        const hpState = hpRatio <= 0.25 ? "danger" : hpRatio <= 0.5 ? "warning" : "healthy";
-        return `
-        <article class="party-card" data-hp-state="${hpState}">
-            <div class="party-top">
-                <span class="party-slot mono">${String(index + 1).padStart(2, "0")}</span>
-                <div class="party-body">
-                    <strong>${escapeHtml(name)}</strong>
-                    <p>Lv ${escapeHtml(pokemon.level ?? "?")} · HP ${escapeHtml(currentHp)} / ${escapeHtml(maxHp || "?")}</p>
+    els.partyList.innerHTML = party.map((pokemon) => `
+        <div class="list-item">
+            <div class="party-entry">
+                <div>
+                    <strong>${escapeHtml(pokemon.name || "未知宝可梦")}</strong>
+                    <p>HP ${escapeHtml(pokemon.hp ?? "?")} / ${escapeHtml(pokemon.max_hp ?? "?")}</p>
                 </div>
-                <span class="party-hp-pill">${escapeHtml(hpPercent)}</span>
+                <div class="party-level">Lv ${escapeHtml(pokemon.level ?? "?")}</div>
             </div>
-            <div class="hp-track"><span class="hp-fill" style="width:${(hpRatio * 100).toFixed(1)}%"></span></div>
-        </article>
-    `;
-    }).join("");
+        </div>
+    `).join("");
 }
 
 async function sendControl(command, value = null) {
@@ -637,3 +531,4 @@ async function bootstrap() {
 }
 
 bootstrap();
+

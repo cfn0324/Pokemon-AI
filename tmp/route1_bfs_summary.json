@@ -1,0 +1,132 @@
+{
+  "start": [
+    12,
+    11,
+    34
+  ],
+  "visited_nodes": 3,
+  "discovered_positions": 7,
+  "exit_found": [
+    -1,
+    11,
+    -1
+  ],
+  "edges": {
+    "(12, 11, 34)": {
+      "up": {
+        "to": [
+          12,
+          11,
+          33
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "down": {
+        "to": [
+          12,
+          11,
+          35
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "left": {
+        "to": [
+          12,
+          10,
+          34
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "right": {
+        "to": [
+          12,
+          11,
+          34
+        ],
+        "moved": false,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      }
+    },
+    "(12, 11, 33)": {
+      "up": {
+        "to": [
+          12,
+          11,
+          32
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "down": {
+        "to": [
+          12,
+          11,
+          34
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "left": {
+        "to": [
+          12,
+          10,
+          33
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "right": {
+        "to": [
+          12,
+          11,
+          33
+        ],
+        "moved": false,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      }
+    },
+    "(12, 11, 35)": {
+      "up": {
+        "to": [
+          12,
+          11,
+          34
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      },
+      "down": {
+        "to": [
+          -1,
+          11,
+          -1
+        ],
+        "moved": true,
+        "in_battle": false,
+        "menu": false,
+        "text": true
+      }
+    }
+  }
+}

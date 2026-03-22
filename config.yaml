@@ -2,7 +2,7 @@
 
 game:
   rom_path: "PokemonRed.gb"
-  speed: 0  # 0 = 无限制速度, 1 = 正常速度, 2+ = 较慢速度
+  speed: 1  # 0 = 无限制速度, 1 = 正常速度, 2+ = 较慢速度
   headless: true  # 不显示PyBoy窗口（推荐，改用Web仪表板）
   save_state_dir: "data/checkpoints"
   auto_resume_latest_checkpoint: true
@@ -79,7 +79,7 @@ performance:
   enable_caching: true
   cache_dir: "data/cache"
   parallel_agents: false  # 并行运行子智能体（实验性）
-  async_decisions: false  # Headless autonomous play prefers synchronous decisions to avoid stale-state actions
+  async_decisions: true  # Keep gameplay responsive by letting the model think in the background
   visual_enabled: false  # Disable harness-side pixel CV; rely on raw screenshots plus RAM
 
 visualization:

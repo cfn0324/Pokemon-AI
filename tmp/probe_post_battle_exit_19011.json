@@ -1,0 +1,1082 @@
+[
+  {
+    "step": 1,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "dialogue",
+    "text": true,
+    "action": "a"
+  },
+  {
+    "step": 2,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "dialogue",
+    "text": true,
+    "action": "wait"
+  },
+  {
+    "step": 3,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 4,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 5,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 6,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 7,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 8,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 9,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 10,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 11,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 12,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 13,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 14,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 15,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 16,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 17,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 18,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 19,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 20,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 21,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 22,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 23,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 24,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 25,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 26,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 27,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 28,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 29,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 30,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 31,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 32,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 33,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 34,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 35,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 36,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 37,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 38,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 39,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 40,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 41,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 42,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 43,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 44,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 45,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 46,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 47,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 48,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 49,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 50,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 51,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 52,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 53,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 54,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 55,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 56,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 57,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 58,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 59,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 60,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 61,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 62,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 63,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 64,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 65,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 66,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 67,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 68,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 69,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 70,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 71,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 72,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 73,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 74,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 75,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 76,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 77,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 78,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 79,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 80,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 81,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 82,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 83,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 84,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 85,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 86,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 87,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 88,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 89,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 90,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 91,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 92,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 93,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 94,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 95,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 96,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 97,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 98,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 99,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 100,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 101,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 102,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 103,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 104,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 105,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 106,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 107,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 108,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 109,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 110,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 111,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 112,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 113,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 114,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 115,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 116,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 117,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 118,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 119,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  },
+  {
+    "step": 120,
+    "map_id": 40,
+    "x": 5,
+    "y": 6,
+    "screen_type": "battle",
+    "text": true,
+    "action": "down"
+  }
+]

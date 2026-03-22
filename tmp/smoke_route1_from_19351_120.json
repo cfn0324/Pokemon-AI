@@ -1,0 +1,1009 @@
+{
+  "requested_checkpoint": "checkpoint_19351",
+  "restored_checkpoint": "checkpoint_19351",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19351,
+  "end_turn": 19471,
+  "turn_delta": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19471,
+    "timestamp": "2026-03-22T18:01:07.527973",
+    "position": {
+      "map_id": 12,
+      "x": 10,
+      "y": 17
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19471,
+      "local_analysis_enabled": false,
+      "screen_hash": "2aab89f33b6caae912681eddd4074cb5"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 148,
+      "total_tiles": 200,
+      "exploration_percent": 74.0
+    },
+    "navigation": {
+      "current_visit_count": 1,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 88,
+      "nearest_frontier": {
+        "target": [
+          10,
+          17
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "right"
+        ],
+        "visit_count": 1,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "????????F",
+        "FFFFFFFFF",
+        "?F..F????",
+        "?FF.F????",
+        "???FP????",
+        "???F?????",
+        "???F?????",
+        "FFF.FF.FF",
+        "....FF.FF"
+      ]
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19409,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the overworld with no text or menu active. The screenshot shows the player in an open corridor: a horizontal tree line blocks the upper-left area, a vertical fence/post line is on the right, and the path continues clearly upward from the current position. Since we have already moved right around the earlier obstacle, the best main-route progression toward Viridian City is n...",
+      "result": "After up:; moved from (15,21) to (15,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19410,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Route 1 directly below a solid horizontal tree line, so up is blocked, and the vertical post boundary on the right blocks further east; the open route continues left along the corridor toward the path around this obstacle and onward to Viridian City.",
+      "result": "After left:; moved from (15,20) to (14,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19411,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Route 1 in a corridor with a solid hedge/tree line immediately above and a post boundary to the right. Since up is visually blocked from the current tile, the best next move is to probe left along the open path to continue around the obstacle toward Viridian City. This also matches navigation memory marking left as an unknown direction from the current frontie...",
+      "result": "After left:; moved from (14,20) to (13,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19412,
+      "action": "left",
+      "reasoning": "On Route 1, no text or menu is active. The screenshot shows the player directly below a horizontal tree/ledge line, so moving up from here is blocked. The route appears to continue to the left along the corridor, while the right side is bounded by posts. Continuing left is the best way to follow the path around the obstacle toward Viridian City.",
+      "result": "After left:; moved from (13,20) to (12,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19413,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below a continuous horizontal tree/ledge barrier; the game state also confirms up is blocked from (12,20). Left is the suggested frontier and should let us probe for the route around this obstacle, with unknown directions available from the next tile. This avoids repeating blocked upward attempts and continues the main-route search toward Viridian City.",
+      "result": "After left:; moved from (12,20) to (11,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19414,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly below a continuous horizontal tree line, matching memory that up from (11,20) is blocked. The path is open downward, and navigation memory lists down as an unknown direction from the current frontier tile. Testing down is the best way to break the recent lateral probing and continue searching for the route north around the obstacle toward Viridian City.",
+      "result": "After down:; moved from (11,20) to (11,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19415,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 with the player in an open horizontal corridor, facing down. There is a solid tree line above, a large grass patch to the lower right, and open path continuing to the left. From the current tile, navigation memory also marks left as an unknown direction, while down would just step back toward already explored space. To keep probing the route around the obstacle and...",
+      "result": "After left:; moved from (11,21) to (10,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19416,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 with no text or menu. The player is in the central corridor between a tree line above and another hedge below-left, with a large grass patch to the lower right. North looks blocked by the upper hedge from this x-position, while left is an unexplored open path and aligns with navigation memory marking left as unknown from the current tile. Continuing left is the best...",
+      "result": "After left:; moved from (10,21) to (9,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19417,
+      "action": "down",
+      "reasoning": "The screenshot shows Route 1 with the player in the open corridor between a horizontal tree line above and another barrier below, plus a large grass/ledge area to the right. At the current spot, moving up appears blocked by the upper tree line, while left would continue lateral wandering. The navigation memory marks down and left as unknown from this tile, and down is the more promising move to...",
+      "result": "After down:; moved from (9,21) to (9,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19418,
+      "action": "left",
+      "reasoning": "On Route 1, no text or menu is active. The screenshot shows the player in the central corridor above a horizontal tree line, with a large grass patch to the right and an NPC below-left. From the current tile, down would backtrack, while left appears to continue the open corridor and is also listed as an unexplored direction nearby. Probing left is the best move to find the route around the barr...",
+      "result": "After left:; moved from (9,22) to (8,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19419,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Route 1 in an open corridor with a solid horizontal tree line immediately below and open walkable space directly to the left, while the top area appears blocked off by ledges/trees and moving left explores the nearest unexplored tile without backtracking.",
+      "result": "After left:; moved from (8,22) to (7,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19420,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Route 1’s upper corridor. A solid hedge row blocks movement downward immediately below, while the tile directly left appears open. Up looks like tall grass and is possible, but continuing left is the cleaner route through the corridor and matches the nearby unexplored frontier at (6,22), avoiding more random vertical probing.",
+      "result": "After left:; moved from (7,22) to (6,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19421,
+      "action": "left",
+      "reasoning": "We are on Route 1 in the upper-left corridor. The screenshot shows a horizontal hedge immediately below and an upper boundary with an opening to the left side ahead; moving left continues along the open corridor and explores the nearest unexplored tile without backtracking into the lower area near the NPC. This is the most direct probe to find the path north toward Viridian City.",
+      "result": "After left:; moved from (6,22) to (5,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 6,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19422,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Route 1’s upper-left corridor with a vertical line of posts on the far left and a horizontal hedge directly below, while the tile immediately to the left is clearly open and leads farther west toward the corridor’s opening; with no text box or menu active, probing left is the best way to continue toward Viridian City.",
+      "result": "After left:; moved from (5,22) to (4,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19423,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Route 1’s far-left corridor next to the vertical post boundary, with a solid hedge immediately below and open walkable space directly to the left, while no text box or menu is active; moving left cleanly explores the nearest unexplored tile and continues searching for the northern route toward Viridian City.",
+      "result": "After left:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19424,
+      "action": "up",
+      "reasoning": "The screenshot shows the player at the far-left side of Route 1 beside the vertical post boundary. The failed left confirms the boundary blocks further west. There is a clear walkable tile directly above along this left corridor, while down is separated by the hedge/NPC area and would backtrack. Moving up best explores the opening and continues toward Viridian City.",
+      "result": "After up:; moved from (4,22) to (4,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19425,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the left-side corridor. The screenshot shows the player one tile right of the left boundary posts, with open walkable space directly above and no text or menu active. Left is likely blocked by the boundary, while up continues along the corridor toward the route exit and Viridian City. This also matches the unexplored nearby tile at (4,20).",
+      "result": "After up:; moved from (4,21) to (4,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19426,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Route 1’s far-left corridor beside the western post boundary. A horizontal fence/hedge segment is immediately to the right, so right is blocked here, and left is likely blocked by the boundary posts. The open continuation of the corridor is directly upward, which also matches an unexplored nearby tile at (4,19) and advances toward Viridian City.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19427,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Route 1’s far-left corridor beside the west boundary posts. The failed up from the previous turn is explained by the horizontal fence immediately to the right extending across the row above the player, so north is blocked here. Left is also blocked by the boundary posts. The only open way to continue and route around the fence is down along the left corridor.",
+      "result": "After down:; moved from (4,20) to (4,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19428,
+      "action": "down",
+      "reasoning": "We are in Route 1’s far-left corridor at (4,21). The screenshot shows the western post boundary on the left, a horizontal hedge/fence section to the right above, and open walkable ground directly below toward the lower passage with the NPC visible farther south. The previous move down from (4,20) to (4,21) succeeded after up was blocked, so continuing down is the most coherent way to route arou...",
+      "result": "After down:; moved from (4,21) to (4,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19429,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in the far-left Route 1 corridor beside the western post boundary. Left is blocked by the boundary, and up was already confirmed blocked from this position. The horizontal hedge to the right blocks east here, while the tile directly below is clearly open and leads toward the lower opening around the obstacle. Continuing down is the correct route-around move and a...",
+      "result": "After down:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19430,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the far-left edge of Route 1 beside the western post boundary. The previous down attempt failed because a continuous horizontal hedge directly below blocks movement south from this tile. Left is also blocked by the map boundary, and up is already known to lead back to explored corridor space. The only promising unexplored direction adjacent to this area is to...",
+      "result": "After right:; moved from (4,22) to (5,22) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 4,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19431,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in the far-left Route 1 corridor beside the western post boundary. A continuous hedge blocks movement downward from the current row, matching why down from (4,22) previously failed. From the current tile (5,22), the space directly above is open and appears to be the only promising way to continue around the obstacle; right would just backtrack east along explored...",
+      "result": "After up:; moved from (5,22) to (5,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19432,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Route 1’s far-left corridor beside the western post boundary. A horizontal fence/hedge line is directly above, which explains why up from this area can be blocked depending on x-position. From the current tile at (5,21), moving right appears open and is explicitly marked as an unknown direction from the current frontier, while up risks repeating the earlier bl...",
+      "result": "After right:; moved from (5,21) to (6,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19433,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the overworld with no text or menu active. The screenshot shows the player in the left-side passage, with the western boundary posts to the left, a horizontal fence/hedge line above that still leaves open walkable space directly above the player, and a solid hedge row below. From the current tile, both up and right are unexplored, but right likely just continues lateral pro...",
+      "result": "After up:; moved from (6,21) to (6,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 6,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19434,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Route 1’s left-side passage facing a horizontal fence/hedge directly above, so continuing up is blocked here. The western post boundary is on the far left, and the corridor is open to the right along the current row. This matches the earlier critique that up from this area can be blocked depending on x-position. To continue routing around the barrier toward Vi...",
+      "result": "After right:; moved from (6,20) to (7,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 6,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19435,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing directly below a continuous horizontal fence/hedge line, so up is blocked from the current tile. The west side has the boundary posts and lower hedge area already explored. The tile to the right appears open along this corridor and is also one of the current tile’s unknown directions, making it the best probe to continue routing around the obstacle towar...",
+      "result": "After right:; moved from (7,20) to (8,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19436,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly below a horizontal fence/hedge segment; moving up is blocked from this tile. The lower side is open, with a horizontal boulder/tree line farther south, indicating this corridor continues downward between barriers. Navigation memory also marks down as an unknown direction from the current frontier, while right was just used to reach this spot and left wou...",
+      "result": "After down:; moved from (8,20) to (8,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19437,
+      "action": "left",
+      "reasoning": "We are on Route 1 with no text or menu active. The screenshot shows the player in an open patch between a fence/tree line above and a solid tree line below; the lower-right is blocked by ledges/grass. From the current tile, left appears clearly open, and navigation memory specifically marks left as the unknown direction from this frontier. Recent movement already confirmed the area above can be...",
+      "result": "After left:; moved from (8,21) to (7,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19438,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in a narrow open strip between two horizontal hedge lines, with the west boundary posts on the left. From this exact position, up appears open while left would just backtrack toward explored tiles and down is blocked by the hedge below. The nearby unexplored frontier includes (7,19), directly north of here after one step, so moving up is the best route to probe t...",
+      "result": "After up:; moved from (7,21) to (7,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19439,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing directly below a horizontal fence/hedge segment, so up is blocked from this tile. The west side is the boundary posts, and the lower path is blocked by the solid hedge row near the bottom. The only clear open continuation is to the right along the current corridor, which also matches nearby unexplored tiles such as (8,19) reachable by moving right first.",
+      "result": "After right:; moved from (7,20) to (8,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19440,
+      "action": "down",
+      "reasoning": "We are on Route 1 with no text or menu active. The screenshot shows the player directly below a horizontal fence/hedge segment, so up is blocked from this exact tile. The lower side is open, and navigation memory says the current frontier’s unknown direction is up with nearby unexplored tiles at (8,19) and (7,19), which are likely reached by moving laterally first to a column where the fence li...",
+      "result": "After down:; moved from (8,20) to (8,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19441,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in the open strip between a fence/hedge line above and a solid hedge line below. From this tile, left and right are open, while up may be blocked at this exact column by the upper fence segment. Navigation memory suggests the nearest productive frontier is reached by going left to (7,21) and then up, with unknown direction up from that frontier. To reduce the rec...",
+      "result": "After left:; moved from (8,21) to (7,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19442,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in the left-side Route 1 strip with the west boundary posts on the far left, a broken horizontal fence/hedge line above, and a solid hedge line below. From the current tile at (7,21), there is clear walkable space directly above, and navigation memory specifically suggests the frontier at (7,20) with unknown direction up from there toward unexplored tiles at (7,1...",
+      "result": "After up:; moved from (7,21) to (7,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19443,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Route 1’s left-side passage directly below a broken horizontal fence/hedge line. There is clear open walkable space immediately above at this column, while left and right would continue lateral probing in already explored corridor tiles. Navigation memory also marks the current frontier’s unknown direction as up, with nearby unexplored tiles at (7,19) and beyo...",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19444,
+      "action": "right",
+      "reasoning": "The screenshot confirms why the last up failed: the player is directly below a continuous horizontal fence/hedge line, so north is blocked at this column. The west side is the boundary posts, and south is blocked by the solid hedge row below. The only open movement is along the corridor to the right, which is also consistent with nearby unexplored tiles like (8,19) likely being reachable from a...",
+      "result": "After right:; moved from (7,20) to (8,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19445,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing directly below a horizontal fence/hedge segment, so moving up from this exact tile is blocked; this matches the recent failed up from the adjacent column and the visual barrier above. The area below is open, while the lower hedge line is farther south, creating a corridor. Navigation memory specifically marks the current frontier’s unknown direction as u...",
+      "result": "After down:; moved from (8,20) to (8,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19446,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in the narrow middle strip on Route 1, with a broken fence/hedge line above and a solid boulder/tree barrier below. From this tile, left appears open and the navigation memory specifically suggests the frontier at (7,20) via left, then up, with unknown direction up from there toward unexplored tiles at (7,19) and (8,19). Recent turns already showed that going dir...",
+      "result": "After left:; moved from (8,21) to (7,21) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19447,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in the narrow strip between a fence/hedge row above and a solid hedge row below on Route 1. From this exact tile, there is clear open space directly above, and the navigation memory explicitly suggests the frontier at (7,20) with unknown direction up from there toward unexplored tiles at (7,19). Recent looping came from shifting right and back; the best correctiv...",
+      "result": "After up:; moved from (7,21) to (7,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19448,
+      "action": "right",
+      "reasoning": "The screenshot clearly shows the player directly below a continuous horizontal fence/hedge line, so up is blocked from the current tile; this matches navigation memory listing up as blocked at (7,20). The left side is the western boundary posts, and the route remains open to the right along the current corridor. To stop repeating the failed up attempt and continue probing for an opening north t...",
+      "result": "After right:; moved from (7,20) to (8,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19449,
+      "action": "up",
+      "reasoning": "We are still in the narrow Route 1 strip and the navigation memory now explicitly marks the current frontier at (8,20) with unknown direction up and nearby unexplored tiles at (8,19) and (8,18). The screenshot shows the player directly beneath the upper fence opening area, with open ground above the sprite and the lower hedge well below. Recent looping came from retreating down/left instead of...",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19450,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below a horizontal fence/hedge barrier, and the previous attempt to move up from this exact tile failed, confirming north is blocked here. The only clearly open continuation is to the left along the corridor; this aligns with nearby unexplored tiles such as (7,19) and (6,19), which are more plausibly reached by shifting left to find a gap rather than rep...",
+      "result": "After left:; moved from (8,20) to (7,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19451,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in the narrow Route 1 corridor with the western post boundary on the left, a solid rock/fence line immediately above the current tile, and another solid barrier below. This matches navigation memory that up is blocked from (7,20). The open path continues horizontally, and the nearest unexplored tiles include (6,19) and (5,20), which are more likely reached by shi...",
+      "result": "After left:; moved from (7,20) to (6,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19452,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at Route 1 position (6,20), standing directly below a horizontal fence/hedge line. That confirms north is blocked here, matching the recent failed up attempts in this corridor. The left tile appears open along the same row, and navigation memory lists left as an unknown direction from the current frontier with nearby unexplored tiles at (5,20) and likely (5,19)....",
+      "result": "After left:; moved from (6,20) to (5,20) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 6,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19453,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in the left-side corridor on Route 1. The west edge posts are immediately to the left, a horizontal hedge blocks the row above except for possible gaps elsewhere, and a solid hedge blocks movement downward from this row. From the current position at (5,20), the most promising unexplored direction is up toward nearby unexplored tiles (5,19) and (5,18). This matche...",
+      "result": "After up:; moved from (5,20) to (5,19) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19454,
+      "action": "up",
+      "reasoning": "The screenshot shows the player at the left side of Route 1 beside the western post boundary, standing just below a horizontal hedge/flower fence line that extends across the row beneath him. The move to reach (5,19) succeeded from below, and from this exact tile the path directly upward appears open while left is likely blocked by the boundary and right risks more lateral looping. This also ma...",
+      "result": "After up:; moved from (5,19) to (5,18) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19455,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Route 1’s far-left upper area beside the western post boundary. There is clear open walkable space directly above the player, while the horizontal fence/hedge line is below and left is blocked by the boundary posts. This is a fresh position reached after moving up twice, and nearby unexplored tiles include (5,17), so continuing north is the best progression to...",
+      "result": "After up:; moved from (5,18) to (5,17) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19456,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the overworld with no text or menu active. The screenshot shows the player beside the western post boundary, just left of a large grass patch. The path directly up is clear, while left is blocked by the boundary posts and right would enter grass. Since the goal is main-route progression toward Viridian City and we are already in the upper-left part of the route, continuing...",
+      "result": "After up:; moved from (5,17) to (5,16) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19457,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the overworld at the upper-left side beside the western post boundary and just left of a large grass patch. The screenshot shows clear open walkable space directly above the player, while left is blocked by the boundary posts and right would enter grass unnecessarily. Since our goal is to continue north toward Viridian City and the nearby unexplored tile (5,15) is directly...",
+      "result": "After up:; moved from (5,16) to (5,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19458,
+      "action": "up",
+      "reasoning": "We are on Route 1 in the upper-left section beside the western boundary posts and just left of the large grass patch. The screenshot shows a horizontal tree barrier above-left, but the tile directly above the player appears open and continues north along the safe path without entering grass. Left is blocked by the boundary posts, and right would move into or toward grass unnecessarily. Continui...",
+      "result": "After up:; moved from (5,15) to (5,14) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19459,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the top-left side of Route 1 beside the western post boundary. A horizontal tree line is immediately above the current tile, so up is blocked here. Left is also blocked by the boundary posts. The open path continues to the right along the top edge of the route, which is the natural progression toward Viridian City and avoids repeating the recent north-into-bar...",
+      "result": "After right:; moved from (5,14) to (6,14) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 5,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19460,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Route 1 near the upper-left, with west boundary posts to the left, a horizontal tree line directly above spanning this column, and open path continuing to the right along the top edge. Up is blocked by the trees, left is blocked by the boundary, and right is the clear main-route progression toward Viridian City. This also avoids repeating the earlier north-int...",
+      "result": "After right:; moved from (6,14) to (7,14) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 6,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19461,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Route 1 near the upper-left area, with the west boundary posts to the left and a horizontal tree line immediately above the current row. From this exact tile, up appears blocked by the trees, while the path remains clearly open to the right along the top corridor. Continuing right is the main-route progression toward Viridian City and avoids repeating blocked...",
+      "result": "After right:; moved from (7,14) to (8,14) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19462,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Route 1’s upper corridor. There is a continuous horizontal tree line immediately above the current row, so moving up from (8,14) is blocked here. The path below is open, while left/right mainly continue along the same explored corridor. Navigation memory also marks the current frontier’s unknown directions as up and down; since up is visually blocked, down is...",
+      "result": "After down:; moved from (8,14) to (8,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19463,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on Route 1 near the upper-right side. There is a horizontal tree line above, so up is blocked from this row. A vertical dotted boundary/fence line is immediately to the right, making further east unlikely. The open route clearly continues downward, and navigation memory also lists down as an unknown direction from the current frontier. To progress toward Viridian...",
+      "result": "After down:; moved from (8,15) to (8,16) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19464,
+      "action": "left",
+      "reasoning": "We are on Route 1 in the overworld with no text or menu active. The screenshot shows the player in an open area with a vertical boundary/fence line immediately to the right, trees across the top, and a large grass patch directly below. Since the current frontier marks down and left as unknown, down would just enter grass unnecessarily, while left stays on open path and explores toward the route...",
+      "result": "After left:; moved from (8,16) to (7,16) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19465,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Route 1’s upper area, standing just above the large grass patch. The western post boundary is on the left, and a horizontal tree line blocks the top edge except farther right where the route likely continues north toward Viridian City. Moving left would hug the boundary and likely dead-end; moving down enters grass unnecessarily. The safest main-route progress...",
+      "result": "After up:; moved from (7,16) to (7,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19466,
+      "action": "right",
+      "reasoning": "We are on Route 1 with no text or menu active, and the screenshot shows the player just above a large grass patch with the western post boundary to the left and a horizontal tree line above that has a clear opening directly to the right of the player, so moving right follows the safe path toward the northern route instead of entering grass or drifting back left.",
+      "result": "After right:; moved from (7,15) to (8,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 7,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19467,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Route 1’s upper area above a large grass patch, facing right. There is a horizontal tree line above, so up is blocked from this row. The open path continues to the right along the top edge; left would backtrack, and down would re-enter the area above the grass. To keep following the safe main route toward Viridian City, continue right.",
+      "result": "After right:; moved from (8,15) to (9,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19468,
+      "action": "right",
+      "reasoning": "We are on Route 1 with no text or menu active. The screenshot shows the player in the upper route area with a horizontal tree line above-left, a vertical post boundary to the right, and open walkable space continuing to the right along the current row. This matches navigation memory marking the current frontier at (9,15) with unknown direction right and nearby unexplored tiles at (10,15) and (1...",
+      "result": "After right:; moved from (9,15) to (10,15) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19469,
+      "action": "down",
+      "reasoning": "We are on Route 1 in the overworld with no text or menu active. The screenshot shows the player in the upper-right area: a horizontal tree line blocks movement directly north from the current row, while a vertical path opens clearly downward beside the large grass patch on the right. Navigation memory for the current frontier also lists down and right as unknown; right risks stepping into the g...",
+      "result": "After down:; moved from (10,15) to (10,16) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19470,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Route 1’s upper-right area. There is a vertical open path directly downward beside the grass, while the top is blocked by trees and the right side is occupied by the grass corridor/NPC area. Navigation memory for the current tile also marks down and right as unknown, and down stays on the open path while continuing north-route exploration without entering gras...",
+      "result": "After down:; moved from (10,16) to (10,17) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19471,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Route 1 in an open clearing. A solid tree/ledge barrier runs along the bottom, so continuing down likely just approaches that dead end. The right side appears to narrow against a vertical grass edge, while the open route toward Viridian City is more plausibly to the left and slightly upward. Navigation memory also lists (8,17) as a nearby unexplored tile, maki...",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 17
+      },
+      "party_size": 1
+    }
+  ]
+}

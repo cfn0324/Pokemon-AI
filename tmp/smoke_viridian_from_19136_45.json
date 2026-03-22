@@ -1,0 +1,776 @@
+{
+  "requested_checkpoint": "checkpoint_19136",
+  "restored_checkpoint": "checkpoint_19136",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19136,
+  "end_turn": 19181,
+  "turn_delta": 45,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19181,
+    "timestamp": "2026-03-22T18:47:02.569011",
+    "position": {
+      "map_id": 12,
+      "x": 12,
+      "y": 24
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19181,
+      "local_analysis_enabled": false,
+      "screen_hash": "082714b3ab3000d1a274cd483d859464",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 32,
+      "known_exits": {
+        "up": {
+          "x": 12,
+          "y": 23
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          12,
+          24
+        ],
+        "path": [],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 32,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "?FFFF????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "F?FFP????",
+        "F?FFF????",
+        ".FF??????",
+        ".????????",
+        "..FF..FFF"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19136,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 19137,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19138,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19139,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19140,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19141,
+      "action": "up",
+      "reasoning": "Auto: climb through Route 1's first opening",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19142,
+      "action": "up",
+      "reasoning": "Auto: climb through Route 1's first opening",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19143,
+      "action": "right",
+      "reasoning": "Auto: cut right across Route 1's mid-route ledge opening",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19144,
+      "action": "right",
+      "reasoning": "Auto: cut right across Route 1's mid-route ledge opening",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19145,
+      "action": "up",
+      "reasoning": "Auto: advance to Route 1's mid-route bend",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19146,
+      "action": "up",
+      "reasoning": "Auto: advance to Route 1's mid-route bend",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19147,
+      "action": "right",
+      "reasoning": "Auto: enter the small Route 1 dogleg around the central hedge",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19148,
+      "action": "down",
+      "reasoning": "Auto: dip one tile to line up with Route 1's right-side passage",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19149,
+      "action": "right",
+      "reasoning": "Auto: step into Route 1's right-side lane",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19150,
+      "action": "up",
+      "reasoning": "Auto: continue north up Route 1's right-side lane",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12; entered battle; screen changed from overworld to battle; text box opened",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19151,
+      "action": "up",
+      "reasoning": "The screenshot clearly shows the player sprite standing on Route 1 with no battle UI, no enemy sprites, and no text box, so the prior battle flag appears stale and the correct move is to continue north toward Viridian City.",
+      "result": "After up:; position did not change",
+      "screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19152,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing in Route 1 grass with no battle interface, no enemy sprite, and no text box, while the tile directly above is open and is the known north path, so continuing north is the correct progression.",
+      "result": "After up:; position did not change",
+      "screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19153,
+      "action": "up",
+      "reasoning": "The screenshot shows the Route 1 overworld with the player standing in grass, no battle scene, and no visible text box, so the memory battle flag is stale and the open tile directly above should be taken to continue north toward Viridian City.",
+      "result": "After up:; position did not change",
+      "screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19154,
+      "action": "a",
+      "reasoning": "The screenshot itself shows the overworld Route 1 grass, but repeated movement inputs already failed and RAM state says a trainer battle with text box active is in progress. When battle/text is active, movement will not work; the safest next step is to advance the hidden/transitioning battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19155,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle transition swirl/black battle background rather than free overworld movement, and RAM confirms a trainer battle with an active text box against Pidgey. Movement inputs will not progress; advancing battle text is the correct next step.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19156,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro transition swirl/partial encounter scene rather than the overworld, and RAM says a trainer battle with text box active is still in progress. During battle intro text, movement will not work; the correct action is to continue advancing the battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19157,
+      "action": "a",
+      "reasoning": "The screenshot is effectively black, but memory state is reliable here: a trainer battle is active and the text box is active. While battle intro or dialogue text is on screen, movement and battle choices will not work. The correct step is to keep advancing the text until the fight menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19158,
+      "action": "a",
+      "reasoning": "The screenshot is completely black and the live state still reports a trainer battle against a Lv.3 Pidgey with the text box active, so movement will not progress and the correct input is to advance the battle dialogue.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19159,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle text box with no command menu yet, and RAM confirms text box active in a trainer battle. Movement is blocked until the intro/dialogue finishes, so the correct action is to continue advancing the text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19160,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with a blank dialogue box and no command menu yet. RAM also confirms a trainer battle with text box active and menu inactive. The correct step is to advance the battle intro/dialogue until the fight menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19161,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle scene with the enemy Pidgey visible and a blank dialogue box at the bottom, and the state confirms text box active with no menu active, so the battle intro text still needs to be advanced before any move selection is possible.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19162,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with the enemy Pidgey visible and an empty dialogue box, while RAM says text box active and no menu is active. That means the battle intro text still needs to be advanced before the command menu appears; movement or battle selections are not available yet.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19163,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with enemy Pidgey and a blank text box, with no command menu visible. RAM also says text box active and menu inactive, so the battle intro/dialogue still needs to be advanced before any move choice is possible.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19164,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with enemy Pidgey and an empty dialogue box; RAM confirms text box active and no menu active. This is still battle intro/dialogue, so the correct action is to advance text until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19165,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows battle intro text, specifically the enemy send-out line beginning with \"Wild PIDG\". The text box is active and no battle command menu is available yet, so the correct move is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19166,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the wild encounter intro text, “Wild PIDGEY appear…”, with no command menu yet. RAM also says text box active and menu inactive. The correct action is to advance the battle dialogue.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19167,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the wild encounter intro text, \"Wild PIDGEY appeared!\" with the text box active and no battle command menu yet. Since dialogue is still on screen, the correct action is to press A to advance to the next battle message/menu.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19168,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with wild Pidgey visible and an empty text box; no command menu is displayed yet. RAM also says text box active and menu inactive, so the intro battle text still needs to be advanced before move selection is possible.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19169,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle scene with a blank text box and no command menu, and RAM confirms text box active with menu inactive. This means the intro battle dialogue has not fully advanced yet, so the correct action is to press A again until the battle options appear.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19170,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with wild Pidgey visible and a blank text box, and RAM still reports text box active with no menu active. The intro/send-out dialogue has not finished yet, so the correct action is to keep advancing until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19171,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with the letter \"G\" starting the next message, so dialogue is still printing and no command menu is available yet. With text box active and menu inactive, the correct action is to continue advancing the intro/send-out text.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19172,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with the text box displaying the start of the send-out message \"Go!\" and no command choice cursor yet. Since text is still printing/active, the correct next step is to advance the battle dialogue until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19173,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle scene with the text box displaying the send-out message starting with \"Go!\" and no selectable command options visible yet, so the battle intro text still needs to be advanced before any move can be chosen.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19174,
+      "action": "a",
+      "reasoning": "The screenshot shows the send-out text “Go!” still in the dialogue box, so the battle command menu is not ready for move selection yet. Since text is active, the correct step is to advance the remaining intro text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19175,
+      "action": "a",
+      "reasoning": "The screenshot shows the send-out text \"Go!\" still printing in the battle text box; the command menu is not yet available even though RAM marks menu active. To safely finish the intro and reach actual battle options, advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19176,
+      "action": "a",
+      "reasoning": "The screenshot shows battle intro text still active: \"Go! -!\" in the text box, with no command selection yet. Since the send-out message has not finished, the correct step is to advance the dialogue rather than try to choose a move.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19177,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro send-out message still active (\"Go! ...\"), not the command menu. Since text is still on screen, the correct next step is to advance the remaining intro dialogue with A until the fight options appear.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19178,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro send-out message in the text box reading “Go! -!” and no selectable fight menu options are visible yet, so the battle dialogue is still active and must be advanced before any move can be chosen.",
+      "result": "After a:; menu closed",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19179,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle command menu with the cursor already on FIGHT, and Charmander is at full HP against a wild Lv.3 Pidgey, so the safest immediate progress is to confirm FIGHT and move toward attacking.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19180,
+      "action": "a",
+      "reasoning": "The screenshot shows the move selection screen with the cursor on SCRATCH, Charmander at full 22/22 HP, and a wild Lv.3 Pidgey, so confirming SCRATCH is the safest efficient attack to progress and finish the battle.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19181,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with Charmander and wild Pidgey still visible, and the text box is printing the move message starting with “Use”, indicating Scratch was already selected and the attack text is still advancing. No command menu is available yet, so the correct action is to press A to continue the battle text and reach damage resolution.",
+      "result": null,
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    }
+  ]
+}

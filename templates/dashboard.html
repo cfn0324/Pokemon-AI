@@ -31,7 +31,8 @@
 
         <main class="layout">
             <section class="stack">
-                <section class="panel">
+                <section class="hero-grid">
+                <section class="panel panel-screen">
                     <div class="panel-head">
                         <div>
                             <p class="panel-kicker">Live Screen</p>
@@ -45,29 +46,89 @@
                         </div>
                     </div>
 
-                    <div class="stream-shell">
-                        <img id="streamImage" src="/stream.mjpg" alt="游戏实时画面">
-                        <img id="fallbackImage" alt="游戏截图" hidden>
-                        <div class="stream-placeholder" id="streamPlaceholder">等待游戏画面和模型状态…</div>
-                    </div>
+                    <div class="screen-stage">
+                        <div class="stream-shell">
+                            <img id="streamImage" src="/stream.mjpg" alt="游戏实时画面">
+                            <img id="fallbackImage" alt="游戏截图" hidden>
+                            <div class="stream-placeholder" id="streamPlaceholder">等待游戏画面和模型状态… 如果你运行的是 `scripts/autonomous_smoke.py`，这里不会更新。</div>
+                        </div>
 
-                    <div class="screen-insights">
-                        <div class="insight-card">
-                            <span class="insight-label">屏幕理解</span>
-                            <p class="insight-value" id="screenSummary">等待状态更新</p>
+                        <div class="screen-support-grid">
+                            <section class="support-card support-card-map">
+                                <div class="support-head">
+                                    <div>
+                                        <p class="support-kicker">Reversed Map</p>
+                                        <h3>地图逆向</h3>
+                                    </div>
+                                    <div class="tag-row">
+                                        <span class="tag" id="mapCurrentLabel">map -</span>
+                                        <span class="tag" id="mapBoundsLabel">bounds -</span>
+                                    </div>
+                                </div>
+
+                                <div class="map-shell">
+                                    <div class="map-board" id="mapBoard">
+                                        <div class="empty-state">等待地图数据…</div>
+                                    </div>
+                                </div>
+
+                                <div class="map-meta">
+                                    <div class="map-stat">
+                                        <span>尺寸</span>
+                                        <strong id="mapSizeValue">-</strong>
+                                    </div>
+                                    <div class="map-stat">
+                                        <span>已探索</span>
+                                        <strong id="mapExploredValue">0</strong>
+                                    </div>
+                                    <div class="map-stat">
+                                        <span>前沿</span>
+                                        <strong id="mapFrontierValue">0</strong>
+                                    </div>
+                                    <div class="map-stat">
+                                        <span>传送</span>
+                                        <strong id="mapWarpValue">0</strong>
+                                    </div>
+                                    <div class="map-stat">
+                                        <span>玩家</span>
+                                        <strong id="mapPlayerValue">-</strong>
+                                    </div>
+                                </div>
+                                <div class="map-legend" id="mapLegend"></div>
+                            </section>
+
+                            <section class="support-card support-card-team">
+                                <div class="support-head">
+                                    <div>
+                                        <p class="support-kicker">Team</p>
+                                        <h3>队伍状态</h3>
+                                    </div>
+                                </div>
+
+                                <div class="party-roster" id="partyList">
+                                    <div class="list-item empty-state">尚未获得宝可梦。</div>
+                                </div>
+                            </section>
                         </div>
-                        <div class="insight-card">
-                            <span class="insight-label">Harness 提示</span>
-                            <p class="insight-value" id="harnessSummary">-</p>
-                        </div>
-                        <div class="insight-card">
-                            <span class="insight-label">移动反馈</span>
-                            <p class="insight-value" id="movementSummary">-</p>
+
+                        <div class="screen-insights">
+                            <div class="insight-card">
+                                <span class="insight-label">屏幕理解</span>
+                                <p class="insight-value" id="screenSummary">等待状态更新</p>
+                            </div>
+                            <div class="insight-card">
+                                <span class="insight-label">Harness 提示</span>
+                                <p class="insight-value" id="harnessSummary">-</p>
+                            </div>
+                            <div class="insight-card">
+                                <span class="insight-label">移动反馈</span>
+                                <p class="insight-value" id="movementSummary">-</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="panel">
+                <section class="panel panel-decision">
                     <div class="panel-head">
                         <div>
                             <p class="panel-kicker">Model Decision</p>
@@ -77,7 +138,7 @@
                     </div>
 
                     <div class="decision-grid">
-                        <div class="decision-card">
+                        <div class="decision-card decision-card-action">
                             <div class="metric-label">动作</div>
                             <div class="decision-action mono" id="decisionAction">WAIT</div>
                             <div class="decision-meta">
@@ -86,11 +147,13 @@
                                 <div>时间: <span id="decisionTime">-</span></div>
                             </div>
                         </div>
-                        <div class="decision-card">
+                        <div class="decision-card decision-card-reasoning">
                             <div class="metric-label">解释</div>
                             <p class="reasoning" id="decisionReasoning">等待首个模型决策…</p>
                         </div>
                     </div>
+                </section>
+
                 </section>
 
                 <div class="split-grid">
@@ -274,19 +337,6 @@
                             <div class="metric-label">前沿点</div>
                             <div class="metric-value" id="statFrontier">0</div>
                         </div>
-                    </div>
-                </section>
-
-                <section class="panel">
-                    <div class="panel-head">
-                        <div>
-                            <p class="panel-kicker">Party</p>
-                            <h2>队伍</h2>
-                        </div>
-                    </div>
-
-                    <div class="party-list" id="partyList">
-                        <div class="list-item empty-state">尚未获得宝可梦。</div>
                     </div>
                 </section>
 

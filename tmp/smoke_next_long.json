@@ -1,0 +1,1134 @@
+{
+  "requested_checkpoint": "checkpoint_18621",
+  "restored_checkpoint": "checkpoint_18621",
+  "latest_checkpoint": "checkpoint_18841",
+  "start_turn": 18621,
+  "end_turn": 18841,
+  "turn_delta": 220,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18841,
+    "timestamp": "2026-03-22T16:12:33.341012",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 5120,
+        "max_hp": 5120,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 33
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 2816,
+          "defense": 2304,
+          "speed": 2816,
+          "special": 2560
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18841,
+      "local_analysis_enabled": false,
+      "screen_hash": "a621728ef894769bf7e7b026a1eb4395",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 7,
+      "total_tiles": 200,
+      "exploration_percent": 3.5000000000000004
+    },
+    "navigation": {
+      "current_visit_count": 93,
+      "known_exits": {},
+      "blocked_directions": [
+        "down"
+      ],
+      "frontier_count": 7,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 93,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18769,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with both trainer sprites visible and an empty battle text box at the bottom, and the state still reports text box active with no battle menu, so pressing A is the correct way to advance the mandatory intro dialogue.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18770,
+      "action": "a",
+      "reasoning": "The screenshot still shows the rival battle intro scene with both trainer sprites and an empty battle text box; the fight menu has not appeared yet. We should keep advancing the scripted intro dialogue with A until commands become available.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18771,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro scene with both trainer sprites on screen and an empty battle text box at the bottom, and there is still no battle command menu visible, so the correct move is to continue advancing the scripted intro text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18772,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle opening scene with both trainer sprites visible and an empty battle text box at the bottom, while no FIGHT/PKMN/ITEM/RUN menu is present, so the game is still in scripted intro dialogue that must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18773,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle introduction with both trainer sprites visible and the text box actively displaying “AAAAA wa,” while no FIGHT/PKMN/ITEM/RUN command menu is present, so the correct move is to keep advancing the scripted battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18774,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box reading \"AAAAA wants to fi\" with both trainer sprites visible and no FIGHT/PKMN/ITEM/RUN command menu yet, so the scripted battle dialogue is still in progress and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18775,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle introduction text box reading “AAAAA wants to fight!” with the text cursor visible and no battle command menu yet, so the scripted intro must be advanced before any move selection is possible.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18776,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle opening scene with both trainer sprites visible and a blank battle text box at the bottom, while the state still says text box active and no command menu is present, so the scripted intro has not finished and should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18777,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival trainer sprite with a battle text box that has only the letter “A” visible and no FIGHT/PKMN/ITEM/RUN menu, so the scripted battle intro is still rendering and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18778,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box with “AAAAA sent” partially displayed, both trainer-battle visuals still active, and no FIGHT/PKMN/ITEM/RUN menu visible, so the scripted send-out text must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18779,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box with “AAAAA sent out SQUI” partially rendered and no FIGHT/PKMN/ITEM/RUN command menu visible, so the scripted send-out message is still in progress and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18780,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival trainer battle scene with the message “AAAAA sent out SQUIRTLE!” still in the text box, and the state confirms text is active with no command menu, so the intro dialogue must be advanced before any battle choice can be made.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18781,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro message “AAAAA sent out SQUIRTLE!” in an active text box with no FIGHT/PKMN/ITEM/RUN menu visible yet, so the scripted opening has not finished and should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18782,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box reading “AAAAA sent out SQUIRTLE!” with the cursor visible, and the state still has text active with no battle command menu, so the scripted opening must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18783,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro message “AAAAA sent out SQUIRTLE!” with the text box still active and no battle command menu yet. We must continue advancing the scripted intro before selecting moves.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18784,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle opening message \"AAAAA sent out SQUIRTLE!\" in the bottom text box, and there is still no FIGHT/PKMN/ITEM/RUN command menu visible, so the battle is still in scripted intro text that must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18785,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro text box reading “AAAAA sent out SQUIRTLE!” with no FIGHT/PKMN/ITEM/RUN command menu visible, so the scripted opening text is still active and must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18786,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro text box reading “AAAAA sent out SQUIRTLE!” with no FIGHT menu visible, and the RAM flags also indicate an active text box, so the scripted opening still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18787,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro text box reading “AAAAA sent out SQUIRTLE!” with the text cursor present and no FIGHT/PKMN/ITEM/RUN command menu visible, so the scripted opening is still active and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18788,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s Squirtle on screen and the battle text box has only begun printing “Go,” with no FIGHT/PKMN/ITEM/RUN menu visible, so the scripted send-out message is still active and should be advanced.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18789,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the send-out message starting with “Go!” while the command options are not yet visible, so the battle is still in scripted intro text that must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18790,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro text box still printing the send-out message beginning with “Go!” at the bottom, and the battle command menu is not yet visible, so the scripted opening text must be advanced with A before any move can be selected.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18791,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text box with “Go!” and no visible FIGHT/PKMN/ITEM/RUN command menu yet. This is still scripted intro battle text, so the correct action is to advance the dialogue with A rather than try to choose a move.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18792,
+      "action": "a",
+      "reasoning": "The screenshot still shows the scripted send-out text box with “Go!” and no usable FIGHT/PKMN/ITEM/RUN command choices on screen yet. The battle intro is not finished, so the correct input is to continue advancing the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18793,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text box reading “Go!” with no FIGHT/PKMN/ITEM/RUN command menu visible yet. Although RAM says menu active, the visible state is still scripted intro text, so the correct action is to advance it with A until the actual battle choices appear.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18794,
+      "action": "a",
+      "reasoning": "The screenshot still shows the scripted send-out text box with “Go!” at the bottom and no visible FIGHT/PKMN/ITEM/RUN command menu. This is still intro battle text, so the correct action is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18795,
+      "action": "a",
+      "reasoning": "The screenshot still shows the scripted send-out text box reading “Go!” with no visible FIGHT/PKMN/ITEM/RUN command menu yet. Since the intro text is still active, the correct input is to advance it with A until the battle options appear.",
+      "result": "After a:; menu closed",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18796,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle command menu open with the cursor already on FIGHT, and this is the mandatory rival battle against a full-HP Lv.5 Squirtle, so the correct next step is to confirm FIGHT and proceed to move selection.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18797,
+      "action": "a",
+      "reasoning": "The move selection screen is open. Charmander only has Scratch and Growl. In this mandatory rival battle against Squirtle, the safest progress is to deal damage immediately rather than waste turns with Growl, so select Scratch.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18798,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with the text box actively printing a move message ending in “use”, which is the standard “... used ...” combat text after selecting Scratch. No command menu is available yet, so the correct action is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18799,
+      "action": "a",
+      "reasoning": "The screenshot shows the combat text box actively displaying the move message ending with “used SCRATC…”, so the attack text is still printing and no command menu is available yet. The correct action is to advance the battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18800,
+      "action": "a",
+      "reasoning": "The screenshot shows the combat message ending with “used SCRATCH!” in an active text box, with no battle command menu visible. The attack animation/text sequence is still resolving, so the correct input is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18801,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box actively displaying the move message ending with \"used SCRATCH!\" and there is no FIGHT/PKMN/ITEM/RUN command menu visible, so the attack text is still resolving and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18802,
+      "action": "a",
+      "reasoning": "The screenshot shows the combat text box with the move message still active, specifically ending in \"used SCRATCH!\" and no battle command menu is available yet. This means the attack resolution text has not finished, so the correct input is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18803,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box reading “used SCRATCH!” with no command menu visible, so the attack resolution text is still active and must be advanced before the opponent’s response or the next menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18804,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still active with the move message “used SCRATCH!” and no FIGHT/PKMN/ITEM/RUN menu visible, so the attack resolution has not finished and must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18805,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still active with the move message ending in \"used SCRATCH!\" and there is no FIGHT/PKMN/ITEM/RUN menu visible, so the attack resolution text must be advanced before the next battle event can occur.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18806,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box displaying “used SCRATCH!” with no FIGHT/PKMN/ITEM/RUN command menu visible, so the attack resolution text is still in progress and must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18807,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading \"- used SCRATCH!\" with no FIGHT/PKMN/ITEM/RUN menu visible, so the attack-resolution dialogue is still in progress and must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18808,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with Squirtle and Charmander visible, an empty but open text box at the bottom, and no FIGHT/PKMN/ITEM/RUN menu on screen, which indicates the battle text sequence is still active and must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18809,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box beginning to print “Enemy SQ…”, which is the opponent action message. No command menu is available yet, so the battle text should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18810,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box actively printing the opponent action message, specifically “Enemy SQUIRTLE us,” and there is no FIGHT/PKMN/ITEM/RUN command menu visible while RAM also reports the text box active, so the correct move is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18811,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box actively displaying “Enemy SQUIRTLE used TAIL” with no FIGHT/PKMN/ITEM/RUN menu visible, and the state also reports an active text box, so the opponent’s move message is still being resolved and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18812,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the enemy move message “Enemy SQUIRTLE used TAIL WHIP!” in an active battle text box, and no command menu is available yet. The turn is still resolving, so the correct input is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18813,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the active battle text “Enemy SQUIRTLE used TAIL WHIP!” with no command menu visible. The opponent’s move text is still resolving, so the correct action is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18814,
+      "action": "a",
+      "reasoning": "The screenshot shows the opponent action text “Enemy SQUIRTLE used TAIL WHIP!” in an active battle text box, and there is no command menu visible yet. The turn is still resolving, so the correct input is to advance the battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18815,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle text box with the message \"Enemy SQUIRTLE used TAIL WHIP!\" and no command menu is visible. The enemy turn text is still resolving, so the correct input is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18816,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the active combat text “Enemy SQUIRTLE used TAIL WHIP!” with no battle command menu visible. The enemy turn text is still resolving, so the correct action is to advance the dialogue with A until the command menu returns.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18817,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box explicitly saying “Enemy SQUIRTLE used TAIL WHIP!” and there is no FIGHT/PKMN/ITEM/RUN menu visible, so the enemy turn text is still active and must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18818,
+      "action": "a",
+      "reasoning": "The screenshot shows the enemy-turn message “Enemy SQUIRTLE used TAIL WHIP!” in an active text box, with no battle command menu visible. The turn is still resolving, so the correct action is to advance the dialogue with A until the fight menu returns.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18819,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-move effect text box with “-’s DEFE” visible, which is the defense-lowered message after Squirtle’s Tail Whip, and there is still no FIGHT/PKMN/ITEM/RUN menu on screen, so the battle text must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18820,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-Tail Whip stat-drop message reading \"-'s DEFENSE fell\" in the battle text box, and the state confirms the text box is active with no battle command menu visible, so the enemy turn is still resolving and must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18821,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the post-Tail Whip message \"-'s DEFENSE fell!\" and a continuation cursor, while no FIGHT/PKMN/ITEM/RUN menu is visible and the state says the text box is active, so the enemy turn text must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18822,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle command menu with the cursor on FIGHT against the rival’s Lv.5 Squirtle, and Charmander is still at full HP, so the correct safe progression is to confirm FIGHT rather than waste turns or attempt to run from this mandatory battle.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18823,
+      "action": "a",
+      "reasoning": "The screenshot shows the move selection menu with the cursor on SCRATCH, Charmander has only SCRATCH and GROWL, and using the damaging move is the safest way to continue this mandatory rival battle against Squirtle.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18824,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “- used”, which is the start of the player move message after selecting Scratch again. No command menu is visible, and RAM also reports text box active. The battle turn is still resolving, so the correct input is to advance the combat text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18825,
+      "action": "a",
+      "reasoning": "The screenshot shows an active combat text box displaying the player attack message “- used SCRATCH” and no FIGHT/PKMN/ITEM/RUN menu is visible. The turn is still resolving, so the correct action is to continue advancing the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18826,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box displaying the player's move message ending with \"used SCRATCH!\" and no command menu is visible. The turn is still resolving, so the correct action is to advance the combat text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18827,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box displaying “- used SCRATCH!” with no FIGHT/PKMN/ITEM/RUN menu visible, and the state also confirms Text box active is True, so the attack resolution text still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18828,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box displaying the player attack message “- used SCRATCH!” with no FIGHT/PKMN/ITEM/RUN menu visible, so the turn is still resolving and the text should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18829,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box displaying the player move message “- used SCRATCH!” with no FIGHT/PKMN/ITEM/RUN menu visible, and the state also confirms Text box active is True, so the turn text must be advanced before any new command can be chosen.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18830,
+      "action": "a",
+      "reasoning": "The screenshot shows the combat text box with the player's move message \"- used SCRATCH!\" still active, and no FIGHT/PKMN/ITEM/RUN menu is visible. The turn is still resolving, so the correct input is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18831,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still active with the player move message \"- used SCRATCH!\" and no FIGHT/PKMN/ITEM/RUN command menu visible. The turn resolution is still in progress, so the correct action is to advance the combat text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18832,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading \"- used SCRATCH!\" with no command menu visible. The player attack message is still resolving, so the correct action is to advance the battle text rather than try to choose a move or navigate.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18833,
+      "action": "a",
+      "reasoning": "The screenshot still shows the combat text box with the player move message “- used SCRATCH!” and no FIGHT/PKMN/ITEM/RUN menu is visible. The turn resolution is still in progress, so the correct action is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18834,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box actively printing “En”, which is the beginning of an enemy-turn message, and there is no FIGHT/PKMN/ITEM/RUN menu visible while the state also confirms the text box is active, so the battle text must be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18835,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box printing “Enemy SQUI…”, which is the start of the opponent’s move message. No FIGHT/PKMN/ITEM/RUN command menu is visible, and RAM also says the text box is active. The turn is still resolving, so the correct action is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18836,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “Enemy SQUIRTLE used” with no FIGHT/PKMN/ITEM/RUN menu visible, and the state also confirms Text box active is True, so the enemy move message is still resolving and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18837,
+      "action": "a",
+      "reasoning": "The screenshot shows the active combat text “Enemy SQUIRTLE used TACKLE!” with no FIGHT/PKMN/ITEM/RUN menu visible, and the RAM flags also indicate the text box is active, so the enemy turn is still resolving and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18838,
+      "action": "a",
+      "reasoning": "The screenshot shows the active battle text box reading “Enemy SQUIRTLE used TACKLE!” with no FIGHT/PKMN/ITEM/RUN menu visible, and the state also confirms Text box active is True, so the enemy move message is still resolving and must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18839,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “Enemy SQUIRTLE used TACKLE!” with no FIGHT/PKMN/ITEM/RUN menu visible, so the enemy move message is still resolving and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18840,
+      "action": "a",
+      "reasoning": "The screenshot shows the active battle text box with the complete message “Enemy SQUIRTLE used TACKLE!” and no FIGHT/PKMN/ITEM/RUN menu is visible, so the enemy turn text is still resolving and should be advanced with A.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18841,
+      "action": "a",
+      "reasoning": "The screenshot shows the active battle text box with the complete message “Enemy SQUIRTLE used TACKLE!” and no visible FIGHT/PKMN/ITEM/RUN choices, so the enemy turn text is still resolving and should be advanced with A.",
+      "result": null,
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

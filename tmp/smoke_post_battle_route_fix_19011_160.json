@@ -1,0 +1,1271 @@
+{
+  "requested_checkpoint": "checkpoint_19011",
+  "restored_checkpoint": "checkpoint_19011",
+  "latest_checkpoint": "checkpoint_19171",
+  "start_turn": 19011,
+  "end_turn": 19171,
+  "turn_delta": 160,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19171,
+    "timestamp": "2026-03-22T17:12:03.439292",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19171,
+      "local_analysis_enabled": false,
+      "screen_hash": "e186eebc3215070ffda9fa54c300fbd6"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 7,
+      "total_tiles": 200,
+      "exploration_percent": 3.5000000000000004
+    },
+    "navigation": {
+      "current_visit_count": 420,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 7,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 420,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19089,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19090,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19091,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19092,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19093,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19094,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19095,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19096,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19097,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19098,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19099,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19100,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19101,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19102,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19103,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19104,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19105,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19106,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19107,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19108,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19109,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19110,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19111,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19112,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19113,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19114,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19115,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19116,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19117,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19118,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19119,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19120,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19121,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19122,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19123,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19124,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19125,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19126,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19127,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19128,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19129,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19130,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19131,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19132,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19133,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19134,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19135,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19136,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19137,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19138,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19139,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19140,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19141,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19142,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19143,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19144,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19145,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19146,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19147,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19148,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19149,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19150,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19151,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19152,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19153,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19154,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19155,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19156,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19157,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19158,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19159,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19160,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19161,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19162,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19163,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19164,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19165,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19166,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19167,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19168,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19169,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19170,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": "After a:; text box remains active",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19171,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Oak's grass intercept",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

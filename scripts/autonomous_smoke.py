@@ -106,15 +106,30 @@ def main() -> None:
     config.set("logging.save_screenshots", False)
     config.set("testing.max_turns", 0)
     config.set("game.headless", True)
+    config.set("game.speed", 0)
+    config.set("game.auto_resume_latest_checkpoint", False)
+    config.set("game.resume_checkpoint", None)
+    config.set("performance.async_decisions", False)
+
+    requested_turns = max(1, int(args.turns))
+    print(
+        "[autonomous_smoke] Headless smoke mode is active. "
+        "Live dashboard updates are disabled (visualization.enabled=False, game.headless=True)."
+    )
+    print(
+        "[autonomous_smoke] This mode is expected to finish quickly after the requested turn budget. "
+        "Run `python main.py` if you want the live dashboard, stream, and model status."
+    )
+    print(f"[autonomous_smoke] checkpoint={args.checkpoint!r}, turns={requested_turns}")
 
     from main import PokemonAIAgent
 
     agent = PokemonAIAgent()
-    if args.checkpoint and str(args.checkpoint).lower() not in {"", "latest"}:
+    if args.checkpoint and str(args.checkpoint).strip():
         agent._load_checkpoint(str(args.checkpoint), pause_after_load=False)
 
     start_turn = int(agent.turn_count)
-    agent.max_turns = start_turn + max(1, int(args.turns))
+    agent.max_turns = start_turn + requested_turns
     agent.run()
 
     latest_checkpoint = None

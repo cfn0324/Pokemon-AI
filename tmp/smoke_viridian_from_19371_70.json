@@ -1,0 +1,576 @@
+{
+  "requested_checkpoint": "checkpoint_19371",
+  "restored_checkpoint": "checkpoint_19371",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19371,
+  "end_turn": 19441,
+  "turn_delta": 70,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19441,
+    "timestamp": "2026-03-22T18:29:47.822583",
+    "position": {
+      "map_id": 1,
+      "x": 19,
+      "y": 28
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19441,
+      "local_analysis_enabled": false,
+      "screen_hash": "e1c7096015a4d3bf9d198fcdccc70c31"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 10,
+      "total_tiles": 200,
+      "exploration_percent": 5.0
+    },
+    "navigation": {
+      "current_visit_count": 2,
+      "known_exits": {
+        "right": {
+          "x": 20,
+          "y": 28
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 10,
+      "nearest_frontier": {
+        "target": [
+          19,
+          28
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left"
+        ],
+        "visit_count": 2,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????PF???",
+        "?????F???",
+        "?????FF??",
+        "??????F??",
+        "??????F??"
+      ]
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19409,
+      "action": "right",
+      "reasoning": "Auto: cross Route 1's top corridor to the Viridian gate lane",
+      "result": "After right:; moved from (14,14) to (15,14) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19410,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,14) to (15,13) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19411,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,13) to (15,12) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19412,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,12) to (15,11) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19413,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,11) to (15,10) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19414,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,10) to (15,9) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19415,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,9) to (15,8) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19416,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,8) to (15,7) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19417,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,7) to (15,6) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19418,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,6) to (15,5) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19419,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,5) to (15,4) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19420,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,4) to (15,3) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19421,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's final straight north toward Viridian",
+      "result": "After up:; moved from (15,3) to (15,2) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19422,
+      "action": "left",
+      "reasoning": "Auto: align with Viridian City's south gate opening",
+      "result": "After left:; moved from (15,2) to (14,2) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19423,
+      "action": "left",
+      "reasoning": "Auto: align with Viridian City's south gate opening",
+      "result": "After left:; moved from (14,2) to (13,2) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19424,
+      "action": "left",
+      "reasoning": "Auto: align with Viridian City's south gate opening",
+      "result": "After left:; moved from (13,2) to (12,2) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19425,
+      "action": "left",
+      "reasoning": "Auto: align with Viridian City's south gate opening",
+      "result": "After left:; moved from (12,2) to (11,2) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19426,
+      "action": "up",
+      "reasoning": "Auto: step through Route 1's north exit into Viridian City",
+      "result": "After up:; moved from (11,2) to (11,1) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19427,
+      "action": "up",
+      "reasoning": "Auto: step through Route 1's north exit into Viridian City",
+      "result": "After up:; moved from (11,1) to (11,0) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19428,
+      "action": "up",
+      "reasoning": "Auto: step through Route 1's north exit into Viridian City",
+      "result": "After up:; warped from map 12 (11,0) to map 1 (21,35)",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19429,
+      "action": "up",
+      "reasoning": "We are in Viridian City at the south entrance, facing up on the main north-south path. Early-game progression requires heading north through town toward the Pokecenter/shop area and eventually the north exit trigger. The path directly ahead is open, so continue north.",
+      "result": "After up:; moved from (21,35) to (21,34) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19430,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing on Viridian City's central north-south path between ledges, facing up, with no text box or menu active and an open tile directly ahead, so continuing north is the correct story-progressing move toward the mandatory Old Man event near the north exit.",
+      "result": "After up:; moved from (21,34) to (21,33) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19431,
+      "action": "up",
+      "reasoning": "The screenshot shows the player centered on Viridian City's main north-south path with open ground directly above and no text or menu active. Early progression requires continuing north toward the mandatory Old Man event near the city’s north side, so keep moving straight up.",
+      "result": "After up:; moved from (21,33) to (21,32) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19432,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Viridian City's central path with the route continuing straight north toward the north exit area where the mandatory Old Man event occurs. No text box or menu is active, and the tile directly above is open, so continuing north is the correct progression.",
+      "result": "After up:; moved from (21,32) to (21,31) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19433,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Viridian City's central north-south path with open ground directly above. No text box or menu is active. Early-game story progression requires continuing north toward the Old Man near the north exit, so moving straight up remains the correct action.",
+      "result": "After up:; moved from (21,31) to (21,30) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19434,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Viridian City standing directly below a sign on the central path, facing up with no text box or menu active, and pressing up here should interact with the sign rather than advance toward the required north-exit event, so moving around it by stepping left is the better progression move.",
+      "result": "After left:; moved from (21,30) to (20,30) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19435,
+      "action": "up",
+      "reasoning": "The player is just left of the central sign in Viridian City, with no text or menu active. From this position, moving up should now bypass the sign and continue north on the main path toward the mandatory Old Man event near the north exit.",
+      "result": "After up:; moved from (20,30) to (20,29) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19436,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Viridian City's central path just left of the sign, facing up, with the path continuing north and no menu or text box active. To keep progressing toward the mandatory Old Man event near the north exit, continue straight north.",
+      "result": "After up:; moved from (20,29) to (20,28) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19437,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Viridian City’s path just south of the horizontal hedge/ledge line near the north side. A building is to the upper right and a sign is below-right; there is no text box or menu. The tile directly above appears blocked by the hedge line, but the path continues left along this row toward the northwest and likely the north-exit area where the mandatory Old Man ev...",
+      "result": "After left:; moved from (20,28) to (19,28) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19438,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Viridian City’s upper central path just below the horizontal fence/hedge line, slightly left of the center opening. There is a visible gap/opening in the hedge directly above-right of the player that leads to the north path toward the mandatory Old Man event near the city’s north exit. Moving left last turn was fine to align, but now the correct progress is to...",
+      "result": "After right:; moved from (19,28) to (20,28) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19439,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below a gap in the hedge/fence line near the upper part of Viridian City. The tile above is open and leads onto the northern path toward the mandatory Old Man event by the city’s north exit. No text or menu is active, so the correct progression is to move through the opening.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19440,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below a horizontal ledge/fence line with a small opening immediately to the left. The previous up attempt failed because the tile above the current position is blocked. To continue toward Viridian’s north side and the mandatory Old Man event, move left into the opening.",
+      "result": "After left:; moved from (20,28) to (19,28) on map 1",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19441,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly below the actual opening in the horizontal hedge/ledge line near Viridian’s upper path. The previous left move aligned correctly; from (19,28) the tile above is open and leads north toward the mandatory Old Man event by the city’s north exit. No text box or menu is active, so advancing through the gap is the correct progression.",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 28
+      },
+      "party_size": 1
+    }
+  ]
+}

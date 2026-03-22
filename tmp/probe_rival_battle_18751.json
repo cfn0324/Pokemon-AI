@@ -1,0 +1,1351 @@
+[
+  {
+    "step": 1,
+    "planned_action": "down",
+    "turn": 18751,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "1c0d328490bb73708d44ec680496151d",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 2,
+    "planned_action": "a",
+    "turn": 18752,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "50ef36f5169ef7f8f640eb92856c510c",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 3,
+    "planned_action": "a",
+    "turn": 18753,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "51191586fd309e2bba24276d75e56008",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 4,
+    "planned_action": "a",
+    "turn": 18754,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "5e6a80b7523605ccd28b6c9b7d29a8f9",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 5,
+    "planned_action": "a",
+    "turn": 18755,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "fcd232f80c0b5c5b363d39ea87762ff6",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 6,
+    "planned_action": "a",
+    "turn": 18756,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "6110c7d81b97639c2d98508946cdbdc1",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 7,
+    "planned_action": "a",
+    "turn": 18757,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "c04b14370434f7ed1c21273eaf0babe4",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 8,
+    "planned_action": "a",
+    "turn": 18758,
+    "screen_type": "battle",
+    "observed_screen_type": "battle",
+    "screen_hash": "4924dfe2c9713b58a4b7cc548feb2fbf",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 9,
+    "planned_action": "a",
+    "turn": 18759,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "e60a87bbd2fc540eb0455a4990556802",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 10,
+    "planned_action": "a",
+    "turn": 18760,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "e01d79e2133f43667798fbb729907b2c",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 11,
+    "planned_action": "a",
+    "turn": 18761,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "3b1906be0da127f6ef18acd677757d0c",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 12,
+    "planned_action": "a",
+    "turn": 18762,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "3177861d841bd5032672ff3ee06616dc",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 13,
+    "planned_action": "a",
+    "turn": 18763,
+    "screen_type": "dialogue",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "449c8e4d0a746d358d283912505d0493",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 14,
+    "planned_action": "a",
+    "turn": 18764,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "cf276c1863a185f65cccf90688451a00",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 15,
+    "planned_action": "a",
+    "turn": 18765,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "bfe3903c0b364221438e7666362a3806",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 16,
+    "planned_action": "a",
+    "turn": 18766,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "05aa4142f97df56bad71a36784d6a9f9",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 17,
+    "planned_action": "a",
+    "turn": 18767,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "fc82f334ee94224c676911de7b97e0d7",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 18,
+    "planned_action": "a",
+    "turn": 18768,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "a4246d10e074ef6c19839b0289f93bc2",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 19,
+    "planned_action": "a",
+    "turn": 18769,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "79d76a8f01e7da72b60f639f4ecde742",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 20,
+    "planned_action": "a",
+    "turn": 18770,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "f900f6e4696dfbc74ec2b47f559df632",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 21,
+    "planned_action": "a",
+    "turn": 18771,
+    "screen_type": "overworld",
+    "observed_screen_type": "overworld",
+    "screen_hash": "fbe3c8f57cc112a026d132fe42d6f4e9",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 22,
+    "planned_action": "a",
+    "turn": 18772,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "ec32122b18ce3832a5fdfe6b519e774f",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 23,
+    "planned_action": "a",
+    "turn": 18773,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "008213a2fb1766139e08a75a3c4e4f18",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 24,
+    "planned_action": "a",
+    "turn": 18774,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "e2620dcbf0f20feec721e38e33ea9f84",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 25,
+    "planned_action": "a",
+    "turn": 18775,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "c5fbe668b3aebc8aa948dadad3ec8688",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 26,
+    "planned_action": "a",
+    "turn": 18776,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "ea33a21567712ebad3210078b07e2208",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 27,
+    "planned_action": "a",
+    "turn": 18777,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "8fecc1770854ef7cad3e36969326b0cc",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 28,
+    "planned_action": "a",
+    "turn": 18778,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "6c1d703658ed261fc5b63228c9c7c2db",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 29,
+    "planned_action": "a",
+    "turn": 18779,
+    "screen_type": "indoor",
+    "observed_screen_type": "indoor",
+    "screen_hash": "bc2432b0c085142ad707ed2ef20d3d0f",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": false,
+    "battle_type": "none",
+    "enemy_species": null,
+    "enemy_level": null,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 30,
+    "planned_action": "a",
+    "turn": 18780,
+    "screen_type": "battle",
+    "observed_screen_type": "indoor",
+    "screen_hash": "bc2432b0c085142ad707ed2ef20d3d0f",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 31,
+    "planned_action": "a",
+    "turn": 18781,
+    "screen_type": "battle",
+    "observed_screen_type": "indoor",
+    "screen_hash": "bc2432b0c085142ad707ed2ef20d3d0f",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 32,
+    "planned_action": "a",
+    "turn": 18782,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "445219381759934603a32fc3982213be",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 33,
+    "planned_action": "a",
+    "turn": 18783,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "4ba96d3e604379e0a22c37b1e76da7f5",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 34,
+    "planned_action": "a",
+    "turn": 18784,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "9f3b03d91120bf7bd0328db94f364723",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 35,
+    "planned_action": "a",
+    "turn": 18785,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "f98eb5feb594f9cec3f4555624412ec7",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 36,
+    "planned_action": "a",
+    "turn": 18786,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "38dd9d84f518324ad1979b4e997963dc",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 37,
+    "planned_action": "a",
+    "turn": 18787,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "38dd9d84f518324ad1979b4e997963dc",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 38,
+    "planned_action": "a",
+    "turn": 18788,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "5c27e6c4922d729598f4a5b90359a7bd",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 39,
+    "planned_action": "a",
+    "turn": 18789,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "e91ec5b3040a5b69c3d6248db213cd0c",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 40,
+    "planned_action": "a",
+    "turn": 18790,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "4956cefa8ae1dee70fd8af1095f65344",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 41,
+    "planned_action": "a",
+    "turn": 18791,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "73298bfe121769b551d4958afcb9a480",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 42,
+    "planned_action": "a",
+    "turn": 18792,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "7b3c5f5e9f87f792f8e53826bca6dee0",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "None",
+    "enemy_level": 0,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 43,
+    "planned_action": "a",
+    "turn": 18793,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "1255117fbab898fbe83dd8fe5e172f2e",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 44,
+    "planned_action": "a",
+    "turn": 18794,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "52523a78af6a85800fe766133b219bc7",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 45,
+    "planned_action": "a",
+    "turn": 18795,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "3b82f45d52af0fec5adbb90105802688",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 46,
+    "planned_action": "a",
+    "turn": 18796,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "78638c3b455a779cb402f406d4a062fa",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 47,
+    "planned_action": "a",
+    "turn": 18797,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "78638c3b455a779cb402f406d4a062fa",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 48,
+    "planned_action": "a",
+    "turn": 18798,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "d8d6b037cd1261c5a58fad42bf290a54",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 49,
+    "planned_action": "a",
+    "turn": 18799,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "d8d6b037cd1261c5a58fad42bf290a54",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 50,
+    "planned_action": "a",
+    "turn": 18800,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "d8d6b037cd1261c5a58fad42bf290a54",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 51,
+    "planned_action": "a",
+    "turn": 18801,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "321c61405330fb95f7c23c36a2d4f6a4",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 52,
+    "planned_action": "a",
+    "turn": 18802,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "321c61405330fb95f7c23c36a2d4f6a4",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 53,
+    "planned_action": "a",
+    "turn": 18803,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "59e0425112771f45680a50eb7b9b1ebd",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 54,
+    "planned_action": "a",
+    "turn": 18804,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "32c5de3077abdc554a78259957b753bb",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 55,
+    "planned_action": "a",
+    "turn": 18805,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "b35ef12db8e4e133410f8199ea79c8a3",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 56,
+    "planned_action": "a",
+    "turn": 18806,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "b35ef12db8e4e133410f8199ea79c8a3",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 57,
+    "planned_action": "a",
+    "turn": 18807,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "986513894df1dcc9dea5e0ae4ee6bc38",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 58,
+    "planned_action": "a",
+    "turn": 18808,
+    "screen_type": "battle",
+    "observed_screen_type": "dialogue",
+    "screen_hash": "944387e5c67a4ce13054ac385e04e6e7",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 59,
+    "planned_action": "a",
+    "turn": 18809,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "0afa794a64e038ef470fba99fe7c412c",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 60,
+    "planned_action": "a",
+    "turn": 18810,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "77fa4ceff4f34f005030a7a3f4454526",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 61,
+    "planned_action": "a",
+    "turn": 18811,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "77fa4ceff4f34f005030a7a3f4454526",
+    "text_box_active": true,
+    "menu_active": true,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 62,
+    "planned_action": "a",
+    "turn": 18812,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "628f2ab1d43b0bf465f8cd6d34e8c360",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 63,
+    "planned_action": "a",
+    "turn": 18813,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "eab76946ccc3e6ca22678c5511f1f010",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 64,
+    "planned_action": "a",
+    "turn": 18814,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "f97bf03c9e75e99c9440c8338d04f97a",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 65,
+    "planned_action": "a",
+    "turn": 18815,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "dc6cdc62382d885f3fd02f2b46901e8d",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 66,
+    "planned_action": "a",
+    "turn": 18816,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "92f885cc0b79f8671706907a3ab1f162",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 67,
+    "planned_action": "a",
+    "turn": 18817,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "3ed1a50105e81576206086b330b68b54",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 68,
+    "planned_action": "a",
+    "turn": 18818,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "1bc70ec2ac796803f1ba86c66ef576af",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 69,
+    "planned_action": "a",
+    "turn": 18819,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "15b1debb95214ceba056d65113f073d2",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 70,
+    "planned_action": "a",
+    "turn": 18820,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "1bc70ec2ac796803f1ba86c66ef576af",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  },
+  {
+    "step": 71,
+    "planned_action": "a",
+    "turn": 18821,
+    "screen_type": "battle",
+    "observed_screen_type": "naming_screen",
+    "screen_hash": "15b1debb95214ceba056d65113f073d2",
+    "text_box_active": true,
+    "menu_active": false,
+    "in_battle": true,
+    "battle_type": "old_man",
+    "enemy_species": "Squirtle",
+    "enemy_level": 5,
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    }
+  }
+]

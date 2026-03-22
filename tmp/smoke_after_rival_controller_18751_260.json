@@ -1,0 +1,1271 @@
+{
+  "requested_checkpoint": "checkpoint_18751",
+  "restored_checkpoint": "checkpoint_18751",
+  "latest_checkpoint": "checkpoint_19011",
+  "start_turn": 18751,
+  "end_turn": 19011,
+  "turn_delta": 260,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19011,
+    "timestamp": "2026-03-22T16:58:47.802218",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19011,
+      "local_analysis_enabled": false,
+      "screen_hash": "7b714ca33a05ed0b061930f26b579dca"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 7,
+      "total_tiles": 200,
+      "exploration_percent": 3.5000000000000004
+    },
+    "navigation": {
+      "current_visit_count": 260,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 7,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 260,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18929,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18930,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18931,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18932,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18933,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18934,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18935,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18936,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18937,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18938,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18939,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18940,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18941,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18942,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18943,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18944,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18945,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18946,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18947,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18948,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18949,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18950,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18951,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18952,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18953,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18954,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18955,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18956,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18957,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18958,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18959,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18960,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18961,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18962,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18963,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18964,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18965,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18966,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18967,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18968,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18969,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18970,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18971,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18972,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18973,
+      "action": "a",
+      "reasoning": "The screenshot still shows the rival battle scene with the lower text box open and only placeholder dashes visible, while RAM confirms both text box and menu are active after Squirtle reached 0 HP, so the correct action is to advance the post-faint dialogue rather than move or choose a battle command.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18974,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-battle text box with the message fragment “grew to l,” indicating Charmander is in the level-up dialogue after defeating Squirtle, so the correct input is to keep advancing text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18975,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the level-up message “grew to level 6!” in the battle text box. This is still post-battle dialogue, so the correct action is to continue advancing text with A rather than trying to move or use the menu.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18976,
+      "action": "a",
+      "reasoning": "The screenshot shows the level-up text “grew to level 6!” in the battle text box after the rival’s Squirtle fainted. Text is still active, so the correct action is to continue advancing post-battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18977,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle scene with the level-up message “grew to level 6!” in the text box. The battle has not fully cleared yet, and RAM still indicates an active text box, so the correct next action is to continue advancing dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18978,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle scene with the message fragment “grew to level 6!” in the text box, so post-battle dialogue is still active and the correct input is to keep advancing it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18979,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle scene with the level-up message “grew to level 6!” in the text box. Post-battle dialogue is active, so the correct action is to continue advancing text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18980,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle text box with the level-up message fragment “grew to level 6!” while the battle scene is still on screen, so post-battle dialogue is still active and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18981,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle scene with the text box message “grew to level 6!” visible, and RAM also indicates the text box is active, so the correct action is to keep advancing the post-battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18982,
+      "action": "a",
+      "reasoning": "The screenshot shows Charmander’s level-up stat panel with the text “grew to level 6!” still displayed in the battle scene, and RAM also indicates the text box is active, so the correct next step is to advance the remaining post-battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18983,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with a blank/partial text line in the dialogue box after the rival battle resolution. Enemy Squirtle is already at 0 HP, and RAM still shows the text box active. The correct step is to keep advancing the remaining post-battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18984,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with the text fragment “...nnnn defea,” which is the rival defeat message continuing after Squirtle fainted, and the active text box confirms the correct step is to advance dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18985,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-battle defeat message “...nnnn defeated AAAAA” in the battle text box while Squirtle is already at 0 HP and both text/menu flags remain active, so the correct next step is to advance the remaining dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18986,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-battle message “...nnnn defeated AAAAA!” with the dialogue continuation arrow visible, and the state still has enemy Squirtle at 0 HP with text and menu flags active, so the correct next step is to advance the remaining dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18987,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the post-battle message ending with “defeated AAAAA!” in the text box, with the battle scene still visible and text/menu flags active. This is still mandatory dialogue after the rival battle, so the correct action is to continue advancing text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18988,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the rival post-battle message ending with “defeated AAAAA!” and the text box is still active. This is mandatory dialogue after the Oak Lab battle, so the correct action is to continue advancing with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18989,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-battle message ending with “defeated AAAAA!” in the active battle text box, and RAM still confirms both text and menu are active while the enemy Squirtle is already at 0 HP, so the correct next step is to advance the remaining mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18990,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the post-battle message ending with “defeated AAAAA!” in the active text box. The rival’s Squirtle is already at 0 HP, so this is still mandatory post-battle dialogue. The correct action is to continue advancing text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18991,
+      "action": "a",
+      "reasoning": "The screenshot shows the post-battle text box fully visible with the message ending in “defeated AAAAA!” and the continuation marker. The enemy Squirtle is already at 0 HP, so this is still mandatory rival-battle dialogue. The correct next step is to advance the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18992,
+      "action": "a",
+      "reasoning": "The screenshot still shows the rival battle scene with the bottom text box active and only the beginning of the next line (“AA”) visible, while memory confirms the enemy Squirtle is already at 0 HP and text/menu flags remain active, so this is continuing mandatory post-battle dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18993,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle dialogue beginning with “AAAAA: WHA” in the active text box, while the battle state still lists enemy Squirtle at 0 HP, so the correct move is to keep advancing the mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18994,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle text “AAAAA: WHAT? Unbeli” in the active battle dialogue box, and the enemy Squirtle is already at 0 HP, so the correct next step is to continue advancing the mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18995,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival's post-battle text box reading “AAAAA: WHAT? Unbelievable!” with the continuation arrow, while the enemy Squirtle is already at 0 HP. This is still mandatory post-battle dialogue, so the correct input is to advance text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18996,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle text continuing with “Unbelievable! I P” while the battle scene is still displayed, and the game state confirms Squirtle is already at 0 HP with the text box active, so the correct next step is to advance the mandatory dialogue.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18997,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle speech continuing: “Unbelievable! I picked th...”. Battle is over, Squirtle is at 0 HP, and the text box remains active. The correct action is still to advance mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18998,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle dialogue box reading “Unbelievable! I picked the” with the continuation arrow visible, while game state still shows battle mode, enemy Squirtle at 0 HP, and active text/menu flags, so the correct next step is to advance the mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18999,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle speech continuing with “I picked the wro…”, and RAM still marks the text box active while the enemy Squirtle is already at 0 HP. This is still mandatory dialogue after winning the Oak Lab battle, so the correct action is to keep advancing text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19000,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle line “I picked the wrong POKEMON!” in the active battle text box. Squirtle is already at 0 HP and the battle scene remains up, so this is still mandatory dialogue that must be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19001,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival’s post-battle line “I picked the wrong POKEMON!” with the continuation marker, and the game state still has enemy Squirtle at 0 HP with text and menu flags active, so the correct action is to keep advancing the mandatory dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19002,
+      "action": "a",
+      "reasoning": "The screenshot still shows the rival battle scene with an empty but active bottom dialogue box, and RAM confirms both the text box and menu are active while the enemy Squirtle is already at 0 HP, so the next step is to continue advancing the remaining post-battle sequence with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19003,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Oak Lab rival battle scene with the bottom text box active displaying only partial glyphs, and memory confirms battle mode is still active with enemy Squirtle at 0 HP and both text/menu flags on, so this is remaining mandatory post-battle dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19004,
+      "action": "a",
+      "reasoning": "The screenshot now clearly shows the win payout message “... got ¥175” after defeating the rival. This is still mandatory post-battle text, so the correct action is to continue advancing with A rather than trying to move or open menus.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19005,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the rival battle scene with the payout message ending in “got ¥175 for win” in the active bottom text box, and RAM still shows battle, text box, and menu active while the enemy Squirtle is already at 0 HP, so the correct next step is to advance the remaining mandatory post-battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19006,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the post-battle payout text “got ¥175 for winning!” with the continuation arrow in the active text box. The rival’s Squirtle is already fainted, so this is still mandatory dialogue and should be advanced with A.",
+      "result": "After a:; battle ended; screen changed from battle to dialogue; money delta +175",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19007,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; screen changed from dialogue to overworld",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19008,
+      "action": "down",
+      "reasoning": "The battle is over and the screenshot shows Oak's Lab with the rival standing directly one tile above the player. There is no visible dialogue box, so the RAM text/menu flags are likely stale. To progress, we should move away from the rival and continue toward leaving the lab; the only immediate free unexplored direction from the current tile that also avoids re-engaging the NPC is down.",
+      "result": "After down:; position did not change; screen changed from overworld to dialogue; menu closed",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19009,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19010,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19011,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

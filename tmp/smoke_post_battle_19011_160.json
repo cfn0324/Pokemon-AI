@@ -1,0 +1,1290 @@
+{
+  "requested_checkpoint": "checkpoint_19011",
+  "restored_checkpoint": "checkpoint_19011",
+  "latest_checkpoint": "checkpoint_19171",
+  "start_turn": 19011,
+  "end_turn": 19171,
+  "turn_delta": 160,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19171,
+    "timestamp": "2026-03-22T17:07:12.740004",
+    "position": {
+      "map_id": 0,
+      "x": 16,
+      "y": 13
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19171,
+      "local_analysis_enabled": false,
+      "screen_hash": "2b91fff5b6f4c0904bccf271c25ee456"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 34,
+      "total_tiles": 200,
+      "exploration_percent": 17.0
+    },
+    "navigation": {
+      "current_visit_count": 128,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 33,
+      "nearest_frontier": {
+        "target": [
+          16,
+          13
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 128,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 0,
+          "src_x": 5,
+          "src_y": 6,
+          "dest_map": 37,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        },
+        {
+          "src_map": 0,
+          "src_x": 12,
+          "src_y": 12,
+          "dest_map": 40,
+          "dest_x": 12,
+          "dest_y": 11,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "F????????",
+        "WFFFF????",
+        "????P????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19089,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19090,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19091,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19092,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19093,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19094,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19095,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19096,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19097,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19098,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19099,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19100,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19101,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19102,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19103,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19104,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19105,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19106,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19107,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19108,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19109,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19110,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19111,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19112,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19113,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19114,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19115,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19116,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19117,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19118,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19119,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19120,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19121,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19122,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19123,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19124,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19125,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19126,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19127,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19128,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19129,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19130,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19131,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19132,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19133,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19134,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19135,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19136,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19137,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19138,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19139,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19140,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19141,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19142,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19143,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19144,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19145,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19146,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19147,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19148,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19149,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19150,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19151,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19152,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19153,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19154,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19155,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19156,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19157,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19158,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19159,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19160,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19161,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19162,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19163,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19164,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19165,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19166,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19167,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19168,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19169,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19170,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19171,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    }
+  ]
+}

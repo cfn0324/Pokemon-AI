@@ -58,6 +58,7 @@ class GameBoyEmulator:
         )
 
         self.speed = speed
+        self.pyboy.set_emulation_speed(speed)
         self.frame_count = 0
         self._lock = threading.RLock()
 

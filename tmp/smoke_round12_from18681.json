@@ -1,0 +1,1084 @@
+{
+  "requested_checkpoint": "checkpoint_18681",
+  "restored_checkpoint": "checkpoint_18681",
+  "latest_checkpoint": "checkpoint_18821",
+  "start_turn": 18681,
+  "end_turn": 18761,
+  "turn_delta": 80,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18761,
+    "timestamp": "2026-03-22T15:05:28.511315",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18761,
+      "local_analysis_enabled": false,
+      "observed_screen_type": "indoor"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18689,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's Lab with an open dialogue box reading \"OAK: Now, jinnnn, whi\", so the mandatory starter-selection script is still active and the correct input is to advance the text rather than move.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18690,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18691,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box in Oak's Lab with Oak saying, \"OAK: Now, jinnnn, which POKéMON do\" and a continuation marker. This is still mandatory starter-selection dialogue, so movement is blocked and the correct input is to advance the text with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18692,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18693,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box open with the line “Which POKéMON do you want?” Since text is visibly active, movement toward the Poké Balls will not proceed until this line is advanced/closed. Prior movement attempts during this exact sequence were premature and triggered the same script. The correct next input is to press A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18694,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18695,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no dialogue box visible. The player is still in front of Oak at the starter table, and the three Poké Balls are immediately to the right. Previous failed right inputs happened while hidden dialogue was still pending, but the visible screen now indicates free control. The correct next step is to move right toward the Poké Balls to begin starter selection.",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18696,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with Oak saying “Now, jinnnn, which POKéMON do”. This is still the mandatory starter-selection text, so movement will not work yet. The correct action is to advance the dialogue with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18697,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18698,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak's active dialogue box with the line “Which POKéMON do you want?” This text is still open and must be advanced/closed before movement toward the Poké Balls will work. Prior right attempts during this sequence failed for the same reason.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18699,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18700,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is standing directly below Professor Oak, facing up, with the rival to the left and the starter table with Poké Balls to the right. Since repeated right attempts from this exact situation kept triggering the same hidden Oak line, the reliable way to clear the remaining script is to face Oak and press A again rather than try...",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18701,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with “OAK:” beginning a new line. This means the starter-event script is still active and movement toward the Poké Balls will not work yet. The correct action is to advance the text with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18702,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18703,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab: \"OAK: Now, jinnnn, whi\". This is still the mandatory starter-selection script, so movement is blocked and the correct action is to advance the text with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18704,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18705,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box in Oak's Lab: “OAK: Now, jinnnn, which POKéMON do” with a continuation arrow. The starter-selection script is still active, so movement toward the Poké Balls is still blocked. The correct next input is to advance the dialogue.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18706,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18707,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with Oak's line \"Which POKéMON do you want?\" still open. Since text is visibly active, movement toward the Poké Balls will not work until this line is advanced/closed. The repeated failed right attempts confirm that control has not yet returned.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18708,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18709,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is standing directly below Oak and just left of the starter table. Since the repeated A presses have been cycling hidden dialogue while keeping the player in place, the next useful step is to try moving toward the Poké Balls now that the screen is clear. From this position, moving right should place the player by the table...",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18710,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box open in the lab: \"OAK: Now, jinnnn, which POKéMON do\". Since text is visibly active, movement toward the Poké Balls will not work yet. The correct action is to keep advancing the mandatory starter-selection script with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18711,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18712,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's text box open with the line \"Which POKéMON do you want?\" Since dialogue is visibly active, movement is still blocked and the correct input is to advance/close the text before trying to reach a Poké Ball.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18713,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18714,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is directly below Oak and immediately left of the starter table with the three Poké Balls. Since the room is clear and this is the mandatory starter-selection moment, the correct next step is to move right toward the Poké Balls to trigger choosing a starter.",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18715,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active dialogue box: \"OAK: Now, jinnnn, which POKéMON do\". The starter-selection script is still ongoing, so movement toward the Poké Balls will remain blocked until this text is advanced. The repeated failed right attempts confirm control has not returned yet.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18716,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18717,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box with the line \"Which POKéMON do you want?\" Since dialogue is still open, movement toward the Poké Balls will remain blocked until this text is advanced. The correct next action is to press A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18718,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18719,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is directly below Oak, the rival is to the left, and the starter table with Poké Balls is immediately to the right. Since repeated A presses only cycle the hidden starter-selection script and movement has not yet been attempted in another direction from this exact clear screen, the best next step is to move right toward the...",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18720,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box open with the starter prompt beginning: \"OAK: Now, jinnnn, which POKéMON do\". Since text is visibly active, movement is blocked and the correct action is to advance the mandatory script with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18721,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18722,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box in Oak's Lab with the line \"Which POKéMON do you want?\" Movement is still blocked until this prompt is advanced/closed, so the correct next input is to press A rather than try moving toward the Poké Balls yet.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18723,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18724,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the player is standing directly below Oak while the starter table with the three Poké Balls is to the player's right; since repeated right attempts from this exact tile have failed, the most plausible explanation is that this spot is blocked by Oak/script positioning, so stepping down should restore maneuvering room to approach a...",
+      "result": "After down:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18725,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box open with “OAK: Now, jinnnn, which POKéMON do”. This is still the mandatory starter-selection script, so movement will not work yet. The correct action is to advance the text with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18726,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18727,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box with the line \"Which POKéMON do you want?\" The starter-selection script is still open, so movement is blocked until this prompt is advanced. Pressing A is the correct next step to close/continue the dialogue so control can return for selecting a Poké Ball.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18728,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18729,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the player is directly below Oak with the rival on the left and the starter table immediately to the right; because repeated right and down inputs from this exact spot have not moved the player, the remaining script is most likely waiting for interaction with Oak rather than movement.",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18730,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with “OAK:”. This is still the mandatory starter-selection script, so movement is blocked. The correct action is to advance the text with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18731,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18732,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active dialogue box in the lab: \"OAK: Now, jinnnn, whi\". This mandatory starter-selection script is still in progress, so movement will not work until the text is advanced. The correct next input is A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18733,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18734,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box open with the starter prompt: \"OAK: Now, jinnnn, which POKéMON do\". Since text is visibly active, movement is blocked and the correct next step is to advance the mandatory script with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18735,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18736,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box with the line \"Which POKéMON do you want?\" still open. Since dialogue is visibly active, movement toward the Poké Balls will not work until this prompt is advanced/closed. The correct next input is to press A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18737,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18738,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is standing directly below Oak, facing up, with Blue to the left and the starter table immediately to the right. Repeated A presses from this exact position have only re-triggered Oak's prompt, while prior right/down movement attempts likely failed when the hidden text state was still being cycled. With the screen currently...",
+      "result": "After right:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18739,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active dialogue box in the lab: \"OAK: Now, jinnnn, which POKéMON do\". This mandatory starter-selection script is still open, so movement toward the Poké Balls will not work until the text is advanced.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18740,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18741,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's text box open with the line \"Which POKéMON do you want?\" Since dialogue is visibly active, movement is still blocked. Advance the mandatory starter-selection script with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18742,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18743,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is standing directly below Oak, with the rival to the left and the Poké Ball table to the right. Repeated A presses from this exact position have only restarted Oak's prompt, while movement attempts to the right/down did not change position. In this starter event, the intended progression is to step to a Poké Ball from the...",
+      "result": "After left:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18744,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box in the lab: \"OAK: Now, jinnnn, which POKéMON do\". This mandatory starter-selection script is still in progress, so movement is blocked. The correct next input is to advance the dialogue with A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18745,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18746,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's dialogue box with the line \"Which POKéMON do you want?\" still active. Since text is visibly open, movement is blocked until this prompt is advanced/closed. The correct action is to press A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18747,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18748,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is directly below Oak, the rival is to the left, and the starter table with Poké Balls is immediately to the right. Since prior attempts to move right from this exact facing failed while likely still aligned with Oak's interaction line, the best next step is to step downward first to break contact and create room to approac...",
+      "result": "After down:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18749,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's text box open in the lab: \"OAK: Now, jinnnn, which POKéMON do\". This is still the mandatory starter-selection script, so movement is blocked until the dialogue is advanced.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18750,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18751,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box with the line \"Which POKéMON do you want?\" Since dialogue is still open, movement toward the Poké Balls is blocked until this prompt is advanced. The correct next action is to press A.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18752,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18753,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box. The player is directly below Oak, Blue is to the left, and the starter table is immediately to the right. Since repeated movement attempts from this exact position have failed while A from this same spot consistently reopens Oak's starter prompt, the script is still expecting dialogue advancement rather than movement. The safest next...",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18754,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box with “OAK:”. This is still the mandatory starter-selection script, so movement will not work until the dialogue is advanced.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18755,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18756,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active dialogue box in the lab with “OAK: Now, jinnnn, whi”. The starter-selection script is still in progress, so movement is blocked. The correct next input is to advance the text.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18757,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18758,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's active text box in the lab: \"OAK: Now, jinnnn, which POKéMON do\" with a continuation arrow. This mandatory starter-selection script is still open, so movement is blocked until the dialogue is advanced.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18759,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18760,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak's text box still open with the line \"Which POKéMON do you want?\" Since visible dialogue is active, movement remains blocked until the prompt is advanced. The repeated prior pattern confirms A is needed here.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18761,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

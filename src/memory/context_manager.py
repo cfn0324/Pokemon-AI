@@ -250,6 +250,7 @@ class ContextManager:
         with open(filepath, 'r') as f:
             data = json.load(f)
 
+        self.recent_turns = []
         self.summaries = data.get('summaries', [])
         self.notes = [
             ContextNote(

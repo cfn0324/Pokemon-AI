@@ -1,0 +1,499 @@
+{
+  "requested_checkpoint": "checkpoint_19111",
+  "restored_checkpoint": "checkpoint_19111",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19111,
+  "end_turn": 19136,
+  "turn_delta": 25,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19136,
+    "timestamp": "2026-03-22T18:42:56.235826",
+    "position": {
+      "map_id": 12,
+      "x": 10,
+      "y": 31
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19136,
+      "local_analysis_enabled": false,
+      "screen_hash": "107adf7127571efc8ce5c3d57b3e84cf"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 3,
+      "known_exits": {
+        "up": {
+          "x": 10,
+          "y": 30
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          10,
+          28
+        ],
+        "path": [
+          "up",
+          "up",
+          "up"
+        ],
+        "unknown_directions": [
+          "up"
+        ],
+        "visit_count": 11,
+        "distance": 3
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "F..??????",
+        "....FF..F",
+        "F........",
+        "F........",
+        "?FFFP.FFF",
+        "????FF???",
+        "????.F???",
+        "????.F???",
+        "????FW???"
+      ]
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19111,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 19112,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,13) to (16,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19113,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,12) to (16,11) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19114,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,11) to (16,10) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19115,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,10) to (16,9) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19116,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,9) to (16,8) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19117,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,8) to (16,7) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19118,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,7) to (16,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19119,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,6) to (16,5) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19120,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,5) to (16,4) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19121,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,4) to (16,3) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19122,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,3) to (16,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19123,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (16,2) to (15,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19124,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (15,2) to (14,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19125,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (14,2) to (13,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19126,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (13,2) to (12,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19127,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (12,2) to (11,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19128,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19129,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19130,
+      "action": "up",
+      "reasoning": "Auto: cross the north boundary into Route 1",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19131,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,35) to (11,34) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19132,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,34) to (11,33) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19133,
+      "action": "left",
+      "reasoning": "Auto: shift into Route 1's left-side corridor around the first hedge",
+      "result": "After left:; moved from (11,33) to (10,33) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19134,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19135,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19136,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    }
+  ]
+}

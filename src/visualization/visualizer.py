@@ -397,6 +397,8 @@ class GameVisualizer:
         reasoning: str,
         turn: int,
         screen_type: Optional[str] = None,
+        source: Optional[str] = None,
+        trace: Optional[Any] = None,
     ):
         """Update latest AI decision.
 
@@ -405,12 +407,16 @@ class GameVisualizer:
             reasoning: AI reasoning
             turn: Turn number
             screen_type: Model or harness classification of the current screen
+            source: Decision source or stage name
+            trace: Ordered stage trace from the decision engine
         """
         decision = {
             'turn': turn,
             'action': action,
             'reasoning': reasoning,
             'screen_type': screen_type,
+            'source': source,
+            'trace': make_json_serializable(trace),
             'timestamp': datetime.now().isoformat()
         }
 

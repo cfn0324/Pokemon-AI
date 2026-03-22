@@ -1,0 +1,714 @@
+{
+  "requested_checkpoint": "checkpoint_18751",
+  "restored_checkpoint": "checkpoint_18751",
+  "latest_checkpoint": "checkpoint_18841",
+  "start_turn": 18751,
+  "end_turn": 18811,
+  "turn_delta": 60,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18811,
+    "timestamp": "2026-03-22T16:23:51.917954",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 5120,
+        "max_hp": 5120,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 34
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 2816,
+          "defense": 2304,
+          "speed": 2816,
+          "special": 2560
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18811,
+      "local_analysis_enabled": false,
+      "screen_hash": "1bc70ec2ac796803f1ba86c66ef576af",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 7,
+      "total_tiles": 200,
+      "exploration_percent": 3.5000000000000004
+    },
+    "navigation": {
+      "current_visit_count": 60,
+      "known_exits": {},
+      "blocked_directions": [
+        "down"
+      ],
+      "frontier_count": 7,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 60,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18769,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly facing the rival in Oak's lab with no visible text box. Recent turns indicate we were repositioned into the mandatory rival interaction area, and pressing A already kept/triggered text progression. Since movement here risks desync and the required next step is to initiate or continue the rival sequence, pressing A again is the safest action.",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18770,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly facing the rival in Oak's lab with no visible text box, which matches the mandatory rival-battle setup after trying to leave. Since we are already aligned with the rival and recent A presses have kept the interaction progressing, the safest next step is to continue the interaction rather than move.",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18771,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the player sprite directly facing the rival in Oak's lab with no visible text box. This is the standard pre-battle or interaction lineup after trying to leave with the starter. Since we are already aligned with the rival and movement risks breaking the mandatory sequence, the safest progress action is to press A to initiate or continue the rival interaction.",
+      "result": "After a:; text box remains active",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18772,
+      "action": "wait",
+      "reasoning": "The screenshot is completely black, which indicates a fade or scene transition rather than stable overworld control, so waiting one turn is safer than pressing A or moving during a likely battle or dialogue load.",
+      "result": "After wait:; entered battle; screen changed from indoor to battle",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18773,
+      "action": "wait",
+      "reasoning": "The screenshot is completely black, which is concrete visual evidence of a fade/loading transition into the mandatory rival battle rather than a visible battle menu or stable dialogue page, so waiting is the safest action to avoid input during the transition.",
+      "result": "After wait:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18774,
+      "action": "wait",
+      "reasoning": "The screenshot shows the rival battle intro scene with the textbox present but still blank, meaning the page is likely still rendering or waiting for the first text to populate. Since we are in a mandatory battle transition and not yet at a command menu, the safest action is to wait one turn instead of pressing through too early.",
+      "result": "After wait:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18775,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the rival battle intro scene with both trainers visible and an empty dialogue box but no battle command menu yet, so this is still scripted pre-battle text that should be advanced with A rather than waiting further.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18776,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro scene with both trainer sprites visible and a blank text box at the bottom, and there is still no battle command menu, so this is scripted pre-battle dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18777,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival trainer battle intro with both trainer sprites visible and a blank text box at the bottom, and there is still no battle command menu on screen, so this is scripted pre-battle dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18778,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with both trainer sprites visible and a blank text box at the bottom, and there is still no battle command menu or Pokémon status panel on screen, so this is scripted pre-battle dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18779,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with both trainer sprites visible and the first character of dialogue appearing in the text box, so this is still scripted pre-battle text rather than the fight menu. The correct action is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18780,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with the text box reading “AAAAA wan” and no battle command menu or Pokémon status panels yet, so this is still scripted pre-battle dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18781,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text actively rendering: “AAAAA wants to fig”. There is no command menu yet, so this is still pre-battle dialogue and should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18782,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box fully rendered with “AAAAA wants to fight!” and the continuation marker visible, while no battle command menu is present yet, so this is still scripted pre-battle dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18783,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with both trainer sprites on screen and a completely blank dialogue box at the bottom, and there is still no battle command menu or Pokémon status panel visible, so this is still scripted pre-battle text that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18784,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with the trainer sprite still on screen and the text box only beginning to display “AA,” while no battle command menu or Pokémon status boxes are visible yet, so this is still scripted pre-battle dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18785,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with the rival trainer sprite still on screen and the text box currently reading “AAAAA sen,” with no battle command menu or Pokémon status panels visible yet, so this is still scripted pre-battle dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18786,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival send-out text still rendering: “AAAAA sent out SQU”. There is no fight menu yet, so this is still scripted pre-battle dialogue. The correct action is to continue advancing the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18787,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival trainer sprite with the fully rendered message “AAAAA sent out SQUIRTLE!” in the text box, and there is still no battle command menu or player Pokémon status panel visible, so this is still scripted pre-battle dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18788,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival trainer intro with the fully rendered message “AAAAA sent out SQUIRTLE!” and no battle command menu yet, so this is still scripted pre-battle dialogue. The correct next step is to advance it with A until Charmander is sent out and the fight menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18789,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro text box with “AAAAA sent out SQUIRTLE!” fully displayed, and there is still no battle command menu or player status panel visible, so this is still scripted text that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18790,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle scene with the text box fully displaying “AAAAA sent out SQUIRTLE!” and no battle command menu or player status panel yet, so this is still scripted intro dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18791,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival battle intro with the text box displaying “AAAAA sent out SQUIRTLE!” and there is still no battle command menu or player Pokémon status panel visible, so this is scripted battle text that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18792,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro text box with “AAAAA sent out SQUIRTLE!” and no battle command menu yet. This is still scripted battle dialogue, so the correct action is to advance the text with A until Charmander is sent out and the fight menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18793,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard battle intro text box with “AAAAA sent out SQUIRTLE!” fully visible. There is still no player status box or battle command menu, so this remains scripted pre-battle dialogue. The correct action is to advance the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18794,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro text box with “AAAAA sent out SQUIRTLE!” fully visible and no battle command menu yet, so this is still scripted dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18795,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival's Squirtle sprite and HP box already on the field with a blank battle text box at the bottom, and there is still no command menu or player Pokémon status panel visible, which indicates the scripted send-out sequence is still awaiting advancement rather than battle input selection.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18796,
+      "action": "a",
+      "reasoning": "The screenshot shows Squirtle already on the field and the bottom text box beginning the send-out message with “Go!”, while there is no four-choice battle command menu visible yet, so this is still scripted battle text that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18797,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle field with rival Squirtle out and the bottom text box reading the beginning of Charmander's send-out message: \"Go! - !\" No four-option battle command menu is visible yet, so this is still scripted send-out dialogue rather than a selectable battle menu. The correct action is to continue advancing the text with A until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18798,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle field with enemy Squirtle and the player's Charmander HP box visible, while the bottom text box reads only the partial send-out line “Go! - !” and there is still no four-option battle menu, so this is scripted send-out dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18799,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle field with enemy Squirtle and the player HP box visible, while the bottom text box still reads the partial send-out line “Go! - !” and there is no four-option FIGHT/ITEM/RUN menu yet, so this is still scripted send-out dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18800,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle field with enemy Squirtle and the player HP box visible, but the bottom box is still the send-out text reading “Go! - !” rather than the four-choice battle menu. This is still scripted intro dialogue, so the correct input is to advance it with A until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18801,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with enemy Squirtle and Charmander’s HP box visible, while the bottom text box still reads the send-out line “Go! - !” and there is no four-option battle command menu on screen, so this is still scripted intro dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18802,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle field with enemy Squirtle and Charmander's HP box visible, while the bottom text box still displays the send-out line \"Go! - !\" rather than the four-option battle command menu. Since this is still scripted intro text, the correct action is to advance it with A until the command menu appears.",
+      "result": "After a:; menu closed",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18803,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the four-option battle command menu with the cursor on FIGHT during the mandatory rival battle against Squirtle, so the correct next step is to confirm FIGHT and proceed to Charmander's move selection.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18804,
+      "action": "a",
+      "reasoning": "The screenshot shows the move selection screen in battle with Charmander's cursor already on SCRATCH, and SCRATCH is the direct damaging move while GROWL only lowers Attack, so selecting SCRATCH is the safest way to progress and finish the rival fight.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18805,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle screen with both Pokémon visible and the text box actively rendering the attack message as “- used,” with no battle command menu present, so this is move-resolution text that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18806,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the move message still being displayed as “- used SCRATCH,” and there is no command menu visible, so this is move-resolution dialogue that should be advanced rather than a point for new menu selection.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18807,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box displaying the completed move message “- used SCRATCH!” with no command menu visible, so this is still move-resolution dialogue that should be advanced rather than a new selection point.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18808,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the message “- used SCRATCH!” and no battle command menu, which means the move-resolution dialogue is still active and should be advanced rather than selecting a new action.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18809,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with both Pokémon visible and an active text box reading “- used SCRATCH!” while no battle command menu is present, so this is still move-resolution dialogue that should be advanced.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18810,
+      "action": "a",
+      "reasoning": "The screenshot shows the bottom battle text box displaying “used SCRATCH!” with no four-option command menu visible, so this is still move-resolution dialogue that should be advanced rather than a new selection point.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18811,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still active with the message split across lines as “- used SCRATCH!” and there is no four-option command menu visible, so this is still move-resolution dialogue that should be advanced.",
+      "result": null,
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

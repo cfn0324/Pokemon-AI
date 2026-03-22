@@ -1,0 +1,991 @@
+{
+  "requested_checkpoint": "checkpoint_18621",
+  "restored_checkpoint": "checkpoint_18621",
+  "latest_checkpoint": "checkpoint_18821",
+  "start_turn": 18621,
+  "end_turn": 18751,
+  "turn_delta": 130,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18751,
+    "timestamp": "2026-03-22T15:47:49.174629",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 5
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 5120,
+        "max_hp": 5120,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 2816,
+          "defense": 2304,
+          "speed": 2816,
+          "special": 2560
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18751,
+      "local_analysis_enabled": false,
+      "screen_hash": "c043237d5041d34a21a3d8035cf7744a"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 6,
+      "total_tiles": 200,
+      "exploration_percent": 3.0
+    },
+    "navigation": {
+      "current_visit_count": 2,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 6,
+      "nearest_frontier": {
+        "target": [
+          5,
+          5
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 2,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "????F????",
+        "????F????",
+        "????P????",
+        "?????????",
+        "?????????",
+        "????F????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18689,
+      "action": "up",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After up:; position did not change",
+      "screen_type": "naming_screen",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18690,
+      "action": "a",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After a:; screen changed from naming_screen to dialogue",
+      "screen_type": "naming_screen",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18691,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18692,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18693,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18694,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18695,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18696,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18697,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18698,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18699,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18700,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18701,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18702,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18703,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18704,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18705,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18706,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18707,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18708,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18709,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18710,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18711,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18712,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18713,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18714,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18715,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18716,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18717,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; party size increased by 1",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18718,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18719,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18720,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18721,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18722,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18723,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18724,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18725,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18726,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; screen changed from dialogue to naming_screen",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18727,
+      "action": "up",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After up:; position did not change",
+      "screen_type": "naming_screen",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18728,
+      "action": "up",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After up:; position did not change",
+      "screen_type": "naming_screen",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18729,
+      "action": "a",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After a:; text box remains active",
+      "screen_type": "naming_screen",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18730,
+      "action": "start",
+      "reasoning": "Auto: enter a short one-letter name and confirm",
+      "result": "After start:; screen changed from naming_screen to overworld",
+      "screen_type": "naming_screen",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18731,
+      "action": "wait",
+      "reasoning": "The screenshot is completely white, indicating a fade or transition immediately after confirming the rival name, so waiting is safer than moving while the scene is still loading and the text flag may still be settling.",
+      "result": "After wait:; screen changed from overworld to indoor",
+      "screen_type": "overworld",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18732,
+      "action": "up",
+      "reasoning": "The screenshot clearly shows Oak's lab with no visible dialogue box, and the player is standing directly below Professor Oak while facing right, so the safest story-progressing move is to step up to face Oak and be able to talk to him without relying on the stale text flag.",
+      "result": "After up:; position did not change",
+      "screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18733,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with no visible dialogue box. The player is directly below Professor Oak and facing him, so pressing A is the correct way to initiate the required post-starter dialogue instead of trying to move.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18734,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18735,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18736,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18737,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18738,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18739,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18740,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18741,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18742,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18743,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18744,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18745,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18746,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18747,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18748,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; screen changed from dialogue to indoor",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18749,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's lab with no visible dialogue box, matching the recent transition from dialogue back to normal movement. The player is standing directly below Professor Oak, and after this post-starter conversation the next objective is to leave the lab and continue the main route. Since the known exit is directly below at (5,4), stepping down is the safest progress move.",
+      "result": "After down:; moved from (5,3) to (5,4) on map 40; screen changed from indoor to overworld",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18750,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's lab with no dialogue box. The player is one tile below the exit mat at the bottom center-left area, and leaving the lab is the next required progress step after receiving the starter and finishing Oak's dialogue. The stale text flag should be ignored because movement already worked last turn and the screen is clearly in free movement.",
+      "result": "After down:; moved from (5,4) to (5,5) on map 40",
+      "screen_type": "overworld",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 18751,
+      "action": "down",
+      "reasoning": "The screenshot clearly shows Oak's lab with no visible dialogue box, the player is standing in open floor space below the central table, and the bottom exit is directly downward, so continuing down is the safest way to leave the lab despite the stale RAM text flag.",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 5
+      },
+      "party_size": 1
+    }
+  ]
+}

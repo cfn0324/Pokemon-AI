@@ -283,6 +283,7 @@ class MapMemory:
             "nearest_frontier": frontier_plan,
             "known_warps": warps[:6],
             "local_map": self.render_local_map(map_id, x, y),
+            "map_snapshot": self.build_map_snapshot(map_id, current_position=pos),
         }
 
     def get_navigation_text(self, map_id: int, x: int, y: int) -> str:
@@ -363,6 +364,138 @@ class MapMemory:
                     chars.append("?")
             rows.append("".join(chars))
         return rows
+
+    def build_map_snapshot(
+        self,
+        map_id: int,
+        current_position: Optional[Position] = None,
+        *,
+        padding: int = 2,
+        max_width: int = 32,
+        max_height: int = 24,
+    ) -> Dict[str, Any]:
+        """Build a bounded explored-map snapshot for UI and prompt consumption."""
+        explored = set(self.explored_tiles.get(map_id, set()))
+        current_position = current_position or (
+            self.current_position if self.current_map == map_id else None
+        )
+        frontiers = {
+            item["position"] for item in self.get_frontier_tiles(map_id, current_position=current_position)
+        }
+        warp_positions = {
+            (warp["src_x"], warp["src_y"]) for warp in self._get_map_warps(map_id)
+        }
+        blocked_positions: Set[Position] = set()
+        for pos, blocked in self.blocked_moves.get(map_id, {}).items():
+            for direction, count in blocked.items():
+                if int(count) < 2:
+                    continue
+                delta = self.CARDINALS.get(direction)
+                if not delta:
+                    continue
+                blocked_pos = (pos[0] + delta[0], pos[1] + delta[1])
+                if blocked_pos in explored or blocked_pos in warp_positions:
+                    continue
+                blocked_positions.add(blocked_pos)
+
+        interesting = set(explored) | set(frontiers) | set(warp_positions) | set(blocked_positions)
+        if current_position:
+            interesting.add(current_position)
+
+        if not interesting:
+            return {
+                "available": False,
+                "map_id": map_id,
+                "rows": [],
+                "bounds": None,
+                "player": None,
+                "prompt_rows": [],
+                "explored_count": 0,
+                "frontier_count": 0,
+                "blocked_count": 0,
+                "warp_count": 0,
+            }
+
+        min_x = min(pos[0] for pos in interesting) - padding
+        max_x = max(pos[0] for pos in interesting) + padding
+        min_y = min(pos[1] for pos in interesting) - padding
+        max_y = max(pos[1] for pos in interesting) + padding
+
+        min_x, max_x = self._fit_bounds(min_x, max_x, max_width, current_position[0] if current_position else None)
+        min_y, max_y = self._fit_bounds(min_y, max_y, max_height, current_position[1] if current_position else None)
+
+        rows: List[str] = []
+        for py in range(min_y, max_y + 1):
+            chars: List[str] = []
+            for px in range(min_x, max_x + 1):
+                pos = (px, py)
+                if current_position and pos == current_position:
+                    chars.append("P")
+                elif pos in warp_positions:
+                    chars.append("W")
+                elif pos in frontiers:
+                    chars.append("F")
+                elif pos in explored:
+                    chars.append(".")
+                elif pos in blocked_positions:
+                    chars.append("#")
+                else:
+                    chars.append(" ")
+            rows.append("".join(chars))
+
+        return {
+            "available": True,
+            "map_id": map_id,
+            "rows": rows,
+            "prompt_rows": [row.replace(" ", "?") for row in rows],
+            "bounds": {
+                "min_x": min_x,
+                "max_x": max_x,
+                "min_y": min_y,
+                "max_y": max_y,
+                "width": max_x - min_x + 1,
+                "height": max_y - min_y + 1,
+            },
+            "player": {
+                "x": current_position[0],
+                "y": current_position[1],
+            } if current_position else None,
+            "explored_count": len(explored),
+            "frontier_count": len(frontiers),
+            "blocked_count": len(blocked_positions),
+            "warp_count": len(warp_positions),
+            "legend": {
+                " ": "unknown",
+                ".": "explored",
+                "F": "frontier",
+                "#": "confirmed wall",
+                "W": "warp",
+                "P": "player",
+            },
+        }
+
+    def _fit_bounds(
+        self,
+        minimum: int,
+        maximum: int,
+        limit: int,
+        anchor: Optional[int] = None,
+    ) -> Tuple[int, int]:
+        """Clamp a coordinate span to a maximum size while keeping the player in view."""
+        if maximum < minimum:
+            return minimum, maximum
+
+        width = maximum - minimum + 1
+        if width <= limit:
+            return minimum, maximum
+
+        if anchor is None:
+            anchor = (minimum + maximum) // 2
+
+        half = limit // 2
+        new_min = max(minimum, min(anchor - half, maximum - limit + 1))
+        new_max = new_min + limit - 1
+        return new_min, new_max
 
     def get_exploration_status(self, map_id: int) -> Dict[str, Any]:
         """Get exploration statistics for a map."""

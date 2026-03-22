@@ -1,0 +1,734 @@
+{
+  "requested_checkpoint": "checkpoint_19111",
+  "restored_checkpoint": "checkpoint_19111",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19111,
+  "end_turn": 19211,
+  "turn_delta": 100,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19211,
+    "timestamp": "2026-03-22T18:45:47.823313",
+    "position": {
+      "map_id": 12,
+      "x": 12,
+      "y": 24
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 4864,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 33
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19211,
+      "local_analysis_enabled": false,
+      "screen_hash": "4d839e98992ebd89c07d83f6d3a069d2",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 62,
+      "known_exits": {
+        "up": {
+          "x": 12,
+          "y": 23
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          12,
+          24
+        ],
+        "path": [],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 62,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "?FFFF????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "F?FFP????",
+        "F?FFF????",
+        ".FF??????",
+        ".????????",
+        "..FF..FFF"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19169,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with an empty text box and no command menu. RAM also confirms text box active and menu inactive, so the battle intro is still not finished. The safest action is to press A again to advance to the next line or the battle menu.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19170,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows a trainer battle scene with Pidgey Lv.3 and a text box that has only started printing the next line with the letter “G,” while RAM confirms a text box is active and no menu is open, so the safest action is to continue advancing the battle intro dialogue with A.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19171,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle send-out line still on screen as “Go! -!” with the text box open and no four-option command menu visible yet, so this is still intro dialogue and the safest input is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19172,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle intro text box with the send-out line “Go! -!” still on screen, so this is still dialogue rather than the actual four-option battle command menu, and pressing A is the safest way to finish the intro without risking a wrong selection.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19173,
+      "action": "a",
+      "reasoning": "The screenshot shows the send-out text “Go! -!” still in the dialogue box, not the four-command battle choice. RAM also says both text and menu are active, which in this intro phase can mean the game is still finishing the send-out sequence. The safe action is to advance the remaining intro text with A until the real battle command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19174,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out dialogue “Go! -!” in the text box, not the four-option battle command menu. Since text is still active, the safest action is to advance the remaining intro dialogue with A until the actual command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19175,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out dialogue “Go! -!” in the text box rather than the four-option battle command menu. Even though RAM says a menu is active, the visible state is still intro text, so the safest action is to continue advancing dialogue with A until the real battle options appear.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19176,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text box “Go! -!” with no visible four-option battle command menu yet. Even though RAM says menu active, the visible state is still intro dialogue, so the safest action is to continue advancing with A until the actual command menu appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19177,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out dialogue box with “Go! -!” rather than the four-option battle command menu. Text is visibly active, so the battle intro has not finished. The safest action is to press A once more to clear the remaining send-out text and reach the actual command menu.",
+      "result": "After a:; menu closed",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19178,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the four-option battle command menu with the cursor on FIGHT against a Lv.3 Pidgey while Charmander is at full HP, so the safest next step is to confirm FIGHT and proceed to an attack.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19179,
+      "action": "a",
+      "reasoning": "The screenshot shows the move-selection screen in battle with the cursor on SCRATCH, and Charmander at level 6 with full 22/22 HP is facing a weaker level 3 Pidgey, so confirming SCRATCH is the safest straightforward attack.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19180,
+      "action": "a",
+      "reasoning": "The screenshot shows the attack message text beginning to print (\"- used\"), which means Scratch was already selected and the game is in the move-resolution text phase. RAM also confirms a text box is active and no menu is open. The safe action is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19181,
+      "action": "a",
+      "reasoning": "The screenshot shows the move-resolution text box printing Charmander's attack message (\"used SCRATC...\"), and RAM confirms a text box is active with no menu open. Since the attack has already been selected, the safest action is to advance the battle text with A until damage/result text and then the command menu or victory text appear.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19182,
+      "action": "a",
+      "reasoning": "The screenshot shows the move-resolution text box with Charmander's attack message “used SCRATCH!” still displayed, and the state also confirms a text box is active while no menu is open, so the attack has already been selected and the safest next step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19183,
+      "action": "a",
+      "reasoning": "The screenshot shows move-resolution text still on screen: “used SCRATCH!” with hit spark graphics on the enemy. RAM also says a text box is active and no menu is open. Since the attack has already been executed, the safe next step is to advance battle text rather than input any menu navigation.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19184,
+      "action": "a",
+      "reasoning": "The screenshot shows battle resolution text, “used SCRATCH!”, with no command menu visible. RAM also says a text box is active and no menu is open. The attack has already been chosen, so the safe next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19185,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the attack message ending in “used SCRATCH!” while no command menu is visible, and the state also confirms text box active with menu inactive, so the move has already been chosen and the safest next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19186,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the move-resolution message \"- used SCRATCH!\" with no command menu visible, and RAM confirms a text box is active while no menu is open, so the move has already been chosen and the safest next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19187,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with the move message “used SCRATCH!” and no four-option command menu, and RAM confirms a text box is active while no menu is open, so the attack has already been chosen and the safest next step is to advance the remaining battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19188,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the completed move message “used SCRATCH!” while no command menu is visible, and the RAM state confirms a text box is active with menu inactive, so the move has already resolved to this text phase and the safe next input is to advance it.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19189,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the move message ending in \"used SCRATCH!\" with no command menu visible, and the state confirms a text box is active while no menu is open, so the selected attack is still resolving and the safest input is to advance the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19190,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the move message “used SCRATCH!” with no battle command menu visible, and the RAM state confirms text box active while menu inactive, so the attack has already been selected and the safest next step is to advance the remaining battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19191,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the message “used SCRATCH!” still on screen, the enemy Pidgey remains in battle, and RAM confirms a text box is active with no menu open, so the move has already been chosen and the safest next step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19192,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with the message only partially printed as \"Enemy P\" and no command menu is visible, while RAM also confirms text box active and menu inactive, so the battle is still resolving dialogue and the safest input is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19193,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle text box actively printing the enemy action as “Enemy PIDGEY use” with no battle command or move menu visible, and RAM confirms text box active and menu inactive, so the battle is still in dialogue resolution and the safest input is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19194,
+      "action": "a",
+      "reasoning": "The screenshot shows the text box with the completed message “Enemy PIDGEY used GUST!” and no battle command menu is visible, while the state also confirms text box active and menu inactive, so the enemy move is still resolving and the safest input is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19195,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with the completed enemy move message “Enemy PIDGEY used GUST!” and no command menu is visible. RAM also confirms a text box is active and no menu is open. The enemy action is still resolving in dialogue, so the safest next step is to advance the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19196,
+      "action": "a",
+      "reasoning": "The screenshot shows the text box fully displaying “Enemy PIDGEY used GUST!” with no battle command menu visible, and RAM confirms a text box is active while no menu is open, so the battle is still resolving dialogue and the safest action is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19197,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle text box with the full message “Enemy PIDGEY used GUST!” and no command or move menu is visible, while RAM also says a text box is active and menu is inactive, so the battle is still in dialogue resolution and the safest input is to advance it with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19198,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box fully displaying “Enemy PIDGEY used GUST!” with no command menu visible, and RAM confirms text box active while menu inactive. The enemy move is still resolving in dialogue, so the safest action is to advance the text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19199,
+      "action": "a",
+      "reasoning": "The screenshot shows the text box fully displaying “Enemy PIDGEY used GUST!” with no battle command menu visible, and the state confirms text box active while menu inactive, so the enemy move is still resolving and the safest input is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19200,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box fully displaying “Enemy PIDGEY used GUST!” with no command menu visible, and RAM confirms text box active while menu inactive. Charmander is still at full HP, so this is just enemy move resolution text. The safest next action is to advance the dialogue with A until the command menu returns.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19201,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box fully displaying “Enemy PIDGEY used GUST!” with no command menu visible, and RAM confirms a text box is active while no menu is open. Charmander is still at full HP, so this is just battle text that needs to be advanced before the next prompt or menu appears. Pressing A is the safest action.",
+      "result": "After a:; menu opened",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19202,
+      "action": "a",
+      "reasoning": "The screenshot still shows the text box with “Enemy PIDGEY used GUST!” and no command choices are visible yet. Even though RAM says menu active, the visible state is still move-resolution dialogue. The safest action is to advance the text with A until the battle command menu returns.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19203,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying the completed enemy move message “Enemy PIDGEY used GUST!” with no four-option battle command menu visible, and Charmander is at 19/22 HP, so the enemy action text must be advanced before the next choice appears.",
+      "result": "After a:; menu closed",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19204,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying “Enemy PIDGEY used GUST!” with no four-option command menu visible, and the state confirms text box active while menu inactive, so the enemy move resolution text must be advanced before the next battle choice appears.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19205,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-option battle command menu with the cursor already on FIGHT, while Charmander is healthy at 19/22 HP against a weakened enemy Pidgey Lv.3, so the safest and most direct progress is to confirm FIGHT.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19206,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle move-selection screen with the cursor on SCRATCH, Charmander at 19/22 HP, and the enemy Pidgey Lv.3 still alive; choosing SCRATCH is the safest direct attack to continue and finish the fight.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19207,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box active with only the beginning of the next message printing as \"- used\", and no command or move menu is visible. This means Scratch was already selected and the game is resolving the turn text. The safe action is to advance the dialogue with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19208,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box actively displaying Charmander’s move message as “used SCRATCH” with no command menu visible, and the state confirms a text box is active while no menu is open, so the move has already been chosen and the safest next step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19209,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box still displaying “- used SCRATCH!” with no command menu visible, and the RAM state confirms text box active and menu inactive, so the move has already been chosen and the safest next step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19210,
+      "action": "a",
+      "reasoning": "The screenshot shows Charmander’s attack message “used SCRATCH!” with hit effects on the enemy Pidgey, while no command menu is visible and RAM says the text box is active and the menu is inactive, so the move has already been chosen and the correct next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19211,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box displaying the completed move message “used SCRATCH!” with no battle command menu visible, and the state also confirms that a text box is active while no menu is open, so the move has already been chosen and the safest action is to advance the remaining battle text.",
+      "result": null,
+      "screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    }
+  ]
+}

@@ -1,0 +1,985 @@
+{
+  "requested_checkpoint": "checkpoint_19011",
+  "restored_checkpoint": "checkpoint_19011",
+  "latest_checkpoint": "checkpoint_19671",
+  "start_turn": 19011,
+  "end_turn": 19071,
+  "turn_delta": 60,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 19071,
+    "timestamp": "2026-03-22T18:01:33.115207",
+    "position": {
+      "map_id": 12,
+      "x": 11,
+      "y": 24
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 5632,
+        "max_hp": 5632,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 3072,
+          "defense": 2560,
+          "speed": 3328,
+          "special": 2816
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 19071,
+      "local_analysis_enabled": false,
+      "screen_hash": "bf0a58c8b43cadf0c0ea41efc6bdd38c"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 106,
+      "total_tiles": 200,
+      "exploration_percent": 53.0
+    },
+    "navigation": {
+      "current_visit_count": 5,
+      "known_exits": {
+        "down": {
+          "x": 11,
+          "y": 25
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 61,
+      "nearest_frontier": {
+        "target": [
+          11,
+          24
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up"
+        ],
+        "visit_count": 5,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "??FFFF???",
+        "?????F???",
+        "?????F???",
+        "?????F???",
+        "FFFFPF???",
+        ".F?FFF???",
+        "..FF?????",
+        "..???????",
+        "...FF..FF"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 19011,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 19012,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19013,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19014,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19015,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19016,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19017,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19018,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19019,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19020,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; screen changed from dialogue to overworld; text box closed",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19021,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19022,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (5,6) to (5,7) on map 40",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19023,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (5,7) to (5,8) on map 40",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19024,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (5,8) to (5,9) on map 40; screen changed from overworld to indoor",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19025,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (5,9) to (5,10) on map 40",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19026,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19027,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (5,11)",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19028,
+      "action": "down",
+      "reasoning": "Auto: head south from Oak's Lab toward the fixed Pallet Town route",
+      "result": "After down:; moved from (5,11) to (12,11) on map 0; screen changed from indoor to overworld",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19029,
+      "action": "down",
+      "reasoning": "Auto: head south from Oak's Lab toward the fixed Pallet Town route",
+      "result": "After down:; moved from (12,11) to (12,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19030,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (12,12) to (13,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19031,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19032,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (14,12) to (15,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19033,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (15,12) to (16,12) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19034,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,12) to (16,11) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19035,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,11) to (16,10) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19036,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,10) to (16,9) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19037,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,9) to (16,8) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19038,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,8) to (16,7) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19039,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,7) to (16,6) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19040,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,6) to (16,5) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19041,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,5) to (16,4) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19042,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,4) to (16,3) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19043,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,3) to (16,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19044,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (16,2) to (15,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19045,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (15,2) to (14,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19046,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (14,2) to (13,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19047,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (13,2) to (12,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19048,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (12,2) to (11,2) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19049,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19050,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19051,
+      "action": "up",
+      "reasoning": "Auto: cross the north boundary into Route 1",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19052,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing in Route 1’s narrow entrance corridor between fence posts with open walkable ground directly above, while the state memory already marks right as blocked, so continuing north is the correct forward progress toward Viridian City.",
+      "result": "After up:; moved from (11,35) to (11,34) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19053,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Route 1 inside the fenced entrance corridor with an open grass path directly above, and the state confirms there is no active text box or menu, so moving north continues the required progression toward Viridian City.",
+      "result": "After up:; moved from (11,34) to (11,33) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19054,
+      "action": "up",
+      "reasoning": "The screenshot shows the player centered in Route 1’s narrow fenced corridor with open walkable ground directly above, while no text box or menu is active and the current tile’s known exit up is (11,32), so continuing north is the correct main-route progress.",
+      "result": "After up:; moved from (11,33) to (11,32) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19055,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Route 1’s entrance corridor with open path directly north and no text or menu active. Continuing upward follows the main route toward Viridian City and aligns with the known exit from the current tile.",
+      "result": "After up:; moved from (11,32) to (11,31) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19056,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player on the central path, no text box or menu active, and open walkable ground directly north. Continuing up follows the main route toward Viridian City and matches the known exit and suggested frontier.",
+      "result": "After up:; moved from (11,31) to (11,30) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19057,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player centered on the main north-south path, no text box or menu active, and clear walkable path directly above. Continuing north follows the main route toward Viridian City and matches the navigation memory suggestion.",
+      "result": "After up:; moved from (11,30) to (11,29) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19058,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player standing on the main northbound path, no dialogue or menu is active, and the tile directly above is open. Navigation memory also marks the suggested frontier as (11,28), one step north, so continuing upward is the correct progress toward Viridian City.",
+      "result": "After up:; moved from (11,29) to (11,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19059,
+      "action": "left",
+      "reasoning": "The player is on Route 1 facing a horizontal ledge/fence directly north, matching the navigation memory that marks up as blocked. The path continues left and right along this corridor; to keep progressing north toward Viridian City, we should follow the route around the obstacle. The corridor opens to the left by the sign, so moving left is the correct next step.",
+      "result": "After left:; moved from (11,28) to (10,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19060,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 at the horizontal fence/ledge where north is blocked, with the player just below the barrier and a sign immediately to the left. The path continues west along this corridor before turning north, and the prior move left correctly began routing around the obstacle. Continuing left is the correct progress toward Viridian City.",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19061,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on Route 1 standing just below and to the right of a sign with a hedge directly north of the current tile, so north is blocked here; the path is open to the left and navigation memory specifically suggests left, then up, up, right to get around this barrier toward continued northbound progress.",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19062,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Route 1 below the horizontal hedge, with the path turning north immediately to the right of the sign. From the current position, moving up would just enter grass below the hedge, while the established route around this obstacle is left, left, left, then up, up, right. We have already completed those three left moves and are now aligned with the opening above,...",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19063,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Route 1 standing just left of the sign and directly below the opening in the hedge. The path north is now clear from the current tile, matching navigation memory that suggests continuing up toward the frontier at (8,25). Advancing north continues the main route toward Viridian City.",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19064,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player directly below an open northbound path; there is no text box or menu active. From the current tile, north is clear, and navigation memory also marks the suggested frontier as (8,25), one step up. Continuing north follows the route around the hedge toward Viridian City.",
+      "result": "After up:; moved from (8,26) to (8,25) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19065,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Route 1 in open overworld with no text box or menu, standing above the sign and below a clear path that continues north while the youngster to the left is optional, so moving up is the direct progress toward Viridian City.",
+      "result": "After up:; moved from (8,25) to (8,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19066,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Route 1 directly below a horizontal hedge, with the path north blocked from the current tile. The route continues around this obstacle to the right, and navigation memory confirms right is open and unexplored from here. Moving right follows the main path toward Viridian City while avoiding the optional trainer to the left.",
+      "result": "After right:; moved from (8,24) to (9,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19067,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Route 1 directly below the hedge line with the tile above blocked, while the path remains open to the right at the hedge’s end and no text box or menu is active, so moving right is the correct way to continue north toward Viridian City.",
+      "result": "After right:; moved from (9,24) to (10,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19068,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Route 1 standing directly below a horizontal tree line, so moving up is blocked here. The open path continues to the right around the end of the obstacle, and navigation memory confirms right is open from the current tile. Continuing right follows the main route north toward Viridian City.",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19069,
+      "action": "up",
+      "reasoning": "The screenshot shows the player at the right end of Route 1’s horizontal tree barrier with open walkable ground directly above into the grassy passage, and the state confirms no text box or menu is active while navigation memory marks up as the unexplored forward direction.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19070,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below open path on Route 1; the previous stall was likely just from collision timing, but the tile north is visibly walkable and navigation memory marks up as the unknown forward direction from the current frontier. Continuing north is the correct main-route progress toward Viridian City.",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 19071,
+      "action": "right",
+      "reasoning": "The screenshot shows the player directly under the end of the horizontal tree line on Route 1. The tile immediately above appears occupied by the tree-edge collision, which explains the two failed up attempts. The path opens to the right into the grass corridor, and navigation memory also lists an unexplored tile at (13,24) to the east. Moving right should go around the obstacle and continue no...",
+      "result": null,
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    }
+  ]
+}

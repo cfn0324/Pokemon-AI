@@ -6,6 +6,7 @@ import time
 import signal
 import queue
 import threading
+import hashlib
 from pathlib import Path
 from datetime import datetime
 from typing import Any, Dict, List, Optional
@@ -33,6 +34,17 @@ from src.tools.action_executor import ActionExecutor
 from src.tools.progress_tracker import ProgressTracker
 from src.visualization.visualizer import GameVisualizer
 from src.agents.async_decision import AsyncDecisionMaker
+from src.control.decision_engine import DecisionContext, DecisionEngine
+from src.control.oak_lab_rival_battle import OakLabRivalBattleController
+from src.control.oak_lab_starter import OakLabStarterController
+from src.control.post_battle_intro_route import PostBattleIntroRouteController
+from src.runtime.checkpoints import (
+    build_checkpoint_metadata,
+    list_checkpoints,
+    load_checkpoint_metadata,
+    prune_old_checkpoints,
+    write_checkpoint_metadata,
+)
 
 apply_env_aliases()
 
@@ -57,7 +69,9 @@ class PokemonAIAgent:
         # 运行时状态
         self.running = False
         self.turn_count = 0
+        self.max_turns = max(0, int(self.config.get("testing.max_turns", 0) or 0))
         self.last_checkpoint_turn = 0
+        self._restored_checkpoint_name: Optional[str] = None
         self._prev_screen_type = None
         self._dialogue_exit_grace = 0
         self._text_entry_step = 0
@@ -75,6 +89,9 @@ class PokemonAIAgent:
         self._scripted_ui_reasoning: str = ""
         self._scripted_bootstrap_steps: List[Dict[str, str]] = []
         self._scripted_bootstrap_reasoning: str = ""
+        self.oak_lab_starter = OakLabStarterController()
+        self.oak_lab_rival_battle = OakLabRivalBattleController()
+        self.post_battle_intro_route = PostBattleIntroRouteController()
 
         # 可视化控制状态
         self._control_lock = threading.Lock()
@@ -85,12 +102,14 @@ class PokemonAIAgent:
         self._last_control_command = ""
         self._last_control_timestamp = None
         self._last_control_error = None
+        self._phase_hint_turns_remaining = 0
 
         # 初始化组件
         self._init_emulator()
         self._init_state_systems()
         self._init_agents()
         self._init_tools()
+        self._maybe_restore_initial_checkpoint()
 
         # 设置信号处理器
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -155,14 +174,162 @@ class PokemonAIAgent:
         vis_port = self.config.get('visualization.port', 5000)
         self.visualizer = GameVisualizer(port=vis_port)
         self.visualizer.set_control_handler(self)
+        self.visualizer.set_frame_source(self.emulator)
+        self._init_decision_engine()
 
         # 如果启用则启动可视化器
         if self.config.get('visualization.enabled', True):
             self.visualizer.start()
+            self.visualizer.update_checkpoints(self.get_available_checkpoints())
             self.logger.info(f"可视化仪表板可访问：http://localhost:{vis_port}")
             self._broadcast_control_state()
 
         self.logger.info("工具初始化完成")
+
+    def _init_decision_engine(self) -> None:
+        """Initialize the control-layer decision router."""
+        self.decision_engine = DecisionEngine(
+            stages=[
+                ("bootstrap", self._stage_bootstrap_decision),
+                ("known_ui", self._stage_known_ui_decision),
+                ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
+                ("oak_lab_starter", self._stage_oak_lab_starter_decision),
+                ("oak_lab_rival_battle", self._stage_oak_lab_rival_battle_decision),
+                ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
+                ("dialogue_timing", self._stage_dialogue_timing_decision),
+                ("navigation_plan", self._stage_navigation_plan_decision),
+                ("pre_starter_recovery", self._stage_pre_starter_recovery_decision),
+                ("early_story_interaction", self._stage_early_story_interaction_decision),
+                ("dialogue_auto_advance", self._stage_dialogue_auto_advance_decision),
+                ("menu_auto_close", self._stage_menu_auto_close_decision),
+                ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
+            ],
+            fallback=self._stage_ai_decision,
+        )
+
+    def _stage_bootstrap_decision(self, context: DecisionContext) -> Optional[dict]:
+        return self._get_pre_starter_bootstrap_decision(
+            context.current_state,
+            context.screen_type,
+        )
+
+    def _stage_known_ui_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_known_ui_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_stable_ui_recovery_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_stable_ui_recovery_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_dialogue_timing_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_dialogue_timing_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_oak_lab_starter_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.oak_lab_starter.maybe_decide(
+            context.current_state,
+            context.screen_hash,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_oak_lab_rival_battle_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.oak_lab_rival_battle.maybe_decide(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_post_battle_intro_route_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.post_battle_intro_route.maybe_decide(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_navigation_plan_decision(self, context: DecisionContext) -> Optional[dict]:
+        return self._get_navigation_plan_decision(
+            context.current_state,
+            context.screen_type,
+        )
+
+    def _stage_pre_starter_recovery_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_pre_starter_recovery_move_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_early_story_interaction_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_early_story_interaction_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_dialogue_auto_advance_decision(self, context: DecisionContext) -> Optional[dict]:
+        if context.screen_type != "dialogue" or not self._should_auto_advance_dialogue():
+            return None
+        self._clear_planned_actions()
+        return {
+            "action": "a",
+            "reasoning": "Auto: advance dialogue",
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
+    def _stage_menu_auto_close_decision(self, context: DecisionContext) -> Optional[dict]:
+        if not self._should_auto_close_menu(context.current_state, context.screen_type):
+            return None
+        self._clear_planned_actions()
+        return {
+            "action": "b",
+            "reasoning": f"Auto: close early-game {context.screen_type} to return to the main scene",
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
+    def _stage_text_entry_api_cooldown_decision(self, context: DecisionContext) -> Optional[dict]:
+        if context.screen_type != "text_entry" or not self.main_agent.is_in_api_cooldown():
+            return None
+        self._clear_planned_actions()
+        return {
+            "action": "b",
+            "reasoning": "Auto: conservative recovery while text-entry detection is active and the API is cooling down",
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
+    def _stage_ai_decision(self, context: DecisionContext) -> Optional[dict]:
+        return self._get_ai_decision_responsive(
+            context.current_state,
+            context.state_text,
+            context.screenshot_bytes,
+        )
 
     def run(self) -> None:
         """运行AI智能体。"""
@@ -172,6 +339,10 @@ class PokemonAIAgent:
 
         try:
             while self.running and self.emulator.is_running():
+                if self.max_turns > 0 and self.turn_count >= self.max_turns:
+                    self.logger.info(f"Reached testing.max_turns={self.max_turns}; stopping run loop")
+                    self.running = False
+                    break
                 if self._process_control_cycle():
                     continue
                 self._game_loop_iteration()
@@ -187,22 +358,35 @@ class PokemonAIAgent:
         """Run a single gameplay loop iteration."""
         self.turn_count += 1
 
+        self._prepare_phase_hint_for_update()
         screen_image = self._capture_observation_frame()
+        screen_hash = self._compute_exact_screen_hash(screen_image)
         current_state = self.game_state.update(screen_image=screen_image)
+        self._consume_phase_hint_after_update()
         screen_type = self._apply_screen_type_hint(current_state, screen_image)
-        self._record_last_action_outcome(current_state, screen_type)
-        self._update_screen_stability(current_state, screen_image, screen_type)
+        if isinstance(current_state.get("visual"), dict) and screen_hash:
+            current_state["visual"]["screen_hash"] = screen_hash
+        control_screen_type = self._get_control_screen_type(current_state, screen_type)
+        if isinstance(current_state.get("visual"), dict) and control_screen_type:
+            visual_state = current_state["visual"]
+            observed = visual_state.get("screen_type")
+            if observed and observed != control_screen_type:
+                visual_state["observed_screen_type"] = observed
+            visual_state["screen_type"] = control_screen_type
+        self._normalize_ui_flags_for_control(current_state, control_screen_type)
+        self._record_last_action_outcome(current_state, control_screen_type)
+        self._update_screen_stability(current_state, screen_image, control_screen_type)
 
-        if screen_type != "text_entry":
+        if control_screen_type != "text_entry":
             self._text_entry_step = 0
 
         previous_screen_type = self._prev_screen_type
-        self._prev_screen_type = screen_type
-        if screen_type and screen_type == previous_screen_type:
+        self._prev_screen_type = control_screen_type
+        if control_screen_type and control_screen_type == previous_screen_type:
             self._screen_type_streak += 1
         else:
-            self._screen_type_streak = 1 if screen_type else 0
-        if previous_screen_type == "dialogue" and screen_type != "dialogue":
+            self._screen_type_streak = 1 if control_screen_type else 0
+        if previous_screen_type == "dialogue" and control_screen_type != "dialogue":
             self._dialogue_exit_grace = 2
         elif self._dialogue_exit_grace > 0:
             self._dialogue_exit_grace -= 1
@@ -237,8 +421,11 @@ class PokemonAIAgent:
         if self.config.get("logging.save_screenshots") and self.turn_count % 50 == 0:
             self._save_screenshot()
 
-        if self.action_executor.is_stuck():
-            if screen_type in {"dialogue", "text_entry"}:
+        ui_state = current_state.get("memory", {}).get("ui", {}) or {}
+        if self._is_early_fixed_route_state(current_state):
+            self.action_executor.reset_stuck_detection()
+        elif self.action_executor.is_stuck(control_screen_type, ui_state):
+            if control_screen_type in {"dialogue", "text_entry"}:
                 self.action_executor.reset_stuck_detection()
             else:
                 self.logger.warning("Agent appears stuck; requesting critique")
@@ -247,85 +434,56 @@ class PokemonAIAgent:
                 self._handle_stuck_state(current_state)
                 self.action_executor.reset_stuck_detection()
 
-        self._maybe_add_guidance_note(current_state, screen_type)
+        self._maybe_add_guidance_note(current_state, control_screen_type)
 
-        bootstrap_override = self._get_pre_starter_bootstrap_decision(current_state, screen_type)
-        if bootstrap_override:
-            decision = bootstrap_override
-        else:
-            ui_override = self._get_known_ui_decision(current_state, screen_type)
-            if ui_override:
-                self._clear_planned_actions()
-                decision = ui_override
-            else:
-                deadlock_recovery = self._get_stable_ui_recovery_decision(current_state, screen_type)
-                if deadlock_recovery:
-                    self._clear_planned_actions()
-                    decision = deadlock_recovery
-                else:
-                    dialogue_timing = self._get_dialogue_timing_decision(current_state, screen_type)
-                    if dialogue_timing:
-                        self._clear_planned_actions()
-                        decision = dialogue_timing
-                    else:
-                        planned = self._get_navigation_plan_decision(current_state, screen_type)
-                        if planned:
-                            self._clear_planned_actions()
-                            decision = planned
-                        else:
-                            recovery_move = self._get_pre_starter_recovery_move_decision(current_state, screen_type)
-                            if recovery_move:
-                                self._clear_planned_actions()
-                                decision = recovery_move
-                            else:
-                                early_story = self._get_early_story_interaction_decision(current_state, screen_type)
-                                if early_story:
-                                    self._clear_planned_actions()
-                                    decision = early_story
-                                elif screen_type == "dialogue" and self._should_auto_advance_dialogue():
-                                    self._clear_planned_actions()
-                                    decision = {
-                                        "action": "a",
-                                        "reasoning": "Auto: advance dialogue",
-                                        "goal_update": None,
-                                        "recorded_in_context": False,
-                                    }
-                                elif self._should_auto_close_menu(current_state, screen_type):
-                                    self._clear_planned_actions()
-                                    decision = {
-                                        "action": "b",
-                                        "reasoning": f"Auto: close early-game {screen_type} to return to the main scene",
-                                        "goal_update": None,
-                                        "recorded_in_context": False,
-                                    }
-                                elif screen_type == "text_entry" and self.main_agent.is_in_api_cooldown():
-                                    self._clear_planned_actions()
-                                    decision = {
-                                        "action": "b",
-                                        "reasoning": "Auto: conservative recovery while text-entry detection is active and the API is cooling down",
-                                        "goal_update": None,
-                                        "recorded_in_context": False,
-                                    }
-                                else:
-                                    decision = self._get_ai_decision_responsive(
-                                        current_state,
-                                        state_text,
-                                        screenshot_bytes,
-                                    )
+        decision_context = DecisionContext(
+            current_state=current_state,
+            state_text=state_text,
+            screen_type=control_screen_type,
+            screenshot_bytes=screenshot_bytes,
+            screen_hash=screen_hash,
+        )
+        decision = self.decision_engine.decide(decision_context)
 
-                                    if self._dialogue_exit_grace > 0 and decision.get("action") in {"a", "b", "start", "select"}:
-                                        move = self._choose_recovery_move(current_state)
-                                        decision = {
-                                            "action": move,
-                                            "reasoning": f"Auto: move away after dialogue (suppressed {decision.get('action')})",
-                                            "goal_update": None,
-                                            "recorded_in_context": False,
-                                        }
+        ui_state = current_state.get("memory", {}).get("ui", {}) or {}
+        if (
+            decision.get("decision_source") == "ai"
+            and self._dialogue_exit_grace > 0
+            and decision.get("action") in {"a", "b", "start", "select"}
+            and not ui_state.get("text_box_active")
+            and (screen_type or "").strip().lower() != "dialogue"
+            and (decision.get("screen_type") or "").strip().lower() != "dialogue"
+        ):
+            if (
+                decision.get("recorded_in_context")
+                and self.main_agent.context.recent_turns
+                and self.main_agent.context.recent_turns[-1].turn_number == current_state["turn"]
+            ):
+                self.main_agent.context.recent_turns.pop()
+            move = self._choose_recovery_move(current_state)
+            decision = {
+                "action": move,
+                "reasoning": f"Auto: move away after dialogue (suppressed {decision.get('action')})",
+                "goal_update": None,
+                "recorded_in_context": False,
+                "decision_path": "tool",
+                "decision_source": "dialogue_exit_grace_recovery",
+                "decision_trace": decision.get("decision_trace", []),
+            }
+
+        self._set_phase_hint_from_decision(decision, screen_type)
 
         if self.config.get("visualization.enabled", True):
             action = decision.get("action", "wait")
             reasoning = decision.get("reasoning", "")
-            self.visualizer.update_decision(action, reasoning, self.turn_count)
+            self.visualizer.update_decision(
+                action,
+                reasoning,
+                self.turn_count,
+                screen_type=decision.get("screen_type") or control_screen_type or screen_type,
+                source=decision.get("decision_source"),
+                trace=decision.get("decision_trace"),
+            )
 
         action = decision.get("action", "wait")
         reasoning = decision.get("reasoning", "")
@@ -344,6 +502,8 @@ class PokemonAIAgent:
 
         if decision.get("executor") == "bootstrap":
             success = self._execute_bootstrap_action(decision)
+        elif decision.get("executor") == "async_background_wait":
+            success = self._execute_async_background_wait()
         else:
             success = self.action_executor.execute(action)
         if not success:
@@ -432,6 +592,8 @@ class PokemonAIAgent:
         curr_memory = current_state.get("memory", {})
         prev_pos = prev_memory.get("position", {})
         curr_pos = curr_memory.get("position", {})
+        prev_ui = prev_memory.get("ui", {}) or {}
+        curr_ui = curr_memory.get("ui", {}) or {}
         prev_screen = previous_state.get("visual", {}).get("screen_type")
         curr_screen = current_screen_type or current_state.get("visual", {}).get("screen_type")
 
@@ -459,6 +621,12 @@ class PokemonAIAgent:
         if prev_screen != curr_screen and curr_screen:
             parts.append(f"screen changed from {prev_screen or 'unknown'} to {curr_screen}")
 
+        if prev_ui.get("text_box_active") != curr_ui.get("text_box_active"):
+            parts.append("text box opened" if curr_ui.get("text_box_active") else "text box closed")
+
+        if prev_ui.get("menu_active") != curr_ui.get("menu_active"):
+            parts.append("menu opened" if curr_ui.get("menu_active") else "menu closed")
+
         money_delta = int(curr_memory.get("money", 0)) - int(prev_memory.get("money", 0))
         if money_delta:
             parts.append(f"money delta {money_delta:+d}")
@@ -472,6 +640,14 @@ class PokemonAIAgent:
             parts.append(f"party size increased by {party_delta}")
         elif party_delta < 0:
             parts.append(f"party size decreased by {abs(party_delta)}")
+
+        if len(parts) == 1:
+            if curr_ui.get("text_box_active"):
+                parts.append("text box remains active")
+            elif curr_ui.get("menu_active"):
+                parts.append("menu remains active")
+            else:
+                parts.append("no visible state change")
 
         return "; ".join(parts)
 
@@ -610,6 +786,11 @@ class PokemonAIAgent:
             return
         if self.turn_count - self._last_guidance_turn < interval:
             return
+        ui_state = current_state.get("memory", {}).get("ui", {}) or {}
+        if ui_state.get("text_box_active") or ui_state.get("menu_active"):
+            return
+        if self._is_early_fixed_route_state(current_state):
+            return
         if screen_type in {"dialogue", "text_entry", "title", "startup_menu", "options_menu", "naming_screen"}:
             return
 
@@ -628,6 +809,33 @@ class PokemonAIAgent:
 
         self.main_agent.add_guidance_note(note[:600], source="critic")
         self._last_guidance_turn = self.turn_count
+
+    def _is_early_fixed_route_state(self, current_state: dict) -> bool:
+        """Return True when deterministic early-game routing should not trigger critique logic."""
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return False
+        if int(memory.get("badge_count", 0) or 0) != 0:
+            return False
+        if int(memory.get("item_count", 0) or 0) != 0:
+            return False
+
+        position = memory.get("position", {}) or {}
+        map_id_raw = position.get("map_id", -1)
+        x_raw = position.get("x", -1)
+        y_raw = position.get("y", -1)
+        map_id = int(-1 if map_id_raw is None else map_id_raw)
+        x = int(-1 if x_raw is None else x_raw)
+        y = int(-1 if y_raw is None else y_raw)
+        if map_id in {0, 12, 40}:
+            return True
+        if map_id == 1 and (
+            (x == 21 and 30 <= y <= 35)
+            or (x == 20 and 28 <= y <= 30)
+            or (x == 19 and y == 28)
+        ):
+            return True
+        return False
 
     def _build_critic_history_text(self, limit_chars: int = 8000) -> str:
         """Build a bounded history string for the critic."""
@@ -663,6 +871,167 @@ class PokemonAIAgent:
         if isinstance(current_state.get("visual"), dict) and screen_type:
             current_state["visual"]["screen_type"] = screen_type
         return screen_type
+
+    def _prepare_phase_hint_for_update(self) -> None:
+        """Clear expired transient phase hints before the next state update."""
+        if self._phase_hint_turns_remaining <= 0:
+            self.game_state.set_phase_hint(None)
+
+    def _consume_phase_hint_after_update(self) -> None:
+        """Consume one use of the transient phase hint after a state update."""
+        if self._phase_hint_turns_remaining <= 0:
+            return
+        self._phase_hint_turns_remaining -= 1
+        if self._phase_hint_turns_remaining <= 0:
+            self.game_state.set_phase_hint(None)
+
+    def _set_transient_phase_hint(self, phase_hint: Optional[str], ttl_turns: int) -> None:
+        """Store a short-lived UI hint for the next few update cycles."""
+        normalized = (phase_hint or "").strip().lower()
+        if not normalized or ttl_turns <= 0:
+            self._phase_hint_turns_remaining = 0
+            self.game_state.set_phase_hint(None)
+            return
+        self._phase_hint_turns_remaining = int(ttl_turns)
+        self.game_state.set_phase_hint(normalized)
+
+    def _set_phase_hint_from_decision(self, decision: dict, observed_screen_type: Optional[str]) -> None:
+        """Refresh the next-turn UI hint only from strong sources."""
+        explicit = (decision.get("screen_type") or "").strip().lower()
+        if explicit:
+            self._set_transient_phase_hint(explicit, ttl_turns=3)
+            return
+
+        observed = (observed_screen_type or "").strip().lower()
+        if observed in {
+            "dialogue",
+            "text_entry",
+            "naming_screen",
+            "menu",
+            "pokemon_menu",
+            "item_menu",
+            "save_menu",
+            "options_menu",
+            "startup_menu",
+            "title",
+            "battle",
+        }:
+            self._set_transient_phase_hint(observed, ttl_turns=2)
+            return
+
+        self._set_transient_phase_hint(None, ttl_turns=0)
+
+    def _get_control_screen_type(
+        self,
+        current_state: dict,
+        observed_screen_type: Optional[str],
+    ) -> Optional[str]:
+        """Resolve the control-layer screen type used by safeguards and tool routing."""
+        screen_type = (observed_screen_type or "").strip().lower() or None
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        phase_hint = str(current_state.get("phase_hint") or "").strip().lower() or None
+
+        if memory.get("in_battle"):
+            return "battle"
+        if screen_type in {
+            "dialogue",
+            "text_entry",
+            "naming_screen",
+            "menu",
+            "pokemon_menu",
+            "item_menu",
+            "save_menu",
+            "options_menu",
+            "startup_menu",
+            "title",
+        }:
+            return screen_type
+
+        if ui_state.get("menu_active") and phase_hint in {
+            "menu",
+            "pokemon_menu",
+            "item_menu",
+            "save_menu",
+            "options_menu",
+            "startup_menu",
+        }:
+            return phase_hint
+
+        if self._has_stale_text_box_flag(current_state, screen_type):
+            return screen_type or None
+
+        if ui_state.get("text_box_active") and phase_hint in {"dialogue", "text_entry"}:
+            return phase_hint
+
+        return screen_type or phase_hint
+
+    def _has_stale_text_box_flag(
+        self,
+        current_state: dict,
+        observed_screen_type: Optional[str],
+    ) -> bool:
+        """Treat RAM text flags as stale once the Oak-lab handoff has proven movement."""
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if not ui_state.get("text_box_active") or ui_state.get("menu_active"):
+            return False
+
+        screen_type = (observed_screen_type or "").strip().lower()
+        if screen_type not in {"indoor", "overworld"}:
+            return False
+
+        deltas = current_state.get("deltas", {}) or {}
+        if deltas.get("position_changed"):
+            return True
+        if memory.get("party") and not memory.get("in_battle"):
+            return True
+
+        position = memory.get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        x = int(position.get("x", 0) or 0)
+        y = int(position.get("y", 0) or 0)
+        return map_id == 40 and not (memory.get("party") or memory.get("in_battle")) and (x, y) != (5, 3)
+
+    def _normalize_ui_flags_for_control(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> None:
+        """Clear RAM UI flags once the current scene is clearly free movement."""
+        if not self._has_stale_text_box_flag(current_state, screen_type):
+            return
+
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if not isinstance(ui_state, dict):
+            return
+
+        if ui_state.get("text_box_active"):
+            ui_state["stale_text_box_flag"] = True
+        ui_state["text_box_active"] = False
+
+        deltas = current_state.get("deltas", {}) or {}
+        if memory.get("in_battle"):
+            self.game_state._movement_stall_turns = 0
+            deltas["movement_stall_turns"] = 0
+            deltas["stuck_hint"] = "moving or in battle"
+            return
+
+        if deltas.get("position_changed"):
+            self.game_state._movement_stall_turns = 0
+            deltas["movement_stall_turns"] = 0
+            deltas["stuck_hint"] = "moving or in battle"
+            return
+
+        self.game_state._movement_stall_turns += 1
+        stall_turns = int(self.game_state._movement_stall_turns)
+        deltas["movement_stall_turns"] = stall_turns
+        deltas["stuck_hint"] = (
+            "possibly stuck - explore a different direction or unseen tile"
+            if stall_turns >= 2
+            else "slight stall"
+        )
 
     def _publish_visualizer_state(self, current_state: dict, screen_image) -> None:
         """Push state, screenshot, goals, and control status to the dashboard."""
@@ -901,11 +1270,49 @@ class PokemonAIAgent:
                 return "title"
             if ui.get("text_box") and not ui.get("battle_ui"):
                 return "dialogue"
+            if self._has_visible_dialogue_box(screen_image) and not ui.get("battle_ui"):
+                return "dialogue"
             if ui.get("text_entry"):
                 return "text_entry"
             return self.vision._identify_screen_type(img_array, ui)
         except Exception:
             return None
+
+    def _has_visible_dialogue_box(self, screen_image) -> bool:
+        """Fallback detector for the large Gen-1 dialogue panel at the bottom of the screen."""
+        if not screen_image:
+            return False
+
+        img = np.array(screen_image.convert("L"))
+        if img.ndim != 2 or img.shape[0] < 60 or img.shape[1] < 120:
+            return False
+
+        box = img[-50:-2, 2:-2]
+        interior = box[6:-6, 6:-6]
+        border = np.concatenate(
+            [
+                box[:3, :].ravel(),
+                box[-3:, :].ravel(),
+                box[:, :3].ravel(),
+                box[:, -3:].ravel(),
+            ]
+        )
+        bright_ratio = float(np.mean(interior > 170))
+        border_dark_ratio = float(np.mean(border < 90))
+        top_dark_ratio = float(np.mean(box[:3, :] < 90))
+        left_dark_ratio = float(np.mean(box[:, :3] < 90))
+        return (
+            bright_ratio > 0.75
+            and border_dark_ratio > 0.45
+            and top_dark_ratio > 0.20
+            and left_dark_ratio > 0.30
+        )
+
+    def _compute_exact_screen_hash(self, screen_image) -> Optional[str]:
+        """Compute a stable frame hash for narrow deterministic scene handlers."""
+        if not screen_image:
+            return None
+        return hashlib.md5(screen_image.convert("L").tobytes()).hexdigest()
 
     def _compute_screen_signature(self, screen_image) -> Optional[bytes]:
         """Build a small image signature for deadlock detection."""
@@ -1074,6 +1481,27 @@ class PokemonAIAgent:
         self.emulator.press_button(action)
         return True
 
+    def _build_pending_ai_decision(self) -> dict:
+        """Return a lightweight placeholder while the model thinks in the background."""
+        return {
+            "action": "wait",
+            "reasoning": "AI is thinking in the background; keep the game running in real time.",
+            "goal_update": None,
+            "recorded_in_context": True,
+            "executor": "async_background_wait",
+            "async_pending": True,
+        }
+
+    def _execute_async_background_wait(self) -> bool:
+        """Advance a few frames without blocking the game loop on the model."""
+        wait_frames = int(self.config.get("actions.async_wait_frames", 2) or 2)
+        sleep_ms = float(self.config.get("actions.async_wait_sleep_ms", 33) or 33)
+        self.action_executor.reset_stuck_detection()
+        self.emulator.tick(max(1, wait_frames))
+        if sleep_ms > 0:
+            time.sleep(max(0.0, sleep_ms / 1000.0))
+        return True
+
     def _get_known_ui_decision(
         self,
         current_state: dict,
@@ -1139,7 +1567,19 @@ class PokemonAIAgent:
                 break
             wait_streak += 1
 
-        if wait_streak >= 2:
+        local_analysis_enabled = bool(
+            current_state.get("visual", {}).get("local_analysis_enabled", False)
+        )
+        if current_state.get("pre_starter_script") and not local_analysis_enabled:
+            return {
+                "action": "a",
+                "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        required_wait_streak = 2 if local_analysis_enabled else 1
+
+        if wait_streak >= required_wait_streak:
             return {
                 "action": "a",
                 "reasoning": "Auto: periodically advance dialogue after letting the current page render",
@@ -1320,11 +1760,12 @@ class PokemonAIAgent:
         返回:
             包含行动和推理的决策字典
         """
-        use_async = self.config.get('performance.async_decisions', True)
-        if self.config.get('game.headless', False) or not self.config.get('visualization.enabled', True):
-            use_async = False
-
-        if not use_async or not hasattr(self, 'async_ai'):
+        use_async = bool(self.config.get('performance.async_decisions', True))
+        if (
+            not use_async
+            or not hasattr(self, 'async_ai')
+            or not getattr(self.async_ai, 'running', False)
+        ):
             # 回退到同步模式（会阻塞）
             return self.main_agent.decide_action(
                 current_state,
@@ -1332,36 +1773,16 @@ class PokemonAIAgent:
                 screenshot_bytes=screenshot_bytes
             )
 
-        # 异步请求决策
-        queued = self.async_ai.request_decision(current_state, state_text, screenshot_bytes)
-        if not queued:
-            self.logger.debug("异步决策队列已满，改用同步决策")
-            return self.main_agent.decide_action(
-                current_state,
-                state_text,
-                screenshot_bytes=screenshot_bytes
-            )
+        decision = self.async_ai.get_decision(timeout=0.0)
+        if decision:
+            return decision
 
-        # 等待决策的同时保持PyBoy响应
-        max_wait_time = 60.0  # 最多60秒
-        start_time = time.time()
-        tick_interval = 0.1  # 每100ms tick一次PyBoy
+        if not self.async_ai.is_thinking:
+            queued = self.async_ai.request_decision(current_state, state_text, screenshot_bytes)
+            if not queued:
+                self.logger.debug("Async decision request could not be queued; keeping realtime fallback active")
 
-        while time.time() - start_time < max_wait_time:
-            # 检查决策是否准备好
-            decision = self.async_ai.get_decision(timeout=0.0)
-            if decision:
-                return decision
-
-            # 通过tick保持PyBoy响应
-            self.emulator.tick(6)  # 60fps时约100ms
-
-            # 短暂休眠以防止CPU空转
-            time.sleep(0.05)
-
-        # 超时 - 返回等待行动
-        self.logger.warning("AI决策超时 - 使用默认等待行动")
-        return {'action': 'wait', 'reasoning': '决策超时'}
+        return self._build_pending_ai_decision()
 
 
     def _handle_stuck_state(self, current_state: dict) -> None:
@@ -1388,6 +1809,101 @@ class PokemonAIAgent:
         if note:
             self.main_agent.add_guidance_note(note[:600], source="critic-stuck")
 
+    def _checkpoint_root(self) -> Path:
+        """Return the configured checkpoint directory."""
+        return Path(self.config.get("game.save_state_dir"))
+
+    def get_available_checkpoints(self, limit: Optional[int] = 20) -> List[Dict[str, Any]]:
+        """Return recent checkpoints sorted from newest to oldest."""
+        return list_checkpoints(self._checkpoint_root(), limit=limit)
+
+    def _resolve_checkpoint_dir(self, checkpoint_name: Optional[str]) -> Path:
+        """Resolve a checkpoint name or alias to a directory."""
+        checkpoint_name = (checkpoint_name or "latest").strip()
+        root = self._checkpoint_root()
+
+        if checkpoint_name.lower() == "latest":
+            checkpoints = self.get_available_checkpoints(limit=1)
+            if not checkpoints:
+                raise FileNotFoundError(f"No checkpoints found in {root}")
+            return Path(checkpoints[0]["path"])
+
+        candidate = root / checkpoint_name
+        if candidate.exists():
+            return candidate
+
+        if checkpoint_name.isdigit():
+            candidate = root / f"checkpoint_{checkpoint_name}"
+            if candidate.exists():
+                return candidate
+
+        raise FileNotFoundError(f"Checkpoint not found: {checkpoint_name}")
+
+    def _maybe_restore_initial_checkpoint(self) -> None:
+        """Auto-resume from a configured checkpoint when requested."""
+        requested = self.config.get("game.resume_checkpoint")
+        auto_latest = bool(self.config.get("game.auto_resume_latest_checkpoint", False))
+        if requested:
+            self._load_checkpoint(str(requested), pause_after_load=False)
+            return
+        if auto_latest and self.get_available_checkpoints(limit=1):
+            self._load_checkpoint("latest", pause_after_load=False)
+
+    def _load_checkpoint(self, checkpoint_name: str = "latest", pause_after_load: bool = False) -> Dict[str, Any]:
+        """Restore emulator and agent state from a checkpoint."""
+        checkpoint_dir = self._resolve_checkpoint_dir(checkpoint_name)
+        emulator_state = checkpoint_dir / "emulator.state"
+        if not emulator_state.exists():
+            raise FileNotFoundError(f"Checkpoint is missing emulator.state: {checkpoint_dir}")
+
+        metadata = load_checkpoint_metadata(checkpoint_dir)
+
+        self.logger.info(f"Loading checkpoint from {checkpoint_dir}")
+        self.emulator.load_state(str(emulator_state))
+        self.main_agent.load_state(str(checkpoint_dir))
+
+        map_memory_path = checkpoint_dir / "map_memory.json"
+        if map_memory_path.exists():
+            self.map_memory.load(str(map_memory_path))
+        else:
+            self.map_memory.load()
+
+        progress_path = checkpoint_dir / "progress.json"
+        if progress_path.exists():
+            self.progress_tracker.load(str(progress_path))
+
+        restored_turn = int(metadata.get("turn", 0) or 0)
+        self.turn_count = restored_turn
+        self.last_checkpoint_turn = restored_turn
+        self.game_state.reset_tracking(turn_count=restored_turn)
+        self.action_executor.reset_stuck_detection()
+        self._clear_planned_actions()
+        self._clear_scripted_ui_actions()
+        self._clear_scripted_bootstrap_actions()
+        self.oak_lab_starter.reset()
+        self.oak_lab_rival_battle.reset()
+        self.post_battle_intro_route.reset()
+        self._last_observed_state = None
+        self._last_action = None
+        self._last_action_reasoning = ""
+        self._prev_screen_type = metadata.get("screen_type")
+        self._stable_screen_turns = 0
+        self._last_screen_signature = None
+        self._phase_hint_turns_remaining = 0
+        self._restored_checkpoint_name = checkpoint_dir.name
+
+        if pause_after_load:
+            with self._control_lock:
+                self._paused = True
+
+        if self.config.get("visualization.enabled", True):
+            self.visualizer.update_checkpoints(self.get_available_checkpoints())
+            self.visualizer.log_event("milestone", f"Restored {checkpoint_dir.name}")
+            self._broadcast_control_state()
+
+        self.logger.milestone(f"Restored checkpoint {checkpoint_dir.name}")
+        return metadata
+
     def _save_screenshot(self) -> None:
         """保存带注释的截图。"""
         screenshot_dir = Path(self.config.get('logging.screenshot_dir'))
@@ -1402,7 +1918,7 @@ class PokemonAIAgent:
         """保存检查点。"""
         self.logger.info(f"正在保存回合{self.turn_count}的检查点")
 
-        checkpoint_dir = Path(self.config.get('game.save_state_dir')) / f"checkpoint_{self.turn_count}"
+        checkpoint_dir = self._checkpoint_root() / f"checkpoint_{self.turn_count}"
         checkpoint_dir.mkdir(parents=True, exist_ok=True)
 
         # 保存模拟器状态
@@ -1413,9 +1929,31 @@ class PokemonAIAgent:
 
         # 保存地图记忆
         self.map_memory.save()
+        self.map_memory.save(str(checkpoint_dir / "map_memory.json"))
 
         # 保存进度
         self.progress_tracker.save(str(checkpoint_dir / "progress.json"))
+
+        primary_goal = None
+        if getattr(self.main_agent, "goals", None) and self.main_agent.goals.primary_goal:
+            primary_goal = self.main_agent.goals.primary_goal.description
+        focus = getattr(getattr(self.main_agent, "goals", None), "focus", None)
+        metadata = build_checkpoint_metadata(
+            name=checkpoint_dir.name,
+            turn=self.turn_count,
+            current_state=self._last_observed_state,
+            focus=focus,
+            primary_goal=primary_goal,
+        )
+        write_checkpoint_metadata(checkpoint_dir, metadata)
+
+        max_checkpoints = int(self.config.get("game.max_checkpoints", 0) or 0)
+        removed = prune_old_checkpoints(self._checkpoint_root(), max_checkpoints) if max_checkpoints else []
+        for removed_path in removed:
+            self.logger.info(f"Removed old checkpoint {removed_path.name}")
+
+        if self.config.get("visualization.enabled", True):
+            self.visualizer.update_checkpoints(self.get_available_checkpoints())
 
         self.logger.info(f"检查点已保存到 {checkpoint_dir}")
 

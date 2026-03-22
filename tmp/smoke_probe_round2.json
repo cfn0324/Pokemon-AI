@@ -1,0 +1,141 @@
+{
+  "requested_checkpoint": "checkpoint_18613",
+  "restored_checkpoint": "checkpoint_18613",
+  "latest_checkpoint": "checkpoint_18616",
+  "start_turn": 18613,
+  "end_turn": 18616,
+  "turn_delta": 3,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18616,
+    "timestamp": "2026-03-22T14:30:48.133968",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18616,
+      "local_analysis_enabled": false
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 5,
+      "total_tiles": 200,
+      "exploration_percent": 2.5
+    },
+    "navigation": {
+      "current_visit_count": 5,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 5,
+      "nearest_frontier": {
+        "target": [
+          5,
+          3
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 5,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18613,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak's text box active in the lab, reading “I told you to com”, which is clearly mid-sentence in the mandatory starter-selection dialogue. Since text is active and more dialogue remains, the correct action is to advance it with A.",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18614,
+      "action": "a",
+      "reasoning": "Professor Oak’s dialogue is clearly active in the lab. The text reads “I told you to come! Just”, which is mid-sentence in the mandatory starter-selection script. Since the text box is open and more dialogue remains, the correct action is to advance with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18615,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak's dialogue box active in the lab, reading “I told you to come! Just wait!” with a continuation arrow. This is mandatory starter-event dialogue, so the correct action is to advance the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18616,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with the bottom dialogue box open but currently blank. This matches the ongoing mandatory starter-event conversation after Oak said “Just wait!”. Since a dialogue box is visibly active, the correct action is to advance the script with A rather than move.",
+      "result": null,
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

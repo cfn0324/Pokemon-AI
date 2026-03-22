@@ -1,0 +1,1955 @@
+{
+  "initial": [
+    {
+      "label": "initial",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\initial_00.png"
+    }
+  ],
+  "a": [
+    {
+      "label": "a",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\a_00.png"
+    },
+    {
+      "label": "a",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\a_01.png",
+      "action": "a",
+      "ok": true
+    }
+  ],
+  "aa": [
+    {
+      "label": "aa",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aa_00.png"
+    },
+    {
+      "label": "aa",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aa_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aa",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aa_02.png",
+      "action": "a",
+      "ok": true
+    }
+  ],
+  "aaaa": [
+    {
+      "label": "aaaa",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaa_00.png"
+    },
+    {
+      "label": "aaaa",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaa_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaa",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaa_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaa",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaa_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaa",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaa_04.png",
+      "action": "a",
+      "ok": true
+    }
+  ],
+  "right": [
+    {
+      "label": "right",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\right_00.png"
+    },
+    {
+      "label": "right",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\right_01.png",
+      "action": "right",
+      "ok": true
+    }
+  ],
+  "up": [
+    {
+      "label": "up",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\up_00.png"
+    },
+    {
+      "label": "up",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\up_01.png",
+      "action": "up",
+      "ok": true
+    }
+  ],
+  "left": [
+    {
+      "label": "left",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\left_00.png"
+    },
+    {
+      "label": "left",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\left_01.png",
+      "action": "left",
+      "ok": true
+    }
+  ],
+  "down": [
+    {
+      "label": "down",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\down_00.png"
+    },
+    {
+      "label": "down",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\down_01.png",
+      "action": "down",
+      "ok": true
+    }
+  ],
+  "aawright": [
+    {
+      "label": "aawright",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aawright_00.png"
+    },
+    {
+      "label": "aawright",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawright_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aawright",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawright_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aawright",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawright_03.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aawright",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawright_04.png",
+      "action": "right",
+      "ok": true
+    }
+  ],
+  "aawwright": [
+    {
+      "label": "aawwright",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_00.png"
+    },
+    {
+      "label": "aawwright",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aawwright",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aawwright",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_03.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aawwright",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_04.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aawwright",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aawwright_05.png",
+      "action": "right",
+      "ok": true
+    }
+  ],
+  "aaaawright": [
+    {
+      "label": "aaaawright",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_00.png"
+    },
+    {
+      "label": "aaaawright",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawright",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawright",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawright",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_04.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawright",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_05.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aaaawright",
+      "step": 6,
+      "turn": 18687,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawright_06.png",
+      "action": "right",
+      "ok": true
+    }
+  ],
+  "aaaawwright": [
+    {
+      "label": "aaaawwright",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_00.png"
+    },
+    {
+      "label": "aaaawwright",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_04.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_05.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 6,
+      "turn": 18687,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_06.png",
+      "action": "wait",
+      "ok": true
+    },
+    {
+      "label": "aaaawwright",
+      "step": 7,
+      "turn": 18688,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaawwright_07.png",
+      "action": "right",
+      "ok": true
+    }
+  ],
+  "aaaaup": [
+    {
+      "label": "aaaaup",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_00.png"
+    },
+    {
+      "label": "aaaaup",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaup",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaup",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaup",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_04.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaup",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaup_05.png",
+      "action": "up",
+      "ok": true
+    }
+  ],
+  "aaaadown": [
+    {
+      "label": "aaaadown",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_00.png"
+    },
+    {
+      "label": "aaaadown",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaadown",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaadown",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaadown",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_04.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaadown",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaadown_05.png",
+      "action": "down",
+      "ok": true
+    }
+  ],
+  "aaaaright": [
+    {
+      "label": "aaaaright",
+      "step": 0,
+      "turn": 18681,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": true,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "unknown"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_00.png"
+    },
+    {
+      "label": "aaaaright",
+      "step": 1,
+      "turn": 18682,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_01.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaright",
+      "step": 2,
+      "turn": 18683,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_02.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaright",
+      "step": 3,
+      "turn": 18684,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_03.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaright",
+      "step": 4,
+      "turn": 18685,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_04.png",
+      "action": "a",
+      "ok": true
+    },
+    {
+      "label": "aaaaright",
+      "step": 5,
+      "turn": 18686,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "position": {
+        "x": 5,
+        "y": 3,
+        "map_id": 40
+      },
+      "direction": "up",
+      "party_size": 0,
+      "in_battle": false,
+      "pre_starter_script": false,
+      "phase_hint": null,
+      "ui": {
+        "text_box_active": true,
+        "menu_active": false
+      },
+      "deltas": {
+        "position_changed": false,
+        "money_delta": 0,
+        "battle_toggled": false,
+        "movement_stall_turns": 0,
+        "stuck_hint": "ui text or menu is active; lack of movement is expected"
+      },
+      "image": "tmp\\probe_sequences\\aaaaright_05.png",
+      "action": "right",
+      "ok": true
+    }
+  ]
+}

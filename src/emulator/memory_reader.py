@@ -167,7 +167,10 @@ class MemoryReader:
         return {
             'species_id': species_id,
             'species': species_name,
+            'name': species_name,
+            'display_name': species_name,
             'level': level,
+            'hp': current_hp,
             'current_hp': current_hp,
             'max_hp': max_hp,
             'moves': moves,
@@ -180,7 +183,7 @@ class MemoryReader:
         }
 
     def _read_uint16(self, address: int) -> int:
-        """Read 16-bit unsigned integer (little-endian).
+        """Read 16-bit unsigned integer.
 
         Args:
             address: Memory address
@@ -188,8 +191,9 @@ class MemoryReader:
         Returns:
             16-bit value
         """
-        low = self.emulator.read_memory(address)
-        high = self.emulator.read_memory(address + 1)
+        # Pokemon Red party and battle stats are stored high-byte first in RAM.
+        high = self.emulator.read_memory(address)
+        low = self.emulator.read_memory(address + 1)
         return (high << 8) | low
 
     def read_money(self) -> int:

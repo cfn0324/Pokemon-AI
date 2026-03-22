@@ -169,6 +169,11 @@ class GameState:
                 position["x"],
                 position["y"],
             )
+            if isinstance(navigation, dict) and "map_snapshot" not in navigation:
+                navigation["map_snapshot"] = self.map_memory.build_map_snapshot(
+                    position["map_id"],
+                    current_position=(position["x"], position["y"]),
+                )
             map_memory_state = {
                 "current_map": position["map_id"],
                 "explored_tiles": exploration["explored_count"],
@@ -195,6 +200,16 @@ class GameState:
         self.logger.state("full_state", state)
 
         return state
+
+    def reset_tracking(self, turn_count: int = 0) -> None:
+        """Reset delta/history tracking after loading a checkpoint."""
+        self.turn_count = max(0, int(turn_count))
+        self.last_update = None
+        self._last_memory_state = None
+        self._position_history = []
+        self._movement_stall_turns = 0
+        self._phase_hint = None
+        self._pre_starter_script_latched = False
 
     def get_text_representation(self, state: Optional[Dict[str, Any]] = None) -> str:
         """Convert game state to text representation for AI."""
@@ -344,6 +359,26 @@ BADGES: {memory['badge_count']}/8
             if local_map:
                 text += "  Local Map Window:\n"
                 for row in local_map[:11]:
+                    text += f"    {row}\n"
+
+            map_snapshot = navigation.get("map_snapshot") or {}
+            if map_snapshot.get("available"):
+                text += "  Explored Map Snapshot:\n"
+                bounds = map_snapshot.get("bounds") or {}
+                text += (
+                    "    Legend: P=player .=explored F=frontier #=confirmed-wall "
+                    "W=warp ?=unknown\n"
+                )
+                text += (
+                    f"    Bounds: x={bounds.get('min_x', '?')}..{bounds.get('max_x', '?')} "
+                    f"y={bounds.get('min_y', '?')}..{bounds.get('max_y', '?')} "
+                    f"size={bounds.get('width', '?')}x{bounds.get('height', '?')} "
+                    f"explored={map_snapshot.get('explored_count', 0)} "
+                    f"frontier={map_snapshot.get('frontier_count', 0)} "
+                    f"blocked={map_snapshot.get('blocked_count', 0)} "
+                    f"warps={map_snapshot.get('warp_count', 0)}\n"
+                )
+                for row in map_snapshot.get("prompt_rows", map_snapshot.get("rows", []))[:18]:
                     text += f"    {row}\n"
 
         text += "\n" + "=" * 50 + "\n"

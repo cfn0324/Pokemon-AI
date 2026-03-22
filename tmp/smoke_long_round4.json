@@ -1,0 +1,379 @@
+{
+  "requested_checkpoint": "checkpoint_18621",
+  "restored_checkpoint": "checkpoint_18621",
+  "latest_checkpoint": "checkpoint_18641",
+  "start_turn": 18621,
+  "end_turn": 18641,
+  "turn_delta": 20,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 18641,
+    "timestamp": "2026-03-22T14:49:09.967791",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 18641,
+      "local_analysis_enabled": false
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 5,
+      "total_tiles": 200,
+      "exploration_percent": 2.5
+    },
+    "navigation": {
+      "current_visit_count": 30,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 5,
+      "nearest_frontier": {
+        "target": [
+          5,
+          3
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 30,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "?????????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ]
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 18621,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box in Oak's Lab with Professor Oak saying “There are 3 POKé…”, which is mid-sentence in the mandatory starter-selection script. Since dialogue is visibly active, the correct move is to advance the text with A.",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18622,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak’s Lab with Professor Oak saying “There are 3 POKéMON here,” which is mid-script in the mandatory starter selection event. Since text is actively displayed, the correct action is to advance the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18623,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s active dialogue box in the lab: “There are 3 POKéMON here!” with a continuation arrow. This is still the mandatory starter-selection script, so the correct action is to advance the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18624,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with a large active dialogue box open across the bottom, currently blank between text pages, while the player stands at the starter table facing Professor Oak. This indicates the mandatory starter-selection speech is still in progress. The correct action is to advance the dialogue with A, not move.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18625,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with the rival saying “Haha!” and a continuation marker. This is part of the mandatory starter-selection sequence, so movement would be incorrect. Advance the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18626,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with a large open dialogue box occupying the bottom portion of the screen. No movement should be attempted during this mandatory starter-selection script. The previous line was the rival saying “Haha!”, so the correct next step is to continue advancing the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18627,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak's Lab with Professor Oak's text mid-line: “They ar”. This is still the mandatory starter-selection speech, so movement would be incorrect. Advance the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18628,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s dialogue box active in the lab with the line “They are inside,” which is mid-sentence in the mandatory starter-selection script. Since text is visible and still progressing, the correct action is to advance the dialogue with A rather than move.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18629,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak’s Lab with Professor Oak saying “They are inside the POKé”, which is mid-sentence in the mandatory starter-selection script. Since text is visibly active, the correct action is to continue advancing the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18630,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active text box in Oak’s Lab with Professor Oak saying, “They are inside the POKé BALLs.” and a continuation arrow. This is still mandatory starter-event dialogue, so the correct action is to advance the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18631,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with a large dialogue box still open at the bottom, but currently blank between text pages. This indicates the mandatory starter-event script is still active, matching the recent sequence of Oak's explanation. We should continue advancing the dialogue with A rather than try to move.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18632,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak’s Lab with Professor Oak saying “When I”, mid-sentence in the mandatory starter-selection script. Dialogue is still active, so the correct action is to continue advancing text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18633,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s dialogue box open with the line “When I was youn”, which is mid-sentence in the mandatory starter-selection script. Since text is visibly active and movement is blocked during this event, the correct input is to continue advancing the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18634,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak's dialogue box active in the lab with the line “When I was young, I was”. This is still the mandatory starter-selection script, so the correct action is to keep advancing the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18635,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak's dialogue box open in the lab with the line “When I was young, I was a seriou…”, which is mid-sentence in the mandatory starter-selection script. Dialogue is visibly active, so the correct action is to continue advancing text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18636,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s dialogue box active in the lab with the text “When I was young, I was a serious”. This is still the mandatory starter-selection script, and the continuation marker indicates more text remains. The correct action is to advance the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18637,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s active dialogue box with the text “I was a serious POK…”, which is still mid-sentence in the mandatory starter-selection speech. Since dialogue is visibly active, the correct action is to advance it with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18638,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak’s dialogue box active in the lab with the text “I was a serious POKéMON tra…”, which is still mid-sentence in the mandatory starter-selection speech. Since dialogue is visibly active, the correct action is to continue advancing it with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18639,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Professor Oak's dialogue box active in the lab with the line “I was a serious POKéMON trainer!” and a continuation arrow. This is still mandatory starter-event dialogue, so the correct action is to advance the text with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18640,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows Oak’s Lab with a large dialogue box open across the bottom, currently blank between text pages. Since the mandatory starter-selection script is still active, movement should not be attempted. The correct action is to continue advancing the dialogue with A.",
+      "result": "After a:",
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 18641,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active dialogue box in Oak’s Lab with Professor Oak speaking: “In my o…”, the next line of the mandatory starter-selection speech. Since text is visibly active, the correct action is to continue advancing the dialogue with A.",
+      "result": null,
+      "screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}
