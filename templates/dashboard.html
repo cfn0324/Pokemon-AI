@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +8,75 @@
 </head>
 <body>
     <div class="app-shell">
-        <header class="topbar">
-            <div>
-                <p class="eyebrow">Pokemon Red AI Control Room</p>
-                <h1>实时画面、模型决策、任务焦点、检查点</h1>
+        <header class="masthead">
+            <div class="masthead-copy">
+                <p class="eyebrow">Pokemon Red AI Ops</p>
+                <h1>Live Agent Control Console</h1>
                 <p class="subtitle">
-                    页面只保留真正有用的内容。核心是当前画面、当前决策、当前任务、运行控制和多检查点恢复。
-                    “视觉分析”不再单独占一个大面板，只保留对当前屏幕判断有帮助的紧凑提示。
+                    Rebuilt around the reference layout: a focused left rail for the live game feed,
+                    map memory, and party status, plus a larger right workspace for model reasoning,
+                    runtime controls, checkpoints, and recent logs.
                 </p>
             </div>
-            <div class="header-status">
+
+            <div class="masthead-status">
                 <div class="status-grid">
-                    <div class="pill" id="connectionPill" data-tone="warning">数据连接中</div>
-                    <div class="pill" id="runPill" data-tone="neutral">运行状态未知</div>
-                    <div class="pill" id="turnPill">回合 <strong id="turnPillValue">0</strong></div>
-                    <div class="pill" id="checkpointPill">检查点 <strong id="checkpointPillValue">0</strong></div>
-                    <div class="pill" id="resumePill">自动续跑 <strong id="resumePillValue">-</strong></div>
+                    <div class="pill" id="connectionPill" data-tone="warning">Connecting</div>
+                    <div class="pill" id="runPill" data-tone="neutral">Runtime unknown</div>
+                    <div class="pill">Turn <strong id="turnPillValue">0</strong></div>
+                    <div class="pill">Checkpoints <strong id="checkpointPillValue">0</strong></div>
+                    <div class="pill">Auto Resume <strong id="resumePillValue">-</strong></div>
                 </div>
-                <div class="pill mono" id="statusDetailPill">最近更新: -</div>
+                <div class="pill mono status-detail" id="statusDetailPill">Last update: -</div>
             </div>
         </header>
 
-        <main class="layout">
-            <section class="stack">
-                <section class="hero-grid">
+        <section class="overview-strip">
+            <article class="metric-card">
+                <span class="metric-label">TURN</span>
+                <strong class="metric-value" id="statTurn">0</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">BADGES</span>
+                <strong class="metric-value" id="statBadges">0 / 8</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">MONEY</span>
+                <strong class="metric-value mono" id="statMoney">0</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">PARTY</span>
+                <strong class="metric-value" id="statParty">0</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">MAP</span>
+                <strong class="metric-value mono" id="statMap">-</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">COORDS</span>
+                <strong class="metric-value mono" id="statCoords">-</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">EXPLORE</span>
+                <strong class="metric-value" id="statExplore">0%</strong>
+            </article>
+            <article class="metric-card">
+                <span class="metric-label">FRONTIER</span>
+                <strong class="metric-value" id="statFrontier">0</strong>
+            </article>
+        </section>
+
+        <main class="workspace">
+            <section class="left-rail">
                 <section class="panel panel-screen">
                     <div class="panel-head">
                         <div>
                             <p class="panel-kicker">Live Screen</p>
-                            <h2>游戏画面</h2>
-                            <p class="panel-note">优先使用 MJPEG 实时流。只有当流不可用时，才退回低频截图。</p>
+                            <h2>Game Feed</h2>
+                            <p class="panel-note">
+                                The main screen stays anchored on the left side. The dashboard prefers
+                                the MJPEG stream and falls back to screenshots only when needed.
+                            </p>
                         </div>
                         <div class="tag-row">
                             <span class="tag" id="screenTypeTag">SCREEN_TYPE unknown</span>
@@ -46,126 +85,278 @@
                         </div>
                     </div>
 
-                    <div class="screen-stage">
-                        <div class="stream-shell">
-                            <img id="streamImage" src="/stream.mjpg" alt="游戏实时画面">
-                            <img id="fallbackImage" alt="游戏截图" hidden>
-                            <div class="stream-placeholder" id="streamPlaceholder">等待游戏画面和模型状态… 如果你运行的是 `scripts/autonomous_smoke.py`，这里不会更新。</div>
-                        </div>
-
-                        <div class="screen-support-grid">
-                            <section class="support-card support-card-map">
-                                <div class="support-head">
-                                    <div>
-                                        <p class="support-kicker">Reversed Map</p>
-                                        <h3>地图逆向</h3>
-                                    </div>
-                                    <div class="tag-row">
-                                        <span class="tag" id="mapCurrentLabel">map -</span>
-                                        <span class="tag" id="mapBoundsLabel">bounds -</span>
-                                    </div>
-                                </div>
-
-                                <div class="map-shell">
-                                    <div class="map-board" id="mapBoard">
-                                        <div class="empty-state">等待地图数据…</div>
-                                    </div>
-                                </div>
-
-                                <div class="map-meta">
-                                    <div class="map-stat">
-                                        <span>尺寸</span>
-                                        <strong id="mapSizeValue">-</strong>
-                                    </div>
-                                    <div class="map-stat">
-                                        <span>已探索</span>
-                                        <strong id="mapExploredValue">0</strong>
-                                    </div>
-                                    <div class="map-stat">
-                                        <span>前沿</span>
-                                        <strong id="mapFrontierValue">0</strong>
-                                    </div>
-                                    <div class="map-stat">
-                                        <span>传送</span>
-                                        <strong id="mapWarpValue">0</strong>
-                                    </div>
-                                    <div class="map-stat">
-                                        <span>玩家</span>
-                                        <strong id="mapPlayerValue">-</strong>
-                                    </div>
-                                </div>
-                                <div class="map-legend" id="mapLegend"></div>
-                            </section>
-
-                            <section class="support-card support-card-team">
-                                <div class="support-head">
-                                    <div>
-                                        <p class="support-kicker">Team</p>
-                                        <h3>队伍状态</h3>
-                                    </div>
-                                </div>
-
-                                <div class="party-roster" id="partyList">
-                                    <div class="list-item empty-state">尚未获得宝可梦。</div>
-                                </div>
-                            </section>
-                        </div>
-
-                        <div class="screen-insights">
-                            <div class="insight-card">
-                                <span class="insight-label">屏幕理解</span>
-                                <p class="insight-value" id="screenSummary">等待状态更新</p>
-                            </div>
-                            <div class="insight-card">
-                                <span class="insight-label">Harness 提示</span>
-                                <p class="insight-value" id="harnessSummary">-</p>
-                            </div>
-                            <div class="insight-card">
-                                <span class="insight-label">移动反馈</span>
-                                <p class="insight-value" id="movementSummary">-</p>
-                            </div>
+                    <div class="stream-shell">
+                        <img id="streamImage" src="/stream.mjpg" alt="Live game feed">
+                        <img id="fallbackImage" alt="Game screenshot" hidden>
+                        <div class="stream-placeholder" id="streamPlaceholder">
+                            Waiting for the game feed and runtime state. If you launched
+                            <code>scripts/autonomous_smoke.py</code>, live updates will stay disabled.
                         </div>
                     </div>
+
+                    <div class="screen-insights">
+                        <article class="insight-card">
+                            <span class="insight-label">Screen Summary</span>
+                            <p class="insight-value" id="screenSummary">Waiting for state updates</p>
+                        </article>
+                        <article class="insight-card">
+                            <span class="insight-label">Harness Notes</span>
+                            <p class="insight-value" id="harnessSummary">-</p>
+                        </article>
+                        <article class="insight-card">
+                            <span class="insight-label">Movement Feedback</span>
+                            <p class="insight-value" id="movementSummary">-</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel panel-map">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Reverse Map</p>
+                            <h2>Exploration Map</h2>
+                            <p class="panel-note">
+                                The reverse map stays directly under the game feed so route drift is easy to spot.
+                            </p>
+                        </div>
+                        <div class="tag-row">
+                            <span class="tag" id="mapCurrentLabel">map -</span>
+                            <span class="tag" id="mapBoundsLabel">bounds -</span>
+                        </div>
+                    </div>
+
+                    <div class="map-shell">
+                        <div class="map-board" id="mapBoard">
+                            <div class="empty-state">Waiting for map data...</div>
+                        </div>
+                    </div>
+
+                    <div class="map-meta">
+                        <div class="map-stat">
+                            <span>Size</span>
+                            <strong id="mapSizeValue">-</strong>
+                        </div>
+                        <div class="map-stat">
+                            <span>Explored</span>
+                            <strong id="mapExploredValue">0</strong>
+                        </div>
+                        <div class="map-stat">
+                            <span>Frontier</span>
+                            <strong id="mapFrontierValue">0</strong>
+                        </div>
+                        <div class="map-stat">
+                            <span>Warps</span>
+                            <strong id="mapWarpValue">0</strong>
+                        </div>
+                        <div class="map-stat">
+                            <span>Player</span>
+                            <strong id="mapPlayerValue">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="map-legend" id="mapLegend"></div>
+                </section>
+
+                <section class="panel panel-team">
+                    <div class="panel-head">
+                        <div>
+                            <p class="panel-kicker">Team</p>
+                            <h2>Party Status</h2>
+                            <p class="panel-note">
+                                Party cards stay in a compact horizontal rail for quick HP and level checks.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="party-roster" id="partyList">
+                        <div class="list-item empty-state">No Pokemon captured yet.</div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="right-stage">
+                <section class="top-grid">
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Current Objectives</p>
+                                <h2>Active Goals</h2>
+                                <p class="panel-note">
+                                    The current focus stays above the reasoning log so the model output is easy to evaluate.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="focus-card">
+                            <span class="focus-label">Live Focus</span>
+                            <p class="focus-text" id="focusText">Waiting for goal data...</p>
+                        </div>
+
+                        <div class="list-block">
+                            <p class="list-title">In Progress</p>
+                            <div class="list" id="activeGoalsList">
+                                <div class="list-item empty-state">No active goals.</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Session Controls</p>
+                                <h2>Runtime Controls</h2>
+                                <p class="panel-note">
+                                    Core controls stay in the top row so the operator does not need to scroll for them.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="button-grid">
+                            <button type="button" data-command="pause">Pause</button>
+                            <button type="button" data-command="resume" data-variant="primary">Resume</button>
+                            <button type="button" data-command="step">Step</button>
+                            <button type="button" data-command="checkpoint" data-variant="warning">Save Checkpoint</button>
+                            <button type="button" data-command="load_latest_checkpoint">Load Latest</button>
+                            <button type="button" data-command="stop" data-variant="danger">Stop</button>
+                        </div>
+
+                        <div class="control-summary">
+                            <div class="metric-card">
+                                <span class="metric-label">STATE</span>
+                                <strong class="metric-value" id="controlStateValue">-</strong>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">STEP BUDGET</span>
+                                <strong class="metric-value" id="stepBudgetValue">0</strong>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">MANUAL QUEUE</span>
+                                <strong class="metric-value" id="manualQueueValue">0</strong>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">LAST COMMAND</span>
+                                <strong class="metric-value mono compact-value" id="lastCommandValue">-</strong>
+                            </div>
+                        </div>
+
+                        <div class="list-block">
+                            <p class="list-title">Recovery State</p>
+                            <div class="list">
+                                <div class="list-item">
+                                    <strong>Latest Save</strong>
+                                    <p id="latestCheckpointInfo">-</p>
+                                </div>
+                                <div class="list-item">
+                                    <strong>Current Restore Source</strong>
+                                    <p id="restoredCheckpointInfo">-</p>
+                                </div>
+                                <div class="list-item">
+                                    <strong>API Cooldown</strong>
+                                    <p id="apiCooldownInfo">-</p>
+                                </div>
+                                <div class="list-item">
+                                    <strong>Control Error</strong>
+                                    <p id="controlErrorInfo">None</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Task Queue</p>
+                                <h2>Todo And Done</h2>
+                                <p class="panel-note">
+                                    Separating pending work from completed items reduces noise in the main goal panel.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="list-block">
+                            <p class="list-title">Todo</p>
+                            <div class="list" id="todoList">
+                                <div class="list-item empty-state">No pending tasks.</div>
+                            </div>
+                        </div>
+
+                        <div class="list-block">
+                            <p class="list-title">Recently Completed</p>
+                            <div class="list" id="doneList">
+                                <div class="list-item empty-state">No completed items yet.</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Checkpoint Slots</p>
+                                <h2>Checkpoint Snapshots</h2>
+                                <p class="panel-note">
+                                    The newest checkpoint cards stay visible in the top row for fast rollback.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="checkpoint-list checkpoint-list-compact" id="checkpointList">
+                            <div class="checkpoint-card">
+                                <p class="empty-state">No checkpoints yet.</p>
+                            </div>
+                        </div>
+                    </section>
                 </section>
 
                 <section class="panel panel-decision">
                     <div class="panel-head">
                         <div>
-                            <p class="panel-kicker">Model Decision</p>
-                            <h2>模型当前决策</h2>
-                            <p class="panel-note">解释直接放在画面下方，便于对照当前屏幕判断模型是否在真正思考。</p>
+                            <p class="panel-kicker">Model Log</p>
+                            <h2>Current Decision</h2>
+                            <p class="panel-note">
+                                This is the main terminal-style log zone, matching the reference layout emphasis.
+                            </p>
                         </div>
                     </div>
 
-                    <div class="decision-grid">
+                    <div class="decision-header">
                         <div class="decision-card decision-card-action">
-                            <div class="metric-label">动作</div>
+                            <span class="metric-label">ACTION</span>
                             <div class="decision-action mono" id="decisionAction">WAIT</div>
-                            <div class="decision-meta">
-                                <div>决策回合: <span id="decisionTurn">-</span></div>
-                                <div>模型屏幕类型: <span id="decisionScreenType">-</span></div>
-                                <div>时间: <span id="decisionTime">-</span></div>
+                        </div>
+                        <div class="decision-card decision-card-meta">
+                            <div class="decision-meta-grid">
+                                <div class="decision-meta-item">
+                                    <span class="metric-label">Decision Turn</span>
+                                    <strong id="decisionTurn">-</strong>
+                                </div>
+                                <div class="decision-meta-item">
+                                    <span class="metric-label">Screen Type</span>
+                                    <strong id="decisionScreenType">-</strong>
+                                </div>
+                                <div class="decision-meta-item">
+                                    <span class="metric-label">Timestamp</span>
+                                    <strong id="decisionTime">-</strong>
+                                </div>
                             </div>
                         </div>
-                        <div class="decision-card decision-card-reasoning">
-                            <div class="metric-label">解释</div>
-                            <p class="reasoning" id="decisionReasoning">等待首个模型决策…</p>
-                        </div>
+                    </div>
+
+                    <div class="decision-card decision-card-reasoning">
+                        <div class="terminal-caption">reasoning.log</div>
+                        <p class="reasoning" id="decisionReasoning">Waiting for the first model decision...</p>
                     </div>
                 </section>
 
-                </section>
-
-                <div class="split-grid">
+                <section class="bottom-grid">
                     <section class="panel">
                         <div class="panel-head">
                             <div>
                                 <p class="panel-kicker">Recent Decisions</p>
-                                <h2>近期决策</h2>
+                                <h2>Decision History</h2>
                             </div>
                         </div>
                         <div class="history-list" id="historyList">
-                            <div class="list-item empty-state">还没有决策记录。</div>
+                            <div class="list-item empty-state">No decision history yet.</div>
                         </div>
                     </section>
 
@@ -173,198 +364,42 @@
                         <div class="panel-head">
                             <div>
                                 <p class="panel-kicker">Runtime Events</p>
-                                <h2>运行事件</h2>
+                                <h2>Event Feed</h2>
                             </div>
                         </div>
                         <div class="event-list" id="eventList">
-                            <div class="list-item empty-state">等待运行事件。</div>
+                            <div class="list-item empty-state">Waiting for runtime events.</div>
                         </div>
                     </section>
-                </div>
-            </section>
-
-            <aside class="stack">
-                <section class="panel">
-                    <div class="panel-head">
-                        <div>
-                            <p class="panel-kicker">Session Controls</p>
-                            <h2>运行控制</h2>
-                            <p class="panel-note">保留最需要的控制。手动按键被下沉到高级工具，避免误触和页面拥挤。</p>
-                        </div>
-                    </div>
-
-                    <div class="button-grid">
-                        <button type="button" data-command="pause">暂停</button>
-                        <button type="button" data-command="resume" data-variant="primary">继续</button>
-                        <button type="button" data-command="step">单步</button>
-                        <button type="button" data-command="checkpoint" data-variant="warning">保存检查点</button>
-                        <button type="button" data-command="load_latest_checkpoint">加载最新</button>
-                        <button type="button" data-command="stop" data-variant="danger">停止运行</button>
-                    </div>
-
-                    <div class="control-summary">
-                        <div class="metric-card">
-                            <div class="metric-label">执行状态</div>
-                            <div class="metric-value" id="controlStateValue">-</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">单步预算</div>
-                            <div class="metric-value" id="stepBudgetValue">0</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">手动队列</div>
-                            <div class="metric-value" id="manualQueueValue">0</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">最近命令</div>
-                            <div class="metric-value mono" id="lastCommandValue">-</div>
-                        </div>
-                    </div>
-
-                    <div class="list-block">
-                        <p class="list-title">恢复状态</p>
-                        <div class="list">
-                            <div class="list-item">
-                                <strong>最近保存</strong>
-                                <p id="latestCheckpointInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>当前恢复源</strong>
-                                <p id="restoredCheckpointInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>API 冷却</strong>
-                                <p id="apiCooldownInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>控制错误</strong>
-                                <p id="controlErrorInfo">无</p>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
-                <section class="panel">
-                    <div class="panel-head">
-                        <div>
-                            <p class="panel-kicker">Goals And Todo</p>
-                            <h2>当前任务</h2>
-                            <p class="panel-note">展示即时焦点、阶段目标和待办。已完成项保留少量历史，够用即可。</p>
-                        </div>
-                    </div>
-
-                    <div class="focus-card">
-                        <div class="focus-label">即时焦点</div>
-                        <p class="focus-text" id="focusText">等待目标加载…</p>
-                    </div>
-
-                    <div class="list-block">
-                        <p class="list-title">进行中的目标</p>
-                        <div class="list" id="activeGoalsList">
-                            <div class="list-item empty-state">暂无活动目标。</div>
-                        </div>
-                    </div>
-
-                    <div class="list-block">
-                        <p class="list-title">待办</p>
-                        <div class="list" id="todoList">
-                            <div class="list-item empty-state">暂无待办。</div>
-                        </div>
-                    </div>
-
-                    <div class="list-block">
-                        <p class="list-title">最近完成</p>
-                        <div class="list" id="doneList">
-                            <div class="list-item empty-state">暂无已完成记录。</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="panel">
-                    <div class="panel-head">
-                        <div>
-                            <p class="panel-kicker">Checkpoint Slots</p>
-                            <h2>多检查点</h2>
-                            <p class="panel-note">最近检查点直接可见、可恢复。默认支持自动从最新检查点续跑，不再每次都从命名开始。</p>
-                        </div>
-                    </div>
-
-                    <div class="checkpoint-list" id="checkpointList">
-                        <div class="checkpoint-card">
-                            <p class="empty-state">暂无检查点。</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="panel">
-                    <div class="panel-head">
-                        <div>
-                            <p class="panel-kicker">Compact Summary</p>
-                            <h2>会话摘要</h2>
-                        </div>
-                    </div>
-
-                    <div class="metric-grid">
-                        <div class="metric-card">
-                            <div class="metric-label">回合</div>
-                            <div class="metric-value" id="statTurn">0</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">徽章</div>
-                            <div class="metric-value" id="statBadges">0 / 8</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">金钱</div>
-                            <div class="metric-value mono" id="statMoney">0</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">队伍</div>
-                            <div class="metric-value" id="statParty">0</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">地图</div>
-                            <div class="metric-value mono" id="statMap">-</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">坐标</div>
-                            <div class="metric-value mono" id="statCoords">-</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">探索率</div>
-                            <div class="metric-value" id="statExplore">0%</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-label">前沿点</div>
-                            <div class="metric-value" id="statFrontier">0</div>
-                        </div>
-                    </div>
-                </section>
-
-                <details class="panel">
+                <details class="panel advanced-panel">
                     <summary>
-                        <div class="panel-head" style="margin-bottom: 0;">
+                        <div class="panel-head">
                             <div>
                                 <p class="panel-kicker">Advanced Tools</p>
-                                <h2>高级工具</h2>
-                                <p class="panel-note">仅在暂停时发送手动按键。保留给调试和救援，不作为主交互。</p>
+                                <h2>Manual Overrides</h2>
+                                <p class="panel-note">
+                                    Use manual inputs only while paused. This section stays collapsed by default.
+                                </p>
                             </div>
                         </div>
                     </summary>
 
                     <div class="advanced-grid">
-                        <button type="button" data-manual="up">上</button>
-                        <button type="button" data-manual="down">下</button>
-                        <button type="button" data-manual="left">左</button>
-                        <button type="button" data-manual="right">右</button>
+                        <button type="button" data-manual="up">Up</button>
+                        <button type="button" data-manual="down">Down</button>
+                        <button type="button" data-manual="left">Left</button>
+                        <button type="button" data-manual="right">Right</button>
                         <button type="button" data-manual="a">A</button>
                         <button type="button" data-manual="b">B</button>
                         <button type="button" data-manual="start">Start</button>
                         <button type="button" data-manual="select">Select</button>
                         <button type="button" data-manual="wait">Wait</button>
-                        <button type="button" id="refreshButton">刷新数据</button>
+                        <button type="button" id="refreshButton">Refresh Data</button>
                     </div>
                 </details>
-            </aside>
+            </section>
         </main>
     </div>
 

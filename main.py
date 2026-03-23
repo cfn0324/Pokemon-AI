@@ -26,7 +26,7 @@ from src.emulator.memory_reader import MemoryReader
 from src.state.game_state import GameState
 from src.state.vision import VisionProcessor
 from src.state.map_memory import MapMemory
-from src.agents.main_agent import MainAgent
+from src.agents.main_agent import AIDecisionRetrySignal, MainAgent
 from src.agents.pathfinder import PathfinderAgent
 from src.agents.puzzle_solver import PuzzleSolverAgent
 from src.agents.critic import CriticAgent
@@ -188,6 +188,13 @@ class PokemonAIAgent:
 
     def _init_decision_engine(self) -> None:
         """Initialize the control-layer decision router."""
+        if self._pure_llm_mode_enabled():
+            self.decision_engine = DecisionEngine(
+                stages=[],
+                fallback=self._stage_ai_decision,
+            )
+            return
+
         self.decision_engine = DecisionEngine(
             stages=[
                 ("bootstrap", self._stage_bootstrap_decision),
@@ -206,6 +213,65 @@ class PokemonAIAgent:
             ],
             fallback=self._stage_ai_decision,
         )
+
+    def _pure_llm_mode_enabled(self) -> bool:
+        """Return whether deterministic control helpers should be disabled."""
+        return bool(self.config.get("decision.pure_llm_mode", False))
+
+    def _checkpoint_writes_enabled(self) -> bool:
+        """Return whether the current run is allowed to write checkpoints."""
+        return bool(self.config.get("testing.write_checkpoints", True))
+
+    def _same_turn_retry_enabled(self) -> bool:
+        """Retry transient AI failures without spending a gameplay turn in pure-LLM mode."""
+        return bool(
+            self._pure_llm_mode_enabled()
+            and self.config.get("decision.retry_same_turn_on_ai_error", True)
+        )
+
+    def _decide_action_for_current_turn(self, context: DecisionContext) -> dict:
+        """Request a decision, retrying transient pure-LLM failures on the same observation."""
+        if not self._same_turn_retry_enabled():
+            return self.decision_engine.decide(context)
+
+        max_attempts = max(1, int(self.config.get("decision.same_turn_retry_max_attempts", 12) or 12))
+        timeout_seconds = max(
+            0.0,
+            float(self.config.get("decision.same_turn_retry_timeout_seconds", 45) or 45),
+        )
+        min_delay_seconds = max(
+            0.0,
+            float(self.config.get("decision.same_turn_retry_min_delay_seconds", 0.25) or 0.25),
+        )
+        started_at = time.monotonic()
+        attempt = 0
+
+        while True:
+            attempt += 1
+            try:
+                return self.decision_engine.decide(context)
+            except AIDecisionRetrySignal as exc:
+                elapsed = time.monotonic() - started_at
+                if attempt >= max_attempts or (timeout_seconds and elapsed >= timeout_seconds):
+                    raise RuntimeError(
+                        "Same-turn AI retry budget exhausted "
+                        f"after {attempt} attempts over {elapsed:.1f}s: {exc}"
+                    ) from exc
+
+                remaining_budget = None
+                if timeout_seconds:
+                    remaining_budget = max(0.0, timeout_seconds - elapsed)
+                delay_seconds = max(min_delay_seconds, exc.retry_after_seconds)
+                if remaining_budget is not None:
+                    delay_seconds = min(delay_seconds, remaining_budget)
+
+                self.logger.warning(
+                    "Retrying same-turn AI decision "
+                    f"({exc.source}) on agent turn {self.turn_count} "
+                    f"in {delay_seconds:.1f}s [attempt {attempt}/{max_attempts}]"
+                )
+                if delay_seconds > 0:
+                    time.sleep(delay_seconds)
 
     def _stage_bootstrap_decision(self, context: DecisionContext) -> Optional[dict]:
         return self._get_pre_starter_bootstrap_decision(
@@ -363,33 +429,44 @@ class PokemonAIAgent:
         screen_hash = self._compute_exact_screen_hash(screen_image)
         current_state = self.game_state.update(screen_image=screen_image)
         self._consume_phase_hint_after_update()
-        screen_type = self._apply_screen_type_hint(current_state, screen_image)
-        if isinstance(current_state.get("visual"), dict) and screen_hash:
-            current_state["visual"]["screen_hash"] = screen_hash
-        control_screen_type = self._get_control_screen_type(current_state, screen_type)
-        if isinstance(current_state.get("visual"), dict) and control_screen_type:
-            visual_state = current_state["visual"]
-            observed = visual_state.get("screen_type")
-            if observed and observed != control_screen_type:
-                visual_state["observed_screen_type"] = observed
-            visual_state["screen_type"] = control_screen_type
-        self._normalize_ui_flags_for_control(current_state, control_screen_type)
+        if self._pure_llm_mode_enabled():
+            screen_type = None
+            control_screen_type = None
+            if isinstance(current_state.get("visual"), dict) and screen_hash:
+                current_state["visual"]["screen_hash"] = screen_hash
+        else:
+            screen_type = self._apply_screen_type_hint(current_state, screen_image)
+            if isinstance(current_state.get("visual"), dict) and screen_hash:
+                current_state["visual"]["screen_hash"] = screen_hash
+            control_screen_type = self._get_control_screen_type(current_state, screen_type)
+            if isinstance(current_state.get("visual"), dict) and control_screen_type:
+                visual_state = current_state["visual"]
+                observed = visual_state.get("screen_type")
+                if observed and observed != control_screen_type:
+                    visual_state["observed_screen_type"] = observed
+                visual_state["screen_type"] = control_screen_type
+            self._normalize_ui_flags_for_control(current_state, control_screen_type)
         self._record_last_action_outcome(current_state, control_screen_type)
         self._update_screen_stability(current_state, screen_image, control_screen_type)
 
         if control_screen_type != "text_entry":
             self._text_entry_step = 0
 
-        previous_screen_type = self._prev_screen_type
-        self._prev_screen_type = control_screen_type
-        if control_screen_type and control_screen_type == previous_screen_type:
-            self._screen_type_streak += 1
+        if self._pure_llm_mode_enabled():
+            self._prev_screen_type = None
+            self._screen_type_streak = 0
+            self._dialogue_exit_grace = 0
         else:
-            self._screen_type_streak = 1 if control_screen_type else 0
-        if previous_screen_type == "dialogue" and control_screen_type != "dialogue":
-            self._dialogue_exit_grace = 2
-        elif self._dialogue_exit_grace > 0:
-            self._dialogue_exit_grace -= 1
+            previous_screen_type = self._prev_screen_type
+            self._prev_screen_type = control_screen_type
+            if control_screen_type and control_screen_type == previous_screen_type:
+                self._screen_type_streak += 1
+            else:
+                self._screen_type_streak = 1 if control_screen_type else 0
+            if previous_screen_type == "dialogue" and control_screen_type != "dialogue":
+                self._dialogue_exit_grace = 2
+            elif self._dialogue_exit_grace > 0:
+                self._dialogue_exit_grace -= 1
 
         state_text = self.game_state.get_text_representation(current_state)
         screenshot_bytes = None
@@ -427,6 +504,10 @@ class PokemonAIAgent:
         elif self.action_executor.is_stuck(control_screen_type, ui_state):
             if control_screen_type in {"dialogue", "text_entry"}:
                 self.action_executor.reset_stuck_detection()
+            elif self._pure_llm_mode_enabled():
+                self.logger.warning("Agent appears stuck in pure-LLM mode")
+                self._clear_planned_actions()
+                self.action_executor.reset_stuck_detection()
             else:
                 self.logger.warning("Agent appears stuck; requesting critique")
                 if self.config.get("visualization.enabled", True):
@@ -443,11 +524,12 @@ class PokemonAIAgent:
             screenshot_bytes=screenshot_bytes,
             screen_hash=screen_hash,
         )
-        decision = self.decision_engine.decide(decision_context)
+        decision = self._decide_action_for_current_turn(decision_context)
 
         ui_state = current_state.get("memory", {}).get("ui", {}) or {}
         if (
-            decision.get("decision_source") == "ai"
+            not self._pure_llm_mode_enabled()
+            and decision.get("decision_source") == "ai"
             and self._dialogue_exit_grace > 0
             and decision.get("action") in {"a", "b", "start", "select"}
             and not ui_state.get("text_box_active")
@@ -471,7 +553,10 @@ class PokemonAIAgent:
                 "decision_trace": decision.get("decision_trace", []),
             }
 
-        self._set_phase_hint_from_decision(decision, screen_type)
+        if self._pure_llm_mode_enabled():
+            self._set_transient_phase_hint(None, ttl_turns=0)
+        else:
+            self._set_phase_hint_from_decision(decision, screen_type)
 
         if self.config.get("visualization.enabled", True):
             action = decision.get("action", "wait")
@@ -493,6 +578,9 @@ class PokemonAIAgent:
                 action=action,
                 reasoning=reasoning,
                 goal_update=decision.get("goal_update"),
+                screen_type=decision.get("screen_type") or control_screen_type or screen_type,
+                decision_source=decision.get("decision_source"),
+                decision_path=decision.get("decision_path"),
             )
             decision["recorded_in_context"] = True
 
@@ -512,7 +600,10 @@ class PokemonAIAgent:
             self._publish_post_action_screenshot()
 
         checkpoint_interval = self.config.get("progress.checkpoint_interval", 100)
-        if self.turn_count - self.last_checkpoint_turn >= checkpoint_interval:
+        if (
+            self._checkpoint_writes_enabled()
+            and self.turn_count - self.last_checkpoint_turn >= checkpoint_interval
+        ):
             if self.config.get("visualization.enabled", True):
                 self.visualizer.log_event("milestone", f"Turn {self.turn_count} checkpoint saved")
             self._save_checkpoint()
@@ -779,6 +870,8 @@ class PokemonAIAgent:
         screen_type: Optional[str],
     ) -> None:
         """Periodically ask the critic for a short correction note."""
+        if self._pure_llm_mode_enabled():
+            return
         if self.main_agent.is_in_api_cooldown():
             return
         interval = int(self.config.get("ai.guidance_interval_turns", 25) or 25)
@@ -867,6 +960,8 @@ class PokemonAIAgent:
 
     def _apply_screen_type_hint(self, current_state: dict, screen_image) -> Optional[str]:
         """Patch memory-only visual state with lightweight UI heuristics."""
+        if self._pure_llm_mode_enabled():
+            return None
         screen_type = self._detect_screen_type(screen_image)
         if isinstance(current_state.get("visual"), dict) and screen_type:
             current_state["visual"]["screen_type"] = screen_type
@@ -1760,6 +1855,13 @@ class PokemonAIAgent:
         返回:
             包含行动和推理的决策字典
         """
+        if self._pure_llm_mode_enabled():
+            return self.main_agent.decide_action(
+                current_state,
+                state_text,
+                screenshot_bytes=screenshot_bytes
+            )
+
         use_async = bool(self.config.get('performance.async_decisions', True))
         if (
             not use_async
@@ -1787,6 +1889,9 @@ class PokemonAIAgent:
 
     def _handle_stuck_state(self, current_state: dict) -> None:
         """Handle a stuck state by asking the critic for correction."""
+        if self._pure_llm_mode_enabled():
+            self._clear_planned_actions()
+            return
         if self.main_agent.is_in_api_cooldown():
             self.logger.info("Skipping stuck critique while the main API client is cooling down")
             return
@@ -1976,7 +2081,10 @@ class PokemonAIAgent:
             self.async_ai.stop()
 
         # 保存最终检查点
-        self._save_checkpoint()
+        if self._checkpoint_writes_enabled():
+            self._save_checkpoint()
+        else:
+            self.logger.info("Skipping checkpoint write on shutdown for this testing run")
 
         # 停止可视化器
         if hasattr(self, 'visualizer'):

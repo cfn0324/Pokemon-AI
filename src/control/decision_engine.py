@@ -51,6 +51,6 @@ class DecisionEngine:
         fallback = self.fallback(context) or {}
         enriched = dict(fallback)
         enriched.setdefault("decision_path", "ai")
-        enriched["decision_source"] = "ai"
+        enriched.setdefault("decision_source", "ai")
         enriched["decision_trace"] = trace
         return enriched

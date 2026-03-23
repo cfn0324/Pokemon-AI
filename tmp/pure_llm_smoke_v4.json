@@ -1,0 +1,325 @@
+{
+  "requested_checkpoint": "checkpoint_21800",
+  "restored_checkpoint": "checkpoint_21800",
+  "pure_llm_mode": true,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_23100",
+  "start_turn": 21800,
+  "end_turn": 21810,
+  "turn_delta": 10,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.5,
+  "decision_source_counts": {
+    "ai": 10
+  },
+  "decision_path_counts": {
+    "ai": 10
+  },
+  "final_state": {
+    "turn": 21810,
+    "timestamp": "2026-03-23T01:08:05.697303",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21810,
+      "local_analysis_enabled": false,
+      "screen_hash": "99f71db9371d2f344b007bfe8ea68779"
+    },
+    "exploration": {
+      "current_map": 38,
+      "explored_tiles": 15,
+      "total_tiles": 200,
+      "exploration_percent": 7.5
+    },
+    "navigation": {
+      "current_visit_count": 33,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 15,
+      "nearest_frontier": {
+        "target": [
+          3,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 33,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 38,
+          "src_x": 7,
+          "src_y": 2,
+          "dest_map": 37,
+          "dest_x": 7,
+          "dest_y": 1,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "????????W",
+        "???FFFFFF",
+        "??FF?????",
+        "??F??????",
+        "??F?P????",
+        "??FFF????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 38,
+        "rows": [
+          "           ",
+          "           ",
+          "        W  ",
+          "   FFFFFF  ",
+          "  FF       ",
+          "  F        ",
+          "  F P      ",
+          "  FFF      ",
+          "           ",
+          "           "
+        ],
+        "prompt_rows": [
+          "???????????",
+          "???????????",
+          "????????W??",
+          "???FFFFFF??",
+          "??FF???????",
+          "??F????????",
+          "??F?P??????",
+          "??FFF??????",
+          "???????????",
+          "???????????"
+        ],
+        "bounds": {
+          "min_x": -1,
+          "max_x": 9,
+          "min_y": 0,
+          "max_y": 9,
+          "width": 11,
+          "height": 10
+        },
+        "player": {
+          "x": 3,
+          "y": 6
+        },
+        "explored_count": 15,
+        "frontier_count": 15,
+        "blocked_count": 0,
+        "warp_count": 1,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 2,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21801,
+      "action": "start",
+      "reasoning": "The screenshot shows the Pokémon Red Version title screen with no menu yet, so pressing Start should advance to the main menu.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21802,
+      "action": "start",
+      "reasoning": "The screenshot still shows the static Pokémon Red Version title screen, and pressing Start is the standard input to open the main menu from here.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21803,
+      "action": "a",
+      "reasoning": "The screenshot still shows the static Pokémon Red Version title screen with no menu visible, so trying A is the next plausible way to advance if Start is not being accepted here.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21804,
+      "action": "wait",
+      "reasoning": "The screenshot is a completely blank white screen rather than the title or a menu, so waiting is the most appropriate way to let the boot/transition proceed.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21805,
+      "action": "wait",
+      "reasoning": "The screenshot is entirely blank white with no visible UI, text, or sprites, indicating a boot or transition state that should be allowed to progress.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21806,
+      "action": "a",
+      "reasoning": "The screenshot shows the main menu with the cursor already on NEW GAME, so confirming it will begin the intro.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21807,
+      "action": "a",
+      "reasoning": "The screenshot shows the main menu with the cursor on NEW GAME, so confirming it should begin the intro.",
+      "result": "After a:; warped from map 0 (0,0) to map 38 (3,6); money delta +3000",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21808,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 500: {\"error\":{\"message\":\"没有可用token（traceid: 1b25eb89d9389f18726d065d94992db0） (request id: 20260322170805153989905E3KgN47W)\",\"type\":\"rix_api_error\",\"param\":\"\",\"code\":null}}",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21809,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21810,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

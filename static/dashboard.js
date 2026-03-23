@@ -80,7 +80,7 @@ function formatTimestamp(value) {
     if (!value) return "-";
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return String(value);
-    return date.toLocaleString("zh-CN", {
+    return date.toLocaleString("en-GB", {
         hour12: false,
         month: "2-digit",
         day: "2-digit",
@@ -92,7 +92,7 @@ function formatTimestamp(value) {
 
 function formatMoney(value) {
     const num = Number(value ?? 0);
-    return Number.isFinite(num) ? num.toLocaleString("zh-CN") : "0";
+    return Number.isFinite(num) ? num.toLocaleString("en-US") : "0";
 }
 
 function setConnection(ok, message) {
@@ -101,16 +101,18 @@ function setConnection(ok, message) {
 }
 
 function showDisconnectedRuntime(error) {
-    const detail = error?.message ? `最近更新失败: ${error.message}` : "最近更新失败";
+    const detail = error?.message ? `Refresh failed: ${error.message}` : "Refresh failed";
     els.statusDetailPill.textContent = detail;
-    els.streamPlaceholder.textContent = "未连接到实时运行。若你启动的是 scripts/autonomous_smoke.py，这是正常现象；该脚本会关闭可视化并限制回合数。想看实时画面和模型状态，请运行 python main.py。";
+    els.streamPlaceholder.textContent =
+        "No live runtime is connected. If you started scripts/autonomous_smoke.py this is expected, because that script disables live visualization. Run python main.py to see the real-time feed and model state.";
     els.streamPlaceholder.style.display = "grid";
     els.streamImage.hidden = true;
     els.fallbackImage.hidden = true;
-    els.screenSummary.textContent = "当前没有游戏画面输入到仪表盘。";
-    els.harnessSummary.textContent = "仪表盘只会在运行中的可视化实例推送状态时更新。";
-    els.movementSummary.textContent = "等待新的运行实例连接。";
-    els.decisionReasoning.textContent = "当前没有实时模型状态。若只是做 checkpoint 烟测，请看终端输出或生成的 JSON 报告。";
+    els.screenSummary.textContent = "No live game screen is currently feeding the dashboard.";
+    els.harnessSummary.textContent = "The dashboard updates only while an active visualized runtime is pushing state.";
+    els.movementSummary.textContent = "Waiting for a runtime instance to connect.";
+    els.decisionReasoning.textContent =
+        "No live model reasoning is available. For smoke runs, check the terminal output or the generated JSON report.";
 }
 
 function showToast(message) {
@@ -169,9 +171,9 @@ async function refreshAll() {
         renderMap();
         renderParty();
 
-        setConnection(true, "数据已连接");
+        setConnection(true, "Connected");
     } catch (error) {
-        setConnection(false, "数据连接断开");
+        setConnection(false, "Disconnected");
         showDisconnectedRuntime(error);
     }
 }
@@ -183,39 +185,41 @@ function renderState() {
     const navigation = game.navigation || {};
     const deltas = game.deltas || {};
     const position = game.position || {};
-    const screenType = state.decision.screen_type || visual.screen_type || visual.ram_screen_type || "unknown";
+    const screenType =
+        state.decision.screen_type || visual.screen_type || visual.ram_screen_type || "unknown";
     const localAnalysisEnabled = Boolean(visual.local_analysis_enabled);
+    const partyCount = game.party_size ?? ((game.party || []).length || 0);
 
     els.turnPillValue.textContent = String(game.turn ?? state.control.turn ?? 0);
-    els.statusDetailPill.textContent = `最近更新: ${formatTimestamp(game.timestamp || state.decision.timestamp || state.control.last_command_at)}`;
+    els.statusDetailPill.textContent = `Last update: ${formatTimestamp(
+        game.timestamp || state.decision.timestamp || state.control.last_command_at,
+    )}`;
 
     els.screenTypeTag.textContent = `SCREEN_TYPE ${screenType}`;
     els.visionModeTag.textContent = localAnalysisEnabled ? "pixel heuristics on" : "raw screenshot + RAM";
 
-    let phase = "自由探索";
-    if (game.in_battle) phase = "战斗中";
-    else if (game.pre_starter_script) phase = "开场脚本";
-    else if (game.pre_world) phase = "前世界状态";
+    let phase = "free exploration";
+    if (game.in_battle) phase = "battle";
+    else if (game.pre_starter_script) phase = "opening script";
+    else if (game.pre_world) phase = "pre-world";
     else if (game.phase_hint) phase = String(game.phase_hint);
     els.phaseTag.textContent = phase;
 
-    els.screenSummary.textContent = visual.description || "等待画面描述";
+    els.screenSummary.textContent = visual.description || "Waiting for a screen description";
     els.harnessSummary.textContent = localAnalysisEnabled
-        ? "本地像素启发已启用，页面只展示紧凑结果。"
-        : "未启用本地像素分析，依赖原始截图和 RAM，由大模型自行识别画面。";
+        ? "Local pixel heuristics are enabled, so the page shows compact vision results."
+        : "Local pixel analysis is disabled. The model is relying on the raw screenshot plus RAM.";
     els.movementSummary.textContent = deltas.stuck_hint
-        ? `${deltas.stuck_hint}${deltas.position_changed ? "；本回合有位置变化。" : ""}`
-        : "等待更多状态变化。";
+        ? `${deltas.stuck_hint}${deltas.position_changed ? "; position changed this turn." : ""}`
+        : "Waiting for more movement deltas.";
 
     els.statTurn.textContent = String(game.turn ?? 0);
     els.statBadges.textContent = `${game.badges ?? 0} / 8`;
     els.statMoney.textContent = formatMoney(game.money);
-    const partyCount = game.party_size ?? ((game.party || []).length || 0);
     els.statParty.textContent = String(partyCount);
     els.statMap.textContent = position.map_id ?? "-";
-    els.statCoords.textContent = position.x != null && position.y != null
-        ? `${position.x}, ${position.y}`
-        : "-";
+    els.statCoords.textContent =
+        position.x != null && position.y != null ? `${position.x}, ${position.y}` : "-";
     els.statExplore.textContent = `${Number(exploration.exploration_percent ?? 0).toFixed(1)}%`;
     els.statFrontier.textContent = String(navigation.frontier_count ?? 0);
 }
@@ -228,7 +232,7 @@ function renderDecision() {
     els.decisionTurn.textContent = decision.turn ?? "-";
     els.decisionScreenType.textContent = screenType;
     els.decisionTime.textContent = formatTimestamp(decision.timestamp);
-    els.decisionReasoning.textContent = decision.reasoning || "当前还没有模型解释。";
+    els.decisionReasoning.textContent = decision.reasoning || "No model explanation yet.";
 }
 
 function renderMap() {
@@ -240,38 +244,39 @@ function renderMap() {
     }
 
     if (!snapshot.available || !Array.isArray(snapshot.rows) || !snapshot.rows.length) {
-        els.mapBoard.innerHTML = `<div class="empty-state">暂无可用地图。进入可自由移动的地图后，这里会显示逆向出来的探索快照。</div>`;
+        els.mapBoard.innerHTML = "<div class=\"empty-state\">No map snapshot is available yet. Once the agent can move freely, this panel will render the reverse exploration map.</div>";
         els.mapBoard.style.removeProperty("--map-cell-size");
         els.mapBoard.style.removeProperty("--map-gap");
         els.mapLegend.innerHTML = "";
         els.mapCurrentLabel.textContent = `map ${position.map_id ?? "-"}`;
         els.mapBoundsLabel.textContent = "bounds -";
-        if (els.mapSizeValue) els.mapSizeValue.textContent = "-";
-        if (els.mapExploredValue) els.mapExploredValue.textContent = "0";
-        if (els.mapFrontierValue) els.mapFrontierValue.textContent = "0";
-        if (els.mapWarpValue) els.mapWarpValue.textContent = "0";
-        if (els.mapPlayerValue) {
-            els.mapPlayerValue.textContent = position.x != null && position.y != null
-                ? `${position.x}, ${position.y}`
-                : "-";
-        }
+        els.mapSizeValue.textContent = "-";
+        els.mapExploredValue.textContent = "0";
+        els.mapFrontierValue.textContent = "0";
+        els.mapWarpValue.textContent = "0";
+        els.mapPlayerValue.textContent =
+            position.x != null && position.y != null ? `${position.x}, ${position.y}` : "-";
         return;
     }
 
     const cellTone = {
         " ": "unknown",
         ".": "explored",
-        "F": "frontier",
+        F: "frontier",
         "#": "wall",
-        "W": "warp",
-        "P": "player",
+        W: "warp",
+        P: "player",
     };
     const bounds = snapshot.bounds || {};
-    const width = Number(bounds.width ?? Math.max(...snapshot.rows.map((row) => String(row || "").length), 0));
+    const width = Number(
+        bounds.width ?? Math.max(...snapshot.rows.map((row) => String(row || "").length), 0),
+    );
     const height = Number(bounds.height ?? snapshot.rows.length ?? 0);
     const largestSpan = Math.max(width, height, 1);
     const cellSize = Math.max(8, Math.min(18, Math.floor(280 / largestSpan)));
     const gapSize = cellSize <= 10 ? 1 : 2;
+    const player = snapshot.player || {};
+
     els.mapBoard.style.setProperty("--map-cell-size", `${cellSize}px`);
     els.mapBoard.style.setProperty("--map-gap", `${gapSize}px`);
 
@@ -283,27 +288,31 @@ function renderMap() {
                     const tileY = Number(bounds.min_y ?? 0) + rowIndex;
                     const tileLabel = (snapshot.legend || {})[cell] || cell;
                     return `
-                    <span class="map-cell" data-tone="${cellTone[cell] || "unknown"}" title="${escapeHtml(`${tileLabel} (${tileX}, ${tileY})`)}"></span>
-                `;
+                        <span
+                            class="map-cell"
+                            data-tone="${cellTone[cell] || "unknown"}"
+                            title="${escapeHtml(`${tileLabel} (${tileX}, ${tileY})`)}"
+                        ></span>
+                    `;
                 }).join("")}
             </div>
         `)
         .join("");
 
     els.mapCurrentLabel.textContent = `map ${snapshot.map_id ?? position.map_id ?? "-"}`;
-    els.mapBoundsLabel.textContent = `x ${bounds.min_x ?? "-"}-${bounds.max_x ?? "-"} · y ${bounds.min_y ?? "-"}-${bounds.max_y ?? "-"}`;
-    if (els.mapSizeValue) els.mapSizeValue.textContent = width > 0 && height > 0 ? `${width}×${height}` : "-";
-    if (els.mapExploredValue) els.mapExploredValue.textContent = String(snapshot.explored_count ?? 0);
-    if (els.mapFrontierValue) els.mapFrontierValue.textContent = String(snapshot.frontier_count ?? 0);
-    if (els.mapWarpValue) els.mapWarpValue.textContent = String(snapshot.warp_count ?? 0);
-    if (els.mapPlayerValue) {
-        const player = snapshot.player || {};
-        els.mapPlayerValue.textContent = player.x != null && player.y != null
+    els.mapBoundsLabel.textContent =
+        `x ${bounds.min_x ?? "-"}-${bounds.max_x ?? "-"} | y ${bounds.min_y ?? "-"}-${bounds.max_y ?? "-"}`;
+    els.mapSizeValue.textContent = width > 0 && height > 0 ? `${width}x${height}` : "-";
+    els.mapExploredValue.textContent = String(snapshot.explored_count ?? 0);
+    els.mapFrontierValue.textContent = String(snapshot.frontier_count ?? 0);
+    els.mapWarpValue.textContent = String(snapshot.warp_count ?? 0);
+    els.mapPlayerValue.textContent =
+        player.x != null && player.y != null
             ? `${player.x}, ${player.y}`
             : position.x != null && position.y != null
                 ? `${position.x}, ${position.y}`
                 : "-";
-    }
+
     els.mapLegend.innerHTML = `
         <span class="legend-pill"><span class="legend-dot" data-tone="player"></span>Player</span>
         <span class="legend-pill"><span class="legend-dot" data-tone="explored"></span>Explored</span>
@@ -318,6 +327,7 @@ function renderSimpleList(container, items, renderItem, emptyText) {
         container.innerHTML = `<div class="list-item empty-state">${escapeHtml(emptyText)}</div>`;
         return;
     }
+
     container.innerHTML = items
         .map((item, index) => `<div class="list-item">${renderItem(item, index)}</div>`)
         .join("");
@@ -347,30 +357,31 @@ function renderGoals() {
         }
     }
 
-    els.focusText.textContent = grouped.focus || "暂无即时焦点，等待模型更新。";
+    els.focusText.textContent = grouped.focus || "No live focus yet.";
+
     renderSimpleList(
         els.activeGoalsList,
         grouped.active,
         (item) => `<strong>${escapeHtml(item.label)}</strong><p>${escapeHtml(item.description)}</p>`,
-        "暂无活动目标。",
+        "No active goals.",
     );
     renderSimpleList(
         els.todoList,
         grouped.todos,
         (item, index) => `<strong>TODO ${index + 1}</strong><p>${escapeHtml(item)}</p>`,
-        "暂无待办。",
+        "No pending tasks.",
     );
     renderSimpleList(
         els.doneList,
         grouped.done,
-        (item) => `<strong>已完成</strong><p>${escapeHtml(item)}</p>`,
-        "暂无已完成记录。",
+        (item) => `<strong>Done</strong><p>${escapeHtml(item)}</p>`,
+        "No completed items yet.",
     );
 }
 
 function renderHistory() {
     if (!state.history.length) {
-        els.historyList.innerHTML = `<div class="list-item empty-state">还没有决策记录。</div>`;
+        els.historyList.innerHTML = "<div class=\"list-item empty-state\">No decision history yet.</div>";
         return;
     }
 
@@ -380,9 +391,9 @@ function renderHistory() {
         .slice(0, 30)
         .map((item) => `
             <div class="list-item">
-                <strong>回合 ${escapeHtml(item.turn ?? "-")} · ${escapeHtml(String(item.action || "wait").toUpperCase())}</strong>
-                <p>${escapeHtml(item.reasoning || "无解释")}</p>
-                <p class="mono">${escapeHtml(item.screen_type || "unknown")} · ${escapeHtml(formatTimestamp(item.timestamp))}</p>
+                <strong>Turn ${escapeHtml(item.turn ?? "-")} | ${escapeHtml(String(item.action || "wait").toUpperCase())}</strong>
+                <p>${escapeHtml(item.reasoning || "No reasoning recorded.")}</p>
+                <p class="mono">${escapeHtml(item.screen_type || "unknown")} | ${escapeHtml(formatTimestamp(item.timestamp))}</p>
             </div>
         `)
         .join("");
@@ -390,7 +401,7 @@ function renderHistory() {
 
 function renderEvents() {
     if (!state.events.length) {
-        els.eventList.innerHTML = `<div class="list-item empty-state">等待运行事件。</div>`;
+        els.eventList.innerHTML = "<div class=\"list-item empty-state\">Waiting for runtime events.</div>";
         return;
     }
 
@@ -426,31 +437,31 @@ function renderControl() {
     const paused = Boolean(control.paused);
 
     els.checkpointPillValue.textContent = String(control.checkpoint_count ?? state.checkpoints.length ?? 0);
-    els.resumePillValue.textContent = control.auto_resume_latest_checkpoint ? "开启" : "关闭";
+    els.resumePillValue.textContent = control.auto_resume_latest_checkpoint ? "On" : "Off";
 
     if (!running) {
-        els.runPill.textContent = "已停止";
+        els.runPill.textContent = "Stopped";
         els.runPill.dataset.tone = "danger";
-        els.controlStateValue.textContent = "停止";
+        els.controlStateValue.textContent = "Stopped";
     } else if (paused) {
-        els.runPill.textContent = "已暂停";
+        els.runPill.textContent = "Paused";
         els.runPill.dataset.tone = "warning";
-        els.controlStateValue.textContent = "暂停";
+        els.controlStateValue.textContent = "Paused";
     } else {
-        els.runPill.textContent = "运行中";
+        els.runPill.textContent = "Running";
         els.runPill.dataset.tone = "success";
-        els.controlStateValue.textContent = "自动运行";
+        els.controlStateValue.textContent = "Auto";
     }
 
     els.stepBudgetValue.textContent = String(control.step_budget ?? 0);
     els.manualQueueValue.textContent = String(control.manual_queue_size ?? 0);
     els.lastCommandValue.textContent = control.last_command || "-";
-    els.latestCheckpointInfo.textContent = control.latest_checkpoint || "暂无";
-    els.restoredCheckpointInfo.textContent = control.restored_checkpoint || "尚未恢复";
+    els.latestCheckpointInfo.textContent = control.latest_checkpoint || "None";
+    els.restoredCheckpointInfo.textContent = control.restored_checkpoint || "Not restored";
     els.apiCooldownInfo.textContent = control.api_cooldown_active
         ? `${Number(control.api_cooldown_remaining ?? 0).toFixed(1)}s`
-        : "无";
-    els.controlErrorInfo.textContent = control.last_error || "无";
+        : "None";
+    els.controlErrorInfo.textContent = control.last_error || "None";
     updateControlButtons(control);
 }
 
@@ -462,7 +473,7 @@ function renderCheckpoints() {
     if (!state.checkpoints.length) {
         els.checkpointList.innerHTML = `
             <div class="checkpoint-card">
-                <p class="empty-state">暂无检查点。运行几回合后可保存并恢复。</p>
+                <p class="empty-state">No checkpoints yet. Run a few turns and save one from the control panel.</p>
             </div>
         `;
         return;
@@ -470,8 +481,9 @@ function renderCheckpoints() {
 
     els.checkpointList.innerHTML = state.checkpoints.map((checkpoint) => {
         const flags = [];
-        if (checkpoint.name === latest) flags.push("最新");
-        if (checkpoint.name === restored) flags.push("当前恢复源");
+        if (checkpoint.name === latest) flags.push("Latest");
+        if (checkpoint.name === restored) flags.push("Restore Source");
+
         const pos = checkpoint.position || {};
         return `
             <div class="checkpoint-card">
@@ -481,7 +493,9 @@ function renderCheckpoints() {
                         <p class="mono">${escapeHtml(checkpoint.name || "-")}</p>
                     </div>
                     <div class="tag-row">
-                        ${(flags.length ? flags : ["存档"]).map((flag) => `<span class="tag">${escapeHtml(flag)}</span>`).join("")}
+                        ${(flags.length ? flags : ["Saved"])
+                            .map((flag) => `<span class="tag">${escapeHtml(flag)}</span>`)
+                            .join("")}
                     </div>
                 </div>
                 <div class="checkpoint-meta">
@@ -490,12 +504,12 @@ function renderCheckpoints() {
                     <span class="tag">${escapeHtml(formatTimestamp(checkpoint.created_at))}</span>
                 </div>
                 <div class="checkpoint-body">
-                    <p>位置: map ${escapeHtml(pos.map_id ?? "-")} · (${escapeHtml(pos.x ?? "-")}, ${escapeHtml(pos.y ?? "-")})</p>
-                    <p>进度: 徽章 ${escapeHtml(checkpoint.badges ?? 0)} · 队伍 ${escapeHtml(checkpoint.party_size ?? 0)} · 金钱 ${escapeHtml(formatMoney(checkpoint.money))}</p>
-                    <p>焦点: ${escapeHtml(checkpoint.focus || checkpoint.primary_goal || "未记录")}</p>
+                    <p>Position: map ${escapeHtml(pos.map_id ?? "-")} | (${escapeHtml(pos.x ?? "-")}, ${escapeHtml(pos.y ?? "-")})</p>
+                    <p>Progress: badges ${escapeHtml(checkpoint.badges ?? 0)} | party ${escapeHtml(checkpoint.party_size ?? 0)} | money ${escapeHtml(formatMoney(checkpoint.money))}</p>
+                    <p>Focus: ${escapeHtml(checkpoint.focus || checkpoint.primary_goal || "Not recorded")}</p>
                 </div>
                 <div class="checkpoint-actions">
-                    <button type="button" data-load-checkpoint="${escapeHtml(checkpoint.name || "")}">加载此检查点</button>
+                    <button type="button" data-load-checkpoint="${escapeHtml(checkpoint.name || "")}">Load checkpoint</button>
                 </div>
             </div>
         `;
@@ -504,34 +518,37 @@ function renderCheckpoints() {
 
 function renderParty() {
     const party = state.game.party || [];
+
     if (!els.partyList) {
         return;
     }
+
     if (!party.length) {
-        els.partyList.innerHTML = `<div class="list-item empty-state">尚未获得宝可梦。</div>`;
+        els.partyList.innerHTML = "<div class=\"list-item empty-state\">No Pokemon captured yet.</div>";
         return;
     }
 
     els.partyList.innerHTML = party.map((pokemon, index) => {
-        const name = pokemon.display_name || pokemon.name || pokemon.species || "未知宝可梦";
+        const name = pokemon.display_name || pokemon.name || pokemon.species || "Unknown Pokemon";
         const currentHp = Number(pokemon.current_hp ?? pokemon.hp ?? 0);
         const maxHp = Number(pokemon.max_hp ?? 0);
         const hpRatio = maxHp > 0 ? Math.max(0, Math.min(1, currentHp / maxHp)) : 0;
         const hpPercent = maxHp > 0 ? `${Math.round(hpRatio * 100)}%` : "N/A";
         const hpState = hpRatio <= 0.25 ? "danger" : hpRatio <= 0.5 ? "warning" : "healthy";
+
         return `
-        <article class="party-card" data-hp-state="${hpState}">
-            <div class="party-top">
-                <span class="party-slot mono">${String(index + 1).padStart(2, "0")}</span>
-                <div class="party-body">
-                    <strong>${escapeHtml(name)}</strong>
-                    <p>Lv ${escapeHtml(pokemon.level ?? "?")} · HP ${escapeHtml(currentHp)} / ${escapeHtml(maxHp || "?")}</p>
+            <article class="party-card" data-hp-state="${hpState}">
+                <div class="party-top">
+                    <span class="party-slot mono">${String(index + 1).padStart(2, "0")}</span>
+                    <div class="party-body">
+                        <strong>${escapeHtml(name)}</strong>
+                        <p>Lv ${escapeHtml(pokemon.level ?? "?")} | HP ${escapeHtml(currentHp)} / ${escapeHtml(maxHp || "?")}</p>
+                    </div>
+                    <span class="party-hp-pill">${escapeHtml(hpPercent)}</span>
                 </div>
-                <span class="party-hp-pill">${escapeHtml(hpPercent)}</span>
-            </div>
-            <div class="hp-track"><span class="hp-fill" style="width:${(hpRatio * 100).toFixed(1)}%"></span></div>
-        </article>
-    `;
+                <div class="hp-track"><span class="hp-fill" style="width:${(hpRatio * 100).toFixed(1)}%"></span></div>
+            </article>
+        `;
     }).join("");
 }
 
@@ -543,10 +560,12 @@ async function sendControl(command, value = null) {
             body: JSON.stringify({ command, value }),
         });
         const result = await response.json();
+
         if (!response.ok || result.ok === false) {
-            throw new Error(result.message || `命令失败: ${command}`);
+            throw new Error(result.message || `Command failed: ${command}`);
         }
-        showToast(result.message || `已发送 ${command}`);
+
+        showToast(result.message || `Sent ${command}`);
         await refreshAll();
     } catch (error) {
         showToast(error.message);
@@ -574,7 +593,7 @@ function bindControls() {
     document.querySelectorAll("[data-command]").forEach((button) => {
         button.addEventListener("click", () => {
             const command = button.dataset.command;
-            if (shouldConfirm(command) && !window.confirm(`确认执行 ${command} ?`)) {
+            if (shouldConfirm(command) && !window.confirm(`Confirm ${command}?`)) {
                 return;
             }
             sendControl(command);
@@ -590,9 +609,11 @@ function bindControls() {
     document.addEventListener("click", (event) => {
         const target = event.target;
         if (!(target instanceof HTMLElement)) return;
+
         const checkpointName = target.getAttribute("data-load-checkpoint");
         if (!checkpointName) return;
-        if (!window.confirm(`确认加载检查点 ${checkpointName} ? 加载后会暂停自动运行。`)) {
+
+        if (!window.confirm(`Load checkpoint ${checkpointName}? This will pause auto play.`)) {
             return;
         }
         sendControl("load_checkpoint", checkpointName);
@@ -603,7 +624,7 @@ function bindControls() {
         refreshButton.addEventListener("click", async () => {
             await refreshAll();
             await refreshFallbackScreenshot();
-            showToast("已刷新页面数据");
+            showToast("Dashboard data refreshed");
         });
     }
 }
@@ -613,11 +634,12 @@ function bindStreamHandlers() {
         els.streamPlaceholder.style.display = "none";
         els.streamImage.hidden = false;
         els.fallbackImage.hidden = true;
-        setConnection(true, "实时流在线");
+        setConnection(true, "Stream online");
     });
 
     els.streamImage.addEventListener("error", async () => {
-        els.streamPlaceholder.textContent = "实时流暂不可用，已切换到截图回退。若你运行的是 scripts/autonomous_smoke.py，这属于预期行为。";
+        els.streamPlaceholder.textContent =
+            "The live stream is currently unavailable, so the dashboard switched to screenshot fallback mode. This is expected for autonomous_smoke runs.";
         els.streamPlaceholder.style.display = "grid";
         els.streamImage.hidden = true;
         await refreshFallbackScreenshot();

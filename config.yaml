@@ -13,6 +13,7 @@ ai:
   model: ""  # 在这里填写模型 ID，或通过 AI_MODEL 提供
   temperature: 0.4
   max_tokens: 4096
+  decision_max_tokens: 320
   request_timeout_seconds: 45
   request_retries: 2
   request_retry_backoff_seconds: 1.0
@@ -52,6 +53,14 @@ actions:
 navigation:
   auto_plan_stall_turns: 3
   max_plan_path_length: 24
+
+decision:
+  pure_llm_mode: false  # Disable deterministic control stages and rely on the main model only
+  strict_response_format: true  # Repair invalid model output instead of inferring missing fields heuristically
+  retry_same_turn_on_ai_error: true  # In pure-LLM mode, retry transient AI failures without spending a gameplay turn
+  same_turn_retry_max_attempts: 12
+  same_turn_retry_timeout_seconds: 45
+  same_turn_retry_min_delay_seconds: 0.25
 
 goals:
   primary_goal: "通过击败四天王并成为冠军来完成宝可梦红版"
@@ -101,3 +110,4 @@ debug:
 
 testing:
   max_turns: 0
+  write_checkpoints: true

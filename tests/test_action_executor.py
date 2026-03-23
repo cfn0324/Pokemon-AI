@@ -10,6 +10,29 @@ class _DummyLogger:
     def debug(self, *args, **kwargs):
         return None
 
+    def action(self, *args, **kwargs):
+        return None
+
+
+class _ConfigStub:
+    def __init__(self, values=None):
+        self.values = dict(values or {})
+
+    def get(self, key, default=None):
+        return self.values.get(key, default)
+
+
+class _EmulatorStub:
+    def __init__(self):
+        self.presses = []
+        self.ticks = []
+
+    def press_button(self, action):
+        self.presses.append(action)
+
+    def tick(self, frames):
+        self.ticks.append(frames)
+
 
 class ActionExecutorStuckTests(unittest.TestCase):
     def _build_executor(self, actions):
@@ -31,6 +54,29 @@ class ActionExecutorStuckTests(unittest.TestCase):
     def test_repeated_direction_without_ui_still_counts_as_stuck(self):
         executor = self._build_executor(["left"] * 10)
         self.assertTrue(executor.is_stuck(screen_type="indoor", ui_state={}))
+
+
+class ActionExecutorPureLLMTests(unittest.TestCase):
+    def test_direction_execute_uses_single_press_in_pure_llm_mode(self):
+        executor = ActionExecutor.__new__(ActionExecutor)
+        executor.emulator = _EmulatorStub()
+        executor.memory_reader = None
+        executor.config = _ConfigStub(
+            {
+                "decision.pure_llm_mode": True,
+                "actions.delay_ms": 0,
+                "actions.direction_settle_frames": 0,
+            }
+        )
+        executor.logger = _DummyLogger()
+        executor.action_delay = 0.0
+        executor.last_actions = []
+        executor.stuck_threshold = 10
+
+        success = executor.execute("up")
+
+        self.assertTrue(success)
+        self.assertEqual(executor.emulator.presses, ["up"])
 
 
 if __name__ == "__main__":

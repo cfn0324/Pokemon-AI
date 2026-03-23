@@ -13,6 +13,15 @@ from ..memory.summarizer import Summarizer
 from ..tools.goal_manager import GoalManager
 
 
+class AIDecisionRetrySignal(RuntimeError):
+    """Signal that the current observation should be retried without spending a turn."""
+
+    def __init__(self, message: str, *, source: str, retry_after_seconds: float = 0.0):
+        super().__init__(message)
+        self.source = source
+        self.retry_after_seconds = max(0.0, float(retry_after_seconds or 0.0))
+
+
 class MainAgent:
     """Primary AI agent that makes gameplay decisions."""
 
@@ -78,6 +87,7 @@ Important constraints:
 - Use the screenshot to confirm UI state (battle/menu/dialogue/overworld). If pixels conflict with memory flags, trust the screenshot for UI state and memory for stats.
 - If RAM says a text box is active but the screenshot does not show a real bordered dialogue panel with readable text or a prompt arrow, suspect a stale UI flag and trust the room/map screenshot instead.
 - If the screenshot is still Oak's intro, a naming screen, a title/menu, or another scripted scene, report that SCREEN_TYPE directly even if RAM already shows room coordinates.
+- In boot/title/new-game flow, use the visible UI on the screenshot. Do not switch from START to movement or random buttons unless the screen visibly changes.
 - The screenshot is a moving camera viewport, not a full-room map. Do not treat the current frame as a complete fixed layout of the whole room.
 - In overworld movement, the camera usually follows the player. The player being near the lower part of the screen does NOT imply there is more walkable room below.
 - Off-screen or unrendered space is unknown. Black screen-edge space is not evidence of walkable floor.
@@ -162,6 +172,8 @@ BLOCKED: ...>
 Output rules:
 - Plain text only. No markdown bullets, no code fences, no preamble, no trailing note.
 - Use exactly one SCREEN_TYPE line, one REASONING line, one ACTION line, and one GOAL_UPDATE block.
+- SCREEN_TYPE must be exactly one allowed token such as `title`, `startup_menu`, `dialogue`, `battle`, `overworld`, or `indoor`; never write phrases like `title screen` or `main menu`.
+- ACTION must be exactly one allowed token such as `start`, `a`, `b`, `up`, or `wait`; never write a sentence there.
 - If you do not need a goal update, write exactly: GOAL_UPDATE: none
 
 A one-token reply like "a", "b", "up", or "wait" is invalid.
@@ -190,6 +202,12 @@ REASONING: The player is near the bottom of the screen, so the room probably ext
 This is wrong because camera position does not prove walkable floor, and black space is not visible floor.
 """
 
+    # Accept exact prompt labels plus common equivalent spacing/colon variants.
+    _FIELD_RE = re.compile(
+        "^\\s*(screen(?:_|\\s+)type|reasoning|action|goal(?:_|\\s+)update)\\s*(?:\\:|\\uff1a)\\s*(.*)\\s*$",
+        flags=re.IGNORECASE,
+    )
+
     def __init__(self):
         """Initialize main agent."""
         self.logger = get_logger('MainAgent')
@@ -198,6 +216,13 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         self.model = self.config.get('ai.agents.main.model')
         self.temperature = self.config.get('ai.agents.main.temperature')
+        self.decision_max_tokens = min(
+            int(self.config.get('ai.max_tokens', 4096) or 4096),
+            int(self.config.get('ai.decision_max_tokens', 320) or 320),
+        )
+        self.strict_response_format = bool(
+            self.config.get('decision.strict_response_format', True)
+        )
         self._api_failure_count = 0
         self._api_cooldown_until = 0.0
 
@@ -237,11 +262,19 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         if time.time() < self._api_cooldown_until:
             remaining = max(0.0, self._api_cooldown_until - time.time())
+            if self._should_retry_same_turn():
+                raise AIDecisionRetrySignal(
+                    f"API cooldown active for {remaining:.1f}s after recent request failures",
+                    source="ai_cooldown",
+                    retry_after_seconds=remaining,
+                )
             return {
                 "action": "wait",
                 "reasoning": f"API cooldown active for {remaining:.1f}s after recent request failures",
                 "goal_update": None,
                 "recorded_in_context": False,
+                "decision_source": "ai_cooldown",
+                "decision_path": "ai",
             }
 
         # Refresh the staged plan before prompting the model.
@@ -257,7 +290,11 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         # Get AI response
         try:
-            response_text = self._request_model_response(prompt, screenshot_bytes)
+            response_text = self._request_model_response(
+                prompt,
+                screenshot_bytes,
+                max_tokens=self.decision_max_tokens,
+            )
             self.logger.debug(f"Raw model response (truncated): {response_text[:800]!r}")
 
             # Parse response
@@ -267,12 +304,15 @@ This is wrong because camera position does not prove walkable floor, and black s
                 repaired_response = self._request_model_response(
                     self._build_repair_prompt(prompt, response_text),
                     screenshot_bytes,
-                    max_tokens=min(800, int(self.config.get('ai.max_tokens', 4096) or 4096)),
+                    max_tokens=self.decision_max_tokens,
                     temperature=min(float(self.temperature or 0.0), 0.2),
                 )
                 self.logger.debug(f"Repaired model response (truncated): {repaired_response[:800]!r}")
                 decision = self._parse_response(repaired_response)
                 response_text = repaired_response
+
+            if self.strict_response_format and self._decision_is_invalid_after_repair(decision, response_text):
+                raise ValueError("Model response remained invalid after repair")
 
             # Log decision
             self.logger.decision(decision['action'], decision['reasoning'])
@@ -284,7 +324,10 @@ This is wrong because camera position does not prove walkable floor, and black s
                 turn_number=turn,
                 state=game_state,
                 action=decision['action'],
-                reasoning=decision['reasoning']
+                screen_type=decision.get('screen_type'),
+                reasoning=decision['reasoning'],
+                decision_source=decision.get('decision_source', 'ai'),
+                decision_path=decision.get('decision_path', 'ai'),
             )
 
             # Update goals if needed
@@ -296,12 +339,20 @@ This is wrong because camera position does not prove walkable floor, and black s
         except Exception as e:
             self.logger.error(f"Failed to get AI decision: {e}")
             self._register_api_failure(str(e))
+            if self._should_retry_same_turn() and self._is_retryable_decision_error(e):
+                raise AIDecisionRetrySignal(
+                    str(e),
+                    source="ai_error",
+                    retry_after_seconds=self.get_api_cooldown_remaining(),
+                ) from e
             # Return safe default action
             return {
                 'action': 'wait',
                 'reasoning': f'Error occurred: {e}',
                 'goal_update': None,
                 'recorded_in_context': False,
+                'decision_source': 'ai_error',
+                'decision_path': 'ai',
             }
 
     def _build_prompt(
@@ -340,10 +391,22 @@ This is wrong because camera position does not prove walkable floor, and black s
             parts.append("No screenshot is attached this turn; rely on memory fields only.")
 
         # Add decision request
-        parts.append("\nBased on the above information, decide your next action.")
+        parts.append("Decide the next single input.")
         parts.append(
-            "Return plain text only in the exact SCREEN_TYPE / REASONING / ACTION / GOAL_UPDATE format. "
-            "Do not add headings, bullets, markdown, or extra commentary."
+            "Return exactly 4 non-empty plain-text lines and nothing else:\n"
+            "SCREEN_TYPE: <one allowed token>\n"
+            "REASONING: <one concrete sentence grounded in the screenshot/state>\n"
+            "ACTION: <one allowed token>\n"
+            "GOAL_UPDATE: <none or update commands>"
+        )
+        parts.append(
+            "Allowed SCREEN_TYPE tokens: startup, title, startup_menu, options_menu, dialogue, "
+            "cutscene, text_entry, naming_screen, battle, menu, overworld, indoor, unknown.\n"
+            "Allowed ACTION tokens: up, down, left, right, a, b, start, select, wait."
+        )
+        parts.append(
+            "Formatting traps to avoid: no markdown, no bullets, no JSON, no code fences, "
+            "no extra blank lines, and no prose labels like 'title screen' or 'main menu' when an exact token exists."
         )
 
         return "\n\n".join(parts)
@@ -391,12 +454,13 @@ This is wrong because camera position does not prove walkable floor, and black s
         return (
             f"{prompt}\n\n"
             "Your previous answer did not satisfy the required output format or was too terse.\n"
-            "Rewrite it now.\n"
+            "Rewrite it now as exactly 4 lines and keep the intended decision grounded in the same screenshot/state.\n"
             "Rules:\n"
-            "- Keep the decision grounded in the current screenshot and state.\n"
-            "- Include SCREEN_TYPE, REASONING, ACTION, and GOAL_UPDATE exactly once.\n"
+            "- Use exactly these labels once each: SCREEN_TYPE, REASONING, ACTION, GOAL_UPDATE.\n"
+            "- SCREEN_TYPE must be one allowed token.\n"
+            "- ACTION must be one allowed token.\n"
             "- REASONING must be a complete sentence with concrete evidence, not just an action token.\n"
-            "- Output plain text only with no bullets, code fences, or extra commentary.\n"
+            "- Output plain text only with no bullets, code fences, JSON, or extra commentary.\n"
             "- If no goal update is needed, write GOAL_UPDATE: none.\n\n"
             f"Previous invalid answer:\n{previous_response}"
         )
@@ -404,11 +468,12 @@ This is wrong because camera position does not prove walkable floor, and black s
     def _decision_needs_repair(self, decision: Dict[str, Any], raw_response: str) -> bool:
         """Return True when the model response should be retried for structure/quality."""
         response = raw_response or ""
-        has_screen_type = bool(re.search(r"(?im)^\s*screen_type\s*[:：]", response))
-        has_reasoning = bool(re.search(r"(?im)^\s*reasoning\s*[:：]", response))
-        has_action = bool(re.search(r"(?im)^\s*action\s*[:：]", response))
+        has_screen_type = bool(re.search("(?im)^\\s*screen(?:_|\\s+)type\\s*(?:\\:|\\uff1a)", response))
+        has_reasoning = bool(re.search("(?im)^\\s*reasoning\\s*(?:\\:|\\uff1a)", response))
+        has_action = bool(re.search("(?im)^\\s*action\\s*(?:\\:|\\uff1a)", response))
+        has_goal_update = bool(re.search("(?im)^\\s*goal(?:_|\\s+)update\\s*(?:\\:|\\uff1a)", response))
 
-        if not has_screen_type or not has_reasoning or not has_action:
+        if not has_screen_type or not has_reasoning or not has_action or not has_goal_update:
             return True
 
         reasoning = (decision.get("reasoning") or "").strip()
@@ -431,6 +496,52 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         return False
 
+    def _should_retry_same_turn(self) -> bool:
+        """Whether transient AI failures should be retried on the same observation."""
+        return bool(
+            self.config.get('decision.pure_llm_mode', False)
+            and self.config.get('decision.retry_same_turn_on_ai_error', True)
+        )
+
+    def _is_retryable_decision_error(self, error: Exception) -> bool:
+        """Classify retryable transport/schema failures without masking config bugs."""
+        message = str(error or "").lower()
+
+        if "model response remained invalid after repair" in message:
+            return True
+
+        transient_tokens = (
+            "status 429",
+            "status 500",
+            "status 502",
+            "status 503",
+            "status 504",
+            "timeout",
+            "timed out",
+            "transport failure",
+            "request failed",
+            "invalid ai response",
+            "unsupported ai response shape",
+            "token",
+        )
+        return any(token in message for token in transient_tokens)
+
+    def _decision_is_invalid_after_repair(self, decision: Dict[str, Any], raw_response: str) -> bool:
+        """Reject malformed structured output when strict parsing is enabled."""
+        if self._decision_needs_repair(decision, raw_response):
+            return True
+        if decision.get("action") not in self.VALID_ACTIONS:
+            return True
+        if decision.get("screen_type") not in self.VALID_SCREEN_TYPES:
+            return True
+        raw_action = str(decision.get("_raw_action") or "").strip().lower()
+        raw_screen_type = str(decision.get("_raw_screen_type") or "").strip().lower()
+        if raw_action and decision.get("action") == "wait" and raw_action != "wait":
+            return True
+        if raw_screen_type and decision.get("screen_type") == "unknown" and raw_screen_type != "unknown":
+            return True
+        return False
+
     def _parse_response(self, response: str) -> Dict[str, Any]:
         """Parse AI response.
 
@@ -451,13 +562,6 @@ This is wrong because camera position does not prove walkable floor, and black s
         screen_type_raw: Optional[str] = None
         goal_update: Optional[str] = None
 
-        screen_match = re.search(
-            r"(?im)^\s*screen_type\s*[:：]\s*(.+?)\s*$",
-            response,
-        )
-        if screen_match:
-            screen_type_raw = screen_match.group(1).strip()
-
         i = 0
         while i < len(lines):
             line = lines[i].strip()
@@ -466,8 +570,14 @@ This is wrong because camera position does not prove walkable floor, and black s
                 i += 1
                 continue
 
-            field = match.group(1).lower()
+            field = match.group(1).lower().replace(" ", "_")
             value = (match.group(2) or "").strip()
+
+            if field == "screen_type":
+                if value:
+                    screen_type_raw = value
+                else:
+                    screen_type_raw = self._collect_next_value_line(lines, i + 1)
 
             if field == "reasoning":
                 if value:
@@ -493,13 +603,15 @@ This is wrong because camera position does not prove walkable floor, and black s
             i += 1
 
         action = self._normalize_action(action_raw)
-        if not action:
+        if not action and not self.strict_response_format:
             action = self._infer_action_from_text(response)
         if action not in self.VALID_ACTIONS:
             action = "wait"
         screen_type = self._normalize_screen_type(screen_type_raw)
-        if not screen_type:
+        if not screen_type and not self.strict_response_format:
             screen_type = self._infer_screen_type_from_text(response)
+        if not screen_type:
+            screen_type = "unknown"
 
         if goal_update:
             goal_update = goal_update.strip()
@@ -516,6 +628,10 @@ This is wrong because camera position does not prove walkable floor, and black s
             "action": action,
             "goal_update": goal_update,
             "recorded_in_context": True,
+            "decision_source": "ai",
+            "decision_path": "ai",
+            "_raw_action": action_raw,
+            "_raw_screen_type": screen_type_raw,
         }
 
     def _collect_multiline_field(
@@ -650,7 +766,10 @@ This is wrong because camera position does not prove walkable floor, and black s
             "name_entry": "naming_screen",
             "name screen": "naming_screen",
             "title_screen": "title",
+            "title screen": "title",
             "main_menu": "startup_menu",
+            "main menu": "startup_menu",
+            "new game menu": "startup_menu",
             "startup menu": "startup_menu",
             "options": "options_menu",
             "over world": "overworld",
@@ -774,13 +893,19 @@ This is wrong because camera position does not prove walkable floor, and black s
         action: str,
         reasoning: str,
         goal_update: Optional[str] = None,
+        screen_type: Optional[str] = None,
+        decision_source: Optional[str] = None,
+        decision_path: Optional[str] = None,
     ) -> None:
         """Record a non-main-model decision in context so recovery tools can see it."""
         self.context.add_turn(
             turn_number=game_state["turn"],
             state=game_state,
             action=action,
+            screen_type=screen_type,
             reasoning=self._compact_text(reasoning, max_chars=400),
+            decision_source=decision_source,
+            decision_path=decision_path,
         )
         if goal_update and goal_update != "none":
             self._process_goal_update(goal_update)

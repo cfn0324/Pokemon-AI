@@ -1,0 +1,325 @@
+{
+  "requested_checkpoint": "checkpoint_21800",
+  "restored_checkpoint": "checkpoint_21800",
+  "pure_llm_mode": true,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_73300",
+  "start_turn": 21800,
+  "end_turn": 21810,
+  "turn_delta": 10,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 10
+  },
+  "decision_path_counts": {
+    "ai": 10
+  },
+  "final_state": {
+    "turn": 21810,
+    "timestamp": "2026-03-23T13:15:33.514745",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21810,
+      "local_analysis_enabled": false,
+      "screen_hash": "9baeeaa570cbb14196e2710caa72050e"
+    },
+    "exploration": {
+      "current_map": 38,
+      "explored_tiles": 15,
+      "total_tiles": 200,
+      "exploration_percent": 7.5
+    },
+    "navigation": {
+      "current_visit_count": 33,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 15,
+      "nearest_frontier": {
+        "target": [
+          3,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 33,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 38,
+          "src_x": 7,
+          "src_y": 2,
+          "dest_map": 37,
+          "dest_x": 7,
+          "dest_y": 1,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "????????W",
+        "???FFFFFF",
+        "??FF?????",
+        "??F??????",
+        "??F?P????",
+        "??FFF????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 38,
+        "rows": [
+          "           ",
+          "           ",
+          "        W  ",
+          "   FFFFFF  ",
+          "  FF       ",
+          "  F        ",
+          "  F P      ",
+          "  FFF      ",
+          "           ",
+          "           "
+        ],
+        "prompt_rows": [
+          "???????????",
+          "???????????",
+          "????????W??",
+          "???FFFFFF??",
+          "??FF???????",
+          "??F????????",
+          "??F?P??????",
+          "??FFF??????",
+          "???????????",
+          "???????????"
+        ],
+        "bounds": {
+          "min_x": -1,
+          "max_x": 9,
+          "min_y": 0,
+          "max_y": 9,
+          "width": 11,
+          "height": 10
+        },
+        "player": {
+          "x": 3,
+          "y": 6
+        },
+        "explored_count": 15,
+        "frontier_count": 15,
+        "blocked_count": 0,
+        "warp_count": 1,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 2,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21801,
+      "action": "start",
+      "reasoning": "The screenshot shows the Pokémon Red Version title screen before the main menu, so pressing Start should advance to the menu.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21802,
+      "action": "start",
+      "reasoning": "The screenshot clearly shows the Pokémon Red Version title screen with no menu yet, so Start should proceed from the title.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21803,
+      "action": "a",
+      "reasoning": "The screenshot is the animated Pokémon Red title screen with no menu visible, so a confirmation input should advance the intro.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21804,
+      "action": "wait",
+      "reasoning": "The screenshot is completely white with no visible title, menu, or dialogue, suggesting a blank transition where waiting is safer than more button presses.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21805,
+      "action": "wait",
+      "reasoning": "The screenshot is still completely white with no visible title, menu, or text, indicating a transition or blank startup frame where another input could be premature.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21806,
+      "action": "a",
+      "reasoning": "The screenshot shows the main menu with the cursor already on NEW GAME, so confirming it will begin a new game.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21807,
+      "action": "a",
+      "reasoning": "The screenshot shows the main menu with the cursor on NEW GAME, so confirming it should begin the intro.",
+      "result": "After a:; warped from map 0 (0,0) to map 38 (3,6); money delta +3000",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21808,
+      "action": "wait",
+      "reasoning": "The screen is completely white with no visible menu, dialogue, or overworld elements, indicating an in-between startup transition where waiting is safest.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "startup",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21809,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak alone on a blank white background during the opening intro sequence with no text box yet, so advancing the script is appropriate.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21810,
+      "action": "a",
+      "reasoning": "Professor Oak is centered on a blank white intro screen with no text box visible, so advancing the opening script is appropriate.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

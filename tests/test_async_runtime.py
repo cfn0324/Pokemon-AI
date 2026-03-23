@@ -115,6 +115,23 @@ class AsyncRealtimeTests(unittest.TestCase):
         self.assertEqual(decision["action"], "a")
         self.assertEqual(len(main_agent.calls), 1)
 
+    def test_pure_llm_mode_forces_sync_model_path_even_if_async_is_enabled(self):
+        main_agent = _MainAgentStub()
+        agent = self._make_agent(
+            config={
+                "performance.async_decisions": True,
+                "decision.pure_llm_mode": True,
+            },
+            async_ai=_AsyncAIStub(running=True, thinking=False, decision=None, queue_ok=True),
+            main_agent=main_agent,
+        )
+
+        decision = agent._get_ai_decision_responsive({"turn": 4}, "state", b"img")
+
+        self.assertEqual(decision["action"], "a")
+        self.assertEqual(len(main_agent.calls), 1)
+        self.assertEqual(agent.async_ai.requests, [])
+
 
 if __name__ == "__main__":
     unittest.main()

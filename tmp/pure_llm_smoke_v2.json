@@ -1,0 +1,395 @@
+{
+  "requested_checkpoint": "checkpoint_21800",
+  "restored_checkpoint": "checkpoint_21800",
+  "pure_llm_mode": true,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_22400",
+  "start_turn": 21800,
+  "end_turn": 21815,
+  "turn_delta": 15,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.8,
+  "decision_source_counts": {
+    "ai": 15
+  },
+  "decision_path_counts": {
+    "ai": 15
+  },
+  "final_state": {
+    "turn": 21815,
+    "timestamp": "2026-03-23T00:48:01.027274",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21815,
+      "local_analysis_enabled": false,
+      "screen_hash": "4200a68faf8dc9942a02bcc893c20a96"
+    },
+    "exploration": {
+      "current_map": 38,
+      "explored_tiles": 15,
+      "total_tiles": 200,
+      "exploration_percent": 7.5
+    },
+    "navigation": {
+      "current_visit_count": 38,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 15,
+      "nearest_frontier": {
+        "target": [
+          3,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 38,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 38,
+          "src_x": 7,
+          "src_y": 2,
+          "dest_map": 37,
+          "dest_x": 7,
+          "dest_y": 1,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "????????W",
+        "???FFFFFF",
+        "??FF?????",
+        "??F??????",
+        "??F?P????",
+        "??FFF????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 38,
+        "rows": [
+          "           ",
+          "           ",
+          "        W  ",
+          "   FFFFFF  ",
+          "  FF       ",
+          "  F        ",
+          "  F P      ",
+          "  FFF      ",
+          "           ",
+          "           "
+        ],
+        "prompt_rows": [
+          "???????????",
+          "???????????",
+          "????????W??",
+          "???FFFFFF??",
+          "??FF???????",
+          "??F????????",
+          "??F?P??????",
+          "??FFF??????",
+          "???????????",
+          "???????????"
+        ],
+        "bounds": {
+          "min_x": -1,
+          "max_x": 9,
+          "min_y": 0,
+          "max_y": 9,
+          "width": 11,
+          "height": 10
+        },
+        "player": {
+          "x": 3,
+          "y": 6
+        },
+        "explored_count": 15,
+        "frontier_count": 15,
+        "blocked_count": 0,
+        "warp_count": 1,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 7,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21801,
+      "action": "wait",
+      "reasoning": "Error occurred: Model response remained invalid after repair",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21802,
+      "action": "start",
+      "reasoning": "The screenshot shows the Pokemon Red title screen logo and copyright text with no menu yet. From this screen, pressing Start advances to the main menu/new game flow.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21803,
+      "action": "a",
+      "reasoning": "The screenshot still shows the static Pokémon Red Version title screen with the trainer sprite and copyright text, and since Start previously caused no visible change, using A is the other standard input that can advance from this title state into the menu or intro.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21804,
+      "action": "wait",
+      "reasoning": "The screenshot is still the static Pokémon Red title screen with logo, trainer sprite, and copyright text, and no menu is visible. Since Start and A produced no visible change, the likely issue is timing on the attract/title cycle. Waiting can let the title/intro advance to a state where Start or A will register or reveal the menu.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21805,
+      "action": "wait",
+      "reasoning": "Error occurred: Model response remained invalid after repair",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21806,
+      "action": "a",
+      "reasoning": "The screenshot shows the main menu with the cursor already on NEW GAME. The correct next step is to confirm it and begin the intro/new game flow.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21807,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the main menu with the cursor on NEW GAME. The correct action is to confirm NEW GAME and begin the intro sequence.",
+      "result": "After a:; warped from map 0 (0,0) to map 38 (3,6); money delta +3000",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21808,
+      "action": "wait",
+      "reasoning": "Error occurred: Model response remained invalid after repair",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21809,
+      "action": "wait",
+      "reasoning": "Error occurred: Model response remained invalid after repair",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21810,
+      "action": "wait",
+      "reasoning": "Error occurred: Model response remained invalid after repair",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21811,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak with a text box beginning his intro speech (\"He...\"), so a dialogue script is active. The correct action is to advance the text rather than move.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21812,
+      "action": "a",
+      "reasoning": "The screenshot shows Professor Oak with a visible text box saying \"Hello ther\", which is the mandatory opening introduction, so the correct action is to advance the dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21813,
+      "action": "a",
+      "reasoning": "Professor Oak's intro dialogue is on screen with a text box active, so the correct action is to advance the mandatory opening speech.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21814,
+      "action": "a",
+      "reasoning": "Professor Oak's intro text box is visible (\"Hello there! Welcome to the\"), so the mandatory opening dialogue is still in progress. The correct action is to advance the text.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21815,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 500: {\"error\":{\"message\":\"没有可用token（traceid: df45756cc2379f18c3d1035d4c759858） (request id: 20260322164806368160073vWmBKjEh)\",\"type\":\"rix_api_error\",\"param\":\"\",\"code\":null}}",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

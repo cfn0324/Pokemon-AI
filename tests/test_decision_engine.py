@@ -51,6 +51,22 @@ class DecisionEngineTests(unittest.TestCase):
             [{"stage": "noop", "matched": False}],
         )
 
+    def test_fallback_preserves_explicit_source_metadata(self):
+        engine = DecisionEngine(
+            stages=[("noop", lambda context: None)],
+            fallback=lambda context: {
+                "action": "wait",
+                "reasoning": "cooldown",
+                "decision_source": "ai_cooldown",
+                "decision_path": "ai",
+            },
+        )
+
+        decision = engine.decide(self.context)
+
+        self.assertEqual(decision["decision_source"], "ai_cooldown")
+        self.assertEqual(decision["decision_path"], "ai")
+
 
 if __name__ == "__main__":
     unittest.main()

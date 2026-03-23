@@ -1,0 +1,328 @@
+{
+  "requested_checkpoint": "checkpoint_21800",
+  "restored_checkpoint": "checkpoint_21800",
+  "latest_checkpoint": "checkpoint_21900",
+  "start_turn": 21800,
+  "end_turn": 21818,
+  "turn_delta": 18,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "final_state": {
+    "turn": 21818,
+    "timestamp": "2026-03-23T00:33:54.993149",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21818,
+      "local_analysis_enabled": false,
+      "screen_hash": "3aab0ad35b5017945eeeb66fd93b523f"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 11,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21800,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": null,
+      "screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21801,
+      "action": "start",
+      "reasoning": "The screenshot is clearly the Pokémon Red title screen with the logo, trainer/Nidorino art, and no menu yet. On this screen, Start is the correct input to proceed to the main menu instead of any movement input.",
+      "result": "After start:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21802,
+      "action": "a",
+      "reasoning": "The screenshot is the Pokémon Red title screen. Start previously produced no visible change, so the title may currently be waiting for the confirm input that advances from this screen. The correct adaptive follow-up is to try A rather than repeating a failed input.",
+      "result": "After a:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21803,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21804,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change; screen changed from overworld to startup_menu",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21805,
+      "action": "a",
+      "reasoning": "Auto: confirm the pre-game NEW GAME menu",
+      "result": "After a:; no visible state change",
+      "screen_type": "startup_menu",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21806,
+      "action": "a",
+      "reasoning": "Auto: confirm the pre-game NEW GAME menu",
+      "result": "After a:; warped from map 0 (0,0) to map 38 (3,6); screen changed from startup_menu to overworld; money delta +3000",
+      "screen_type": "startup_menu",
+      "phase_hint": "startup_menu",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21807,
+      "action": "a",
+      "reasoning": "The screenshot is completely white, which is the scripted fade transition immediately after starting a new game, so movement is not actionable and the correct way to continue the intro sequence is to press A to advance.",
+      "result": "After a:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": "startup_menu",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21808,
+      "action": "a",
+      "reasoning": "The screen is still fully white, indicating the new-game intro/fade transition is ongoing and free movement is not available yet. Continuing to advance the scripted sequence with A is the safest input.",
+      "result": "After a:; no visible state change",
+      "screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21809,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "screen_type": "overworld",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21810,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (3, 6)",
+      "result": "After up:; position did not change; screen changed from overworld to dialogue",
+      "screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21811,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21812,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21813,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21814,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21815,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21816,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21817,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21818,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": null,
+      "screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

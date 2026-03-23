@@ -71,7 +71,10 @@ class ActionExecutor:
             self.emulator.tick(max(1, wait_frames))
             time.sleep(0.05)
         elif action in {'up', 'down', 'left', 'right'}:
-            self._execute_direction(action)
+            if self._pure_llm_mode_enabled():
+                self.emulator.press_button(action)
+            else:
+                self._execute_direction(action)
         else:
             self.emulator.press_button(action)
 
@@ -80,6 +83,10 @@ class ActionExecutor:
         time.sleep(self.action_delay)
 
         return True
+
+    def _pure_llm_mode_enabled(self) -> bool:
+        """Return whether execution should avoid action-expanding helpers."""
+        return bool(self.config.get('decision.pure_llm_mode', False))
 
     def _read_movement_snapshot(self) -> Optional[Dict[str, Any]]:
         """Read minimal movement-relevant state for smarter direction retries."""

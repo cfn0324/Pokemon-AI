@@ -16,8 +16,11 @@ class Turn:
     timestamp: str
     state: Dict[str, Any]
     action: Optional[str]
+    screen_type: Optional[str]
     reasoning: Optional[str]
     result: Optional[str]
+    decision_source: Optional[str] = None
+    decision_path: Optional[str] = None
 
 
 @dataclass
@@ -55,8 +58,11 @@ class ContextManager:
         self.logger.info(f"Context manager initialized (max_turns={max_turns}, keep_recent={keep_recent})")
 
     def add_turn(self, turn_number: int, state: Dict[str, Any],
-                 action: Optional[str] = None, reasoning: Optional[str] = None,
-                 result: Optional[str] = None) -> None:
+                 action: Optional[str] = None, screen_type: Optional[str] = None,
+                 reasoning: Optional[str] = None,
+                 result: Optional[str] = None,
+                 decision_source: Optional[str] = None,
+                 decision_path: Optional[str] = None) -> None:
         """Add a new turn to context.
 
         Args:
@@ -71,8 +77,11 @@ class ContextManager:
             timestamp=datetime.now().isoformat(),
             state=state,
             action=action,
+            screen_type=screen_type,
             reasoning=reasoning,
-            result=result
+            result=result,
+            decision_source=decision_source,
+            decision_path=decision_path,
         )
 
         self.recent_turns.append(turn)
@@ -170,6 +179,8 @@ class ContextManager:
                 turn_text = f"\n--- Turn {turn.turn_number} ---\n"
                 if turn.action:
                     turn_text += f"Action: {turn.action}\n"
+                if turn.screen_type:
+                    turn_text += f"Screen Type: {turn.screen_type}\n"
                 if turn.reasoning:
                     turn_text += f"Reasoning: {turn.reasoning}\n"
                 if turn.result:
@@ -223,8 +234,11 @@ class ContextManager:
                     'turn_number': t.turn_number,
                     'timestamp': t.timestamp,
                     'action': t.action,
+                    'screen_type': t.screen_type,
                     'reasoning': t.reasoning,
                     'result': t.result,
+                    'decision_source': t.decision_source,
+                    'decision_path': t.decision_path,
                 }
                 for t in self.recent_turns
             ],
@@ -270,8 +284,11 @@ class ContextManager:
                 timestamp=turn_data['timestamp'],
                 state={},  # State not saved to reduce size
                 action=turn_data.get('action'),
+                screen_type=turn_data.get('screen_type'),
                 reasoning=turn_data.get('reasoning'),
                 result=turn_data.get('result'),
+                decision_source=turn_data.get('decision_source'),
+                decision_path=turn_data.get('decision_path'),
             )
             self.recent_turns.append(turn)
 
