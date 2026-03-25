@@ -78,7 +78,9 @@ You have access to the following information each turn:
 - Memory-based game state (position/map_id, Pokemon party, badges, money, in-battle flag)
 - Current raw screenshot image to read menus, battles, dialogue boxes, NPCs, player position, and obstacles
 - Map exploration status
-- A navigation advisor derived from map memory, visit counts, known blocked directions, known warps, and reachable frontier tiles
+- A navigation advisor derived from map memory, visit counts, known blocked directions, known warps, reachable frontier tiles, and frontier novelty scoring
+- A recent-movement summary that warns when you have been revisiting a tiny local area
+- A structured battle summary that distinguishes new encounters, ongoing battles, and post-battle dialogue
 - A live plan with long-term mission, current stage, current focus, and a real-time todo list
 - Recent action history
 
@@ -102,7 +104,10 @@ Important constraints:
 - On naming screens, do not press A repeatedly on the same letter unless you intentionally want repeated letters. If one character was just entered, move before pressing A again unless repetition is desired.
 - When a name field is already full, press START to confirm it instead of adding more letters.
 - Use the navigation advisor as reliable memory: known exits, blocked directions, warp points, frontier routes, and visit counts come from actual observed play.
+- If the state text includes frontier novelty or revisit-pressure metrics, use them to avoid repeatedly probing a locally exhausted frontier when better alternatives exist.
+- If the state text includes a battle summary, trust it for battle phase: for example, post-battle dialogue means you should finish the text instead of trying to walk away.
 - If the exit, stairs, or door is not visible yet, your job is to explore until it becomes visible. Exploration is progress.
+- If the state text reports a loop warning or says recent movement stayed inside a tiny box, treat the current local frontier as suspicious and deliberately change route instead of probing the same edge again.
 - For movement decisions, first do a local visual check of the four directions around the player.
 - Treat large pure-black regions, screenshot crop/void, walls, furniture, and solid obstacles as non-walkable.
 - A direction is bad if the floor does not visibly continue there, or if it quickly runs into black void or a solid object.

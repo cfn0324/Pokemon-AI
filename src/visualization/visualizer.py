@@ -78,6 +78,9 @@ class GameVisualizer:
                          template_folder='../../templates',
                          static_folder='../../static')
         self.app.config['SECRET_KEY'] = 'pokemon-ai-secret'
+        self.app.config['TEMPLATES_AUTO_RELOAD'] = True
+        self.app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+        self.app.jinja_env.auto_reload = True
         self.socketio = SocketIO(self.app, cors_allowed_origins="*")
 
         # Data storage

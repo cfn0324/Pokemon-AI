@@ -1,4 +1,4 @@
-# Pokemon Red AI 配置
+# 宝可梦红版 AI 配置
 
 game:
   rom_path: "PokemonRed.gb"
@@ -8,6 +8,29 @@ game:
   auto_resume_latest_checkpoint: true
   resume_checkpoint: null
   max_checkpoints: 12
+  prompt_for_checkpoint_on_start: true
+  startup_checkpoint_recent_limit: 8
+  landmark_checkpoints_enabled: true
+  landmark_checkpoints:
+    milestone_oaks_lab:
+      label: "里程碑：大木研究所"
+      map_id: 40
+      max_party_size: 0
+      max_badges: 0
+    milestone_first_pokemon:
+      label: "里程碑：获得第一只宝可梦"
+      min_party_size: 1
+      max_badges: 0
+    milestone_route_1:
+      label: "里程碑：1号道路"
+      map_id: 12
+      min_party_size: 1
+      max_badges: 0
+    milestone_viridian_city:
+      label: "里程碑：常青市"
+      map_id: 1
+      min_party_size: 1
+      max_badges: 0
 
 ai:
   model: ""  # 在这里填写模型 ID，或通过 AI_MODEL 提供
@@ -55,9 +78,10 @@ navigation:
   max_plan_path_length: 24
 
 decision:
-  pure_llm_mode: false  # Disable deterministic control stages and rely on the main model only
-  strict_response_format: true  # Repair invalid model output instead of inferring missing fields heuristically
-  retry_same_turn_on_ai_error: true  # In pure-LLM mode, retry transient AI failures without spending a gameplay turn
+  pure_llm_mode: false  # 关闭确定性控制阶段，仅依赖主模型决策
+  research_mode: false  # 保留通用保护机制，但禁用固定路线脚本控制器
+  strict_response_format: true  # 模型输出格式不合法时进行修复，而不是启发式猜测缺失字段
+  retry_same_turn_on_ai_error: true  # 在 pure-LLM 模式下，AI 短暂失败时同一观察内重试，不消耗游戏回合
   same_turn_retry_max_attempts: 12
   same_turn_retry_timeout_seconds: 45
   same_turn_retry_min_delay_seconds: 0.25
@@ -88,8 +112,8 @@ performance:
   enable_caching: true
   cache_dir: "data/cache"
   parallel_agents: false  # 并行运行子智能体（实验性）
-  async_decisions: true  # Keep gameplay responsive by letting the model think in the background
-  visual_enabled: false  # Disable harness-side pixel CV; rely on raw screenshots plus RAM
+  async_decisions: true  # 允许模型在后台思考，保持游戏主循环流畅
+  visual_enabled: false  # 关闭运行器侧像素视觉分析，依赖原始截图与 RAM
 
 visualization:
   enabled: true  # 启用基于Web的实时仪表板

@@ -19,6 +19,11 @@ def _checkpoint_turn_from_name(name: str) -> int:
         return -1
 
 
+def _default_checkpoint_kind(name: str) -> str:
+    """Infer a checkpoint kind from the directory name."""
+    return "turn" if _checkpoint_turn_from_name(name) >= 0 else "named"
+
+
 def build_checkpoint_metadata(
     *,
     name: str,
@@ -26,6 +31,8 @@ def build_checkpoint_metadata(
     current_state: Optional[Dict[str, Any]] = None,
     focus: Optional[str] = None,
     primary_goal: Optional[str] = None,
+    label: Optional[str] = None,
+    kind: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Build a compact checkpoint metadata record."""
     state = current_state or {}
@@ -37,7 +44,7 @@ def build_checkpoint_metadata(
     return {
         "turn": int(turn),
         "created_at": datetime.now().isoformat(),
-        "label": f"Turn {int(turn)}",
+        "label": label or f"Turn {int(turn)}",
         "position": {
             "map_id": position.get("map_id"),
             "x": position.get("x"),
@@ -49,6 +56,7 @@ def build_checkpoint_metadata(
         "screen_type": visual.get("screen_type"),
         "focus": focus,
         "primary_goal": primary_goal,
+        "kind": kind or _default_checkpoint_kind(name),
         "name": name,
     }
 
@@ -78,6 +86,7 @@ def load_checkpoint_metadata(checkpoint_dir: Path) -> Dict[str, Any]:
         "screen_type": None,
         "focus": None,
         "primary_goal": None,
+        "kind": _default_checkpoint_kind(checkpoint_dir.name),
         "name": checkpoint_dir.name,
     }
     if not metadata_path.exists():
@@ -104,18 +113,20 @@ def list_checkpoints(base_dir: str | Path, limit: Optional[int] = None) -> List[
     for entry in checkpoint_root.iterdir():
         if not entry.is_dir():
             continue
-        turn = _checkpoint_turn_from_name(entry.name)
-        if turn < 0:
+        if not (entry / "emulator.state").exists() and not (entry / "metadata.json").exists():
             continue
+        turn = _checkpoint_turn_from_name(entry.name)
         metadata = load_checkpoint_metadata(entry)
         metadata["path"] = str(entry)
-        metadata["turn"] = int(metadata.get("turn", turn) or turn)
+        metadata["turn"] = int(metadata.get("turn", turn if turn >= 0 else 0) or 0)
+        metadata["kind"] = str(metadata.get("kind") or _default_checkpoint_kind(entry.name))
         records.append(metadata)
 
     records.sort(
         key=lambda item: (
             int(item.get("turn", -1)),
             str(item.get("created_at") or ""),
+            str(item.get("name") or ""),
         ),
         reverse=True,
     )
@@ -124,10 +135,35 @@ def list_checkpoints(base_dir: str | Path, limit: Optional[int] = None) -> List[
     return records
 
 
+def list_startup_checkpoints(
+    base_dir: str | Path,
+    *,
+    recent_turn_limit: int = 8,
+) -> List[Dict[str, Any]]:
+    """List named checkpoints plus a bounded number of recent turn checkpoints."""
+    checkpoints = list_checkpoints(base_dir, limit=None)
+    named = [item for item in checkpoints if str(item.get("kind") or "") != "turn"]
+    turns = [item for item in checkpoints if str(item.get("kind") or "") == "turn"]
+
+    selected: List[Dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in named + turns[: max(0, int(recent_turn_limit))]:
+        name = str(item.get("name") or "")
+        if not name or name in seen:
+            continue
+        selected.append(item)
+        seen.add(name)
+    return selected
+
+
 def prune_old_checkpoints(base_dir: str | Path, keep_latest: int) -> List[Path]:
     """Delete older checkpoints beyond the latest N and return removed paths."""
     keep_latest = max(0, int(keep_latest))
-    checkpoints = list_checkpoints(base_dir)
+    checkpoints = [
+        item
+        for item in list_checkpoints(base_dir)
+        if str(item.get("kind") or "") == "turn"
+    ]
     if keep_latest == 0:
         doomed = checkpoints
     else:

@@ -1,0 +1,544 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_84300",
+  "start_turn": 21758,
+  "end_turn": 21778,
+  "turn_delta": 20,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 14,
+    "navigation_plan": 6
+  },
+  "decision_path_counts": {
+    "ai": 14,
+    "tool": 6
+  },
+  "final_state": {
+    "turn": 21778,
+    "timestamp": "2026-03-23T14:21:28.149817",
+    "position": {
+      "map_id": 1,
+      "x": 34,
+      "y": 10
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21778,
+      "local_analysis_enabled": false,
+      "screen_hash": "ade9d29102d0a189b285c8e1d997e5cb"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 46,
+      "total_tiles": 200,
+      "exploration_percent": 23.0
+    },
+    "navigation": {
+      "current_visit_count": 4,
+      "known_exits": {},
+      "blocked_directions": [
+        "up"
+      ],
+      "frontier_count": 45,
+      "nearest_frontier": {
+        "target": [
+          34,
+          10
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "right"
+        ],
+        "visit_count": 4,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "FF.FP????",
+        "??FF?????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                    ",
+          "                    ",
+          "  F            #    ",
+          "  FFFFFFFFFFFFF.FP  ",
+          "  F            FF   ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  F                 ",
+          "  FF                ",
+          "   F                ",
+          "   FF               "
+        ],
+        "prompt_rows": [
+          "????????????????????",
+          "????????????????????",
+          "??F????????????#????",
+          "??FFFFFFFFFFFFF.FP??",
+          "??F????????????FF???",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??F?????????????????",
+          "??FF????????????????",
+          "???F????????????????",
+          "???FF???????????????"
+        ],
+        "bounds": {
+          "min_x": 17,
+          "max_x": 36,
+          "min_y": 7,
+          "max_y": 30,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 34,
+          "y": 10
+        },
+        "explored_count": 46,
+        "frontier_count": 45,
+        "blocked_count": 1,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21759,
+      "action": "right",
+      "reasoning": "I am outside in town; up is cut off by the hedge and left runs into the house, while right shows clear open ground to keep exploring toward the town route.",
+      "result": "After right:; moved from (23,10) to (24,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21760,
+      "action": "right",
+      "reasoning": "I am outside in town, and the hedge directly above blocks upward movement while right still shows clear open ground along the route to keep leaving town.",
+      "result": "After right:; moved from (24,10) to (25,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21761,
+      "action": "right",
+      "reasoning": "I am outside in town, and the hedge directly above blocks moving up from here while right still shows continuous open ground along the hedge to search for the route out.",
+      "result": "After right:; moved from (25,10) to (26,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21762,
+      "action": "right",
+      "reasoning": "The hedge directly above blocks moving up, left would just backtrack along the same path, and right shows clear open ground with an unexplored tile to keep searching for the town exit.",
+      "result": "After right:; moved from (26,10) to (27,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 26,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21763,
+      "action": "right",
+      "reasoning": "The hedge directly above blocks moving up, left only backtracks along the same path, and right still shows continuous open ground to keep searching for the town exit.",
+      "result": "After right:; moved from (27,10) to (28,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21764,
+      "action": "right",
+      "reasoning": "This is the town overworld; up is blocked by the hedge in front of the Gym area, while right shows open path and continues the current search for the route or an opening around the hedge.",
+      "result": "After right:; moved from (28,10) to (29,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 28,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21765,
+      "action": "right",
+      "reasoning": "This is the town overworld; up is blocked by the hedge and Gym area, left only backtracks, and right shows continuous open ground to keep searching for the town exit.",
+      "result": "After right:; moved from (29,10) to (30,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 29,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21766,
+      "action": "right",
+      "reasoning": "I am outside in town; up is blocked by the hedge below the Gym and left only backtracks, while right still shows continuous open ground to keep searching for the route onward.",
+      "result": "After right:; moved from (30,10) to (31,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21767,
+      "action": "right",
+      "reasoning": "I am still outside in Pewter; the hedge and Gym area above continue to block a direct north path here, while right still shows visible open ground to keep searching for the opening toward the route out of town.",
+      "result": "After right:; moved from (31,10) to (32,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21768,
+      "action": "up",
+      "reasoning": "I am outside in Pewter by the Gym, and up is the key unexplored direction here that may be a gap through the hedge toward the visible building while right is about to run into the tree line.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21769,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (32, 10)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21770,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (32, 10)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21771,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (32, 10)",
+      "result": "After down:; moved from (32,10) to (32,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21772,
+      "action": "right",
+      "reasoning": "I am outside near the hedge by the Gym area; up from here would only approach the hedge wall, while right clearly moves me toward the visible opening beside the trees.",
+      "result": "After right:; moved from (32,11) to (33,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21773,
+      "action": "up",
+      "reasoning": "I am outside by the tree line, and up shows continuous walkable ground toward the hedge and house while farther right quickly runs into the trees, so moving up better checks for an opening.",
+      "result": "After up:; moved from (33,11) to (33,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21774,
+      "action": "right",
+      "reasoning": "This is the town overworld near the Gym; the hedge is directly above me and likely blocks going up here, while right still shows visible walkable ground along the hedge and tree line to search for an opening.",
+      "result": "After right:; moved from (33,10) to (34,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21775,
+      "action": "up",
+      "reasoning": "I am outside in Pewter by the Gym, and from this tile the path clearly continues upward along the tree line while right quickly runs into the trees and left would backtrack.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21776,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (34, 10)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21777,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (34, 10)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21778,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (34, 10)",
+      "result": null,
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    }
+  ]
+}

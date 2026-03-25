@@ -1,0 +1,769 @@
+{
+  "requested_checkpoint": "checkpoint_21818",
+  "restored_checkpoint": "checkpoint_21818",
+  "pure_llm_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_78400",
+  "start_turn": 21818,
+  "end_turn": 21858,
+  "turn_delta": 40,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "unknown": 1,
+    "bootstrap": 40
+  },
+  "decision_path_counts": {
+    "unknown": 1,
+    "tool": 40
+  },
+  "final_state": {
+    "turn": 21858,
+    "timestamp": "2026-03-23T13:56:12.945676",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21858,
+      "local_analysis_enabled": false,
+      "screen_hash": "cb37fc8208d71cb9486f2e4da6521366"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 39,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21818,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": null,
+      "decision_source": null,
+      "decision_path": null,
+      "screen_type": null,
+      "observed_screen_type": null,
+      "phase_hint": null,
+      "position": {
+        "map_id": null,
+        "x": null,
+        "y": null
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21819,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21820,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21821,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21822,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21823,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21824,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21825,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21826,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21827,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21828,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; screen changed from dialogue to overworld",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21829,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21830,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21831,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; screen changed from overworld to dialogue",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21832,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21833,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21834,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21835,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21836,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21837,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21838,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21839,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21840,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21841,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21842,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21843,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21844,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21845,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21846,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21847,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21848,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21849,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21850,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21851,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21852,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21853,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21854,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21855,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21856,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21857,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 21858,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": null,
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

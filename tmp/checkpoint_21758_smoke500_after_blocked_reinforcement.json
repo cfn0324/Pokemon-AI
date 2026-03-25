@@ -1,0 +1,1173 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_140700",
+  "start_turn": 21758,
+  "end_turn": 22258,
+  "turn_delta": 500,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "navigation_plan": 56
+  },
+  "decision_path_counts": {
+    "tool": 56
+  },
+  "final_state": {
+    "turn": 22258,
+    "timestamp": "2026-03-24T01:01:11.460082",
+    "position": {
+      "map_id": 1,
+      "x": 6,
+      "y": 4
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 22258,
+      "local_analysis_enabled": false,
+      "screen_hash": "49faedabcc4ec96a3d8c706b942da358"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 135,
+      "total_tiles": 200,
+      "exploration_percent": 67.5
+    },
+    "navigation": {
+      "current_visit_count": 6,
+      "known_exits": {},
+      "blocked_directions": [
+        "left",
+        "up"
+      ],
+      "frontier_count": 127,
+      "nearest_frontier": {
+        "target": [
+          6,
+          4
+        ],
+        "path": [],
+        "unknown_directions": [
+          "left",
+          "right"
+        ],
+        "visit_count": 6,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 1,
+          "src_x": 21,
+          "src_y": 10,
+          "dest_map": 44,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 2
+        },
+        {
+          "src_map": 1,
+          "src_x": 0,
+          "src_y": 17,
+          "dest_map": 33,
+          "dest_x": 39,
+          "dest_y": 9,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "????F????",
+        "????F????",
+        "FF??F????",
+        "????F????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                            ",
+          "                            ",
+          "        #                   ",
+          "        P                   ",
+          "        F                   ",
+          "        F                   ",
+          "    FF  F                   ",
+          "        F                   ",
+          "        F          # F F##  ",
+          "        F          FF.FW.F  ",
+          "        F          F F...F  ",
+          "        F          F FFFFF  ",
+          "        F          F F   #  ",
+          "        F          F F      ",
+          "  FFFFFFF         #F F      ",
+          "                 #FF F      ",
+          "  WFFFFFFFFFFFFFF.F# F      ",
+          "                 FF  F      ",
+          "                 FF  F      ",
+          "                 FF  F      ",
+          "                 FF  F      ",
+          "                 FF  F      ",
+          "                 FF  F      ",
+          "                 FF  F      "
+        ],
+        "prompt_rows": [
+          "????????????????????????????",
+          "????????????????????????????",
+          "????????#???????????????????",
+          "????????P???????????????????",
+          "????????F???????????????????",
+          "????????F???????????????????",
+          "????FF??F???????????????????",
+          "????????F???????????????????",
+          "????????F??????????#?F?F##??",
+          "????????F??????????FF.FW.F??",
+          "????????F??????????F?F...F??",
+          "????????F??????????F?FFFFF??",
+          "????????F??????????F?F???#??",
+          "????????F??????????F?F??????",
+          "??FFFFFFF?????????#F?F??????",
+          "?????????????????#FF?F??????",
+          "??WFFFFFFFFFFFFFF.F#?F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????",
+          "?????????????????FF??F??????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 25,
+          "min_y": 1,
+          "max_y": 24,
+          "width": 28,
+          "height": 24
+        },
+        "player": {
+          "x": 6,
+          "y": 4
+        },
+        "explored_count": 135,
+        "frontier_count": 127,
+        "blocked_count": 11,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 22203,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (14, 17)",
+      "result": "After left:; moved from (14,17) to (13,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 14,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22204,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (13, 17)",
+      "result": "After left:; moved from (13,17) to (12,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22205,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (12, 17)",
+      "result": "After left:; moved from (12,17) to (11,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 12,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22206,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (11, 17)",
+      "result": "After left:; moved from (11,17) to (10,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 11,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22207,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (10, 17)",
+      "result": "After left:; moved from (10,17) to (9,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 10,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22208,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (9, 17)",
+      "result": "After left:; moved from (9,17) to (8,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22209,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (8, 17)",
+      "result": "After left:; moved from (8,17) to (7,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 8,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22210,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (7, 17)",
+      "result": "After left:; moved from (7,17) to (6,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 7,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22211,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (6, 17)",
+      "result": "After left:; moved from (6,17) to (5,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22212,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (5, 17)",
+      "result": "After left:; moved from (5,17) to (4,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 5,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22213,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (4, 17)",
+      "result": "After left:; moved from (4,17) to (3,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 4,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22214,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (3, 17)",
+      "result": "After left:; moved from (3,17) to (2,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 3,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22215,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (2, 17)",
+      "result": "After left:; moved from (2,17) to (1,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 2,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22216,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (1, 17)",
+      "result": "After left:; moved from (1,17) to (0,17) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 1,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22217,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (0, 17)",
+      "result": "After left:; warped from map 1 (0,17) to map 33 (39,9)",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 0,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22218,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (39, 9)",
+      "result": "After left:; moved from (39,9) to (38,9) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 39,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22219,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (38, 9)",
+      "result": "After left:; moved from (38,9) to (37,9) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 38,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22220,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (37, 9)",
+      "result": "After left:; moved from (37,9) to (36,9) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 37,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22221,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (36, 9)",
+      "result": "After left:; moved from (36,9) to (35,9) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 36,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22222,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (35, 9)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22223,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (35, 9)",
+      "result": "After up:; moved from (35,9) to (35,8) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22224,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (35, 8)",
+      "result": "After up:; moved from (35,8) to (35,7) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22225,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (35, 7)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22226,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (35, 7)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22227,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (35, 7)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22228,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (35, 7)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22229,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (35, 7)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22230,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (35, 7)",
+      "result": "After right:; moved from (35,7) to (36,7) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 35,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22231,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (36, 7)",
+      "result": "After right:; moved from (36,7) to (37,7) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 36,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22232,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (37, 7)",
+      "result": "After right:; moved from (37,7) to (38,7) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 37,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22233,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (38, 7)",
+      "result": "After right:; moved from (38,7) to (39,7) on map 33",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 38,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22234,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (39, 7)",
+      "result": "After right:; warped from map 33 (39,7) to map 1 (0,15)",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 33,
+        "x": 39,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22235,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (0, 15)",
+      "result": "After right:; moved from (0,15) to (1,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 0,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22236,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (1, 15)",
+      "result": "After right:; moved from (1,15) to (2,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 1,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22237,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (2, 15)",
+      "result": "After right:; moved from (2,15) to (3,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 2,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22238,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (3, 15)",
+      "result": "After right:; moved from (3,15) to (4,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 3,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22239,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (4, 15)",
+      "result": "After right:; moved from (4,15) to (5,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 4,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22240,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (5, 15)",
+      "result": "After right:; moved from (5,15) to (6,15) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 5,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22241,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (6, 15)",
+      "result": "After right:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22242,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 15)",
+      "result": "After up:; moved from (6,15) to (6,14) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22243,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 14)",
+      "result": "After up:; moved from (6,14) to (6,13) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22244,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 13)",
+      "result": "After up:; moved from (6,13) to (6,12) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22245,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 12)",
+      "result": "After up:; moved from (6,12) to (6,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22246,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 11)",
+      "result": "After up:; moved from (6,11) to (6,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22247,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 10)",
+      "result": "After up:; moved from (6,10) to (6,9) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22248,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 9)",
+      "result": "After up:; moved from (6,9) to (6,8) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22249,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 8)",
+      "result": "After up:; moved from (6,8) to (6,7) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22250,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 7)",
+      "result": "After up:; moved from (6,7) to (6,6) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22251,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 6)",
+      "result": "After up:; moved from (6,6) to (6,5) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22252,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 5)",
+      "result": "After up:; moved from (6,5) to (6,4) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22253,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 4)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22254,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (6, 4)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22255,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (6, 4)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22256,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (6, 4)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22257,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (6, 4)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22258,
+      "action": "right",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction right from (6, 4)",
+      "result": null,
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 6,
+        "y": 4
+      },
+      "party_size": 1
+    }
+  ]
+}

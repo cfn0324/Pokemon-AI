@@ -1,0 +1,934 @@
+{
+  "requested_checkpoint": "latest",
+  "restored_checkpoint": "checkpoint_176700",
+  "pure_llm_mode": false,
+  "research_mode": true,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_177167",
+  "start_turn": 176700,
+  "end_turn": 177700,
+  "turn_delta": 1000,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai_error": 40
+  },
+  "decision_path_counts": {
+    "ai": 40
+  },
+  "final_state": {
+    "turn": 177700,
+    "timestamp": "2026-03-24T19:05:04.802543",
+    "position": {
+      "map_id": 0,
+      "x": 2,
+      "y": 10
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 177700,
+      "local_analysis_enabled": false,
+      "screen_hash": "998154009b203413b6d5e79dca320670"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 61,
+      "total_tiles": 200,
+      "exploration_percent": 30.5
+    },
+    "navigation": {
+      "current_visit_count": 974,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 51,
+      "nearest_frontier": null,
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            16
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 13,
+          "local_visit_pressure": 3,
+          "global_novelty_distance": 13,
+          "priority_score": 34.45,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            12,
+            12
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 12,
+          "local_visit_pressure": 3,
+          "global_novelty_distance": 12,
+          "priority_score": 33.05,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            8
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 9,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 5,
+          "priority_score": 31.1,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [
+        {
+          "src_map": 0,
+          "src_x": 5,
+          "src_y": 6,
+          "dest_map": 37,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        },
+        {
+          "src_map": 0,
+          "src_x": 12,
+          "src_y": 12,
+          "dest_map": 40,
+          "dest_x": 12,
+          "dest_y": 11,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "???F.FFW?",
+        "???F.F?F?",
+        "???F..FF?",
+        "???..F???",
+        "???FPF???",
+        "???F.F???",
+        "???FFFFFF",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 0,
+        "rows": [
+          "                 ",
+          "                 ",
+          "  #              ",
+          "                 ",
+          "   #       #F    ",
+          "  #.FFFFFFFFF    ",
+          "   FF            ",
+          "   FF            ",
+          "   FF  F    F#   ",
+          "   F.FFW    F    ",
+          "   F.F F         ",
+          "   F..FF   F     ",
+          "  #..F #         ",
+          "   FPF           ",
+          "   F.F     F     ",
+          "   FFFFFFFF.FFW  ",
+          "           F     ",
+          "           F     ",
+          "           F     ",
+          "           F     ",
+          "          #      ",
+          "                 ",
+          "                 "
+        ],
+        "prompt_rows": [
+          "?????????????????",
+          "?????????????????",
+          "??#??????????????",
+          "?????????????????",
+          "???#???????#F????",
+          "??#.FFFFFFFFF????",
+          "???FF????????????",
+          "???FF????????????",
+          "???FF??F????F#???",
+          "???F.FFW????F????",
+          "???F.F?F?????????",
+          "???F..FF???F?????",
+          "??#..F?#?????????",
+          "???FPF???????????",
+          "???F.F?????F?????",
+          "???FFFFFFFF.FFW??",
+          "???????????F?????",
+          "???????????F?????",
+          "???????????F?????",
+          "???????????F?????",
+          "??????????#??????",
+          "?????????????????",
+          "?????????????????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 14,
+          "min_y": -3,
+          "max_y": 19,
+          "width": 17,
+          "height": 23
+        },
+        "player": {
+          "x": 2,
+          "y": 10
+        },
+        "explored_count": 61,
+        "frontier_count": 51,
+        "blocked_count": 8,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 177661,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12D50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177662,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11A90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177663,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11E50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177664,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13ED0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177665,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C4986210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177666,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13D90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177667,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C134D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177668,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C10A50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177669,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177670,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11D10>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177671,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177672,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177673,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11D10>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177674,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177675,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C10A50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177676,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C134D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177677,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13D90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177678,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C4985F90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177679,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13D90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177680,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C134D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177681,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C10A50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177682,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177683,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11D10>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177684,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177685,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C49842D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177686,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C4986350>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177687,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177688,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11D10>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177689,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177690,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C10A50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177691,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C134D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177692,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13D90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177693,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C4986350>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177694,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C13D90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177695,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C134D0>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177696,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C10A50>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177697,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12210>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177698,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C11D10>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177699,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 177700,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000274C3C12E90>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": null,
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 2,
+        "y": 10
+      },
+      "party_size": 0
+    }
+  ]
+}

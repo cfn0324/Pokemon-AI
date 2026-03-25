@@ -41,6 +41,7 @@ from src.control.post_battle_intro_route import PostBattleIntroRouteController
 from src.runtime.checkpoints import (
     build_checkpoint_metadata,
     list_checkpoints,
+    list_startup_checkpoints,
     load_checkpoint_metadata,
     prune_old_checkpoints,
     write_checkpoint_metadata,
@@ -82,9 +83,13 @@ class PokemonAIAgent:
         self._planned_actions: List[str] = []
         self._planned_target: Optional[tuple] = None
         self._planned_reasoning: str = ""
+        self._pending_trigger_tile: Optional[Dict[str, tuple]] = None
+        self._temporarily_avoided_frontiers: Dict[tuple, int] = {}
+        self._temporarily_avoided_moves: Dict[tuple, int] = {}
         self._last_guidance_turn = 0
         self._last_screen_signature: Optional[tuple] = None
         self._stable_screen_turns = 0
+        self._active_landmark_checkpoints: set[str] = set()
         self._scripted_ui_actions: List[str] = []
         self._scripted_ui_reasoning: str = ""
         self._scripted_bootstrap_steps: List[Dict[str, str]] = []
@@ -103,6 +108,7 @@ class PokemonAIAgent:
         self._last_control_timestamp = None
         self._last_control_error = None
         self._phase_hint_turns_remaining = 0
+        self._startup_selection_pending = False
 
         # 初始化组件
         self._init_emulator()
@@ -196,27 +202,44 @@ class PokemonAIAgent:
             return
 
         self.decision_engine = DecisionEngine(
-            stages=[
-                ("bootstrap", self._stage_bootstrap_decision),
-                ("known_ui", self._stage_known_ui_decision),
-                ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
-                ("oak_lab_starter", self._stage_oak_lab_starter_decision),
-                ("oak_lab_rival_battle", self._stage_oak_lab_rival_battle_decision),
-                ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
-                ("dialogue_timing", self._stage_dialogue_timing_decision),
-                ("navigation_plan", self._stage_navigation_plan_decision),
-                ("pre_starter_recovery", self._stage_pre_starter_recovery_decision),
-                ("early_story_interaction", self._stage_early_story_interaction_decision),
-                ("dialogue_auto_advance", self._stage_dialogue_auto_advance_decision),
-                ("menu_auto_close", self._stage_menu_auto_close_decision),
-                ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
-            ],
+            stages=self._get_decision_stage_specs(),
             fallback=self._stage_ai_decision,
         )
 
     def _pure_llm_mode_enabled(self) -> bool:
         """Return whether deterministic control helpers should be disabled."""
         return bool(self.config.get("decision.pure_llm_mode", False))
+
+    def _research_mode_enabled(self) -> bool:
+        """Return whether fixed route-script controllers should be disabled."""
+        return bool(self.config.get("decision.research_mode", False))
+
+    def _get_decision_stage_specs(self) -> List[tuple]:
+        """Build the deterministic stage list for the current runtime mode."""
+        stage_specs = [
+            ("bootstrap", self._stage_bootstrap_decision),
+            ("known_ui", self._stage_known_ui_decision),
+            ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
+            ("oak_lab_starter", self._stage_oak_lab_starter_decision),
+            ("oak_lab_rival_battle", self._stage_oak_lab_rival_battle_decision),
+            ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
+            ("dialogue_timing", self._stage_dialogue_timing_decision),
+            ("navigation_plan", self._stage_navigation_plan_decision),
+            ("pre_starter_recovery", self._stage_pre_starter_recovery_decision),
+            ("early_story_interaction", self._stage_early_story_interaction_decision),
+            ("dialogue_auto_advance", self._stage_dialogue_auto_advance_decision),
+            ("menu_auto_close", self._stage_menu_auto_close_decision),
+            ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
+        ]
+        if not self._research_mode_enabled():
+            return stage_specs
+
+        disabled = {
+            "oak_lab_starter",
+            "oak_lab_rival_battle",
+            "post_battle_intro_route",
+        }
+        return [item for item in stage_specs if item[0] not in disabled]
 
     def _checkpoint_writes_enabled(self) -> bool:
         """Return whether the current run is allowed to write checkpoints."""
@@ -363,7 +386,7 @@ class PokemonAIAgent:
         self._clear_planned_actions()
         return {
             "action": "a",
-            "reasoning": "Auto: advance dialogue",
+            "reasoning": "自动处理：推进当前对话",
             "goal_update": None,
             "recorded_in_context": False,
         }
@@ -374,7 +397,7 @@ class PokemonAIAgent:
         self._clear_planned_actions()
         return {
             "action": "b",
-            "reasoning": f"Auto: close early-game {context.screen_type} to return to the main scene",
+            "reasoning": f"自动处理：关闭早期流程中的 {context.screen_type} 界面，回到主场景",
             "goal_update": None,
             "recorded_in_context": False,
         }
@@ -385,7 +408,7 @@ class PokemonAIAgent:
         self._clear_planned_actions()
         return {
             "action": "b",
-            "reasoning": "Auto: conservative recovery while text-entry detection is active and the API is cooling down",
+            "reasoning": "自动处理：检测到文本输入界面且 API 正在冷却，执行保守恢复",
             "goal_update": None,
             "recorded_in_context": False,
         }
@@ -494,6 +517,7 @@ class PokemonAIAgent:
             self.logger.info(f"\n{state_text}")
 
         self.progress_tracker.update(self.turn_count, current_state)
+        self._maybe_save_landmark_checkpoints(current_state)
 
         if self.config.get("logging.save_screenshots") and self.turn_count % 50 == 0:
             self._save_screenshot()
@@ -508,10 +532,14 @@ class PokemonAIAgent:
                 self.logger.warning("Agent appears stuck in pure-LLM mode")
                 self._clear_planned_actions()
                 self.action_executor.reset_stuck_detection()
+            elif self.config.get("testing.disable_stuck_critique", False):
+                self.logger.warning("Agent appears stuck; skipping critique in testing mode")
+                self._clear_planned_actions()
+                self.action_executor.reset_stuck_detection()
             else:
                 self.logger.warning("Agent appears stuck; requesting critique")
                 if self.config.get("visualization.enabled", True):
-                    self.visualizer.log_event("error", "Agent appears stuck; requesting critique")
+                    self.visualizer.log_event("error", "智能体疑似卡住，正在请求纠偏")
                 self._handle_stuck_state(current_state)
                 self.action_executor.reset_stuck_detection()
 
@@ -545,7 +573,7 @@ class PokemonAIAgent:
             move = self._choose_recovery_move(current_state)
             decision = {
                 "action": move,
-                "reasoning": f"Auto: move away after dialogue (suppressed {decision.get('action')})",
+                "reasoning": f"自动处理：对话结束后先离开当前位置（已压制 {decision.get('action')}）",
                 "goal_update": None,
                 "recorded_in_context": False,
                 "decision_path": "tool",
@@ -605,7 +633,7 @@ class PokemonAIAgent:
             and self.turn_count - self.last_checkpoint_turn >= checkpoint_interval
         ):
             if self.config.get("visualization.enabled", True):
-                self.visualizer.log_event("milestone", f"Turn {self.turn_count} checkpoint saved")
+                self.visualizer.log_event("milestone", f"第 {self.turn_count} 回合已自动保存检查点")
             self._save_checkpoint()
             self.last_checkpoint_turn = self.turn_count
 
@@ -627,6 +655,12 @@ class PokemonAIAgent:
         if result:
             self.main_agent.record_action_outcome(result)
 
+        self._update_trigger_tile_memory(
+            self._last_observed_state,
+            current_state,
+            self._last_action,
+        )
+
         if self._last_action in {"up", "down", "left", "right"}:
             prev_pos = self._last_observed_state.get("memory", {}).get("position", {})
             curr_pos = current_state.get("memory", {}).get("position", {})
@@ -644,6 +678,7 @@ class PokemonAIAgent:
             blocked_ui = {
                 "dialogue",
                 "text_entry",
+                "startup",
                 "title",
                 "startup_menu",
                 "options_menu",
@@ -670,6 +705,142 @@ class PokemonAIAgent:
                     self._last_action,
                 )
                 self._clear_planned_actions()
+
+    def _update_trigger_tile_memory(
+        self,
+        previous_state: dict,
+        current_state: dict,
+        action: Optional[str],
+    ) -> None:
+        """Remember immediate retreat loops and avoid re-targeting the same losing step."""
+        directions = {"up", "down", "left", "right"}
+        prev_memory = previous_state.get("memory", {}) or {}
+        curr_memory = current_state.get("memory", {}) or {}
+        prev_pos = prev_memory.get("position", {}) or {}
+        curr_pos = curr_memory.get("position", {}) or {}
+        prev_ui = prev_memory.get("ui", {}) or {}
+        curr_ui = curr_memory.get("ui", {}) or {}
+        prev_visual = previous_state.get("visual", {}) or {}
+        curr_visual = current_state.get("visual", {}) or {}
+        prev_screen = (
+            prev_visual.get("screen_type")
+            or prev_visual.get("ram_screen_type")
+        )
+        curr_screen = (
+            curr_visual.get("screen_type")
+            or curr_visual.get("ram_screen_type")
+        )
+        blocked_ui = {
+            "dialogue",
+            "text_entry",
+            "startup",
+            "title",
+            "startup_menu",
+            "options_menu",
+            "naming_screen",
+            "menu",
+            "pokemon_menu",
+            "item_menu",
+            "save_menu",
+        }
+        prev_tuple = (
+            int(prev_pos.get("map_id", 0) or 0),
+            int(prev_pos.get("x", 0) or 0),
+            int(prev_pos.get("y", 0) or 0),
+        )
+        curr_tuple = (
+            int(curr_pos.get("map_id", 0) or 0),
+            int(curr_pos.get("x", 0) or 0),
+            int(curr_pos.get("y", 0) or 0),
+        )
+        moved = prev_tuple != curr_tuple
+        pending = getattr(self, "_pending_trigger_tile", None)
+
+        if pending:
+            origin = pending.get("origin")
+            trigger = pending.get("trigger")
+            if curr_memory.get("in_battle"):
+                self._pending_trigger_tile = None
+            elif action in directions and prev_tuple == trigger and curr_tuple == origin:
+                trigger_direction = self._direction_between_positions(origin, trigger)
+                if trigger_direction:
+                    self._mark_temporarily_avoided_move(origin, trigger_direction)
+                    ui_driven_retreat = (
+                        bool(prev_ui.get("text_box_active"))
+                        or bool(curr_ui.get("text_box_active"))
+                        or bool(prev_ui.get("menu_active"))
+                        or bool(curr_ui.get("menu_active"))
+                        or prev_screen in blocked_ui
+                        or curr_screen in blocked_ui
+                    )
+                    if not ui_driven_retreat:
+                        self._record_failed_move_evidence(origin, trigger_direction, attempts=2)
+                self._mark_temporarily_avoided_frontier(origin)
+                self._mark_temporarily_avoided_frontier(trigger)
+                self._pending_trigger_tile = None
+                return
+            elif moved and curr_tuple != trigger:
+                self._pending_trigger_tile = None
+
+        if (
+            action in directions
+            and moved
+            and not curr_memory.get("in_battle")
+        ):
+            self._pending_trigger_tile = {
+                "origin": prev_tuple,
+                "trigger": curr_tuple,
+            }
+        elif action in directions and moved:
+            self._pending_trigger_tile = None
+
+    def _direction_between_positions(
+        self,
+        origin: Optional[tuple],
+        target: Optional[tuple],
+    ) -> Optional[str]:
+        """Return the cardinal step from origin to target when they are adjacent."""
+        if not origin or not target or len(origin) != 3 or len(target) != 3:
+            return None
+        if int(origin[0]) != int(target[0]):
+            return None
+
+        dx = int(target[1]) - int(origin[1])
+        dy = int(target[2]) - int(origin[2])
+        mapping = {
+            (0, -1): "up",
+            (0, 1): "down",
+            (-1, 0): "left",
+            (1, 0): "right",
+        }
+        return mapping.get((dx, dy))
+
+    def _record_failed_move_evidence(
+        self,
+        origin: Optional[tuple],
+        direction: Optional[str],
+        *,
+        attempts: int = 1,
+    ) -> None:
+        """Promote repeated retreat loops into persistent blocked-move evidence."""
+        recorder = getattr(getattr(self, "map_memory", None), "record_failed_move", None)
+        if not callable(recorder):
+            return
+        if not origin or len(origin) != 3:
+            return
+
+        normalized = (direction or "").strip().lower()
+        if normalized not in {"up", "down", "left", "right"}:
+            return
+
+        count = max(1, int(attempts or 1))
+        for _ in range(count):
+            recorder(
+                int(origin[0]),
+                int(origin[1]),
+                int(origin[2]),
+                normalized,
+            )
 
     def _summarize_action_outcome(
         self,
@@ -755,12 +926,188 @@ class PokemonAIAgent:
             return planned
         return self._get_ai_decision_responsive(current_state, state_text, screenshot_bytes)
 
+    def _prune_temporarily_avoided_frontiers(self) -> None:
+        """Drop expired temporary frontier blacklists."""
+        avoided = getattr(self, "_temporarily_avoided_frontiers", None) or {}
+        now = int(getattr(self, "turn_count", 0) or 0)
+        self._temporarily_avoided_frontiers = {
+            key: expiry
+            for key, expiry in avoided.items()
+            if int(expiry) > now
+        }
+
+    def _prune_temporarily_avoided_moves(self) -> None:
+        """Drop expired temporary movement blacklists."""
+        avoided = getattr(self, "_temporarily_avoided_moves", None) or {}
+        now = int(getattr(self, "turn_count", 0) or 0)
+        self._temporarily_avoided_moves = {
+            key: expiry
+            for key, expiry in avoided.items()
+            if int(expiry) > now
+        }
+
+    def _mark_temporarily_avoided_frontier(self, target: tuple) -> None:
+        """Temporarily stop the planner from re-targeting a looping trigger tile."""
+        if not isinstance(target, tuple) or len(target) != 3:
+            return
+
+        self._prune_temporarily_avoided_frontiers()
+        ttl = max(1, int(self.config.get("navigation.trigger_tile_avoid_turns", 120) or 120))
+        self._temporarily_avoided_frontiers[target] = int(getattr(self, "turn_count", 0) or 0) + ttl
+        self._clear_planned_actions()
+        self.logger.info(
+            "Temporarily avoiding frontier tile %s after an immediate trigger-tile retreat loop",
+            target,
+        )
+
+    def _mark_temporarily_avoided_move(
+        self,
+        origin: tuple,
+        direction: str,
+    ) -> None:
+        """Temporarily stop the planner from repeating a looping trigger step."""
+        if not isinstance(origin, tuple) or len(origin) != 3:
+            return
+        normalized = (direction or "").strip().lower()
+        if normalized not in {"up", "down", "left", "right"}:
+            return
+
+        self._prune_temporarily_avoided_moves()
+        ttl = max(1, int(self.config.get("navigation.trigger_tile_avoid_turns", 120) or 120))
+        key = (
+            int(origin[0]),
+            int(origin[1]),
+            int(origin[2]),
+            normalized,
+        )
+        self._temporarily_avoided_moves[key] = int(getattr(self, "turn_count", 0) or 0) + ttl
+        self._clear_planned_actions()
+        self.logger.info(
+            "Temporarily avoiding move %s from %s after an immediate trigger-tile retreat loop",
+            normalized,
+            origin,
+        )
+
+    def _is_temporarily_avoided_frontier(
+        self,
+        map_id: int,
+        target: Any,
+    ) -> bool:
+        """Return whether a frontier target is temporarily blacklisted."""
+        self._prune_temporarily_avoided_frontiers()
+        if not isinstance(target, (tuple, list)) or len(target) < 2:
+            return False
+        key = (
+            int(map_id or 0),
+            int(target[0] or 0),
+            int(target[1] or 0),
+        )
+        return key in self._temporarily_avoided_frontiers
+
+    def _is_temporarily_avoided_move(
+        self,
+        position: Any,
+        direction: str,
+    ) -> bool:
+        """Return whether a local step is temporarily blacklisted."""
+        self._prune_temporarily_avoided_moves()
+        if not isinstance(position, tuple) or len(position) != 3:
+            return False
+        normalized = (direction or "").strip().lower()
+        if normalized not in {"up", "down", "left", "right"}:
+            return False
+        key = (
+            int(position[0]),
+            int(position[1]),
+            int(position[2]),
+            normalized,
+        )
+        return key in self._temporarily_avoided_moves
+
+    @staticmethod
+    def _frontier_plan_priority_key(frontier: dict) -> tuple:
+        """Return a stable frontier preference key where lower is better."""
+        target = frontier.get("target") or frontier.get("position") or (999, 999)
+        tx = int(target[0]) if isinstance(target, (tuple, list)) and len(target) >= 2 else 999
+        ty = int(target[1]) if isinstance(target, (tuple, list)) and len(target) >= 2 else 999
+        return (
+            -float(frontier.get("priority_score", 0.0) or 0.0),
+            len(frontier.get("path", []) or []),
+            int(frontier.get("local_visit_pressure", 0) or 0),
+            int(frontier.get("visit_count", 0) or 0),
+            -int(frontier.get("global_novelty_distance", 0) or 0),
+            int(frontier.get("distance", 999) or 999),
+            ty,
+            tx,
+        )
+
+    def _get_navigation_frontier_plan(self, current_state: dict) -> Optional[dict]:
+        """Return the best reachable frontier plan after temporary trigger-tile filtering."""
+        navigation = current_state.get("navigation", {}) or {}
+        position = current_state.get("memory", {}).get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        x = int(position.get("x", 0) or 0)
+        y = int(position.get("y", 0) or 0)
+        start = (x, y)
+        start_key = (map_id, x, y)
+        max_depth = int(self.config.get("navigation.max_plan_path_length", 24) or 24)
+
+        preferred = navigation.get("nearest_frontier")
+        preferred_path = list((preferred or {}).get("path", []) or [])
+        preferred_first_step = preferred_path[0] if preferred_path else None
+        if (
+            preferred
+            and not self._is_temporarily_avoided_frontier(map_id, preferred.get("target"))
+            and not self._is_temporarily_avoided_move(start_key, preferred_first_step or "")
+        ):
+            return preferred
+
+        frontier_reader = getattr(self.map_memory, "get_frontier_tiles", None)
+        pathfinder = getattr(self.map_memory, "find_shortest_path", None)
+        if not frontier_reader or not pathfinder:
+            return None
+
+        best: Optional[dict] = None
+        for frontier in frontier_reader(map_id, current_position=start):
+            target = frontier.get("position")
+            if self._is_temporarily_avoided_frontier(map_id, target):
+                continue
+
+            path = pathfinder(map_id, start, target, max_depth=max_depth)
+            if path is None and tuple(target or ()) != start:
+                continue
+            if path and self._is_temporarily_avoided_move(start_key, path[0]):
+                continue
+
+            candidate = {
+                "target": target,
+                "path": path or [],
+                "unknown_directions": frontier.get("unknown_directions", []),
+                "visit_count": frontier.get("visit_count", 0),
+                "distance": frontier.get("distance", 999),
+                "local_visit_pressure": frontier.get("local_visit_pressure", 0),
+                "global_novelty_distance": frontier.get("global_novelty_distance", 0),
+                "priority_score": frontier.get("priority_score", 0.0),
+                "novelty_label": frontier.get("novelty_label", "unknown"),
+            }
+
+            if best is None:
+                best = candidate
+                continue
+
+            candidate_key = self._frontier_plan_priority_key(candidate)
+            best_key = self._frontier_plan_priority_key(best)
+            if candidate_key < best_key:
+                best = candidate
+
+        return best
+
     def _get_navigation_plan_decision(
         self,
         current_state: dict,
         screen_type: Optional[str],
     ) -> Optional[dict]:
-        """Return a deterministic frontier-following step when the agent is stalled."""
+        """Return a deterministic frontier-following step when the route is obvious."""
         if screen_type not in {"overworld", "indoor", "memory_only", None}:
             self._clear_planned_actions()
             return None
@@ -781,56 +1128,98 @@ class PokemonAIAgent:
                 "recorded_in_context": False,
             }
 
-        if stall_turns < threshold:
-            return None
-
         navigation = current_state.get("navigation", {})
-        frontier_plan = navigation.get("nearest_frontier")
-        if not frontier_plan:
-            pos = current_state.get("memory", {}).get("position", {})
-            frontier_plan = self.map_memory.find_path_to_nearest_frontier(
-                int(pos.get("map_id", 0)),
-                int(pos.get("x", 0)),
-                int(pos.get("y", 0)),
-                max_depth=int(self.config.get("navigation.max_plan_path_length", 24) or 24),
+        badge_count = int(current_state.get("memory", {}).get("badge_count", 0) or 0)
+        current_visit_count = int(navigation.get("current_visit_count", 0) or 0)
+        proactive_before_first_badge = bool(
+            self.config.get("navigation.proactive_frontier_before_first_badge", True)
+        )
+        proactive_visit_threshold = max(
+            1,
+            int(self.config.get("navigation.proactive_frontier_visit_threshold", 4) or 4),
+        )
+        proactive_plan = (
+            not current_state.get("pre_world")
+            and not current_state.get("pre_starter_script")
+            and (
+                (
+                    proactive_before_first_badge
+                    and badge_count == 0
+                )
+                or
+                current_visit_count >= proactive_visit_threshold
             )
-
-        if not frontier_plan:
+        )
+        if not proactive_plan and stall_turns < threshold:
             return None
 
-        path = list(frontier_plan.get("path", []))
-        target = frontier_plan.get("target")
-        self._planned_target = tuple(target) if isinstance(target, (list, tuple)) else target
+        position = current_state.get("memory", {}).get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        x = int(position.get("x", 0) or 0)
+        y = int(position.get("y", 0) or 0)
+        current_tile = (x, y)
 
-        if path:
-            self._planned_actions = path[1:]
-            route_preview = ", ".join(path[:10])
-            self._planned_reasoning = (
-                f"Planner: follow learned route toward frontier {self._planned_target} "
-                f"via {route_preview}"
-            )
-            return {
-                "action": path[0],
-                "reasoning": self._planned_reasoning,
-                "goal_update": None,
-                "recorded_in_context": False,
-            }
+        for _ in range(2):
+            frontier_plan = self._get_navigation_frontier_plan(current_state)
+            if not frontier_plan:
+                return None
 
-        frontier_direction = self._choose_frontier_direction(
-            current_state,
-            frontier_plan.get("unknown_directions", []),
-        )
-        if frontier_direction:
-            reasoning = (
-                f"Planner: current tile is already a frontier; test unexplored direction "
-                f"{frontier_direction} from {self._planned_target}"
+            path = list(frontier_plan.get("path", []))
+            target = frontier_plan.get("target")
+            self._planned_target = tuple(target) if isinstance(target, (list, tuple)) else target
+            movement_pattern = current_state.get("movement_pattern", {}) or {}
+            loop_warning = bool(movement_pattern.get("micro_loop_warning"))
+            loop_visit_threshold = max(
+                1,
+                int(self.config.get("navigation.loop_warning_visit_threshold", 12) or 12),
             )
-            return {
-                "action": frontier_direction,
-                "reasoning": reasoning,
-                "goal_update": None,
-                "recorded_in_context": False,
-            }
+            if (
+                bool(self.config.get("navigation.defer_to_ai_on_loop_warning", True))
+                and loop_warning
+                and current_visit_count >= loop_visit_threshold
+                and not path
+                and tuple(target or ()) == current_tile
+            ):
+                self._clear_planned_actions()
+                return None
+
+            if path:
+                self._planned_actions = path[1:]
+                route_preview = ", ".join(path[:10])
+                novelty = frontier_plan.get("novelty_label", "unknown")
+                self._planned_reasoning = (
+                    f"Planner: follow learned route toward frontier {self._planned_target} "
+                    f"(novelty={novelty}, pressure={frontier_plan.get('local_visit_pressure', 0)}) "
+                    f"via {route_preview}"
+                )
+                return {
+                    "action": path[0],
+                    "reasoning": self._planned_reasoning,
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+
+            frontier_direction = self._choose_frontier_direction(
+                current_state,
+                frontier_plan.get("unknown_directions", []),
+            )
+            if frontier_direction:
+                novelty = frontier_plan.get("novelty_label", "unknown")
+                reasoning = (
+                    f"Planner: current tile is already a frontier; test unexplored direction "
+                    f"{frontier_direction} from {self._planned_target} "
+                    f"(novelty={novelty}, pressure={frontier_plan.get('local_visit_pressure', 0)})"
+                )
+                return {
+                    "action": frontier_direction,
+                    "reasoning": reasoning,
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+
+            if tuple(target or ()) == current_tile:
+                self._mark_temporarily_avoided_frontier((map_id, x, y))
+                continue
 
         return None
 
@@ -845,8 +1234,27 @@ class PokemonAIAgent:
 
         vision = current_state.get("visual", {}).get("navigation_hints", {})
         memory_blocked = set(current_state.get("navigation", {}).get("blocked_directions", []))
+        position = current_state.get("memory", {}).get("position", {}) or {}
+        start_key = (
+            int(position.get("map_id", 0) or 0),
+            int(position.get("x", 0) or 0),
+            int(position.get("y", 0) or 0),
+        )
         vision_blocked = set(vision.get("blocked_directions", []))
-        blocked = memory_blocked | vision_blocked
+        avoided = {
+            direction
+            for direction in candidate_directions
+            if self._is_temporarily_avoided_move(start_key, direction)
+        }
+        blocked = memory_blocked | vision_blocked | avoided
+
+        last_action = getattr(self, "_last_action", None)
+        if (
+            last_action in candidate_directions
+            and last_action not in blocked
+            and current_state.get("deltas", {}).get("position_changed")
+        ):
+            return last_action
 
         for direction in vision.get("walkable_directions", []):
             if direction in candidate_directions and direction not in blocked:
@@ -874,7 +1282,8 @@ class PokemonAIAgent:
             return
         if self.main_agent.is_in_api_cooldown():
             return
-        interval = int(self.config.get("ai.guidance_interval_turns", 25) or 25)
+        raw_interval = self.config.get("ai.guidance_interval_turns", 25)
+        interval = 25 if raw_interval is None else int(raw_interval)
         if interval <= 0:
             return
         if self.turn_count - self._last_guidance_turn < interval:
@@ -884,7 +1293,7 @@ class PokemonAIAgent:
             return
         if self._is_early_fixed_route_state(current_state):
             return
-        if screen_type in {"dialogue", "text_entry", "title", "startup_menu", "options_menu", "naming_screen"}:
+        if screen_type in {"dialogue", "text_entry", "startup", "title", "startup_menu", "options_menu", "naming_screen"}:
             return
 
         critique = self.critic.critique(self._build_critic_history_text(), current_state)
@@ -905,6 +1314,8 @@ class PokemonAIAgent:
 
     def _is_early_fixed_route_state(self, current_state: dict) -> bool:
         """Return True when deterministic early-game routing should not trigger critique logic."""
+        if self._research_mode_enabled():
+            return False
         memory = current_state.get("memory", {}) or {}
         if memory.get("in_battle"):
             return False
@@ -999,6 +1410,7 @@ class PokemonAIAgent:
 
         observed = (observed_screen_type or "").strip().lower()
         if observed in {
+            "startup",
             "dialogue",
             "text_entry",
             "naming_screen",
@@ -1030,6 +1442,7 @@ class PokemonAIAgent:
         if memory.get("in_battle"):
             return "battle"
         if screen_type in {
+            "startup",
             "dialogue",
             "text_entry",
             "naming_screen",
@@ -1143,6 +1556,49 @@ class PokemonAIAgent:
             self.visualizer.update_goals(self.main_agent.goals.get_dashboard_items())
         self._broadcast_control_state()
 
+    def _capture_startup_preview_frame(self, warmup_frames: int = 0):
+        """Capture a startup preview frame before the main turn loop begins."""
+        screen_image = self.emulator.get_screen_image()
+        remaining = max(0, int(warmup_frames or 0))
+        step = 12
+
+        while remaining > 0 and self._is_transition_frame(screen_image):
+            tick_frames = min(step, remaining)
+            self.emulator.tick(max(1, tick_frames))
+            remaining -= tick_frames
+            screen_image = self.emulator.get_screen_image()
+
+        if self._is_transition_frame(screen_image):
+            return self._capture_observation_frame()
+        return screen_image
+
+    def _publish_visualizer_preview(self, warmup_frames: int = 0) -> None:
+        """Publish one non-turn-consuming snapshot for the dashboard."""
+        if not self.config.get('visualization.enabled', True):
+            return
+        if not all(hasattr(self, attr) for attr in ("visualizer", "emulator", "game_state", "main_agent")):
+            return
+        if not hasattr(self.visualizer, "update_state") or not hasattr(self.visualizer, "update_screenshot"):
+            return
+
+        screen_image = self._capture_startup_preview_frame(warmup_frames=warmup_frames)
+        current_state = self.game_state.update(screen_image=screen_image)
+        current_state["turn"] = self.turn_count
+        self._last_observed_state = current_state
+
+        try:
+            if hasattr(self.main_agent, 'goals') and self.main_agent.goals:
+                self.main_agent.goals.sync_with_game_state(current_state)
+
+            self.visualizer.update_state(current_state)
+            if screen_image:
+                self.visualizer.update_screenshot(screen_image, force=True)
+            if hasattr(self.main_agent, 'goals') and self.main_agent.goals and hasattr(self.visualizer, "update_goals"):
+                self.visualizer.update_goals(self.main_agent.goals.get_dashboard_items())
+            self._broadcast_control_state()
+        finally:
+            self.game_state.reset_tracking(turn_count=self.turn_count)
+
     def _publish_post_action_screenshot(self) -> None:
         """Push the latest post-action frame so the dashboard is not one action behind."""
         if not self.config.get('visualization.enabled', True):
@@ -1196,7 +1652,7 @@ class PokemonAIAgent:
         self._apply_screen_type_hint(current_state, screen_image)
         self._publish_visualizer_state(current_state, screen_image)
         self.progress_tracker.update(self.turn_count, current_state)
-        self.visualizer.update_decision(action, f"Manual control: {action}", self.turn_count)
+        self.visualizer.update_decision(action, f"手动控制：{action}", self.turn_count)
         self.visualizer.log_event('info', f'手动操作: {action}')
         self._last_observed_state = current_state
         self._last_action = None
@@ -1244,6 +1700,8 @@ class PokemonAIAgent:
 
     def get_visualizer_control_state(self) -> dict:
         """Expose dashboard control state for the web UI."""
+        checkpoints = self.get_available_checkpoints(limit=1)
+        latest_checkpoint = checkpoints[0]["name"] if checkpoints else None
         with self._control_lock:
             return {
                 "running": self.running and self.emulator.is_running(),
@@ -1253,6 +1711,12 @@ class PokemonAIAgent:
                 "last_command": self._last_control_command,
                 "last_command_at": self._last_control_timestamp,
                 "last_error": self._last_control_error,
+                "checkpoint_count": len(self.get_available_checkpoints(limit=None)),
+                "latest_checkpoint": latest_checkpoint,
+                "restored_checkpoint": self._restored_checkpoint_name,
+                "auto_resume_latest_checkpoint": bool(
+                    self.config.get("game.auto_resume_latest_checkpoint", False)
+                ),
                 "turn": self.turn_count,
             }
 
@@ -1580,7 +2044,7 @@ class PokemonAIAgent:
         """Return a lightweight placeholder while the model thinks in the background."""
         return {
             "action": "wait",
-            "reasoning": "AI is thinking in the background; keep the game running in real time.",
+            "reasoning": "AI 正在后台思考，当前回合先轻量等待以保持游戏实时运行。",
             "goal_update": None,
             "recorded_in_context": True,
             "executor": "async_background_wait",
@@ -1609,28 +2073,35 @@ class PokemonAIAgent:
         if screen_type == "title":
             return {
                 "action": "start",
-                "reasoning": "Auto: advance past the title screen",
+                "reasoning": "自动处理：越过标题画面",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        if screen_type == "startup":
+            return {
+                "action": "wait",
+                "reasoning": "自动处理：等待启动过渡画面结束",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
         if screen_type == "startup_menu":
             return {
                 "action": "a",
-                "reasoning": "Auto: confirm the pre-game NEW GAME menu",
+                "reasoning": "自动处理：确认开局菜单中的新游戏",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
         if screen_type == "options_menu":
             return {
                 "action": "b",
-                "reasoning": "Auto: exit the options/config menu",
+                "reasoning": "自动处理：退出设置菜单",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
         if screen_type == "naming_screen":
             if not self._scripted_ui_actions:
                 self._scripted_ui_actions = ["up", "up", "a", "start"]
-                self._scripted_ui_reasoning = "Auto: enter a short one-letter name and confirm"
+                self._scripted_ui_reasoning = "自动处理：输入一个简短单字名并确认"
             action = self._scripted_ui_actions.pop(0)
             return {
                 "action": action,
@@ -1668,7 +2139,7 @@ class PokemonAIAgent:
         if current_state.get("pre_starter_script") and not local_analysis_enabled:
             return {
                 "action": "a",
-                "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+                "reasoning": "自动处理：快速推进获得第一只宝可梦前的开场对话",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
@@ -1677,7 +2148,7 @@ class PokemonAIAgent:
         if wait_streak >= required_wait_streak:
             return {
                 "action": "a",
-                "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+                "reasoning": "自动处理：当前页渲染完成后，定期推进对话",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
@@ -1687,13 +2158,13 @@ class PokemonAIAgent:
         if self._last_action == "a" or change_amount > 0.003 or self._stable_screen_turns <= 2:
             return {
                 "action": "wait",
-                "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+                "reasoning": "自动处理：先等待当前对话页渲染完毕，再继续推进",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
         return {
             "action": "a",
-            "reasoning": "Auto: advance the current dialogue page once the text is stable",
+            "reasoning": "自动处理：文本稳定后推进当前对话页",
             "goal_update": None,
             "recorded_in_context": False,
         }
@@ -1726,7 +2197,7 @@ class PokemonAIAgent:
 
         return {
             "action": "a",
-            "reasoning": "Auto: early-story stall with no Pokemon; try interacting with the current blocker or object",
+            "reasoning": "自动处理：早期流程无宝可梦且停滞，尝试与当前阻挡物或目标交互",
             "goal_update": None,
             "recorded_in_context": False,
         }
@@ -1739,6 +2210,8 @@ class PokemonAIAgent:
         """When the model is unreliable early on, keep exploring instead of idling forever."""
         memory = current_state.get("memory", {})
         if memory.get("party") or memory.get("in_battle"):
+            return None
+        if current_state.get("pre_world"):
             return None
         if screen_type not in {"overworld", "indoor", "memory_only", None}:
             return None
@@ -1755,7 +2228,7 @@ class PokemonAIAgent:
             if direction not in blocked:
                 return {
                     "action": direction,
-                    "reasoning": f"Auto: pre-starter recovery; keep exploring via visible walkable direction {direction}",
+                    "reasoning": f"自动处理：开局前恢复阶段，沿可见可通行方向 {direction} 继续探索",
                     "goal_update": None,
                     "recorded_in_context": False,
                 }
@@ -1764,7 +2237,7 @@ class PokemonAIAgent:
             if direction not in blocked:
                 return {
                     "action": direction,
-                    "reasoning": f"Auto: pre-starter recovery; probe direction {direction} instead of idling",
+                    "reasoning": f"自动处理：开局前恢复阶段，尝试方向 {direction}，避免原地空转",
                     "goal_update": None,
                     "recorded_in_context": False,
                 }
@@ -1783,7 +2256,7 @@ class PokemonAIAgent:
         if screen_type == "dialogue" and self._recent_actions_are_same("a", 6):
             return {
                 "action": "b",
-                "reasoning": "Auto: repeated A did not change a dialogue-labeled screen; back out to escape a false dialogue detection",
+                "reasoning": "自动处理：连续按 A 后对话界面未变化，先返回以摆脱误判的对话状态",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
@@ -1792,14 +2265,14 @@ class PokemonAIAgent:
             if self._recent_actions_are_same("a", 6):
                 return {
                     "action": "b",
-                    "reasoning": "Auto: repeated A did not change the current UI; cancel/back out",
+                    "reasoning": "自动处理：连续按 A 后当前界面无变化，尝试取消或返回",
                     "goal_update": None,
                     "recorded_in_context": False,
                 }
             if self._recent_actions_are_same("b", 6):
                 return {
                     "action": "start",
-                    "reasoning": "Auto: repeated B did not change the current UI; try Start as a secondary escape",
+                    "reasoning": "自动处理：连续按 B 后当前界面无变化，尝试用 Start 作为第二逃逸手段",
                     "goal_update": None,
                     "recorded_in_context": False,
                 }
@@ -1930,7 +2403,7 @@ class PokemonAIAgent:
         if checkpoint_name.lower() == "latest":
             checkpoints = self.get_available_checkpoints(limit=1)
             if not checkpoints:
-                raise FileNotFoundError(f"No checkpoints found in {root}")
+                raise FileNotFoundError(f"在 {root} 中未找到任何存档")
             return Path(checkpoints[0]["path"])
 
         candidate = root / checkpoint_name
@@ -1942,7 +2415,7 @@ class PokemonAIAgent:
             if candidate.exists():
                 return candidate
 
-        raise FileNotFoundError(f"Checkpoint not found: {checkpoint_name}")
+        raise FileNotFoundError(f"未找到存档：{checkpoint_name}")
 
     def _maybe_restore_initial_checkpoint(self) -> None:
         """Auto-resume from a configured checkpoint when requested."""
@@ -1959,11 +2432,11 @@ class PokemonAIAgent:
         checkpoint_dir = self._resolve_checkpoint_dir(checkpoint_name)
         emulator_state = checkpoint_dir / "emulator.state"
         if not emulator_state.exists():
-            raise FileNotFoundError(f"Checkpoint is missing emulator.state: {checkpoint_dir}")
+            raise FileNotFoundError(f"存档缺少 emulator.state 文件：{checkpoint_dir}")
 
         metadata = load_checkpoint_metadata(checkpoint_dir)
 
-        self.logger.info(f"Loading checkpoint from {checkpoint_dir}")
+        self.logger.info(f"正在从 {checkpoint_dir} 读取存档")
         self.emulator.load_state(str(emulator_state))
         self.main_agent.load_state(str(checkpoint_dir))
 
@@ -1996,6 +2469,8 @@ class PokemonAIAgent:
         self._last_screen_signature = None
         self._phase_hint_turns_remaining = 0
         self._restored_checkpoint_name = checkpoint_dir.name
+        self._active_landmark_checkpoints = set()
+        self._startup_selection_pending = False
 
         if pause_after_load:
             with self._control_lock:
@@ -2003,10 +2478,11 @@ class PokemonAIAgent:
 
         if self.config.get("visualization.enabled", True):
             self.visualizer.update_checkpoints(self.get_available_checkpoints())
-            self.visualizer.log_event("milestone", f"Restored {checkpoint_dir.name}")
+            self._publish_visualizer_preview(warmup_frames=0)
+            self.visualizer.log_event("milestone", f"已恢复存档 {checkpoint_dir.name}")
             self._broadcast_control_state()
 
-        self.logger.milestone(f"Restored checkpoint {checkpoint_dir.name}")
+        self.logger.milestone(f"已恢复存档 {checkpoint_dir.name}")
         return metadata
 
     def _save_screenshot(self) -> None:
@@ -2055,7 +2531,7 @@ class PokemonAIAgent:
         max_checkpoints = int(self.config.get("game.max_checkpoints", 0) or 0)
         removed = prune_old_checkpoints(self._checkpoint_root(), max_checkpoints) if max_checkpoints else []
         for removed_path in removed:
-            self.logger.info(f"Removed old checkpoint {removed_path.name}")
+            self.logger.info(f"已删除旧回合存档 {removed_path.name}")
 
         if self.config.get("visualization.enabled", True):
             self.visualizer.update_checkpoints(self.get_available_checkpoints())
@@ -2064,6 +2540,402 @@ class PokemonAIAgent:
 
         # 打印进度摘要
         self.logger.info("\n" + self.progress_tracker.get_progress_summary())
+
+    def get_startup_checkpoint_choices(self) -> List[Dict[str, Any]]:
+        """Return checkpoint candidates worth presenting at startup."""
+        recent_limit = int(self.config.get("game.startup_checkpoint_recent_limit", 8) or 8)
+        return list_startup_checkpoints(
+            self._checkpoint_root(),
+            recent_turn_limit=recent_limit,
+        )
+
+    def _dashboard_startup_selection_enabled(self) -> bool:
+        """Prefer the dashboard for startup checkpoint selection when visualization is active."""
+        return bool(
+            self.config.get("game.prompt_for_checkpoint_on_start", False)
+            and self.config.get("visualization.enabled", True)
+        )
+
+    def _set_startup_selection_pending(self, pending: bool) -> None:
+        """Track whether the runtime is waiting for an operator startup choice."""
+        self._startup_selection_pending = bool(pending)
+
+    def _maybe_restore_initial_checkpoint(self) -> None:
+        """Restore immediately or pause for dashboard-based startup selection."""
+        if self._dashboard_startup_selection_enabled():
+            with self._control_lock:
+                self._paused = True
+            self._set_startup_selection_pending(True)
+            if self.config.get("visualization.enabled", True):
+                self._publish_visualizer_preview(warmup_frames=240)
+                self.visualizer.update_checkpoints(self.get_available_checkpoints())
+                self.visualizer.log_event(
+                    "milestone",
+                    "等待选择启动点：请在大屏中读取存档，或点击继续开始新开局",
+                )
+                self._broadcast_control_state()
+            return
+
+        requested = self.config.get("game.resume_checkpoint")
+        auto_latest = bool(self.config.get("game.auto_resume_latest_checkpoint", False))
+        if requested:
+            self._load_checkpoint(str(requested), pause_after_load=False)
+            return
+        if auto_latest and self.get_available_checkpoints(limit=1):
+            self._load_checkpoint("latest", pause_after_load=False)
+
+    def get_visualizer_control_state(self) -> dict:
+        """Expose dashboard control state for the web UI."""
+        checkpoints = self.get_available_checkpoints(limit=1)
+        latest_checkpoint = checkpoints[0]["name"] if checkpoints else None
+        cooldown_active = False
+        cooldown_remaining = 0.0
+        if hasattr(self, "main_agent") and hasattr(self.main_agent, "is_in_api_cooldown"):
+            try:
+                cooldown_active = bool(self.main_agent.is_in_api_cooldown())
+                if hasattr(self.main_agent, "api_cooldown_remaining_seconds"):
+                    cooldown_remaining = float(self.main_agent.api_cooldown_remaining_seconds())
+            except Exception:
+                cooldown_active = False
+                cooldown_remaining = 0.0
+
+        with self._control_lock:
+            return {
+                "running": self.running and self.emulator.is_running(),
+                "paused": self._paused,
+                "step_budget": self._step_budget,
+                "manual_queue_size": self._manual_actions.qsize(),
+                "last_command": self._last_control_command,
+                "last_command_at": self._last_control_timestamp,
+                "last_error": self._last_control_error,
+                "checkpoint_count": len(self.get_available_checkpoints(limit=None)),
+                "latest_checkpoint": latest_checkpoint,
+                "restored_checkpoint": self._restored_checkpoint_name,
+                "auto_resume_latest_checkpoint": bool(
+                    self.config.get("game.auto_resume_latest_checkpoint", False)
+                ),
+                "api_cooldown_active": cooldown_active,
+                "api_cooldown_remaining": cooldown_remaining,
+                "startup_selection_pending": self._startup_selection_pending,
+                "startup_checkpoint_choices": self.get_startup_checkpoint_choices()
+                if self._startup_selection_pending
+                else [],
+                "startup_default_checkpoint": _startup_checkpoint_default_label(self.config),
+                "turn": self.turn_count,
+            }
+
+    def _get_landmark_checkpoint_specs(self) -> List[Dict[str, Any]]:
+        """Normalize configured named checkpoint specs."""
+        if not self.config.get("game.landmark_checkpoints_enabled", False):
+            return []
+
+        raw_specs = self.config.get("game.landmark_checkpoints", {}) or {}
+        specs: List[Dict[str, Any]] = []
+
+        if isinstance(raw_specs, dict):
+            items = raw_specs.items()
+        elif isinstance(raw_specs, list):
+            items = [(item.get("name"), item) for item in raw_specs if isinstance(item, dict)]
+        else:
+            items = []
+
+        for default_name, raw_spec in items:
+            if not isinstance(raw_spec, dict):
+                continue
+            spec = dict(raw_spec)
+            spec_name = str(spec.get("name") or default_name or "").strip()
+            if not spec_name:
+                continue
+            spec["name"] = spec_name
+            spec["label"] = str(spec.get("label") or spec_name).strip()
+            specs.append(spec)
+
+        return specs
+
+    def _checkpoint_spec_matches(
+        self,
+        spec: Dict[str, Any],
+        current_state: Optional[Dict[str, Any]],
+    ) -> bool:
+        """Return whether the current observation matches a named checkpoint spec."""
+        if not spec or not current_state:
+            return False
+
+        memory = current_state.get("memory", {}) or {}
+        visual = current_state.get("visual", {}) or {}
+        position = memory.get("position", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        party_size = len(memory.get("party", []) or [])
+        badge_count = int(memory.get("badge_count", 0) or 0)
+
+        equality_checks = (
+            ("map_id", position.get("map_id")),
+            ("x", position.get("x")),
+            ("y", position.get("y")),
+            ("screen_type", visual.get("screen_type")),
+            ("pre_world", current_state.get("pre_world")),
+            ("pre_starter_script", current_state.get("pre_starter_script")),
+            ("in_battle", memory.get("in_battle")),
+            ("text_box_active", ui_state.get("text_box_active")),
+        )
+        for key, actual_value in equality_checks:
+            expected = spec.get(key)
+            if expected is None:
+                continue
+            if key in {"map_id", "x", "y"}:
+                if int(actual_value if actual_value is not None else -1) != int(expected):
+                    return False
+                continue
+            if isinstance(expected, bool):
+                if bool(actual_value) != expected:
+                    return False
+                continue
+            if str(actual_value or "").strip().lower() != str(expected).strip().lower():
+                return False
+
+        direction = spec.get("direction")
+        if direction is not None:
+            current_direction = str(memory.get("direction") or "").strip().lower()
+            if current_direction != str(direction).strip().lower():
+                return False
+
+        min_party_size = spec.get("min_party_size")
+        if min_party_size is not None and party_size < int(min_party_size):
+            return False
+        max_party_size = spec.get("max_party_size")
+        if max_party_size is not None and party_size > int(max_party_size):
+            return False
+
+        min_badges = spec.get("min_badges")
+        if min_badges is not None and badge_count < int(min_badges):
+            return False
+        max_badges = spec.get("max_badges")
+        if max_badges is not None and badge_count > int(max_badges):
+            return False
+
+        return True
+
+    def _maybe_save_landmark_checkpoints(self, current_state: Optional[Dict[str, Any]]) -> None:
+        """Save stable named checkpoints when the run reaches configured milestones."""
+        if not self._checkpoint_writes_enabled():
+            return
+
+        matched_now: set[str] = set()
+        for spec in self._get_landmark_checkpoint_specs():
+            checkpoint_name = str(spec.get("name") or "").strip()
+            if not checkpoint_name:
+                continue
+            if not self._checkpoint_spec_matches(spec, current_state):
+                continue
+
+            matched_now.add(checkpoint_name)
+            if checkpoint_name in self._active_landmark_checkpoints:
+                continue
+
+            checkpoint_dir, _metadata = self._write_checkpoint_bundle(
+                checkpoint_name,
+                kind="named",
+                label=str(spec.get("label") or checkpoint_name),
+                current_state=current_state,
+            )
+            self.logger.info(f"已保存里程碑存档 {checkpoint_dir.name}")
+            if self.config.get("visualization.enabled", True):
+                self.visualizer.log_event("milestone", f"已保存里程碑存档 {checkpoint_dir.name}")
+
+        self._active_landmark_checkpoints = matched_now
+
+    def _write_checkpoint_bundle(
+        self,
+        checkpoint_name: str,
+        *,
+        kind: str,
+        label: Optional[str] = None,
+        current_state: Optional[Dict[str, Any]] = None,
+    ) -> tuple[Path, Dict[str, Any]]:
+        """Write emulator, agent, map, progress, and metadata into one checkpoint directory."""
+        checkpoint_dir = self._checkpoint_root() / checkpoint_name
+        checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
+        self.emulator.save_state(str(checkpoint_dir / "emulator.state"))
+        self.main_agent.save_state(str(checkpoint_dir))
+        self.map_memory.save()
+        self.map_memory.save(str(checkpoint_dir / "map_memory.json"))
+        self.progress_tracker.save(str(checkpoint_dir / "progress.json"))
+
+        primary_goal = None
+        if getattr(self.main_agent, "goals", None) and self.main_agent.goals.primary_goal:
+            primary_goal = self.main_agent.goals.primary_goal.description
+        focus = getattr(getattr(self.main_agent, "goals", None), "focus", None)
+        metadata = build_checkpoint_metadata(
+            name=checkpoint_dir.name,
+            turn=self.turn_count,
+            current_state=current_state or self._last_observed_state,
+            focus=focus,
+            primary_goal=primary_goal,
+            label=label,
+            kind=kind,
+        )
+        write_checkpoint_metadata(checkpoint_dir, metadata)
+
+        if self.config.get("visualization.enabled", True):
+            self.visualizer.update_checkpoints(self.get_available_checkpoints())
+
+        return checkpoint_dir, metadata
+
+    def _save_checkpoint(self) -> None:
+        """Save a regular turn checkpoint and prune older turn slots."""
+        checkpoint_dir, _metadata = self._write_checkpoint_bundle(
+            f"checkpoint_{self.turn_count}",
+            kind="turn",
+            label=f"回合 {self.turn_count}",
+        )
+
+        max_checkpoints = int(self.config.get("game.max_checkpoints", 0) or 0)
+        removed = prune_old_checkpoints(self._checkpoint_root(), max_checkpoints) if max_checkpoints else []
+        if removed and self.config.get("visualization.enabled", True):
+            self.visualizer.update_checkpoints(self.get_available_checkpoints())
+
+        for removed_path in removed:
+            self.logger.info(f"已删除旧回合存档 {removed_path.name}")
+
+        self.last_checkpoint_turn = self.turn_count
+        self.logger.info(f"检查点已保存到 {checkpoint_dir}")
+        self.logger.info("\n" + self.progress_tracker.get_progress_summary())
+
+    def handle_visualizer_command(self, command: str, value: Optional[str] = None) -> dict:
+        """Handle a dashboard-issued control command."""
+        normalized = (command or "").strip().lower()
+        raw_value = (value or "").strip() if isinstance(value, str) else value
+        manual_value = raw_value.lower() if isinstance(raw_value, str) else raw_value
+
+        if normalized == "pause":
+            with self._control_lock:
+                self._paused = True
+                self._record_control_event("pause")
+            self.logger.info("已从仪表盘暂停自动运行")
+            self.visualizer.log_event("info", "已从仪表盘暂停自动运行")
+        elif normalized == "resume":
+            with self._control_lock:
+                self._paused = False
+                self._step_budget = 0
+                self._record_control_event("resume")
+            self._set_startup_selection_pending(False)
+            self.logger.info("已从仪表盘恢复自动运行")
+            self.visualizer.log_event("info", "已从仪表盘恢复自动运行")
+        elif normalized == "step":
+            with self._control_lock:
+                self._paused = True
+                self._step_budget += 1
+                self._record_control_event("step")
+            self._set_startup_selection_pending(False)
+            self.logger.info("已从仪表盘请求单步执行")
+        elif normalized == "checkpoint":
+            with self._control_lock:
+                self._checkpoint_requested = True
+                self._record_control_event("checkpoint")
+            self.logger.info("已从仪表盘请求保存检查点")
+            self.visualizer.log_event("milestone", "已从仪表盘请求保存检查点")
+        elif normalized == "load_latest_checkpoint":
+            try:
+                metadata = self._load_checkpoint("latest", pause_after_load=True)
+            except Exception as exc:
+                self._record_control_event("load_latest_checkpoint", error=str(exc))
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": f"读取最新存档失败：{exc}",
+                    "state": self.get_visualizer_control_state(),
+                }
+            with self._control_lock:
+                self._step_budget = 0
+            while self._pop_manual_action() is not None:
+                pass
+            self._set_startup_selection_pending(False)
+            self._record_control_event("load_latest_checkpoint")
+            self.logger.info(f"已读取最新存档 {metadata.get('name') or self._restored_checkpoint_name}")
+            self.visualizer.log_event(
+                "milestone",
+                f"已读取最新存档 {metadata.get('name') or self._restored_checkpoint_name}",
+            )
+        elif normalized == "load_checkpoint":
+            if not raw_value:
+                self._record_control_event("load_checkpoint", error="必须提供存档名称")
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": "必须提供存档名称",
+                    "state": self.get_visualizer_control_state(),
+                }
+            try:
+                metadata = self._load_checkpoint(str(raw_value), pause_after_load=True)
+            except Exception as exc:
+                self._record_control_event("load_checkpoint", error=str(exc))
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": f"读取存档 {raw_value} 失败：{exc}",
+                    "state": self.get_visualizer_control_state(),
+                }
+            with self._control_lock:
+                self._step_budget = 0
+            while self._pop_manual_action() is not None:
+                pass
+            self._set_startup_selection_pending(False)
+            self._record_control_event(f"load_checkpoint:{raw_value}")
+            self.logger.info(f"已读取存档 {metadata.get('name') or raw_value}")
+            self.visualizer.log_event("milestone", f"已读取存档 {metadata.get('name') or raw_value}")
+        elif normalized == "stop":
+            with self._control_lock:
+                self.running = False
+                self._record_control_event("stop")
+            self.logger.warning("已从仪表盘请求停止运行")
+            self.visualizer.log_event("error", "已从仪表盘请求停止运行")
+        elif normalized == "manual_action":
+            if manual_value not in ActionExecutor.VALID_ACTIONS:
+                self._record_control_event("manual", error=f"无效手动动作：{raw_value}")
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": f"无效手动动作：{raw_value}",
+                    "state": self.get_visualizer_control_state(),
+                }
+            with self._control_lock:
+                if not self._paused:
+                    self._record_control_event(f"manual:{manual_value}", error="需要先暂停自动运行")
+                    self._broadcast_control_state()
+                    return {
+                        "ok": False,
+                        "message": "请先暂停自动运行，再加入手动动作",
+                        "state": self.get_visualizer_control_state(),
+                    }
+            try:
+                self._manual_actions.put_nowait(manual_value)
+            except queue.Full:
+                self._record_control_event(f"manual:{manual_value}", error="手动动作队列已满")
+                self._broadcast_control_state()
+                return {
+                    "ok": False,
+                    "message": "手动动作队列已满",
+                    "state": self.get_visualizer_control_state(),
+                }
+            self._set_startup_selection_pending(False)
+            self._record_control_event(f"manual:{manual_value}")
+            self.logger.info(f"已从仪表盘加入手动动作：{manual_value}")
+        else:
+            self._record_control_event(normalized or "unknown", error="未知控制指令")
+            self._broadcast_control_state()
+            return {
+                "ok": False,
+                "message": f"未知控制指令：{command}",
+                "state": self.get_visualizer_control_state(),
+            }
+
+        self._broadcast_control_state()
+        return {
+            "ok": True,
+            "message": "指令已发送",
+            "state": self.get_visualizer_control_state(),
+        }
 
     def _signal_handler(self, sig, frame) -> None:
         """处理中断信号。"""
@@ -2095,6 +2967,103 @@ class PokemonAIAgent:
 
         self.logger.milestone("宝可梦AI智能体已停止")
         self.logger.info(f"总回合数: {self.turn_count}")
+
+def _startup_checkpoint_default_label(config) -> str:
+    """Describe the current startup restore behavior."""
+    requested = config.get("game.resume_checkpoint")
+    if requested:
+        return str(requested)
+    if config.get("game.auto_resume_latest_checkpoint", False):
+        return "latest"
+    return "new"
+
+
+def _startup_checkpoint_display_label(value: str) -> str:
+    """Translate startup shortcut values into Chinese labels for terminal prompts."""
+    normalized = str(value or "").strip().lower()
+    if normalized == "latest":
+        return "最新存档"
+    if normalized == "new":
+        return "新开局"
+    return str(value or "")
+
+
+def _checkpoint_kind_label(kind: str) -> str:
+    """Translate checkpoint kind labels for terminal display."""
+    normalized = str(kind or "").strip().lower()
+    if normalized == "turn":
+        return "回合存档"
+    if normalized == "named":
+        return "里程碑存档"
+    return str(kind or "未知")
+
+
+def _prompt_for_startup_checkpoint(config) -> None:
+    """Optionally let the operator choose a checkpoint before agent startup."""
+    if not config.get("game.prompt_for_checkpoint_on_start", False):
+        return
+    if config.get("visualization.enabled", True):
+        return
+    if not getattr(sys.stdin, "isatty", lambda: False)():
+        return
+
+    choices = list_startup_checkpoints(
+        config.get("game.save_state_dir"),
+        recent_turn_limit=int(config.get("game.startup_checkpoint_recent_limit", 8) or 8),
+    )
+    if not choices:
+        return
+
+    default_label = _startup_checkpoint_display_label(_startup_checkpoint_default_label(config))
+    print("可选启动存档：")
+    for index, checkpoint in enumerate(choices, start=1):
+        position = checkpoint.get("position", {}) or {}
+        checkpoint_label = checkpoint.get("label") or checkpoint.get("name") or f"checkpoint-{index}"
+        print(
+            f"  {index}. {checkpoint_label} "
+            f"[{checkpoint.get('name')}] "
+            f"(回合 {checkpoint.get('turn', 0)}, 地图 {position.get('map_id')}, "
+            f"坐标 {position.get('x')},{position.get('y')}, 类型 {_checkpoint_kind_label(checkpoint.get('kind', 'unknown'))})"
+        )
+    print(f"直接回车可保持默认启动方式：{default_label}")
+    print("可输入序号、精确存档名、latest，或输入 new 开始新开局。")
+
+    lookup = {
+        str(checkpoint.get("name")): str(checkpoint.get("name"))
+        for checkpoint in choices
+        if checkpoint.get("name")
+    }
+
+    while True:
+        try:
+            raw_choice = input("启动存档> ").strip()
+        except EOFError:
+            return
+
+        if not raw_choice:
+            return
+
+        normalized = raw_choice.lower()
+        if normalized in {"n", "new", "none"}:
+            config.set("game.resume_checkpoint", None)
+            config.set("game.auto_resume_latest_checkpoint", False)
+            return
+        if normalized == "latest":
+            config.set("game.resume_checkpoint", None)
+            config.set("game.auto_resume_latest_checkpoint", True)
+            return
+        if raw_choice.isdigit():
+            choice_index = int(raw_choice) - 1
+            if 0 <= choice_index < len(choices):
+                config.set("game.resume_checkpoint", str(choices[choice_index]["name"]))
+                config.set("game.auto_resume_latest_checkpoint", False)
+                return
+        if raw_choice in lookup:
+            config.set("game.resume_checkpoint", lookup[raw_choice])
+            config.set("game.auto_resume_latest_checkpoint", False)
+            return
+
+        print("输入无效，请输入列表序号、存档名、latest 或 new。")
 
 
 def main():
@@ -2134,6 +3103,8 @@ def main():
 
     print("正在初始化...")
     print()
+
+    _prompt_for_startup_checkpoint(config)
 
     try:
         agent = PokemonAIAgent()

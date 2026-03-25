@@ -1,0 +1,891 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_127200",
+  "start_turn": 21758,
+  "end_turn": 22758,
+  "turn_delta": 1000,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "navigation_plan": 34,
+    "ai": 6
+  },
+  "decision_path_counts": {
+    "tool": 34,
+    "ai": 6
+  },
+  "final_state": {
+    "turn": 22758,
+    "timestamp": "2026-03-23T17:41:01.586441",
+    "position": {
+      "map_id": 1,
+      "x": 34,
+      "y": 11
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 22758,
+      "local_analysis_enabled": false,
+      "screen_hash": "70d14132837d0417a64d4b973a16401b"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 77,
+      "total_tiles": 200,
+      "exploration_percent": 38.5
+    },
+    "navigation": {
+      "current_visit_count": 123,
+      "known_exits": {
+        "right": {
+          "x": 35,
+          "y": 11
+        },
+        "up": {
+          "x": 34,
+          "y": 10
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 38,
+      "nearest_frontier": {
+        "target": [
+          35,
+          11
+        ],
+        "path": [
+          "right"
+        ],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 128,
+        "distance": 1
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        ".....F???",
+        "....PF???",
+        ".....F???",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                     ",
+          "                     ",
+          "  F   #############  ",
+          "  FFFF............F  ",
+          "  F..............PF  ",
+          "  FFFF............F  ",
+          "  F   #############  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  FF                 ",
+          "   F                 ",
+          "   FF                "
+        ],
+        "prompt_rows": [
+          "?????????????????????",
+          "?????????????????????",
+          "??F???#############??",
+          "??FFFF............F??",
+          "??F..............PF??",
+          "??FFFF............F??",
+          "??F???#############??",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??FF?????????????????",
+          "???F?????????????????",
+          "???FF????????????????"
+        ],
+        "bounds": {
+          "min_x": 17,
+          "max_x": 37,
+          "min_y": 7,
+          "max_y": 30,
+          "width": 21,
+          "height": 24
+        },
+        "player": {
+          "x": 34,
+          "y": 11
+        },
+        "explored_count": 77,
+        "frontier_count": 38,
+        "blocked_count": 26,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 22719,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (31,11) to (32,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22720,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (32,11) to (33,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22721,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (33,11) to (34,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22722,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (34,11) to (35,11) on map 1; screen changed from overworld to battle; text box opened",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22723,
+      "action": "up",
+      "reasoning": "The screenshot shows normal outdoor movement with no visible battle box; right is blocked by the tree wall, while up and left show open ground, and moving up is the best way to leave this invalid right-edge approach without restarting the same loop.",
+      "result": "After up:; moved from (35,11) to (35,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22724,
+      "action": "left",
+      "reasoning": "This is normal outdoor movement with no visible battle or dialogue box, and from this tile the tree wall is immediately to the right, navigation marks up blocked, and down would head back toward the bad corner, so the safe open path is left.",
+      "result": "After left:; moved from (35,10) to (34,10) on map 1; screen changed from battle to overworld; text box closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22725,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (34,10) to (33,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22726,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (33,10) to (32,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22727,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (32,10) to (31,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22728,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (31,10) to (30,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22729,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After down:; moved from (30,10) to (30,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22730,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (30,11) to (31,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22731,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (31,11) to (32,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22732,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (32,11) to (33,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22733,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (33,11) to (34,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22734,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (34,11) to (35,11) on map 1; screen changed from overworld to battle; text box opened",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22735,
+      "action": "up",
+      "reasoning": "The screenshot shows normal outdoor movement with no visible battle box, and from this right-edge spot the trees block right while the path clearly continues upward and left, so I should avoid re-targeting the invalid corner and move up along the open path.",
+      "result": "After up:; moved from (35,11) to (35,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22736,
+      "action": "left",
+      "reasoning": "This is normal outdoor movement with no visible battle or dialogue box, and from this tile the trees immediately block the right side while left shows clear open path and avoids re-entering the disproven right-edge corner.",
+      "result": "After left:; moved from (35,10) to (34,10) on map 1; screen changed from battle to overworld; text box closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22737,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (34,10) to (33,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22738,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (33,10) to (32,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22739,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (32,10) to (31,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22740,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (31,10) to (30,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22741,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After down:; moved from (30,10) to (30,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22742,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (30,11) to (31,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22743,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (31,11) to (32,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22744,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (32,11) to (33,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22745,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (33,11) to (34,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22746,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (34,11) to (35,11) on map 1; screen changed from overworld to battle; text box opened",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22747,
+      "action": "up",
+      "reasoning": "The screenshot shows normal outdoor movement with no visible dialogue box, the trees immediately block the right side, and moving up follows visible path toward the unexplored tile at (35,9) instead of re-entering the invalid right-edge corner.",
+      "result": "After up:; moved from (35,11) to (35,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22748,
+      "action": "left",
+      "reasoning": "The screenshot shows normal outdoor movement with no visible dialogue box; right is blocked by the tree wall, up is marked blocked from this tile, and down leads back into the repeatedly bad corner, so the safe open path is left.",
+      "result": "After left:; moved from (35,10) to (34,10) on map 1; screen changed from battle to overworld; text box closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22749,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (34,10) to (33,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22750,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (33,10) to (32,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22751,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (32,10) to (31,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22752,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After left:; moved from (31,10) to (30,10) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22753,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After down:; moved from (30,10) to (30,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22754,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (30,11) to (31,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 30,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22755,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (31,11) to (32,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 31,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22756,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (32,11) to (33,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 32,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22757,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": "After right:; moved from (33,11) to (34,11) on map 1",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 33,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22758,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (35, 10) via left, left, left, left, down, right, right, right, right, right",
+      "result": null,
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 34,
+        "y": 11
+      },
+      "party_size": 1
+    }
+  ]
+}

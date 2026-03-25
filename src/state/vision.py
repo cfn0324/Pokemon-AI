@@ -141,6 +141,8 @@ class VisionProcessor:
 
         if ui_elements.get('title_screen'):
             return 'title'
+        if self._is_startup_transition(img_array):
+            return 'startup'
 
         # 文本输入/命名等全屏界面
         if ui_elements.get('text_entry'):
@@ -938,6 +940,24 @@ class VisionProcessor:
         light_ratio = self._calculate_color_ratio(center, 'light')
 
         return contrast > 0.18 and light_ratio > 0.4
+
+    def _is_startup_transition(
+        self,
+        img_array: np.ndarray,
+        white_ratio: Optional[float] = None,
+        dark_ratio: Optional[float] = None,
+    ) -> bool:
+        """Detect the nearly blank boot transition between title and menu."""
+        if white_ratio is None:
+            white_ratio = self._calculate_color_ratio(img_array, 'light')
+        if dark_ratio is None:
+            dark_ratio = self._calculate_color_ratio(img_array, 'dark')
+
+        if white_ratio < 0.97 or dark_ratio > 0.01:
+            return False
+
+        contrast = np.std(img_array) / 255
+        return contrast < 0.035
 
     def _is_indoor(self, img_array: np.ndarray) -> bool:
         """检测室内场景"""

@@ -42,6 +42,8 @@ class GameState:
         self._last_memory_state: Optional[Dict[str, Any]] = None
         self._position_history: List[Dict[str, int]] = []
         self._movement_stall_turns = 0
+        self._battle_turns = 0
+        self._battle_stall_turns = 0
         self._phase_hint: Optional[str] = None
         self._pre_starter_script_latched = False
 
@@ -180,6 +182,8 @@ class GameState:
                 "total_tiles": exploration["total_tiles"],
                 "exploration_percent": exploration["exploration_percent"],
             }
+        movement_pattern = self._analyze_recent_movement(memory_state)
+        battle_summary = self._analyze_battle_state(memory_state)
 
         # Combine into comprehensive state
         state = {
@@ -194,6 +198,8 @@ class GameState:
             "map_memory": map_memory_state,
             "navigation": navigation,
             "deltas": deltas,
+            "movement_pattern": movement_pattern,
+            "battle_summary": battle_summary,
         }
 
         self._last_memory_state = memory_state
@@ -208,6 +214,8 @@ class GameState:
         self._last_memory_state = None
         self._position_history = []
         self._movement_stall_turns = 0
+        self._battle_turns = 0
+        self._battle_stall_turns = 0
         self._phase_hint = None
         self._pre_starter_script_latched = False
 
@@ -223,6 +231,7 @@ class GameState:
         visual = state["visual"]
         deltas = state.get("deltas", {})
         battle = memory.get("battle", {})
+        battle_summary = state.get("battle_summary", {}) or {}
         ui_state = memory.get("ui", {})
         navigation = state.get("navigation", {})
         vision_hints = visual.get("navigation_hints", {})
@@ -274,6 +283,29 @@ BADGES: {memory['badge_count']}/8
                 f"HP:{battle.get('enemy_current_hp', '?')}\n"
             )
 
+        battle_phase = battle_summary.get("phase")
+        if battle_phase and battle_phase != "not_in_battle":
+            text += "\nBATTLE SUMMARY:\n"
+            text += f"  Phase: {battle_phase}\n"
+            text += f"  Encounter type: {battle_summary.get('encounter_type', 'unknown')}\n"
+            text += f"  Consecutive battle turns: {battle_summary.get('battle_turns', 0)}\n"
+            text += (
+                f"  Enemy HP changed this turn: "
+                f"{battle_summary.get('enemy_hp_changed', False)}\n"
+            )
+            text += f"  Battle stall turns: {battle_summary.get('battle_stall_turns', 0)}\n"
+            lead = battle_summary.get("lead_pokemon") or {}
+            if lead:
+                text += (
+                    f"  Lead Pokemon: {lead.get('species', 'Unknown')} "
+                    f"Lv.{lead.get('level', '?')} "
+                    f"HP:{lead.get('current_hp', '?')}/{lead.get('max_hp', '?')} "
+                    f"({lead.get('hp_percent', 0):.0f}%)\n"
+                )
+            focus_hint = battle_summary.get("focus_hint")
+            if focus_hint:
+                text += f"  Focus hint: {focus_hint}\n"
+
         text += "\nUI FLAGS:\n"
         text += f"  Text box active (RAM): {ui_state.get('text_box_active', False)}\n"
         text += f"  Menu active (RAM): {ui_state.get('menu_active', False)}\n"
@@ -307,6 +339,22 @@ BADGES: {memory['badge_count']}/8
         text += f"  Battle toggled: {deltas.get('battle_toggled', False)}\n"
         text += f"  Movement stall turns: {deltas.get('movement_stall_turns', 0)}\n"
         text += f"  Stuck hint: {deltas.get('stuck_hint', 'unknown')}\n"
+        movement_pattern = state.get("movement_pattern", {}) or {}
+        if movement_pattern.get("window_size", 0):
+            text += "\nMOVEMENT PATTERN:\n"
+            text += f"  Recent same-map positions tracked: {movement_pattern.get('window_size', 0)}\n"
+            text += f"  Unique recent tiles: {movement_pattern.get('unique_tiles', 0)}\n"
+            text += (
+                f"  Recent movement box: "
+                f"{movement_pattern.get('bounding_box_width', 0)}x"
+                f"{movement_pattern.get('bounding_box_height', 0)}\n"
+            )
+            text += (
+                f"  Current tile repeats in window: "
+                f"{movement_pattern.get('current_tile_repeat_count', 0)}\n"
+            )
+            warning = movement_pattern.get("warning")
+            text += f"  Loop warning: {warning or 'none'}\n"
 
         text += f"\nEXPLORATION:\n"
         if pre_world or pre_starter_script:
@@ -351,9 +399,28 @@ BADGES: {memory['badge_count']}/8
                 frontier_target = nearest_frontier.get("target")
                 frontier_path = nearest_frontier.get("path", [])
                 frontier_unknown = ", ".join(nearest_frontier.get("unknown_directions", [])) or "none"
+                frontier_novelty = nearest_frontier.get("novelty_label", "unknown")
                 text += f"  Suggested frontier target: {frontier_target}\n"
                 text += f"  Suggested route to frontier: {', '.join(frontier_path) if frontier_path else 'already there'}\n"
                 text += f"  Unknown directions from frontier: {frontier_unknown}\n"
+                text += (
+                    f"  Frontier novelty: {frontier_novelty}; local revisit pressure "
+                    f"{nearest_frontier.get('local_visit_pressure', 0)}; "
+                    f"global novelty distance {nearest_frontier.get('global_novelty_distance', 0)}; "
+                    f"priority score {nearest_frontier.get('priority_score', 0.0)}\n"
+                )
+
+            frontier_candidates = navigation.get("frontier_candidates", [])
+            if frontier_candidates:
+                text += "  Top Frontier Alternatives:\n"
+                for item in frontier_candidates[:3]:
+                    unknown = ", ".join(item.get("unknown_directions", [])) or "none"
+                    text += (
+                        f"    - {item.get('target')} novelty={item.get('novelty_label', 'unknown')} "
+                        f"pressure={item.get('local_visit_pressure', 0)} "
+                        f"distance={item.get('distance', '?')} "
+                        f"unknown={unknown}\n"
+                    )
 
             local_map = navigation.get("local_map", [])
             if local_map:
@@ -477,3 +544,172 @@ BADGES: {memory['badge_count']}/8
         self._position_history.append(position.copy())
         if len(self._position_history) > 10:
             self._position_history.pop(0)
+
+    def _analyze_recent_movement(self, memory_state: Dict[str, Any]) -> Dict[str, Any]:
+        """Summarize recent same-map movement so the AI can notice local loops."""
+        position = memory_state.get("position", {}) or {}
+        map_id = int(position.get("map_id", -1) or -1)
+        x = int(position.get("x", 0) or 0)
+        y = int(position.get("y", 0) or 0)
+
+        same_map_positions: List[Dict[str, int]] = []
+        for item in reversed(self._position_history):
+            if int(item.get("map_id", -1) or -1) != map_id:
+                break
+            same_map_positions.append(item)
+            if len(same_map_positions) >= 10:
+                break
+
+        same_map_positions.reverse()
+        coords = [
+            (int(item.get("x", 0) or 0), int(item.get("y", 0) or 0))
+            for item in same_map_positions
+        ]
+        if not coords:
+            return {
+                "window_size": 0,
+                "unique_tiles": 0,
+                "bounding_box_width": 0,
+                "bounding_box_height": 0,
+                "current_tile_repeat_count": 0,
+                "micro_loop_warning": False,
+                "warning": None,
+            }
+
+        unique_tiles = len(set(coords))
+        min_x = min(px for px, _ in coords)
+        max_x = max(px for px, _ in coords)
+        min_y = min(py for _, py in coords)
+        max_y = max(py for _, py in coords)
+        width = max_x - min_x + 1
+        height = max_y - min_y + 1
+        current_repeats = sum(1 for px, py in coords if (px, py) == (x, y))
+        micro_loop_warning = (
+            len(coords) >= 6
+            and unique_tiles <= 4
+            and width <= 2
+            and height <= 2
+        )
+        warning = None
+        if micro_loop_warning:
+            warning = (
+                f"high - last {len(coords)} same-map positions stayed within a "
+                f"{width}x{height} box covering only {unique_tiles} tiles"
+            )
+
+        return {
+            "window_size": len(coords),
+            "unique_tiles": unique_tiles,
+            "bounding_box_width": width,
+            "bounding_box_height": height,
+            "current_tile_repeat_count": current_repeats,
+            "micro_loop_warning": micro_loop_warning,
+            "warning": warning,
+        }
+
+    def _analyze_battle_state(self, memory_state: Dict[str, Any]) -> Dict[str, Any]:
+        """Summarize reliable battle-phase signals for prompt consumption."""
+        battle = memory_state.get("battle", {}) or {}
+        party = list(memory_state.get("party", []) or [])
+        ui_state = memory_state.get("ui", {}) or {}
+        last_memory = self._last_memory_state or {}
+        last_battle = last_memory.get("battle", {}) or {}
+
+        in_battle = bool(memory_state.get("in_battle"))
+        last_in_battle = bool(last_memory.get("in_battle"))
+        current_signature = (
+            battle.get("battle_type"),
+            battle.get("enemy_species"),
+            battle.get("enemy_level"),
+        )
+        last_signature = (
+            last_battle.get("battle_type"),
+            last_battle.get("enemy_species"),
+            last_battle.get("enemy_level"),
+        )
+        same_battle = in_battle and last_in_battle and current_signature == last_signature
+
+        lead_summary = None
+        if party:
+            lead = party[0]
+            max_hp = int(lead.get("max_hp", 0) or 0)
+            current_hp = int(lead.get("current_hp", 0) or 0)
+            hp_percent = (current_hp / max_hp * 100.0) if max_hp > 0 else 0.0
+            lead_summary = {
+                "species": lead.get("species", "Unknown"),
+                "level": int(lead.get("level", 0) or 0),
+                "current_hp": current_hp,
+                "max_hp": max_hp,
+                "hp_percent": round(hp_percent, 1),
+            }
+
+        encounter_type = battle.get("battle_type", "none")
+        enemy_hp_changed = False
+        focus_hint = None
+
+        if in_battle:
+            if same_battle:
+                self._battle_turns += 1
+            else:
+                self._battle_turns = 1
+
+            current_enemy_hp = battle.get("enemy_current_hp")
+            last_enemy_hp = last_battle.get("enemy_current_hp")
+            enemy_hp_changed = bool(
+                same_battle
+                and current_enemy_hp is not None
+                and last_enemy_hp is not None
+                and int(current_enemy_hp) != int(last_enemy_hp)
+            )
+
+            if same_battle and not enemy_hp_changed:
+                self._battle_stall_turns += 1
+            else:
+                self._battle_stall_turns = 0
+
+            phase = "entered_battle" if not same_battle else "battle_in_progress"
+            if encounter_type == "trainer":
+                focus_hint = "A trainer battle is active. Finish the encounter instead of trying to walk."
+            else:
+                focus_hint = "A battle is active. Resolve the fight before returning to movement goals."
+            if lead_summary and float(lead_summary.get("hp_percent", 0.0) or 0.0) <= 25.0:
+                focus_hint += " Your lead Pokemon is low HP, so avoid random menuing."
+            if self._battle_stall_turns >= 3:
+                focus_hint = (
+                    "Battle progress has stalled for several turns. Re-check the screenshot "
+                    "instead of repeating the same guess."
+                )
+        else:
+            self._battle_turns = 0
+            self._battle_stall_turns = 0
+            if last_in_battle and ui_state.get("text_box_active"):
+                encounter_type = last_battle.get("battle_type", "unknown")
+                phase = "post_battle_dialogue"
+                focus_hint = (
+                    "The battle flag just dropped but result dialogue is still active. "
+                    "Finish the text before resuming movement."
+                )
+            elif last_in_battle:
+                encounter_type = last_battle.get("battle_type", "unknown")
+                phase = "battle_just_ended"
+                focus_hint = (
+                    "The battle just ended. Verify the current screen before assuming "
+                    "normal exploration has resumed."
+                )
+            else:
+                encounter_type = "none"
+                phase = "not_in_battle"
+
+        return {
+            "active": in_battle,
+            "phase": phase,
+            "encounter_type": encounter_type,
+            "battle_turns": self._battle_turns,
+            "enemy_hp_changed": enemy_hp_changed,
+            "battle_stall_turns": self._battle_stall_turns,
+            "enemy_species": battle.get("enemy_species") if in_battle else last_battle.get("enemy_species"),
+            "enemy_level": battle.get("enemy_level") if in_battle else last_battle.get("enemy_level"),
+            "enemy_current_hp": battle.get("enemy_current_hp") if in_battle else last_battle.get("enemy_current_hp"),
+            "lead_pokemon": lead_summary,
+            "focus_hint": focus_hint,
+        }

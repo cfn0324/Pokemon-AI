@@ -129,6 +129,76 @@ class MapMemory:
         unexplored.sort(key=lambda p: abs(p[0] - x) + abs(p[1] - y))
         return unexplored
 
+    def _get_map_centroid(self, explored: Set[Position]) -> Optional[Tuple[float, float]]:
+        """Return the centroid of explored tiles for rough global novelty estimates."""
+        if not explored:
+            return None
+
+        total_x = sum(pos[0] for pos in explored)
+        total_y = sum(pos[1] for pos in explored)
+        count = len(explored)
+        return (total_x / count, total_y / count)
+
+    def _get_local_visit_pressure(
+        self,
+        map_id: int,
+        position: Position,
+        radius: int = 2,
+    ) -> int:
+        """Measure how heavily a frontier's surrounding area has already been revisited."""
+        visits = self.visit_counts.get(map_id, {})
+        total = 0
+        px, py = position
+        for dx in range(-radius, radius + 1):
+            for dy in range(-radius, radius + 1):
+                total += int(visits.get((px + dx, py + dy), 0))
+        return total
+
+    @staticmethod
+    def _score_frontier_candidate(
+        *,
+        visit_count: int,
+        distance: Optional[int],
+        local_visit_pressure: int,
+        global_novelty_distance: int,
+        unknown_direction_count: int,
+    ) -> float:
+        """Balance path cost against escaping highly revisited local regions."""
+        return round(
+            (unknown_direction_count * 8.0)
+            + (global_novelty_distance * 1.75)
+            - (local_visit_pressure * 1.25)
+            - (visit_count * 4.0)
+            - ((distance or 0) * 0.35),
+            2,
+        )
+
+    @staticmethod
+    def _label_frontier_novelty(priority_score: float) -> str:
+        """Bucket a frontier score into a prompt-friendly novelty label."""
+        if priority_score >= 4.0:
+            return "high"
+        if priority_score >= -10.0:
+            return "medium"
+        return "low"
+
+    @staticmethod
+    def _frontier_plan_sort_key(frontier: Dict[str, Any]) -> Tuple[Any, ...]:
+        """Return a stable sort key where lower is better."""
+        target = frontier.get("target") or frontier.get("position") or (999, 999)
+        tx = int(target[0]) if isinstance(target, (tuple, list)) and len(target) >= 2 else 999
+        ty = int(target[1]) if isinstance(target, (tuple, list)) and len(target) >= 2 else 999
+        return (
+            -float(frontier.get("priority_score", 0.0) or 0.0),
+            len(frontier.get("path", []) or []),
+            int(frontier.get("local_visit_pressure", 0) or 0),
+            int(frontier.get("visit_count", 0) or 0),
+            -int(frontier.get("global_novelty_distance", 0) or 0),
+            int(frontier.get("distance", 999) or 999),
+            ty,
+            tx,
+        )
+
     def get_frontier_tiles(
         self,
         map_id: int,
@@ -141,6 +211,7 @@ class MapMemory:
 
         current_position = current_position or self.current_position
         frontier_tiles: List[Dict[str, Any]] = []
+        centroid = self._get_map_centroid(explored)
 
         for pos in explored:
             unknown_dirs: List[str] = []
@@ -163,23 +234,35 @@ class MapMemory:
             if current_position:
                 distance = abs(pos[0] - current_position[0]) + abs(pos[1] - current_position[1])
 
+            visit_count = int(self.visit_counts.get(map_id, {}).get(pos, 0))
+            local_visit_pressure = self._get_local_visit_pressure(map_id, pos, radius=2)
+            global_novelty_distance = 0
+            if centroid:
+                global_novelty_distance = int(
+                    round(abs(pos[0] - centroid[0]) + abs(pos[1] - centroid[1]))
+                )
+            priority_score = self._score_frontier_candidate(
+                visit_count=visit_count,
+                distance=distance,
+                local_visit_pressure=local_visit_pressure,
+                global_novelty_distance=global_novelty_distance,
+                unknown_direction_count=len(unknown_dirs),
+            )
+
             frontier_tiles.append(
                 {
                     "position": pos,
                     "unknown_directions": unknown_dirs,
-                    "visit_count": int(self.visit_counts.get(map_id, {}).get(pos, 0)),
+                    "visit_count": visit_count,
                     "distance": distance,
+                    "local_visit_pressure": local_visit_pressure,
+                    "global_novelty_distance": global_novelty_distance,
+                    "priority_score": priority_score,
+                    "novelty_label": self._label_frontier_novelty(priority_score),
                 }
             )
 
-        frontier_tiles.sort(
-            key=lambda item: (
-                item.get("visit_count", 0),
-                item.get("distance", 999),
-                item["position"][1],
-                item["position"][0],
-            )
-        )
+        frontier_tiles.sort(key=self._frontier_plan_sort_key)
         return frontier_tiles
 
     def find_shortest_path(
@@ -238,22 +321,18 @@ class MapMemory:
                 "unknown_directions": frontier["unknown_directions"],
                 "visit_count": frontier["visit_count"],
                 "distance": frontier["distance"],
+                "local_visit_pressure": frontier.get("local_visit_pressure", 0),
+                "global_novelty_distance": frontier.get("global_novelty_distance", 0),
+                "priority_score": frontier.get("priority_score", 0.0),
+                "novelty_label": frontier.get("novelty_label", "unknown"),
             }
 
             if best is None:
                 best = candidate
                 continue
 
-            current_key = (
-                len(candidate["path"]),
-                candidate["visit_count"],
-                candidate.get("distance", 999),
-            )
-            best_key = (
-                len(best["path"]),
-                best["visit_count"],
-                best.get("distance", 999),
-            )
+            current_key = self._frontier_plan_sort_key(candidate)
+            best_key = self._frontier_plan_sort_key(best)
             if current_key < best_key:
                 best = candidate
 
@@ -281,6 +360,19 @@ class MapMemory:
             ],
             "frontier_count": len(frontier_tiles),
             "nearest_frontier": frontier_plan,
+            "frontier_candidates": [
+                {
+                    "target": item["position"],
+                    "unknown_directions": list(item.get("unknown_directions", [])),
+                    "visit_count": int(item.get("visit_count", 0) or 0),
+                    "distance": item.get("distance"),
+                    "local_visit_pressure": int(item.get("local_visit_pressure", 0) or 0),
+                    "global_novelty_distance": int(item.get("global_novelty_distance", 0) or 0),
+                    "priority_score": float(item.get("priority_score", 0.0) or 0.0),
+                    "novelty_label": item.get("novelty_label", "unknown"),
+                }
+                for item in frontier_tiles[:3]
+            ],
             "known_warps": warps[:6],
             "local_map": self.render_local_map(map_id, x, y),
             "map_snapshot": self.build_map_snapshot(map_id, current_position=pos),
@@ -314,16 +406,34 @@ class MapMemory:
             path = frontier.get("path", [])
             target = frontier.get("target")
             unknown_dirs = ", ".join(frontier.get("unknown_directions", [])) or "none"
+            novelty = frontier.get("novelty_label", "unknown")
+            local_pressure = frontier.get("local_visit_pressure", 0)
+            novelty_distance = frontier.get("global_novelty_distance", 0)
             if path:
                 lines.append(
-                    f"- Suggested route to the nearest low-visit frontier tile {target}: {', '.join(path[:12])}"
+                    f"- Suggested route to the current best frontier tile {target}: {', '.join(path[:12])}"
                 )
             else:
                 lines.append(
                     f"- You are already standing on a frontier tile {target}; unexplored directions from here: {unknown_dirs}"
                 )
+            lines.append(
+                f"- Frontier novelty: {novelty}; local revisit pressure={local_pressure}; global novelty distance={novelty_distance}"
+            )
         else:
             lines.append("- No reachable frontier route is currently known on this map.")
+
+        alternatives = advice.get("frontier_candidates", [])
+        if alternatives:
+            lines.append("- Top frontier candidates:")
+            for item in alternatives:
+                lines.append(
+                    "- "
+                    f"{tuple(item.get('target', ())) or 'unknown'} "
+                    f"novelty={item.get('novelty_label', 'unknown')} "
+                    f"pressure={item.get('local_visit_pressure', 0)} "
+                    f"unknown={','.join(item.get('unknown_directions', [])) or 'none'}"
+                )
 
         warps = advice.get("known_warps", [])
         if warps:

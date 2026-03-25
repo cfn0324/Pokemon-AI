@@ -1,0 +1,775 @@
+{
+  "requested_checkpoint": "latest",
+  "restored_checkpoint": "checkpoint_177167",
+  "pure_llm_mode": false,
+  "research_mode": true,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_177167",
+  "start_turn": 177167,
+  "end_turn": 178167,
+  "turn_delta": 1000,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "dialogue_timing": 35,
+    "ai": 5
+  },
+  "decision_path_counts": {
+    "tool": 35,
+    "ai": 5
+  },
+  "final_state": {
+    "turn": 178167,
+    "timestamp": "2026-03-24T19:33:25.151455",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 178167,
+      "local_analysis_enabled": false,
+      "screen_hash": "77b10dd390bab951fa20a5d210880b86"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 7,
+      "unique_tiles": 7,
+      "bounding_box_width": 8,
+      "bounding_box_height": 9,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 178128,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178129,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178130,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178131,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with no dialogue box, and the player is directly below Professor Oak facing him during the starter event so interacting should continue it.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178132,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178133,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178134,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178135,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178136,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178137,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178138,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178139,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178140,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with no visible text box, and the player is facing Professor Oak during the starter event so interacting should continue the script.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178141,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178142,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178143,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178144,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178145,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178146,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178147,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178148,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178149,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with no dialogue box, and the player is directly facing Professor Oak during the starter sequence so interacting should continue the mandatory script.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178150,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178151,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178152,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178153,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178154,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178155,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178156,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178157,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178158,
+      "action": "a",
+      "reasoning": "The lab scene is visible with Oak in front of the player and no text box, so pressing A should continue the starter selection script.",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178159,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178160,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178161,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178162,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178163,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178164,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178165,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178166,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the scripted intro dialogue before the first Pokemon",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 178167,
+      "action": "a",
+      "reasoning": "The lab is visible with no text box, and the player is standing directly below Professor Oak facing him so interacting should continue the mandatory starter event.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

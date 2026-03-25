@@ -1,0 +1,833 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_82500",
+  "start_turn": 21758,
+  "end_turn": 21838,
+  "turn_delta": 80,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 36
+  },
+  "decision_path_counts": {
+    "ai": 36
+  },
+  "final_state": {
+    "turn": 21838,
+    "timestamp": "2026-03-23T14:13:29.750189",
+    "position": {
+      "map_id": 1,
+      "x": 24,
+      "y": 10
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 21838,
+      "local_analysis_enabled": false,
+      "screen_hash": "1f16127e1a734d72107ebcd6e085643c"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 66,
+      "total_tiles": 200,
+      "exploration_percent": 33.0
+    },
+    "navigation": {
+      "current_visit_count": 8,
+      "known_exits": {
+        "right": {
+          "x": 25,
+          "y": 10
+        },
+        "left": {
+          "x": 23,
+          "y": 10
+        },
+        "down": {
+          "x": 24,
+          "y": 11
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 61,
+      "nearest_frontier": {
+        "target": [
+          24,
+          10
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up"
+        ],
+        "visit_count": 8,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 1,
+          "src_x": 21,
+          "src_y": 10,
+          "dest_map": 44,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?F???????",
+        "FWFFPFFFF",
+        "FFF..FFFF",
+        "???FF????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                                ",
+          "                                ",
+          "                                ",
+          "                                ",
+          "              F F               ",
+          "            FF.FWFFPFFFFFFFFFF  ",
+          "            FF.FFF..FFFFFFFFF   ",
+          "              F   FF            ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              F                 ",
+          "              FF                "
+        ],
+        "prompt_rows": [
+          "????????????????????????????????",
+          "????????????????????????????????",
+          "????????????????????????????????",
+          "????????????????????????????????",
+          "??????????????F?F???????????????",
+          "????????????FF.FWFFPFFFFFFFFFF??",
+          "????????????FF.FFF..FFFFFFFFF???",
+          "??????????????F???FF????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????F?????????????????",
+          "??????????????FF????????????????"
+        ],
+        "bounds": {
+          "min_x": 5,
+          "max_x": 36,
+          "min_y": 5,
+          "max_y": 28,
+          "width": 32,
+          "height": 24
+        },
+        "player": {
+          "x": 24,
+          "y": 10
+        },
+        "explored_count": 66,
+        "frontier_count": 61,
+        "blocked_count": 0,
+        "warp_count": 1,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21803,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; the fence directly below the player makes down a bad choice, while left and right show open ground, and moving left is the better step to get back toward the town’s central northbound route instead of drifting farther along the right side.",
+      "result": "After left:; moved from (24,12) to (23,12) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21804,
+      "action": "up",
+      "reasoning": "This is Viridian City overworld; the fence directly below blocks down, left is constrained by the nearby house, and the ground clearly continues upward for several tiles toward the town’s north side.",
+      "result": "After up:; moved from (23,12) to (23,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21805,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld with no dialogue box, and all nearby directions look walkable, but the navigation memory marks the tile to the left as the next frontier with an unknown path from there, so stepping left is the best small exploration move toward leaving town.",
+      "result": "After left:; moved from (23,11) to (22,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21806,
+      "action": "up",
+      "reasoning": "This is Viridian City overworld with no dialogue box, and from the player’s current position the ground clearly continues upward for several tiles while down only returns toward the lower houses and fence.",
+      "result": "After up:; moved from (22,11) to (22,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 22,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21807,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; up is blocked by the house directly above the player, while left shows clear walkable ground toward the open space beside the house and Old Man, which is the better next step for finding the north exit.",
+      "result": "After left:; moved from (22,10) to (21,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 22,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21808,
+      "action": "left",
+      "reasoning": "The screenshot shows normal Viridian City overworld with no dialogue box; the house wall and doorway are directly above the player, while the open ground clearly continues left toward the space beside the house and the north side of town.",
+      "result": "After left:; moved from (21,10) to (20,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21809,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; up is already known blocked from this tile by the house frontage, while left shows clear open ground toward the gap beside the Old Man instead of looping again along the house’s right side.",
+      "result": "After left:; moved from (20,10) to (19,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21810,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld with no dialogue box, and from the current tile the ground clearly continues left into an unexplored frontier while right just returns along the house side and down drifts away from the north side.",
+      "result": "After left:; moved from (19,10) to (18,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21811,
+      "action": "up",
+      "reasoning": "This is Viridian City overworld with no dialogue box; the Old Man is immediately to the player’s upper-left, the house blocks the right side, and the clearest visible unexplored floor is the tile directly above the player.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 18,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21812,
+      "action": "left",
+      "reasoning": "The screenshot shows Viridian City with an NPC directly above the player, so up is blocked; left has visible open ground while right runs toward the house, making a left step the best small exploration move.",
+      "result": "After left:; moved from (18,10) to (17,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 18,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21813,
+      "action": "down",
+      "reasoning": "The old man is directly to the player’s right and blocks that tile, while down shows clear open ground; since the north route is still blocked here, the next mandatory progress is to move toward the nearby Viridian Mart instead of pushing past him.",
+      "result": "After down:; moved from (17,10) to (17,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 17,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21814,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld with no dialogue box; trees and fence block the left side, the Old Man and girl occupy the tiles above area, and the clear open ground to the right leads toward the nearby building we need to enter for Oak's Parcel.",
+      "result": "After right:; moved from (17,11) to (18,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 17,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21815,
+      "action": "right",
+      "reasoning": "The screen shows Viridian City with no dialogue box; left is hemmed in by trees and the NPC cluster is above-left, while the open ground clearly continues to the right toward the nearby buildings where the Mart should be.",
+      "result": "After right:; moved from (18,11) to (19,11) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 18,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21816,
+      "action": "up",
+      "reasoning": "The current focus is to reach the Viridian Mart, and in the screenshot the upper-right building is nearby while the tile above the player is clear open ground; left heads back toward the tree edge and NPCs instead.",
+      "result": "After up:; moved from (19,11) to (19,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21817,
+      "action": "right",
+      "reasoning": "The current focus is to reach the Viridian Mart, and in the screenshot the nearby building is to the player’s upper-right; left runs toward the fence line, up approaches the NPCs, and right is the clearest step toward the door.",
+      "result": "After right:; moved from (19,10) to (20,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21818,
+      "action": "right",
+      "reasoning": "The Viridian Mart building is immediately up-right of the player in the screenshot, and up is already known blocked from this tile while the ground to the right is clearly open and should line us up with the door.",
+      "result": "After right:; moved from (20,10) to (21,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21819,
+      "action": "up",
+      "reasoning": "The screenshot shows normal Viridian City overworld, and the player is standing directly below a building doorway with clear ground above, so stepping up is the smallest concrete move toward entering the Viridian Mart.",
+      "result": "After up:; warped from map 1 (21,10) to map 44 (2,7); screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21820,
+      "action": "wait",
+      "reasoning": "The screenshot is completely black with no visible room, menu, or dialogue, so after just warping into the Mart the safest step is to wait for the screen to finish updating before trying to move to the clerk.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "unknown",
+      "observed_screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21821,
+      "action": "up",
+      "reasoning": "This is the Viridian Mart interior; the player is standing on the entrance mat, down is black void/off-room, and the visible floor clearly continues upward into the shop toward the clerk we need to talk to.",
+      "result": "After up:; moved from (2,7) to (2,6) on map 44",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "unknown",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21822,
+      "action": "up",
+      "reasoning": "This is the Viridian Mart interior, and the current focus is to talk to the clerk; down is mostly black entrance void while the visible floor continues upward toward the counter and NPCs.",
+      "result": "After up:; moved from (2,6) to (2,5) on map 44",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21823,
+      "action": "down",
+      "reasoning": "This room is not the Viridian Mart clerk area; up is blocked by the chair above the player, while visible floor continues downward across the rug toward the likely exit so I should leave and find the correct shop.",
+      "result": "After down:; moved from (2,5) to (2,6) on map 44",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21824,
+      "action": "down",
+      "reasoning": "This is an indoor house, and the current focus is to leave the wrong building; the floor and rug clearly continue downward from the player while up leads back toward the table and NPCs.",
+      "result": "After down:; moved from (2,6) to (2,7) on map 44",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21825,
+      "action": "down",
+      "reasoning": "This is the wrong house interior; up goes back into the room, while the player is already on the entrance rug at the bottom edge and down is the most likely exit warp to leave the building.",
+      "result": "After down:; warped from map 44 (2,7) to map 1 (2,7)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 44,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21826,
+      "action": "down",
+      "reasoning": "The screenshot still shows the wrong house interior, and the player is standing on the entrance mat at the bottom edge, so down is the correct step to use the exit rather than moving back into the room.",
+      "result": "After down:; moved from (2,7) to (21,9) on map 1; screen changed from indoor to overworld",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 1,
+        "x": 2,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21827,
+      "action": "down",
+      "reasoning": "This is Viridian City overworld outside the wrong house; up would just re-enter the doorway, while down shows clear open ground for several tiles and is the best step to move away and continue searching for the actual Mart.",
+      "result": "After down:; moved from (21,9) to (21,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21828,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld outside the wrong house; up would just re-enter the doorway, while the tile to the right is clear open ground and is the next visible frontier to continue searching for the actual Mart.",
+      "result": "After right:; moved from (21,10) to (22,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21829,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld; the house frontage is directly above the player so up is likely blocked, while the ground clearly continues to the right beside the hedge and sign, making right the best search step for the actual Mart.",
+      "result": "After right:; moved from (22,10) to (23,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 22,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21830,
+      "action": "up",
+      "reasoning": "This is Viridian City overworld; left goes back along the house front, down heads away toward the lower fence, and there is visible open ground above the player beside the house, so checking upward is the best small search step for the actual Mart.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21831,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld; up just failed and the hedge directly above the player blocks that path, while the open ground to the right leads toward the nearby sign and building that is the best next check for the actual Mart.",
+      "result": "After right:; moved from (23,10) to (24,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21832,
+      "action": "right",
+      "reasoning": "The player is in Viridian City below a hedge line, and up is blocked by the bushes directly above while the ground clearly continues to the right along the hedge for further search toward the Mart area.",
+      "result": "After right:; moved from (24,10) to (25,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21833,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; the hedge directly above the player makes up look blocked, while the ground to the left is clearly open and leads toward the nearby left-hand building to check for the actual Mart.",
+      "result": "After left:; moved from (25,10) to (24,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21834,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld; the hedge directly above the player makes up look blocked, while the ground clearly continues to the right toward the sign and the building on the right side that we still need to check for the actual Mart.",
+      "result": "After right:; moved from (24,10) to (25,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21835,
+      "action": "right",
+      "reasoning": "This is Viridian City overworld, and the hedge row directly above the player looks like a blocker while the ground clearly continues to the right along the hedge toward the nearby sign and buildings, which is the best next search step for the Mart.",
+      "result": "After right:; moved from (25,10) to (26,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21836,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; the hedge directly above the player blocks up, while left and right are open, and moving left is the best step to check the nearby left-hand building rather than continuing to hug the Gym side.",
+      "result": "After left:; moved from (26,10) to (25,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 26,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21837,
+      "action": "left",
+      "reasoning": "This is Viridian City overworld; the hedge directly above the player blocks up, the Gym is the large building at upper right, and moving left along the open path is the best step toward checking the other nearby building for the actual Mart.",
+      "result": "After left:; moved from (25,10) to (24,10) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 21838,
+      "action": "up",
+      "reasoning": "This is Viridian City overworld, and the navigation memory marks up from the current tile as the one unknown direction with unexplored tiles at (24,9) and (24,8), so the best small step is to test that frontier instead of continuing the left-right loop.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 10
+      },
+      "party_size": 1
+    }
+  ]
+}

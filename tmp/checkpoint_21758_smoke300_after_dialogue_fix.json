@@ -1,0 +1,1221 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_107900",
+  "start_turn": 21758,
+  "end_turn": 22058,
+  "turn_delta": 300,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "dialogue_timing": 60
+  },
+  "decision_path_counts": {
+    "tool": 60
+  },
+  "final_state": {
+    "turn": 22058,
+    "timestamp": "2026-03-23T16:13:36.754043",
+    "position": {
+      "map_id": 1,
+      "x": 35,
+      "y": 11
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 22058,
+      "local_analysis_enabled": false,
+      "screen_hash": "bad988cab398686a1710a7209f8675bc",
+      "observed_screen_type": "battle"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 53,
+      "total_tiles": 200,
+      "exploration_percent": 26.5
+    },
+    "navigation": {
+      "current_visit_count": 274,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 49,
+      "nearest_frontier": {
+        "target": [
+          35,
+          11
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "right"
+        ],
+        "visit_count": 274,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "FFFFP????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                     ",
+          "                     ",
+          "  F   #              ",
+          "  FFFFF              ",
+          "  F....FFFFFFFFFFFP  ",
+          "  FFFFF              ",
+          "  F   #              ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  F                  ",
+          "  FF                 ",
+          "   F                 ",
+          "   FF                "
+        ],
+        "prompt_rows": [
+          "?????????????????????",
+          "?????????????????????",
+          "??F???#??????????????",
+          "??FFFFF??????????????",
+          "??F....FFFFFFFFFFFP??",
+          "??FFFFF??????????????",
+          "??F???#??????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??F??????????????????",
+          "??FF?????????????????",
+          "???F?????????????????",
+          "???FF????????????????"
+        ],
+        "bounds": {
+          "min_x": 17,
+          "max_x": 37,
+          "min_y": 7,
+          "max_y": 30,
+          "width": 21,
+          "height": 24
+        },
+        "player": {
+          "x": 35,
+          "y": 11
+        },
+        "explored_count": 53,
+        "frontier_count": 49,
+        "blocked_count": 2,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 21999,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22000,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22001,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22002,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22003,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22004,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22005,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22006,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22007,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22008,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22009,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22010,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22011,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22012,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22013,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22014,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22015,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22016,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22017,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22018,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22019,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22020,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22021,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22022,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22023,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22024,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22025,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22026,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22027,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22028,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22029,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22030,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22031,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22032,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22033,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22034,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22035,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22036,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22037,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22038,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22039,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22040,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22041,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22042,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22043,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22044,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22045,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22046,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22047,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22048,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22049,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22050,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22051,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22052,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22053,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22054,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22055,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22056,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": "After a:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22057,
+      "action": "wait",
+      "reasoning": "Auto: let the current dialogue page finish rendering before advancing",
+      "result": "After wait:; text box remains active",
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22058,
+      "action": "a",
+      "reasoning": "Auto: periodically advance dialogue after letting the current page render",
+      "result": null,
+      "decision_source": "dialogue_timing",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 11
+      },
+      "party_size": 1
+    }
+  ]
+}

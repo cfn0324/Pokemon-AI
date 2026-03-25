@@ -1,0 +1,1504 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_148200",
+  "start_turn": 21758,
+  "end_turn": 22758,
+  "turn_delta": 1000,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 76
+  },
+  "decision_path_counts": {
+    "ai": 76
+  },
+  "final_state": {
+    "turn": 22758,
+    "timestamp": "2026-03-24T04:44:51.700501",
+    "position": {
+      "map_id": 1,
+      "x": 13,
+      "y": 4
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 22758,
+      "local_analysis_enabled": false,
+      "screen_hash": "863f30e5d155010b7f4aa830ae682cec"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 193,
+      "total_tiles": 200,
+      "exploration_percent": 96.5
+    },
+    "navigation": {
+      "current_visit_count": 561,
+      "known_exits": {},
+      "blocked_directions": [
+        "right"
+      ],
+      "frontier_count": 111,
+      "nearest_frontier": {
+        "target": [
+          13,
+          4
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "right"
+        ],
+        "visit_count": 561,
+        "distance": 0
+      },
+      "known_warps": [
+        {
+          "src_map": 1,
+          "src_x": 0,
+          "src_y": 17,
+          "dest_map": 33,
+          "dest_x": 39,
+          "dest_y": 9,
+          "count": 1
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "FFFFP????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                                ",
+          "                                ",
+          "        #                       ",
+          "       #.FFFFFFP                ",
+          "        F                       ",
+          "        F                       ",
+          "        F                       ",
+          "        F                       ",
+          "        F          ##F  ########",
+          "        F         #...FF........",
+          "        F          F............",
+          "        F          F............",
+          "        F           FF##########",
+          "        F           FF          ",
+          "  FFFFFFF           FF          ",
+          "                 #  FF          ",
+          "  WFFFFFFFFFFFFFFF  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          ",
+          "                 F  FF          "
+        ],
+        "prompt_rows": [
+          "????????????????????????????????",
+          "????????????????????????????????",
+          "????????#???????????????????????",
+          "???????#.FFFFFFP????????????????",
+          "????????F???????????????????????",
+          "????????F???????????????????????",
+          "????????F???????????????????????",
+          "????????F???????????????????????",
+          "????????F??????????##F??########",
+          "????????F?????????#...FF........",
+          "????????F??????????F............",
+          "????????F??????????F............",
+          "????????F???????????FF##########",
+          "????????F???????????FF??????????",
+          "??FFFFFFF???????????FF??????????",
+          "?????????????????#??FF??????????",
+          "??WFFFFFFFFFFFFFFF??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????",
+          "?????????????????F??FF??????????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 29,
+          "min_y": 1,
+          "max_y": 24,
+          "width": 32,
+          "height": 24
+        },
+        "player": {
+          "x": 13,
+          "y": 4
+        },
+        "explored_count": 193,
+        "frontier_count": 111,
+        "blocked_count": 56,
+        "warp_count": 1,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 22683,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22684,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player with no visible menu or text box while the text-active flag remains set, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22685,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher sprite still facing the player on the overworld with no visible text box or command menu while RAM says text is active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22686,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no command menu visible while RAM still flags active text, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22687,
+      "action": "a",
+      "reasoning": "The screenshot shows the player and Bug Catcher frozen face-to-face on the overworld with no visible menu while the RAM text flag is still active, so the trainer script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22688,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu or completed text box while RAM says text is active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22689,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly in front of the player on the overworld with no visible text box or command menu while the text-active flag is still set, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22690,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player frozen face-to-face on the overworld with no visible command menu or text box while RAM still flags active text, so the trainer script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22691,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing face-to-face with the player on the overworld and RAM still indicates active text/script, so the encounter is still awaiting advancement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22692,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher sprite standing directly in front of the player with no visible menu while RAM still marks text active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22693,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu but RAM still says text is active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22694,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible menu or text box while RAM still marks active text, so the trainer script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22695,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible menu while the text-active flag remains set, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22696,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher locked face-to-face with the player on the overworld with no visible menu while text remains flagged active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22697,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible menu, while RAM still indicates active text so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22698,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible menu and RAM still flags active text, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22699,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu or text box while the text-active flag remains set, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22700,
+      "action": "a",
+      "reasoning": "The screenshot shows the player and Bug Catcher frozen face-to-face on the overworld with no visible menu or dialogue box while the text-active flag is still set, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22701,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible menu or text box while RAM still marks text active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22702,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing face-to-face with the player on the overworld and the RAM state still says text is active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22703,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the route with no menu open while text/cutscene state remains active, indicating the trainer encounter still needs advancing.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22704,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher initiating a trainer encounter on the overworld with no choice menu visible, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22705,
+      "action": "a",
+      "reasoning": "The screenshot shows the player and Bug Catcher locked face-to-face with no menu or dialogue box visible while text remains flagged active, so the encounter script still needs to advance.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22706,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player still locked face-to-face with no menu open while text/cutscene state remains active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22707,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player still locked face-to-face on the overworld with no menu visible while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22708,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face with no menu while the text-active flag remains set, so the encounter script should be advanced again.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22709,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher stepping toward the player in the trainer-spotting animation with no dialogue box yet, so the encounter script should continue.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22710,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher still in the trainer-approach scene directly in front of the player with no controllable menu visible, so the encounter script should keep progressing.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22711,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher still standing directly in front of the player in the trainer-encounter scene with no visible menu, so the script should continue by waiting for the next transition.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22712,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no menu visible while text/script state remains active, so the trainer encounter still needs to advance.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22713,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly in front of the player on the overworld with no visible dialogue box while RAM still flags active text, so the trainer encounter script likely needs one more advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22714,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player in the trainer encounter with no visible choice menu, so the scripted interaction should continue without movement input.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22715,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player locked face-to-face on the overworld with no visible dialogue box while text remains flagged active, so the trainer encounter script likely needs another advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22716,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player locked face-to-face on the overworld with no visible menu while text remains flagged active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22717,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player still frozen face-to-face on the route with no command menu visible while text/script remains active, so the encounter should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22718,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher facing the player on the overworld with no visible text box or menu while text-active remains set, so the encounter script should be advanced again.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22719,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher facing the player on the overworld with no visible text box yet while the game still reports active text/script, so the trainer encounter should be allowed to progress.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22720,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no battle menu yet while text/script state remains active, so the trainer encounter is still auto-progressing.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22721,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player with no menu or dialogue box visible while the text/cutscene flag remains active, so the trainer encounter is still auto-progressing.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22722,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher and player still frozen face-to-face on the overworld with no battle UI yet while text remains active, so the trainer encounter script should continue by waiting.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22723,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face with no visible text box or menu while the active text/script flag remains on, so the encounter needs another advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22724,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher still locked face-to-face with the player on the overworld and RAM still reports active text/script with no menu visible, so the encounter sequence should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22725,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher still standing directly in front of the player with no battle UI visible while the text-active flag remains set, so the trainer encounter script is still waiting to advance.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22726,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no visible menu or dialogue box while the text-active flag remains set, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22727,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly in front of the player on Route 2 with no visible menu while the text/cutscene flag is still active, so the trainer encounter should be allowed to progress.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22728,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher standing directly in front of the player with no visible dialogue box or menu while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22729,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player with no battle transition or menu yet, so the trainer encounter script should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22730,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player with no text box drawn yet, so this looks like the trainer-approach script still auto-progressing rather than awaiting a button press.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22731,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no visible text box or menu while the text-active flag remains set, so the trainer encounter script should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22732,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher trainer directly facing the player on the overworld with no visible dialogue box yet, so the encounter script should be allowed to continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22733,
+      "action": "wait",
+      "reasoning": "The screenshot still shows the Bug Catcher and player locked face-to-face on the overworld with no visible battle UI while text/cutscene state remains active, so the trainer encounter script should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22734,
+      "action": "a",
+      "reasoning": "The screenshot still shows the bug catcher directly facing the player with no visible dialogue box or menu while the text-active flag remains set, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22735,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player on the overworld with no battle transition or menu yet while text/script remains active, so the encounter should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22736,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu while text remains flagged active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22737,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher one tile to the player's right in the trainer-approach pose with no dialogue box yet, so the encounter is still auto-progressing rather than awaiting menu navigation.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22738,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no visible menu while text/script is still flagged active, so the trainer encounter should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22739,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher directly facing the player on the overworld with text state active and no battle menu yet, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22740,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher still locked face-to-face with the player on the overworld and the state still indicates active text/script, so the trainer encounter needs another advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22741,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no menu visible while the text-active flag remains on, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22742,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face with no visible text box or menu while RAM says text is active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22743,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no battle menu yet while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22744,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no visible menu or dialogue box while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22745,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher still locked in front of the player with no visible menu or dialogue box while text/script state remains active, so the encounter sequence should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22746,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player in a trainer encounter pose with no visible menu, and the active text/script flag indicates the sequence still needs advancing.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22747,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the overworld with no menu visible while text remains active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22748,
+      "action": "wait",
+      "reasoning": "The screenshot still shows the Bug Catcher standing directly in front of the player with no battle interface or menu visible while text/cutscene state remains active, so the encounter script should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22749,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher and player still locked face-to-face on the overworld with no battle menu visible while text/script remains active, so the encounter should continue automatically.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22750,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher and player frozen face-to-face with no battle HUD or visible text box, so the trainer encounter script should be advanced with the confirm button.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22751,
+      "action": "a",
+      "reasoning": "The screenshot shows the bug catcher and player locked face-to-face with no menu visible while RAM still says text is active, so the encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22752,
+      "action": "wait",
+      "reasoning": "The screenshot still shows the Bug Catcher standing directly in front of the player on the overworld with no visible battle transition yet while text/script remains active.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22753,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no visible menu and the active text/script flag still set, so the trainer encounter should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22754,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher standing face-to-face with the player on the overworld and no battle menu yet while text/cutscene state remains active, so the scripted trainer encounter should be allowed to continue.",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22755,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher standing directly in front of the player in the pre-battle trainer encounter with no menu visible while text/script remains active, so the interaction should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22756,
+      "action": "a",
+      "reasoning": "The screenshot shows the Bug Catcher directly facing the player on the overworld with no menu visible while RAM still says text is active, so the trainer encounter script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22757,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Bug Catcher and player frozen face-to-face on the route with no visible menu, so the trainer encounter sequence should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 22758,
+      "action": "wait",
+      "reasoning": "The screenshot shows the Bug Catcher in the trainer-encounter exclamation pose facing the player on the overworld with no dialogue box yet, so the scripted sequence should be allowed to continue.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "battle",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 1,
+        "x": 13,
+        "y": 4
+      },
+      "party_size": 1
+    }
+  ]
+}

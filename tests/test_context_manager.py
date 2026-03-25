@@ -1,6 +1,7 @@
 import json
-import tempfile
+import shutil
 import unittest
+import uuid
 from pathlib import Path
 
 from src.memory.context_manager import ContextManager
@@ -11,8 +12,10 @@ class ContextManagerLoadTests(unittest.TestCase):
         manager = ContextManager(max_turns=5, keep_recent=2)
         manager.add_turn(1, {"memory": {}}, action="a", reasoning="first")
 
-        with tempfile.TemporaryDirectory() as tmpdir:
-            path = Path(tmpdir) / "context.json"
+        tmpdir = Path("tmp") / f"context_manager_{uuid.uuid4().hex}"
+        tmpdir.mkdir(parents=True, exist_ok=False)
+        try:
+            path = tmpdir / "context.json"
             path.write_text(
                 json.dumps(
                     {
@@ -34,6 +37,8 @@ class ContextManagerLoadTests(unittest.TestCase):
             )
 
             manager.load(str(path))
+        finally:
+            shutil.rmtree(tmpdir, ignore_errors=True)
 
         self.assertEqual(len(manager.recent_turns), 1)
         self.assertEqual(manager.recent_turns[0].turn_number, 7)

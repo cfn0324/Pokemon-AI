@@ -220,6 +220,7 @@ class ActionExecutor:
             "cutscene",
             "text_entry",
             "naming_screen",
+            "startup",
             "title",
             "startup_menu",
             "options_menu",

@@ -1,0 +1,891 @@
+{
+  "requested_checkpoint": "checkpoint_21758",
+  "restored_checkpoint": "checkpoint_21758",
+  "pure_llm_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_132300",
+  "start_turn": 21758,
+  "end_turn": 26758,
+  "turn_delta": 5000,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.1,
+  "decision_source_counts": {
+    "ai_cooldown": 37,
+    "ai_error": 3
+  },
+  "decision_path_counts": {
+    "ai": 40
+  },
+  "final_state": {
+    "turn": 26758,
+    "timestamp": "2026-03-23T19:53:42.116172",
+    "position": {
+      "map_id": 1,
+      "x": 35,
+      "y": 10
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 7,
+        "hp": 12,
+        "current_hp": 12,
+        "max_hp": 24,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 29
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 13,
+          "defense": 11,
+          "speed": 14,
+          "special": 12
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 26758,
+      "local_analysis_enabled": false,
+      "screen_hash": "3effffdc1b064f0d46e09b174785f02b"
+    },
+    "exploration": {
+      "current_map": 1,
+      "explored_tiles": 77,
+      "total_tiles": 200,
+      "exploration_percent": 38.5
+    },
+    "navigation": {
+      "current_visit_count": 2149,
+      "known_exits": {
+        "down": {
+          "x": 35,
+          "y": 11
+        },
+        "left": {
+          "x": 34,
+          "y": 10
+        }
+      },
+      "blocked_directions": [
+        "right",
+        "up"
+      ],
+      "frontier_count": 33,
+      "nearest_frontier": {
+        "target": [
+          35,
+          10
+        ],
+        "path": [],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 2149,
+        "distance": 0
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "....P????",
+        ".....????",
+        ".....????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 1,
+        "rows": [
+          "                      ",
+          "                      ",
+          "  F   #############   ",
+          "  FFFF............P   ",
+          "  F................#  ",
+          "  F................#  ",
+          "  F################   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  F                   ",
+          "  FF                  ",
+          "   F                  ",
+          "   FF                 "
+        ],
+        "prompt_rows": [
+          "??????????????????????",
+          "??????????????????????",
+          "??F???#############???",
+          "??FFFF............P???",
+          "??F................#??",
+          "??F................#??",
+          "??F################???",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??F???????????????????",
+          "??FF??????????????????",
+          "???F??????????????????",
+          "???FF?????????????????"
+        ],
+        "bounds": {
+          "min_x": 17,
+          "max_x": 38,
+          "min_y": 7,
+          "max_y": 30,
+          "width": 22,
+          "height": 24
+        },
+        "player": {
+          "x": 35,
+          "y": 10
+        },
+        "explored_count": 77,
+        "frontier_count": 33,
+        "blocked_count": 31,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 26719,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26720,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26721,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26722,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26723,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26724,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26725,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26726,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26727,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 503: {\"error\":{\"code\":\"model_not_found\",\"message\":\"所有令牌分组 default,第三方 下对于模型 gpt-5.4 均无可用渠道，请更换分组尝试 (request id: 20260323115327137014839BGnq3vMu)\",\"type\":\"rix_api_error\"}}",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26728,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26729,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26730,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26731,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26732,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26733,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26734,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26735,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26736,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26737,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26738,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26739,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 503: {\"error\":{\"code\":\"model_not_found\",\"message\":\"所有令牌分组 default,第三方 下对于模型 gpt-5.4 均无可用渠道，请更换分组尝试 (request id: 20260323115333627826209tToCHuS0)\",\"type\":\"rix_api_error\"}}",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26740,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26741,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26742,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26743,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26744,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26745,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26746,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26747,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26748,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26749,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26750,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed with status 503: {\"error\":{\"code\":\"model_not_found\",\"message\":\"所有令牌分组 default,第三方 下对于模型 gpt-5.4 均无可用渠道，请更换分组尝试 (request id: 20260323115340275864757rNIbsRaY)\",\"type\":\"rix_api_error\"}}",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26751,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26752,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26753,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26754,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26755,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26756,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26757,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 26758,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": null,
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 1,
+        "x": 35,
+        "y": 10
+      },
+      "party_size": 1
+    }
+  ]
+}

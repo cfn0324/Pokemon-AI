@@ -1,0 +1,413 @@
+{
+  "requested_checkpoint": "checkpoint_76900",
+  "restored_checkpoint": "checkpoint_76900",
+  "pure_llm_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_83300",
+  "start_turn": 76900,
+  "end_turn": 76920,
+  "turn_delta": 20,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 8,
+    "known_ui": 5,
+    "bootstrap": 7
+  },
+  "decision_path_counts": {
+    "ai": 8,
+    "tool": 12
+  },
+  "final_state": {
+    "turn": 76920,
+    "timestamp": "2026-03-23T14:17:10.858343",
+    "position": {
+      "map_id": 38,
+      "x": 3,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 76920,
+      "local_analysis_enabled": false,
+      "screen_hash": "f7063a1749279b5bd8cf2f3a0cba9e7e"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 9,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 76901,
+      "action": "start",
+      "reasoning": "The screenshot is the Pokémon Red title screen with the logo and copyright text, so the next step is to leave the title and reach the main menu.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76902,
+      "action": "a",
+      "reasoning": "The screenshot is still the Pokémon Red title screen, and the last Start press caused no visible change, so I should switch tactics and try A to advance past the title.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76903,
+      "action": "wait",
+      "reasoning": "The screenshot is still the Pokémon Red title screen, and both Start and A just caused no visible change, so I should stop repeating them and wait to see if the screen is still transitioning or becomes responsive.",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76904,
+      "action": "start",
+      "reasoning": "This is still the Pokémon Red title screen, and in boot/title flow Start is the correct non-random input to try to advance toward the main menu.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76905,
+      "action": "start",
+      "reasoning": "The screenshot is clearly the Pokémon Red title screen, and the top todo is still to advance past it into the startup menu.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76906,
+      "action": "wait",
+      "reasoning": "The screenshot is still the static Pokémon Red title screen, and since both Start and A have repeatedly caused no visible change, the safest next step is to pause and see whether the title is still in an unresponsive part of its cycle.",
+      "result": "After wait:; screen changed from overworld to startup",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "title",
+      "observed_screen_type": "overworld",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76907,
+      "action": "wait",
+      "reasoning": "Auto: wait through the boot/startup transition screen",
+      "result": "After wait:; no visible state change",
+      "decision_source": "known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "title",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76908,
+      "action": "wait",
+      "reasoning": "Auto: wait through the boot/startup transition screen",
+      "result": "After wait:; screen changed from startup to startup_menu",
+      "decision_source": "known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76909,
+      "action": "a",
+      "reasoning": "Auto: confirm the pre-game NEW GAME menu",
+      "result": "After a:; no visible state change",
+      "decision_source": "known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "startup_menu",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76910,
+      "action": "a",
+      "reasoning": "Auto: confirm the pre-game NEW GAME menu",
+      "result": "After a:; warped from map 0 (0,0) to map 38 (3,6); screen changed from startup_menu to startup; money delta +3000",
+      "decision_source": "known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup_menu",
+      "observed_screen_type": "startup_menu",
+      "phase_hint": "startup_menu",
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76911,
+      "action": "wait",
+      "reasoning": "Auto: wait through the boot/startup transition screen",
+      "result": "After wait:; screen changed from startup to overworld",
+      "decision_source": "known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "startup_menu",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76912,
+      "action": "wait",
+      "reasoning": "The screenshot shows Professor Oak alone on a blank background with no visible menu or dialogue box, so the opening scripted intro is still playing and I should wait for the next prompt instead of trying to move.",
+      "result": "After wait:; screen changed from overworld to text_entry",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "overworld",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76913,
+      "action": "wait",
+      "reasoning": "The screenshot shows Professor Oak alone on a blank background with no visible dialogue box or naming grid yet, so the intro cutscene is still unfolding and the safest step is to wait for the next prompt.",
+      "result": "After wait:; screen changed from text_entry to dialogue",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "cutscene",
+      "observed_screen_type": "text_entry",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76914,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "cutscene",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76915,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76916,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76917,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76918,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After wait:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76919,
+      "action": "a",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": "After a:; no visible state change",
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76920,
+      "action": "wait",
+      "reasoning": "Bootstrap: clear the bedroom SNES dialogue loop and descend the stairs",
+      "result": null,
+      "decision_source": "bootstrap",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 38,
+        "x": 3,
+        "y": 6
+      },
+      "party_size": 0
+    }
+  ]
+}

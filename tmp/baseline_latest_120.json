@@ -1,0 +1,1090 @@
+{
+  "requested_checkpoint": "checkpoint_76900",
+  "restored_checkpoint": "checkpoint_76900",
+  "pure_llm_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_77400",
+  "start_turn": 76900,
+  "end_turn": 77020,
+  "turn_delta": 120,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "pre_starter_recovery": 60
+  },
+  "decision_path_counts": {
+    "tool": 60
+  },
+  "final_state": {
+    "turn": 77020,
+    "timestamp": "2026-03-23T13:51:53.892051",
+    "position": {
+      "map_id": 0,
+      "x": 0,
+      "y": 0
+    },
+    "badges": 0,
+    "money": 0,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": true,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 77020,
+      "local_analysis_enabled": false,
+      "screen_hash": "3513dab8dba6eb14a8834f6312580b61"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 119,
+      "stuck_hint": "possibly stuck - explore a different direction or unseen tile"
+    }
+  },
+  "timeline": [
+    {
+      "turn": 76961,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76962,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76963,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76964,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76965,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76966,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76967,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76968,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76969,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76970,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76971,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76972,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76973,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76974,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76975,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76976,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76977,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76978,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76979,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76980,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76981,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76982,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76983,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76984,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76985,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76986,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76987,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76988,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76989,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76990,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76991,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76992,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76993,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76994,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76995,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76996,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76997,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76998,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 76999,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77000,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77001,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77002,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77003,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77004,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77005,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77006,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77007,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77008,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77009,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77010,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77011,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77012,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77013,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77014,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77015,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77016,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77017,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77018,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77019,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": "After up:; position did not change",
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 77020,
+      "action": "up",
+      "reasoning": "Auto: pre-starter recovery; probe direction up instead of idling",
+      "result": null,
+      "decision_source": "pre_starter_recovery",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 0,
+        "y": 0
+      },
+      "party_size": 0
+    }
+  ]
+}

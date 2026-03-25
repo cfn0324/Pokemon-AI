@@ -48,6 +48,8 @@ def _simplify_state(state: Dict[str, Any] | None) -> Dict[str, Any]:
         },
         "navigation": state.get("navigation", {}) or {},
         "deltas": state.get("deltas", {}) or {},
+        "movement_pattern": state.get("movement_pattern", {}) or {},
+        "battle_summary": state.get("battle_summary", {}) or {},
     }
 
 
@@ -121,6 +123,11 @@ def main() -> None:
         help="Disable deterministic control stages and test the run in pure-LLM mode.",
     )
     parser.add_argument(
+        "--research-mode",
+        action="store_true",
+        help="Keep generic safeguards but disable fixed route-script controllers.",
+    )
+    parser.add_argument(
         "--reset-context",
         action="store_true",
         help="Clear saved recent-turn context after loading the checkpoint.",
@@ -138,6 +145,15 @@ def main() -> None:
     config.set("game.resume_checkpoint", None)
     config.set("performance.async_decisions", False)
     config.set("progress.checkpoint_interval", 10**9)
+    config.set("ai.guidance_interval_turns", 0)
+    config.set("ai.request_timeout_seconds", 12)
+    config.set("ai.request_retries", 1)
+    config.set("ai.request_retry_backoff_seconds", 0.5)
+    config.set("ai.api_error_cooldown_seconds", 1)
+    config.set("ai.api_error_cooldown_max_seconds", 2)
+    config.set("testing.disable_stuck_critique", True)
+    if args.research_mode:
+        config.set("decision.research_mode", True)
 
     if args.pure_llm:
         config.set("decision.pure_llm_mode", True)
@@ -148,6 +164,9 @@ def main() -> None:
         config.set("ai.guidance_interval_turns", 0)
         config.set("ai.agents.main.temperature", 0.0)
         config.set("ai.decision_max_tokens", 256)
+        config.set("ai.request_timeout_seconds", 12)
+        config.set("ai.request_retries", 1)
+        config.set("ai.request_retry_backoff_seconds", 0.5)
         config.set("ai.api_error_cooldown_seconds", 1)
         config.set("ai.api_error_cooldown_max_seconds", 2)
 
@@ -162,7 +181,8 @@ def main() -> None:
     )
     print(
         f"[autonomous_smoke] checkpoint={args.checkpoint!r}, turns={requested_turns}, "
-        f"pure_llm={args.pure_llm}, reset_context={args.reset_context}"
+        f"pure_llm={args.pure_llm}, research_mode={args.research_mode}, "
+        f"reset_context={args.reset_context}"
     )
 
     from main import PokemonAIAgent
@@ -188,6 +208,7 @@ def main() -> None:
         "requested_checkpoint": args.checkpoint,
         "restored_checkpoint": agent._restored_checkpoint_name,
         "pure_llm_mode": bool(args.pure_llm),
+        "research_mode": bool(args.research_mode),
         "reset_context": bool(args.reset_context),
         "latest_checkpoint": latest_checkpoint.get("name") if latest_checkpoint else None,
         "start_turn": start_turn,
