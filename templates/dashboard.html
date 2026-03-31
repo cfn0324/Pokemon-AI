@@ -3,73 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宝可梦红版 AI 运行大屏</title>
+    <title>宝可梦红版 AI 大屏</title>
     <link rel="stylesheet" href="/static/dashboard.css">
 </head>
 <body>
+    <div class="dashboard-viewport" id="dashboardViewport">
     <div class="app-shell">
         <header class="topbar panel">
-            <div class="brand-block">
-                <p class="eyebrow">宝可梦红版 AI</p>
-                <h1>运行大屏</h1>
-                <p class="subtitle">
-                    单页展示实时游戏、决策推理、检查点回滚与运行控制。
-                </p>
+            <div class="title-stack">
+                <p class="eyebrow">Pokemon Red Runtime</p>
+                <h1>AI 运行大屏</h1>
+                <p class="subtitle">保留实时画面、逆向地图和策略推理，其他信息压缩为侧栏与底部情报带。</p>
             </div>
-
-            <div class="status-block">
-                <div class="status-grid">
-                    <div class="pill" id="connectionPill" data-tone="warning">连接中</div>
-                    <div class="pill" id="runPill" data-tone="neutral">运行状态未知</div>
-                    <div class="pill">回合 <strong id="turnPillValue">0</strong></div>
-                    <div class="pill">存档 <strong id="checkpointPillValue">0</strong></div>
-                    <div class="pill">自动续跑 <strong id="resumePillValue">-</strong></div>
-                </div>
+            <div class="status-ribbon">
+                <div class="pill" id="connectionPill" data-tone="warning">连接中</div>
+                <div class="pill" id="runPill" data-tone="neutral">运行状态未知</div>
+                <div class="pill">回合 <strong id="turnPillValue">0</strong></div>
+                <div class="pill">存档 <strong id="checkpointPillValue">0</strong></div>
+                <div class="pill">自动续跑 <strong id="resumePillValue">-</strong></div>
                 <div class="pill mono status-detail" id="statusDetailPill">最近更新：-</div>
             </div>
         </header>
 
-        <section class="metric-strip">
-            <article class="metric-card">
+        <section class="telemetry-strip">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">回合</span>
-                <strong class="metric-value" id="statTurn">0</strong>
+                <strong class="metric-value metric-value--mini" id="statTurn">0</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">徽章</span>
-                <strong class="metric-value" id="statBadges">0 / 8</strong>
+                <strong class="metric-value metric-value--mini" id="statBadges">0 / 8</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">金钱</span>
-                <strong class="metric-value mono" id="statMoney">0</strong>
+                <strong class="metric-value metric-value--mini mono" id="statMoney">0</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">队伍</span>
-                <strong class="metric-value" id="statParty">0</strong>
+                <strong class="metric-value metric-value--mini" id="statParty">0</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">地图</span>
-                <strong class="metric-value mono" id="statMap">-</strong>
+                <strong class="metric-value metric-value--mini mono" id="statMap">-</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">坐标</span>
-                <strong class="metric-value mono" id="statCoords">-</strong>
+                <strong class="metric-value metric-value--mini mono" id="statCoords">-</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">探索</span>
-                <strong class="metric-value" id="statExplore">0%</strong>
+                <strong class="metric-value metric-value--mini" id="statExplore">0%</strong>
             </article>
-            <article class="metric-card">
+            <article class="metric-card metric-card--mini">
                 <span class="metric-label">前沿</span>
-                <strong class="metric-value" id="statFrontier">0</strong>
+                <strong class="metric-value metric-value--mini" id="statFrontier">0</strong>
             </article>
         </section>
 
-        <main class="dashboard-grid">
+        <main class="command-center">
             <section class="panel panel-stage">
                 <div class="panel-head">
                     <div>
-                        <p class="panel-kicker">实时画面</p>
-                        <h2>智能体视角</h2>
+                        <p class="panel-kicker">Live Feed</p>
+                        <h2>实时画面</h2>
                     </div>
                     <div class="tag-row">
                         <span class="tag" id="screenTypeTag">界面 未知</span>
@@ -78,187 +74,23 @@
                     </div>
                 </div>
 
-                <div class="stage-grid">
-                    <div class="stream-shell">
-                        <img id="streamImage" src="/stream.mjpg" alt="实时游戏画面">
-                        <img id="fallbackImage" alt="游戏截图" hidden>
-                        <div class="stream-placeholder" id="streamPlaceholder">
-                            等待实时运行画面。
-                        </div>
-                        <div class="startup-overlay" id="startupBannerLegacy" hidden>
-                            <div class="startup-dialog">
-                                <p class="panel-kicker">启动存档</p>
-                                <strong>请选择进入起点</strong>
-                                <p id="startupBannerTextLegacy">
-                                    请从下方存档中选择，或点击“读取最新”，也可以直接点击“继续”开始新开局。
-                                </p>
-                                <div class="startup-actions">
-                                    <button type="button" data-command="load_latest_checkpoint">读取最新存档</button>
-                                    <button type="button" data-command="resume" data-variant="primary">直接新开局</button>
-                                </div>
-                                <div class="checkpoint-list checkpoint-list--startup" id="startupCheckpointListLegacy">
-                                    <div class="checkpoint-card">
-                                        <p class="empty-state">正在加载可选存档...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="stream-shell">
+                    <div class="frame-chrome">
+                        <span class="frame-chip frame-chip--live">Live</span>
+                        <span class="frame-chip">Runtime Screen</span>
                     </div>
-
-                    <aside class="stage-sidebar">
-                        <div class="insight-stack">
-                            <article class="insight-card">
-                                <span class="insight-label">画面</span>
-                                <p class="insight-value" id="screenSummary">等待状态更新。</p>
-                            </article>
-                            <article class="insight-card">
-                                <span class="insight-label">环境</span>
-                                <p class="insight-value" id="harnessSummary">-</p>
-                            </article>
-                            <article class="insight-card">
-                                <span class="insight-label">移动</span>
-                                <p class="insight-value" id="movementSummary">-</p>
-                            </article>
-                        </div>
-
-                        <section class="decision-shell">
-                            <div class="decision-head">
-                                <div class="decision-card decision-card-action">
-                                    <span class="metric-label">动作</span>
-                                    <div class="decision-action mono" id="decisionAction">等待</div>
-                                </div>
-                                <div class="decision-card decision-card-meta">
-                                    <div class="decision-meta-grid">
-                                        <div class="decision-meta-item">
-                                            <span class="metric-label">回合</span>
-                                            <strong id="decisionTurn">-</strong>
-                                        </div>
-                                        <div class="decision-meta-item">
-                                            <span class="metric-label">界面</span>
-                                            <strong id="decisionScreenType">-</strong>
-                                        </div>
-                                        <div class="decision-meta-item">
-                                            <span class="metric-label">时间</span>
-                                            <strong id="decisionTime">-</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="decision-card decision-card-reasoning">
-                                <div class="terminal-caption">推理日志</div>
-                                <p class="reasoning" id="decisionReasoning">等待第一条模型决策...</p>
-                            </div>
-                        </section>
-                    </aside>
-                </div>
-            </section>
-
-            <section class="panel panel-ops">
-                <div class="panel-head">
-                    <div>
-                        <p class="panel-kicker">控制</p>
-                        <h2>运行控制台</h2>
-                    </div>
+                    <img id="streamImage" src="/stream.mjpg" alt="实时游戏画面" draggable="false">
+                    <img id="fallbackImage" alt="游戏截图" hidden draggable="false">
+                    <div class="stream-placeholder" id="streamPlaceholder">等待实时运行画面。</div>
                 </div>
 
-                <div class="button-grid">
-                    <button type="button" data-command="pause">暂停</button>
-                    <button type="button" data-command="resume" data-variant="primary">继续</button>
-                    <button type="button" data-command="step">单步</button>
-                    <button type="button" data-command="checkpoint" data-variant="warning">保存存档</button>
-                    <button type="button" data-command="load_latest_checkpoint">读取最新</button>
-                    <button type="button" data-command="stop" data-variant="danger">停止</button>
-                </div>
-
-                <div class="control-grid">
-                    <article class="metric-card">
-                        <span class="metric-label">状态</span>
-                        <strong class="metric-value" id="controlStateValue">-</strong>
-                    </article>
-                    <article class="metric-card">
-                        <span class="metric-label">单步预算</span>
-                        <strong class="metric-value" id="stepBudgetValue">0</strong>
-                    </article>
-                    <article class="metric-card">
-                        <span class="metric-label">手动队列</span>
-                        <strong class="metric-value" id="manualQueueValue">0</strong>
-                    </article>
-                    <article class="metric-card">
-                        <span class="metric-label">最近指令</span>
-                        <strong class="metric-value mono compact-value" id="lastCommandValue">-</strong>
-                    </article>
-                </div>
-
-                <div class="focus-card">
-                    <span class="focus-label">当前焦点</span>
-                    <p class="focus-text" id="focusText">等待目标数据...</p>
-                </div>
-
-                <div class="ops-grid">
-                    <section class="list-block">
-                        <p class="list-title">恢复信息</p>
-                        <div class="list">
-                            <div class="list-item">
-                                <strong>最新存档</strong>
-                                <p id="latestCheckpointInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>当前恢复源</strong>
-                                <p id="restoredCheckpointInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>API 冷却</strong>
-                                <p id="apiCooldownInfo">-</p>
-                            </div>
-                            <div class="list-item">
-                                <strong>控制错误</strong>
-                                <p id="controlErrorInfo">无</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="list-block">
-                        <p class="list-title">当前目标</p>
-                        <div class="list" id="activeGoalsList">
-                            <div class="list-item empty-state">暂无活动目标。</div>
-                        </div>
-                    </section>
-
-                    <section class="list-block">
-                        <p class="list-title">待办</p>
-                        <div class="list" id="todoList">
-                            <div class="list-item empty-state">暂无待办事项。</div>
-                        </div>
-                    </section>
-
-                    <section class="list-block">
-                        <p class="list-title">已完成</p>
-                        <div class="list" id="doneList">
-                            <div class="list-item empty-state">暂无已完成事项。</div>
-                        </div>
-                    </section>
-                </div>
-
-                <div class="manual-grid">
-                    <button type="button" data-manual="up">上</button>
-                    <button type="button" data-manual="down">下</button>
-                    <button type="button" data-manual="left">左</button>
-                    <button type="button" data-manual="right">右</button>
-                    <button type="button" data-manual="a">A</button>
-                    <button type="button" data-manual="b">B</button>
-                    <button type="button" data-manual="start">开始</button>
-                    <button type="button" data-manual="select">选择</button>
-                    <button type="button" data-manual="wait">等待</button>
-                    <button type="button" id="refreshButton">刷新</button>
-                </div>
             </section>
 
             <section class="panel panel-map">
                 <div class="panel-head">
                     <div>
-                        <p class="panel-kicker">地图记忆</p>
-                        <h2>探索网格</h2>
+                        <p class="panel-kicker">Reverse Map</p>
+                        <h2>探索地图</h2>
                     </div>
                     <div class="tag-row">
                         <span class="tag" id="mapCurrentLabel">地图 -</span>
@@ -298,35 +130,170 @@
                 <div class="map-legend" id="mapLegend"></div>
             </section>
 
-            <section class="panel panel-activity">
+            <section class="panel panel-strategy">
                 <div class="panel-head">
                     <div>
-                        <p class="panel-kicker">活动流</p>
-                        <h2>决策与事件</h2>
+                        <p class="panel-kicker">AI Strategy</p>
+                        <h2>策略与控制</h2>
                     </div>
                 </div>
 
-                <div class="activity-grid">
-                    <section class="list-block">
-                        <p class="list-title">决策历史</p>
-                        <div class="history-list" id="historyList">
-                            <div class="list-item empty-state">暂无决策历史。</div>
+                <div class="strategy-stack">
+                    <section class="decision-card decision-card-action">
+                        <div class="decision-topline">
+                            <span class="metric-label">当前动作</span>
+                            <span class="tag tag-subtle">Latest Decision</span>
+                        </div>
+                        <div class="decision-hero">
+                            <div class="decision-hero-main">
+                                <div class="decision-action mono" id="decisionAction">等待</div>
+                                <div class="decision-meta-grid">
+                                    <div class="decision-meta-item">
+                                        <span class="metric-label">回合</span>
+                                        <strong id="decisionTurn">-</strong>
+                                    </div>
+                                    <div class="decision-meta-item">
+                                        <span class="metric-label">界面</span>
+                                        <strong id="decisionScreenType">-</strong>
+                                    </div>
+                                    <div class="decision-meta-item">
+                                        <span class="metric-label">时间</span>
+                                        <strong id="decisionTime">-</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <article class="decision-brief">
+                                <span class="metric-label">动作依据</span>
+                                <p class="decision-brief-text" id="decisionRationale">等待模型解释...</p>
+                            </article>
                         </div>
                     </section>
 
-                    <section class="list-block">
-                        <p class="list-title">运行事件</p>
-                        <div class="event-list" id="eventList">
-                            <div class="list-item empty-state">等待运行事件...</div>
+                    <article class="focus-card">
+                        <span class="focus-label">当前焦点</span>
+                        <p class="focus-text" id="focusText">等待目标数据...</p>
+                    </article>
+
+                    <section class="decision-card decision-card-reasoning">
+                        <div class="reasoning-head">
+                            <div class="terminal-caption">Decision Trace</div>
+                            <span class="tag tag-subtle">模型解释</span>
+                        </div>
+                        <p class="reasoning" id="decisionReasoning">等待第一条模型决策...</p>
+                    </section>
+
+                    <section class="console-card">
+                        <div class="console-head">
+                            <p class="panel-kicker">Operator Console</p>
+                            <span class="tag tag-subtle">即时控制</span>
+                        </div>
+
+                        <div class="button-grid">
+                            <button type="button" data-command="pause">暂停</button>
+                            <button type="button" data-command="resume" data-variant="primary">继续</button>
+                            <button type="button" data-command="step">单步</button>
+                            <button type="button" data-command="checkpoint" data-variant="warning">保存存档</button>
+                            <button type="button" data-command="load_latest_checkpoint">读取最新</button>
+                            <button type="button" data-command="stop" data-variant="danger">停止</button>
+                        </div>
+
+                        <div class="control-grid">
+                            <article class="metric-card metric-card--compact">
+                                <span class="metric-label">状态</span>
+                                <strong class="metric-value metric-value--compact" id="controlStateValue">-</strong>
+                            </article>
+                            <article class="metric-card metric-card--compact">
+                                <span class="metric-label">单步预算</span>
+                                <strong class="metric-value metric-value--compact" id="stepBudgetValue">0</strong>
+                            </article>
+                            <article class="metric-card metric-card--compact">
+                                <span class="metric-label">手动队列</span>
+                                <strong class="metric-value metric-value--compact" id="manualQueueValue">0</strong>
+                            </article>
+                            <article class="metric-card metric-card--compact">
+                                <span class="metric-label">最近指令</span>
+                                <strong class="metric-value metric-value--compact mono compact-value" id="lastCommandValue">-</strong>
+                            </article>
+                        </div>
+
+                        <div class="manual-grid">
+                            <button type="button" data-manual="up">上</button>
+                            <button type="button" data-manual="down">下</button>
+                            <button type="button" data-manual="left">左</button>
+                            <button type="button" data-manual="right">右</button>
+                            <button type="button" data-manual="a">A</button>
+                            <button type="button" data-manual="b">B</button>
+                            <button type="button" data-manual="start">Start</button>
+                            <button type="button" data-manual="select">Select</button>
+                            <button type="button" data-manual="wait">等待</button>
+                            <button type="button" id="refreshButton">刷新</button>
+                        </div>
+
+                        <div class="restore-grid">
+                            <div class="list-item">
+                                <strong>最新存档</strong>
+                                <p id="latestCheckpointInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>当前恢复源</strong>
+                                <p id="restoredCheckpointInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>API 冷却</strong>
+                                <p id="apiCooldownInfo">-</p>
+                            </div>
+                            <div class="list-item">
+                                <strong>控制错误</strong>
+                                <p id="controlErrorInfo">无</p>
+                            </div>
                         </div>
                     </section>
+
+                    <div class="goal-wall">
+                        <section class="list-block">
+                            <p class="list-title">当前目标</p>
+                            <div class="list" id="activeGoalsList">
+                                <div class="list-item empty-state">暂无活动目标。</div>
+                            </div>
+                        </section>
+
+                        <section class="list-block">
+                            <p class="list-title">待办</p>
+                            <div class="list" id="todoList">
+                                <div class="list-item empty-state">暂无待办事项。</div>
+                            </div>
+                        </section>
+
+                        <section class="list-block">
+                            <p class="list-title">已完成</p>
+                            <div class="list" id="doneList">
+                                <div class="list-item empty-state">暂无已完成事项。</div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="timeline-grid">
+                        <section class="list-block">
+                            <p class="list-title">决策历史</p>
+                            <div class="history-list" id="historyList">
+                                <div class="list-item empty-state">暂无决策历史。</div>
+                            </div>
+                        </section>
+
+                        <section class="list-block">
+                            <p class="list-title">运行事件</p>
+                            <div class="event-list" id="eventList">
+                                <div class="list-item empty-state">等待运行事件...</div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </section>
 
             <section class="panel panel-archive">
                 <div class="panel-head">
                     <div>
-                        <p class="panel-kicker">回滚</p>
+                        <p class="panel-kicker">Archive</p>
                         <h2>队伍与存档</h2>
                     </div>
                 </div>
@@ -339,7 +306,7 @@
                         </div>
                     </section>
 
-                    <section class="archive-block">
+                    <section class="archive-block archive-block--checkpoints">
                         <p class="list-title">存档列表</p>
                         <div class="checkpoint-list" id="checkpointList">
                             <div class="checkpoint-card">
@@ -351,27 +318,34 @@
             </section>
         </main>
     </div>
+    </div>
 
     <div class="startup-overlay" id="startupBanner" hidden>
         <div class="startup-dialog">
-            <p class="panel-kicker">启动存档</p>
-            <strong>请选择进入起点</strong>
-            <p id="startupBannerText">
-                点击“读取最新”可从最新存档继续，也可以在下方选择指定存档，或点击“继续”直接开始新开局。
-            </p>
-            <div class="startup-actions">
-                <button type="button" data-command="load_latest_checkpoint">读取最新存档</button>
-                <button type="button" data-command="resume" data-variant="primary">直接新开局</button>
-            </div>
-            <div class="checkpoint-list checkpoint-list--startup" id="startupCheckpointList">
-                <div class="checkpoint-card">
-                    <p class="empty-state">正在加载可选存档...</p>
+            <section class="startup-copy">
+                <p class="panel-kicker">Startup Gate</p>
+                <strong>选择本次进入方式</strong>
+                <p id="startupBannerText">
+                    点击“读取最新存档”可以从最近一次状态继续，也可以选择指定存档，或直接开始新开局。
+                </p>
+                <div class="startup-actions">
+                    <button type="button" data-command="load_latest_checkpoint">读取最新存档</button>
+                    <button type="button" data-command="resume" data-variant="primary">直接新开局</button>
                 </div>
-            </div>
+            </section>
+
+            <section class="startup-picker">
+                <p class="list-title">可选启动存档</p>
+                <div class="checkpoint-list checkpoint-list--startup" id="startupCheckpointList">
+                    <div class="checkpoint-card">
+                        <p class="empty-state">正在加载可选存档...</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" aria-live="polite"></div>
     <script src="/static/dashboard.js"></script>
 </body>
 </html>

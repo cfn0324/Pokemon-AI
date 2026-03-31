@@ -52,6 +52,22 @@ class SameTurnRetryTests(unittest.TestCase):
         self.assertEqual(exc_info.exception.source, "ai_cooldown")
         self.assertGreater(exc_info.exception.retry_after_seconds, 0.0)
 
+    def test_main_agent_raises_retry_signal_during_cooldown_in_llm_primary_mode(self):
+        agent = object.__new__(MainAgent)
+        agent.config = _ConfigStub(
+            {
+                "decision.llm_primary_mode": True,
+                "decision.retry_same_turn_on_ai_error": True,
+            }
+        )
+        agent._api_cooldown_until = time.time() + 0.5
+
+        with self.assertRaises(AIDecisionRetrySignal) as exc_info:
+            agent.decide_action({"turn": 1}, "state")
+
+        self.assertEqual(exc_info.exception.source, "ai_cooldown")
+        self.assertGreater(exc_info.exception.retry_after_seconds, 0.0)
+
     def test_same_turn_retry_retries_before_returning_a_decision(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub(
@@ -74,6 +90,34 @@ class SameTurnRetryTests(unittest.TestCase):
 
         decision = agent._decide_action_for_current_turn(
             DecisionContext(current_state={"turn": 42}, state_text="state", screen_type=None)
+        )
+
+        self.assertEqual(decision["action"], "a")
+        self.assertEqual(agent.decision_engine.calls, 2)
+        self.assertEqual(len(agent.logger.warnings), 1)
+
+    def test_same_turn_retry_retries_before_returning_a_decision_in_llm_primary_mode(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "decision.llm_primary_mode": True,
+                "decision.retry_same_turn_on_ai_error": True,
+                "decision.same_turn_retry_max_attempts": 3,
+                "decision.same_turn_retry_timeout_seconds": 5,
+                "decision.same_turn_retry_min_delay_seconds": 0,
+            }
+        )
+        agent.turn_count = 43
+        agent.logger = _LoggerStub()
+        agent.decision_engine = _DecisionEngineStub(
+            [
+                AIDecisionRetrySignal("temporary provider failure", source="ai_error", retry_after_seconds=0),
+                {"action": "a", "reasoning": "ok", "recorded_in_context": True},
+            ]
+        )
+
+        decision = agent._decide_action_for_current_turn(
+            DecisionContext(current_state={"turn": 43}, state_text="state", screen_type=None)
         )
 
         self.assertEqual(decision["action"], "a")

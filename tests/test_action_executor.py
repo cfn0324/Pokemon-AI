@@ -78,6 +78,27 @@ class ActionExecutorPureLLMTests(unittest.TestCase):
         self.assertTrue(success)
         self.assertEqual(executor.emulator.presses, ["up"])
 
+    def test_direction_execute_uses_single_press_in_llm_primary_mode(self):
+        executor = ActionExecutor.__new__(ActionExecutor)
+        executor.emulator = _EmulatorStub()
+        executor.memory_reader = None
+        executor.config = _ConfigStub(
+            {
+                "decision.llm_primary_mode": True,
+                "actions.delay_ms": 0,
+                "actions.direction_settle_frames": 0,
+            }
+        )
+        executor.logger = _DummyLogger()
+        executor.action_delay = 0.0
+        executor.last_actions = []
+        executor.stuck_threshold = 10
+
+        success = executor.execute("up")
+
+        self.assertTrue(success)
+        self.assertEqual(executor.emulator.presses, ["up"])
+
 
 if __name__ == "__main__":
     unittest.main()

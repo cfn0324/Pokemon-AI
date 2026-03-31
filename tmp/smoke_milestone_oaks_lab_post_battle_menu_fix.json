@@ -1,0 +1,901 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_184762",
+  "start_turn": 184595,
+  "end_turn": 184955,
+  "turn_delta": 360,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "oak_lab_rival_battle": 23,
+    "post_battle_intro_route": 14
+  },
+  "decision_path_counts": {
+    "tool": 37
+  },
+  "final_state": {
+    "turn": 184955,
+    "timestamp": "2026-03-31T01:20:10.276640",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 22,
+        "current_hp": 22,
+        "max_hp": 22,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 11,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184955,
+      "local_analysis_enabled": false,
+      "screen_hash": "98425a127042382bf8788aa0ab0dec67"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 30,
+      "total_tiles": 200,
+      "exploration_percent": 15.0
+    },
+    "navigation": {
+      "current_visit_count": 277,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 22,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "left",
+          "right"
+        ],
+        "visit_count": 277,
+        "distance": 0,
+        "local_visit_pressure": 292,
+        "global_novelty_distance": 3,
+        "priority_score": -1451.75,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 12,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 43.55,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 5,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 22.0,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 3,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 21.95,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "FF.F?????",
+        "..F?F????",
+        "...FF????",
+        "FFFFF????",
+        "????P????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F..F#F         ",
+          "   F...FF         ",
+          "   FFFFFF         ",
+          "        P         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F..F#F?????????",
+          "???F...FF?????????",
+          "???FFFFFF?????????",
+          "????????P?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 5,
+          "y": 6
+        },
+        "explored_count": 30,
+        "frontier_count": 22,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 22,
+        "max_hp": 22,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184919,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184920,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184921,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184922,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184923,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184924,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184925,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184926,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184927,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184928,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184929,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184930,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184931,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184932,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184933,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184934,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184935,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184936,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184937,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184938,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184939,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184940,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184941,
+      "action": "b",
+      "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+      "result": "After b:; battle ended; screen changed from battle to overworld; money delta +175",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184942,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; position did not change; screen changed from overworld to dialogue; menu closed",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184943,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184944,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184945,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184946,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184947,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184948,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184949,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184950,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184951,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184952,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184953,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; text box remains active",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184954,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": "After a:; screen changed from dialogue to battle",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184955,
+      "action": "a",
+      "reasoning": "Auto: finish the fixed post-battle intro dialogue before walking toward Route 1",
+      "result": null,
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

@@ -1,9 +1,9 @@
-# 宝可梦红版 AI 配置
+# Pokemon Red AI configuration
 
 game:
   rom_path: "PokemonRed.gb"
-  speed: 1  # 0 = 无限制速度, 1 = 正常速度, 2+ = 较慢速度
-  headless: true  # 不显示PyBoy窗口（推荐，改用Web仪表板）
+  speed: 1
+  headless: true
   save_state_dir: "data/checkpoints"
   auto_resume_latest_checkpoint: true
   resume_checkpoint: null
@@ -33,25 +33,25 @@ game:
       max_badges: 0
 
 ai:
-  model: ""  # 在这里填写模型 ID，或通过 AI_MODEL 提供
+  model: ""
   temperature: 0.4
   max_tokens: 4096
-  decision_max_tokens: 320
-  request_timeout_seconds: 45
+  decision_max_tokens: 1200
+  request_timeout_seconds: 120
   request_retries: 2
   request_retry_backoff_seconds: 1.0
   guidance_interval_turns: 25
   api_error_cooldown_seconds: 6
   api_error_cooldown_max_seconds: 30
-
-  # 智能体特定设置
+  action_plan_enabled: true
+  action_plan_max_actions: 5
   agents:
     main:
-      model: ""  # 留空时继承 ai.model 或对应环境变量
-      temperature: 0.2
+      model: ""
+      temperature: 0.1
     pathfinder:
       model: ""
-      temperature: 0.3  # 较低温度以获得更确定性的寻路
+      temperature: 0.3
     puzzle_solver:
       model: ""
       temperature: 0.3
@@ -60,40 +60,41 @@ ai:
       temperature: 0.5
 
 memory:
-  max_context_turns: 100  # 此回合数后进行摘要
+  max_context_turns: 100
   summarization_enabled: true
-  keep_recent_turns: 20  # 保留最近N回合的完整细节
+  keep_recent_turns: 20
   map_memory_enabled: true
-  save_interval: 50  # 每N回合保存地图记忆
+  save_interval: 50
 
 actions:
   direction_repeat_attempts: 4
-  delay_ms: 100  # 按键之间的延迟
-  timeout_seconds: 30  # 等待状态改变的最长时间
-  stuck_threshold: 10  # 重复相同行动N次 = 卡住
-  screenshot_interval: 1  # 每N帧捕获一次
+  delay_ms: 100
+  timeout_seconds: 30
+  stuck_threshold: 10
+  screenshot_interval: 1
 
 navigation:
   auto_plan_stall_turns: 3
   max_plan_path_length: 24
 
 decision:
-  pure_llm_mode: false  # 关闭确定性控制阶段，仅依赖主模型决策
-  research_mode: false  # 保留通用保护机制，但禁用固定路线脚本控制器
-  strict_response_format: true  # 模型输出格式不合法时进行修复，而不是启发式猜测缺失字段
-  retry_same_turn_on_ai_error: true  # 在 pure-LLM 模式下，AI 短暂失败时同一观察内重试，不消耗游戏回合
+  llm_primary_mode: true
+  pure_llm_mode: false
+  research_mode: false
+  strict_response_format: true
+  retry_same_turn_on_ai_error: true
   same_turn_retry_max_attempts: 12
   same_turn_retry_timeout_seconds: 45
   same_turn_retry_min_delay_seconds: 0.25
 
 goals:
   primary_goal: "通过击败四天王并成为冠军来完成宝可梦红版"
-  secondary_goal: null  # 将动态设置
-  tertiary_goal: null   # 将动态设置
-  goal_update_interval: 10  # 每N回合重新评估目标
+  secondary_goal: null
+  tertiary_goal: null
+  goal_update_interval: 10
 
 logging:
-  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
   log_dir: "logs"
   log_actions: true
   log_states: true
@@ -102,7 +103,7 @@ logging:
   screenshot_dir: "logs/screenshots"
 
 progress:
-  checkpoint_interval: 100  # 每N回合自动保存
+  checkpoint_interval: 100
   track_badges: true
   track_pokemon: true
   track_items: true
@@ -111,15 +112,15 @@ progress:
 performance:
   enable_caching: true
   cache_dir: "data/cache"
-  parallel_agents: false  # 并行运行子智能体（实验性）
-  async_decisions: true  # 允许模型在后台思考，保持游戏主循环流畅
-  visual_enabled: false  # 关闭运行器侧像素视觉分析，依赖原始截图与 RAM
+  parallel_agents: false
+  async_decisions: false
+  visual_enabled: false
 
 visualization:
-  enabled: true  # 启用基于Web的实时仪表板
-  port: 5000  # 可视化服务器端口
-  update_screenshots: true  # 向仪表板流式传输截图
-  update_interval: 1  # 更新频率（每N回合）
+  enabled: true
+  port: 5000
+  update_screenshots: true
+  update_interval: 1
   stream_enabled: true
   stream_fps: 15
   stream_scale: 3

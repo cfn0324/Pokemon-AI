@@ -1,0 +1,1562 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_184762",
+  "start_turn": 184595,
+  "end_turn": 184675,
+  "turn_delta": 80,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "navigation_plan": 77
+  },
+  "decision_path_counts": {
+    "tool": 77
+  },
+  "final_state": {
+    "turn": 184675,
+    "timestamp": "2026-03-31T00:10:32.655915",
+    "position": {
+      "map_id": 40,
+      "x": 0,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184675,
+      "local_analysis_enabled": false,
+      "screen_hash": "f9de6c5283d9d80fe5cd5a6e1153df64"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 25,
+      "total_tiles": 200,
+      "exploration_percent": 12.5
+    },
+    "navigation": {
+      "current_visit_count": 93,
+      "known_exits": {
+        "up": {
+          "x": 0,
+          "y": 2
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 20,
+      "nearest_frontier": {
+        "target": [
+          0,
+          4
+        ],
+        "path": [
+          "up",
+          "right",
+          "right",
+          "right",
+          "down",
+          "left",
+          "left",
+          "down",
+          "left"
+        ],
+        "unknown_directions": [
+          "down",
+          "left"
+        ],
+        "visit_count": 94,
+        "distance": 1,
+        "local_visit_pressure": 786,
+        "global_novelty_distance": 4,
+        "priority_score": -1335.85,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 20,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 40.75,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 13,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 19.2,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 11,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 19.15,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "????????.",
+        "????.FF.F",
+        "????P..F?",
+        "????FFFFF",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   P..F#F         ",
+          "   FFFFFF         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???P..F#F?????????",
+          "???FFFFFF?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 0,
+          "y": 3
+        },
+        "explored_count": 25,
+        "frontier_count": 20,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 10,
+      "bounding_box_width": 4,
+      "bounding_box_height": 3,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184599,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=723) via right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184600,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=723) via right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184601,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=723) via right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184602,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=723) via right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184603,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=723) via right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184604,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=729) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184605,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184606,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184607,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184608,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184609,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184610,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184611,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184612,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184613,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=730) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184614,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=737) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184615,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184616,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184617,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184618,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184619,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184620,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184621,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184622,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184623,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=738) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184624,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=745) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184625,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184626,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184627,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184628,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184629,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184630,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184631,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184632,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184633,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=746) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184634,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=753) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184635,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184636,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184637,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184638,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184639,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184640,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184641,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184642,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184643,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=754) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184644,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=761) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184645,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184646,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184647,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184648,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184649,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184650,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184651,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184652,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184653,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=762) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184654,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=769) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184655,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184656,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184657,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184658,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184659,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184660,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184661,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184662,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184663,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=770) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184664,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=777) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184665,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After up:; moved from (0,3) to (0,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184666,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (0,2) to (1,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184667,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (1,2) to (2,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184668,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After right:; moved from (2,2) to (3,2) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184669,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (3,2) to (3,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 2
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184670,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (3,3) to (2,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 3,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184671,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (2,3) to (1,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 2,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184672,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After down:; moved from (1,3) to (1,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184673,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=778) via up, right, right, right, down, left, left, down, left",
+      "result": "After left:; moved from (1,4) to (0,4) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184674,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 3) (novelty=low, pressure=785) via up",
+      "result": "After up:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184675,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (0, 4) (novelty=low, pressure=786) via up, right, right, right, down, left, left, down, left",
+      "result": null,
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

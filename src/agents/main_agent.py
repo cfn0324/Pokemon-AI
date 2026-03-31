@@ -73,6 +73,7 @@ Act like a careful first-time player of Pokemon Red, not a speedrunner and not a
 Do not assume remake-only items or events (for example TEA from FireRed/LeafGreen) unless the current evidence explicitly supports them.
 If prior knowledge, old summaries, or current goals conflict with the current RAM/screen evidence, trust the current evidence and correct the plan.
 If recent action results say repeated A presses caused no visible state change, stop assuming dialogue is still progressing and switch tactic.
+In stable overworld or indoor movement scenes, you may provide a short ACTION_PLAN of 2-6 steps when it is likely to stay valid.
 
 You have access to the following information each turn:
 - Memory-based game state (position/map_id, Pokemon party, badges, money, in-battle flag)
@@ -99,11 +100,16 @@ Important constraints:
 - If control has returned in the bedroom or house, prefer stairs, doors, and route exits over furniture inspection.
 - Merely facing an object does not make it the correct target. If movement is available and no text box is open, step toward the exit instead of pressing A on optional furniture.
 - When a person, dialogue trigger, or obstacle is clearly blocking progress, treat it as the current task.
+- In Oak's Lab before obtaining a Pokemon, if the door/exit approach bounces you back or immediately hands control to a story scene, treat that as Oak's trigger and go to Oak instead of re-exploring the room perimeter.
+- In Oak's Lab right after choosing a starter, if repeated movement from the tile below Oak or the rival fails, assume the rival pickup/dialogue/battle sequence is still pending and interact with the blocker instead of shuffling in place.
+- If two or more nearby movement directions from the same tile just failed, treat the scene as script-locked or NPC-blocked rather than as open free movement.
 - Do not wander because of the long-term mission. Near-term progression is always more important than distant plans.
 - On player-name or rival-name screens, minimize wasted turns. Prefer a short simple name or a visible preset choice if that ends the naming step faster.
 - On naming screens, do not press A repeatedly on the same letter unless you intentionally want repeated letters. If one character was just entered, move before pressing A again unless repetition is desired.
 - When a name field is already full, press START to confirm it instead of adding more letters.
 - Use the navigation advisor as reliable memory: known exits, blocked directions, warp points, frontier routes, and visit counts come from actual observed play.
+- If navigation memory says a direction from the current tile is blocked, treat it as blocked even if the screenshot alone makes it look open.
+- If most directions are blocked and the remaining space is occupied by Oak, the rival, or another story blocker, switch from movement to interaction with A.
 - If the state text includes frontier novelty or revisit-pressure metrics, use them to avoid repeatedly probing a locally exhausted frontier when better alternatives exist.
 - If the state text includes a battle summary, trust it for battle phase: for example, post-battle dialogue means you should finish the text instead of trying to walk away.
 - If the exit, stairs, or door is not visible yet, your job is to explore until it becomes visible. Exploration is progress.
@@ -143,6 +149,8 @@ Guidelines:
 16. Only issue GOAL_UPDATE commands when current evidence strongly supports the update. Do not rewrite goals from speculation.
 17. If a recent result says your last move failed or produced no movement, do not repeat the same blocked movement unless new evidence appears.
 18. If a recent result says repeated A caused no visible state change and the screenshot still looks like a room, reclassify the screen as indoor/overworld instead of dialogue and try movement or B.
+19. If recent results show multiple movement directions failing from the same tile near Oak or the rival in Oak's Lab, switch from navigation to interaction or the mandatory story blocker.
+20. If the lab exit route keeps failing before you have a Pokemon, stop treating the room as a free-exploration puzzle; the correct task is the Oak story trigger.
 
 Classify the current screenshot into exactly one of these SCREEN_TYPE values:
 - startup
@@ -163,6 +171,7 @@ Your response must be exactly in this format:
 SCREEN_TYPE: <single screen type from the allowed list>
 REASONING: <brief analysis tied to the current focus or top todo; for movement, mention which directions look blocked vs open>
 ACTION: <single action to take>
+ACTION_PLAN: <none or a short comma-separated list of allowed actions beginning with ACTION>
 GOAL_UPDATE: <"none" or one or more lines using these commands:
 FOCUS: ...
 ADD_TODO: ...
@@ -176,9 +185,10 @@ BLOCKED: ...>
 
 Output rules:
 - Plain text only. No markdown bullets, no code fences, no preamble, no trailing note.
-- Use exactly one SCREEN_TYPE line, one REASONING line, one ACTION line, and one GOAL_UPDATE block.
+- Use exactly one SCREEN_TYPE line, one REASONING line, one ACTION line, one ACTION_PLAN line, and one GOAL_UPDATE block.
 - SCREEN_TYPE must be exactly one allowed token such as `title`, `startup_menu`, `dialogue`, `battle`, `overworld`, or `indoor`; never write phrases like `title screen` or `main menu`.
 - ACTION must be exactly one allowed token such as `start`, `a`, `b`, `up`, or `wait`; never write a sentence there.
+- ACTION_PLAN must be either `none` or a short comma-separated list of allowed action tokens. Only use it for stable movement scenes, keep it brief, and make the first token match ACTION.
 - If you do not need a goal update, write exactly: GOAL_UPDATE: none
 
 A one-token reply like "a", "b", "up", or "wait" is invalid.
@@ -188,18 +198,21 @@ Example response:
 SCREEN_TYPE: indoor
 REASONING: I still have no Pokemon, so the top todo is to leave the current building and follow the mandatory opening route.
 ACTION: up
+ACTION_PLAN: up, left, left
 GOAL_UPDATE: none
 
 Another good movement example:
 SCREEN_TYPE: indoor
 REASONING: This is an indoor room. Down is mostly black void and does not show continuous floor, so it is not walkable. Up and left still show visible floor tiles, so I should search across the visible room instead of moving into black space.
 ACTION: up
+ACTION_PLAN: up, left, left
 GOAL_UPDATE: none
 
 Good naming-screen example:
 SCREEN_TYPE: naming_screen
 REASONING: The cursor is still on the same letter after entering one character, so pressing A again would just repeat that letter. I should move right to choose a different character.
 ACTION: right
+ACTION_PLAN: none
 GOAL_UPDATE: none
 
 Bad reasoning example to avoid:
@@ -209,7 +222,7 @@ This is wrong because camera position does not prove walkable floor, and black s
 
     # Accept exact prompt labels plus common equivalent spacing/colon variants.
     _FIELD_RE = re.compile(
-        "^\\s*(screen(?:_|\\s+)type|reasoning|action|goal(?:_|\\s+)update)\\s*(?:\\:|\\uff1a)\\s*(.*)\\s*$",
+        "^\\s*(screen(?:_|\\s+)type|reasoning|action(?:_|\\s+)plan|action|goal(?:_|\\s+)update)\\s*(?:\\:|\\uff1a)\\s*(.*)\\s*$",
         flags=re.IGNORECASE,
     )
 
@@ -224,6 +237,11 @@ This is wrong because camera position does not prove walkable floor, and black s
         self.decision_max_tokens = min(
             int(self.config.get('ai.max_tokens', 4096) or 4096),
             int(self.config.get('ai.decision_max_tokens', 320) or 320),
+        )
+        self.action_plan_enabled = bool(self.config.get('ai.action_plan_enabled', True))
+        self.action_plan_max_actions = max(
+            1,
+            int(self.config.get('ai.action_plan_max_actions', 5) or 5),
         )
         self.strict_response_format = bool(
             self.config.get('decision.strict_response_format', True)
@@ -246,6 +264,17 @@ This is wrong because camera position does not prove walkable floor, and black s
         )
 
         self.logger.info("Main agent initialized")
+
+    def _llm_driven_mode_enabled(self) -> bool:
+        """Return whether ordinary turn control is expected to come from the main model."""
+        return bool(
+            self.config.get('decision.pure_llm_mode', False)
+            or self.config.get('decision.llm_primary_mode', False)
+        )
+
+    def _action_plan_enabled_for_current_mode(self) -> bool:
+        """Only solicit follow-up action plans when the runtime can actually consume them."""
+        return bool(self.action_plan_enabled and not self._llm_driven_mode_enabled())
 
     def decide_action(
         self,
@@ -395,13 +424,31 @@ This is wrong because camera position does not prove walkable floor, and black s
         else:
             parts.append("No screenshot is attached this turn; rely on memory fields only.")
 
+        if self._llm_driven_mode_enabled():
+            parts.append(
+                "This run expects the main model to own ordinary movement and dialogue progression. "
+                "Do not assume a route planner or dialogue helper will correct a weak choice for you."
+            )
+
         # Add decision request
-        parts.append("Decide the next single input.")
+        if self._action_plan_enabled_for_current_mode():
+            parts.append(
+                "Decide the next single input. In stable overworld or indoor movement scenes, "
+                "you may also provide a short follow-up ACTION_PLAN that starts with the chosen ACTION."
+            )
+            action_plan_format = (
+                "ACTION_PLAN: <none or a short comma-separated list of 2-6 allowed actions "
+                "beginning with ACTION>"
+            )
+        else:
+            parts.append("Decide the next single input.")
+            action_plan_format = "ACTION_PLAN: none"
         parts.append(
-            "Return exactly 4 non-empty plain-text lines and nothing else:\n"
+            "Return exactly these labeled fields and nothing else:\n"
             "SCREEN_TYPE: <one allowed token>\n"
             "REASONING: <one concrete sentence grounded in the screenshot/state>\n"
             "ACTION: <one allowed token>\n"
+            f"{action_plan_format}\n"
             "GOAL_UPDATE: <none or update commands>"
         )
         parts.append(
@@ -459,11 +506,12 @@ This is wrong because camera position does not prove walkable floor, and black s
         return (
             f"{prompt}\n\n"
             "Your previous answer did not satisfy the required output format or was too terse.\n"
-            "Rewrite it now as exactly 4 lines and keep the intended decision grounded in the same screenshot/state.\n"
+            "Rewrite it now with the required labeled fields and keep the intended decision grounded in the same screenshot/state.\n"
             "Rules:\n"
-            "- Use exactly these labels once each: SCREEN_TYPE, REASONING, ACTION, GOAL_UPDATE.\n"
+            "- Use exactly these labels once each: SCREEN_TYPE, REASONING, ACTION, ACTION_PLAN, GOAL_UPDATE.\n"
             "- SCREEN_TYPE must be one allowed token.\n"
             "- ACTION must be one allowed token.\n"
+            "- ACTION_PLAN must be `none` or a short comma-separated list of allowed action tokens beginning with ACTION.\n"
             "- REASONING must be a complete sentence with concrete evidence, not just an action token.\n"
             "- Output plain text only with no bullets, code fences, JSON, or extra commentary.\n"
             "- If no goal update is needed, write GOAL_UPDATE: none.\n\n"
@@ -504,7 +552,7 @@ This is wrong because camera position does not prove walkable floor, and black s
     def _should_retry_same_turn(self) -> bool:
         """Whether transient AI failures should be retried on the same observation."""
         return bool(
-            self.config.get('decision.pure_llm_mode', False)
+            self._llm_driven_mode_enabled()
             and self.config.get('decision.retry_same_turn_on_ai_error', True)
         )
 
@@ -558,12 +606,13 @@ This is wrong because camera position does not prove walkable floor, and black s
         """
         response = (response or "").strip()
         if not response:
-            return {"reasoning": "", "action": "wait", "goal_update": None}
+            return {"reasoning": "", "action": "wait", "action_plan": [], "goal_update": None}
 
         lines = response.splitlines()
 
         reasoning: str = ""
         action_raw: Optional[str] = None
+        action_plan_raw: Optional[str] = None
         screen_type_raw: Optional[str] = None
         goal_update: Optional[str] = None
 
@@ -597,6 +646,12 @@ This is wrong because camera position does not prove walkable floor, and black s
                 else:
                     action_raw = self._collect_next_value_line(lines, i + 1)
 
+            if field == "action_plan":
+                if value:
+                    action_plan_raw = value
+                else:
+                    action_plan_raw = self._collect_next_value_line(lines, i + 1)
+
             if field == "goal_update":
                 if value:
                     continuation, i = self._collect_multiline_field(lines, i + 1, separator="\n")
@@ -612,6 +667,7 @@ This is wrong because camera position does not prove walkable floor, and black s
             action = self._infer_action_from_text(response)
         if action not in self.VALID_ACTIONS:
             action = "wait"
+        action_plan = self._normalize_action_plan(action_plan_raw, action)
         screen_type = self._normalize_screen_type(screen_type_raw)
         if not screen_type and not self.strict_response_format:
             screen_type = self._infer_screen_type_from_text(response)
@@ -631,11 +687,13 @@ This is wrong because camera position does not prove walkable floor, and black s
             "screen_type": screen_type,
             "reasoning": reasoning,
             "action": action,
+            "action_plan": action_plan,
             "goal_update": goal_update,
             "recorded_in_context": True,
             "decision_source": "ai",
             "decision_path": "ai",
             "_raw_action": action_raw,
+            "_raw_action_plan": action_plan_raw,
             "_raw_screen_type": screen_type_raw,
         }
 
@@ -691,6 +749,42 @@ This is wrong because camera position does not prove walkable floor, and black s
             return cleaned
 
         return None
+
+    def _normalize_action_plan(self, action_plan: Optional[str], action: Optional[str]) -> List[str]:
+        """Normalize an ACTION_PLAN field into a short list of valid actions."""
+        if not self._action_plan_enabled_for_current_mode():
+            return []
+        if not action_plan:
+            return []
+
+        cleaned = action_plan.strip().strip("`\"'")
+        if not cleaned:
+            return []
+
+        lowered = cleaned.lower()
+        if lowered in {"none", "no", "n/a", "na", "null", "no_plan"}:
+            return []
+
+        normalized_action = self._normalize_action(action)
+        if normalized_action not in self.VALID_ACTIONS or normalized_action == "wait":
+            return []
+
+        plan: List[str] = []
+        for token in re.split(r"[\s,;|>\-/]+", lowered):
+            normalized = self._normalize_action(token)
+            if not normalized or normalized == "wait":
+                continue
+            plan.append(normalized)
+            if len(plan) >= self.action_plan_max_actions:
+                break
+
+        if not plan:
+            return []
+
+        if plan[0] != normalized_action:
+            plan.insert(0, normalized_action)
+
+        return plan[: self.action_plan_max_actions]
 
     def _infer_action_from_text(self, response: str) -> Optional[str]:
         """Heuristic fallback when the model doesn't output the required ACTION: line."""
@@ -934,7 +1028,28 @@ This is wrong because camera position does not prove walkable floor, and black s
     def _register_api_failure(self, error_text: str) -> None:
         """Back off after repeated or rate-limited API failures."""
         message = (error_text or "").lower()
-        if not any(token in message for token in ("status 429", "status 500", "status 502", "status 503", "status 504", "token", "timeout")):
+        retryable_tokens = (
+            "status 429",
+            "status 500",
+            "status 502",
+            "status 503",
+            "status 504",
+            "token",
+            "timeout",
+            "request failed",
+            "failed to establish a new connection",
+            "newconnectionerror",
+            "connection aborted",
+            "connection reset",
+            "connection refused",
+            "proxyerror",
+            "sslerror",
+            "max retries exceeded",
+            "name resolution",
+            "temporarily unavailable",
+            "winerror 10013",
+        )
+        if not any(token in message for token in retryable_tokens):
             return
 
         self._api_failure_count += 1

@@ -1,0 +1,1581 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_184762",
+  "start_turn": 184595,
+  "end_turn": 184915,
+  "turn_delta": 320,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "oak_lab_rival_battle": 77
+  },
+  "decision_path_counts": {
+    "tool": 77
+  },
+  "final_state": {
+    "turn": 184915,
+    "timestamp": "2026-03-31T01:12:38.848571",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 6
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 11,
+        "current_hp": 11,
+        "max_hp": 22,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 28
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 11,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184915,
+      "local_analysis_enabled": false,
+      "screen_hash": "fb2769d2113ae60910ceff5952a75232",
+      "observed_screen_type": "dialogue"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 30,
+      "total_tiles": 200,
+      "exploration_percent": 15.0
+    },
+    "navigation": {
+      "current_visit_count": 237,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 22,
+      "nearest_frontier": {
+        "target": [
+          5,
+          6
+        ],
+        "path": [],
+        "unknown_directions": [
+          "left",
+          "right"
+        ],
+        "visit_count": 237,
+        "distance": 0,
+        "local_visit_pressure": 252,
+        "global_novelty_distance": 3,
+        "priority_score": -1241.75,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 12,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 43.55,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 5,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 22.0,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 3,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 21.95,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "FF.F?????",
+        "..F?F????",
+        "...FF????",
+        "FFFFF????",
+        "????P????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F..F#F         ",
+          "   F...FF         ",
+          "   FFFFFF         ",
+          "        P         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F..F#F?????????",
+          "???F...FF?????????",
+          "???FFFFFF?????????",
+          "????????P?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 5,
+          "y": 6
+        },
+        "explored_count": 30,
+        "frontier_count": 22,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "old_man",
+      "battle_turns": 192,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 20,
+      "enemy_species": "Squirtle",
+      "enemy_level": 5,
+      "enemy_current_hp": 0,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 11,
+        "max_hp": 22,
+        "hp_percent": 50.0
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184839,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184840,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184841,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184842,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184843,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184844,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184845,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184846,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184847,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184848,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184849,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184850,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184851,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184852,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184853,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184854,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184855,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184856,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184857,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184858,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184859,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184860,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184861,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184862,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184863,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184864,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184865,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184866,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184867,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184868,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184869,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184870,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184871,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184872,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184873,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184874,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184875,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184876,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184877,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184878,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184879,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; menu opened",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184880,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184881,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184882,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; menu closed",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184883,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184884,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184885,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184886,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184887,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184888,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184889,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184890,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184891,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184892,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184893,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184894,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184895,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184896,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184897,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184898,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184899,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184900,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184901,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184902,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184903,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184904,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184905,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184906,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; menu opened",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184907,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184908,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184909,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184910,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184911,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184912,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184913,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184914,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184915,
+      "action": "a",
+      "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",
+      "result": null,
+      "decision_source": "oak_lab_rival_battle",
+      "decision_path": "tool",
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 6
+      },
+      "party_size": 1
+    }
+  ]
+}

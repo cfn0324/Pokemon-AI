@@ -1,0 +1,1673 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_188082",
+  "start_turn": 184764,
+  "end_turn": 185164,
+  "turn_delta": 400,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "navigation_plan": 78,
+    "api_unavailable_local_exploration": 2
+  },
+  "decision_path_counts": {
+    "tool": 78,
+    "fallback": 2
+  },
+  "final_state": {
+    "turn": 185164,
+    "timestamp": "2026-03-31T16:52:34.259445",
+    "position": {
+      "map_id": 12,
+      "x": 10,
+      "y": 14
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 5,
+        "hp": 19,
+        "current_hp": 19,
+        "max_hp": 19,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 11,
+          "defense": 9,
+          "speed": 11,
+          "special": 10
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 185164,
+      "local_analysis_enabled": false,
+      "screen_hash": "a99057a2ee7f33abcbc2d7b542a42f8c"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 109,
+      "total_tiles": 200,
+      "exploration_percent": 54.50000000000001
+    },
+    "navigation": {
+      "current_visit_count": 4,
+      "known_exits": {
+        "right": {
+          "x": 11,
+          "y": 14
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 63,
+      "nearest_frontier": {
+        "target": [
+          11,
+          17
+        ],
+        "path": [
+          "right",
+          "down",
+          "down",
+          "down"
+        ],
+        "unknown_directions": [
+          "left",
+          "right"
+        ],
+        "visit_count": 1,
+        "distance": 4,
+        "local_visit_pressure": 20,
+        "global_novelty_distance": 9,
+        "priority_score": 1.35,
+        "novelty_label": "medium"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            11,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 4,
+          "local_visit_pressure": 20,
+          "global_novelty_distance": 9,
+          "priority_score": 1.35,
+          "novelty_label": "medium"
+        },
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 4,
+          "distance": 1,
+          "local_visit_pressure": 21,
+          "global_novelty_distance": 13,
+          "priority_score": -3.85,
+          "novelty_label": "medium"
+        },
+        {
+          "target": [
+            11,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 2,
+          "local_visit_pressure": 28,
+          "global_novelty_distance": 11,
+          "priority_score": -4.45,
+          "novelty_label": "medium"
+        }
+      ],
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 13
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "????????F",
+        "????????F",
+        "???FP.FFF",
+        "???F?F???",
+        "???F?F???",
+        "???F?F???",
+        "???F?F???"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "                    ",
+          "                    ",
+          "             FF     ",
+          "          #  FF     ",
+          "        FP.FFFF     ",
+          "        F F         ",
+          "        F F         ",
+          "        F F         ",
+          "        F F         ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFF        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F....FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.F         "
+        ],
+        "prompt_rows": [
+          "????????????????????",
+          "????????????????????",
+          "?????????????FF?????",
+          "??????????#??FF?????",
+          "????????FP.FFFF?????",
+          "????????F?F?????????",
+          "????????F?F?????????",
+          "????????F?F?????????",
+          "????????F?F?????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFF????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F....FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.F?????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 10,
+          "max_y": 33,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 10,
+          "y": 14
+        },
+        "explored_count": 109,
+        "frontier_count": 63,
+        "blocked_count": 17,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 10,
+      "bounding_box_width": 3,
+      "bounding_box_height": 7,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 19,
+        "max_hp": 19,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 185085,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 7) (novelty=high, pressure=3)",
+      "result": "After up:; moved from (18,7) to (18,6) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185086,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 6) (novelty=high, pressure=3)",
+      "result": "After up:; moved from (18,6) to (18,5) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185087,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 5) (novelty=high, pressure=3)",
+      "result": "After up:; moved from (18,5) to (18,4) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185088,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 4) (novelty=high, pressure=3)",
+      "result": "After up:; moved from (18,4) to (18,3) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185089,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 3) (novelty=high, pressure=3)",
+      "result": "After up:; moved from (18,3) to (18,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185090,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 2) (novelty=high, pressure=3)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185091,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (18, 2) (novelty=high, pressure=4)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185092,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (18, 2) (novelty=high, pressure=5)",
+      "result": "After left:; moved from (18,2) to (17,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 18,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185093,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (17, 2) (novelty=high, pressure=6)",
+      "result": "After left:; moved from (17,2) to (16,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 17,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185094,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (16, 2) (novelty=high, pressure=7)",
+      "result": "After left:; moved from (16,2) to (15,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185095,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (15, 2) (novelty=high, pressure=3)",
+      "result": "After left:; moved from (15,2) to (14,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185096,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (14, 2) (novelty=high, pressure=3)",
+      "result": "After left:; moved from (14,2) to (13,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185097,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (13, 2) (novelty=high, pressure=7)",
+      "result": "After left:; moved from (13,2) to (12,2) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185098,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (12, 2) (novelty=high, pressure=12)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185099,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (12, 2) (novelty=high, pressure=13)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185100,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (12, 2) (novelty=medium, pressure=14)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185101,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (12, 2) (novelty=medium, pressure=15)",
+      "result": "After down:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185102,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (12, 2) (novelty=low, pressure=16)",
+      "result": "After down:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185103,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (12, 2) (novelty=low, pressure=17)",
+      "result": "After down:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185104,
+      "action": "left",
+      "reasoning": "Auto fallback while AI is unavailable: Use local navigation hints to keep exploring via left",
+      "result": "After left:; moved from (12,2) to (11,2) on map 0",
+      "decision_source": "api_unavailable_local_exploration",
+      "decision_path": "fallback",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185105,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 1) (novelty=medium, pressure=25) via up",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185106,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (11, 1) (novelty=low, pressure=26)",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185107,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (11, 0) (novelty=high, pressure=23)",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185108,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 35) (novelty=low, pressure=392)",
+      "result": "After down:; warped from map 12 (11,35) to map 0 (11,0)",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185109,
+      "action": "left",
+      "reasoning": "Auto fallback while AI is unavailable: Use local navigation hints to keep exploring via left",
+      "result": "After left:; moved from (11,0) to (10,0) on map 0",
+      "decision_source": "api_unavailable_local_exploration",
+      "decision_path": "fallback",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185110,
+      "action": "left",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction left from (10, 0) (novelty=medium, pressure=25)",
+      "result": "After left:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185111,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (10, 0) (novelty=low, pressure=26)",
+      "result": "After up:; warped from map 0 (10,0) to map 12 (10,35)",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185112,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,35) to (10,34) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185113,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,34) to (10,33) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185114,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185115,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185116,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185117,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185118,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185119,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185120,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185121,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185122,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185123,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185124,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185125,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185126,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185127,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185128,
+      "action": "down",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185129,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185130,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185131,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (12,24) to (12,23) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185132,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (12,23) to (12,22) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185133,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (12,22) to (12,21) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185134,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (12,21) to (12,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185135,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After left:; moved from (12,20) to (11,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185136,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After left:; moved from (11,20) to (10,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185137,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After left:; moved from (10,20) to (9,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185138,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,20) to (9,19) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185139,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,19) to (9,18) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185140,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,18) to (9,17) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185141,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,17) to (9,16) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185142,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,16) to (9,15) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185143,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (9, 14) (novelty=high, pressure=6) via up, up, up, up, up, up, up, left, left, up",
+      "result": "After up:; moved from (9,15) to (9,14) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185144,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (9, 14) (novelty=high, pressure=9)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185145,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (11, 14) (novelty=high, pressure=13) via right, right",
+      "result": "After right:; moved from (9,14) to (10,14) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185146,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (11, 14) (novelty=high, pressure=13) via right, right",
+      "result": "After right:; moved from (10,14) to (11,14) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185147,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (11, 14) (novelty=high, pressure=15)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185148,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (11, 14) (novelty=high, pressure=16)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185149,
+      "action": "up",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction up from (11, 14) (novelty=medium, pressure=17)",
+      "result": "After up:; position did not change",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185150,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 14) (novelty=medium, pressure=18)",
+      "result": "After down:; moved from (11,14) to (11,15) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185151,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 15) (novelty=high, pressure=21)",
+      "result": "After down:; moved from (11,15) to (11,16) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185152,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 16) (novelty=high, pressure=24)",
+      "result": "After down:; moved from (11,16) to (11,17) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185153,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 17) (novelty=high, pressure=14)",
+      "result": "After down:; moved from (11,17) to (11,18) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185154,
+      "action": "down",
+      "reasoning": "Planner: current tile is already a frontier; test unexplored direction down from (11, 18) (novelty=medium, pressure=25)",
+      "result": "After down:; moved from (11,18) to (11,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185155,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After left:; moved from (11,20) to (10,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185156,
+      "action": "left",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After left:; moved from (10,20) to (9,20) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185157,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,20) to (9,19) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185158,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,19) to (9,18) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185159,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,18) to (9,17) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185160,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,17) to (9,16) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185161,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,16) to (9,15) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185162,
+      "action": "up",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After up:; moved from (9,15) to (9,14) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185163,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": "After right:; moved from (9,14) to (10,14) on map 12",
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185164,
+      "action": "right",
+      "reasoning": "Planner: follow learned route toward frontier (11, 17) (novelty=high, pressure=15) via left, left, up, up, up, up, up, up, right, right",
+      "result": null,
+      "decision_source": "navigation_plan",
+      "decision_path": "tool",
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 14
+      },
+      "party_size": 1
+    }
+  ]
+}

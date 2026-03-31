@@ -1,0 +1,1268 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_188082",
+  "start_turn": 184764,
+  "end_turn": 184824,
+  "turn_delta": 60,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 60
+  },
+  "decision_path_counts": {
+    "ai": 60
+  },
+  "final_state": {
+    "turn": 184824,
+    "timestamp": "2026-03-31T19:58:49.781093",
+    "position": {
+      "map_id": 40,
+      "x": 1,
+      "y": 4
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184824,
+      "local_analysis_enabled": false,
+      "screen_hash": "77d732b009bfd21026c9cb9d1cc7a57c"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 26,
+      "total_tiles": 200,
+      "exploration_percent": 13.0
+    },
+    "navigation": {
+      "current_visit_count": 116,
+      "known_exits": {
+        "left": {
+          "x": 0,
+          "y": 4
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 21,
+      "nearest_frontier": {
+        "target": [
+          0,
+          5
+        ],
+        "path": [
+          "left",
+          "down"
+        ],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 26,
+        "distance": 2,
+        "local_visit_pressure": 609,
+        "global_novelty_distance": 4,
+        "priority_score": -834.95,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 18,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 41.45,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 11,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 19.9,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 9,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 19.85,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "???????.F",
+        "???.FF.F?",
+        "???F..F?F",
+        "???FPFFFF",
+        "???F????F",
+        "????????F",
+        "????????F",
+        "????????F"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F..F#F         ",
+          "   FPFFFF         ",
+          "   F    F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F..F#F?????????",
+          "???FPFFFF?????????",
+          "???F????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 1,
+          "y": 4
+        },
+        "explored_count": 26,
+        "frontier_count": 21,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184765,
+      "action": "up",
+      "reasoning": "The screenshot shows the player inside Professor Oak's lab, and moving up heads toward the exit at the top-left area to continue the opening mandatory sequence.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184766,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing in Oak's lab with open floor space directly below, so moving down explores toward the likely exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184767,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly to the right while up and down previously failed, so moving right is the sensible way to navigate around the room toward an exit or script trigger.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184768,
+      "action": "down",
+      "reasoning": "The screenshot shows the player inside Oak's lab with open floor directly below and left blocked by the wall, so moving down is the clearest step toward the lower exit area.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184769,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Oak's lab with clear floor space directly above toward the open interior while left is a wall and the bottom is lined with bookshelves.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184770,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly above and the state memory marks the tile above as the known frontier/exit path.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184771,
+      "action": "down",
+      "reasoning": "The screenshot shows the player one tile left of the central aisle in Oak's lab, with open floor directly below while the left edge is blocked by the wall.",
+      "result": "After down:; moved from (0,4) to (0,3) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184772,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with clear floor directly below toward the bottom exit aisle.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184773,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly to the right while the bottom is blocked by bookcases and prior vertical moves mostly stalled.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184774,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with clear floor directly below and the bottom aisle leading toward the likely exit area.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184775,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak's lab with a clear aisle directly to the right while down is blocked by the bottom bookshelves and left would hit the wall edge.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184776,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly left while the bottom is blocked by bookshelves and the right side leads back toward the NPCs.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184777,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below toward the bottom aisle and likely exit area.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184778,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below toward the bottom exit area while the left side is walled off.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184779,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing in Oak's lab with clear floor space to the left while the bottom is blocked by bookcases.",
+      "result": "After left:; moved from (0,3) to (0,4) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184780,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below while the bottom bookshelf row is still several tiles away, so moving down continues toward the room's lower side and unexplored area.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184781,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly to the right, while left is the wall and down is blocked by the bookshelf row.",
+      "result": "After right:; moved from (0,4) to (0,5) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184782,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab facing a row of bookcases, with open floor directly to the right to go around them.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184783,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing in Oak's lab with open floor directly below toward the bottom aisle while left is the wall and the bookshelves are farther down.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184784,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom of Oak's lab facing the center bookcase row, and the open floor to the left is the clearest way to move around the obstacle toward the exit.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184785,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below toward the lower aisle while left is a wall and the bookshelves are further down.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184786,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab facing a continuous bookshelf row, with the only open path leading to the left side aisle.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184787,
+      "action": "down",
+      "reasoning": "The screenshot shows the player just left of the lab’s central bookshelf row with open floor directly below leading toward the bottom aisle and likely exit path.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184788,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below the bottom row of lab bookcases, so moving up is the only visible passable direction to get around them.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184789,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below the bottom bookshelf row in Oak’s lab with open floor clearly to the left, making left the best move to get around the shelves.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184790,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below and the left side blocked by the wall, so moving down explores the only clearly open nearby path.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184791,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab directly below the middle bookcase row, with the only clearly open adjacent floor tile being to the right.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184792,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with clear floor directly below and the bottom edge opening is likely the lab exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184793,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab facing the bookshelf row, and the open aisle continues to the right around the shelves.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184794,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab just above the bottom bookcase row with a clear open tile directly below toward the lower aisle and exit side.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184795,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below a row of bookcases with a clear open floor tile to the left, which is the passable way around the obstacle.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184796,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak’s lab with an open floor tile directly below between the player and the bottom NPC, so moving down continues exploring the accessible aisle.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184797,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab with clear open floor directly to the right beside the bookcase row, while moving down has repeatedly failed.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184798,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak’s lab with open floor directly below toward the lower aisle between the bookcase row and the bottom NPC.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184799,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab directly below a bookshelf row, with the only clearly open adjacent floor tile to the left.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184800,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak’s lab with clear open floor directly to the right while the left side is a wall and the bookshelves block the path downward.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184801,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on the left side of Oak's lab with open floor directly below, which should continue along the left aisle toward the bottom exit area.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184802,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below a row of bookcases with a clear open floor tile to the left, while down is blocked by the shelves.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184803,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on the left side of Oak's lab with open floor directly below and the map memory marks the unexplored frontier continuing downward from the current tile.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184804,
+      "action": "right",
+      "reasoning": "The screenshot shows the player directly below a horizontal row of bookcases, and the only clearly open adjacent tile is to the right.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184805,
+      "action": "up",
+      "reasoning": "The screenshot shows the player facing the left wall in Oak's lab, and the clear passable floor is directly upward toward the aisle above the bookshelves.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184806,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly above the bottom-center bookshelf row in Oak's lab, so moving up is the clear passable way into the open floor.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184807,
+      "action": "left",
+      "reasoning": "The screenshot shows the player one tile above the bottom bookshelf row with open floor directly to the left, while down is blocked by the shelves.",
+      "result": "After left:; moved from (0,5) to (0,4) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 5
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184808,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing at the bottom center of Oak's lab directly below the middle bookcase row, with the open aisle continuing to the right around the shelves.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184809,
+      "action": "right",
+      "reasoning": "The screenshot shows the player one tile left of the room’s center with open floor directly to the right while the top and bottom are occupied by furniture lines.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184810,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab facing the bookshelf row, and the only clearly open adjacent path is to the right along the aisle.",
+      "result": "After right:; moved from (0,4) to (1,4) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 0,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184811,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab just above the bottom bookshelves with a clear open tile directly below toward the lab exit aisle.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184812,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab directly below the gap between the left bookcase blocks, so moving left follows the open aisle toward unexplored tiles.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184813,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with clear floor directly below and the bottom aisle continuing toward unexplored tiles near the lower center.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184814,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing in the bottom aisle of Oak’s lab with a clear open tile directly to the right toward the room’s right-side path.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184815,
+      "action": "down",
+      "reasoning": "The screenshot shows the player left of the central aisle in Oak’s lab with open floor directly below toward the bottom aisle by the bookshelves and lower NPC.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184816,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab directly below the middle bookshelf row, and the open aisle to the left is the clearest passable route toward unexplored tiles.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184817,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with a clear open tile directly below toward the bottom-center aisle and the nearby unexplored frontier is at (1,5).",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184818,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bottom-center gap between bookcases in Oak's lab, and the open aisle to the left leads toward unexplored tiles and around the shelf blockage.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184819,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing one tile above the bottom bookshelf row with a clear open tile directly below leading toward the lower aisle and room exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184820,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom center of Oak's lab facing the bookshelf row, and the clear passable aisle is directly to the right toward the open gap.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184821,
+      "action": "down",
+      "reasoning": "The screenshot shows the player near the bottom center of Oak's lab directly above the exit gap between the lower bookcases, so moving down should reach the doorway.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184822,
+      "action": "up",
+      "reasoning": "The screenshot shows the player at the bottom-center aisle of Oak's lab with a clear opening directly upward between the bookcases, while down is blocked by shelves.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184823,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing directly above the bottom-left bookshelf row in Oak's lab, and the only clearly open adjacent tile is to the right into the central aisle.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184824,
+      "action": "left",
+      "reasoning": "The screenshot shows the player in Oak’s lab with a clear open tile directly below and the navigation memory suggests the frontier route from here begins by going left then down toward unexplored tiles near the bottom aisle.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 1,
+        "y": 4
+      },
+      "party_size": 0
+    }
+  ]
+}

@@ -1,0 +1,1198 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_187862",
+  "start_turn": 184763,
+  "end_turn": 185463,
+  "turn_delta": 700,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "oak_lab_starter": 65
+  },
+  "decision_path_counts": {
+    "tool": 65
+  },
+  "final_state": {
+    "turn": 185463,
+    "timestamp": "2026-03-31T16:01:45.601276",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 185463,
+      "local_analysis_enabled": false,
+      "screen_hash": "d8a65616a188c7b9eaeec5678f300f8c"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 8,
+      "bounding_box_width": 6,
+      "bounding_box_height": 3,
+      "current_tile_repeat_count": 3,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 185399,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185400,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185401,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185402,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185403,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185404,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185405,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185406,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185407,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185408,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185409,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185410,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185411,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185412,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185413,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185414,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185415,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185416,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185417,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185418,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185419,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185420,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185421,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185422,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185423,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185424,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185425,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185426,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185427,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185428,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185429,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185430,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185431,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185432,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185433,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185434,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185435,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185436,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185437,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185438,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185439,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185440,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185441,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185442,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185443,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185444,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185445,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185446,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185447,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185448,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185449,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185450,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185451,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185452,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185453,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185454,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185455,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185456,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185457,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185458,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185459,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185460,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185461,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185462,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 185463,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
+      "result": null,
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

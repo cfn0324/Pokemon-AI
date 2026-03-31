@@ -35,6 +35,8 @@ from src.tools.progress_tracker import ProgressTracker
 from src.visualization.visualizer import GameVisualizer
 from src.agents.async_decision import AsyncDecisionMaker
 from src.control.decision_engine import DecisionContext, DecisionEngine
+from src.control.oak_lab_pre_starter import OakLabPreStarterController
+from src.control.oak_lab_post_starter import OakLabPostStarterController
 from src.control.oak_lab_rival_battle import OakLabRivalBattleController
 from src.control.oak_lab_starter import OakLabStarterController
 from src.control.post_battle_intro_route import PostBattleIntroRouteController
@@ -94,7 +96,9 @@ class PokemonAIAgent:
         self._scripted_ui_reasoning: str = ""
         self._scripted_bootstrap_steps: List[Dict[str, str]] = []
         self._scripted_bootstrap_reasoning: str = ""
+        self.oak_lab_pre_starter = OakLabPreStarterController()
         self.oak_lab_starter = OakLabStarterController()
+        self.oak_lab_post_starter = OakLabPostStarterController()
         self.oak_lab_rival_battle = OakLabRivalBattleController()
         self.post_battle_intro_route = PostBattleIntroRouteController()
 
@@ -210,6 +214,17 @@ class PokemonAIAgent:
         """Return whether deterministic control helpers should be disabled."""
         return bool(self.config.get("decision.pure_llm_mode", False))
 
+    def _llm_primary_mode_enabled(self) -> bool:
+        """Return whether the runtime should prefer model decisions over tool routing."""
+        return bool(self.config.get("decision.llm_primary_mode", False))
+
+    def _llm_driven_mode_enabled(self) -> bool:
+        """Return whether the main model should own ordinary turn-by-turn control."""
+        return bool(
+            self._pure_llm_mode_enabled()
+            or self._llm_primary_mode_enabled()
+        )
+
     def _research_mode_enabled(self) -> bool:
         """Return whether fixed route-script controllers should be disabled."""
         return bool(self.config.get("decision.research_mode", False))
@@ -221,6 +236,8 @@ class PokemonAIAgent:
             ("known_ui", self._stage_known_ui_decision),
             ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
             ("oak_lab_starter", self._stage_oak_lab_starter_decision),
+            ("oak_lab_pre_starter", self._stage_oak_lab_pre_starter_decision),
+            ("oak_lab_post_starter", self._stage_oak_lab_post_starter_decision),
             ("oak_lab_rival_battle", self._stage_oak_lab_rival_battle_decision),
             ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
             ("dialogue_timing", self._stage_dialogue_timing_decision),
@@ -231,11 +248,22 @@ class PokemonAIAgent:
             ("menu_auto_close", self._stage_menu_auto_close_decision),
             ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
         ]
+        if self._llm_primary_mode_enabled():
+            return [
+                ("bootstrap", self._stage_bootstrap_decision),
+                ("minimal_known_ui", self._stage_minimal_known_ui_decision),
+                ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
+                ("menu_auto_close", self._stage_menu_auto_close_decision),
+                ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
+            ]
+
         if not self._research_mode_enabled():
             return stage_specs
 
         disabled = {
+            "oak_lab_pre_starter",
             "oak_lab_starter",
+            "oak_lab_post_starter",
             "oak_lab_rival_battle",
             "post_battle_intro_route",
         }
@@ -248,7 +276,7 @@ class PokemonAIAgent:
     def _same_turn_retry_enabled(self) -> bool:
         """Retry transient AI failures without spending a gameplay turn in pure-LLM mode."""
         return bool(
-            self._pure_llm_mode_enabled()
+            self._llm_driven_mode_enabled()
             and self.config.get("decision.retry_same_turn_on_ai_error", True)
         )
 
@@ -311,6 +339,15 @@ class PokemonAIAgent:
             self._clear_planned_actions()
         return decision
 
+    def _stage_minimal_known_ui_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_minimal_known_ui_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
     def _stage_stable_ui_recovery_decision(self, context: DecisionContext) -> Optional[dict]:
         decision = self._get_stable_ui_recovery_decision(
             context.current_state,
@@ -329,10 +366,30 @@ class PokemonAIAgent:
             self._clear_planned_actions()
         return decision
 
+    def _stage_oak_lab_pre_starter_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.oak_lab_pre_starter.maybe_decide(
+            context.current_state,
+            context.screen_type,
+            context.screen_hash,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
     def _stage_oak_lab_starter_decision(self, context: DecisionContext) -> Optional[dict]:
         decision = self.oak_lab_starter.maybe_decide(
             context.current_state,
             context.screen_hash,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_oak_lab_post_starter_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.oak_lab_post_starter.maybe_decide(
+            context.current_state,
+            context.screen_type,
         )
         if decision:
             self._clear_planned_actions()
@@ -419,6 +476,303 @@ class PokemonAIAgent:
             context.state_text,
             context.screenshot_bytes,
         )
+
+    def _decorate_api_fallback_decision(
+        self,
+        decision: Optional[dict],
+        decision_source: str,
+    ) -> Optional[dict]:
+        """Normalize a deterministic fallback chosen after an AI transport failure."""
+        if not isinstance(decision, dict):
+            return None
+
+        reasoning = " ".join(str(decision.get("reasoning") or "").split()).strip()
+        if reasoning:
+            decision["reasoning"] = f"Auto fallback while AI is unavailable: {reasoning}"
+        else:
+            decision["reasoning"] = "Auto fallback while AI is unavailable"
+        decision["goal_update"] = decision.get("goal_update")
+        decision["recorded_in_context"] = False
+        decision["decision_source"] = decision_source
+        decision["decision_path"] = "fallback"
+        return decision
+
+    def _get_local_safe_exploration_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Pick a conservative field-movement fallback when the model is unavailable."""
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return None
+
+        position = memory.get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        x = int(position.get("x", 0) or 0)
+        y = int(position.get("y", 0) or 0)
+        start_key = (map_id, x, y)
+
+        navigation = current_state.get("navigation", {}) or {}
+        vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
+        blocked = set(navigation.get("blocked_directions", []))
+        blocked.update(vision.get("blocked_directions", []))
+        blocked.update(
+            direction
+            for direction in ("up", "down", "left", "right")
+            if self._is_temporarily_avoided_move(start_key, direction)
+        )
+
+        candidates: List[str] = []
+        nearby_unexplored = current_state.get("exploration", {}).get("nearby_unexplored", []) or []
+        if nearby_unexplored:
+            target = nearby_unexplored[0]
+            if isinstance(target, (list, tuple)) and len(target) >= 2:
+                tx = int(target[0] or 0)
+                ty = int(target[1] or 0)
+                dx = tx - x
+                dy = ty - y
+                if abs(dx) >= abs(dy):
+                    if dx:
+                        candidates.append("right" if dx > 0 else "left")
+                    if dy:
+                        candidates.append("down" if dy > 0 else "up")
+                else:
+                    if dy:
+                        candidates.append("down" if dy > 0 else "up")
+                    if dx:
+                        candidates.append("right" if dx > 0 else "left")
+
+        nearest_frontier = navigation.get("nearest_frontier") or {}
+        if tuple(nearest_frontier.get("target") or ()) == (x, y):
+            candidates.extend(nearest_frontier.get("unknown_directions", []) or [])
+
+        for frontier in navigation.get("frontier_candidates", []) or []:
+            if tuple(frontier.get("target") or ()) == (x, y):
+                candidates.extend(frontier.get("unknown_directions", []) or [])
+
+        candidates.extend(vision.get("walkable_directions", []) or [])
+        candidates.extend(["up", "left", "right", "down"])
+
+        seen: set[str] = set()
+        for direction in candidates:
+            normalized = str(direction or "").strip().lower()
+            if normalized not in {"up", "down", "left", "right"}:
+                continue
+            if normalized in seen:
+                continue
+            seen.add(normalized)
+            if normalized in blocked:
+                continue
+            return {
+                "action": normalized,
+                "reasoning": f"Use local navigation hints to keep exploring via {normalized}",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+
+        return None
+
+    def _get_blocked_field_interaction_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Probe likely hidden interactions when field movement is fully blocked."""
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return None
+
+        navigation = current_state.get("navigation", {}) or {}
+        vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
+        blocked = set(navigation.get("blocked_directions", []))
+        blocked.update(vision.get("blocked_directions", []))
+        if {"up", "down", "left", "right"} - blocked:
+            return None
+
+        try:
+            repeat_a = bool(hasattr(self, "action_executor") and self._recent_actions_are_same("a", 4))
+        except Exception:
+            repeat_a = False
+
+        action = "b" if repeat_a else "a"
+        return {
+            "action": action,
+            "reasoning": (
+                "All field directions are currently blocked, so probe the stuck scene with "
+                f"{action.upper()} instead of idling"
+            ),
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
+    def _get_ai_unavailable_fallback_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Choose a deterministic fallback when the model request failed or is cooling down."""
+        if screen_type == "dialogue":
+            return self._decorate_api_fallback_decision(
+                {
+                    "action": "a",
+                    "reasoning": "Continue the visible dialogue safely until control returns",
+                    "goal_update": None,
+                },
+                "api_unavailable_dialogue_fallback",
+            )
+
+        if screen_type in {"menu", "pokemon_menu", "item_menu", "save_menu", "options_menu"}:
+            return self._decorate_api_fallback_decision(
+                {
+                    "action": "b",
+                    "reasoning": f"Close the {screen_type} UI and return to the field",
+                    "goal_update": None,
+                },
+                "api_unavailable_menu_fallback",
+            )
+
+        if screen_type == "text_entry":
+            return self._decorate_api_fallback_decision(
+                {
+                    "action": "b",
+                    "reasoning": "Back out of text entry while the model is unavailable",
+                    "goal_update": None,
+                },
+                "api_unavailable_text_entry_fallback",
+            )
+
+        if self._llm_primary_mode_enabled():
+            blocked_interaction = self._get_blocked_field_interaction_decision(
+                current_state,
+                screen_type,
+            )
+            if blocked_interaction:
+                return self._decorate_api_fallback_decision(
+                    blocked_interaction,
+                    "api_unavailable_field_interaction",
+                )
+            return None
+
+        navigation_decision = self._get_navigation_plan_decision(
+            current_state,
+            screen_type,
+            force=True,
+        )
+        if navigation_decision:
+            return self._decorate_api_fallback_decision(
+                navigation_decision,
+                "api_unavailable_navigation_fallback",
+            )
+
+        recovery_decision = self._get_pre_starter_recovery_move_decision(
+            current_state,
+            screen_type,
+        )
+        if recovery_decision:
+            return self._decorate_api_fallback_decision(
+                recovery_decision,
+                "api_unavailable_pre_starter_fallback",
+            )
+
+        local_decision = self._get_local_safe_exploration_decision(
+            current_state,
+            screen_type,
+        )
+        if local_decision:
+            return self._decorate_api_fallback_decision(
+                local_decision,
+                "api_unavailable_local_exploration",
+            )
+
+        blocked_interaction = self._get_blocked_field_interaction_decision(
+            current_state,
+            screen_type,
+        )
+        if blocked_interaction:
+            return self._decorate_api_fallback_decision(
+                blocked_interaction,
+                "api_unavailable_field_interaction",
+            )
+
+        return None
+
+    def _apply_ai_unavailable_fallback(
+        self,
+        decision: dict,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> dict:
+        """Replace ai_error/ai_cooldown waits with deterministic field-safe actions."""
+        if self._pure_llm_mode_enabled():
+            return decision
+
+        source = str(decision.get("decision_source") or "").strip().lower()
+        if source not in {"ai_error", "ai_cooldown"}:
+            return decision
+
+        fallback = self._get_ai_unavailable_fallback_decision(
+            current_state,
+            screen_type,
+        )
+        return fallback or decision
+
+    def _cache_ai_action_plan(
+        self,
+        decision: Optional[dict],
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> None:
+        """Cache a short AI-generated follow-up plan into the existing planner queue."""
+        if self._llm_driven_mode_enabled():
+            return
+        if not bool(self.config.get("ai.action_plan_enabled", True)):
+            return
+        if not isinstance(decision, dict):
+            return
+        if decision.get("decision_source") != "ai":
+            return
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            return
+        if current_state.get("memory", {}).get("in_battle"):
+            return
+
+        action = str(decision.get("action") or "").strip().lower()
+        if action not in {"up", "down", "left", "right", "a", "b", "start", "select"}:
+            return
+
+        plan = [
+            step
+            for step in (decision.get("action_plan") or [])
+            if step in {"up", "down", "left", "right", "a", "b", "start", "select"}
+        ]
+        if not plan:
+            return
+
+        if plan[0] != action:
+            plan.insert(0, action)
+
+        max_actions = max(1, int(self.config.get("ai.action_plan_max_actions", 5) or 5))
+        plan = plan[:max_actions]
+        if len(plan) <= 1:
+            return
+
+        self._planned_actions = list(plan[1:])
+        self._planned_target = None
+
+        reasoning = " ".join(str(decision.get("reasoning") or "").split()).strip()
+        preview = ", ".join(plan)
+        if reasoning:
+            self._planned_reasoning = f"AI plan: {reasoning} | follow {preview}"
+        else:
+            self._planned_reasoning = f"AI plan: follow {preview}"
+        self.logger.debug(f"Cached AI action plan: {self._planned_actions}")
 
     def run(self) -> None:
         """运行AI智能体。"""
@@ -553,10 +907,15 @@ class PokemonAIAgent:
             screen_hash=screen_hash,
         )
         decision = self._decide_action_for_current_turn(decision_context)
+        decision = self._apply_ai_unavailable_fallback(
+            decision,
+            current_state,
+            control_screen_type,
+        )
 
         ui_state = current_state.get("memory", {}).get("ui", {}) or {}
         if (
-            not self._pure_llm_mode_enabled()
+            not self._llm_driven_mode_enabled()
             and decision.get("decision_source") == "ai"
             and self._dialogue_exit_grace > 0
             and decision.get("action") in {"a", "b", "start", "select"}
@@ -580,6 +939,8 @@ class PokemonAIAgent:
                 "decision_source": "dialogue_exit_grace_recovery",
                 "decision_trace": decision.get("decision_trace", []),
             }
+
+        self._cache_ai_action_plan(decision, current_state, control_screen_type)
 
         if self._pure_llm_mode_enabled():
             self._set_transient_phase_hint(None, ttl_turns=0)
@@ -759,9 +1120,10 @@ class PokemonAIAgent:
         if pending:
             origin = pending.get("origin")
             trigger = pending.get("trigger")
+            retreated_to_origin = prev_tuple == trigger and curr_tuple == origin
             if curr_memory.get("in_battle"):
                 self._pending_trigger_tile = None
-            elif action in directions and prev_tuple == trigger and curr_tuple == origin:
+            elif retreated_to_origin:
                 trigger_direction = self._direction_between_positions(origin, trigger)
                 if trigger_direction:
                     self._mark_temporarily_avoided_move(origin, trigger_direction)
@@ -1044,6 +1406,7 @@ class PokemonAIAgent:
     def _get_navigation_frontier_plan(self, current_state: dict) -> Optional[dict]:
         """Return the best reachable frontier plan after temporary trigger-tile filtering."""
         navigation = current_state.get("navigation", {}) or {}
+        vision_hints = current_state.get("visual", {}).get("navigation_hints", {}) or {}
         position = current_state.get("memory", {}).get("position", {}) or {}
         map_id = int(position.get("map_id", 0) or 0)
         x = int(position.get("x", 0) or 0)
@@ -1051,12 +1414,15 @@ class PokemonAIAgent:
         start = (x, y)
         start_key = (map_id, x, y)
         max_depth = int(self.config.get("navigation.max_plan_path_length", 24) or 24)
+        blocked_first_steps = set(navigation.get("blocked_directions", []))
+        blocked_first_steps.update(vision_hints.get("blocked_directions", []))
 
         preferred = navigation.get("nearest_frontier")
         preferred_path = list((preferred or {}).get("path", []) or [])
         preferred_first_step = preferred_path[0] if preferred_path else None
         if (
             preferred
+            and preferred_first_step not in blocked_first_steps
             and not self._is_temporarily_avoided_frontier(map_id, preferred.get("target"))
             and not self._is_temporarily_avoided_move(start_key, preferred_first_step or "")
         ):
@@ -1075,6 +1441,8 @@ class PokemonAIAgent:
 
             path = pathfinder(map_id, start, target, max_depth=max_depth)
             if path is None and tuple(target or ()) != start:
+                continue
+            if path and path[0] in blocked_first_steps:
                 continue
             if path and self._is_temporarily_avoided_move(start_key, path[0]):
                 continue
@@ -1106,6 +1474,7 @@ class PokemonAIAgent:
         self,
         current_state: dict,
         screen_type: Optional[str],
+        force: bool = False,
     ) -> Optional[dict]:
         """Return a deterministic frontier-following step when the route is obvious."""
         if screen_type not in {"overworld", "indoor", "memory_only", None}:
@@ -1113,6 +1482,13 @@ class PokemonAIAgent:
             return None
 
         if current_state.get("memory", {}).get("in_battle"):
+            self._clear_planned_actions()
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        position = memory.get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        if map_id == 40 and not (memory.get("party") or memory.get("in_battle")):
             self._clear_planned_actions()
             return None
 
@@ -1147,14 +1523,13 @@ class PokemonAIAgent:
                     and badge_count == 0
                 )
                 or
-                current_visit_count >= proactive_visit_threshold
+                    current_visit_count >= proactive_visit_threshold
             )
         )
-        if not proactive_plan and stall_turns < threshold:
+        if not force and not proactive_plan and stall_turns < threshold:
             return None
 
         position = current_state.get("memory", {}).get("position", {}) or {}
-        map_id = int(position.get("map_id", 0) or 0)
         x = int(position.get("x", 0) or 0)
         y = int(position.get("y", 0) or 0)
         current_tile = (x, y)
@@ -1314,7 +1689,7 @@ class PokemonAIAgent:
 
     def _is_early_fixed_route_state(self, current_state: dict) -> bool:
         """Return True when deterministic early-game routing should not trigger critique logic."""
-        if self._research_mode_enabled():
+        if self._research_mode_enabled() or self._llm_driven_mode_enabled():
             return False
         memory = current_state.get("memory", {}) or {}
         if memory.get("in_battle"):
@@ -1441,6 +1816,13 @@ class PokemonAIAgent:
 
         if memory.get("in_battle"):
             return "battle"
+        if (
+            screen_type == "naming_screen"
+            and self._should_override_false_naming_screen(current_state, phase_hint)
+        ):
+            if phase_hint in {"dialogue", "battle", "indoor"}:
+                return phase_hint
+            return "dialogue"
         if screen_type in {
             "startup",
             "dialogue",
@@ -1473,6 +1855,24 @@ class PokemonAIAgent:
             return phase_hint
 
         return screen_type or phase_hint
+
+    def _should_override_false_naming_screen(
+        self,
+        current_state: dict,
+        phase_hint: Optional[str],
+    ) -> bool:
+        """Ignore early Oak Lab naming-screen false positives when dialogue evidence is stronger."""
+        memory = current_state.get("memory", {}) or {}
+        position = memory.get("position", {}) or {}
+        map_id = int(position.get("map_id", 0) or 0)
+        badge_count = int(memory.get("badge_count", 0) or 0)
+        party_size = len(memory.get("party", []) or [])
+        ui_state = memory.get("ui", {}) or {}
+
+        if map_id != 40 or badge_count != 0 or party_size != 0:
+            return False
+
+        return bool(ui_state.get("text_box_active") or phase_hint in {"dialogue", "battle", "indoor"})
 
     def _has_stale_text_box_flag(
         self,
@@ -2061,6 +2461,42 @@ class PokemonAIAgent:
             time.sleep(max(0.0, sleep_ms / 1000.0))
         return True
 
+    def _get_minimal_known_ui_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Handle only the safest non-gameplay UI states in LLM-primary mode."""
+        if screen_type == "title":
+            return {
+                "action": "start",
+                "reasoning": "Auto: leave the title screen",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        if screen_type == "startup":
+            return {
+                "action": "wait",
+                "reasoning": "Auto: wait for the boot transition to finish",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        if screen_type == "startup_menu":
+            return {
+                "action": "a",
+                "reasoning": "Auto: confirm the new-game menu",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        if screen_type == "options_menu":
+            return {
+                "action": "b",
+                "reasoning": "Auto: leave the options menu",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        return None
+
     def _get_known_ui_decision(
         self,
         current_state: dict,
@@ -2099,6 +2535,19 @@ class PokemonAIAgent:
                 "recorded_in_context": False,
             }
         if screen_type == "naming_screen":
+            memory = current_state.get("memory", {}) or {}
+            position = memory.get("position", {}) or {}
+            map_id = int(position.get("map_id", 0) or 0)
+            badge_count = int(memory.get("badge_count", 0) or 0)
+            party_size = len(memory.get("party", []) or [])
+            if map_id == 40 and badge_count == 0 and party_size <= 1:
+                self._clear_scripted_ui_actions()
+                return {
+                    "action": "b",
+                    "reasoning": "Auto: skip Oak Lab nickname entry and keep the starter's default name",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
             if not self._scripted_ui_actions:
                 self._scripted_ui_actions = ["up", "up", "a", "start"]
                 self._scripted_ui_reasoning = "自动处理：输入一个简短单字名并确认"
@@ -2136,6 +2585,26 @@ class PokemonAIAgent:
         local_analysis_enabled = bool(
             current_state.get("visual", {}).get("local_analysis_enabled", False)
         )
+        memory = current_state.get("memory", {}) or {}
+        position = memory.get("position", {}) or {}
+        map_id = int(position.get("map_id", -1) or -1)
+        party_size = len(memory.get("party", []) or [])
+        badge_count = int(memory.get("badge_count", 0) or 0)
+        in_battle = bool(memory.get("in_battle"))
+
+        if (
+            map_id == 40
+            and party_size == 1
+            and badge_count == 0
+            and not in_battle
+            and not local_analysis_enabled
+        ):
+            return {
+                "action": "a",
+                "reasoning": "Auto: fast-advance Oak Lab's post-starter dialogue until the rival battle handoff is complete",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
         if current_state.get("pre_starter_script") and not local_analysis_enabled:
             return {
                 "action": "a",
@@ -2328,7 +2797,7 @@ class PokemonAIAgent:
         返回:
             包含行动和推理的决策字典
         """
-        if self._pure_llm_mode_enabled():
+        if self._llm_driven_mode_enabled():
             return self.main_agent.decide_action(
                 current_state,
                 state_text,
@@ -2458,7 +2927,9 @@ class PokemonAIAgent:
         self._clear_planned_actions()
         self._clear_scripted_ui_actions()
         self._clear_scripted_bootstrap_actions()
+        self.oak_lab_pre_starter.reset()
         self.oak_lab_starter.reset()
+        self.oak_lab_post_starter.reset()
         self.oak_lab_rival_battle.reset()
         self.post_battle_intro_route.reset()
         self._last_observed_state = None

@@ -1,0 +1,634 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_188082",
+  "start_turn": 184763,
+  "end_turn": 185663,
+  "turn_delta": 900,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.2,
+  "decision_source_counts": {
+    "ai_cooldown": 19,
+    "ai_error": 1
+  },
+  "decision_path_counts": {
+    "ai": 20
+  },
+  "final_state": {
+    "turn": 185663,
+    "timestamp": "2026-03-31T16:12:38.977874",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 5,
+        "hp": 19,
+        "current_hp": 19,
+        "max_hp": 19,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 10,
+          "defense": 9,
+          "speed": 12,
+          "special": 10
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 185663,
+      "local_analysis_enabled": false,
+      "screen_hash": "459492e89b80f957469f02ad15ee94d8"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 31,
+      "total_tiles": 200,
+      "exploration_percent": 15.5
+    },
+    "navigation": {
+      "current_visit_count": 861,
+      "known_exits": {
+        "down": {
+          "x": 5,
+          "y": 4
+        },
+        "left": {
+          "x": 4,
+          "y": 3
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "frontier_count": 19,
+      "nearest_frontier": {
+        "target": [
+          0,
+          5
+        ],
+        "path": [
+          "down",
+          "left",
+          "left",
+          "left",
+          "left",
+          "left",
+          "down"
+        ],
+        "unknown_directions": [
+          "down",
+          "left"
+        ],
+        "visit_count": 1,
+        "distance": 7,
+        "local_visit_pressure": 552,
+        "global_novelty_distance": 4,
+        "priority_score": -673.45,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 15,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 42.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 8,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 20.95,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 6,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 20.9,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "???.F????",
+        "FF.F?????",
+        "....P????",
+        "....F????",
+        "FFFFF????",
+        "????F????",
+        "????F????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F....P#        ",
+          "   F....F         ",
+          "   FFFFFF         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F....P#????????",
+          "???F....F?????????",
+          "???FFFFFF?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 5,
+          "y": 3
+        },
+        "explored_count": 31,
+        "frontier_count": 19,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 19,
+        "max_hp": 19,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 185644,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185645,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185646,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185647,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185648,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185649,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185650,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185651,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185652,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185653,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185654,
+      "action": "wait",
+      "reasoning": "Error occurred: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000258FF531810>: Failed to establish a new connection: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。'))",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185655,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185656,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185657,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185658,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185659,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185660,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185661,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185662,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; no visible state change",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 185663,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": null,
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    }
+  ]
+}

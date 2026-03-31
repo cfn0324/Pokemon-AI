@@ -25,10 +25,14 @@ class OakLabRivalBattleController:
         """Return deterministic Oak-lab rival actions when in the opening sequence."""
         memory = current_state.get("memory", {}) or {}
         position = memory.get("position", {}) or {}
+        battle = memory.get("battle", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
         map_id = int(position.get("map_id", -1) or -1)
         x = int(position.get("x", -1) or -1)
         y = int(position.get("y", -1) or -1)
         direction = str(memory.get("direction") or "").strip().lower()
+        enemy_hp_raw = battle.get("enemy_current_hp")
+        enemy_hp = None if enemy_hp_raw is None else int(enemy_hp_raw)
 
         if map_id != 40:
             self.reset()
@@ -56,6 +60,13 @@ class OakLabRivalBattleController:
 
         if in_battle:
             self._battle_seen = True
+            if enemy_hp is not None and enemy_hp <= 0 and ui_state.get("menu_active"):
+                return {
+                    "action": "b",
+                    "reasoning": "Auto: close Oak Lab's post-faint battle menu before finishing the remaining victory dialogue",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
             return {
                 "action": "a",
                 "reasoning": "Auto: fast-advance the first Oak Lab rival battle and confirm the default opening move",

@@ -147,6 +147,14 @@ class _CriticStub:
         return {"issues": "test", "suggestions": "test"}
 
 
+class _ActionExecutorStub:
+    def __init__(self, history=None):
+        self.history = list(history or [])
+
+    def get_action_history(self, count):
+        return self.history[-count:]
+
+
 class RuntimeSafeguardTests(unittest.TestCase):
     def test_vision_detects_blank_startup_transition(self):
         vision = VisionProcessor()
@@ -236,6 +244,46 @@ class RuntimeSafeguardTests(unittest.TestCase):
             ],
         )
 
+    def test_trigger_tile_retreat_during_wait_still_marks_move_avoided(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"navigation.trigger_tile_avoid_turns": 25})
+        agent.turn_count = 100
+        agent.logger = _LoggerStub()
+        agent.map_memory = _MapMemoryRecordFailedMoveStub()
+        agent._planned_actions = []
+        agent._planned_target = None
+        agent._planned_reasoning = ""
+        agent._temporarily_avoided_frontiers = {}
+        agent._temporarily_avoided_moves = {}
+        agent._pending_trigger_tile = {
+            "origin": (1, 19, 10),
+            "trigger": (1, 19, 9),
+        }
+
+        agent._update_trigger_tile_memory(
+            {
+                "memory": {
+                    "position": {"map_id": 1, "x": 19, "y": 9},
+                    "ui": {"text_box_active": False},
+                },
+                "visual": {"screen_type": "overworld"},
+            },
+            {
+                "memory": {
+                    "position": {"map_id": 1, "x": 19, "y": 10},
+                    "in_battle": False,
+                    "ui": {"text_box_active": True},
+                },
+                "visual": {"screen_type": "dialogue"},
+            },
+            "wait",
+        )
+
+        self.assertIn((1, 19, 10, "up"), agent._temporarily_avoided_moves)
+        self.assertIn((1, 19, 9), agent._temporarily_avoided_frontiers)
+        self.assertIn((1, 19, 10), agent._temporarily_avoided_frontiers)
+        self.assertEqual(agent.map_memory.calls, [])
+
     def test_navigation_plan_skips_temporarily_avoided_frontier(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub(
@@ -311,6 +359,51 @@ class RuntimeSafeguardTests(unittest.TestCase):
                 "navigation": {
                     "current_visit_count": 6,
                     "blocked_directions": [],
+                    "nearest_frontier": {
+                        "target": (13, 4),
+                        "path": ["right"],
+                        "unknown_directions": ["right"],
+                        "visit_count": 20,
+                        "distance": 1,
+                    },
+                },
+                "visual": {"navigation_hints": {}},
+            },
+            "overworld",
+        )
+
+        self.assertEqual(decision["action"], "left")
+
+    def test_navigation_plan_skips_known_blocked_first_step(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "navigation.auto_plan_stall_turns": 3,
+                "navigation.proactive_frontier_before_first_badge": True,
+                "navigation.proactive_frontier_visit_threshold": 4,
+                "navigation.max_plan_path_length": 24,
+            }
+        )
+        agent._planned_actions = []
+        agent._planned_target = None
+        agent._planned_reasoning = ""
+        agent._temporarily_avoided_frontiers = {}
+        agent._temporarily_avoided_moves = {}
+        agent.map_memory = _MapMemoryAvoidanceStub()
+
+        decision = agent._get_navigation_plan_decision(
+            {
+                "pre_world": False,
+                "pre_starter_script": False,
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "position": {"map_id": 1, "x": 12, "y": 4},
+                },
+                "deltas": {"movement_stall_turns": 0},
+                "navigation": {
+                    "current_visit_count": 6,
+                    "blocked_directions": ["right"],
                     "nearest_frontier": {
                         "target": (13, 4),
                         "path": ["right"],
@@ -473,6 +566,78 @@ class RuntimeSafeguardTests(unittest.TestCase):
 
         self.assertIsNone(decision)
 
+    def test_control_screen_type_ignores_false_naming_screen_in_oak_lab_dialogue(self):
+        agent = object.__new__(PokemonAIAgent)
+
+        screen_type = agent._get_control_screen_type(
+            {
+                "phase_hint": "dialogue",
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "party": [],
+                    "position": {"map_id": 40, "x": 5, "y": 3},
+                    "ui": {"text_box_active": True, "menu_active": False},
+                },
+            },
+            "naming_screen",
+        )
+
+        self.assertEqual(screen_type, "dialogue")
+
+    def test_control_screen_type_preserves_real_naming_screen_after_starter(self):
+        agent = object.__new__(PokemonAIAgent)
+
+        screen_type = agent._get_control_screen_type(
+            {
+                "phase_hint": "naming_screen",
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "party": [{"species": "Charmander"}],
+                    "position": {"map_id": 40, "x": 5, "y": 3},
+                    "ui": {"text_box_active": True, "menu_active": False},
+                },
+            },
+            "naming_screen",
+        )
+
+        self.assertEqual(screen_type, "naming_screen")
+
+    def test_known_ui_skips_oak_lab_nickname_entry_with_b(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent._scripted_ui_actions = []
+        agent._scripted_ui_reasoning = ""
+
+        decision = agent._get_known_ui_decision(
+            {
+                "memory": {
+                    "badge_count": 0,
+                    "party": [{"species": "Charmander"}],
+                    "position": {"map_id": 40, "x": 5, "y": 3},
+                }
+            },
+            "naming_screen",
+        )
+
+        self.assertEqual(decision["action"], "b")
+
+    def test_minimal_known_ui_leaves_nickname_choice_to_ai(self):
+        agent = object.__new__(PokemonAIAgent)
+
+        decision = agent._get_minimal_known_ui_decision(
+            {
+                "memory": {
+                    "badge_count": 0,
+                    "party": [{"species": "Charmander"}],
+                    "position": {"map_id": 40, "x": 5, "y": 3},
+                }
+            },
+            "naming_screen",
+        )
+
+        self.assertIsNone(decision)
+
     def test_navigation_plan_engages_early_on_revisited_frontier_tiles(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub(
@@ -523,6 +688,164 @@ class RuntimeSafeguardTests(unittest.TestCase):
 
         self.assertEqual(decision["action"], "up")
 
+    def test_ai_error_fallback_uses_navigation_plan_in_field(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "decision.pure_llm_mode": False,
+                "navigation.auto_plan_stall_turns": 3,
+                "navigation.proactive_frontier_before_first_badge": True,
+                "navigation.proactive_frontier_visit_threshold": 4,
+                "navigation.max_plan_path_length": 24,
+            }
+        )
+        agent._planned_actions = []
+        agent._planned_target = None
+        agent._planned_reasoning = ""
+        agent._temporarily_avoided_frontiers = {}
+        agent._temporarily_avoided_moves = {}
+        agent.map_memory = _MapMemoryAvoidanceStub()
+
+        decision = agent._apply_ai_unavailable_fallback(
+            {
+                "action": "wait",
+                "reasoning": "Error occurred: transport failure",
+                "goal_update": None,
+                "recorded_in_context": False,
+                "decision_source": "ai_error",
+                "decision_path": "ai",
+            },
+            {
+                "pre_world": False,
+                "pre_starter_script": False,
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "position": {"map_id": 1, "x": 12, "y": 4},
+                },
+                "deltas": {"movement_stall_turns": 0},
+                "navigation": {
+                    "current_visit_count": 6,
+                    "blocked_directions": ["right"],
+                    "nearest_frontier": {
+                        "target": (13, 4),
+                        "path": ["right"],
+                        "unknown_directions": ["right"],
+                        "visit_count": 20,
+                        "distance": 1,
+                    },
+                },
+                "visual": {"navigation_hints": {}},
+            },
+            "overworld",
+        )
+
+        self.assertEqual(decision["action"], "left")
+        self.assertEqual(decision["decision_source"], "api_unavailable_navigation_fallback")
+        self.assertEqual(decision["decision_path"], "fallback")
+
+    def test_ai_error_fallback_probes_blocked_field_with_interaction(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"decision.pure_llm_mode": False})
+        agent.action_executor = _ActionExecutorStub(history=["wait", "wait"])
+        agent._planned_actions = []
+        agent._planned_target = None
+        agent._planned_reasoning = ""
+        agent._temporarily_avoided_frontiers = {}
+        agent._temporarily_avoided_moves = {}
+        agent.map_memory = _MapMemoryStub(None)
+
+        decision = agent._apply_ai_unavailable_fallback(
+            {
+                "action": "wait",
+                "reasoning": "Error occurred: transport failure",
+                "goal_update": None,
+                "recorded_in_context": False,
+                "decision_source": "ai_error",
+                "decision_path": "ai",
+            },
+            {
+                "pre_world": False,
+                "pre_starter_script": False,
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "party": [{"species": "Charmander"}],
+                    "position": {"map_id": 40, "x": 5, "y": 3},
+                },
+                "deltas": {"movement_stall_turns": 1},
+                "movement_pattern": {"micro_loop_warning": True},
+                "navigation": {
+                    "current_visit_count": 200,
+                    "blocked_directions": ["up", "down", "left", "right"],
+                    "nearest_frontier": None,
+                },
+                "visual": {"navigation_hints": {"blocked_directions": ["up", "down", "left", "right"]}},
+            },
+            "indoor",
+        )
+
+        self.assertEqual(decision["action"], "a")
+        self.assertEqual(decision["decision_source"], "api_unavailable_field_interaction")
+
+    def test_llm_primary_ai_error_fallback_does_not_invoke_navigation_plan(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "decision.pure_llm_mode": False,
+                "decision.llm_primary_mode": True,
+                "navigation.auto_plan_stall_turns": 3,
+                "navigation.proactive_frontier_before_first_badge": True,
+                "navigation.proactive_frontier_visit_threshold": 4,
+                "navigation.max_plan_path_length": 24,
+            }
+        )
+        agent.action_executor = _ActionExecutorStub(history=["wait", "wait"])
+        agent._planned_actions = []
+        agent._planned_target = None
+        agent._planned_reasoning = ""
+        agent._temporarily_avoided_frontiers = {}
+        agent._temporarily_avoided_moves = {}
+        agent.map_memory = _MapMemoryAvoidanceStub()
+
+        decision = agent._apply_ai_unavailable_fallback(
+            {
+                "action": "wait",
+                "reasoning": "Error occurred: transport failure",
+                "goal_update": None,
+                "recorded_in_context": False,
+                "decision_source": "ai_error",
+                "decision_path": "ai",
+            },
+            {
+                "pre_world": False,
+                "pre_starter_script": False,
+                "memory": {
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "position": {"map_id": 1, "x": 12, "y": 4},
+                },
+                "deltas": {"movement_stall_turns": 0},
+                "navigation": {
+                    "current_visit_count": 6,
+                    "blocked_directions": ["right"],
+                    "nearest_frontier": {
+                        "target": (13, 4),
+                        "path": ["right"],
+                        "unknown_directions": ["right"],
+                        "visit_count": 20,
+                        "distance": 1,
+                    },
+                },
+                "visual": {"navigation_hints": {}},
+            },
+            "overworld",
+        )
+
+        self.assertEqual(decision["action"], "wait")
+        self.assertEqual(decision["decision_source"], "ai_error")
+        self.assertEqual(decision["decision_path"], "ai")
+
     def test_navigation_frontier_plan_prefers_more_novel_lower_pressure_target(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub({"navigation.max_plan_path_length": 24})
@@ -552,10 +875,28 @@ class RuntimeSafeguardTests(unittest.TestCase):
         stage_names = [name for name, _ in agent._get_decision_stage_specs()]
 
         self.assertNotIn("oak_lab_starter", stage_names)
+        self.assertNotIn("oak_lab_post_starter", stage_names)
         self.assertNotIn("oak_lab_rival_battle", stage_names)
         self.assertNotIn("post_battle_intro_route", stage_names)
         self.assertIn("known_ui", stage_names)
         self.assertIn("navigation_plan", stage_names)
+
+    def test_llm_primary_stage_specs_keep_only_minimal_safety_stages(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"decision.llm_primary_mode": True})
+
+        stage_names = [name for name, _ in agent._get_decision_stage_specs()]
+
+        self.assertEqual(
+            stage_names,
+            [
+                "bootstrap",
+                "minimal_known_ui",
+                "stable_ui_recovery",
+                "menu_auto_close",
+                "text_entry_api_cooldown",
+            ],
+        )
 
     def test_default_stage_specs_keep_fixed_route_controllers(self):
         agent = object.__new__(PokemonAIAgent)
@@ -564,6 +905,7 @@ class RuntimeSafeguardTests(unittest.TestCase):
         stage_names = [name for name, _ in agent._get_decision_stage_specs()]
 
         self.assertIn("oak_lab_starter", stage_names)
+        self.assertIn("oak_lab_post_starter", stage_names)
         self.assertIn("oak_lab_rival_battle", stage_names)
         self.assertIn("post_battle_intro_route", stage_names)
 

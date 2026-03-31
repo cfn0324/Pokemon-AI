@@ -86,7 +86,10 @@ class ActionExecutor:
 
     def _pure_llm_mode_enabled(self) -> bool:
         """Return whether execution should avoid action-expanding helpers."""
-        return bool(self.config.get('decision.pure_llm_mode', False))
+        return bool(
+            self.config.get('decision.pure_llm_mode', False)
+            or self.config.get('decision.llm_primary_mode', False)
+        )
 
     def _read_movement_snapshot(self) -> Optional[Dict[str, Any]]:
         """Read minimal movement-relevant state for smarter direction retries."""

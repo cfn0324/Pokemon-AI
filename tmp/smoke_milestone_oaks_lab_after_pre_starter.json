@@ -1,0 +1,724 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "latest_checkpoint": "checkpoint_184762",
+  "start_turn": 184595,
+  "end_turn": 184715,
+  "turn_delta": 120,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "oak_lab_pre_starter": 29,
+    "oak_lab_starter": 8
+  },
+  "decision_path_counts": {
+    "tool": 37
+  },
+  "final_state": {
+    "turn": 184715,
+    "timestamp": "2026-03-31T00:39:04.723574",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184715,
+      "local_analysis_enabled": false,
+      "screen_hash": "b141e2771ba1c9b2e7de784d6310e24f",
+      "observed_screen_type": "indoor"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 8,
+      "bounding_box_width": 6,
+      "bounding_box_height": 3,
+      "current_tile_repeat_count": 3,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184679,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184680,
+      "action": "a",
+      "reasoning": "Auto: start Oak's starter-selection dialogue from the correct table position",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184681,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184682,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184683,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184684,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184685,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184686,
+      "action": "down",
+      "reasoning": "Auto: finish Oak's final starter question, then step away as soon as movement returns",
+      "result": "After down:; position did not change",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184687,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's final starter prompt without overshooting the first free-movement frame",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184688,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184689,
+      "action": "a",
+      "reasoning": "Auto: start Oak's starter-selection dialogue from the correct table position",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184690,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184691,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184692,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184693,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184694,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184695,
+      "action": "down",
+      "reasoning": "Auto: finish Oak's final starter question, then step away as soon as movement returns",
+      "result": "After down:; position did not change",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184696,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's final starter prompt without overshooting the first free-movement frame",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184697,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184698,
+      "action": "a",
+      "reasoning": "Auto: start Oak's starter-selection dialogue from the correct table position",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184699,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184700,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184701,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184702,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184703,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184704,
+      "action": "down",
+      "reasoning": "Auto: finish Oak's final starter question, then step away as soon as movement returns",
+      "result": "After down:; position did not change",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184705,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's final starter prompt without overshooting the first free-movement frame",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184706,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; screen changed from dialogue to indoor",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184707,
+      "action": "a",
+      "reasoning": "Auto: start Oak's starter-selection dialogue from the correct table position",
+      "result": "After a:; screen changed from indoor to dialogue",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184708,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184709,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184710,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184711,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184712,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184713,
+      "action": "down",
+      "reasoning": "Auto: finish Oak's final starter question, then step away as soon as movement returns",
+      "result": "After down:; position did not change",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184714,
+      "action": "a",
+      "reasoning": "Auto: advance Oak's final starter prompt without overshooting the first free-movement frame",
+      "result": "After a:; text box remains active",
+      "decision_source": "oak_lab_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 184715,
+      "action": "a",
+      "reasoning": "Auto: advance Oak Lab's pre-starter dialogue until free movement or the final starter prompt returns",
+      "result": null,
+      "decision_source": "oak_lab_pre_starter",
+      "decision_path": "tool",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

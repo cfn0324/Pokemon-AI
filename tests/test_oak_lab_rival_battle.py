@@ -12,6 +12,9 @@ def _state(
     badge_count=0,
     level=5,
     moves=None,
+    enemy_hp=20,
+    menu_active=False,
+    text_box_active=False,
 ):
     if moves is None:
         moves = [{"move_id": 10}, {"move_id": 45}]
@@ -28,6 +31,13 @@ def _state(
                 }
             ],
             "in_battle": in_battle,
+            "battle": {
+                "enemy_current_hp": enemy_hp,
+            },
+            "ui": {
+                "menu_active": menu_active,
+                "text_box_active": text_box_active,
+            },
         }
     }
 
@@ -62,6 +72,25 @@ class OakLabRivalBattleControllerTests(unittest.TestCase):
         decision = controller.maybe_decide(_state(x=5, y=6, in_battle=True, level=6), "battle")
 
         self.assertEqual(decision["action"], "a")
+
+    def test_post_faint_battle_menu_is_closed_with_b(self):
+        controller = OakLabRivalBattleController()
+        controller.maybe_decide(_state(), "overworld")
+
+        decision = controller.maybe_decide(
+            _state(
+                x=5,
+                y=6,
+                in_battle=True,
+                level=6,
+                enemy_hp=0,
+                menu_active=True,
+                text_box_active=True,
+            ),
+            "battle",
+        )
+
+        self.assertEqual(decision["action"], "b")
 
     def test_controller_stops_after_battle_has_finished(self):
         controller = OakLabRivalBattleController()

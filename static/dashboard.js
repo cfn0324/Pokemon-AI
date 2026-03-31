@@ -8,9 +8,11 @@ const state = {
     checkpoints: [],
     pollingTimer: null,
     toastTimer: null,
+    streamActive: false,
 };
 
 const els = {
+    dashboardViewport: document.getElementById("dashboardViewport"),
     connectionPill: document.getElementById("connectionPill"),
     runPill: document.getElementById("runPill"),
     turnPillValue: document.getElementById("turnPillValue"),
@@ -36,6 +38,7 @@ const els = {
     mapWarpValue: document.getElementById("mapWarpValue"),
     mapPlayerValue: document.getElementById("mapPlayerValue"),
     decisionAction: document.getElementById("decisionAction"),
+    decisionRationale: document.getElementById("decisionRationale"),
     decisionTurn: document.getElementById("decisionTurn"),
     decisionScreenType: document.getElementById("decisionScreenType"),
     decisionTime: document.getElementById("decisionTime"),
@@ -68,6 +71,15 @@ const els = {
     statFrontier: document.getElementById("statFrontier"),
     partyList: document.getElementById("partyList"),
     toast: document.getElementById("toast"),
+};
+
+const viewportPanState = {
+    active: false,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    scrollLeft: 0,
+    scrollTop: 0,
 };
 
 function escapeHtml(value) {
@@ -231,6 +243,17 @@ function translateCheckpointLabel(value, fallbackName = "") {
     return raw;
 }
 
+function summarizeReasoningPreview(value, maxLength = 150) {
+    const text = String(value ?? "").replace(/\s+/g, " ").trim();
+    if (!text) {
+        return "暂无模型解释。";
+    }
+    if (text.length <= maxLength) {
+        return text;
+    }
+    return `${text.slice(0, Math.max(0, maxLength - 1)).trimEnd()}…`;
+}
+
 function setConnection(ok, message) {
     els.connectionPill.textContent = message;
     els.connectionPill.dataset.tone = ok ? "success" : "danger";
@@ -238,15 +261,22 @@ function setConnection(ok, message) {
 
 function showDisconnectedRuntime(error) {
     const detail = error?.message ? `刷新失败：${error.message}` : "刷新失败";
+    state.streamActive = false;
     els.statusDetailPill.textContent = detail;
     els.streamPlaceholder.textContent =
         "当前没有连接到实时运行实例。如果你运行的是 scripts/autonomous_smoke.py，这是正常现象，因为该脚本默认关闭实时可视化。运行 python main.py 才会显示实时画面与模型状态。";
     els.streamPlaceholder.style.display = "grid";
     els.streamImage.hidden = true;
     els.fallbackImage.hidden = true;
-    els.screenSummary.textContent = "当前没有实时游戏画面输入到大屏。";
-    els.harnessSummary.textContent = "只有正在运行且开启可视化的实例，才会持续向页面推送状态。";
-    els.movementSummary.textContent = "等待运行实例连接。";
+    if (els.screenSummary) {
+        els.screenSummary.textContent = "当前没有实时游戏画面输入到大屏。";
+    }
+    if (els.harnessSummary) {
+        els.harnessSummary.textContent = "只有正在运行且开启可视化的实例，才会持续向页面推送状态。";
+    }
+    if (els.movementSummary) {
+        els.movementSummary.textContent = "等待运行实例连接。";
+    }
     els.decisionReasoning.textContent =
         "当前没有实时模型推理输出。若你运行的是 smoke 测试，请查看终端输出或生成的 JSON 报告。";
 }
@@ -341,13 +371,19 @@ function renderState() {
     else if (game.phase_hint) phase = String(game.phase_hint);
     els.phaseTag.textContent = `阶段 ${translatePhase(phase)}`;
 
-    els.screenSummary.textContent = visual.description || "等待画面描述。";
-    els.harnessSummary.textContent = localAnalysisEnabled
-        ? "已启用本地像素启发式，因此页面会展示更紧凑的视觉结果。"
-        : "本地像素分析已关闭，模型当前依赖原始截图与内存状态。";
-    els.movementSummary.textContent = deltas.stuck_hint
-        ? `${deltas.stuck_hint}${deltas.position_changed ? "；本回合位置已变化。" : ""}`
-        : "等待更多移动反馈。";
+    if (els.screenSummary) {
+        els.screenSummary.textContent = visual.description || "等待画面描述。";
+    }
+    if (els.harnessSummary) {
+        els.harnessSummary.textContent = localAnalysisEnabled
+            ? "已启用本地像素启发式，因此页面会展示更紧凑的视觉结果。"
+            : "本地像素分析已关闭，模型当前依赖原始截图与内存状态。";
+    }
+    if (els.movementSummary) {
+        els.movementSummary.textContent = deltas.stuck_hint
+            ? `${deltas.stuck_hint}${deltas.position_changed ? "；本回合位置已变化。" : ""}`
+            : "等待更多移动反馈。";
+    }
 
     els.statTurn.textContent = String(game.turn ?? 0);
     els.statBadges.textContent = `${game.badges ?? 0} / 8`;
@@ -363,12 +399,16 @@ function renderState() {
 function renderDecision() {
     const decision = state.decision || {};
     const screenType = decision.screen_type || state.game.visual?.screen_type || "unknown";
+    const reasoning = decision.reasoning || "暂无模型解释。";
 
     els.decisionAction.textContent = translateAction(decision.action || "wait");
     els.decisionTurn.textContent = decision.turn ?? "-";
     els.decisionScreenType.textContent = translateScreenType(screenType);
     els.decisionTime.textContent = formatTimestamp(decision.timestamp);
-    els.decisionReasoning.textContent = decision.reasoning || "暂无模型解释。";
+    els.decisionReasoning.textContent = reasoning;
+    if (els.decisionRationale) {
+        els.decisionRationale.textContent = summarizeReasoningPreview(reasoning);
+    }
 }
 
 function renderMap() {
@@ -772,6 +812,10 @@ async function sendControl(command, value = null) {
 }
 
 async function refreshFallbackScreenshot() {
+    if (state.streamActive) {
+        els.fallbackImage.hidden = true;
+        return;
+    }
     try {
         const data = await fetchJSON("/api/screenshot");
         if (!data.image) return;
@@ -830,6 +874,7 @@ function bindControls() {
 
 function bindStreamHandlers() {
     els.streamImage.addEventListener("load", () => {
+        state.streamActive = true;
         els.streamPlaceholder.style.display = "none";
         els.streamImage.hidden = false;
         els.fallbackImage.hidden = true;
@@ -837,6 +882,7 @@ function bindStreamHandlers() {
     });
 
     els.streamImage.addEventListener("error", async () => {
+        state.streamActive = false;
         els.streamPlaceholder.textContent =
             "当前实时串流不可用，大屏已切换到截图回退模式。如果你运行的是 autonomous_smoke，这属于正常现象。";
         els.streamPlaceholder.style.display = "grid";
@@ -845,9 +891,61 @@ function bindStreamHandlers() {
     });
 }
 
+function bindViewportPanning() {
+    const viewport = els.dashboardViewport;
+    if (!viewport) {
+        return;
+    }
+
+    const shouldIgnorePan = (target) => {
+        if (!(target instanceof HTMLElement)) {
+            return false;
+        }
+        return Boolean(target.closest(
+            "button, input, textarea, select, a, label, [data-command], [data-manual], [data-load-checkpoint], .list, .history-list, .event-list, .checkpoint-list, .party-roster, .reasoning, .startup-dialog",
+        ));
+    };
+
+    const stopPan = () => {
+        viewportPanState.active = false;
+        viewportPanState.pointerId = null;
+        viewport.classList.remove("is-dragging");
+    };
+
+    viewport.addEventListener("pointerdown", (event) => {
+        if (event.button !== 0 || shouldIgnorePan(event.target)) {
+            return;
+        }
+        viewportPanState.active = true;
+        viewportPanState.pointerId = event.pointerId;
+        viewportPanState.startX = event.clientX;
+        viewportPanState.startY = event.clientY;
+        viewportPanState.scrollLeft = viewport.scrollLeft;
+        viewportPanState.scrollTop = viewport.scrollTop;
+        viewport.classList.add("is-dragging");
+        viewport.setPointerCapture(event.pointerId);
+        event.preventDefault();
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+        if (!viewportPanState.active || viewportPanState.pointerId !== event.pointerId) {
+            return;
+        }
+        const dx = event.clientX - viewportPanState.startX;
+        const dy = event.clientY - viewportPanState.startY;
+        viewport.scrollLeft = viewportPanState.scrollLeft - dx;
+        viewport.scrollTop = viewportPanState.scrollTop - dy;
+    });
+
+    viewport.addEventListener("pointerup", stopPan);
+    viewport.addEventListener("pointercancel", stopPan);
+    viewport.addEventListener("lostpointercapture", stopPan);
+}
+
 async function bootstrap() {
     bindControls();
     bindStreamHandlers();
+    bindViewportPanning();
     await refreshAll();
     await refreshFallbackScreenshot();
 

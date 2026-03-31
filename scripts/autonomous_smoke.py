@@ -118,6 +118,11 @@ def main() -> None:
         help="Path to the JSON report.",
     )
     parser.add_argument(
+        "--llm-primary",
+        action="store_true",
+        help="Use LLM-primary mode with only minimal deterministic safety stages.",
+    )
+    parser.add_argument(
         "--pure-llm",
         action="store_true",
         help="Disable deterministic control stages and test the run in pure-LLM mode.",
@@ -152,11 +157,21 @@ def main() -> None:
     config.set("ai.api_error_cooldown_seconds", 1)
     config.set("ai.api_error_cooldown_max_seconds", 2)
     config.set("testing.disable_stuck_critique", True)
+    if args.llm_primary:
+        config.set("decision.llm_primary_mode", True)
+        config.set("decision.pure_llm_mode", False)
+        config.set("decision.retry_same_turn_on_ai_error", True)
+        config.set("decision.same_turn_retry_max_attempts", 20)
+        config.set("decision.same_turn_retry_timeout_seconds", 45)
+        config.set("decision.same_turn_retry_min_delay_seconds", 0.25)
+        config.set("ai.request_timeout_seconds", 20)
+        config.set("ai.request_retries", 2)
     if args.research_mode:
         config.set("decision.research_mode", True)
 
     if args.pure_llm:
         config.set("decision.pure_llm_mode", True)
+        config.set("decision.llm_primary_mode", False)
         config.set("decision.retry_same_turn_on_ai_error", True)
         config.set("decision.same_turn_retry_max_attempts", 30)
         config.set("decision.same_turn_retry_timeout_seconds", 45)
@@ -181,7 +196,7 @@ def main() -> None:
     )
     print(
         f"[autonomous_smoke] checkpoint={args.checkpoint!r}, turns={requested_turns}, "
-        f"pure_llm={args.pure_llm}, research_mode={args.research_mode}, "
+        f"llm_primary={args.llm_primary}, pure_llm={args.pure_llm}, research_mode={args.research_mode}, "
         f"reset_context={args.reset_context}"
     )
 
@@ -207,6 +222,7 @@ def main() -> None:
     report = {
         "requested_checkpoint": args.checkpoint,
         "restored_checkpoint": agent._restored_checkpoint_name,
+        "llm_primary_mode": bool(args.llm_primary),
         "pure_llm_mode": bool(args.pure_llm),
         "research_mode": bool(args.research_mode),
         "reset_context": bool(args.reset_context),

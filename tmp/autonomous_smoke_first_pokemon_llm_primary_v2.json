@@ -1,0 +1,623 @@
+{
+  "requested_checkpoint": "milestone_first_pokemon",
+  "restored_checkpoint": "milestone_first_pokemon",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_188082",
+  "start_turn": 184808,
+  "end_turn": 184828,
+  "turn_delta": 20,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 19,
+    "minimal_known_ui": 1
+  },
+  "decision_path_counts": {
+    "ai": 19,
+    "tool": 1
+  },
+  "final_state": {
+    "turn": 184828,
+    "timestamp": "2026-03-31T20:17:28.654862",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 0,
+        "species": "None",
+        "name": "None",
+        "display_name": "None",
+        "level": 0,
+        "hp": 0,
+        "current_hp": 0,
+        "max_hp": 0,
+        "moves": [],
+        "stats": {
+          "attack": 0,
+          "defense": 0,
+          "speed": 0,
+          "special": 0
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184828,
+      "local_analysis_enabled": false,
+      "screen_hash": "66050619f1ac55e48dcaa8a470628219",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 30,
+      "total_tiles": 200,
+      "exploration_percent": 15.0
+    },
+    "navigation": {
+      "current_visit_count": 29,
+      "known_exits": {
+        "down": {
+          "x": 5,
+          "y": 4
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 22,
+      "nearest_frontier": {
+        "target": [
+          5,
+          5
+        ],
+        "path": [
+          "down",
+          "left",
+          "left",
+          "left",
+          "left",
+          "left",
+          "down",
+          "right",
+          "right",
+          "right",
+          "right",
+          "right"
+        ],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 2,
+        "distance": 2,
+        "local_visit_pressure": 140,
+        "global_novelty_distance": 2,
+        "priority_score": -172.2,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 15,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 42.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 8,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 20.95,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 6,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 20.9,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "???.F????",
+        "FF.F?????",
+        "..F?P????",
+        "...FF????",
+        "FFFFF????",
+        "????F????",
+        "????F????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F..F#P         ",
+          "   F...FF         ",
+          "   FFFFFF         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F..F#P?????????",
+          "???F...FF?????????",
+          "???FFFFFF?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 5,
+          "y": 3
+        },
+        "explored_count": 30,
+        "frontier_count": 22,
+        "blocked_count": 7,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "None",
+        "level": 0,
+        "current_hp": 0,
+        "max_hp": 0,
+        "hp_percent": 0.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184809,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with a text box displaying \"Do\", so dialogue is still advancing and should be continued.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184810,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box saying \"Do you wan\", so the dialogue needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184811,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box asking \"Do you want to give\", so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184812,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box asking whether to give a nickname, so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184813,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box still asking \"Do you want to give a nickname,\" so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184814,
+      "action": "a",
+      "reasoning": "The screenshot still shows Oak's lab with an active text box continuing the nickname prompt, so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184815,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box still displaying the nickname prompt for CHARMANDER, so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184816,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname choice prompt with the cursor on YES, so pressing A will select it and advance.",
+      "result": "After a:; screen changed from dialogue to startup",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184817,
+      "action": "wait",
+      "reasoning": "Auto: wait for the boot transition to finish",
+      "result": "After wait:; screen changed from startup to dialogue",
+      "decision_source": "minimal_known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184818,
+      "action": "a",
+      "reasoning": "The screenshot shows the Pokémon nickname entry keyboard for CHARMANDER, and pressing A will choose the highlighted first letter.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184819,
+      "action": "a",
+      "reasoning": "The screenshot shows the Pokémon nickname entry screen with the cursor on the letter A, so pressing A will enter the first character of the nickname.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184820,
+      "action": "a",
+      "reasoning": "The nickname entry screen is open with \"AA\" already entered and the cursor still on the letter A, so pressing A will add another A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184821,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname entry screen for CHARMANDER with \"AAA\" entered and the cursor still on A, so pressing A will add another letter.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184822,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname entry keyboard with CHARMANDER already named \"AAAA\" and the cursor still on A, so pressing A will add another character.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184823,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname entry screen with the cursor on A and \"AAAAA\" already entered, so pressing A will add another character.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184824,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname entry keyboard with the cursor still on A and six letters already entered, so pressing A will continue filling the nickname.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184825,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname entry keyboard with seven A's already entered for CHARMANDER and the cursor still on A, so pressing A will add another character and fill the 8-character nickname.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184826,
+      "action": "select",
+      "reasoning": "The screenshot shows the nickname entry screen with the eight-character nickname already filled as AAAAAAAA, so the next step is to move to the END option by switching keyboard mode.",
+      "result": "After select:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184827,
+      "action": "right",
+      "reasoning": "The screenshot is still on the nickname entry keyboard with AAAAAAAA filled, so after switching pages the next step is to move toward the END option by pressing right.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184828,
+      "action": "b",
+      "reasoning": "The nickname entry screen is still open with AAAAAAAA filled and the cursor is on the letter grid, so pressing b is the direct way to erase a character and make room to finish cleanly.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    }
+  ]
+}

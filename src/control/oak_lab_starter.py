@@ -2,30 +2,26 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 
 class OakLabStarterController:
-    """Handle the exact last Oak prompt before free movement returns."""
+    """Drive the fixed Oak Lab starter sequence until the first Pokemon is obtained."""
 
-    # These hashes correspond to the stable prompt pages that do not depend on
-    # the player's chosen name.
-    _PROMPT_HASH_TO_STEPS = {
-        "f152ef346d4d1a5414e6edb7f5e98d90": ["a", "a", "down"],
-        "0c512922c5124e91091885e663ffb2d7": ["a", "down"],
-    }
+    _CLEAR_TABLE_HASH = "b141e2771ba1c9b2e7de784d6310e24f"
 
     def __init__(self) -> None:
-        self._pending_steps: List[str] = []
+        self._right_branch_started = False
 
     def reset(self) -> None:
-        """Forget any queued Oak-lab starter actions."""
-        self._pending_steps = []
+        """Forget any in-progress Oak-lab starter phase."""
+        self._right_branch_started = False
 
     def maybe_decide(
         self,
         current_state: Dict[str, Any],
         screen_hash: Optional[str],
+        screen_type: Optional[str] = None,
     ) -> Optional[Dict[str, Any]]:
         """Return a deterministic starter-handoff action when applicable."""
         memory = current_state.get("memory", {}) or {}
@@ -38,37 +34,51 @@ class OakLabStarterController:
         x = int(position.get("x", -1) or -1)
         y = int(position.get("y", -1) or -1)
         direction = str(memory.get("direction") or "").strip().lower()
+        ui_state = memory.get("ui", {}) or {}
+        normalized_screen = (screen_type or "").strip().lower()
+        current_hash = screen_hash or ""
 
         if map_id != 40:
             self.reset()
             return None
 
-        if self._pending_steps:
-            # The queued down-step is only safe while Oak is still directly above
-            # the player at the starter table handoff position.
-            if (x, y) != (5, 3):
-                self.reset()
+        if (x, y) != (5, 3):
+            if self._right_branch_started:
                 return None
-            action = self._pending_steps.pop(0)
+            return None
+
+        if direction == "right":
+            self._right_branch_started = True
             return {
-                "action": action,
-                "reasoning": "Auto: finish Oak's final starter question, then step away as soon as movement returns",
+                "action": "a",
+                "reasoning": "Auto: keep advancing Oak Lab's right-side starter branch until the first Pokemon is received",
                 "goal_update": None,
                 "recorded_in_context": False,
             }
 
-        if (x, y) != (5, 3) or direction != "up":
+        if self._right_branch_started:
+            return {
+                "action": "right",
+                "reasoning": "Auto: realign with Oak Lab's starter table so the fixed right-side script can continue",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+
+        if direction != "up":
             return None
 
-        steps = self._PROMPT_HASH_TO_STEPS.get(screen_hash or "")
-        if not steps:
-            return None
+        if normalized_screen == "indoor" or current_hash == self._CLEAR_TABLE_HASH:
+            self._right_branch_started = True
+            return {
+                "action": "right",
+                "reasoning": "Auto: pivot toward Oak Lab's starter table and enter the right-side starter branch",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
 
-        self._pending_steps = list(steps)
-        action = self._pending_steps.pop(0)
         return {
-            "action": action,
-            "reasoning": "Auto: advance Oak's final starter prompt without overshooting the first free-movement frame",
+            "action": "a",
+            "reasoning": "Auto: advance Oak's starter-selection dialogue until the table branch is ready",
             "goal_update": None,
             "recorded_in_context": False,
         }

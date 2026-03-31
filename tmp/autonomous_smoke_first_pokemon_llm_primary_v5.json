@@ -1,0 +1,635 @@
+{
+  "requested_checkpoint": "milestone_first_pokemon",
+  "restored_checkpoint": "milestone_first_pokemon",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_188082",
+  "start_turn": 184808,
+  "end_turn": 184828,
+  "turn_delta": 20,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 18,
+    "minimal_known_ui": 2
+  },
+  "decision_path_counts": {
+    "ai": 18,
+    "tool": 2
+  },
+  "final_state": {
+    "turn": 184828,
+    "timestamp": "2026-03-31T20:30:10.150323",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 5,
+        "hp": 19,
+        "current_hp": 19,
+        "max_hp": 19,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 11,
+          "defense": 10,
+          "speed": 12,
+          "special": 10
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 184828,
+      "local_analysis_enabled": false,
+      "screen_hash": "a1725d42c7d6f24727b9cc881631320f"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 30,
+      "total_tiles": 200,
+      "exploration_percent": 15.0
+    },
+    "navigation": {
+      "current_visit_count": 29,
+      "known_exits": {
+        "down": {
+          "x": 5,
+          "y": 4
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "left",
+        "right"
+      ],
+      "frontier_count": 22,
+      "nearest_frontier": {
+        "target": [
+          5,
+          5
+        ],
+        "path": [
+          "down",
+          "left",
+          "left",
+          "left",
+          "left",
+          "left",
+          "down",
+          "right",
+          "right",
+          "right",
+          "right",
+          "right"
+        ],
+        "unknown_directions": [
+          "right"
+        ],
+        "visit_count": 2,
+        "distance": 2,
+        "local_visit_pressure": 140,
+        "global_novelty_distance": 2,
+        "priority_score": -172.2,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 15,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 15,
+          "priority_score": 42.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 8,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 8,
+          "priority_score": 20.95,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            5,
+            9
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 6,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 6,
+          "priority_score": 20.9,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "???.F????",
+        "FF.F?????",
+        "..F?P????",
+        "...FF????",
+        "FFFFF????",
+        "????F????",
+        "????F????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F..F#P#        ",
+          "   F...FF         ",
+          "   FFFFFF         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "        F         ",
+          "                  ",
+          "        F      F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F..F#P#????????",
+          "???F...FF?????????",
+          "???FFFFFF?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "????????F?????????",
+          "??????????????????",
+          "????????F??????F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 5,
+          "y": 3
+        },
+        "explored_count": 30,
+        "frontier_count": 22,
+        "blocked_count": 8,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 5,
+        "current_hp": 19,
+        "max_hp": 19,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 184809,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box displaying dialogue (\"Do\"), so the next step is to advance the mandatory conversation.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184810,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an open text box saying \"Do you wan,\" so the mandatory dialogue is still in progress and should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184811,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active dialogue box asking \"Do you want to give\", so the required intro conversation should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184812,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box asking \"Do you want to give a nickn\", so the mandatory naming prompt dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184813,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box asking whether to give a nickname, so the dialogue prompt should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184814,
+      "action": "a",
+      "reasoning": "The screenshot still shows Oak's lab with an active text box continuing the nickname prompt, so the required dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184815,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box continuing the nickname prompt for Charmander, so the dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184816,
+      "action": "a",
+      "reasoning": "The screenshot shows the nickname prompt with the cursor on YES, so pressing A will confirm and advance from this mandatory choice.",
+      "result": "After a:; screen changed from dialogue to startup",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184817,
+      "action": "wait",
+      "reasoning": "Auto: wait for the boot transition to finish",
+      "result": "After wait:; screen changed from startup to naming_screen",
+      "decision_source": "minimal_known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184818,
+      "action": "start",
+      "reasoning": "The screenshot shows the Pokémon nickname entry screen for CHARMANDER, so confirming without entering letters is best to skip nicknaming and continue the intro.",
+      "result": "After start:; screen changed from naming_screen to startup",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "naming_screen",
+      "observed_screen_type": "naming_screen",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184819,
+      "action": "wait",
+      "reasoning": "Auto: wait for the boot transition to finish",
+      "result": "After wait:; screen changed from startup to indoor; text box closed",
+      "decision_source": "minimal_known_ui",
+      "decision_path": "tool",
+      "screen_type": "startup",
+      "observed_screen_type": "startup",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184820,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab standing above the south exit area with no text box, so moving down advances toward leaving the building.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "startup",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184821,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly below Professor Oak in his lab facing right, so moving down should step away from Oak and toward the south exit path.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184822,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below Professor Oak with open floor to the left while the state already marks down as blocked from this tile, so stepping left is the best way to get around him toward the exit.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184823,
+      "action": "left",
+      "reasoning": "The screenshot shows the player one tile below Oak and the open aisle to the left is clear while previous down attempts were blocked from this position.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184824,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab directly below the rival and to the left of the center table, with open floor visible below to continue toward the exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184825,
+      "action": "right",
+      "reasoning": "The screenshot shows the player one tile below the rival in Oak's lab with open floor to the right beside the table, making right the clearest movement to get around the NPCs after left and down were blocked.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184826,
+      "action": "right",
+      "reasoning": "The screenshot shows the player just below Oak and left of the center table with clear floor to the right, which is the open path around the table toward the south exit.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184827,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing directly below Professor Oak with open floor visible to the left, making a left step the clearest way to get around him toward the exit.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 184828,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below Professor Oak in the center aisle and facing right, so moving up is the untried direction that should step around him and break the current stall.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 1
+    }
+  ]
+}
