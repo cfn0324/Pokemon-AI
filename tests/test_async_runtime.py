@@ -83,6 +83,7 @@ class AsyncRealtimeTests(unittest.TestCase):
         decision = agent._get_ai_decision_responsive({"turn": 2}, "state", b"img")
 
         self.assertEqual(decision["executor"], "async_background_wait")
+        self.assertEqual(decision["action"], "thinking")
         self.assertTrue(decision["recorded_in_context"])
         self.assertEqual(len(agent.async_ai.requests), 1)
         self.assertEqual(agent.main_agent.calls, [])
@@ -132,7 +133,7 @@ class AsyncRealtimeTests(unittest.TestCase):
         self.assertEqual(len(main_agent.calls), 1)
         self.assertEqual(agent.async_ai.requests, [])
 
-    def test_llm_primary_mode_forces_sync_model_path_even_if_async_is_enabled(self):
+    def test_llm_primary_mode_uses_async_model_path_when_async_is_enabled(self):
         main_agent = _MainAgentStub()
         agent = self._make_agent(
             config={
@@ -145,9 +146,58 @@ class AsyncRealtimeTests(unittest.TestCase):
 
         decision = agent._get_ai_decision_responsive({"turn": 5}, "state", b"img")
 
+        self.assertEqual(decision["executor"], "async_background_wait")
+        self.assertEqual(main_agent.calls, [])
+        self.assertEqual(len(agent.async_ai.requests), 1)
+
+    def test_llm_primary_mode_still_falls_back_to_sync_when_async_disabled(self):
+        main_agent = _MainAgentStub()
+        agent = self._make_agent(
+            config={
+                "performance.async_decisions": False,
+                "decision.llm_primary_mode": True,
+            },
+            async_ai=_AsyncAIStub(running=False),
+            main_agent=main_agent,
+        )
+
+        decision = agent._get_ai_decision_responsive({"turn": 6}, "state", b"img")
+
         self.assertEqual(decision["action"], "a")
         self.assertEqual(len(main_agent.calls), 1)
-        self.assertEqual(agent.async_ai.requests, [])
+
+    def test_dialogue_wait_is_rewritten_to_a(self):
+        agent = self._make_agent()
+
+        decision = agent._rewrite_wait_decision(
+            {
+                "action": "wait",
+                "reasoning": "Need to wait for the dialogue to advance",
+                "decision_source": "ai",
+            },
+            {"memory": {"ui": {"text_box_active": True}}},
+            "dialogue",
+        )
+
+        self.assertEqual(decision["action"], "a")
+        self.assertNotEqual(decision.get("executor"), "async_background_wait")
+
+    def test_startup_wait_is_rewritten_to_passive_progress(self):
+        agent = self._make_agent()
+
+        decision = agent._rewrite_wait_decision(
+            {
+                "action": "wait",
+                "reasoning": "Need to wait through boot",
+                "decision_source": "ai",
+            },
+            {"memory": {"ui": {}}},
+            "startup",
+        )
+
+        self.assertEqual(decision["action"], "progress")
+        self.assertEqual(decision["executor"], "async_background_wait")
+        self.assertTrue(decision["recorded_in_context"])
 
 
 if __name__ == "__main__":

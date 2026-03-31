@@ -114,6 +114,8 @@ const ACTION_LABELS = {
     b: "B",
     start: "开始",
     select: "选择",
+    progress: "推进",
+    thinking: "思考中",
     wait: "等待",
 };
 

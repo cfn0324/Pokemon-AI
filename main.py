@@ -723,6 +723,125 @@ class PokemonAIAgent:
         )
         return fallback or decision
 
+    def _rewrite_wait_decision(
+        self,
+        decision: dict,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> dict:
+        """Replace model-origin WAIT actions with progress-preserving behavior."""
+        if not isinstance(decision, dict):
+            return decision
+        if decision.get("executor") == "async_background_wait":
+            return decision
+        if (
+            decision.get("executor") == "bootstrap"
+            and decision.get("bootstrap_kind") == "wait"
+        ):
+            return decision
+
+        action = str(decision.get("action") or "").strip().lower()
+        if action != "wait":
+            return decision
+
+        normalized_screen = str(
+            decision.get("screen_type") or screen_type or ""
+        ).strip().lower()
+        ui_state = current_state.get("memory", {}).get("ui", {}) or {}
+        source = str(decision.get("decision_source") or "decision").strip().lower() or "decision"
+
+        replacement: Optional[dict] = None
+        if normalized_screen == "title":
+            replacement = {
+                "action": "start",
+                "reasoning": "Auto: replace WAIT with START to keep title flow moving",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        elif normalized_screen == "startup":
+            replacement = self._build_passive_progress_decision(
+                "Auto: advance the startup transition without exposing WAIT",
+                source="startup_progress",
+            )
+        elif normalized_screen == "startup_menu":
+            replacement = {
+                "action": "a",
+                "reasoning": "Auto: confirm the startup menu instead of idling on WAIT",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        elif normalized_screen == "options_menu":
+            replacement = {
+                "action": "b",
+                "reasoning": "Auto: back out of the options menu instead of idling on WAIT",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        elif normalized_screen in {
+            "dialogue",
+            "cutscene",
+            "text_entry",
+        } or ui_state.get("text_box_active"):
+            replacement = {
+                "action": "a",
+                "reasoning": "Auto: advance the active text/script instead of idling on WAIT",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        elif normalized_screen in {
+            "menu",
+            "pokemon_menu",
+            "item_menu",
+            "save_menu",
+        } or ui_state.get("menu_active"):
+            replacement = {
+                "action": "b",
+                "reasoning": "Auto: close the open menu instead of idling on WAIT",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+        else:
+            replacement = self._get_local_safe_exploration_decision(
+                current_state,
+                normalized_screen or screen_type,
+            )
+            if not replacement:
+                replacement = self._get_blocked_field_interaction_decision(
+                    current_state,
+                    normalized_screen or screen_type,
+                )
+            if not replacement and normalized_screen in {"", "unknown", "overworld", "indoor", "memory_only"}:
+                replacement = {
+                    "action": self._choose_recovery_move(current_state),
+                    "reasoning": "Auto: replace WAIT with a recovery move to keep field exploration moving",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+            if not replacement:
+                replacement = self._build_passive_progress_decision(
+                    "Auto: keep the emulator advancing instead of emitting WAIT",
+                    source="passive_progress",
+                )
+
+        rewritten = dict(replacement)
+        rewritten.setdefault("goal_update", decision.get("goal_update"))
+        rewritten.setdefault("screen_type", decision.get("screen_type") or normalized_screen or None)
+        rewritten.setdefault("decision_path", "tool")
+        rewritten.setdefault("decision_source", f"wait_rewrite_{source}")
+        rewritten.setdefault("decision_trace", decision.get("decision_trace", []))
+
+        prior_reasoning = " ".join(str(decision.get("reasoning") or "").split()).strip()
+        new_reasoning = " ".join(str(rewritten.get("reasoning") or "").split()).strip()
+        if prior_reasoning:
+            rewritten["reasoning"] = f"{new_reasoning}. Original WAIT reasoning: {prior_reasoning}"
+        else:
+            rewritten["reasoning"] = new_reasoning
+
+        if rewritten.get("executor") == "async_background_wait":
+            rewritten["recorded_in_context"] = True
+
+        return rewritten
+
     def _cache_ai_action_plan(
         self,
         decision: Optional[dict],
@@ -908,6 +1027,11 @@ class PokemonAIAgent:
         )
         decision = self._decide_action_for_current_turn(decision_context)
         decision = self._apply_ai_unavailable_fallback(
+            decision,
+            current_state,
+            control_screen_type,
+        )
+        decision = self._rewrite_wait_decision(
             decision,
             current_state,
             control_screen_type,
@@ -2394,11 +2518,12 @@ class PokemonAIAgent:
                 return None
 
         step = self._scripted_bootstrap_steps.pop(0)
+        is_wait_step = step["kind"] == "wait"
         return {
-            "action": step["action"],
+            "action": "progress" if is_wait_step else step["action"],
             "reasoning": self._scripted_bootstrap_reasoning,
             "goal_update": None,
-            "recorded_in_context": False,
+            "recorded_in_context": True if is_wait_step else False,
             "executor": "bootstrap",
             "bootstrap_kind": step["kind"],
         }
@@ -2443,12 +2568,26 @@ class PokemonAIAgent:
     def _build_pending_ai_decision(self) -> dict:
         """Return a lightweight placeholder while the model thinks in the background."""
         return {
-            "action": "wait",
-            "reasoning": "AI 正在后台思考，当前回合先轻量等待以保持游戏实时运行。",
+            "action": "thinking",
+            "reasoning": "AI is thinking in the background while the main loop keeps advancing.",
             "goal_update": None,
             "recorded_in_context": True,
             "executor": "async_background_wait",
             "async_pending": True,
+            "decision_source": "async_pending",
+            "decision_path": "tool",
+        }
+
+    def _build_passive_progress_decision(self, reasoning: str, *, source: str) -> dict:
+        """Advance frames without surfacing WAIT as a visible gameplay action."""
+        return {
+            "action": "progress",
+            "reasoning": reasoning,
+            "goal_update": None,
+            "recorded_in_context": True,
+            "executor": "async_background_wait",
+            "decision_source": source,
+            "decision_path": "tool",
         }
 
     def _execute_async_background_wait(self) -> bool:
@@ -2475,12 +2614,10 @@ class PokemonAIAgent:
                 "recorded_in_context": False,
             }
         if screen_type == "startup":
-            return {
-                "action": "wait",
-                "reasoning": "Auto: wait for the boot transition to finish",
-                "goal_update": None,
-                "recorded_in_context": False,
-            }
+            return self._build_passive_progress_decision(
+                "Auto: let the boot transition finish while the loop keeps advancing",
+                source="startup_progress",
+            )
         if screen_type == "startup_menu":
             return {
                 "action": "a",
@@ -2514,12 +2651,10 @@ class PokemonAIAgent:
                 "recorded_in_context": False,
             }
         if screen_type == "startup":
-            return {
-                "action": "wait",
-                "reasoning": "自动处理：等待启动过渡画面结束",
-                "goal_update": None,
-                "recorded_in_context": False,
-            }
+            return self._build_passive_progress_decision(
+                "Auto: advance startup frames without exposing WAIT",
+                source="startup_progress",
+            )
         if screen_type == "startup_menu":
             return {
                 "action": "a",
@@ -2625,12 +2760,10 @@ class PokemonAIAgent:
         motion = current_state.get("visual", {}).get("motion", {})
         change_amount = float(motion.get("change_amount", 0.0) or 0.0)
         if self._last_action == "a" or change_amount > 0.003 or self._stable_screen_turns <= 2:
-            return {
-                "action": "wait",
-                "reasoning": "自动处理：先等待当前对话页渲染完毕，再继续推进",
-                "goal_update": None,
-                "recorded_in_context": False,
-            }
+            return self._build_passive_progress_decision(
+                "Auto: let the current dialogue page finish rendering before the next confirm",
+                source="dialogue_render_progress",
+            )
         return {
             "action": "a",
             "reasoning": "自动处理：文本稳定后推进当前对话页",
@@ -2797,7 +2930,7 @@ class PokemonAIAgent:
         返回:
             包含行动和推理的决策字典
         """
-        if self._llm_driven_mode_enabled():
+        if self._pure_llm_mode_enabled():
             return self.main_agent.decide_action(
                 current_state,
                 state_text,

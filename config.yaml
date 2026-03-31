@@ -72,6 +72,8 @@ actions:
   timeout_seconds: 30
   stuck_threshold: 10
   screenshot_interval: 1
+  async_wait_frames: 2
+  async_wait_sleep_ms: 33
 
 navigation:
   auto_plan_stall_turns: 3
@@ -113,7 +115,7 @@ performance:
   enable_caching: true
   cache_dir: "data/cache"
   parallel_agents: false
-  async_decisions: false
+  async_decisions: true
   visual_enabled: false
 
 visualization:

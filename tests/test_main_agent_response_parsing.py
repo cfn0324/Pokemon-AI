@@ -7,6 +7,13 @@ class MainAgentResponseParsingTests(unittest.TestCase):
     def _build_agent(self, *, strict=True):
         agent = object.__new__(MainAgent)
         agent.strict_response_format = strict
+        agent.action_plan_enabled = False
+        agent.action_plan_max_actions = 0
+        agent.config = type(
+            "_ConfigStub",
+            (),
+            {"get": lambda self, key, default=None: default},
+        )()
         return agent
 
     def test_strict_mode_does_not_infer_missing_action_field(self):
@@ -56,6 +63,19 @@ class MainAgentResponseParsingTests(unittest.TestCase):
 
         self.assertEqual(decision["screen_type"], "startup_menu")
         self.assertEqual(decision["action"], "a")
+
+    def test_wait_action_is_rejected_in_strict_mode_after_repair(self):
+        agent = self._build_agent(strict=True)
+        response = (
+            "SCREEN_TYPE: dialogue\n"
+            "REASONING: A visible dialogue box is still open, but WAIT is not allowed.\n"
+            "ACTION: wait\n"
+            "GOAL_UPDATE: none"
+        )
+
+        decision = agent._parse_response(response)
+
+        self.assertTrue(agent._decision_is_invalid_after_repair(decision, response))
 
 
 if __name__ == "__main__":

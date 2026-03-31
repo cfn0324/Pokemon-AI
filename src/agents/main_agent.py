@@ -36,6 +36,7 @@ class MainAgent:
         "select",
         "wait",
     }
+    MODEL_ACTIONS = VALID_ACTIONS - {"wait"}
 
     VALID_SCREEN_TYPES = {
         "startup",
@@ -128,7 +129,9 @@ Important constraints:
 Available actions:
 - Movement: up, down, left, right
 - Buttons: a, b, start, select
-- wait (to observe state changes)
+
+Never output ACTION: wait. If the scene still needs passive progress, pick the concrete input that best keeps
+progress moving, or let the runtime advance frames on its own.
 
 Guidelines:
 1. Prefer the smallest concrete step that advances the current focus.
@@ -187,11 +190,11 @@ Output rules:
 - Plain text only. No markdown bullets, no code fences, no preamble, no trailing note.
 - Use exactly one SCREEN_TYPE line, one REASONING line, one ACTION line, one ACTION_PLAN line, and one GOAL_UPDATE block.
 - SCREEN_TYPE must be exactly one allowed token such as `title`, `startup_menu`, `dialogue`, `battle`, `overworld`, or `indoor`; never write phrases like `title screen` or `main menu`.
-- ACTION must be exactly one allowed token such as `start`, `a`, `b`, `up`, or `wait`; never write a sentence there.
+- ACTION must be exactly one allowed token such as `start`, `a`, `b`, or `up`; never write a sentence there.
 - ACTION_PLAN must be either `none` or a short comma-separated list of allowed action tokens. Only use it for stable movement scenes, keep it brief, and make the first token match ACTION.
 - If you do not need a goal update, write exactly: GOAL_UPDATE: none
 
-A one-token reply like "a", "b", "up", or "wait" is invalid.
+A one-token reply like "a", "b", or "up" is invalid.
 REASONING must be a real sentence grounded in the current screenshot/state, not just a repeated action token.
 
 Example response:
@@ -454,7 +457,8 @@ This is wrong because camera position does not prove walkable floor, and black s
         parts.append(
             "Allowed SCREEN_TYPE tokens: startup, title, startup_menu, options_menu, dialogue, "
             "cutscene, text_entry, naming_screen, battle, menu, overworld, indoor, unknown.\n"
-            "Allowed ACTION tokens: up, down, left, right, a, b, start, select, wait."
+            "Allowed ACTION tokens: up, down, left, right, a, b, start, select.\n"
+            "Do not output WAIT as ACTION."
         )
         parts.append(
             "Formatting traps to avoid: no markdown, no bullets, no JSON, no code fences, "
@@ -589,6 +593,8 @@ This is wrong because camera position does not prove walkable floor, and black s
             return True
         raw_action = str(decision.get("_raw_action") or "").strip().lower()
         raw_screen_type = str(decision.get("_raw_screen_type") or "").strip().lower()
+        if raw_action == "wait":
+            return True
         if raw_action and decision.get("action") == "wait" and raw_action != "wait":
             return True
         if raw_screen_type and decision.get("screen_type") == "unknown" and raw_screen_type != "unknown":
@@ -815,7 +821,7 @@ This is wrong because camera position does not prove walkable floor, and black s
         add(r"按(?:下|住|一下)?\s*b(?:键)?", "b", re.IGNORECASE)
 
         # Movement and wait.
-        for move in ["up", "down", "left", "right", "wait"]:
+        for move in ["up", "down", "left", "right"]:
             add(rf"`\s*{move}\s*`", move, re.IGNORECASE)
             add(rf"\b(move|go|walk)\s+{move}\b", move, re.IGNORECASE)
 
@@ -823,8 +829,6 @@ This is wrong because camera position does not prove walkable floor, and black s
         add(r"(向|往)下|下移", "down")
         add(r"(向|往)左|左移", "left")
         add(r"(向|往)右|右移", "right")
-        add(r"等待|先等|观望", "wait")
-
         if candidates:
             candidates.sort(key=lambda t: t[0])
             return candidates[0][1]
@@ -837,8 +841,8 @@ This is wrong because camera position does not prove walkable floor, and black s
         if terse:
             return terse.group(1).lower()
 
-        # Last-ditch: pick the first mention of a movement or wait token.
-        match = re.search(r"\b(up|down|left|right|wait)\b", response, re.IGNORECASE)
+        # Last-ditch: pick the first mention of a movement token.
+        match = re.search(r"\b(up|down|left|right)\b", response, re.IGNORECASE)
         if match:
             return match.group(1).lower()
 
