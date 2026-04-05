@@ -16,7 +16,7 @@
 ### A1. 全量自动化测试
 
 - 命令：`pytest -q`
-- 最近结果：`296 passed, 1 warning`
+- 最近结果：`299 passed, 1 warning`
 - 作用：
   - 证明当前仓库的回归测试面稳定
   - 证明最近的脚本与主逻辑修改没有破坏整体运行
@@ -197,12 +197,16 @@
 - `docs/2026-04-05_high_quality_graduation_design_backlog.md`
 - `docs/2026-04-05_phase2_real_ai_batch_assessment.md`
 - `docs/2026-04-05_phase3_battle_guidance_assessment.md`
+- `docs/img/2026-04-05_manifest.md`
+- `docs/img/2026-04-05_figure_index.md`
+- `docs/2026-04-05_thesis_appendix_contact_sheets.md`
 
 作用：
 
 - 固定实验流程
 - 固定阶段性结论
 - 固定问题清单、证据索引与下一阶段边界
+- 固定论文主图、附录联系表与原始截图引用路径
 
 ## 6. 当前不建议直接作为“最终论文核心正证据”的文件
 
@@ -239,6 +243,10 @@
    - `timeline_valid = true`
    - 无 fatal error
    - AI 主导比例与论文表述一致
+5. 图片证据统一归档到：
+   - `docs/img/<日期>/main_figures/`
+   - `docs/img/<日期>/appendix_run_xxx/contact_sheets/`
+   - `docs/img/<日期>/appendix_run_xxx/raw/`
 
 ## 8. 当前阶段结论
 

@@ -1875,7 +1875,11 @@ class PokemonAIAgent:
         self.progress_tracker.update(self.turn_count, current_state)
         self._maybe_save_landmark_checkpoints(current_state)
 
-        if self.config.get("logging.save_screenshots") and self.turn_count % 50 == 0:
+        screenshot_interval = max(
+            1,
+            int(self.config.get("actions.screenshot_interval", 50) or 50),
+        )
+        if self.config.get("logging.save_screenshots") and self.turn_count % screenshot_interval == 0:
             self._save_screenshot()
 
         ui_state = current_state.get("memory", {}).get("ui", {}) or {}

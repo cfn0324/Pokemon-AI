@@ -1,4 +1,4 @@
-# 2026-04-05 毕业设计总报告
+﻿# 2026-04-05 毕业设计总报告
 
 ## 1. 报告目的
 
@@ -317,7 +317,7 @@ python scripts/autonomous_smoke.py `
 
 - 下列正文截图统一引用 `docs/img/2026-04-05/main_figures/`。
 - 图号、建议图题与推荐章节映射见 `docs/img/2026-04-05_figure_index.md`。
-- 130 张全量取证截图与附录联系表见 `docs/2026-04-05_graduation_design_full_evidence_report_130_screenshots.md` 与 `docs/2026-04-05_thesis_appendix_contact_sheets.md`。
+- 本文件第 18 节使用 `docs/img/2026-04-05/appendix_run_130/contact_sheets/` 作为论文附录联系表路径。
 - 其中 dashboard 预览图来自仓库现有界面资产；headless smoke 模式默认关闭 live dashboard，因此本次实验主链使用 smoke 报告取证、用现有 dashboard 预览图补充界面证据。
 
 ### 图 1. Web 仪表盘桌面端总览
@@ -506,3 +506,90 @@ python scripts/autonomous_smoke.py `
 - 可直接进入论文的截图与实验表
 
 因此，只要论文边界控制在“早期剧情阶段的系统设计、可行性验证与瓶颈分析”，这份报告已经足以作为整篇毕业设计的实验与证据主文件。
+
+
+## 17. 本次追加复验结果
+
+### 17.1 全量测试重新执行
+
+- 命令：`pytest -q`
+- 结果：`299 passed, 1 warning`
+- 说明：本次是在代码补充“按配置保存截图频率”与“受控取证脚本”后重新执行，结果继续通过。
+
+### 17.2 130 张新截图取证运行
+
+- 命令：`python scripts/capture_evidence_run.py --checkpoint checkpoint_195913 --turns 130 --screenshot-dir docs/report_assets/2026-04-05/full_run_checkpoint_195913_130 --screenshot-interval 1 --disable-visualizer`
+- 起始 checkpoint：`checkpoint_195913`
+- 起始 turn：`195913`
+- 终止 turn：`196043`
+- 新增截图总数：`130`
+- 原始产出目录：`docs/report_assets/2026-04-05/full_run_checkpoint_195913_130/`
+- 论文整理目录：
+  - `docs/img/2026-04-05/appendix_run_130/raw/`
+  - `docs/img/2026-04-05/appendix_run_130/contact_sheets/`
+- 运行结果：正常停机，`fatal_error = None`，中途仍观测到一次 provider `500 / 没有可用 token`，但整段运行成功保存了完整截图证据。
+
+说明：下面 13 张联系表每张包含 10 张原始截图，总计覆盖 130 张新截图；原始单张图片也全部保留在论文整理目录下。
+
+## 18. 130 张截图联系表
+
+### 联系表 01：turn_195914 到 turn_195923
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_01.png)
+
+### 联系表 02：turn_195924 到 turn_195933
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_02.png)
+
+### 联系表 03：turn_195934 到 turn_195943
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_03.png)
+
+### 联系表 04：turn_195944 到 turn_195953
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_04.png)
+
+### 联系表 05：turn_195954 到 turn_195963
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_05.png)
+
+### 联系表 06：turn_195964 到 turn_195973
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_06.png)
+
+### 联系表 07：turn_195974 到 turn_195983
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_07.png)
+
+### 联系表 08：turn_195984 到 turn_195993
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_08.png)
+
+### 联系表 09：turn_195994 到 turn_196003
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_09.png)
+
+### 联系表 10：turn_196004 到 turn_196013
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_10.png)
+
+### 联系表 11：turn_196014 到 turn_196023
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_11.png)
+
+### 联系表 12：turn_196024 到 turn_196033
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_12.png)
+
+### 联系表 13：turn_196034 到 turn_196043
+
+![](./img/2026-04-05/appendix_run_130/contact_sheets/sheet_13.png)
+
+## 19. 原始截图目录索引
+
+- 原始截图共 `130` 张，文件名范围为 `turn_195914.png` 到 `turn_196043.png`。
+- 原始截图目录：`docs/img/2026-04-05/appendix_run_130/raw/`
+- 联系表目录：`docs/img/2026-04-05/appendix_run_130/contact_sheets/`
+- 图号索引：`docs/img/2026-04-05_figure_index.md`
+- 论文附录图册：`docs/2026-04-05_thesis_appendix_contact_sheets.md`
+- 若论文附件需要逐张检查，可直接按 turn 编号引用原图。

@@ -88,6 +88,7 @@ python main.py
 默认可视化地址通常是：
 
 ```text
+http://localhost:5000
 ```
 
 ## 运行入口说明
