@@ -47,6 +47,131 @@ class GameState:
         self._phase_hint: Optional[str] = None
         self._pre_starter_script_latched = False
 
+    def _build_navigation_decision_cues(
+        self,
+        state: Dict[str, Any],
+        navigation: Dict[str, Any],
+        vision_hints: Dict[str, Any],
+    ) -> List[str]:
+        """Distill one-step movement memory into prompt-friendly decision cues."""
+        adjacent_tiles = navigation.get("adjacent_tiles", {}) or {}
+        if not adjacent_tiles:
+            return []
+
+        vision_blocked = {
+            str(direction or "").strip().lower()
+            for direction in vision_hints.get("blocked_directions", []) or []
+        }
+        vision_unsafe = {
+            str(direction or "").strip().lower()
+            for direction in vision_hints.get("unsafe_directions", []) or []
+        }
+        warp_caution_directions = {
+            str((item or {}).get("direction") or "").strip().lower()
+            for item in navigation.get("warp_cautions", []) or []
+            if str((item or {}).get("direction") or "").strip()
+        }
+        current_tile_trigger_action = str(
+            (navigation.get("current_tile_warp", {}) or {}).get("trigger_action") or ""
+        ).strip().lower()
+        if current_tile_trigger_action:
+            warp_caution_directions.add(current_tile_trigger_action)
+
+        preferred: List[str] = []
+        cautions: List[str] = []
+        unverified: List[str] = []
+
+        for direction in ("up", "down", "left", "right"):
+            info = adjacent_tiles.get(direction) or {}
+            status = str(info.get("status") or "unknown").strip().lower() or "unknown"
+            target_is_warp = bool(
+                info.get("target_is_warp")
+                or info.get("step_triggers_warp")
+                or status == "warp_trigger"
+                or direction in warp_caution_directions
+            )
+            if target_is_warp:
+                warp_label = "warp"
+                if status == "frontier" and info.get("is_preferred_frontier_step"):
+                    warp_label = "warp+preferred_route"
+                elif status in {"confirmed_blocked", "blocked_once"}:
+                    warp_label = f"warp+{status}"
+                cautions.append(f"{direction}={warp_label}")
+                continue
+
+            if status == "known_exit":
+                preferred.append(f"{direction}=known_exit")
+                continue
+
+            if status == "frontier" and direction not in vision_blocked:
+                if info.get("is_preferred_frontier_step"):
+                    preferred.append(f"{direction}=frontier+preferred_route")
+                elif direction in vision_unsafe:
+                    cautions.append(f"{direction}=frontier_but_vision_unsafe")
+                else:
+                    preferred.append(f"{direction}=frontier")
+                continue
+
+            if status == "adjacent_explored" and direction not in vision_blocked:
+                if direction in vision_unsafe:
+                    cautions.append(f"{direction}=adjacent_explored_but_vision_unsafe")
+                else:
+                    preferred.append(f"{direction}=adjacent_explored")
+                continue
+
+            if status == "confirmed_blocked":
+                cautions.append(f"{direction}=confirmed_blocked")
+                continue
+
+            if status == "blocked_once":
+                cautions.append(f"{direction}=blocked_once")
+                continue
+
+            if direction in vision_blocked:
+                cautions.append(f"{direction}=vision_blocked")
+                continue
+
+            if direction in vision_unsafe:
+                cautions.append(f"{direction}=vision_unsafe")
+                continue
+
+            if status == "unknown":
+                unverified.append(direction)
+
+        cues: List[str] = []
+        if preferred:
+            cues.append(f"  Immediate movement preference: {', '.join(preferred)}")
+        if unverified:
+            cues.append(
+                "  Unverified directions needing screenshot confirmation: "
+                + ", ".join(unverified)
+            )
+        if cautions:
+            cues.append(f"  Immediate movement cautions: {', '.join(cautions)}")
+
+        memory = state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        stall_turns = int((state.get("deltas", {}) or {}).get("movement_stall_turns", 0) or 0)
+        if (
+            not memory.get("in_battle")
+            and not ui_state.get("text_box_active")
+            and not ui_state.get("menu_active")
+        ):
+            if not preferred and not unverified:
+                cues.append(
+                    "  Interaction cue: local movement options look exhausted in memory; "
+                    "if the screenshot shows a nearby blocker, NPC, or trigger, press A "
+                    "instead of repeating blocked movement."
+                )
+            elif stall_turns >= 2 and len(cautions) >= 2:
+                cues.append(
+                    "  Interaction cue: repeated local movement failures suggest a blocker "
+                    "or script lock; if the route is visibly blocked by Oak, the rival, "
+                    "or another obstacle, try A."
+                )
+
+        return cues
+
     @staticmethod
     def is_pre_world_state(memory_state: Dict[str, Any]) -> bool:
         """Return True before the player is in a reliable in-world map state."""
@@ -149,6 +274,7 @@ class GameState:
                 "blocked_directions": [],
                 "frontier_count": 0,
                 "nearest_frontier": None,
+                "adjacent_tiles": {},
                 "local_map": [],
             }
             map_memory_state = {
@@ -392,6 +518,59 @@ BADGES: {memory['badge_count']}/8
                 f"  Known blocked directions from current tile: "
                 f"{', '.join(blocked_dirs) if blocked_dirs else 'none'}\n"
             )
+            adjacent_tiles = navigation.get("adjacent_tiles", {})
+            if adjacent_tiles:
+                for cue in self._build_navigation_decision_cues(
+                    state,
+                    navigation,
+                    vision_hints,
+                ):
+                    text += cue + "\n"
+                vision_blocked = {
+                    str(direction or "").strip().lower()
+                    for direction in vision_hints.get("blocked_directions", []) or []
+                }
+                vision_unsafe = {
+                    str(direction or "").strip().lower()
+                    for direction in vision_hints.get("unsafe_directions", []) or []
+                }
+                vision_walkable = {
+                    str(direction or "").strip().lower()
+                    for direction in vision_hints.get("walkable_directions", []) or []
+                }
+                text += (
+                    "  Adjacent Tile Occupancy: "
+                    "known_exit=previously succeeded, frontier=unexplored adjacent tile, "
+                    "confirmed_blocked=failed 2+ times, blocked_once=failed once, "
+                    "adjacent_explored=neighbor explored but this step unconfirmed, "
+                    "unknown=no reliable memory yet\n"
+                )
+                for direction in ("up", "down", "left", "right"):
+                    info = adjacent_tiles.get(direction) or {}
+                    target = info.get("target") or {}
+                    details = []
+                    blocked_attempts = int(info.get("blocked_attempts", 0) or 0)
+                    target_visit_count = int(info.get("target_visit_count", 0) or 0)
+                    if blocked_attempts:
+                        details.append(f"blocked_attempts={blocked_attempts}")
+                    if target_visit_count:
+                        details.append(f"visits={target_visit_count}")
+                    if info.get("target_is_warp"):
+                        details.append("warp_tile")
+                    if info.get("is_preferred_frontier_step"):
+                        details.append("preferred_frontier_step")
+                    if direction in vision_blocked:
+                        details.append("vision=blocked")
+                    elif direction in vision_unsafe:
+                        details.append("vision=unsafe")
+                    elif direction in vision_walkable:
+                        details.append("vision=walkable")
+                    detail_text = " ".join(details)
+                    text += (
+                        f"    - {direction}: status={info.get('status', 'unknown')} "
+                        f"target=({target.get('x', '?')}, {target.get('y', '?')})"
+                        f"{' ' + detail_text if detail_text else ''}\n"
+                    )
             text += f"  Reachable frontier tiles on this map: {navigation.get('frontier_count', 0)}\n"
 
             nearest_frontier = navigation.get("nearest_frontier")
@@ -421,6 +600,70 @@ BADGES: {memory['badge_count']}/8
                         f"distance={item.get('distance', '?')} "
                         f"unknown={unknown}\n"
                     )
+
+            warp_cautions = navigation.get("warp_cautions", []) or []
+            for caution in warp_cautions[:2]:
+                destination = caution.get("destination") or {}
+                target = caution.get("target") or {}
+                if destination:
+                    text += (
+                        "  Warp caution: "
+                        f"{caution.get('direction', '?')} reaches known warp tile "
+                        f"({target.get('x', '?')}, {target.get('y', '?')}) -> "
+                        f"map {destination.get('map_id', '?')} "
+                        f"({destination.get('x', '?')}, {destination.get('y', '?')}); "
+                        "do not step on it unless you intentionally want to change maps.\n"
+                    )
+                else:
+                    text += (
+                        "  Warp caution: "
+                        f"{caution.get('direction', '?')} is a known adjacent warp tile; "
+                        "do not step on it unless you intentionally want to change maps.\n"
+                    )
+
+            current_tile_warp = navigation.get("current_tile_warp") or {}
+            if current_tile_warp:
+                destination = current_tile_warp.get("destination") or {}
+                source = current_tile_warp.get("source") or {}
+                trigger_action = str(
+                    current_tile_warp.get("trigger_action") or ""
+                ).strip().lower()
+                trigger_action_source = str(
+                    current_tile_warp.get("trigger_action_source") or ""
+                ).strip().lower()
+                if destination:
+                    text += (
+                        "  Current-tile warp caution: "
+                        f"you are standing on known warp source "
+                        f"({source.get('x', '?')}, {source.get('y', '?')}) -> "
+                        f"map {destination.get('map_id', '?')} "
+                        f"({destination.get('x', '?')}, {destination.get('y', '?')})"
+                    )
+                else:
+                    text += "  Current-tile warp caution: you are standing on a known warp source tile"
+                if trigger_action:
+                    if trigger_action_source == "inferred":
+                        text += (
+                            f"; the likely trigger action is {trigger_action} because other local moves already failed. "
+                            "Step off this tile before probing unknown directions.\n"
+                        )
+                    else:
+                        text += (
+                            f"; the learned trigger action is {trigger_action}. "
+                            "Step off this tile before probing unknown directions.\n"
+                        )
+                else:
+                    text += (
+                        "; the exact trigger action is not yet confirmed. "
+                        "Step off this tile carefully instead of blindly probing unknown directions.\n"
+                    )
+
+            frontier_guidance = navigation.get("frontier_guidance", {}) or {}
+            if frontier_guidance.get("prefer_leave_current_frontier"):
+                text += (
+                    "  Frontier caution: "
+                    f"{frontier_guidance.get('summary', 'Current local frontier looks weak; leave it.')}\n"
+                )
 
             local_map = navigation.get("local_map", [])
             if local_map:

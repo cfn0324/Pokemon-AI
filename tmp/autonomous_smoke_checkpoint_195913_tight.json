@@ -1,0 +1,442 @@
+{
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 195922,
+  "turn_delta": 9,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.5,
+  "decision_source_counts": {
+    "ai": 4,
+    "cached_ai_plan": 4
+  },
+  "decision_path_counts": {
+    "ai": 4,
+    "tool": 4
+  },
+  "final_state": {
+    "turn": 195921,
+    "timestamp": "2026-03-31T23:25:16.533855",
+    "position": {
+      "map_id": 0,
+      "x": 12,
+      "y": 11
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 195921,
+      "local_analysis_enabled": false,
+      "screen_hash": "bc2432b0c085142ad707ed2ef20d3d0f"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 62,
+      "total_tiles": 200,
+      "exploration_percent": 31.0
+    },
+    "navigation": {
+      "current_visit_count": 1,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 56,
+      "nearest_frontier": {
+        "target": [
+          12,
+          11
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 1,
+        "distance": 0,
+        "local_visit_pressure": 4,
+        "global_novelty_distance": 10,
+        "priority_score": 32.5,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 8,
+          "local_visit_pressure": 1,
+          "global_novelty_distance": 7,
+          "priority_score": 36.2,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 0,
+          "local_visit_pressure": 4,
+          "global_novelty_distance": 10,
+          "priority_score": 32.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            12,
+            12
+          ],
+          "unknown_directions": [
+            "down",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 1,
+          "local_visit_pressure": 7,
+          "global_novelty_distance": 11,
+          "priority_score": 22.15,
+          "novelty_label": "high"
+        }
+      ],
+      "known_warps": [
+        {
+          "src_map": 0,
+          "src_x": 5,
+          "src_y": 6,
+          "dest_map": 37,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        },
+        {
+          "src_map": 0,
+          "src_x": 12,
+          "src_y": 12,
+          "dest_map": 40,
+          "dest_x": 12,
+          "dest_y": 11,
+          "count": 2
+        }
+      ],
+      "local_map": [
+        "F????????",
+        "FF???????",
+        "F????????",
+        "F????????",
+        "FF??P????",
+        "F?FFW????",
+        "F????????",
+        "FFF??????",
+        "??F??????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 0,
+        "rows": [
+          "                 ",
+          "                 ",
+          "  #              ",
+          "                 ",
+          "   #       #FF   ",
+          "  #.FFFFFFF..F   ",
+          "   FF    #.FFF   ",
+          "   FF     F      ",
+          "   FF  F  F F#   ",
+          "   F.FFW  F F    ",
+          "   F.F F  F      ",
+          "   FFFFF  FF     ",
+          "       #  F      ",
+          "          F      ",
+          "      F   FF  P  ",
+          "          F FFW  ",
+          "          F #    ",
+          "          FFF    ",
+          "            F    ",
+          "            F    ",
+          "          # #    ",
+          "                 ",
+          "                 "
+        ],
+        "prompt_rows": [
+          "?????????????????",
+          "?????????????????",
+          "??#??????????????",
+          "?????????????????",
+          "???#???????#FF???",
+          "??#.FFFFFFF..F???",
+          "???FF????#.FFF???",
+          "???FF?????F??????",
+          "???FF??F??F?F#???",
+          "???F.FFW??F?F????",
+          "???F.F?F??F??????",
+          "???FFFFF??FF?????",
+          "???????#??F??????",
+          "??????????F??????",
+          "??????F???FF??P??",
+          "??????????F?FFW??",
+          "??????????F?#????",
+          "??????????FFF????",
+          "????????????F????",
+          "????????????F????",
+          "??????????#?#????",
+          "?????????????????",
+          "?????????????????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 14,
+          "min_y": -3,
+          "max_y": 19,
+          "width": 17,
+          "height": 23
+        },
+        "player": {
+          "x": 12,
+          "y": 11
+        },
+        "explored_count": 62,
+        "frontier_count": 56,
+        "blocked_count": 10,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": true,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    },
+    "movement_pattern": {
+      "window_size": 2,
+      "unique_tiles": 2,
+      "bounding_box_width": 9,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "The screenshot shows Professor Oak's lab with the player standing above the bottom doorway, and the immediate mandatory progress is to leave the lab after getting the starter.",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows Professor Oak's lab with the player standing above the bottom doorway, and the immediate mandatory progress is to leave the lab after getting the starter. | follow down, down",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "The screenshot shows the player one tile above the lab’s bottom exit opening, so moving down should step onto the doorway tile rather than repeating against a wall.",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player one tile above the lab’s bottom exit opening, so moving down should step onto the doorway tile rather than repeating against a wall. | follow down, down",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the bottom of Oak’s lab with the doorway area to the right, so exploring right is the concrete next step instead of repeating blocked down.",
+      "result": "After right:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player at the bottom of Oak’s lab with the doorway area to the right, so exploring right is the concrete next step instead of repeating blocked down. | follow right, down",
+      "result": "After down:; warped from map 40 (4,11) to map 0 (4,11)",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "Outside Oak’s lab the rival is standing to the right and moving right is the direct step toward the likely mandatory encounter.",
+      "result": "After right:; moved from (4,11) to (12,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "overworld",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "right",
+      "reasoning": "AI plan: Outside Oak’s lab the rival is standing to the right and moving right is the direct step toward the likely mandatory encounter. | follow right, right, up",
+      "result": "After right:; position did not change; screen changed from indoor to overworld",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    }
+  ]
+}

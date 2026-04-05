@@ -341,9 +341,13 @@ class GoalManager:
             "LIVE TODO:",
         ]
 
+        todo_limit = 6
         if self.todo_items:
-            for index, todo in enumerate(self.todo_items, start=1):
+            for index, todo in enumerate(self.todo_items[:todo_limit], start=1):
                 lines.append(f"{index}. [ ] {todo.description}")
+            hidden = len(self.todo_items) - todo_limit
+            if hidden > 0:
+                lines.append(f"... {hidden} more pending todo item(s) omitted")
         else:
             lines.append("1. [ ] No todo set")
 

@@ -36,15 +36,15 @@ ai:
   model: ""
   temperature: 0.4
   max_tokens: 4096
-  decision_max_tokens: 1200
-  request_timeout_seconds: 120
-  request_retries: 2
-  request_retry_backoff_seconds: 1.0
-  guidance_interval_turns: 25
+  decision_max_tokens: 480
+  request_timeout_seconds: 30
+  request_retries: 0
+  request_retry_backoff_seconds: 0.5
+  guidance_interval_turns: 40
   api_error_cooldown_seconds: 6
   api_error_cooldown_max_seconds: 30
   action_plan_enabled: true
-  action_plan_max_actions: 5
+  action_plan_max_actions: 4
   agents:
     main:
       model: ""
@@ -60,9 +60,9 @@ ai:
       temperature: 0.5
 
 memory:
-  max_context_turns: 100
+  max_context_turns: 80
   summarization_enabled: true
-  keep_recent_turns: 20
+  keep_recent_turns: 12
   map_memory_enabled: true
   save_interval: 50
 
@@ -81,6 +81,8 @@ navigation:
 
 decision:
   llm_primary_mode: true
+  llm_primary_action_plan_enabled: true
+  ai_full_control_mode: true
   pure_llm_mode: false
   research_mode: false
   strict_response_format: true

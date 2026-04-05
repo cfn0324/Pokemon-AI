@@ -346,6 +346,26 @@ class MapMemory:
         frontier_tiles = self.get_frontier_tiles(map_id, current_position=pos)
         frontier_plan = self.find_path_to_nearest_frontier(map_id, x, y)
         warps = self._get_map_warps(map_id)
+        current_tile_warp = self._build_current_tile_warp(
+            map_id=map_id,
+            current_position=pos,
+            known_warps=warps,
+        )
+        adjacent_tiles = self.describe_adjacent_tiles(
+            map_id,
+            x,
+            y,
+            frontier_tiles=frontier_tiles,
+            frontier_plan=frontier_plan,
+            known_warps=warps,
+            current_tile_warp=current_tile_warp,
+        )
+        warp_cautions = self._build_warp_cautions(adjacent_tiles, warps)
+        frontier_guidance = self._build_frontier_guidance(
+            current_position=pos,
+            frontier_tiles=frontier_tiles,
+            adjacent_tiles=adjacent_tiles,
+        )
 
         return {
             "current_visit_count": int(self.visit_counts.get(map_id, {}).get(pos, 0)),
@@ -373,10 +393,437 @@ class MapMemory:
                 }
                 for item in frontier_tiles[:3]
             ],
+            "adjacent_tiles": adjacent_tiles,
+            "current_tile_warp": current_tile_warp,
+            "warp_cautions": warp_cautions,
+            "frontier_guidance": frontier_guidance,
             "known_warps": warps[:6],
             "local_map": self.render_local_map(map_id, x, y),
             "map_snapshot": self.build_map_snapshot(map_id, current_position=pos),
         }
+
+    def describe_adjacent_tiles(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+        *,
+        frontier_tiles: Optional[List[Dict[str, Any]]] = None,
+        frontier_plan: Optional[Dict[str, Any]] = None,
+        known_warps: Optional[List[Dict[str, int]]] = None,
+        current_tile_warp: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Dict[str, Any]]:
+        """Describe the four neighboring tiles around the player using learned map memory."""
+        pos = (x, y)
+        explored = self.explored_tiles.get(map_id, set())
+        visits = self.visit_counts.get(map_id, {})
+        current_edges = self.edges.get(map_id, {}).get(pos, {})
+        blocked = self.blocked_moves.get(map_id, {}).get(pos, {})
+        frontier_tiles = frontier_tiles or self.get_frontier_tiles(map_id, current_position=pos)
+        frontier_plan = frontier_plan or self.find_path_to_nearest_frontier(map_id, x, y)
+        known_warps = known_warps or self._get_map_warps(map_id)
+
+        current_frontier = next(
+            (item for item in frontier_tiles if tuple(item.get("position") or ()) == pos),
+            None,
+        )
+        frontier_directions = {
+            str(direction or "").strip().lower()
+            for direction in (current_frontier or {}).get("unknown_directions", []) or []
+        }
+        preferred_direction = None
+        if frontier_plan and tuple(frontier_plan.get("target") or ()) == pos:
+            path = frontier_plan.get("path") or []
+            if path:
+                preferred_direction = str(path[0] or "").strip().lower()
+        current_tile_warp = current_tile_warp or self._build_current_tile_warp(
+            map_id=map_id,
+            current_position=pos,
+            known_warps=known_warps,
+        )
+        current_tile_trigger_action = str(
+            (current_tile_warp or {}).get("trigger_action") or ""
+        ).strip().lower()
+        if current_tile_trigger_action not in self.CARDINALS:
+            current_tile_trigger_action = ""
+        warp_positions = {
+            (int(item["src_x"]), int(item["src_y"]))
+            for item in known_warps
+        }
+
+        adjacent: Dict[str, Dict[str, Any]] = {}
+        for direction, (dx, dy) in self.CARDINALS.items():
+            target = (x + dx, y + dy)
+            blocked_attempts = int(blocked.get(direction, 0) or 0)
+            known_exit = current_edges.get(direction)
+            target_pos = tuple(known_exit) if known_exit else target
+            target_explored = target_pos in explored
+            target_is_warp = target_pos in warp_positions
+            target_visit_count = int(visits.get(target_pos, 0) or 0)
+            step_triggers_warp = direction == current_tile_trigger_action
+            status = "unknown"
+            summary = "No reliable map-memory evidence yet; use the screenshot to verify this step."
+
+            if known_exit:
+                status = "known_exit"
+                summary = (
+                    f"This move previously succeeded and led to explored tile "
+                    f"({target_pos[0]}, {target_pos[1]})."
+                )
+            elif blocked_attempts >= 2:
+                status = "confirmed_blocked"
+                summary = (
+                    f"This move failed {blocked_attempts} times from the current tile; "
+                    "treat it as a wall or solid blocker until evidence changes."
+                )
+            elif blocked_attempts == 1:
+                status = "blocked_once"
+                summary = (
+                    "This move already failed once from the current tile; "
+                    "avoid repeating it blindly."
+                )
+            elif direction in frontier_directions:
+                status = "frontier"
+                summary = "This is an unexplored adjacent direction from the current frontier."
+            elif target_explored:
+                status = "adjacent_explored"
+                summary = (
+                    f"Neighbor tile ({target_pos[0]}, {target_pos[1]}) has been explored, "
+                    "but this exact step is not yet confirmed from the current tile."
+                )
+
+            if step_triggers_warp:
+                destination = (current_tile_warp or {}).get("destination") or {}
+                destination_text = ""
+                if destination:
+                    destination_text = (
+                        f" to map {destination.get('map_id', '?')} "
+                        f"({destination.get('x', '?')}, {destination.get('y', '?')})"
+                    )
+                status = "warp_trigger"
+                summary = (
+                    "This step previously triggered a map transition from the current tile"
+                    f"{destination_text}; do not use it unless you intentionally want to change maps."
+                )
+
+            if target_is_warp and status in {"known_exit", "adjacent_explored"}:
+                summary += " The target tile is also a known warp point."
+            if preferred_direction and direction == preferred_direction and status == "frontier":
+                summary += " This is also the first step of the best-known frontier route."
+
+            adjacent[direction] = {
+                "target": {"x": int(target_pos[0]), "y": int(target_pos[1])},
+                "status": status,
+                "blocked_attempts": blocked_attempts,
+                "target_visit_count": target_visit_count,
+                "target_known_explored": bool(target_explored),
+                "target_is_warp": bool(target_is_warp),
+                "step_triggers_warp": bool(step_triggers_warp),
+                "is_frontier_direction": direction in frontier_directions,
+                "is_preferred_frontier_step": direction == preferred_direction,
+                "summary": summary,
+            }
+
+        return adjacent
+
+    def _build_current_tile_warp(
+        self,
+        *,
+        map_id: int,
+        current_position: Position,
+        known_warps: Optional[List[Dict[str, Any]]],
+    ) -> Optional[Dict[str, Any]]:
+        """Describe when the current tile itself is a learned warp source."""
+        known_warps = known_warps or []
+        warp_lookup = {
+            (int(item["src_x"]), int(item["src_y"])): item
+            for item in known_warps
+        }
+        warp = warp_lookup.get(tuple(current_position))
+        if not warp:
+            return None
+
+        destination = {
+            "map_id": int(warp.get("dest_map", 0) or 0),
+            "x": int(warp.get("dest_x", 0) or 0),
+            "y": int(warp.get("dest_y", 0) or 0),
+        }
+        trigger_action = str(warp.get("trigger_action") or "").strip().lower()
+        trigger_action_source = "learned"
+        if trigger_action not in self.CARDINALS:
+            trigger_action = None
+            trigger_action_source = None
+
+        if not trigger_action:
+            known_exits = self.edges.get(map_id, {}).get(tuple(current_position), {})
+            blocked = self.blocked_moves.get(map_id, {}).get(tuple(current_position), {})
+            remaining_directions = [
+                direction
+                for direction in self.CARDINALS
+                if direction not in known_exits and int(blocked.get(direction, 0) or 0) < 1
+            ]
+            if len(remaining_directions) == 1:
+                trigger_action = remaining_directions[0]
+                trigger_action_source = "inferred"
+
+        summary = (
+            f"Current tile ({current_position[0]}, {current_position[1]}) is a known warp source "
+            f"to map {destination['map_id']} ({destination['x']}, {destination['y']})"
+        )
+        if trigger_action:
+            if trigger_action_source == "inferred":
+                summary += (
+                    f"; the likely trigger action is {trigger_action} because other local moves already failed. "
+                    "Step off this tile before probing unknown directions unless you intentionally want to change maps."
+                )
+            else:
+                summary += (
+                    f"; the learned trigger action is {trigger_action}. "
+                    "Step off this tile before probing unknown directions unless you intentionally want to change maps."
+                )
+        else:
+            summary += (
+                "; the exact trigger action is not yet confirmed. "
+                "Step off this tile carefully instead of blindly probing unknown directions."
+            )
+
+        return {
+            "source": {
+                "x": int(current_position[0]),
+                "y": int(current_position[1]),
+            },
+            "destination": destination,
+            "trigger_action": trigger_action,
+            "trigger_action_source": trigger_action_source,
+            "count": int(warp.get("count", 1) or 1),
+            "summary": summary,
+        }
+
+    def _build_warp_cautions(
+        self,
+        adjacent_tiles: Dict[str, Dict[str, Any]],
+        known_warps: List[Dict[str, int]],
+    ) -> List[Dict[str, Any]]:
+        """Surface adjacent warp tiles as explicit re-entry/change-map cautions."""
+        warp_lookup = {
+            (int(item["src_x"]), int(item["src_y"])): item
+            for item in known_warps
+        }
+        cautions: List[Dict[str, Any]] = []
+
+        for direction in self.CARDINALS:
+            info = adjacent_tiles.get(direction) or {}
+            if not info.get("target_is_warp"):
+                continue
+
+            target = info.get("target") or {}
+            tx = int(target.get("x", 0) or 0)
+            ty = int(target.get("y", 0) or 0)
+            warp = warp_lookup.get((tx, ty), {})
+            destination = None
+            if warp:
+                destination = {
+                    "map_id": int(warp.get("dest_map", 0) or 0),
+                    "x": int(warp.get("dest_x", 0) or 0),
+                    "y": int(warp.get("dest_y", 0) or 0),
+                }
+
+            summary = f"{direction} is a known warp tile at ({tx}, {ty})"
+            if destination:
+                summary += (
+                    f" leading to map {destination['map_id']} "
+                    f"({destination['x']}, {destination['y']})"
+                )
+            summary += "; do not step on it unless you intentionally want to change maps."
+
+            existing_summary = str(info.get("summary") or "").strip()
+            extra = "Avoid stepping on it unless you intentionally want to warp."
+            if extra not in existing_summary:
+                info["summary"] = f"{existing_summary} {extra}".strip()
+
+            cautions.append(
+                {
+                    "direction": direction,
+                    "target": {"x": tx, "y": ty},
+                    "destination": destination,
+                    "summary": summary,
+                }
+            )
+
+        return cautions
+
+    def _build_frontier_guidance(
+        self,
+        *,
+        current_position: Position,
+        frontier_tiles: List[Dict[str, Any]],
+        adjacent_tiles: Dict[str, Dict[str, Any]],
+    ) -> Dict[str, Any]:
+        """Warn when the current frontier is locally exhausted versus stronger alternatives."""
+        guidance: Dict[str, Any] = {
+            "current_tile_is_frontier": False,
+            "prefer_leave_current_frontier": False,
+            "recommended_direction": None,
+            "escape_direction": None,
+            "discouraged_directions": [],
+            "stronger_frontier_target": None,
+            "current_priority_score": None,
+            "stronger_priority_score": None,
+            "priority_gap": 0.0,
+            "summary": None,
+        }
+        if not frontier_tiles:
+            return guidance
+
+        current_frontier = next(
+            (
+                item
+                for item in frontier_tiles
+                if tuple(item.get("position") or ()) == current_position
+            ),
+            None,
+        )
+        if not current_frontier:
+            return guidance
+
+        guidance["current_tile_is_frontier"] = True
+        current_score = float(current_frontier.get("priority_score", 0.0) or 0.0)
+        current_visits = int(current_frontier.get("visit_count", 0) or 0)
+        current_pressure = int(current_frontier.get("local_visit_pressure", 0) or 0)
+        guidance["current_priority_score"] = current_score
+
+        best_alternative = next(
+            (
+                item
+                for item in frontier_tiles
+                if tuple(item.get("position") or ()) != current_position
+            ),
+            None,
+        )
+        if not best_alternative:
+            return guidance
+
+        alternative_target = tuple(best_alternative.get("position") or ())
+        if len(alternative_target) != 2:
+            return guidance
+
+        alternative_score = float(best_alternative.get("priority_score", 0.0) or 0.0)
+        priority_gap = round(alternative_score - current_score, 2)
+        guidance["stronger_frontier_target"] = {
+            "x": int(alternative_target[0]),
+            "y": int(alternative_target[1]),
+        }
+        guidance["stronger_priority_score"] = alternative_score
+        guidance["priority_gap"] = priority_gap
+
+        candidate_directions = [
+            str(direction or "").strip().lower()
+            for direction in current_frontier.get("unknown_directions", []) or []
+            if str(direction or "").strip().lower() in self.CARDINALS
+        ]
+        recommended_direction, discouraged_directions = self._choose_escape_directions(
+            current_position,
+            alternative_target,
+            candidate_directions,
+            adjacent_tiles,
+        )
+        guidance["recommended_direction"] = recommended_direction
+        guidance["discouraged_directions"] = discouraged_directions
+        escape_candidate_directions = [
+            direction
+            for direction in self.CARDINALS
+            if (adjacent_tiles.get(direction) or {}).get("status") in {
+                "frontier",
+                "known_exit",
+                "adjacent_explored",
+            }
+            and not (adjacent_tiles.get(direction) or {}).get("target_is_warp")
+        ]
+        escape_direction, _escape_discouraged = self._choose_escape_directions(
+            current_position,
+            alternative_target,
+            escape_candidate_directions,
+            adjacent_tiles,
+        )
+        guidance["escape_direction"] = escape_direction
+
+        should_leave = priority_gap >= 6.0 and (
+            current_visits >= 2
+            or current_pressure >= 8
+            or str(current_frontier.get("novelty_label") or "").strip().lower() == "low"
+        )
+        if not should_leave:
+            return guidance
+
+        guidance["prefer_leave_current_frontier"] = True
+        target_text = f"({alternative_target[0]}, {alternative_target[1]})"
+        preferred_direction = escape_direction or recommended_direction
+        if preferred_direction:
+            guidance["summary"] = (
+                "Current tile is a weaker local frontier "
+                f"(score {current_score}, pressure {current_pressure}, visits {current_visits}). "
+                f"A stronger frontier at {target_text} scores {alternative_score}; "
+                f"prefer {preferred_direction} instead of probing every adjacent unknown here."
+            )
+        else:
+            guidance["summary"] = (
+                "Current tile is a weaker local frontier "
+                f"(score {current_score}, pressure {current_pressure}, visits {current_visits}). "
+                f"A stronger frontier at {target_text} scores {alternative_score}; "
+                "leave this fringe instead of probing every adjacent unknown here."
+            )
+        return guidance
+
+    def _choose_escape_directions(
+        self,
+        current_position: Position,
+        target_position: Position,
+        candidate_directions: List[str],
+        adjacent_tiles: Dict[str, Dict[str, Any]],
+    ) -> Tuple[Optional[str], List[str]]:
+        """Rank frontier directions by whether they move toward a stronger alternative."""
+        if not candidate_directions:
+            return None, []
+
+        base_distance = abs(current_position[0] - target_position[0]) + abs(
+            current_position[1] - target_position[1]
+        )
+        ranked: List[Tuple[float, str, int]] = []
+        direction_order = {
+            direction: index
+            for index, direction in enumerate(candidate_directions)
+        }
+
+        for direction in candidate_directions:
+            delta = self.CARDINALS.get(direction)
+            if not delta:
+                continue
+
+            info = adjacent_tiles.get(direction) or {}
+            target = info.get("target") or {}
+            next_position = (
+                int(target.get("x", current_position[0] + delta[0]) or 0),
+                int(target.get("y", current_position[1] + delta[1]) or 0),
+            )
+            distance = abs(next_position[0] - target_position[0]) + abs(
+                next_position[1] - target_position[1]
+            )
+            warp_penalty = 100 if info.get("target_is_warp") else 0
+            revisit_penalty = float(info.get("target_visit_count", 0) or 0) * 0.25
+            ranked.append((distance + warp_penalty + revisit_penalty, direction, distance))
+
+        if not ranked:
+            return None, []
+
+        ranked.sort(key=lambda item: (item[0], direction_order.get(item[1], 999)))
+        best_score, best_direction, best_distance = ranked[0]
+        recommended_direction = best_direction if best_distance <= base_distance else None
+        discouraged = [
+            direction
+            for score, direction, _distance in ranked[1:]
+            if score > best_score
+        ]
+        return recommended_direction, discouraged
 
     def get_navigation_text(self, map_id: int, x: int, y: int) -> str:
         """Return a compact prompt-friendly text summary."""
@@ -400,6 +847,17 @@ class MapMemory:
         lines.append(
             f"- Known blocked directions from this tile: {', '.join(blocked) if blocked else 'none recorded'}"
         )
+        adjacent_tiles = advice.get("adjacent_tiles", {})
+        if adjacent_tiles:
+            lines.append("- Adjacent tile summary:")
+            for direction in self.CARDINALS:
+                info = adjacent_tiles.get(direction, {})
+                target = info.get("target", {})
+                lines.append(
+                    "- "
+                    f"{direction}: {info.get('status', 'unknown')} "
+                    f"-> ({target.get('x', '?')},{target.get('y', '?')})"
+                )
 
         frontier = advice.get("nearest_frontier")
         if frontier:
@@ -434,6 +892,19 @@ class MapMemory:
                     f"pressure={item.get('local_visit_pressure', 0)} "
                     f"unknown={','.join(item.get('unknown_directions', [])) or 'none'}"
                 )
+
+        for caution in advice.get("warp_cautions", []):
+            lines.append(f"- Warp caution: {caution.get('summary')}")
+
+        current_tile_warp = advice.get("current_tile_warp") or {}
+        if current_tile_warp:
+            lines.append(f"- Current-tile warp caution: {current_tile_warp.get('summary')}")
+
+        frontier_guidance = advice.get("frontier_guidance", {}) or {}
+        if frontier_guidance.get("prefer_leave_current_frontier"):
+            lines.append(
+                f"- Frontier caution: {frontier_guidance.get('summary')}"
+            )
 
         warps = advice.get("known_warps", [])
         if warps:
@@ -684,6 +1155,7 @@ class MapMemory:
                     "dest_x": dest["dest_x"],
                     "dest_y": dest["dest_y"],
                     "count": dest.get("count", 1),
+                    "trigger_action": dest.get("trigger_action"),
                 }
                 for src, dest in self.warp_points.items()
             ],
@@ -749,6 +1221,9 @@ class MapMemory:
                     "dest_y": int(warp["dest_y"]),
                     "count": int(warp.get("count", 1)),
                 }
+                trigger_action = str(warp.get("trigger_action") or "").strip().lower()
+                if trigger_action in self.CARDINALS:
+                    self.warp_points[src]["trigger_action"] = trigger_action
 
             self.map_properties = data.get("map_properties", {})
             self.logger.info(f"Loaded map memory: {len(self.explored_tiles)} maps explored")
@@ -793,6 +1268,28 @@ class MapMemory:
             "dest_y": dest_pos[1],
             "count": int(existing.get("count", 0)) + 1,
         }
+        trigger_action = str(existing.get("trigger_action") or "").strip().lower()
+        if trigger_action in self.CARDINALS:
+            self.warp_points[key]["trigger_action"] = trigger_action
+
+    def record_warp_trigger_action(
+        self,
+        src_map: int,
+        x: int,
+        y: int,
+        action: str,
+    ) -> None:
+        """Remember which action on a source tile triggered a learned warp."""
+        normalized = str(action or "").strip().lower()
+        if normalized not in self.CARDINALS:
+            return
+
+        key = (int(src_map), int(x), int(y))
+        existing = self.warp_points.get(key)
+        if not existing:
+            return
+
+        existing["trigger_action"] = normalized
 
     def _get_map_warps(self, map_id: int) -> List[Dict[str, int]]:
         """Return known warps originating on a map."""
@@ -811,6 +1308,9 @@ class MapMemory:
                     "count": int(dest.get("count", 1)),
                 }
             )
+            trigger_action = str(dest.get("trigger_action") or "").strip().lower()
+            if trigger_action in self.CARDINALS:
+                warps[-1]["trigger_action"] = trigger_action
         warps.sort(key=lambda item: (item["src_y"], item["src_x"], item["dest_map"]))
         return warps
 

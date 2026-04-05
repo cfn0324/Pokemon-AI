@@ -91,9 +91,19 @@
       "address": "0xD057",
       "type": "uint8",
       "values": {
-        "0": "wild",
-        "1": "trainer",
-        "2": "old_man"
+        "0": "none",
+        "1": "wild",
+        "2": "trainer",
+        "255": "lost"
+      }
+    },
+    "mode": {
+      "address": "0xD058",
+      "type": "uint8",
+      "values": {
+        "0": "normal",
+        "1": "old_man",
+        "2": "safari"
       }
     },
     "in_battle": {

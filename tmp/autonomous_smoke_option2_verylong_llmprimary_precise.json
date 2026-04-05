@@ -1,0 +1,4615 @@
+{
+  "requested_checkpoint": "latest",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 220,
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "effective_settings": {
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 448,
+    "action_plan_max_actions": 3
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196133,
+  "turn_delta": 220,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 220,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 1.9,
+  "decision_source_counts": {
+    "post_battle_intro_route": 37,
+    "post_warp_reentry_guard": 1,
+    "ai": 45,
+    "wait_rewrite_ai_error": 10,
+    "wait_rewrite_ai_cooldown": 127
+  },
+  "decision_path_counts": {
+    "tool": 175,
+    "ai": 45
+  },
+  "ai_latency_summary": {
+    "count": 45,
+    "avg_seconds": 4.498,
+    "max_seconds": 23.645,
+    "min_seconds": 3.281,
+    "total_seconds": 202.426,
+    "avg_request_count": 1.0
+  },
+  "final_state": {
+    "turn": 196133,
+    "timestamp": "2026-04-04T01:53:17.708081",
+    "position": {
+      "map_id": 12,
+      "x": 8,
+      "y": 28
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 14,
+        "current_hp": 14,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 30
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196137,
+      "local_analysis_enabled": false,
+      "screen_hash": "ebb3fe7bf9a3728dcdca17a20a75e7f9",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 87,
+      "known_exits": {
+        "up": {
+          "x": 8,
+          "y": 27
+        },
+        "down": {
+          "x": 8,
+          "y": 29
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          9,
+          14
+        ],
+        "path": [
+          "up",
+          "up",
+          "right",
+          "right",
+          "up",
+          "up",
+          "right",
+          "down",
+          "right",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "left",
+          "left",
+          "left",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "left"
+        ],
+        "visit_count": 1,
+        "distance": 15,
+        "local_visit_pressure": 6,
+        "global_novelty_distance": 13,
+        "priority_score": 22.0,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 15,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 13,
+          "priority_score": 22.0,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 14,
+          "local_visit_pressure": 7,
+          "global_novelty_distance": 12,
+          "priority_score": 19.35,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 12,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 10,
+          "priority_score": 17.8,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 8,
+            "y": 27
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 15,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 27)."
+        },
+        "down": {
+          "target": {
+            "x": 8,
+            "y": 29
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 6,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 29)."
+        },
+        "left": {
+          "target": {
+            "x": 7,
+            "y": 28
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 2,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (7, 28) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "right": {
+          "target": {
+            "x": 9,
+            "y": 28
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 15,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (9, 28) has been explored, but this exact step is not yet confirmed from the current tile."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": false,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": null,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "...FF?FFF",
+        "F...F?FFF",
+        "FF...FF??",
+        "??F..????",
+        "?F..P.FF.",
+        "??F......",
+        "??F......",
+        "???FFF..F",
+        "??????FF?"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "        FFFFFFF     ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFF        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F..P.FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.F         ",
+          "        #.F         ",
+          "         FW         ",
+          "                    ",
+          "                    "
+        ],
+        "prompt_rows": [
+          "????????FFFFFFF?????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFF????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F..P.FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.F?????????",
+          "????????#.F?????????",
+          "?????????FW?????????",
+          "????????????????????",
+          "????????????????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 14,
+          "max_y": 37,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 8,
+          "y": 28
+        },
+        "explored_count": 105,
+        "frontier_count": 60,
+        "blocked_count": 16,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "trainer",
+      "battle_turns": 30,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 8,
+      "enemy_species": "Pidgey",
+      "enemy_level": 3,
+      "enemy_current_hp": 3,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 14,
+        "max_hp": 21,
+        "hp_percent": 66.7
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; warped from map 40 (4,11) to map 0 (12,11); screen changed from indoor to overworld",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "wait",
+      "reasoning": "Guard: just warped from map 40 to map 0; doorway exits can auto-step one tile after the map transition. Wait briefly so the exit settles before choosing a safe direction away from the return warp.",
+      "result": "After wait:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "post_warp_reentry_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (12,12) to (13,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (14,12) to (15,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (15,12) to (16,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,12) to (16,11) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,11) to (16,10) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,10) to (16,9) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,9) to (16,8) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,8) to (16,7) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,7) to (16,6) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,6) to (16,5) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,5) to (16,4) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,4) to (16,3) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,3) to (16,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (16,2) to (15,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (15,2) to (14,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (14,2) to (13,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (13,2) to (12,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (12,2) to (11,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "up",
+      "reasoning": "Auto: cross the north boundary into Route 1",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,35) to (11,34) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,34) to (11,33) on map 12; entered battle; screen changed from overworld to battle; text box opened",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "a",
+      "reasoning": "The battle intro text is still open right after the trainer encounter began, so advancing the text safely is the correct next step.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.483,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro with no command menu yet and state says a text box is still active, so the safe next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.076,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "a",
+      "reasoning": "The screenshot still shows the trainer battle intro scene with no command menu visible and the state says the text box is active, so advancing the remaining intro text is the safe next step.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.148,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "up",
+      "reasoning": "The screenshot shows the Route 1 overworld with the player standing in grass and no battle or text box visible, so the battle has ended and movement should resume by continuing north.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.536,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "a",
+      "reasoning": "The state still indicates an active trainer battle with a text box open, so the safest next input is to advance the battle text rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.933,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "a",
+      "reasoning": "The state still shows an active trainer battle with a text box open and no command menu, so the safest next input is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.964,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "a",
+      "reasoning": "The screenshot is fully black while the state still says a battle text box is active with no menu open, so the safest input is to continue advancing the hidden transition/dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.626,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "a",
+      "reasoning": "The screenshot is completely black while RAM still shows an active battle text box with no menu, indicating a transition or hidden dialogue that should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.146,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "a",
+      "reasoning": "The screenshot shows the trainer battle scene with an empty text box and no command menu, so the safest input is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.661,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "a",
+      "reasoning": "The screenshot shows the trainer battle scene with an empty dialogue box and no battle command menu, so the safest next input is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.997,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "a",
+      "reasoning": "The screenshot shows the trainer battle scene with an empty text box and no command menu, indicating pending dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.407,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "a",
+      "reasoning": "The screenshot shows the trainer battle scene with no visible command menu and an empty lower text area, so the safest input is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.961,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "b",
+      "reasoning": "The screenshot shows the battle scene with a blank text box and no command menu, so the safest move is to clear the pending dialogue state.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.831,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle dialogue box printing the enemy trainer name text (“Mild”), so the correct move is to advance the intro text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.857,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "a",
+      "reasoning": "The screenshot shows battle intro text still printing the enemy name (“Mild PIDGEY”), so the correct input is to advance the text rather than move or guess a menu.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.598,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "a",
+      "reasoning": "The screenshot shows the trainer battle intro text “Mild PIDGEY appeared!” with the text box still active, so the correct input is to advance the dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.72,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "b",
+      "reasoning": "The screenshot shows the battle scene with an empty text box and no visible command menu, so the safest choice is to try clearing the stalled dialogue state with B.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.612,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle with an empty text box and no command menu visible, so the safest next input is to advance the stalled battle state with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.786,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with a blank text box and no command menu visible, so advancing the stalled battle state with A is the safest input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.31,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box beginning a new message with just “G”, so the safe next step is to advance the battle dialogue with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.438,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "a",
+      "reasoning": "The screenshot shows the opening send-out message “Go! CHARM” against Pidgey, so the correct next step is to advance this battle text.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.231,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text “Go! CHARMANDER!” in the battle text box, so the safe next step is to advance the dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.515,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the send-out text “Go! CHARMANDER!” in the battle text box, so the safe next step is to advance the dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.861,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box saying “Go! CHARMANDER!”, so the safe next step is to advance the dialogue rather than repeat a menu input guess.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.066,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “Go! CHARMANDER!”, so the correct safe action is to advance the send-out dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.56,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text “Go! CHARMANDER!”, so the correct safe input is to advance the send-out dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.281,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “Go! CHARMANDER!”, so the safe move is to advance the send-out message.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.693,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box reading “Go! CHARMANDER!”, so the safe next input is to advance that send-out message.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.25,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 52.5s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 52.9s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text mid-message at “CHARMANDER used SCRAT”, so pressing A should advance the attack text and continue the turn.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.083,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the attack text “CHARMANDER used SCRATCH!” with the battle text box active, so pressing A should advance to the damage/result message.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.8,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "a",
+      "reasoning": "The screenshot shows the active battle text “CHARMANDER used SCRATCH!” so pressing A should advance to the damage/result message instead of trying a different command.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.408,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “CHARMANDER used SCRATCH!” so pressing A should advance the attack resolution.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.374,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 51.9s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 52.9s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; menu opened",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; menu closed",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196034,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196035,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196036,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196037,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196038,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196039,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196040,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196041,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196042,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text “CHARMANDER used SCRATCH!” still active, so advancing the combat text is the safe next step.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.379,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196043,
+      "action": "a",
+      "reasoning": "The screenshot still shows the combat text “CHARMANDER used SCRATCH!” in an active battle text box, so the correct move is to advance it once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.147,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196044,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 31.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196045,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196046,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196047,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196048,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196049,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196050,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196051,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; battle ended; screen changed from battle to overworld; menu opened",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196052,
+      "action": "left",
+      "reasoning": "Auto: shift into Route 1's left-side corridor around the first hedge",
+      "result": "After left:; moved from (11,33) to (10,33) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196053,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196054,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196055,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196056,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196057,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196058,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196059,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196060,
+      "action": "up",
+      "reasoning": "Auto: climb through Route 1's first opening",
+      "result": "After up:; position did not change; entered battle; screen changed from overworld to battle",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196061,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 33.1s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196062,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196063,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196064,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196065,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196066,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196067,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196068,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196069,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196070,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196071,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196072,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196073,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196074,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196075,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196076,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196077,
+      "action": "a",
+      "reasoning": "The screenshot shows the opening trainer-battle text “Wild PIDGEY appeared!”, so the correct safe input is to advance the battle text.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.602,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196078,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 51.9s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196079,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196080,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196081,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196082,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; menu opened",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After a:; menu closed",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "a",
+      "reasoning": "The screenshot shows battle text mid-message saying “CHARMANDER used SCRATC”, so the move text needs to be advanced rather than reopening menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.326,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 32.1s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text “Enemy PIDGEY used GUST!”, so the active text box should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.489,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle message “Enemy PIDGEY used GUST!”, so the active text box should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.546,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle message “Enemy PIDGEY used GUST!”, so the active text box should be advanced once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.816,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "b",
+      "reasoning": "The screenshot still shows the battle message \"Enemy PIDGEY used GUST!\" in an active text box, so it should be advanced once.",
+      "result": "After b:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.455,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle message “Enemy PIDGEY used GUST!” with a text box active, so the safest next input is to advance the message once.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.979,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 31.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.2s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: API cooldown active for 0.0s after recent request failures",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard battle view with an empty text box and no visible command menu, so pressing A is the safest way to advance to the next battle state.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.48,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "a",
+      "reasoning": "The battle text box is actively printing the start of a message (“Enemy PI”), so pressing A is the safest way to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.428,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "a",
+      "reasoning": "The screenshot shows battle text actively printing “Enemy PIDGEY used”, so pressing A is the safest way to advance the action text before choosing anything else.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 23.645,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the battle message “Enemy PIDGEY used GUST!”, so the safe next input is to advance the combat text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.922,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "a",
+      "reasoning": "Auto: advance the active text/script instead of idling on WAIT. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 51.9s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After a:; text box remains active",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    }
+  ]
+}

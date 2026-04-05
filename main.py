@@ -35,11 +35,14 @@ from src.tools.progress_tracker import ProgressTracker
 from src.visualization.visualizer import GameVisualizer
 from src.agents.async_decision import AsyncDecisionMaker
 from src.control.decision_engine import DecisionContext, DecisionEngine
+from src.control.early_battle_controller import EarlyBattleController
 from src.control.oak_lab_pre_starter import OakLabPreStarterController
 from src.control.oak_lab_post_starter import OakLabPostStarterController
 from src.control.oak_lab_rival_battle import OakLabRivalBattleController
 from src.control.oak_lab_starter import OakLabStarterController
 from src.control.post_battle_intro_route import PostBattleIntroRouteController
+from src.control.post_pokedex_departure_controller import PostPokedexDepartureController
+from src.control.viridian_parcel_controller import ViridianParcelController
 from src.runtime.checkpoints import (
     build_checkpoint_metadata,
     list_checkpoints,
@@ -82,6 +85,8 @@ class PokemonAIAgent:
         self._last_observed_state: Optional[Dict[str, Any]] = None
         self._last_action: Optional[str] = None
         self._last_action_reasoning: str = ""
+        self._last_action_source: Optional[str] = None
+        self._recent_warp_exit: Optional[Dict[str, Any]] = None
         self._planned_actions: List[str] = []
         self._planned_target: Optional[tuple] = None
         self._planned_reasoning: str = ""
@@ -96,11 +101,15 @@ class PokemonAIAgent:
         self._scripted_ui_reasoning: str = ""
         self._scripted_bootstrap_steps: List[Dict[str, str]] = []
         self._scripted_bootstrap_reasoning: str = ""
+        self._last_fatal_error: Optional[str] = None
         self.oak_lab_pre_starter = OakLabPreStarterController()
         self.oak_lab_starter = OakLabStarterController()
         self.oak_lab_post_starter = OakLabPostStarterController()
         self.oak_lab_rival_battle = OakLabRivalBattleController()
+        self.early_battle_controller = EarlyBattleController()
         self.post_battle_intro_route = PostBattleIntroRouteController()
+        self.viridian_parcel_controller = ViridianParcelController()
+        self.post_pokedex_departure_controller = PostPokedexDepartureController()
 
         # 可视化控制状态
         self._control_lock = threading.Lock()
@@ -210,13 +219,28 @@ class PokemonAIAgent:
             fallback=self._stage_ai_decision,
         )
 
+    def _config_get(self, key: str, default=None):
+        """Read a config value safely for lightweight tests that bypass __init__."""
+        config = getattr(self, "config", None)
+        if config is None or not hasattr(config, "get"):
+            return default
+        return config.get(key, default)
+
     def _pure_llm_mode_enabled(self) -> bool:
         """Return whether deterministic control helpers should be disabled."""
-        return bool(self.config.get("decision.pure_llm_mode", False))
+        return bool(self._config_get("decision.pure_llm_mode", False))
 
     def _llm_primary_mode_enabled(self) -> bool:
         """Return whether the runtime should prefer model decisions over tool routing."""
-        return bool(self.config.get("decision.llm_primary_mode", False))
+        return bool(self._config_get("decision.llm_primary_mode", False))
+
+    def _llm_primary_action_plan_enabled(self) -> bool:
+        """Return whether LLM-primary mode may reuse short AI movement plans."""
+        return bool(self._config_get("decision.llm_primary_action_plan_enabled", True))
+
+    def _ai_full_control_mode_enabled(self) -> bool:
+        """Return whether AI should own normal gameplay while deterministic logic stays safety-only."""
+        return bool(self._config_get("decision.ai_full_control_mode", False))
 
     def _llm_driven_mode_enabled(self) -> bool:
         """Return whether the main model should own ordinary turn-by-turn control."""
@@ -227,10 +251,20 @@ class PokemonAIAgent:
 
     def _research_mode_enabled(self) -> bool:
         """Return whether fixed route-script controllers should be disabled."""
-        return bool(self.config.get("decision.research_mode", False))
+        return bool(self._config_get("decision.research_mode", False))
 
     def _get_decision_stage_specs(self) -> List[tuple]:
         """Build the deterministic stage list for the current runtime mode."""
+        ai_owned_stage_names = {
+            "oak_lab_pre_starter",
+            "oak_lab_starter",
+            "oak_lab_post_starter",
+            "oak_lab_rival_battle",
+            "early_battle",
+            "post_battle_intro_route",
+            "viridian_parcel",
+            "post_pokedex_departure",
+        }
         stage_specs = [
             ("bootstrap", self._stage_bootstrap_decision),
             ("known_ui", self._stage_known_ui_decision),
@@ -239,8 +273,12 @@ class PokemonAIAgent:
             ("oak_lab_pre_starter", self._stage_oak_lab_pre_starter_decision),
             ("oak_lab_post_starter", self._stage_oak_lab_post_starter_decision),
             ("oak_lab_rival_battle", self._stage_oak_lab_rival_battle_decision),
+            ("early_battle", self._stage_early_battle_decision),
             ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
+            ("viridian_parcel", self._stage_viridian_parcel_decision),
+            ("post_pokedex_departure", self._stage_post_pokedex_departure_decision),
             ("dialogue_timing", self._stage_dialogue_timing_decision),
+            ("post_warp_reentry_guard", self._stage_post_warp_reentry_guard_decision),
             ("navigation_plan", self._stage_navigation_plan_decision),
             ("pre_starter_recovery", self._stage_pre_starter_recovery_decision),
             ("early_story_interaction", self._stage_early_story_interaction_decision),
@@ -249,12 +287,34 @@ class PokemonAIAgent:
             ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
         ]
         if self._llm_primary_mode_enabled():
-            return [
+            llm_primary_specs = [
                 ("bootstrap", self._stage_bootstrap_decision),
                 ("minimal_known_ui", self._stage_minimal_known_ui_decision),
+                ("post_warp_reentry_guard", self._stage_post_warp_reentry_guard_decision),
+                ("early_battle", self._stage_early_battle_decision),
+                ("post_battle_intro_route", self._stage_post_battle_intro_route_decision),
+                ("viridian_parcel", self._stage_viridian_parcel_decision),
+                ("post_pokedex_departure", self._stage_post_pokedex_departure_decision),
+                ("recent_warp_buffer_guard", self._stage_recent_warp_buffer_guard_decision),
+                ("guided_navigation_escape", self._stage_guided_navigation_escape_decision),
+                ("cached_ai_plan", self._stage_cached_ai_plan_decision),
                 ("stable_ui_recovery", self._stage_stable_ui_recovery_decision),
                 ("menu_auto_close", self._stage_menu_auto_close_decision),
                 ("text_entry_api_cooldown", self._stage_text_entry_api_cooldown_decision),
+            ]
+            if self._ai_full_control_mode_enabled():
+                return [
+                    item
+                    for item in llm_primary_specs
+                    if item[0] not in ai_owned_stage_names
+                ]
+            return llm_primary_specs
+
+        if self._ai_full_control_mode_enabled():
+            stage_specs = [
+                item
+                for item in stage_specs
+                if item[0] not in ai_owned_stage_names
             ]
 
         if not self._research_mode_enabled():
@@ -266,6 +326,7 @@ class PokemonAIAgent:
             "oak_lab_post_starter",
             "oak_lab_rival_battle",
             "post_battle_intro_route",
+            "post_pokedex_departure",
         }
         return [item for item in stage_specs if item[0] not in disabled]
 
@@ -304,10 +365,12 @@ class PokemonAIAgent:
             except AIDecisionRetrySignal as exc:
                 elapsed = time.monotonic() - started_at
                 if attempt >= max_attempts or (timeout_seconds and elapsed >= timeout_seconds):
-                    raise RuntimeError(
-                        "Same-turn AI retry budget exhausted "
-                        f"after {attempt} attempts over {elapsed:.1f}s: {exc}"
-                    ) from exc
+                    return self._build_same_turn_retry_exhausted_decision(
+                        context,
+                        exc,
+                        attempt,
+                        elapsed,
+                    )
 
                 remaining_budget = None
                 if timeout_seconds:
@@ -323,6 +386,31 @@ class PokemonAIAgent:
                 )
                 if delay_seconds > 0:
                     time.sleep(delay_seconds)
+
+    def _build_same_turn_retry_exhausted_decision(
+        self,
+        context: DecisionContext,
+        exc: AIDecisionRetrySignal,
+        attempt: int,
+        elapsed: float,
+    ) -> dict:
+        """Degrade to deterministic recovery instead of aborting the whole run."""
+        detail = (
+            "Same-turn AI retry budget exhausted "
+            f"after {attempt} attempts over {elapsed:.1f}s: {exc}"
+        )
+        self.logger.error(detail)
+        self._clear_planned_actions()
+        return {
+            "action": "wait",
+            "reasoning": detail,
+            "goal_update": None,
+            "recorded_in_context": False,
+            "decision_source": "ai_error",
+            "decision_path": "ai",
+            "screen_type": context.screen_type,
+            "decision_trace": [f"same_turn_retry_exhausted:{exc.source}"],
+        }
 
     def _stage_bootstrap_decision(self, context: DecisionContext) -> Optional[dict]:
         return self._get_pre_starter_bootstrap_decision(
@@ -348,6 +436,12 @@ class PokemonAIAgent:
             self._clear_planned_actions()
         return decision
 
+    def _stage_cached_ai_plan_decision(self, context: DecisionContext) -> Optional[dict]:
+        return self._get_cached_ai_plan_decision(
+            context.current_state,
+            context.screen_type,
+        )
+
     def _stage_stable_ui_recovery_decision(self, context: DecisionContext) -> Optional[dict]:
         decision = self._get_stable_ui_recovery_decision(
             context.current_state,
@@ -359,6 +453,33 @@ class PokemonAIAgent:
 
     def _stage_dialogue_timing_decision(self, context: DecisionContext) -> Optional[dict]:
         decision = self._get_dialogue_timing_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_post_warp_reentry_guard_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_post_warp_reentry_guard_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_recent_warp_buffer_guard_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_recent_warp_buffer_guard_decision(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_guided_navigation_escape_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self._get_guided_navigation_escape_decision(
             context.current_state,
             context.screen_type,
         )
@@ -404,8 +525,35 @@ class PokemonAIAgent:
             self._clear_planned_actions()
         return decision
 
+    def _stage_early_battle_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.early_battle_controller.maybe_decide(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
     def _stage_post_battle_intro_route_decision(self, context: DecisionContext) -> Optional[dict]:
         decision = self.post_battle_intro_route.maybe_decide(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_viridian_parcel_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.viridian_parcel_controller.maybe_decide(
+            context.current_state,
+            context.screen_type,
+        )
+        if decision:
+            self._clear_planned_actions()
+        return decision
+
+    def _stage_post_pokedex_departure_decision(self, context: DecisionContext) -> Optional[dict]:
+        decision = self.post_pokedex_departure_controller.maybe_decide(
             context.current_state,
             context.screen_type,
         )
@@ -517,6 +665,37 @@ class PokemonAIAgent:
         start_key = (map_id, x, y)
 
         navigation = current_state.get("navigation", {}) or {}
+        movement_pattern = current_state.get("movement_pattern", {}) or {}
+        frontier_guidance = navigation.get("frontier_guidance", {}) or {}
+        current_visit_count = int(navigation.get("current_visit_count", 0) or 0)
+        config = getattr(self, "config", None)
+        loop_visit_threshold = max(
+            1,
+            int(
+                (config.get("navigation.local_fallback_force_plan_visit_threshold", 8) if config else 8)
+                or 8
+            ),
+        )
+        if (
+            bool(movement_pattern.get("micro_loop_warning"))
+            or current_visit_count >= loop_visit_threshold
+            or bool(frontier_guidance.get("prefer_leave_current_frontier"))
+        ):
+            planned_escape = self._get_navigation_plan_decision(
+                current_state,
+                screen_type,
+                force=True,
+            )
+            if planned_escape:
+                return {
+                    "action": planned_escape.get("action"),
+                    "reasoning": (
+                        "Use the learned frontier route instead of probing another weak local loop"
+                    ),
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+
         vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
         blocked = set(navigation.get("blocked_directions", []))
         blocked.update(vision.get("blocked_directions", []))
@@ -525,6 +704,7 @@ class PokemonAIAgent:
             for direction in ("up", "down", "left", "right")
             if self._is_temporarily_avoided_move(start_key, direction)
         )
+        retryable_directions = self._get_retryable_field_directions(current_state)
 
         candidates: List[str] = []
         nearby_unexplored = current_state.get("exploration", {}).get("nearby_unexplored", []) or []
@@ -565,7 +745,7 @@ class PokemonAIAgent:
             if normalized in seen:
                 continue
             seen.add(normalized)
-            if normalized in blocked:
+            if normalized not in retryable_directions:
                 continue
             return {
                 "action": normalized,
@@ -575,6 +755,50 @@ class PokemonAIAgent:
             }
 
         return None
+
+    def _get_retryable_field_directions(self, current_state: dict) -> set[str]:
+        """Return field directions that are still worth retrying despite stale blocked memory."""
+        navigation = current_state.get("navigation", {}) or {}
+        adjacent_tiles = navigation.get("adjacent_tiles", {}) or {}
+        vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
+        memory = current_state.get("memory", {}) or {}
+        position = memory.get("position", {}) or {}
+        start_key = (
+            int(position.get("map_id", 0) or 0),
+            int(position.get("x", 0) or 0),
+            int(position.get("y", 0) or 0),
+        )
+        memory_blocked = {
+            str(direction or "").strip().lower()
+            for direction in navigation.get("blocked_directions", []) or []
+            if str(direction or "").strip().lower() in {"up", "down", "left", "right"}
+        }
+        vision_blocked = {
+            str(direction or "").strip().lower()
+            for direction in vision.get("blocked_directions", []) or []
+            if str(direction or "").strip().lower() in {"up", "down", "left", "right"}
+        }
+
+        retryable: set[str] = set()
+        for direction in ("up", "down", "left", "right"):
+            info = adjacent_tiles.get(direction) or {}
+            status = str(info.get("status") or "").strip().lower()
+            if info.get("target_is_warp") or info.get("step_triggers_warp"):
+                continue
+            if self._is_temporarily_avoided_move(start_key, direction):
+                continue
+            if status == "confirmed_blocked":
+                continue
+            if status in {"known_exit", "adjacent_explored"}:
+                retryable.add(direction)
+                continue
+            if direction in vision_blocked:
+                continue
+            if direction in memory_blocked or status == "blocked_once":
+                continue
+            retryable.add(direction)
+
+        return retryable
 
     def _get_blocked_field_interaction_decision(
         self,
@@ -593,6 +817,8 @@ class PokemonAIAgent:
         vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
         blocked = set(navigation.get("blocked_directions", []))
         blocked.update(vision.get("blocked_directions", []))
+        if self._get_retryable_field_directions(current_state):
+            return None
         if {"up", "down", "left", "right"} - blocked:
             return None
 
@@ -612,13 +838,121 @@ class PokemonAIAgent:
             "recorded_in_context": False,
         }
 
+    def _get_safe_battle_progress_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Use conservative default inputs to keep battle-like screens moving without AI."""
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        battle = memory.get("battle", {}) or {}
+        battle_summary = current_state.get("battle_summary", {}) or {}
+        normalized_screen = str(screen_type or "").strip().lower()
+        battle_phase = str(battle_summary.get("phase") or "").strip().lower()
+        active_battle = (
+            normalized_screen == "battle"
+            or bool(memory.get("in_battle"))
+            or battle_phase in {
+                "entered_battle",
+                "battle_in_progress",
+                "post_battle_dialogue",
+                "battle_just_ended",
+            }
+        )
+        if not active_battle:
+            return None
+
+        enemy_hp_raw = battle.get("enemy_current_hp")
+        try:
+            enemy_hp = None if enemy_hp_raw is None else int(enemy_hp_raw)
+        except (TypeError, ValueError):
+            enemy_hp = None
+
+        if ui_state.get("text_box_active") or battle_phase == "post_battle_dialogue":
+            return {
+                "action": "a",
+                "reasoning": "Advance the visible battle dialogue until the next actionable prompt appears",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+
+        if ui_state.get("menu_active"):
+            if enemy_hp is not None and enemy_hp <= 0:
+                return {
+                    "action": "b",
+                    "reasoning": "Close the stale post-faint battle menu so the victory text can continue",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+            return {
+                "action": "a",
+                "reasoning": "Accept the default battle choice so the encounter keeps moving",
+                "goal_update": None,
+                "recorded_in_context": False,
+            }
+
+        return {
+            "action": "a",
+            "reasoning": "Advance the battle scene until the next menu or text prompt appears",
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
     def _get_ai_unavailable_fallback_decision(
         self,
         current_state: dict,
         screen_type: Optional[str],
     ) -> Optional[dict]:
         """Choose a deterministic fallback when the model request failed or is cooling down."""
-        if screen_type == "dialogue":
+        normalized_screen = str(screen_type or "").strip().lower() or None
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+
+        ui_recovery = self._get_stable_ui_recovery_decision(
+            current_state,
+            normalized_screen,
+        )
+        if ui_recovery:
+            return self._decorate_api_fallback_decision(
+                ui_recovery,
+                "api_unavailable_ui_recovery",
+            )
+
+        battle_decision = self._get_safe_battle_progress_decision(
+            current_state,
+            normalized_screen,
+        )
+        if battle_decision:
+            return self._decorate_api_fallback_decision(
+                battle_decision,
+                "api_unavailable_battle_fallback",
+            )
+
+        field_like_screen = normalized_screen in {"overworld", "indoor", "memory_only", "unknown", None}
+        if (
+            int(getattr(self, "_dialogue_exit_grace", 0) or 0) > 0
+            and field_like_screen
+            and not ui_state.get("text_box_active")
+            and not ui_state.get("menu_active")
+        ):
+            replacement = self._get_local_safe_exploration_decision(
+                current_state,
+                normalized_screen,
+            )
+            if not replacement:
+                replacement = {
+                    "action": self._choose_recovery_move(current_state),
+                    "reasoning": "Leave the just-closed dialogue tile before probing anything else",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+            return self._decorate_api_fallback_decision(
+                replacement,
+                "api_unavailable_dialogue_exit_recovery",
+            )
+
+        if normalized_screen == "dialogue":
             return self._decorate_api_fallback_decision(
                 {
                     "action": "a",
@@ -628,17 +962,17 @@ class PokemonAIAgent:
                 "api_unavailable_dialogue_fallback",
             )
 
-        if screen_type in {"menu", "pokemon_menu", "item_menu", "save_menu", "options_menu"}:
+        if normalized_screen in {"menu", "pokemon_menu", "item_menu", "save_menu", "options_menu"}:
             return self._decorate_api_fallback_decision(
                 {
                     "action": "b",
-                    "reasoning": f"Close the {screen_type} UI and return to the field",
+                    "reasoning": f"Close the {normalized_screen} UI and return to the field",
                     "goal_update": None,
                 },
                 "api_unavailable_menu_fallback",
             )
 
-        if screen_type == "text_entry":
+        if normalized_screen == "text_entry":
             return self._decorate_api_fallback_decision(
                 {
                     "action": "b",
@@ -723,6 +1057,29 @@ class PokemonAIAgent:
         )
         return fallback or decision
 
+    def _should_preserve_ai_wait_in_full_control_mode(
+        self,
+        *,
+        source: str,
+        current_state: dict,
+        normalized_screen: Optional[str],
+    ) -> bool:
+        """Keep ordinary field WAITs owned by the main model in AI-full-control mode."""
+        if not self._ai_full_control_mode_enabled():
+            return False
+        if source != "ai":
+            return False
+        if normalized_screen not in {"", "unknown", "overworld", "indoor", "memory_only"}:
+            return False
+
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if memory.get("in_battle"):
+            return False
+        if ui_state.get("text_box_active") or ui_state.get("menu_active"):
+            return False
+        return True
+
     def _rewrite_wait_decision(
         self,
         decision: dict,
@@ -739,6 +1096,8 @@ class PokemonAIAgent:
             and decision.get("bootstrap_kind") == "wait"
         ):
             return decision
+        if decision.get("allow_wait"):
+            return decision
 
         action = str(decision.get("action") or "").strip().lower()
         if action != "wait":
@@ -749,6 +1108,14 @@ class PokemonAIAgent:
         ).strip().lower()
         ui_state = current_state.get("memory", {}).get("ui", {}) or {}
         source = str(decision.get("decision_source") or "decision").strip().lower() or "decision"
+        field_like_screen = normalized_screen in {"", "unknown", "overworld", "indoor", "memory_only"}
+
+        if self._should_preserve_ai_wait_in_full_control_mode(
+            source=source,
+            current_state=current_state,
+            normalized_screen=normalized_screen,
+        ):
+            return decision
 
         replacement: Optional[dict] = None
         if normalized_screen == "title":
@@ -777,6 +1144,39 @@ class PokemonAIAgent:
                 "goal_update": None,
                 "recorded_in_context": False,
             }
+        elif (
+            normalized_screen == "battle"
+            or current_state.get("memory", {}).get("in_battle")
+            or str(
+                (current_state.get("battle_summary", {}) or {}).get("phase") or ""
+            ).strip().lower() in {
+                "entered_battle",
+                "battle_in_progress",
+                "post_battle_dialogue",
+                "battle_just_ended",
+            }
+        ):
+            replacement = self._get_safe_battle_progress_decision(
+                current_state,
+                normalized_screen or screen_type,
+            )
+        elif field_like_screen and ui_state.get("text_box_active") and not ui_state.get("menu_active"):
+            replacement = self._get_local_safe_exploration_decision(
+                current_state,
+                normalized_screen or screen_type,
+            )
+            if not replacement:
+                replacement = self._get_blocked_field_interaction_decision(
+                    current_state,
+                    normalized_screen or screen_type,
+                )
+            if not replacement:
+                replacement = {
+                    "action": "a",
+                    "reasoning": "Auto: advance the likely lingering field script instead of idling on WAIT",
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
         elif normalized_screen in {
             "dialogue",
             "cutscene",
@@ -842,6 +1242,52 @@ class PokemonAIAgent:
 
         return rewritten
 
+    def _get_cached_ai_plan_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Consume the next queued AI movement step when the field state is still stable enough."""
+        if not self._planned_actions:
+            return None
+        if not self._llm_primary_mode_enabled() or not self._llm_primary_action_plan_enabled():
+            self._clear_planned_actions()
+            return None
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            self._clear_planned_actions()
+            return None
+        if self._recent_result_invalidates_cached_plan():
+            self._clear_planned_actions()
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if (
+            current_state.get("pre_world")
+            or current_state.get("pre_starter_script")
+            or memory.get("in_battle")
+            or ui_state.get("text_box_active")
+            or ui_state.get("menu_active")
+            or int(current_state.get("deltas", {}).get("movement_stall_turns", 0) or 0) >= 2
+        ):
+            self._clear_planned_actions()
+            return None
+        navigation = current_state.get("navigation", {}) or {}
+        if int(navigation.get("current_visit_count", 0) or 0) >= 4:
+            self._clear_planned_actions()
+            return None
+
+        action = self._planned_actions.pop(0)
+        if not self._cached_plan_step_matches_live_state(action, current_state):
+            self._clear_planned_actions()
+            return None
+        return {
+            "action": action,
+            "reasoning": self._planned_reasoning or "AI short plan: continue the current movement route",
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
     def _cache_ai_action_plan(
         self,
         decision: Optional[dict],
@@ -849,7 +1295,9 @@ class PokemonAIAgent:
         screen_type: Optional[str],
     ) -> None:
         """Cache a short AI-generated follow-up plan into the existing planner queue."""
-        if self._llm_driven_mode_enabled():
+        if self._pure_llm_mode_enabled():
+            return
+        if self._llm_primary_mode_enabled() and not self._llm_primary_action_plan_enabled():
             return
         if not bool(self.config.get("ai.action_plan_enabled", True)):
             return
@@ -859,17 +1307,37 @@ class PokemonAIAgent:
             return
         if screen_type not in {"overworld", "indoor", "memory_only", None}:
             return
-        if current_state.get("memory", {}).get("in_battle"):
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if memory.get("in_battle"):
+            return
+        if ui_state.get("text_box_active") or ui_state.get("menu_active"):
+            return
+        if self._llm_primary_mode_enabled() and (
+            current_state.get("pre_world")
+            or current_state.get("pre_starter_script")
+            or int(current_state.get("deltas", {}).get("movement_stall_turns", 0) or 0) >= 2
+        ):
+            return
+        navigation = current_state.get("navigation", {}) or {}
+        if int(navigation.get("current_visit_count", 0) or 0) >= 4:
+            return
+        movement_pattern = current_state.get("movement_pattern", {}) or {}
+        if bool(movement_pattern.get("micro_loop_warning")):
             return
 
         action = str(decision.get("action") or "").strip().lower()
-        if action not in {"up", "down", "left", "right", "a", "b", "start", "select"}:
+        if self._llm_primary_mode_enabled():
+            allowed_actions = {"up", "down", "left", "right"}
+        else:
+            allowed_actions = {"up", "down", "left", "right", "a", "b", "start", "select"}
+        if action not in allowed_actions:
             return
 
         plan = [
             step
             for step in (decision.get("action_plan") or [])
-            if step in {"up", "down", "left", "right", "a", "b", "start", "select"}
+            if step in allowed_actions
         ]
         if not plan:
             return
@@ -893,9 +1361,105 @@ class PokemonAIAgent:
             self._planned_reasoning = f"AI plan: follow {preview}"
         self.logger.debug(f"Cached AI action plan: {self._planned_actions}")
 
+    def _cached_plan_step_matches_live_state(
+        self,
+        action: str,
+        current_state: dict,
+    ) -> bool:
+        """Only reuse a cached step when live navigation still supports it."""
+        normalized = str(action or "").strip().lower()
+        if normalized not in {"up", "down", "left", "right"}:
+            return True
+
+        navigation = current_state.get("navigation", {}) or {}
+        hints = (current_state.get("visual", {}) or {}).get("navigation_hints", {}) or {}
+        if not navigation and not hints:
+            return True
+
+        position = (current_state.get("memory", {}) or {}).get("position", {}) or {}
+        start_key = (
+            int(position.get("map_id", 0) or 0),
+            int(position.get("x", 0) or 0),
+            int(position.get("y", 0) or 0),
+        )
+        blocked = {
+            str(direction or "").strip().lower()
+            for direction in navigation.get("blocked_directions", []) or []
+        }
+        blocked.update(
+            str(direction or "").strip().lower()
+            for direction in hints.get("blocked_directions", []) or []
+        )
+        if self._is_temporarily_avoided_move(start_key, normalized):
+            blocked.add(normalized)
+        if normalized in blocked:
+            return False
+
+        def _frontier_matches(frontier: Optional[dict]) -> bool:
+            if not isinstance(frontier, dict):
+                return False
+            target = tuple(frontier.get("target") or frontier.get("position") or ())
+            if target == start_key[1:]:
+                unknown = {
+                    str(direction or "").strip().lower()
+                    for direction in frontier.get("unknown_directions", []) or []
+                }
+                if unknown:
+                    return normalized in unknown
+            path = [
+                str(step or "").strip().lower()
+                for step in (frontier.get("path") or [])
+                if str(step or "").strip()
+            ]
+            return bool(path and path[0] == normalized)
+
+        if _frontier_matches(navigation.get("nearest_frontier")):
+            return True
+        for frontier in navigation.get("frontier_candidates", []) or []:
+            if _frontier_matches(frontier):
+                return True
+        walkable = {
+            str(direction or "").strip().lower()
+            for direction in hints.get("walkable_directions", []) or []
+        }
+        if walkable:
+            return normalized in walkable
+        return False
+
+    def _recent_result_invalidates_cached_plan(self) -> bool:
+        """Stop reusing a short AI plan after a scene transition or a failed cached step."""
+        main_agent = getattr(self, "main_agent", None)
+        recent_turns = getattr(getattr(main_agent, "context", None), "recent_turns", None) or []
+        if not recent_turns:
+            return False
+
+        last_turn = recent_turns[-1]
+        last_result = " ".join(str(last_turn.result or "").split()).strip().lower()
+        if not last_result:
+            return False
+
+        if (
+            str(last_turn.decision_source or "").strip().lower() == "cached_ai_plan"
+            and any(token in last_result for token in ("position did not change", "no visible state change"))
+        ):
+            return True
+
+        transition_tokens = (
+            "warped from",
+            "entered battle",
+            "battle ended",
+            "text box opened",
+            "text box closed",
+            "menu opened",
+            "menu closed",
+            "screen changed",
+        )
+        return any(token in last_result for token in transition_tokens)
+
     def run(self) -> None:
         """运行AI智能体。"""
         self.running = True
+        self._last_fatal_error = None
         self._broadcast_control_state()
         self.logger.milestone("开始游戏")
 
@@ -912,36 +1476,267 @@ class PokemonAIAgent:
         except KeyboardInterrupt:
             self.logger.info("被用户中断")
         except Exception as e:
+            self._last_fatal_error = str(e)
             self.logger.error(f"致命错误: {e}", exc_info=True)
         finally:
+            self._finalize_pending_action_outcome()
             self._shutdown()
+
+    def _extract_map_id_from_runtime_state(self, state: Optional[dict]) -> Optional[int]:
+        """Read a map id from a stored runtime-state snapshot."""
+        if not isinstance(state, dict):
+            return None
+
+        position = state.get("memory", {}).get("position", {}) or {}
+        map_id = position.get("map_id")
+        if map_id is None:
+            return None
+        try:
+            return int(map_id)
+        except (TypeError, ValueError):
+            return None
+
+    def _extract_position_from_runtime_state(
+        self,
+        state: Optional[dict],
+    ) -> Optional[tuple[int, int, int]]:
+        """Read map/x/y from a stored runtime-state snapshot."""
+        if not isinstance(state, dict):
+            return None
+
+        position = state.get("memory", {}).get("position", {}) or {}
+        map_id = position.get("map_id")
+        x = position.get("x")
+        y = position.get("y")
+        if map_id is None or x is None or y is None:
+            return None
+        try:
+            return int(map_id), int(x), int(y)
+        except (TypeError, ValueError):
+            return None
+
+    def _get_known_warp_destination(
+        self,
+        source_position: tuple[int, int, int],
+        destination_map_id: int,
+    ) -> Optional[tuple[int, int, int]]:
+        """Return a learned warp destination when map memory already knows it."""
+        warp_points = getattr(getattr(self, "map_memory", None), "warp_points", {}) or {}
+        warp = warp_points.get(source_position)
+        if not isinstance(warp, dict):
+            return None
+
+        try:
+            dest_map = int(warp.get("dest_map"))
+            dest_x = int(warp.get("dest_x"))
+            dest_y = int(warp.get("dest_y"))
+        except (TypeError, ValueError):
+            return None
+
+        if dest_map != int(destination_map_id):
+            return None
+        return dest_map, dest_x, dest_y
+
+    def _maybe_settle_after_map_transition(self) -> None:
+        """Advance a few frames after a cross-map warp before capturing the next screenshot."""
+        previous_position = self._extract_position_from_runtime_state(
+            getattr(self, "_last_observed_state", None)
+        )
+        if previous_position is None or not hasattr(self, "memory_reader"):
+            return
+
+        try:
+            memory_state = self.memory_reader.get_game_state_summary()
+        except Exception:
+            return
+
+        current_position = self._extract_position_from_runtime_state({"memory": memory_state})
+        if current_position is None or current_position[0] == previous_position[0]:
+            return
+
+        settle_frames = max(
+            0,
+            int(self.config.get("actions.map_transition_settle_frames", 16) or 16),
+        )
+        if settle_frames <= 0:
+            return
+
+        expected_destination = self._get_known_warp_destination(
+            previous_position,
+            current_position[0],
+        )
+        if expected_destination is None:
+            self.emulator.tick(settle_frames)
+            return
+
+        step_frames = max(
+            1,
+            int(self.config.get("actions.map_transition_settle_step_frames", 4) or 4),
+        )
+        remaining = settle_frames
+        while remaining > 0 and current_position != expected_destination:
+            tick_frames = min(step_frames, remaining)
+            self.emulator.tick(tick_frames)
+            remaining -= tick_frames
+            try:
+                memory_state = self.memory_reader.get_game_state_summary()
+            except Exception:
+                break
+            updated_position = self._extract_position_from_runtime_state({"memory": memory_state})
+            if updated_position is None:
+                break
+            current_position = updated_position
+
+    def _classify_runtime_observation(
+        self,
+        screen_image,
+    ) -> tuple[dict, Optional[str], Optional[str], Optional[str]]:
+        """Normalize one captured frame into current_state plus screen classifications."""
+        screen_hash = self._compute_exact_screen_hash(screen_image)
+        current_state = self.game_state.update(screen_image=screen_image)
+
+        if self._pure_llm_mode_enabled():
+            if isinstance(current_state.get("visual"), dict) and screen_hash:
+                current_state["visual"]["screen_hash"] = screen_hash
+            return current_state, screen_hash, None, None
+
+        screen_type = self._apply_screen_type_hint(current_state, screen_image)
+        if isinstance(current_state.get("visual"), dict) and screen_hash:
+            current_state["visual"]["screen_hash"] = screen_hash
+        control_screen_type = self._get_control_screen_type(current_state, screen_type)
+        if isinstance(current_state.get("visual"), dict) and control_screen_type:
+            visual_state = current_state["visual"]
+            observed = visual_state.get("screen_type")
+            if observed and observed != control_screen_type:
+                visual_state["observed_screen_type"] = observed
+            visual_state["screen_type"] = control_screen_type
+        self._normalize_ui_flags_for_control(current_state, control_screen_type)
+        return current_state, screen_hash, screen_type, control_screen_type
+
+    def _maybe_resettle_visual_after_map_transition(
+        self,
+        screen_image,
+        current_state: dict,
+        screen_hash: Optional[str],
+        screen_type: Optional[str],
+        control_screen_type: Optional[str],
+    ):
+        """After a cross-map warp, keep sampling until the control screen type leaves the old scene."""
+        previous_state = getattr(self, "_last_observed_state", None)
+        previous_position = self._extract_position_from_runtime_state(previous_state)
+        current_position = self._extract_position_from_runtime_state(current_state)
+        if previous_position is None or current_position is None:
+            return screen_image, current_state, screen_hash, screen_type, control_screen_type
+        if previous_position[0] == current_position[0]:
+            return screen_image, current_state, screen_hash, screen_type, control_screen_type
+
+        previous_visual = (previous_state or {}).get("visual", {}) or {}
+        previous_control_screen_type = str(
+            previous_visual.get("screen_type") or ""
+        ).strip().lower()
+        current_control = str(control_screen_type or "").strip().lower()
+        if not previous_control_screen_type:
+            return screen_image, current_state, screen_hash, screen_type, control_screen_type
+        if current_control and current_control not in {"unknown", previous_control_screen_type}:
+            return screen_image, current_state, screen_hash, screen_type, control_screen_type
+
+        settle_frames = max(
+            0,
+            int(self.config.get("actions.post_transition_visual_settle_frames", 8) or 8),
+        )
+        if settle_frames <= 0:
+            return screen_image, current_state, screen_hash, screen_type, control_screen_type
+
+        step_frames = max(
+            1,
+            int(self.config.get("actions.post_transition_visual_settle_step_frames", 4) or 4),
+        )
+        latest = (screen_image, current_state, screen_hash, screen_type, control_screen_type)
+        remaining = settle_frames
+        while remaining > 0:
+            tick_frames = min(step_frames, remaining)
+            self.emulator.tick(tick_frames)
+            remaining -= tick_frames
+            latest_image = self._capture_observation_frame()
+            (
+                latest_state,
+                latest_hash,
+                latest_screen_type,
+                latest_control_screen_type,
+            ) = self._classify_runtime_observation(latest_image)
+            latest = (
+                latest_image,
+                latest_state,
+                latest_hash,
+                latest_screen_type,
+                latest_control_screen_type,
+            )
+            latest_control = str(latest_control_screen_type or "").strip().lower()
+            if latest_control and latest_control not in {"unknown", previous_control_screen_type}:
+                break
+
+        return latest
+
+    def _observe_runtime_state(self):
+        """Capture one normalized runtime observation without consuming another turn."""
+        self._prepare_phase_hint_for_update()
+        self._maybe_settle_after_map_transition()
+        screen_image = self._capture_observation_frame()
+        current_state, screen_hash, screen_type, control_screen_type = (
+            self._classify_runtime_observation(screen_image)
+        )
+        self._consume_phase_hint_after_update()
+        screen_image, current_state, screen_hash, screen_type, control_screen_type = (
+            self._maybe_resettle_visual_after_map_transition(
+                screen_image,
+                current_state,
+                screen_hash,
+                screen_type,
+                control_screen_type,
+            )
+        )
+
+        return screen_image, current_state, screen_hash, screen_type, control_screen_type
+
+    def _synchronize_runtime_turn_state(self, current_state: Optional[dict]) -> dict:
+        """Force runtime snapshots to use the agent's real gameplay turn counter."""
+        normalized = current_state or {}
+        turn_value = int(getattr(self, "turn_count", 0) or 0)
+        normalized["turn"] = turn_value
+        if hasattr(self, "game_state") and hasattr(self.game_state, "turn_count"):
+            self.game_state.turn_count = turn_value
+        return normalized
+
+    def _finalize_pending_action_outcome(self) -> None:
+        """Refresh the final post-action state so shutdown/reporting is not one step stale."""
+        if not getattr(self, "_last_observed_state", None) or not getattr(self, "_last_action", None):
+            return
+        if not all(hasattr(self, attr) for attr in ("game_state", "progress_tracker", "config")):
+            return
+
+        try:
+            screen_image, current_state, _screen_hash, _screen_type, control_screen_type = self._observe_runtime_state()
+        except Exception as exc:
+            self.logger.warning(f"Failed to finalize pending action outcome: {exc}")
+            return
+
+        current_state = self._synchronize_runtime_turn_state(current_state)
+        self._record_last_action_outcome(current_state, control_screen_type)
+        self._last_observed_state = current_state
+        self.progress_tracker.update(self.turn_count, current_state)
+        if self.config.get("visualization.enabled", True):
+            self._publish_visualizer_state(current_state, screen_image)
+        self._last_action = None
+        self._last_action_reasoning = ""
+        self._last_action_source = None
+        self._last_action_source = None
 
     def _game_loop_iteration(self) -> None:
         """Run a single gameplay loop iteration."""
         self.turn_count += 1
 
-        self._prepare_phase_hint_for_update()
-        screen_image = self._capture_observation_frame()
-        screen_hash = self._compute_exact_screen_hash(screen_image)
-        current_state = self.game_state.update(screen_image=screen_image)
-        self._consume_phase_hint_after_update()
-        if self._pure_llm_mode_enabled():
-            screen_type = None
-            control_screen_type = None
-            if isinstance(current_state.get("visual"), dict) and screen_hash:
-                current_state["visual"]["screen_hash"] = screen_hash
-        else:
-            screen_type = self._apply_screen_type_hint(current_state, screen_image)
-            if isinstance(current_state.get("visual"), dict) and screen_hash:
-                current_state["visual"]["screen_hash"] = screen_hash
-            control_screen_type = self._get_control_screen_type(current_state, screen_type)
-            if isinstance(current_state.get("visual"), dict) and control_screen_type:
-                visual_state = current_state["visual"]
-                observed = visual_state.get("screen_type")
-                if observed and observed != control_screen_type:
-                    visual_state["observed_screen_type"] = observed
-                visual_state["screen_type"] = control_screen_type
-            self._normalize_ui_flags_for_control(current_state, control_screen_type)
+        screen_image, current_state, screen_hash, screen_type, control_screen_type = self._observe_runtime_state()
+        current_state = self._synchronize_runtime_turn_state(current_state)
         self._record_last_action_outcome(current_state, control_screen_type)
         self._update_screen_stability(current_state, screen_image, control_screen_type)
 
@@ -1100,13 +1895,18 @@ class PokemonAIAgent:
         self._last_observed_state = current_state
         self._last_action = action
         self._last_action_reasoning = reasoning
+        self._last_action_source = decision.get("decision_source")
 
         if decision.get("executor") == "bootstrap":
             success = self._execute_bootstrap_action(decision)
         elif decision.get("executor") == "async_background_wait":
             success = self._execute_async_background_wait()
         else:
-            success = self.action_executor.execute(action)
+            success = self.action_executor.execute(
+                action,
+                precise=self._should_use_precise_direction_execution(decision, action),
+                settle_frames_override=self._get_action_settle_override(decision, action),
+            )
         if not success:
             self.logger.warning(f"Action failed: {action}")
         else:
@@ -1145,6 +1945,11 @@ class PokemonAIAgent:
             current_state,
             self._last_action,
         )
+        self._update_recent_warp_exit_guard(
+            self._last_observed_state,
+            current_state,
+            self._last_action,
+        )
 
         if self._last_action in {"up", "down", "left", "right"}:
             prev_pos = self._last_observed_state.get("memory", {}).get("position", {})
@@ -1177,9 +1982,16 @@ class PokemonAIAgent:
                 prev_direction != self._last_action
                 and curr_direction == self._last_action
             )
+            deterministic_move_attempt = getattr(self, "_last_action_source", None) in {
+                "cached_ai_plan",
+                "navigation_plan",
+                "guided_navigation_escape",
+                "post_warp_reentry_guard",
+                "recent_warp_buffer_guard",
+            }
             if (
                 same_tile
-                and not turned_in_place
+                and (not turned_in_place or deterministic_move_attempt)
                 and screen_type not in blocked_ui
                 and not current_state.get("memory", {}).get("in_battle")
             ):
@@ -1190,6 +2002,60 @@ class PokemonAIAgent:
                     self._last_action,
                 )
                 self._clear_planned_actions()
+
+    def _update_recent_warp_exit_guard(
+        self,
+        previous_state: dict,
+        current_state: dict,
+        action: Optional[str],
+    ) -> None:
+        """Remember the reverse action that would likely step back through a just-used warp."""
+        action = str(action or "").strip().lower()
+        opposites = {
+            "up": "down",
+            "down": "up",
+            "left": "right",
+            "right": "left",
+        }
+        if action not in opposites:
+            return
+
+        previous_position = self._extract_position_from_runtime_state(previous_state)
+        current_position = self._extract_position_from_runtime_state(current_state)
+        if not previous_position or not current_position:
+            return
+        if previous_position[0] == current_position[0]:
+            return
+
+        warp_trigger_recorder = getattr(
+            getattr(self, "map_memory", None),
+            "record_warp_trigger_action",
+            None,
+        )
+        if callable(warp_trigger_recorder):
+            warp_trigger_recorder(
+                int(previous_position[0]),
+                int(previous_position[1]),
+                int(previous_position[2]),
+                action,
+            )
+
+        ttl = max(
+            1,
+            int(self.config.get("navigation.recent_warp_guard_turns", 4) or 4),
+        )
+        radius = max(
+            0,
+            int(self.config.get("navigation.recent_warp_guard_radius", 2) or 2),
+        )
+        self._recent_warp_exit = {
+            "map_id": int(current_position[0]),
+            "anchor": (int(current_position[1]), int(current_position[2])),
+            "blocked_action": opposites[action],
+            "source_map": int(previous_position[0]),
+            "expires_turn": int(getattr(self, "turn_count", 0) or 0) + ttl,
+            "radius": radius,
+        }
 
     def _update_trigger_tile_memory(
         self,
@@ -1527,6 +2393,360 @@ class PokemonAIAgent:
             tx,
         )
 
+    def _get_recent_map_transition(self, current_state: dict) -> Optional[dict]:
+        """Return the most recent cross-map movement if the current turn just warped."""
+        previous_position = self._extract_position_from_runtime_state(
+            getattr(self, "_last_observed_state", None)
+        )
+        current_position = self._extract_position_from_runtime_state(current_state)
+        if not previous_position or not current_position:
+            return None
+        if previous_position[0] == current_position[0]:
+            return None
+
+        return {
+            "from_map": previous_position[0],
+            "from_x": previous_position[1],
+            "from_y": previous_position[2],
+            "to_map": current_position[0],
+            "to_x": current_position[1],
+            "to_y": current_position[2],
+        }
+
+    def _get_active_recent_warp_exit(self, current_state: dict) -> Optional[dict]:
+        """Return the short-lived reentry guard after a recent warp exit, clearing it when stale."""
+        guard = getattr(self, "_recent_warp_exit", None)
+        if not isinstance(guard, dict):
+            return None
+
+        current_position = self._extract_position_from_runtime_state(current_state)
+        if not current_position:
+            self._recent_warp_exit = None
+            return None
+
+        guard_map_id = guard.get("map_id")
+        if guard_map_id is None or int(current_position[0]) != int(guard_map_id):
+            self._recent_warp_exit = None
+            return None
+
+        expires_turn_raw = guard.get("expires_turn")
+        expires_turn = -1 if expires_turn_raw is None else int(expires_turn_raw)
+        if int(getattr(self, "turn_count", 0) or 0) > expires_turn:
+            self._recent_warp_exit = None
+            return None
+
+        anchor = guard.get("anchor") or ()
+        if not isinstance(anchor, (tuple, list)) or len(anchor) != 2:
+            self._recent_warp_exit = None
+            return None
+
+        radius_raw = guard.get("radius")
+        radius = 0 if radius_raw is None else int(radius_raw)
+        distance = abs(int(current_position[1]) - int(anchor[0])) + abs(
+            int(current_position[2]) - int(anchor[1])
+        )
+        if distance > radius:
+            self._recent_warp_exit = None
+            return None
+
+        guard["distance"] = distance
+        return guard
+
+    def _choose_post_warp_escape_direction(
+        self,
+        current_state: dict,
+        guarded_warp_directions: List[str],
+        *,
+        allow_frontier_steps: bool = True,
+    ) -> Optional[str]:
+        """Pick a non-warp step that immediately leaves a doorway/return-warp fringe."""
+        navigation = current_state.get("navigation", {}) or {}
+        adjacent_tiles = navigation.get("adjacent_tiles", {}) or {}
+        vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
+        memory_blocked = set(navigation.get("blocked_directions", []))
+        vision_blocked = set(vision.get("blocked_directions", []))
+        guarded = {
+            str(direction or "").strip().lower()
+            for direction in guarded_warp_directions
+            if str(direction or "").strip().lower() in {"up", "down", "left", "right"}
+        }
+        current_tile_warp = navigation.get("current_tile_warp") or {}
+        current_tile_trigger_action = str(
+            current_tile_warp.get("trigger_action") or ""
+        ).strip().lower()
+        if current_tile_trigger_action in {"up", "down", "left", "right"}:
+            guarded.add(current_tile_trigger_action)
+        else:
+            current_tile_trigger_action = ""
+        protect_current_warp_tile = bool(current_tile_warp and current_tile_trigger_action)
+        opposites = {
+            "up": "down",
+            "down": "up",
+            "left": "right",
+            "right": "left",
+        }
+        frontier_guidance = navigation.get("frontier_guidance", {}) or {}
+        preferred_direction = str(
+            frontier_guidance.get("escape_direction")
+            or frontier_guidance.get("recommended_direction")
+            or ""
+        ).strip().lower() or None
+        fallback_frontier_direction = str(
+            frontier_guidance.get("recommended_direction") or ""
+        ).strip().lower() or None
+
+        ordered_candidates: List[str] = []
+
+        def add(direction: Optional[str]) -> None:
+            normalized = str(direction or "").strip().lower()
+            if normalized and normalized not in ordered_candidates:
+                ordered_candidates.append(normalized)
+
+        if current_tile_warp:
+            for allowed_status in ("known_exit", "adjacent_explored"):
+                for direction in ("up", "left", "right", "down"):
+                    info = adjacent_tiles.get(direction) or {}
+                    status = str(info.get("status") or "").strip().lower()
+                    if status != allowed_status:
+                        continue
+                    if info.get("target_is_warp") or info.get("step_triggers_warp"):
+                        continue
+                    add(direction)
+
+        for direction in guarded:
+            add(opposites.get(direction))
+        add(preferred_direction)
+        add(fallback_frontier_direction)
+        for direction in vision.get("walkable_directions", []) or []:
+            add(direction)
+        for direction in ("up", "left", "right", "down"):
+            info = adjacent_tiles.get(direction) or {}
+            if info.get("status") in {"frontier", "known_exit", "adjacent_explored"}:
+                add(direction)
+        for direction in ("up", "down", "left", "right"):
+            add(direction)
+
+        position = current_state.get("memory", {}).get("position", {}) or {}
+        start_key = (
+            int(position.get("map_id", 0) or 0),
+            int(position.get("x", 0) or 0),
+            int(position.get("y", 0) or 0),
+        )
+        for direction in ordered_candidates:
+            info = adjacent_tiles.get(direction) or {}
+            status = str(info.get("status") or "").strip().lower()
+            is_safe_step_off = (
+                bool(current_tile_warp)
+                and status in {"known_exit", "adjacent_explored"}
+                and not info.get("target_is_warp")
+                and not info.get("step_triggers_warp")
+            )
+            if direction in guarded:
+                continue
+            if not allow_frontier_steps and not is_safe_step_off:
+                continue
+            if direction in vision_blocked:
+                continue
+            if (
+                direction in memory_blocked
+                and not is_safe_step_off
+                and not (protect_current_warp_tile and status == "blocked_once")
+            ):
+                continue
+            if self._is_temporarily_avoided_move(start_key, direction):
+                continue
+            if info.get("step_triggers_warp"):
+                continue
+            if info.get("target_is_warp"):
+                continue
+            if status == "confirmed_blocked":
+                continue
+            if (
+                status == "blocked_once"
+                and not is_safe_step_off
+                and not protect_current_warp_tile
+            ):
+                continue
+            return direction
+
+        return None
+
+    def _get_post_warp_reentry_guard_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Immediately step away from a just-used return warp before ordinary planning resumes."""
+        if screen_type not in {"overworld", "indoor", "unknown", None}:
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return None
+
+        transition = self._get_recent_map_transition(current_state)
+        if not transition:
+            return None
+
+        warp_cautions = current_state.get("navigation", {}).get("warp_cautions", []) or []
+        guarded_warp_directions = []
+        for caution in warp_cautions:
+            destination = caution.get("destination") or {}
+            try:
+                destination_map_id = int(destination.get("map_id"))
+            except (TypeError, ValueError):
+                continue
+            if destination_map_id != int(transition["from_map"]):
+                continue
+            guarded_warp_directions.append(str(caution.get("direction") or "").strip().lower())
+
+        if not guarded_warp_directions:
+            return None
+
+        current_tile_warp = current_state.get("navigation", {}).get("current_tile_warp") or {}
+        if not current_tile_warp:
+            reasoning = (
+                "Guard: just warped from map "
+                f"{transition['from_map']} to map {transition['to_map']}; doorway exits can auto-step "
+                "one tile after the map transition. Wait briefly so the exit settles before choosing a "
+                "safe direction away from the return warp."
+            )
+            return {
+                "action": "wait",
+                "reasoning": reasoning,
+                "goal_update": None,
+                "recorded_in_context": False,
+                "allow_wait": True,
+                "decision_source": "post_warp_reentry_guard",
+                "decision_path": "tool",
+            }
+
+        action = self._choose_post_warp_escape_direction(
+            current_state,
+            guarded_warp_directions,
+        )
+        if not action:
+            return None
+
+        warp_text = ", ".join(guarded_warp_directions)
+        reasoning = (
+            "Guard: just warped from map "
+            f"{transition['from_map']} to map {transition['to_map']}; avoid stepping "
+            f"{warp_text} onto the adjacent return warp. Move {action} first to leave the doorway "
+            "before normal exploration resumes."
+        )
+        return {
+            "action": action,
+            "reasoning": reasoning,
+            "goal_update": None,
+            "recorded_in_context": False,
+            "decision_source": "post_warp_reentry_guard",
+            "decision_path": "tool",
+        }
+
+    def _get_recent_warp_buffer_guard_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """For a few turns after a warp exit, keep blocking the reverse re-entry action."""
+        if screen_type not in {"overworld", "indoor", "unknown", None}:
+            return None
+        if current_state.get("memory", {}).get("in_battle"):
+            return None
+
+        guard = self._get_active_recent_warp_exit(current_state)
+        if not guard:
+            return None
+
+        blocked_action = str(guard.get("blocked_action") or "").strip().lower()
+        if blocked_action not in {"up", "down", "left", "right"}:
+            return None
+
+        action = self._choose_post_warp_escape_direction(
+            current_state,
+            [blocked_action],
+        )
+        if not action:
+            return None
+
+        reasoning = (
+            "Guard: recently warped into this map; avoid the reverse re-entry action "
+            f"{blocked_action} until you move away from the doorway. Move {action} instead."
+        )
+        return {
+            "action": action,
+            "reasoning": reasoning,
+            "goal_update": None,
+            "recorded_in_context": False,
+            "decision_source": "recent_warp_buffer_guard",
+            "decision_path": "tool",
+        }
+
+    def _get_guided_navigation_escape_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Use deterministic navigation only when live state says the current fringe is weak/stalled."""
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            return None
+        if current_state.get("memory", {}).get("in_battle"):
+            return None
+        if current_state.get("pre_world") or current_state.get("pre_starter_script"):
+            return None
+
+        navigation = current_state.get("navigation", {}) or {}
+        frontier_guidance = navigation.get("frontier_guidance", {}) or {}
+        warp_cautions = navigation.get("warp_cautions", []) or []
+        current_tile_warp = navigation.get("current_tile_warp") or {}
+        movement_pattern = current_state.get("movement_pattern", {}) or {}
+        deltas = current_state.get("deltas", {}) or {}
+        current_visit_count = int(navigation.get("current_visit_count", 0) or 0)
+        stall_turns = int(deltas.get("movement_stall_turns", 0) or 0)
+        blocked_count = len(navigation.get("blocked_directions", []) or [])
+        loop_warning = bool(movement_pattern.get("micro_loop_warning"))
+        recent_warp_guard = self._get_active_recent_warp_exit(current_state)
+
+        should_intervene = False
+        if current_tile_warp and (
+            recent_warp_guard
+            or loop_warning
+            or stall_turns >= 1
+            or current_visit_count >= 2
+        ):
+            should_intervene = True
+        elif frontier_guidance.get("prefer_leave_current_frontier") and (
+            loop_warning
+            or stall_turns >= 2
+            or (blocked_count >= 2 and current_visit_count >= 4)
+        ):
+            should_intervene = True
+        elif warp_cautions and (
+            loop_warning
+            or stall_turns >= 2
+            or (blocked_count >= 1 and current_visit_count >= 3)
+        ):
+            should_intervene = True
+
+        if not should_intervene:
+            return None
+
+        decision = self._get_navigation_plan_decision(
+            current_state,
+            screen_type,
+            force=True,
+        )
+        if not decision:
+            return None
+
+        base_reasoning = str(decision.get("reasoning") or "").strip()
+        prefix = "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe."
+        decision["reasoning"] = f"{prefix} {base_reasoning}".strip()
+        decision["decision_source"] = "guided_navigation_escape"
+        decision["decision_path"] = "tool"
+        return decision
+
     def _get_navigation_frontier_plan(self, current_state: dict) -> Optional[dict]:
         """Return the best reachable frontier plan after temporary trigger-tile filtering."""
         navigation = current_state.get("navigation", {}) or {}
@@ -1657,6 +2877,7 @@ class PokemonAIAgent:
         x = int(position.get("x", 0) or 0)
         y = int(position.get("y", 0) or 0)
         current_tile = (x, y)
+        current_tile_warp = navigation.get("current_tile_warp") or {}
 
         for _ in range(2):
             frontier_plan = self._get_navigation_frontier_plan(current_state)
@@ -1672,12 +2893,52 @@ class PokemonAIAgent:
                 1,
                 int(self.config.get("navigation.loop_warning_visit_threshold", 12) or 12),
             )
+            frontier_guidance = current_state.get("navigation", {}).get("frontier_guidance", {}) or {}
+            guided_escape_direction = None
+            if frontier_guidance.get("prefer_leave_current_frontier"):
+                guided_escape_direction = self._choose_post_warp_escape_direction(
+                    current_state,
+                    [],
+                )
+            current_tile_trigger_action = str(
+                current_tile_warp.get("trigger_action") or ""
+            ).strip().lower()
+            if current_tile_trigger_action not in {"up", "down", "left", "right"}:
+                current_tile_trigger_action = ""
+            if not path and tuple(target or ()) == current_tile and current_tile_warp:
+                guarded_actions = [current_tile_trigger_action] if current_tile_trigger_action else []
+                warp_escape_direction = self._choose_post_warp_escape_direction(
+                    current_state,
+                    guarded_actions,
+                    allow_frontier_steps=bool(current_tile_trigger_action),
+                )
+                if warp_escape_direction:
+                    destination = current_tile_warp.get("destination") or {}
+                    destination_text = ""
+                    if destination:
+                        destination_text = (
+                            f" to map {destination.get('map_id', '?')} "
+                            f"({destination.get('x', '?')}, {destination.get('y', '?')})"
+                        )
+                    return {
+                        "action": warp_escape_direction,
+                        "reasoning": (
+                            "Planner: current tile is a known warp source"
+                            f"{destination_text}; step off it via {warp_escape_direction} "
+                            "before probing local frontier directions."
+                        ),
+                        "goal_update": None,
+                        "recorded_in_context": False,
+                    }
+                self._clear_planned_actions()
+                return None
             if (
                 bool(self.config.get("navigation.defer_to_ai_on_loop_warning", True))
                 and loop_warning
                 and current_visit_count >= loop_visit_threshold
                 and not path
                 and tuple(target or ()) == current_tile
+                and not guided_escape_direction
             ):
                 self._clear_planned_actions()
                 return None
@@ -1698,17 +2959,40 @@ class PokemonAIAgent:
                     "recorded_in_context": False,
                 }
 
+            if guided_escape_direction:
+                reasoning = (
+                    f"Planner: leave the weaker local frontier via {guided_escape_direction}. "
+                    f"{frontier_guidance.get('summary') or 'A stronger frontier exists elsewhere on this map.'}"
+                )
+                return {
+                    "action": guided_escape_direction,
+                    "reasoning": reasoning,
+                    "goal_update": None,
+                    "recorded_in_context": False,
+                }
+
             frontier_direction = self._choose_frontier_direction(
                 current_state,
                 frontier_plan.get("unknown_directions", []),
             )
             if frontier_direction:
                 novelty = frontier_plan.get("novelty_label", "unknown")
-                reasoning = (
-                    f"Planner: current tile is already a frontier; test unexplored direction "
-                    f"{frontier_direction} from {self._planned_target} "
-                    f"(novelty={novelty}, pressure={frontier_plan.get('local_visit_pressure', 0)})"
-                )
+                if (
+                    frontier_guidance.get("prefer_leave_current_frontier")
+                    and str(frontier_guidance.get("recommended_direction") or "").strip().lower()
+                    == frontier_direction
+                ):
+                    guidance_summary = frontier_guidance.get("summary") or "leave the weaker local frontier"
+                    reasoning = (
+                        f"Planner: leave the weaker local frontier via {frontier_direction}. "
+                        f"{guidance_summary}"
+                    )
+                else:
+                    reasoning = (
+                        f"Planner: current tile is already a frontier; test unexplored direction "
+                        f"{frontier_direction} from {self._planned_target} "
+                        f"(novelty={novelty}, pressure={frontier_plan.get('local_visit_pressure', 0)})"
+                    )
                 return {
                     "action": frontier_direction,
                     "reasoning": reasoning,
@@ -1732,7 +3016,11 @@ class PokemonAIAgent:
             return None
 
         vision = current_state.get("visual", {}).get("navigation_hints", {})
-        memory_blocked = set(current_state.get("navigation", {}).get("blocked_directions", []))
+        navigation = current_state.get("navigation", {}) or {}
+        frontier_guidance = navigation.get("frontier_guidance", {}) or {}
+        adjacent_tiles = navigation.get("adjacent_tiles", {}) or {}
+        current_tile_warp = navigation.get("current_tile_warp") or {}
+        memory_blocked = set(navigation.get("blocked_directions", []))
         position = current_state.get("memory", {}).get("position", {}) or {}
         start_key = (
             int(position.get("map_id", 0) or 0),
@@ -1740,27 +3028,79 @@ class PokemonAIAgent:
             int(position.get("y", 0) or 0),
         )
         vision_blocked = set(vision.get("blocked_directions", []))
+        current_tile_trigger_action = str(
+            current_tile_warp.get("trigger_action") or ""
+        ).strip().lower()
+        if current_tile_trigger_action in {"up", "down", "left", "right"}:
+            memory_blocked.add(current_tile_trigger_action)
         avoided = {
             direction
             for direction in candidate_directions
             if self._is_temporarily_avoided_move(start_key, direction)
         }
         blocked = memory_blocked | vision_blocked | avoided
+        preferred_direction = None
+        discouraged_directions: set[str] = set()
+        if frontier_guidance.get("prefer_leave_current_frontier"):
+            preferred_direction = str(
+                frontier_guidance.get("recommended_direction") or ""
+            ).strip().lower() or None
+            discouraged_directions = {
+                str(direction or "").strip().lower()
+                for direction in frontier_guidance.get("discouraged_directions", []) or []
+            }
+        safe_candidates = [
+            direction
+            for direction in candidate_directions
+            if (
+                direction not in blocked
+                and direction not in discouraged_directions
+                and not (adjacent_tiles.get(direction) or {}).get("target_is_warp")
+                and not (adjacent_tiles.get(direction) or {}).get("step_triggers_warp")
+            )
+        ]
+
+        if preferred_direction and preferred_direction in safe_candidates:
+            return preferred_direction
 
         last_action = getattr(self, "_last_action", None)
         if (
-            last_action in candidate_directions
-            and last_action not in blocked
+            last_action in safe_candidates
             and current_state.get("deltas", {}).get("position_changed")
         ):
             return last_action
 
         for direction in vision.get("walkable_directions", []):
-            if direction in candidate_directions and direction not in blocked:
+            if direction in safe_candidates:
+                return direction
+
+        for direction in safe_candidates:
+            return direction
+
+        if (
+            preferred_direction
+            and preferred_direction in candidate_directions
+            and preferred_direction not in blocked
+            and not (adjacent_tiles.get(preferred_direction) or {}).get("target_is_warp")
+            and not (adjacent_tiles.get(preferred_direction) or {}).get("step_triggers_warp")
+        ):
+            return preferred_direction
+
+        for direction in vision.get("walkable_directions", []):
+            if (
+                direction in candidate_directions
+                and direction not in blocked
+                and not (adjacent_tiles.get(direction) or {}).get("target_is_warp")
+                and not (adjacent_tiles.get(direction) or {}).get("step_triggers_warp")
+            ):
                 return direction
 
         for direction in candidate_directions:
-            if direction not in blocked:
+            if (
+                direction not in blocked
+                and not (adjacent_tiles.get(direction) or {}).get("target_is_warp")
+                and not (adjacent_tiles.get(direction) or {}).get("step_triggers_warp")
+            ):
                 return direction
 
         return None
@@ -1813,14 +3153,37 @@ class PokemonAIAgent:
 
     def _is_early_fixed_route_state(self, current_state: dict) -> bool:
         """Return True when deterministic early-game routing should not trigger critique logic."""
-        if self._research_mode_enabled() or self._llm_driven_mode_enabled():
+        if (
+            self._research_mode_enabled()
+            or self._pure_llm_mode_enabled()
+            or self._ai_full_control_mode_enabled()
+        ):
             return False
+        guided_controllers = (
+            getattr(self, "post_battle_intro_route", None),
+            getattr(self, "viridian_parcel_controller", None),
+            getattr(self, "post_pokedex_departure_controller", None),
+        )
+        for route_controller in guided_controllers:
+            if not route_controller or not hasattr(route_controller, "is_guided_state"):
+                continue
+            try:
+                if route_controller.is_guided_state(current_state):
+                    return True
+            except Exception:
+                pass
         memory = current_state.get("memory", {}) or {}
         if memory.get("in_battle"):
             return False
         if int(memory.get("badge_count", 0) or 0) != 0:
             return False
         if int(memory.get("item_count", 0) or 0) != 0:
+            return False
+        events = memory.get("events", {}) or {}
+        if any(
+            bool(events.get(name))
+            for name in ("got_oaks_parcel", "oak_got_parcel", "got_pokedex")
+        ):
             return False
 
         position = memory.get("position", {}) or {}
@@ -1839,6 +3202,42 @@ class PokemonAIAgent:
         ):
             return True
         return False
+
+    def _should_use_precise_direction_execution(
+        self,
+        decision: dict,
+        action: str,
+    ) -> bool:
+        """Let deterministic tool routing complete one real step in llm-primary mode."""
+        normalized = str(action or "").strip().lower()
+        if normalized not in {"up", "down", "left", "right"}:
+            return False
+        if self._pure_llm_mode_enabled():
+            return False
+        if not self._llm_primary_mode_enabled():
+            return False
+
+        source = str(decision.get("decision_source") or "").strip().lower()
+        return source not in {"ai", "cached_ai_plan"}
+
+    def _get_action_settle_override(
+        self,
+        decision: dict,
+        action: str,
+    ) -> Optional[int]:
+        """Return an action-specific settle override for fragile scripted states."""
+        normalized = str(action or "").strip().lower()
+        if normalized not in {"a", "b"}:
+            return None
+
+        source = str(decision.get("decision_source") or "").strip().lower()
+        if source != "early_battle":
+            return None
+
+        return max(
+            0,
+            int(self.config.get("actions.early_battle_button_settle_frames", 30) or 30),
+        )
 
     def _build_critic_history_text(self, limit_chars: int = 8000) -> str:
         """Build a bounded history string for the critic."""
@@ -1927,6 +3326,53 @@ class PokemonAIAgent:
 
         self._set_transient_phase_hint(None, ttl_turns=0)
 
+    def _has_stale_battle_screen_flag(
+        self,
+        current_state: dict,
+        observed_screen_type: Optional[str],
+    ) -> bool:
+        """Detect false battle classifications after control has clearly returned to the field."""
+        screen_type = (observed_screen_type or "").strip().lower()
+        if screen_type != "battle":
+            return False
+
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return False
+
+        battle_summary = current_state.get("battle_summary", {}) or {}
+        battle_phase = str(battle_summary.get("phase") or "").strip().lower()
+        if battle_phase not in {"", "not_in_battle"}:
+            return False
+
+        if current_state.get("pre_world") or current_state.get("pre_starter_script"):
+            return False
+
+        ui_state = memory.get("ui", {}) or {}
+        if ui_state.get("text_box_active"):
+            return False
+
+        position = memory.get("position", {}) or {}
+        map_id = position.get("map_id")
+        x = position.get("x")
+        y = position.get("y")
+        return map_id is not None and x is not None and y is not None
+
+    def _infer_field_screen_type(
+        self,
+        phase_hint: Optional[str],
+    ) -> str:
+        """Pick a field-like control screen type after filtering a false UI classification."""
+        previous = str(getattr(self, "_prev_screen_type", "") or "").strip().lower()
+        if previous in {"overworld", "indoor", "memory_only"}:
+            return previous
+
+        hint = str(phase_hint or "").strip().lower()
+        if hint in {"overworld", "indoor", "memory_only"}:
+            return hint
+
+        return "overworld"
+
     def _get_control_screen_type(
         self,
         current_state: dict,
@@ -1947,6 +3393,8 @@ class PokemonAIAgent:
             if phase_hint in {"dialogue", "battle", "indoor"}:
                 return phase_hint
             return "dialogue"
+        if self._has_stale_battle_screen_flag(current_state, screen_type):
+            return self._infer_field_screen_type(phase_hint)
         if screen_type in {
             "startup",
             "dialogue",
@@ -2025,24 +3473,36 @@ class PokemonAIAgent:
         y = int(position.get("y", 0) or 0)
         return map_id == 40 and not (memory.get("party") or memory.get("in_battle")) and (x, y) != (5, 3)
 
-    def _normalize_ui_flags_for_control(
+    def _has_stale_menu_flag(
         self,
         current_state: dict,
-        screen_type: Optional[str],
-    ) -> None:
-        """Clear RAM UI flags once the current scene is clearly free movement."""
-        if not self._has_stale_text_box_flag(current_state, screen_type):
-            return
-
+        observed_screen_type: Optional[str],
+    ) -> bool:
+        """Treat RAM menu flags as stale once the screenshot is clearly back on a field map."""
         memory = current_state.get("memory", {}) or {}
         ui_state = memory.get("ui", {}) or {}
-        if not isinstance(ui_state, dict):
-            return
+        if not ui_state.get("menu_active") or ui_state.get("text_box_active"):
+            return False
+        if memory.get("in_battle"):
+            return False
 
-        if ui_state.get("text_box_active"):
-            ui_state["stale_text_box_flag"] = True
-        ui_state["text_box_active"] = False
+        screen_type = (observed_screen_type or "").strip().lower()
+        if screen_type not in {"indoor", "overworld", "memory_only"}:
+            return False
 
+        if current_state.get("pre_world") or current_state.get("pre_starter_script"):
+            return False
+
+        position = memory.get("position", {}) or {}
+        return (
+            position.get("map_id") is not None
+            and position.get("x") is not None
+            and position.get("y") is not None
+        )
+
+    def _refresh_movement_deltas_after_ui_clear(self, current_state: dict) -> None:
+        """Recompute stall hints after stale UI flags are stripped from a free-movement scene."""
+        memory = current_state.get("memory", {}) or {}
         deltas = current_state.get("deltas", {}) or {}
         if memory.get("in_battle"):
             self.game_state._movement_stall_turns = 0
@@ -2064,6 +3524,50 @@ class PokemonAIAgent:
             if stall_turns >= 2
             else "slight stall"
         )
+
+    def _normalize_ui_flags_for_control(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> None:
+        """Clear RAM UI flags once the current scene is clearly free movement."""
+        memory = current_state.get("memory", {}) or {}
+        ui_state = memory.get("ui", {}) or {}
+        if not isinstance(ui_state, dict):
+            return
+
+        visual_state = current_state.get("visual", {}) or {}
+        observed_screen_type = (
+            visual_state.get("observed_screen_type")
+            or visual_state.get("screen_type")
+            or screen_type
+        )
+        cleared_ui_flag = False
+        if (
+            self._has_stale_battle_screen_flag(current_state, observed_screen_type)
+            and ui_state.get("menu_active")
+            and not ui_state.get("text_box_active")
+        ):
+            ui_state["stale_menu_flag"] = True
+            ui_state["menu_active"] = False
+            visual_state["stale_battle_screen_flag"] = True
+            cleared_ui_flag = True
+
+        if self._has_stale_menu_flag(current_state, screen_type):
+            ui_state["stale_menu_flag"] = True
+            ui_state["menu_active"] = False
+            cleared_ui_flag = True
+
+        if self._has_stale_text_box_flag(current_state, screen_type):
+            if ui_state.get("text_box_active"):
+                ui_state["stale_text_box_flag"] = True
+            ui_state["text_box_active"] = False
+            cleared_ui_flag = True
+
+        if not cleared_ui_flag:
+            return
+
+        self._refresh_movement_deltas_after_ui_clear(current_state)
 
     def _publish_visualizer_state(self, current_state: dict, screen_image) -> None:
         """Push state, screenshot, goals, and control status to the dashboard."""
@@ -2107,7 +3611,7 @@ class PokemonAIAgent:
 
         screen_image = self._capture_startup_preview_frame(warmup_frames=warmup_frames)
         current_state = self.game_state.update(screen_image=screen_image)
-        current_state["turn"] = self.turn_count
+        current_state = self._synchronize_runtime_turn_state(current_state)
         self._last_observed_state = current_state
 
         try:
@@ -2174,6 +3678,7 @@ class PokemonAIAgent:
         screen_image = self._capture_observation_frame()
         current_state = self.game_state.update(screen_image=screen_image)
         self._apply_screen_type_hint(current_state, screen_image)
+        current_state = self._synchronize_runtime_turn_state(current_state)
         self._publish_visualizer_state(current_state, screen_image)
         self.progress_tracker.update(self.turn_count, current_state)
         self.visualizer.update_decision(action, f"手动控制：{action}", self.turn_count)
@@ -2181,6 +3686,7 @@ class PokemonAIAgent:
         self._last_observed_state = current_state
         self._last_action = None
         self._last_action_reasoning = ""
+        self._last_action_source = None
         self._clear_planned_actions()
 
     def _record_control_event(self, command: str, error: Optional[str] = None) -> None:
@@ -2852,7 +4358,7 @@ class PokemonAIAgent:
         screen_type: Optional[str],
     ) -> Optional[dict]:
         """Choose a safe escape action when the UI is stable but button presses do nothing."""
-        if self._stable_screen_turns < 8:
+        if int(getattr(self, "_stable_screen_turns", 0) or 0) < 8:
             return None
 
         if screen_type == "dialogue" and self._recent_actions_are_same("a", 6):
@@ -3064,10 +4570,15 @@ class PokemonAIAgent:
         self.oak_lab_starter.reset()
         self.oak_lab_post_starter.reset()
         self.oak_lab_rival_battle.reset()
+        self.early_battle_controller.reset()
         self.post_battle_intro_route.reset()
+        self.viridian_parcel_controller.reset()
+        self.post_pokedex_departure_controller.reset()
         self._last_observed_state = None
         self._last_action = None
         self._last_action_reasoning = ""
+        self._last_action_source = None
+        self._recent_warp_exit = None
         self._prev_screen_type = metadata.get("screen_type")
         self._stable_screen_turns = 0
         self._last_screen_signature = None

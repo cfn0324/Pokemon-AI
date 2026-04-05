@@ -81,6 +81,7 @@ You have access to the following information each turn:
 - Current raw screenshot image to read menus, battles, dialogue boxes, NPCs, player position, and obstacles
 - Map exploration status
 - A navigation advisor derived from map memory, visit counts, known blocked directions, known warps, reachable frontier tiles, and frontier novelty scoring
+- A structured adjacent-tile occupancy summary around the player's current position
 - A recent-movement summary that warns when you have been revisiting a tiny local area
 - A structured battle summary that distinguishes new encounters, ongoing battles, and post-battle dialogue
 - A live plan with long-term mission, current stage, current focus, and a real-time todo list
@@ -109,9 +110,14 @@ Important constraints:
 - On naming screens, do not press A repeatedly on the same letter unless you intentionally want repeated letters. If one character was just entered, move before pressing A again unless repetition is desired.
 - When a name field is already full, press START to confirm it instead of adding more letters.
 - Use the navigation advisor as reliable memory: known exits, blocked directions, warp points, frontier routes, and visit counts come from actual observed play.
+- If the state text includes adjacent-tile occupancy, treat it as the first-pass memory check for one-step movement before guessing from screenshot intuition alone.
+- If the state text includes Immediate movement preference/cautions or an Interaction cue, treat those lines as the distilled one-step summary of navigation memory before guessing from the screenshot.
 - If navigation memory says a direction from the current tile is blocked, treat it as blocked even if the screenshot alone makes it look open.
 - If most directions are blocked and the remaining space is occupied by Oak, the rival, or another story blocker, switch from movement to interaction with A.
 - If the state text includes frontier novelty or revisit-pressure metrics, use them to avoid repeatedly probing a locally exhausted frontier when better alternatives exist.
+- If the state text includes a Warp caution line, do not step onto that adjacent warp tile unless you intentionally want to change maps.
+- If the state text includes a Current-tile warp caution line, step off that warp-source tile before probing unknown directions, and avoid any learned trigger action unless you intentionally want to change maps.
+- If the state text includes a Frontier caution line naming a stronger frontier or recommended escape direction, follow that guidance instead of probing every adjacent unknown around the current fringe.
 - If the state text includes a battle summary, trust it for battle phase: for example, post-battle dialogue means you should finish the text instead of trying to walk away.
 - If the exit, stairs, or door is not visible yet, your job is to explore until it becomes visible. Exploration is progress.
 - If the state text reports a loop warning or says recent movement stayed inside a tiny box, treat the current local frontier as suspicious and deliberately change route instead of probing the same edge again.
@@ -275,9 +281,77 @@ This is wrong because camera position does not prove walkable floor, and black s
             or self.config.get('decision.llm_primary_mode', False)
         )
 
+    def _llm_primary_action_plan_enabled(self) -> bool:
+        """Allow short movement plans in LLM-primary mode when configured."""
+        return bool(self.config.get('decision.llm_primary_action_plan_enabled', True))
+
     def _action_plan_enabled_for_current_mode(self) -> bool:
         """Only solicit follow-up action plans when the runtime can actually consume them."""
-        return bool(self.action_plan_enabled and not self._llm_driven_mode_enabled())
+        if not self.action_plan_enabled:
+            return False
+        if bool(self.config.get('decision.pure_llm_mode', False)):
+            return False
+        if bool(self.config.get('decision.llm_primary_mode', False)):
+            return self._llm_primary_action_plan_enabled()
+        return True
+
+    def _refresh_task_notebook(self) -> None:
+        """Build a compact working-memory note from goals and recent outcomes."""
+        focus = (self.goals.focus or "").strip()
+        next_step = ""
+        if self.goals.todo_items:
+            next_step = (self.goals.todo_items[0].description or "").strip()
+        if not next_step:
+            next_step = focus
+
+        recent_progress = ""
+        avoid = ""
+        recent_turns = self.context.recent_turns[-4:]
+        progress_tokens = (
+            "moved from",
+            "warped from",
+            "entered battle",
+            "battle ended",
+            "text box opened",
+            "text box closed",
+            "menu opened",
+            "menu closed",
+            "party size increased",
+            "earned",
+            "screen changed",
+        )
+        stall_tokens = (
+            "position did not change",
+            "no visible state change",
+            "text box remains active",
+            "menu remains active",
+        )
+
+        for turn in reversed(recent_turns):
+            result = " ".join((turn.result or "").split()).strip()
+            if not result:
+                continue
+            lowered = result.lower()
+            if not recent_progress and any(token in lowered for token in progress_tokens):
+                recent_progress = self._compact_text(result, max_chars=220)
+            if not avoid and any(token in lowered for token in stall_tokens):
+                action = (turn.action or "").strip().lower()
+                if action:
+                    avoid = f"Do not blindly repeat {action} if the scene still looks unchanged."
+                else:
+                    avoid = "Do not blindly repeat the last failed tactic if the scene still looks unchanged."
+
+        if not recent_progress and recent_turns:
+            latest_result = " ".join(((recent_turns[-1].result or "")).split()).strip()
+            if latest_result:
+                recent_progress = self._compact_text(latest_result, max_chars=220)
+
+        self.context.set_task_notebook(
+            focus=self._compact_text(focus, max_chars=180),
+            next_step=self._compact_text(next_step, max_chars=180),
+            recent_progress=recent_progress,
+            avoid=avoid,
+        )
 
     def decide_action(
         self,
@@ -299,12 +373,6 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         if time.time() < self._api_cooldown_until:
             remaining = max(0.0, self._api_cooldown_until - time.time())
-            if self._should_retry_same_turn():
-                raise AIDecisionRetrySignal(
-                    f"API cooldown active for {remaining:.1f}s after recent request failures",
-                    source="ai_cooldown",
-                    retry_after_seconds=remaining,
-                )
             return {
                 "action": "wait",
                 "reasoning": f"API cooldown active for {remaining:.1f}s after recent request failures",
@@ -316,6 +384,7 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         # Refresh the staged plan before prompting the model.
         self.goals.sync_with_game_state(game_state)
+        self._refresh_task_notebook()
 
         # Check if we need summarization
         if self.context.needs_summarization():
@@ -327,6 +396,8 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         # Get AI response
         try:
+            request_started_at = time.perf_counter()
+            model_request_count = 1
             response_text = self._request_model_response(
                 prompt,
                 screenshot_bytes,
@@ -344,12 +415,19 @@ This is wrong because camera position does not prove walkable floor, and black s
                     max_tokens=self.decision_max_tokens,
                     temperature=min(float(self.temperature or 0.0), 0.2),
                 )
+                model_request_count += 1
                 self.logger.debug(f"Repaired model response (truncated): {repaired_response[:800]!r}")
                 decision = self._parse_response(repaired_response)
                 response_text = repaired_response
 
             if self.strict_response_format and self._decision_is_invalid_after_repair(decision, response_text):
                 raise ValueError("Model response remained invalid after repair")
+
+            decision["model_latency_seconds"] = round(
+                max(0.0, time.perf_counter() - request_started_at),
+                3,
+            )
+            decision["model_request_count"] = model_request_count
 
             # Log decision
             self.logger.decision(decision['action'], decision['reasoning'])
@@ -365,6 +443,8 @@ This is wrong because camera position does not prove walkable floor, and black s
                 reasoning=decision['reasoning'],
                 decision_source=decision.get('decision_source', 'ai'),
                 decision_path=decision.get('decision_path', 'ai'),
+                model_latency_seconds=decision.get('model_latency_seconds'),
+                model_request_count=decision.get('model_request_count'),
             )
 
             # Update goals if needed
@@ -435,14 +515,24 @@ This is wrong because camera position does not prove walkable floor, and black s
 
         # Add decision request
         if self._action_plan_enabled_for_current_mode():
-            parts.append(
-                "Decide the next single input. In stable overworld or indoor movement scenes, "
-                "you may also provide a short follow-up ACTION_PLAN that starts with the chosen ACTION."
-            )
-            action_plan_format = (
-                "ACTION_PLAN: <none or a short comma-separated list of 2-6 allowed actions "
-                "beginning with ACTION>"
-            )
+            if bool(self.config.get('decision.llm_primary_mode', False)):
+                parts.append(
+                    "Decide the next single input. In stable overworld or indoor movement scenes with no open menu "
+                    "or dialogue, you may also provide a short ACTION_PLAN of 2-3 movement steps that starts with ACTION."
+                )
+                action_plan_format = (
+                    "ACTION_PLAN: <none or a short comma-separated list of 2-3 movement actions "
+                    "beginning with ACTION>"
+                )
+            else:
+                parts.append(
+                    "Decide the next single input. In stable overworld or indoor movement scenes, "
+                    "you may also provide a short follow-up ACTION_PLAN that starts with the chosen ACTION."
+                )
+                action_plan_format = (
+                    "ACTION_PLAN: <none or a short comma-separated list of 2-6 allowed actions "
+                    "beginning with ACTION>"
+                )
         else:
             parts.append("Decide the next single input.")
             action_plan_format = "ACTION_PLAN: none"
@@ -560,12 +650,55 @@ This is wrong because camera position does not prove walkable floor, and black s
             and self.config.get('decision.retry_same_turn_on_ai_error', True)
         )
 
+    def _is_persistent_provider_error(self, message: str) -> bool:
+        """Detect provider-side auth/quota outages that should not spin in same-turn retry."""
+        lowered = str(message or "").lower()
+        persistent_tokens = (
+            "status 401",
+            '"status": 401',
+            "unauthorized",
+            "authentication token",
+            "token invalidated",
+            "token_invalidated",
+            "token revoked",
+            "token_revoked",
+            "invalid api key",
+            "insufficient_quota",
+            "quota exceeded",
+            "no available token",
+            "没有可用token",
+        )
+        return any(token in lowered for token in persistent_tokens)
+
+    def _is_unreachable_transport_error(self, message: str) -> bool:
+        """Detect endpoint/network outages that should enter cooldown instead of same-turn retry."""
+        lowered = str(message or "").lower()
+        unreachable_tokens = (
+            "failed to establish a new connection",
+            "newconnectionerror",
+            "connection refused",
+            "actively refused",
+            "connection aborted",
+            "connection reset",
+            "proxyerror",
+            "sslerror",
+            "name resolution",
+            "max retries exceeded",
+            "winerror 10013",
+            "winerror 10061",
+        )
+        return any(token in lowered for token in unreachable_tokens)
+
     def _is_retryable_decision_error(self, error: Exception) -> bool:
         """Classify retryable transport/schema failures without masking config bugs."""
         message = str(error or "").lower()
 
         if "model response remained invalid after repair" in message:
             return True
+        if self._is_persistent_provider_error(message):
+            return False
+        if self._is_unreachable_transport_error(message):
+            return False
 
         transient_tokens = (
             "status 429",
@@ -579,7 +712,6 @@ This is wrong because camera position does not prove walkable floor, and black s
             "request failed",
             "invalid ai response",
             "unsupported ai response shape",
-            "token",
         )
         return any(token in message for token in transient_tokens)
 
@@ -1060,6 +1192,22 @@ This is wrong because camera position does not prove walkable floor, and black s
         base = float(self.config.get("ai.api_error_cooldown_seconds", 6) or 6)
         max_cooldown = float(self.config.get("ai.api_error_cooldown_max_seconds", 30) or 30)
         cooldown = min(max_cooldown, base * max(1, self._api_failure_count))
+        if self._is_persistent_provider_error(message):
+            cooldown = max(
+                cooldown,
+                float(self.config.get("ai.persistent_api_error_cooldown_seconds", 30) or 30),
+            )
+        elif self._is_unreachable_transport_error(message):
+            cooldown = max(
+                cooldown,
+                float(
+                    self.config.get(
+                        "ai.unreachable_api_error_cooldown_seconds",
+                        self.config.get("ai.persistent_api_error_cooldown_seconds", 30),
+                    )
+                    or 30
+                ),
+            )
         self._api_cooldown_until = max(self._api_cooldown_until, time.time() + cooldown)
 
     def save_state(self, directory: str) -> None:

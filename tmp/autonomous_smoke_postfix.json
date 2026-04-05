@@ -1,0 +1,535 @@
+{
+  "requested_checkpoint": "latest",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 8,
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "effective_settings": {
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 448,
+    "action_plan_max_actions": 3
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 195921,
+  "turn_delta": 8,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 8,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 5,
+    "cached_ai_plan": 3
+  },
+  "decision_path_counts": {
+    "ai": 5,
+    "tool": 3
+  },
+  "ai_latency_summary": {
+    "count": 5,
+    "avg_seconds": 4.906,
+    "max_seconds": 6.019,
+    "min_seconds": 4.011,
+    "total_seconds": 24.529,
+    "avg_request_count": 1.0
+  },
+  "final_state": {
+    "turn": 195921,
+    "timestamp": "2026-04-03T20:50:10.589381",
+    "position": {
+      "map_id": 0,
+      "x": 12,
+      "y": 11
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "overworld",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 195922,
+      "local_analysis_enabled": false,
+      "screen_hash": "fdd1909b5267d3bfa37c7908b4c4fa21"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 62,
+      "total_tiles": 200,
+      "exploration_percent": 31.0
+    },
+    "navigation": {
+      "current_visit_count": 2,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 56,
+      "nearest_frontier": {
+        "target": [
+          12,
+          11
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 2,
+        "distance": 0,
+        "local_visit_pressure": 5,
+        "global_novelty_distance": 10,
+        "priority_score": 27.25,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 8,
+          "local_visit_pressure": 1,
+          "global_novelty_distance": 7,
+          "priority_score": 36.2,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 0,
+          "local_visit_pressure": 5,
+          "global_novelty_distance": 10,
+          "priority_score": 27.25,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 3,
+          "local_visit_pressure": 8,
+          "global_novelty_distance": 7,
+          "priority_score": 21.2,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 12,
+            "y": 10
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "down": {
+          "target": {
+            "x": 12,
+            "y": 12
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 1,
+          "target_known_explored": true,
+          "target_is_warp": true,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (12, 12) has been explored, but this exact step is not yet confirmed from the current tile. The target tile is also a known warp point."
+        },
+        "left": {
+          "target": {
+            "x": 11,
+            "y": 11
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "right": {
+          "target": {
+            "x": 13,
+            "y": 11
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "known_warps": [
+        {
+          "src_map": 0,
+          "src_x": 5,
+          "src_y": 6,
+          "dest_map": 37,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        },
+        {
+          "src_map": 0,
+          "src_x": 12,
+          "src_y": 12,
+          "dest_map": 40,
+          "dest_x": 12,
+          "dest_y": 11,
+          "count": 2
+        }
+      ],
+      "local_map": [
+        "F????????",
+        "FF???????",
+        "F????????",
+        "F????????",
+        "FF??P????",
+        "F?FFW????",
+        "F????????",
+        "FFF??????",
+        "??F??????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 0,
+        "rows": [
+          "                 ",
+          "                 ",
+          "  #              ",
+          "                 ",
+          "   #       #FF   ",
+          "  #.FFFFFFF..F   ",
+          "   FF    #.FFF   ",
+          "   FF     F      ",
+          "   FF  F  F F#   ",
+          "   F.FFW  F F    ",
+          "   F.F F  F      ",
+          "   FFFFF  FF     ",
+          "       #  F      ",
+          "          F      ",
+          "      F   FF  P  ",
+          "          F FFW  ",
+          "          F #    ",
+          "          FFF    ",
+          "            F    ",
+          "            F    ",
+          "          # #    ",
+          "                 ",
+          "                 "
+        ],
+        "prompt_rows": [
+          "?????????????????",
+          "?????????????????",
+          "??#??????????????",
+          "?????????????????",
+          "???#???????#FF???",
+          "??#.FFFFFFF..F???",
+          "???FF????#.FFF???",
+          "???FF?????F??????",
+          "???FF??F??F?F#???",
+          "???F.FFW??F?F????",
+          "???F.F?F??F??????",
+          "???FFFFF??FF?????",
+          "???????#??F??????",
+          "??????????F??????",
+          "??????F???FF??P??",
+          "??????????F?FFW??",
+          "??????????F?#????",
+          "??????????FFF????",
+          "????????????F????",
+          "????????????F????",
+          "??????????#?#????",
+          "?????????????????",
+          "?????????????????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 14,
+          "min_y": -3,
+          "max_y": 19,
+          "width": 17,
+          "height": 23
+        },
+        "player": {
+          "x": 12,
+          "y": 11
+        },
+        "explored_count": 62,
+        "frontier_count": 56,
+        "blocked_count": 10,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 3,
+      "unique_tiles": 2,
+      "bounding_box_width": 9,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 2,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak’s Lab with the bottom doorway directly below, so stepping down is the clearest move to leave the building and continue the mandatory intro.",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.011,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing in Oak’s Lab with open floor directly below and no dialogue box, so continuing down is the clearest step toward the bottom exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.019,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "The screenshot shows the player one tile above Oak Lab’s bottom doorway with open floor directly below, so stepping down should reach the exit.",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.775,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player one tile above Oak Lab’s bottom doorway with open floor directly below, so stepping down should reach the exit. | follow down, down",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing on the bottom edge of Oak’s Lab with open floor to the right while moving down has already stalled, so exploring right is the next concrete step.",
+      "result": "After right:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.496,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player standing on the bottom edge of Oak’s Lab with open floor to the right while moving down has already stalled, so exploring right is the next concrete step. | follow right, down",
+      "result": "After down:; warped from map 40 (4,11) to map 0 (4,11)",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "up",
+      "reasoning": "The screenshot shows the player just inside the lab entrance with open floor directly above, so stepping up moves farther into the room to continue exploring instead of reusing the doorway.",
+      "result": "After up:; moved from (4,11) to (12,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.228,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "left",
+      "reasoning": "AI plan: The screenshot shows the player just inside the lab entrance with open floor directly above, so stepping up moves farther into the room to continue exploring instead of reusing the doorway. | follow up, left",
+      "result": "After left:; position did not change; screen changed from indoor to overworld",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    }
+  ]
+}

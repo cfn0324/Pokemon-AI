@@ -17,9 +17,13 @@ class _ConfigStub:
 class _LoggerStub:
     def __init__(self):
         self.warnings = []
+        self.errors = []
 
     def warning(self, message):
         self.warnings.append(message)
+
+    def error(self, message):
+        self.errors.append(message)
 
 
 class _DecisionEngineStub:
@@ -36,7 +40,7 @@ class _DecisionEngineStub:
 
 
 class SameTurnRetryTests(unittest.TestCase):
-    def test_main_agent_raises_retry_signal_during_cooldown_in_pure_llm_mode(self):
+    def test_main_agent_returns_cooldown_wait_in_pure_llm_mode(self):
         agent = object.__new__(MainAgent)
         agent.config = _ConfigStub(
             {
@@ -46,13 +50,12 @@ class SameTurnRetryTests(unittest.TestCase):
         )
         agent._api_cooldown_until = time.time() + 0.5
 
-        with self.assertRaises(AIDecisionRetrySignal) as exc_info:
-            agent.decide_action({"turn": 1}, "state")
+        decision = agent.decide_action({"turn": 1}, "state")
 
-        self.assertEqual(exc_info.exception.source, "ai_cooldown")
-        self.assertGreater(exc_info.exception.retry_after_seconds, 0.0)
+        self.assertEqual(decision["decision_source"], "ai_cooldown")
+        self.assertEqual(decision["action"], "wait")
 
-    def test_main_agent_raises_retry_signal_during_cooldown_in_llm_primary_mode(self):
+    def test_main_agent_returns_cooldown_wait_in_llm_primary_mode(self):
         agent = object.__new__(MainAgent)
         agent.config = _ConfigStub(
             {
@@ -62,11 +65,10 @@ class SameTurnRetryTests(unittest.TestCase):
         )
         agent._api_cooldown_until = time.time() + 0.5
 
-        with self.assertRaises(AIDecisionRetrySignal) as exc_info:
-            agent.decide_action({"turn": 1}, "state")
+        decision = agent.decide_action({"turn": 1}, "state")
 
-        self.assertEqual(exc_info.exception.source, "ai_cooldown")
-        self.assertGreater(exc_info.exception.retry_after_seconds, 0.0)
+        self.assertEqual(decision["decision_source"], "ai_cooldown")
+        self.assertEqual(decision["action"], "wait")
 
     def test_same_turn_retry_retries_before_returning_a_decision(self):
         agent = object.__new__(PokemonAIAgent)
@@ -124,7 +126,7 @@ class SameTurnRetryTests(unittest.TestCase):
         self.assertEqual(agent.decision_engine.calls, 2)
         self.assertEqual(len(agent.logger.warnings), 1)
 
-    def test_same_turn_retry_raises_after_budget_exhaustion(self):
+    def test_same_turn_retry_returns_fallback_after_budget_exhaustion(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub(
             {
@@ -144,12 +146,14 @@ class SameTurnRetryTests(unittest.TestCase):
             ]
         )
 
-        with self.assertRaises(RuntimeError) as exc_info:
-            agent._decide_action_for_current_turn(
-                DecisionContext(current_state={"turn": 7}, state_text="state", screen_type=None)
-            )
+        decision = agent._decide_action_for_current_turn(
+            DecisionContext(current_state={"turn": 7}, state_text="state", screen_type="overworld")
+        )
 
-        self.assertIn("retry budget exhausted", str(exc_info.exception).lower())
+        self.assertEqual(decision["action"], "wait")
+        self.assertEqual(decision["decision_source"], "ai_error")
+        self.assertIn("retry budget exhausted", decision["reasoning"].lower())
+        self.assertEqual(len(agent.logger.errors), 1)
 
 
 if __name__ == "__main__":

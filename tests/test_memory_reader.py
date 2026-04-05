@@ -48,6 +48,73 @@ class MemoryReaderTests(unittest.TestCase):
         self.assertEqual(starter["level"], 6)
         self.assertEqual(starter["moves"], [{"move_id": 10, "pp": 35}])
 
+    def test_reads_story_event_flags_from_w_event_flags(self):
+        emulator = _FakeEmulator()
+        reader = MemoryReader(emulator)
+
+        events_meta = reader.memory_map["events"]["flags"]
+        base_addr = int(events_meta["address"], 16)
+
+        emulator.memory[base_addr + (37 // 8)] = 1 << (37 % 8)
+        emulator.memory[base_addr + (56 // 8)] = 1 << (56 % 8)
+
+        events = reader.read_story_events()
+        summary = reader.get_game_state_summary()
+
+        self.assertEqual(
+            events,
+            {
+                "got_pokedex": True,
+                "oak_got_parcel": True,
+                "got_oaks_parcel": False,
+            },
+        )
+        self.assertEqual(summary["events"], events)
+
+    def test_is_in_battle_distinguishes_none_wild_trainer_and_lost(self):
+        emulator = _FakeEmulator()
+        reader = MemoryReader(emulator)
+        state_addr = int(reader.memory_map["battle"]["in_battle"]["address"], 16)
+
+        emulator.memory[state_addr] = 0
+        self.assertFalse(reader.is_in_battle())
+
+        emulator.memory[state_addr] = 1
+        self.assertTrue(reader.is_in_battle())
+
+        emulator.memory[state_addr] = 2
+        self.assertTrue(reader.is_in_battle())
+
+        emulator.memory[state_addr] = 0xFF
+        self.assertFalse(reader.is_in_battle())
+
+    def test_battle_info_uses_encounter_state_for_wild_and_trainer(self):
+        emulator = _FakeEmulator()
+        reader = MemoryReader(emulator)
+
+        state_addr = int(reader.memory_map["battle"]["in_battle"]["address"], 16)
+        mode_addr = int(reader.memory_map["battle"]["mode"]["address"], 16)
+        enemy_meta = reader.memory_map["battle"]["enemy_mon"]
+        species_addr = int(enemy_meta["species"]["address"], 16)
+        hp_addr = int(enemy_meta["current_hp"]["address"], 16)
+        level_addr = int(enemy_meta["level"]["address"], 16)
+
+        emulator.memory[species_addr] = 36
+        emulator.memory[level_addr] = 3
+        emulator.memory[hp_addr] = 0x00
+        emulator.memory[hp_addr + 1] = 0x12
+        emulator.memory[mode_addr] = 0
+
+        emulator.memory[state_addr] = 1
+        wild_info = reader.read_battle_info()
+        self.assertEqual(wild_info["battle_type"], "wild")
+        self.assertEqual(wild_info["battle_mode"], "normal")
+
+        emulator.memory[state_addr] = 2
+        trainer_info = reader.read_battle_info()
+        self.assertEqual(trainer_info["battle_type"], "trainer")
+        self.assertEqual(trainer_info["enemy_species"], "Pidgey")
+
 
 if __name__ == "__main__":
     unittest.main()

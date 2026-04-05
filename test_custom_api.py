@@ -2,79 +2,91 @@
 
 import os
 import sys
+
 from dotenv import load_dotenv
 
 from src.utils.env import apply_env_aliases
 
-# Set UTF-8 encoding for Windows console
-if sys.platform == "win32":
+
+def _configure_windows_stdout() -> None:
+    """Use UTF-8 in the Windows console without affecting import-time behavior."""
+    if sys.platform != "win32" or not hasattr(sys.stdout, "buffer"):
+        return
+
     import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-# Load environment variables
-load_dotenv()
-apply_env_aliases()
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
-print("=" * 60)
-print("Custom API Configuration Test")
-print("=" * 60)
-print()
 
-# Check environment variables
-api_key = os.getenv('AI_API_KEY')
-base_url = os.getenv('AI_BASE_URL')
-model = os.getenv('AI_MODEL')
+def main() -> int:
+    """Run the API connectivity smoke test."""
+    _configure_windows_stdout()
+    load_dotenv()
+    apply_env_aliases()
 
-print("Configuration:")
-print(f"  API Key: {api_key[:20]}..." if api_key else "  API Key: NOT SET")
-print(f"  Base URL: {base_url}" if base_url else "  Base URL: Using default endpoint")
-print(f"  Model: {model}" if model else "  Model: NOT SET")
-print()
-
-# Test API connection
-print("Testing API connection...")
-try:
-    from src.utils.ai_client import AIClient
-
-    client = AIClient(api_key=api_key, base_url=base_url)
-
-    if not model:
-        raise ValueError("AI_MODEL is not set")
-    if not base_url:
-        raise ValueError("AI_BASE_URL is not set")
-
-    print(f"  [OK] Using endpoint: {base_url}")
-
-    print("  Sending test request...")
-    response = client.create_message(
-        model=model,
-        messages=[{
-            "role": "user",
-            "content": "Say 'API connection successful!' and nothing else."
-        }],
-        max_tokens=50,
-    )
-
-    print(f"  [OK] Response: {response.content[0].text}")
-    print()
     print("=" * 60)
-    print("SUCCESS! Your custom API is configured correctly!")
+    print("Custom API Configuration Test")
     print("=" * 60)
     print()
-    print("You can now run the Pokemon AI Agent:")
-    print("  python main.py")
+
+    api_key = os.getenv("AI_API_KEY")
+    base_url = os.getenv("AI_BASE_URL")
+    model = os.getenv("AI_MODEL")
+
+    print("Configuration:")
+    print(f"  API Key: {api_key[:20]}..." if api_key else "  API Key: NOT SET")
+    print(f"  Base URL: {base_url}" if base_url else "  Base URL: Using default endpoint")
+    print(f"  Model: {model}" if model else "  Model: NOT SET")
     print()
 
-except Exception as e:
-    print(f"  [ERROR] {e}")
-    print()
-    print("=" * 60)
-    print("FAILED! Please check your configuration.")
-    print("=" * 60)
-    print()
-    print("Troubleshooting:")
-    print("  1. Verify your API key is correct")
-    print("  2. Verify the base URL is correct")
-    print("  3. Check if the API endpoint is accessible")
-    print("  4. Ensure the configured model ID is supported by your API")
-    print()
+    print("Testing API connection...")
+    try:
+        from src.utils.ai_client import AIClient
+
+        client = AIClient(api_key=api_key, base_url=base_url)
+
+        if not model:
+            raise ValueError("AI_MODEL is not set")
+        if not base_url:
+            raise ValueError("AI_BASE_URL is not set")
+
+        print(f"  [OK] Using endpoint: {base_url}")
+        print("  Sending test request...")
+        response = client.create_message(
+            model=model,
+            messages=[{
+                "role": "user",
+                "content": "Say 'API connection successful!' and nothing else."
+            }],
+            max_tokens=50,
+        )
+
+        print(f"  [OK] Response: {response.content[0].text}")
+        print()
+        print("=" * 60)
+        print("SUCCESS! Your custom API is configured correctly!")
+        print("=" * 60)
+        print()
+        print("You can now run the Pokemon AI Agent:")
+        print("  python main.py")
+        print()
+        return 0
+
+    except Exception as exc:
+        print(f"  [ERROR] {exc}")
+        print()
+        print("=" * 60)
+        print("FAILED! Please check your configuration.")
+        print("=" * 60)
+        print()
+        print("Troubleshooting:")
+        print("  1. Verify your API key is correct")
+        print("  2. Verify the base URL is correct")
+        print("  3. Check if the API endpoint is accessible")
+        print("  4. Ensure the configured model ID is supported by your API")
+        print()
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

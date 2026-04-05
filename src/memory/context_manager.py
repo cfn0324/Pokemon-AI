@@ -21,6 +21,8 @@ class Turn:
     result: Optional[str]
     decision_source: Optional[str] = None
     decision_path: Optional[str] = None
+    model_latency_seconds: Optional[float] = None
+    model_request_count: Optional[int] = None
 
 
 @dataclass
@@ -29,6 +31,16 @@ class ContextNote:
     timestamp: str
     source: str
     text: str
+
+
+@dataclass
+class TaskNotebook:
+    """Compact working-memory note for the next few decisions."""
+    updated_at: str
+    focus: str = ""
+    next_step: str = ""
+    recent_progress: str = ""
+    avoid: str = ""
 
 
 class ContextManager:
@@ -51,6 +63,7 @@ class ContextManager:
         # Summarized history
         self.summaries: List[str] = []
         self.notes: List[ContextNote] = []
+        self.task_notebook: Optional[TaskNotebook] = None
 
         # Current summary period
         self.current_period_start = 0
@@ -62,7 +75,9 @@ class ContextManager:
                  reasoning: Optional[str] = None,
                  result: Optional[str] = None,
                  decision_source: Optional[str] = None,
-                 decision_path: Optional[str] = None) -> None:
+                 decision_path: Optional[str] = None,
+                 model_latency_seconds: Optional[float] = None,
+                 model_request_count: Optional[int] = None) -> None:
         """Add a new turn to context.
 
         Args:
@@ -82,6 +97,8 @@ class ContextManager:
             result=result,
             decision_source=decision_source,
             decision_path=decision_path,
+            model_latency_seconds=model_latency_seconds,
+            model_request_count=model_request_count,
         )
 
         self.recent_turns.append(turn)
@@ -137,6 +154,27 @@ class ContextManager:
             self.notes = kept
         return removed
 
+    def set_task_notebook(
+        self,
+        *,
+        focus: str = "",
+        next_step: str = "",
+        recent_progress: str = "",
+        avoid: str = "",
+    ) -> None:
+        """Update the compact working-memory note for the prompt."""
+        notebook = TaskNotebook(
+            updated_at=datetime.now().isoformat(),
+            focus=" ".join((focus or "").split()).strip(),
+            next_step=" ".join((next_step or "").split()).strip(),
+            recent_progress=" ".join((recent_progress or "").split()).strip(),
+            avoid=" ".join((avoid or "").split()).strip(),
+        )
+        if not any((notebook.focus, notebook.next_step, notebook.recent_progress, notebook.avoid)):
+            self.task_notebook = None
+            return
+        self.task_notebook = notebook
+
     def _trim_to_recent(self) -> None:
         """Keep only recent turns, discarding old ones."""
         if len(self.recent_turns) > self.keep_recent:
@@ -165,6 +203,18 @@ class ContextManager:
         """
         context_parts = []
 
+        if self.task_notebook:
+            context_parts.append("=== TASK NOTE ===\n")
+            if self.task_notebook.focus:
+                context_parts.append(f"FOCUS_NOW: {self.task_notebook.focus}\n")
+            if self.task_notebook.next_step:
+                context_parts.append(f"NEXT_STEP: {self.task_notebook.next_step}\n")
+            if self.task_notebook.recent_progress:
+                context_parts.append(f"RECENT_PROGRESS: {self.task_notebook.recent_progress}\n")
+            if self.task_notebook.avoid:
+                context_parts.append(f"AVOID_REPEAT: {self.task_notebook.avoid}\n")
+            context_parts.append("\n")
+
         # Add summaries
         if self.summaries:
             context_parts.append("=== PREVIOUS ACTIVITY SUMMARY ===\n")
@@ -174,14 +224,16 @@ class ContextManager:
 
         # Add recent turns
         if self.recent_turns:
-            context_parts.append("=== RECENT TURNS (Detailed) ===\n")
-            for turn in self.recent_turns:
-                turn_text = f"\n--- Turn {turn.turn_number} ---\n"
+            turns_for_prompt = self.recent_turns[-max(1, self.keep_recent):]
+            reasoning_cutoff = max(0, len(turns_for_prompt) - 4)
+            context_parts.append("=== RECENT TURNS ===\n")
+            for index, turn in enumerate(turns_for_prompt):
+                turn_text = f"\nTurn {turn.turn_number}:\n"
                 if turn.action:
                     turn_text += f"Action: {turn.action}\n"
                 if turn.screen_type:
                     turn_text += f"Screen Type: {turn.screen_type}\n"
-                if turn.reasoning:
+                if turn.reasoning and index >= reasoning_cutoff:
                     turn_text += f"Reasoning: {turn.reasoning}\n"
                 if turn.result:
                     turn_text += f"Result: {turn.result}\n"
@@ -189,7 +241,7 @@ class ContextManager:
 
         if self.notes:
             context_parts.append("\n=== GUIDANCE NOTES ===\n")
-            for note in self.notes[-6:]:
+            for note in self.notes[-4:]:
                 context_parts.append(f"- [{note.source}] {note.text}\n")
 
         return "".join(context_parts)
@@ -221,6 +273,17 @@ class ContextManager:
         """
         data = {
             'summaries': self.summaries,
+            'task_notebook': (
+                {
+                    'updated_at': self.task_notebook.updated_at,
+                    'focus': self.task_notebook.focus,
+                    'next_step': self.task_notebook.next_step,
+                    'recent_progress': self.task_notebook.recent_progress,
+                    'avoid': self.task_notebook.avoid,
+                }
+                if self.task_notebook
+                else None
+            ),
             'notes': [
                 {
                     'timestamp': note.timestamp,
@@ -239,6 +302,8 @@ class ContextManager:
                     'result': t.result,
                     'decision_source': t.decision_source,
                     'decision_path': t.decision_path,
+                    'model_latency_seconds': t.model_latency_seconds,
+                    'model_request_count': t.model_request_count,
                 }
                 for t in self.recent_turns
             ],
@@ -266,6 +331,18 @@ class ContextManager:
 
         self.recent_turns = []
         self.summaries = data.get('summaries', [])
+        notebook_data = data.get('task_notebook') or None
+        self.task_notebook = (
+            TaskNotebook(
+                updated_at=notebook_data.get('updated_at', datetime.now().isoformat()),
+                focus=notebook_data.get('focus', ''),
+                next_step=notebook_data.get('next_step', ''),
+                recent_progress=notebook_data.get('recent_progress', ''),
+                avoid=notebook_data.get('avoid', ''),
+            )
+            if notebook_data
+            else None
+        )
         self.notes = [
             ContextNote(
                 timestamp=note.get('timestamp', datetime.now().isoformat()),
@@ -289,6 +366,8 @@ class ContextManager:
                 result=turn_data.get('result'),
                 decision_source=turn_data.get('decision_source'),
                 decision_path=turn_data.get('decision_path'),
+                model_latency_seconds=turn_data.get('model_latency_seconds'),
+                model_request_count=turn_data.get('model_request_count'),
             )
             self.recent_turns.append(turn)
 
@@ -298,6 +377,7 @@ class ContextManager:
         """Clear all context."""
         self.recent_turns.clear()
         self.summaries.clear()
+        self.task_notebook = None
         self.notes.clear()
         self.current_period_start = 0
         self.logger.info("Cleared all context")

@@ -11,6 +11,12 @@ from ..utils.logger import get_logger
 class MemoryReader:
     """Reads and interprets Pokemon Red memory."""
 
+    STORY_EVENT_BITS = {
+        "got_pokedex": 37,
+        "oak_got_parcel": 56,
+        "got_oaks_parcel": 57,
+    }
+
     # Pokemon species names (first 151)
     POKEMON_NAMES = [
         "None", "Rhydon", "Kangaskhan", "Nidoran♂", "Clefairy", "Spearow",
@@ -222,14 +228,36 @@ class MemoryReader:
             return 0
         return self.emulator.read_memory(int(address, 16))
 
+    def read_story_events(self) -> Dict[str, bool]:
+        """Read a small set of critical story event flags from wEventFlags."""
+        events_meta = self.memory_map.get("events", {}).get("flags", {})
+        address = events_meta.get("address")
+        length = int(events_meta.get("length", 0) or 0)
+        if not address or length <= 0:
+            return {name: False for name in self.STORY_EVENT_BITS}
+
+        base_address = int(address, 16)
+        event_bytes = self.emulator.read_memory_range(base_address, length)
+        events: Dict[str, bool] = {}
+
+        for name, bit_index in self.STORY_EVENT_BITS.items():
+            byte_index = bit_index // 8
+            bit_offset = bit_index % 8
+            if byte_index >= len(event_bytes):
+                events[name] = False
+                continue
+            events[name] = bool(event_bytes[byte_index] & (1 << bit_offset))
+
+        return events
+
     def is_in_battle(self) -> bool:
         """Check if currently in battle.
 
         Returns:
             True if in battle
         """
-        battle_type = self.emulator.read_memory(int(self.memory_map['battle']['in_battle']['address'], 16))
-        return battle_type != 0
+        battle_state = self.emulator.read_memory(int(self.memory_map['battle']['in_battle']['address'], 16))
+        return battle_state not in {0, 0xFF}
 
     def read_battle_info(self) -> Dict[str, Any]:
         """Read basic enemy battle information when available."""
@@ -246,6 +274,11 @@ class MemoryReader:
         battle_type_meta = battle_meta.get("type", {})
         battle_type_raw = self.emulator.read_memory(int(battle_type_meta["address"], 16))
         battle_type = battle_type_meta.get("values", {}).get(str(battle_type_raw), "unknown")
+        battle_mode_meta = battle_meta.get("mode", {})
+        battle_mode = "normal"
+        if battle_mode_meta.get("address"):
+            battle_mode_raw = self.emulator.read_memory(int(battle_mode_meta["address"], 16))
+            battle_mode = battle_mode_meta.get("values", {}).get(str(battle_mode_raw), "unknown")
 
         enemy_meta = battle_meta.get("enemy_mon", {})
         species_id = self.emulator.read_memory(int(enemy_meta["species"]["address"], 16))
@@ -258,6 +291,7 @@ class MemoryReader:
         return {
             "active": True,
             "battle_type": battle_type,
+            "battle_mode": battle_mode,
             "enemy_species": enemy_species,
             "enemy_level": self.emulator.read_memory(int(enemy_meta["level"]["address"], 16)),
             "enemy_current_hp": self._read_uint16(int(enemy_meta["current_hp"]["address"], 16)),
@@ -296,6 +330,7 @@ class MemoryReader:
             'party': self.read_party(),
             'money': self.read_money(),
             'item_count': self.read_item_count(),
+            'events': self.read_story_events(),
             'in_battle': self.is_in_battle(),
             'battle': self.read_battle_info(),
             'ui': self.read_ui_state(),

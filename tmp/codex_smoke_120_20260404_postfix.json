@@ -1,0 +1,2701 @@
+{
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 120,
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": false,
+  "effective_settings": {
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196033,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "post_battle_intro_route": 46,
+    "post_warp_reentry_guard": 1,
+    "early_battle": 73
+  },
+  "decision_path_counts": {
+    "tool": 120
+  },
+  "ai_latency_summary": {
+    "count": 0,
+    "avg_seconds": null,
+    "max_seconds": null,
+    "min_seconds": null,
+    "total_seconds": 0.0,
+    "avg_request_count": null
+  },
+  "final_state": {
+    "turn": 196033,
+    "timestamp": "2026-04-04T23:03:57.600982",
+    "position": {
+      "map_id": 12,
+      "x": 12,
+      "y": 24
+    },
+    "badges": 0,
+    "money": 3175,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 17,
+        "current_hp": 17,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 32
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196037,
+      "local_analysis_enabled": false,
+      "screen_hash": "f40b0f6830da3860f47c97dfddb51030",
+      "observed_screen_type": "dialogue"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 15,
+      "known_exits": {
+        "up": {
+          "x": 12,
+          "y": 23
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          9,
+          14
+        ],
+        "path": [
+          "up",
+          "up",
+          "up",
+          "up",
+          "left",
+          "left",
+          "left",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "left"
+        ],
+        "visit_count": 1,
+        "distance": 13,
+        "local_visit_pressure": 6,
+        "global_novelty_distance": 13,
+        "priority_score": 22.7,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 13,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 13,
+          "priority_score": 22.7,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 12,
+          "local_visit_pressure": 7,
+          "global_novelty_distance": 12,
+          "priority_score": 20.05,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 10,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 10,
+          "priority_score": 18.5,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 12,
+            "y": 23
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 1,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (12, 23)."
+        },
+        "down": {
+          "target": {
+            "x": 12,
+            "y": 25
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 2,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (12, 25) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "left": {
+          "target": {
+            "x": 11,
+            "y": 24
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 3,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (11, 24) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "right": {
+          "target": {
+            "x": 13,
+            "y": 24
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": null,
+        "escape_direction": "up",
+        "discouraged_directions": [],
+        "stronger_frontier_target": {
+          "x": 9,
+          "y": 14
+        },
+        "current_priority_score": -84.25,
+        "stronger_priority_score": 22.7,
+        "priority_gap": 106.95,
+        "summary": "Current tile is a weaker local frontier (score -84.25, pressure 30, visits 15). A stronger frontier at (9, 14) scores 22.7; prefer up instead of probing every adjacent unknown here."
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "?FFFF????",
+        "????F????",
+        "????F????",
+        "????F????",
+        "F?FFP????",
+        "F?FFF????",
+        ".FF??????",
+        ".????????",
+        "..FF..FFF"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "             FF     ",
+          "             FF     ",
+          "        FFFFFFF     ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFP        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F....FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.F         ",
+          "        #.F         ",
+          "         FW         "
+        ],
+        "prompt_rows": [
+          "?????????????FF?????",
+          "?????????????FF?????",
+          "????????FFFFFFF?????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFP????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F....FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.F?????????",
+          "????????#.F?????????",
+          "?????????FW?????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 12,
+          "max_y": 35,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 12,
+          "y": 24
+        },
+        "explored_count": 105,
+        "frontier_count": 60,
+        "blocked_count": 16,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "wild",
+      "battle_turns": 14,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 13,
+      "enemy_species": "Rattata",
+      "enemy_level": 3,
+      "enemy_current_hp": 15,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 17,
+        "max_hp": 21,
+        "hp_percent": 81.0
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "Auto: leave Oak's Lab after the first rival battle",
+      "result": "After down:; warped from map 40 (4,11) to map 0 (12,11); screen changed from indoor to overworld",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "wait",
+      "reasoning": "Guard: just warped from map 40 to map 0; doorway exits can auto-step one tile after the map transition. Wait briefly so the exit settles before choosing a safe direction away from the return warp.",
+      "result": "After wait:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "post_warp_reentry_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (12,12) to (13,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (14,12) to (15,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "right",
+      "reasoning": "Auto: route around Oak's Lab fence onto Pallet Town's east path",
+      "result": "After right:; moved from (15,12) to (16,12) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,12) to (16,11) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,11) to (16,10) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,10) to (16,9) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,9) to (16,8) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,8) to (16,7) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,7) to (16,6) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,6) to (16,5) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,5) to (16,4) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,4) to (16,3) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "up",
+      "reasoning": "Auto: follow Pallet Town's east path north toward the Route 1 gate grass",
+      "result": "After up:; moved from (16,3) to (16,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (16,2) to (15,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 16,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (15,2) to (14,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (14,2) to (13,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (13,2) to (12,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "left",
+      "reasoning": "Auto: line up with Pallet Town's north exit opening",
+      "result": "After left:; moved from (12,2) to (11,2) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "up",
+      "reasoning": "Auto: step through Pallet Town's north grass opening toward Route 1",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "up",
+      "reasoning": "Auto: cross the north boundary into Route 1",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,35) to (11,34) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "up",
+      "reasoning": "Auto: leave Route 1's south entrance tile and start the northbound walk",
+      "result": "After up:; moved from (11,34) to (11,33) on map 12; entered battle; screen changed from overworld to battle; text box opened",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; menu opened",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "b",
+      "reasoning": "Auto: back out of a stale wild-battle submenu before retrying RUN",
+      "result": "After b:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "a",
+      "reasoning": "Auto: confirm RUN to avoid wasting HP on an early wild battle",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change; menu closed",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "naming_screen",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "a",
+      "reasoning": "Auto: advance the early wild-battle text until the escape menu can be confirmed",
+      "result": "After a:; battle ended; screen changed from battle to overworld; menu opened",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "left",
+      "reasoning": "Auto: shift into Route 1's left-side corridor around the first hedge",
+      "result": "After left:; moved from (11,33) to (10,33) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "up",
+      "reasoning": "Auto: follow Route 1's lower-left corridor north",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "left",
+      "reasoning": "Auto: keep sliding left along Route 1 until the north path opens",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "up",
+      "reasoning": "Auto: climb through Route 1's first opening",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "up",
+      "reasoning": "Auto: climb through Route 1's first opening",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "right",
+      "reasoning": "Auto: cut right across Route 1's mid-route ledge opening",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "right",
+      "reasoning": "Auto: cut right across Route 1's mid-route ledge opening",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "up",
+      "reasoning": "Auto: advance to Route 1's mid-route bend",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "up",
+      "reasoning": "Auto: advance to Route 1's mid-route bend",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "right",
+      "reasoning": "Auto: enter the small Route 1 dogleg around the central hedge",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "down",
+      "reasoning": "Auto: dip one tile to line up with Route 1's right-side passage",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "right",
+      "reasoning": "Auto: step into Route 1's right-side lane",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "up",
+      "reasoning": "Auto: continue north up Route 1's right-side lane",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12; entered battle; screen changed from overworld to battle",
+      "decision_source": "post_battle_intro_route",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "a",
+      "reasoning": "Auto: confirm RUN to avoid wasting HP on an early wild battle",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "a",
+      "reasoning": "Auto: confirm RUN to avoid wasting HP on an early wild battle",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "b",
+      "reasoning": "Auto: back out of a stale wild-battle submenu before retrying RUN",
+      "result": "After b:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "a",
+      "reasoning": "Auto: confirm RUN to avoid wasting HP on an early wild battle",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196034,
+      "action": "right",
+      "reasoning": "Auto: shift the battle cursor toward the RUN column so the early wild encounter can be escaped safely",
+      "result": "After right:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196035,
+      "action": "down",
+      "reasoning": "Auto: move the battle cursor onto RUN during the early wild encounter",
+      "result": "After down:; position did not change",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196036,
+      "action": "a",
+      "reasoning": "Auto: confirm RUN to avoid wasting HP on an early wild battle",
+      "result": "After a:; text box remains active",
+      "decision_source": "early_battle",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    }
+  ]
+}

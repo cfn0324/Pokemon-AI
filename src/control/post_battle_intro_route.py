@@ -101,6 +101,21 @@ class PostBattleIntroRouteController:
         self.reset()
         return None
 
+    def is_guided_state(self, current_state: Dict[str, Any]) -> bool:
+        """Return whether the fixed early-game route should still own this state."""
+        memory = current_state.get("memory", {}) or {}
+        position = memory.get("position", {}) or {}
+        map_id_raw = position.get("map_id", -1)
+        x_raw = position.get("x", -1)
+        y_raw = position.get("y", -1)
+        map_id = int(-1 if map_id_raw is None else map_id_raw)
+        x = int(-1 if x_raw is None else x_raw)
+        y = int(-1 if y_raw is None else y_raw)
+
+        if self._active:
+            return self._can_continue(memory, map_id)
+        return self._should_start(memory, map_id, x, y)
+
     def _should_start(
         self,
         memory: Dict[str, Any],
@@ -112,7 +127,7 @@ class PostBattleIntroRouteController:
         if not self._can_continue(memory, map_id):
             return False
 
-        if map_id == 40 and (x, y) == (5, 6):
+        if map_id == 40 and 4 <= x <= 5 and 6 <= y <= 11:
             return True
 
         if map_id == 0 and (
@@ -138,6 +153,12 @@ class PostBattleIntroRouteController:
         if int(memory.get("money", 0) or 0) < 3175:
             return False
         if int(memory.get("item_count", 0) or 0) != 0:
+            return False
+        events = memory.get("events", {}) or {}
+        if any(
+            bool(events.get(name))
+            for name in ("got_oaks_parcel", "oak_got_parcel", "got_pokedex")
+        ):
             return False
 
         party = memory.get("party", []) or []

@@ -7,7 +7,7 @@ from pathlib import Path
 from src.utils.env import apply_env_aliases
 
 
-def test_python_version():
+def check_python_version():
     """Test Python version."""
     print("Testing Python version...", end=" ")
     if sys.version_info < (3, 9):
@@ -18,7 +18,7 @@ def test_python_version():
     return True
 
 
-def test_dependencies():
+def check_dependencies():
     """Test required dependencies."""
     print("Testing dependencies...")
 
@@ -48,7 +48,7 @@ def test_dependencies():
     return all_ok
 
 
-def test_api_key():
+def check_api_key():
     """Test AI API configuration."""
     print("Testing API key...", end=" ")
 
@@ -91,7 +91,7 @@ def test_api_key():
     return True
 
 
-def test_rom():
+def check_rom():
     """Test ROM file."""
     print("Testing ROM file...", end=" ")
 
@@ -111,7 +111,7 @@ def test_rom():
     return True
 
 
-def test_config():
+def check_config():
     """Test configuration file."""
     print("Testing configuration...", end=" ")
 
@@ -141,7 +141,7 @@ def test_config():
         return False
 
 
-def test_directories():
+def check_directories():
     """Test required directories."""
     print("Testing directories...", end=" ")
 
@@ -170,7 +170,7 @@ def test_directories():
     return all_ok
 
 
-def test_api_connection():
+def check_api_connection():
     """Test API connection using configured endpoint."""
     print("Testing API connection...", end=" ")
 
@@ -222,13 +222,13 @@ def main():
     print()
 
     tests = [
-        ("Python Version", test_python_version),
-        ("Dependencies", test_dependencies),
-        ("API Key", test_api_key),
-        ("ROM File", test_rom),
-        ("Configuration", test_config),
-        ("Directories", test_directories),
-        ("API Connection", test_api_connection),
+        ("Python Version", check_python_version),
+        ("Dependencies", check_dependencies),
+        ("API Key", check_api_key),
+        ("ROM File", check_rom),
+        ("Configuration", check_config),
+        ("Directories", check_directories),
+        ("API Connection", check_api_connection),
     ]
 
     results = []

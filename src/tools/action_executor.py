@@ -41,11 +41,21 @@ class ActionExecutor:
 
         self.logger.info("Action executor initialized")
 
-    def execute(self, action: str) -> bool:
+    def execute(
+        self,
+        action: str,
+        *,
+        precise: bool = False,
+        settle_frames_override: Optional[int] = None,
+    ) -> bool:
         """Execute an action.
 
         Args:
             action: Action to execute
+            precise: When True, directional actions should try to complete one
+                real overworld step even in llm-primary mode.
+            settle_frames_override: Optional post-action settle-frame override
+                for states that need a longer render/animation window.
 
         Returns:
             True if successful
@@ -71,7 +81,7 @@ class ActionExecutor:
             self.emulator.tick(max(1, wait_frames))
             time.sleep(0.05)
         elif action in {'up', 'down', 'left', 'right'}:
-            if self._pure_llm_mode_enabled():
+            if self._pure_llm_mode_enabled() and not precise:
                 self.emulator.press_button(action)
             else:
                 self._execute_direction(action)
@@ -79,7 +89,7 @@ class ActionExecutor:
             self.emulator.press_button(action)
 
         # Let movement/menu transitions settle before the next observation.
-        self.emulator.tick(self._get_settle_frames(action))
+        self.emulator.tick(self._get_settle_frames(action, settle_frames_override))
         time.sleep(self.action_delay)
 
         return True
@@ -176,8 +186,14 @@ class ActionExecutor:
 
             before = after
 
-    def _get_settle_frames(self, action: str) -> int:
+    def _get_settle_frames(
+        self,
+        action: str,
+        override: Optional[int] = None,
+    ) -> int:
         """Return post-action settle frames for stable observation."""
+        if override is not None:
+            return max(0, int(override))
         if action in {'up', 'down', 'left', 'right'}:
             return max(0, int(self.config.get('actions.direction_settle_frames', 8) or 8))
         if action in {'a', 'b', 'start', 'select'}:

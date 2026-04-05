@@ -199,6 +199,23 @@ class AsyncRealtimeTests(unittest.TestCase):
         self.assertEqual(decision["executor"], "async_background_wait")
         self.assertTrue(decision["recorded_in_context"])
 
+    def test_allow_wait_preserves_intentional_runtime_wait(self):
+        agent = self._make_agent()
+
+        decision = agent._rewrite_wait_decision(
+            {
+                "action": "wait",
+                "reasoning": "Let the doorway auto-step settle",
+                "decision_source": "post_warp_reentry_guard",
+                "allow_wait": True,
+            },
+            {"memory": {"ui": {}}},
+            "overworld",
+        )
+
+        self.assertEqual(decision["action"], "wait")
+        self.assertTrue(decision["allow_wait"])
+
 
 if __name__ == "__main__":
     unittest.main()

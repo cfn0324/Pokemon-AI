@@ -13,6 +13,7 @@ def _state(
     item_count=0,
     in_battle=False,
     text_box_active=False,
+    events=None,
 ):
     return {
         "memory": {
@@ -23,6 +24,7 @@ def _state(
             "in_battle": in_battle,
             "ui": {"text_box_active": text_box_active, "menu_active": False},
             "party": [{"level": level, "moves": [{"move_id": 10}, {"move_id": 45}]}],
+            "events": dict(events or {}),
         }
     }
 
@@ -48,6 +50,18 @@ class PostBattleIntroRouteControllerTests(unittest.TestCase):
         decision = controller.maybe_decide(_state(), "overworld")
 
         self.assertEqual(decision["action"], "down")
+
+    def test_starts_from_lower_lab_checkpoint_drift(self):
+        controller = PostBattleIntroRouteController()
+
+        decision = controller.maybe_decide(_state(map_id=40, x=4, y=8), "overworld")
+
+        self.assertEqual(decision["action"], "down")
+
+    def test_is_guided_state_matches_early_route_start_window(self):
+        controller = PostBattleIntroRouteController()
+
+        self.assertTrue(controller.is_guided_state(_state(map_id=40, x=4, y=8)))
 
     def test_routes_right_around_the_lab_fence(self):
         controller = PostBattleIntroRouteController()
@@ -156,6 +170,36 @@ class PostBattleIntroRouteControllerTests(unittest.TestCase):
 
         decision = controller.maybe_decide(
             _state(map_id=12, x=11, y=34, item_count=1),
+            "overworld",
+        )
+
+        self.assertIsNone(decision)
+
+    def test_does_not_restart_after_receiving_oaks_parcel_flag(self):
+        controller = PostBattleIntroRouteController()
+
+        decision = controller.maybe_decide(
+            _state(
+                map_id=12,
+                x=11,
+                y=34,
+                events={"got_oaks_parcel": True},
+            ),
+            "overworld",
+        )
+
+        self.assertIsNone(decision)
+
+    def test_does_not_restart_after_getting_pokedex(self):
+        controller = PostBattleIntroRouteController()
+
+        decision = controller.maybe_decide(
+            _state(
+                map_id=40,
+                x=5,
+                y=6,
+                events={"got_pokedex": True, "oak_got_parcel": True},
+            ),
             "overworld",
         )
 

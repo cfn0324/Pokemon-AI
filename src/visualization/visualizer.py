@@ -29,7 +29,7 @@ def make_json_serializable(obj):
         return bool(obj)  # 转换numpy布尔值为Python布尔值
     elif isinstance(obj, dict):
         return {key: make_json_serializable(value) for key, value in obj.items()}
-    elif isinstance(obj, list):
+    elif isinstance(obj, (list, tuple, set)):
         return [make_json_serializable(item) for item in obj]
     elif isinstance(obj, (str, int, float, bool, type(None))):
         return obj
@@ -372,27 +372,49 @@ class GameVisualizer:
             state: Game state dict
         """
         # 清理数据以确保JSON可序列化
-        self.current_state = make_json_serializable({
-            'turn': state.get('turn', 0),
-            'timestamp': datetime.now().isoformat(),
-            'position': state.get('memory', {}).get('position', {}),
-            'badges': state.get('memory', {}).get('badge_count', 0),
-            'party_size': len(state.get('memory', {}).get('party', [])),
-            'party': state.get('memory', {}).get('party', []),
-            'money': state.get('memory', {}).get('money', 0),
-            'in_battle': state.get('memory', {}).get('in_battle', False),
-            'pre_world': state.get('pre_world', False),
-            'pre_starter_script': state.get('pre_starter_script', False),
-            'phase_hint': state.get('phase_hint'),
-            'visual': state.get('visual', {}),
-            'exploration': state.get('map_memory', {}),
-            'navigation': state.get('navigation', {}),
-            'deltas': state.get('deltas', {}),
-        })
+        self.current_state = self._build_dashboard_state(state)
 
         # Broadcast to connected clients
         if self.running:
             self.socketio.emit('state_update', self.current_state)
+
+    def _build_dashboard_state(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Normalize runtime state into a stable dashboard/API payload."""
+        state = state or {}
+        memory = state.get('memory', {}) or {}
+        visual = state.get('visual', {}) or {}
+        map_memory = state.get('map_memory', {}) or {}
+        exploration = dict(state.get('exploration', {}) or {})
+        navigation = state.get('navigation', {}) or {}
+
+        exploration.setdefault('current_map', map_memory.get('current_map'))
+        exploration.setdefault('explored_tiles', map_memory.get('explored_tiles', 0))
+        exploration.setdefault('total_tiles', map_memory.get('total_tiles', 0))
+        exploration.setdefault('exploration_percent', map_memory.get('exploration_percent', 0.0))
+        exploration.setdefault('frontier_count', navigation.get('frontier_count', 0))
+
+        payload = {
+            'turn': state.get('turn', 0),
+            'timestamp': state.get('timestamp') or datetime.now().isoformat(),
+            'position': memory.get('position', {}) or {},
+            'badges': memory.get('badge_count', 0),
+            'party_size': len(memory.get('party', []) or []),
+            'party': memory.get('party', []) or [],
+            'money': memory.get('money', 0),
+            'in_battle': memory.get('in_battle', False),
+            'pre_world': state.get('pre_world', False),
+            'pre_starter_script': state.get('pre_starter_script', False),
+            'phase_hint': state.get('phase_hint'),
+            'screen_type': visual.get('screen_type') or visual.get('ram_screen_type'),
+            'visual': visual,
+            'exploration': exploration,
+            'map_memory': map_memory,
+            'navigation': navigation,
+            'deltas': state.get('deltas', {}) or {},
+            'movement_pattern': state.get('movement_pattern', {}) or {},
+            'battle_summary': state.get('battle_summary', {}) or {},
+        }
+        return make_json_serializable(payload)
 
     def update_decision(
         self,

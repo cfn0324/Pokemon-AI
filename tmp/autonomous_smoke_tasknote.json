@@ -1,0 +1,298 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 188090,
+  "end_turn": 188102,
+  "turn_delta": 12,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 12
+  },
+  "decision_path_counts": {
+    "ai": 12
+  },
+  "final_state": {
+    "turn": 188102,
+    "timestamp": "2026-03-31T22:20:59.334443",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 188102,
+      "local_analysis_enabled": false,
+      "screen_hash": "26a6d7c4794538bee2160065aef7a203"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 1,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 188091,
+      "action": "a",
+      "reasoning": "The screenshot shows Charmander's Pokédex-style intro page with a blank text box at the bottom, indicating the intro is waiting for confirmation to continue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188092,
+      "action": "a",
+      "reasoning": "The screenshot still shows the Charmander Pokédex page with an empty dialogue box, so the intro is awaiting another confirmation input to continue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188093,
+      "action": "a",
+      "reasoning": "The screenshot still shows Oak's intro Pokédex-style Charmander page with an active empty text box, so the script likely needs another advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188094,
+      "action": "a",
+      "reasoning": "The screenshot shows Charmander's Pokédex description text mid-sentence with a continuation arrow in the lower-right, indicating the intro text should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188095,
+      "action": "b",
+      "reasoning": "The screenshot shows Charmander's Pokédex info page with a completely blank lower text box, so pressing A has not progressed and a different confirm/skip input is needed.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188096,
+      "action": "down",
+      "reasoning": "The screenshot shows the player's bedroom with no text box visible, indicating the intro has finished and control is now in a real room.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "indoor",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188097,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box beginning “So”, indicating scripted dialogue is still progressing and should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188098,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with a text box actively printing “So! You wa”, so the intro dialogue should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188099,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with the text box still actively printing “So! You want the fi”, so the intro dialogue has not finished and should be advanced with the confirm button.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188100,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with a text box still displaying intro dialogue (“So! You want the fire POKéM”), so the script should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188101,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with the line \"So! You want the fire POKEMON,\" fully displayed and a prompt arrow, indicating the dialogue is waiting for confirmation to continue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188102,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with the text still actively printing the phrase after “fire POKEMON,” (“CHA”), so the dialogue has not reached a choice yet and should be advanced.",
+      "result": null,
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "effective_settings": {
+    "ai_timeout_seconds": 30,
+    "same_turn_retry_timeout_seconds": 35,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 195914,
+  "turn_delta": 1,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 2.0,
+  "decision_source_counts": {},
+  "decision_path_counts": {},
+  "ai_latency_summary": {
+    "count": 0,
+    "avg_seconds": null,
+    "max_seconds": null,
+    "min_seconds": null,
+    "total_seconds": 0.0,
+    "avg_request_count": null
+  },
+  "final_state": {
+    "turn": null,
+    "timestamp": null,
+    "position": {
+      "map_id": null,
+      "x": null,
+      "y": null
+    },
+    "badges": 0,
+    "money": 0,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {},
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {},
+    "deltas": {},
+    "movement_pattern": {},
+    "battle_summary": {}
+  },
+  "timeline": []
+}

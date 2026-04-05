@@ -1,0 +1,2723 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 120,
+  "llm_primary_mode": true,
+  "ai_full_control_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": true,
+    "ai_full_control_mode": true,
+    "pure_llm_mode": false,
+    "research_mode": false,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": true
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196033,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 85,
+    "cached_ai_plan": 7,
+    "guided_navigation_escape": 18,
+    "wait_rewrite_ai_error": 1,
+    "wait_rewrite_ai_cooldown": 9
+  },
+  "decision_path_counts": {
+    "ai": 85,
+    "tool": 35
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 85,
+    "ai_plan_turns": 7,
+    "ai_authored_turns": 92,
+    "deterministic_tool_turns": 28,
+    "fallback_turns": 0,
+    "main_model_ratio": 0.7083,
+    "ai_authored_ratio": 0.7667,
+    "deterministic_tool_ratio": 0.2333,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 85,
+    "avg_seconds": 5.995,
+    "max_seconds": 17.321,
+    "min_seconds": 3.553,
+    "total_seconds": 509.563,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 195914,
+    "timeline_last_turn": 196033,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196033,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196033,
+    "timestamp": "2026-04-05T13:07:09.109394",
+    "position": {
+      "map_id": 40,
+      "x": 9,
+      "y": 10
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": false,
+      "menu_active": false,
+      "stale_text_box_flag": true
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196034,
+      "local_analysis_enabled": false,
+      "screen_hash": "1ed0971e625f02877b6c3852fe98333e"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 46,
+      "total_tiles": 200,
+      "exploration_percent": 23.0
+    },
+    "navigation": {
+      "current_visit_count": 26,
+      "known_exits": {
+        "down": {
+          "x": 9,
+          "y": 11
+        },
+        "up": {
+          "x": 9,
+          "y": 9
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "frontier_count": 33,
+      "nearest_frontier": {
+        "target": [
+          9,
+          9
+        ],
+        "path": [
+          "up"
+        ],
+        "unknown_directions": [
+          "up"
+        ],
+        "visit_count": 11,
+        "distance": 1,
+        "local_visit_pressure": 105,
+        "global_novelty_distance": 8,
+        "priority_score": -153.6,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 4,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 13,
+          "priority_score": 42.85,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "down",
+            "left"
+          ],
+          "visit_count": 6,
+          "distance": 6,
+          "local_visit_pressure": 20,
+          "global_novelty_distance": 5,
+          "priority_score": -26.35,
+          "novelty_label": "low"
+        },
+        {
+          "target": [
+            4,
+            10
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 4,
+          "distance": 5,
+          "local_visit_pressure": 45,
+          "global_novelty_distance": 4,
+          "priority_score": -51.0,
+          "novelty_label": "low"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 9,
+            "y": 9
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 11,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 9)."
+        },
+        "down": {
+          "target": {
+            "x": 9,
+            "y": 11
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 15,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 11)."
+        },
+        "left": {
+          "target": {
+            "x": 8,
+            "y": 10
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 2,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 2 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        },
+        "right": {
+          "target": {
+            "x": 10,
+            "y": 10
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 2,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 2 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": false,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": null,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [],
+      "local_map": [
+        "F????????",
+        "F????????",
+        "F????????",
+        "F?FFF????",
+        "??F?P????",
+        "FFFFF??F?",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F....F#        ",
+          "   F....F         ",
+          "   FFFF.F         ",
+          "       FF         ",
+          "       FF         ",
+          "       FF         ",
+          "       FF FFF#    ",
+          "       F  F#P#    ",
+          "       FFFFFF  F  ",
+          "            #     ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F....F#????????",
+          "???F....F?????????",
+          "???FFFF.F?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????FF?FFF#????",
+          "???????F??F#P#????",
+          "???????FFFFFF??F??",
+          "????????????#?????",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 14,
+          "width": 18,
+          "height": 17
+        },
+        "player": {
+          "x": 9,
+          "y": 10
+        },
+        "explored_count": 46,
+        "frontier_count": 33,
+        "blocked_count": 11,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's lab with the exit doorway directly below the player and no active dialogue, so the next step is to leave after receiving the starter.",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.043,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing in Oak's lab with no dialogue box open, and the next required progression is to leave the lab through the downward exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.008,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "The screenshot shows the player one tile above Oak's lab doorway with no dialogue open, so stepping down should enter the exit tile.",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.509,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "left",
+      "reasoning": "AI plan: The screenshot shows the player one tile above Oak's lab doorway with no dialogue open, so stepping down should enter the exit tile. | follow down, left, down",
+      "result": "After left:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "down",
+      "reasoning": "The screenshot shows the player inside Oak's lab on the lower floor with no dialogue open, and the only clear progression is to continue moving down toward the exit at the bottom.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.946,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player inside Oak's lab on the lower floor with no dialogue open, and the only clear progression is to continue moving down toward the exit at the bottom. | follow down, down, down",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak’s lab facing downward with open floor directly to the right while repeated down attempts have failed, so systematic exploration should try the unblocked right tile.",
+      "result": "After right:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 17.321,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at the lower aisle of Oak’s lab with open floor to the right and the stronger unexplored frontier lies farther east, so continue systematic exploration instead of forcing the blocked downward path.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.052,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on the lower walkway of Oak’s lab with open floor directly to the left while the prior right attempt was blocked, so systematic exploration should probe left next.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.098,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player on the lower walkway of Oak’s lab with open floor directly to the left while the prior right attempt was blocked, so systematic exploration should probe left next. | follow left, down, left",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Oak’s lab lower walkway with open floor continuing to the right toward a less-explored aisle, while down is still not visibly open.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.494,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Oak’s lab lower path with open floor directly above toward the center while right has already failed repeatedly, so probing up is the next systematic move.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.297,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -17.0, pressure 17, visits 6). A stronger frontier at (12, 11) scores 44.95; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (4,11) to (5,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -4.5, pressure 18, visits 5). A stronger frontier at (12, 11) scores 45.3; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (5,11) to (6,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on Oak’s lab lower walkway with open floor continuing to the right toward the center-right aisle, while the main task is still to finish any remaining lab interaction or reach the exit.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.707,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on Oak’s lab lower walkway with open floor directly below while right was just blocked, so the next systematic exploration step is down.",
+      "result": "After down:; moved from (6,11) to (7,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.451,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "right",
+      "reasoning": "AI plan: The screenshot shows the player on Oak’s lab lower walkway with open floor directly below while right was just blocked, so the next systematic exploration step is down. | follow down, right, right",
+      "result": "After right:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "up",
+      "reasoning": "The screenshot shows the player below and slightly left of a lab NPC with open floor upward, so the next concrete step is to move up toward the NPC to trigger any remaining required dialogue.",
+      "result": "After up:; moved from (7,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.597,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "a",
+      "reasoning": "The player is directly below a lab NPC and facing the side, so pressing A should initiate any remaining required dialogue instead of wandering.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.205,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below an NPC in Oak’s lab, so moving up is the concrete step to face or trigger the likely mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.165,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "right",
+      "reasoning": "AI plan: The screenshot shows the player directly below an NPC in Oak’s lab, so moving up is the concrete step to face or trigger the likely mandatory interaction. | follow up, right",
+      "result": "After right:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly below an NPC in the lab and facing right, so pressing A again is the clearest step to try to start the required interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.86,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing directly below the nearby lab NPC with no dialogue open, so the next concrete checkpoint step is to face him and trigger the required interaction.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.27,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly below a lab NPC and facing left, so pressing A should talk to the NPC and advance any required lab dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.259,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile below an NPC while facing left, so moving up is the concrete next step to stand adjacent in a new position and trigger any required lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.061,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -5.5, pressure 12, visits 8). A stronger frontier at (12, 11) scores 44.6; prefer right instead of probing every adjacent unknown here.",
+      "result": "After up:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -10.75, pressure 13, visits 9). A stronger frontier at (12, 11) scores 44.6; prefer right instead of probing every adjacent unknown here.",
+      "result": "After up:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "left",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via left. Current tile is a weaker local frontier (score -16.0, pressure 14, visits 10). A stronger frontier at (12, 11) scores 44.6; prefer right instead of probing every adjacent unknown here.",
+      "result": "After left:; moved from (8,11) to (7,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195942,
+      "action": "right",
+      "reasoning": "The screenshot shows the player one tile down-left of the nearby NPC, so moving right will stand directly below them for interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.166,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195943,
+      "action": "up",
+      "reasoning": "The screenshot shows open floor directly above the player while right was just blocked again, so we should explore the unseen tile upward instead of repeating the stalled interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.455,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player with open floor to the right, so moving right should place us directly below him to trigger the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.634,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving up should place us directly left of him for a likely mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.302,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player with open floor directly to the right, making right the concrete step to stand below him and trigger the intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.183,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player with clear floor to the left, so stepping left explores a new lane instead of repeating blocked right/up attempts.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.968,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so pressing a should talk to him from the adjacent tile and advance the mandatory intro interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.051,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly below-left of the rival with open floor beneath, so moving down explores a new reachable tile instead of repeating blocked up/right inputs.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.961,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player with open floor directly above, so moving up should place the player adjacent for the mandatory intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.904,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so stepping right should move onto the open floor at his left and set up direct interaction instead of repeating blocked vertical inputs.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.753,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "left",
+      "reasoning": "The screenshot shows the player one tile down-left of the rival in an open room, so moving left explores a new reachable tile instead of repeating the blocked right side.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.931,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player on open floor, so moving right is the concrete step to become adjacent and trigger the remaining intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.125,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so pressing A is the concrete way to initiate the remaining mandatory interaction since movement attempts have stalled.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.694,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing below-left of the rival with open floor directly above, so moving up is the clearest new step to get adjacent instead of repeating blocked right or A.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.363,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player on open floor, so moving right is the next concrete step to become adjacent and trigger the mandatory intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.278,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right from the player with open floor above, so stepping up is the best new adjacency attempt after repeated failed right inputs.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.694,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival one tile above-right of the player, so moving left is the best new step to align beneath him after repeated failed up/right attempts.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.087,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player in Professor Oak’s lab, so pressing A while facing toward him is the best next step to trigger the mandatory interaction since movement inputs have stalled.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.731,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player in Oak's lab, so stepping up is the clearest new attempt to become adjacent and trigger the mandatory intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.859,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player with open floor directly below him, so moving right should place the player adjacent for the required intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.553,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile below-left of the rival in Oak’s lab, so moving up should place the player directly left of him for the mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.906,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player in Oak’s lab, so moving left is the best fresh step to reposition before trying to talk instead of repeating blocked up/right inputs.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.577,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "right",
+      "reasoning": "The screenshot shows the player one tile below-left of the rival in Oak’s lab, so moving right should step adjacent and trigger the remaining mandatory intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.735,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival diagonally up-right from the player with clear floor between them, so moving up is the fresh step most likely to become adjacent for the required interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.317,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player in Oak's lab, so moving right is the fresh step that should place us directly below him for the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.89,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival directly up-right of the player with open floor, so moving up is the cleanest new step to become horizontally adjacent for the required interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 16.018,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "up",
+      "reasoning": "The screenshot shows the player directly below-left of the rival with open floor above, so moving up is the concrete step to get adjacent and trigger the required lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.969,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing immediately to the player’s right in Oak’s lab, so pressing A should initiate the mandatory interaction without needing movement.",
+      "result": "After a:; moved from (7,11) to (7,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.969,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -27.25, pressure 49, visits 1). A stronger frontier at (12, 11) scores 43.9; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -32.5, pressure 50, visits 2). A stronger frontier at (12, 11) scores 43.9; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -37.75, pressure 51, visits 3). A stronger frontier at (12, 11) scores 43.9; prefer right instead of probing every adjacent unknown here.",
+      "result": "After up:; moved from (7,10) to (7,9) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival directly below the player in Oak’s lab with no text box open, so stepping down should trigger the remaining mandatory interaction.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.783,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival one tile above the player in Oak's lab, so pressing A while facing up should start the mandatory interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.774,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "up",
+      "reasoning": "The rival is standing one tile directly above the player in Oak's lab, so moving up should initiate the required encounter instead of probing walls.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.165,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "a",
+      "reasoning": "The screenshot shows the player one tile below the rival in Oak’s lab with no dialogue open, so pressing A while facing up is the most direct way to trigger the mandatory interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.587,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival one tile directly below the player in Oak's lab with no dialogue box open, so facing him by stepping down is the clearest way to trigger the mandatory interaction.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.677,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile directly above the player in Oak's lab while the player is facing down, so turning to face him is the next concrete step before interacting.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.787,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -67.25, pressure 59, visits 7). A stronger frontier at (12, 11) scores 43.55; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (7,9) to (8,9) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -34.0, pressure 53, visits 1). A stronger frontier at (12, 11) scores 42.15; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -39.25, pressure 54, visits 2). A stronger frontier at (12, 11) scores 42.15; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -44.5, pressure 55, visits 3). A stronger frontier at (12, 11) scores 42.15; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival standing directly below-left of the player in Oak’s lab, so the next mandatory checkpoint is to step into him and trigger the intro dialogue or battle.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.012,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile above-right of the player in Oak's lab, so moving right is the concrete step to line up and engage the remaining mandatory intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.715,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the rival one tile above-right of the player in Oak's lab, so moving right is the concrete step to line up and engage the remaining mandatory intro interaction. | follow right, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival directly one tile below the player in Oak's lab, so stepping down should trigger the remaining mandatory intro interaction.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.802,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing one tile directly above the player in Oak's lab, so moving up is the concrete step to initiate the remaining mandatory intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.415,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly below Professor Oak in the lab, so pressing A should start the mandatory dialogue from the current position.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.279,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -65.0, pressure 60, visits 7). A stronger frontier at (12, 11) scores 42.5; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -40.5, pressure 61, visits 1). A stronger frontier at (12, 11) scores 42.85; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "right",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor to the right, and systematic exploration should continue instead of repeating blocked interactions.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.231,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "right",
+      "reasoning": "AI plan: The screenshot shows the player in Oak's lab with open floor to the right, and systematic exploration should continue instead of repeating blocked interactions. | follow right, right, up",
+      "result": "After right:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "down",
+      "reasoning": "The screenshot shows the player near the bottom-right of Oak’s lab with open floor directly below, so continue systematic exploration toward the likely exit instead of repeating the blocked right.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.18,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak’s lab facing open floor with the lower path likely leading to the exit, so continue exploring downward instead of retrying the blocked right.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.728,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "down",
+      "reasoning": "The screenshot shows the player at the lower-right area of Oak’s lab with open floor directly below, so the next unexplored tile is downward rather than retrying blocked right.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.891,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -74.25, pressure 67, visits 6). A stronger frontier at (12, 11) scores 43.2; prefer right instead of probing every adjacent unknown here.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing immediately left of an NPC in Oak’s lab, so interacting with that nearby person is the next concrete way to finish any remaining intro dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.363,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing immediately left of an NPC while facing up, so the unexplored adjacent tile to the right is the best concrete next step instead of repeating A with no change.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.228,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. AI plan: The screenshot shows the player standing immediately left of an NPC while facing up, so the unexplored adjacent tile to the right is the best concrete next step instead of repeating A with no change. | follow right, down, down",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing below and to the right of an NPC in the lab, so moving left is the concrete unexplored step to get adjacent for interaction instead of repeating blocked directions.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.4,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile to the right and one tile below the lab NPC, so moving up is the concrete step to become directly right-adjacent for interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.884,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly below Professor Oak with no dialogue box open, so pressing A should start the mandatory lab conversation.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.034,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "a",
+      "reasoning": "The screenshot shows the player one tile directly below Professor Oak and facing up with no text box open, so pressing A should initiate the required lab dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.681,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "a",
+      "reasoning": "The screenshot shows the player one tile directly below the NPC and facing up, so pressing A is the concrete step to initiate the required lab dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.942,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "left",
+      "reasoning": "The screenshot shows the player one tile down-right from the nearby lab NPC, so moving left is the concrete step to get directly below him for interaction.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.421,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "up",
+      "reasoning": "The screenshot shows the player to the right of the lab NPC and one tile below his row, so moving up should align with him for interaction or passage instead of repeating blocked left.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.908,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile below and one tile to the right of the nearby lab NPC, so moving up is the concrete step to align beside him and open new movement options instead of repeating blocked directions from the current tile.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.102,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: Same-turn AI retry budget exhausted after 2 attempts over 54.2s: AI request failed: HTTPSConnectionPool(host='api.ququ233.com', port=443): Read timed out. (read timeout=25)",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After left:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After left:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After left:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "right",
+      "reasoning": "Use local navigation hints to keep exploring via right. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "right",
+      "reasoning": "Use local navigation hints to keep exploring via right. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "right",
+      "reasoning": "Use local navigation hints to keep exploring via right. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.5s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -121.25, pressure 89, visits 10). A stronger frontier at (12, 11) scores 42.5; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -126.5, pressure 90, visits 11). A stronger frontier at (12, 11) scores 42.5; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing beside an NPC in the lab with no dialogue box, so the next mandatory step is to initiate the remaining intro dialogue by facing and talking to them.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.694,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing immediately left of an NPC in Oak's lab, so the next mandatory step is to initiate dialogue with the adjacent person by pressing A.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.265,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "a",
+      "reasoning": "The screenshot shows the player immediately left of an NPC in the lab with no text box, so the next concrete step is to try talking again from the adjacent tile.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.31,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing directly left of the rival in Oak's lab, so the next concrete step is to speak to this adjacent mandatory NPC.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.799,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "up",
+      "reasoning": "The screenshot shows the player facing right beside the rival in Oak's lab, and repeated A presses did nothing, so the next concrete step is to move away and explore the lab to trigger any remaining intro event.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.649,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing immediately left of the rival while facing up, so pressing A failed because the player is not facing the adjacent NPC and should first turn right toward him.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.738,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing immediately to the right of an NPC and facing right, so the next concrete step is to turn left to face them before talking.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.602,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly facing the adjacent rival in Oak's lab, so the next concrete step is to press A to trigger the mandatory interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.466,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "down",
+      "reasoning": "The player is boxed in while facing the rival on the right side of Oak's lab, so the concrete way to advance is to step onto the only known movable tile below and explore from there.",
+      "result": "After down:; position did not change; screen changed from indoor to dialogue; text box opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.173,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "a",
+      "reasoning": "The screenshot shows an open text box beginning the mandatory rival interaction, so the next step is to advance the dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.563,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "a",
+      "reasoning": "The text box is open with Oak's dialogue mid-sentence, so the next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.602,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "a",
+      "reasoning": "The text box is still open in Oak's lab with dialogue reading \"I study POKéMON as\", so the mandatory next step is to advance the conversation.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.745,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with an active text box still displaying dialogue, so the mandatory next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.607,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "a",
+      "reasoning": "The screenshot shows an active dialogue box in Oak's lab reading “I study POKéMON as PROF. OAK'S AIDE.” so the mandatory next step is to advance the text.",
+      "result": "After a:; screen changed from dialogue to indoor; text box closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.945,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    }
+  ]
+}

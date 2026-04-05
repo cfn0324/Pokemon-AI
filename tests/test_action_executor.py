@@ -27,8 +27,8 @@ class _EmulatorStub:
         self.presses = []
         self.ticks = []
 
-    def press_button(self, action):
-        self.presses.append(action)
+    def press_button(self, action, duration=None, release_delay=None):
+        self.presses.append((action, duration, release_delay))
 
     def tick(self, frames):
         self.ticks.append(frames)
@@ -76,7 +76,7 @@ class ActionExecutorPureLLMTests(unittest.TestCase):
         success = executor.execute("up")
 
         self.assertTrue(success)
-        self.assertEqual(executor.emulator.presses, ["up"])
+        self.assertEqual(executor.emulator.presses, [("up", None, None)])
 
     def test_direction_execute_uses_single_press_in_llm_primary_mode(self):
         executor = ActionExecutor.__new__(ActionExecutor)
@@ -97,7 +97,52 @@ class ActionExecutorPureLLMTests(unittest.TestCase):
         success = executor.execute("up")
 
         self.assertTrue(success)
-        self.assertEqual(executor.emulator.presses, ["up"])
+        self.assertEqual(executor.emulator.presses, [("up", None, None)])
+
+    def test_direction_execute_can_force_precise_step_in_llm_primary_mode(self):
+        executor = ActionExecutor.__new__(ActionExecutor)
+        executor.emulator = _EmulatorStub()
+        executor.memory_reader = None
+        executor.config = _ConfigStub(
+            {
+                "decision.llm_primary_mode": True,
+                "actions.delay_ms": 0,
+                "actions.direction_settle_frames": 0,
+            }
+        )
+        executor.logger = _DummyLogger()
+        executor.action_delay = 0.0
+        executor.last_actions = []
+        executor.stuck_threshold = 10
+        precise_calls = []
+        executor._execute_direction = lambda action: precise_calls.append(action)
+
+        success = executor.execute("up", precise=True)
+
+        self.assertTrue(success)
+        self.assertEqual(precise_calls, ["up"])
+        self.assertEqual(executor.emulator.presses, [])
+
+    def test_button_execute_can_override_settle_frames(self):
+        executor = ActionExecutor.__new__(ActionExecutor)
+        executor.emulator = _EmulatorStub()
+        executor.memory_reader = None
+        executor.config = _ConfigStub(
+            {
+                "actions.delay_ms": 0,
+                "actions.button_settle_frames": 10,
+            }
+        )
+        executor.logger = _DummyLogger()
+        executor.action_delay = 0.0
+        executor.last_actions = []
+        executor.stuck_threshold = 10
+
+        success = executor.execute("a", settle_frames_override=28)
+
+        self.assertTrue(success)
+        self.assertEqual(executor.emulator.presses, [("a", None, None)])
+        self.assertEqual(executor.emulator.ticks[-1], 28)
 
 
 if __name__ == "__main__":

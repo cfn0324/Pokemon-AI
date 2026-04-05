@@ -1,0 +1,600 @@
+{
+  "turn": 196989,
+  "timestamp": "2026-04-05T07:11:56.688736",
+  "memory": {
+    "position": {
+      "x": 17,
+      "y": 45,
+      "map_id": 51
+    },
+    "direction": "up",
+    "badges": {
+      "Boulder Badge": false,
+      "Cascade Badge": false,
+      "Thunder Badge": false,
+      "Rainbow Badge": false,
+      "Soul Badge": false,
+      "Marsh Badge": false,
+      "Volcano Badge": false,
+      "Earth Badge": false
+    },
+    "badge_count": 0,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 8,
+        "hp": 10,
+        "current_hp": 10,
+        "max_hp": 25,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 28
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 14,
+          "defense": 13,
+          "speed": 17,
+          "special": 13
+        }
+      }
+    ],
+    "money": 1587,
+    "item_count": 0,
+    "events": {
+      "got_pokedex": true,
+      "oak_got_parcel": true,
+      "got_oaks_parcel": true
+    },
+    "in_battle": false,
+    "battle": {
+      "active": false,
+      "battle_type": "none",
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null
+    },
+    "ui": {
+      "text_box_active": false,
+      "menu_active": true
+    }
+  },
+  "pre_world": false,
+  "pre_starter_script": false,
+  "phase_hint": "battle",
+  "visual": {
+    "screen_type": "battle",
+    "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+    "screen_size": [
+      160,
+      144
+    ],
+    "frame_number": 196990,
+    "local_analysis_enabled": false,
+    "screen_hash": "f2ef852121d843f262e5132ef658d353"
+  },
+  "exploration": {
+    "map_id": 51,
+    "explored_count": 3,
+    "total_tiles": 200,
+    "exploration_percent": 1.5,
+    "nearby_unexplored": [
+      [
+        16,
+        45
+      ],
+      [
+        17,
+        44
+      ],
+      [
+        18,
+        45
+      ],
+      [
+        15,
+        45
+      ],
+      [
+        16,
+        44
+      ],
+      [
+        16,
+        46
+      ],
+      [
+        17,
+        43
+      ],
+      [
+        18,
+        44
+      ],
+      [
+        18,
+        46
+      ],
+      [
+        19,
+        45
+      ]
+    ],
+    "frontier_count": 3,
+    "navigation": {
+      "current_visit_count": 6,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 3,
+      "nearest_frontier": {
+        "target": [
+          17,
+          45
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 6,
+        "distance": 0,
+        "local_visit_pressure": 13,
+        "global_novelty_distance": 1,
+        "priority_score": -14.5,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            17,
+            46
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 1,
+          "local_visit_pressure": 13,
+          "global_novelty_distance": 0,
+          "priority_score": -8.6,
+          "novelty_label": "medium"
+        },
+        {
+          "target": [
+            17,
+            47
+          ],
+          "unknown_directions": [
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 5,
+          "distance": 2,
+          "local_visit_pressure": 13,
+          "global_novelty_distance": 1,
+          "priority_score": -11.2,
+          "novelty_label": "low"
+        },
+        {
+          "target": [
+            17,
+            45
+          ],
+          "unknown_directions": [
+            "up",
+            "left",
+            "right"
+          ],
+          "visit_count": 6,
+          "distance": 0,
+          "local_visit_pressure": 13,
+          "global_novelty_distance": 1,
+          "priority_score": -14.5,
+          "novelty_label": "low"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 17,
+            "y": 44
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "down": {
+          "target": {
+            "x": 17,
+            "y": 46
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 2,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (17, 46) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "left": {
+          "target": {
+            "x": 16,
+            "y": 45
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "right": {
+          "target": {
+            "x": 18,
+            "y": 45
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": "down",
+        "discouraged_directions": [],
+        "stronger_frontier_target": {
+          "x": 17,
+          "y": 46
+        },
+        "current_priority_score": -14.5,
+        "stronger_priority_score": -8.6,
+        "priority_gap": 5.9,
+        "summary": null
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "????F????",
+        "????F????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 51,
+        "rows": [
+          "     ",
+          "     ",
+          "  P  ",
+          "  F  ",
+          "  F  ",
+          "     ",
+          "     "
+        ],
+        "prompt_rows": [
+          "?????",
+          "?????",
+          "??P??",
+          "??F??",
+          "??F??",
+          "?????",
+          "?????"
+        ],
+        "bounds": {
+          "min_x": 15,
+          "max_x": 19,
+          "min_y": 43,
+          "max_y": 49,
+          "width": 5,
+          "height": 7
+        },
+        "player": {
+          "x": 17,
+          "y": 45
+        },
+        "explored_count": 3,
+        "frontier_count": 3,
+        "blocked_count": 0,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    }
+  },
+  "map_memory": {
+    "current_map": 51,
+    "explored_tiles": 3,
+    "total_tiles": 200,
+    "exploration_percent": 1.5
+  },
+  "navigation": {
+    "current_visit_count": 6,
+    "known_exits": {},
+    "blocked_directions": [],
+    "frontier_count": 3,
+    "nearest_frontier": {
+      "target": [
+        17,
+        45
+      ],
+      "path": [],
+      "unknown_directions": [
+        "up",
+        "left",
+        "right"
+      ],
+      "visit_count": 6,
+      "distance": 0,
+      "local_visit_pressure": 13,
+      "global_novelty_distance": 1,
+      "priority_score": -14.5,
+      "novelty_label": "low"
+    },
+    "frontier_candidates": [
+      {
+        "target": [
+          17,
+          46
+        ],
+        "unknown_directions": [
+          "left",
+          "right"
+        ],
+        "visit_count": 2,
+        "distance": 1,
+        "local_visit_pressure": 13,
+        "global_novelty_distance": 0,
+        "priority_score": -8.6,
+        "novelty_label": "medium"
+      },
+      {
+        "target": [
+          17,
+          47
+        ],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 5,
+        "distance": 2,
+        "local_visit_pressure": 13,
+        "global_novelty_distance": 1,
+        "priority_score": -11.2,
+        "novelty_label": "low"
+      },
+      {
+        "target": [
+          17,
+          45
+        ],
+        "unknown_directions": [
+          "up",
+          "left",
+          "right"
+        ],
+        "visit_count": 6,
+        "distance": 0,
+        "local_visit_pressure": 13,
+        "global_novelty_distance": 1,
+        "priority_score": -14.5,
+        "novelty_label": "low"
+      }
+    ],
+    "adjacent_tiles": {
+      "up": {
+        "target": {
+          "x": 17,
+          "y": 44
+        },
+        "status": "frontier",
+        "blocked_attempts": 0,
+        "target_visit_count": 0,
+        "target_known_explored": false,
+        "target_is_warp": false,
+        "step_triggers_warp": false,
+        "is_frontier_direction": true,
+        "is_preferred_frontier_step": false,
+        "summary": "This is an unexplored adjacent direction from the current frontier."
+      },
+      "down": {
+        "target": {
+          "x": 17,
+          "y": 46
+        },
+        "status": "adjacent_explored",
+        "blocked_attempts": 0,
+        "target_visit_count": 2,
+        "target_known_explored": true,
+        "target_is_warp": false,
+        "step_triggers_warp": false,
+        "is_frontier_direction": false,
+        "is_preferred_frontier_step": false,
+        "summary": "Neighbor tile (17, 46) has been explored, but this exact step is not yet confirmed from the current tile."
+      },
+      "left": {
+        "target": {
+          "x": 16,
+          "y": 45
+        },
+        "status": "frontier",
+        "blocked_attempts": 0,
+        "target_visit_count": 0,
+        "target_known_explored": false,
+        "target_is_warp": false,
+        "step_triggers_warp": false,
+        "is_frontier_direction": true,
+        "is_preferred_frontier_step": false,
+        "summary": "This is an unexplored adjacent direction from the current frontier."
+      },
+      "right": {
+        "target": {
+          "x": 18,
+          "y": 45
+        },
+        "status": "frontier",
+        "blocked_attempts": 0,
+        "target_visit_count": 0,
+        "target_known_explored": false,
+        "target_is_warp": false,
+        "step_triggers_warp": false,
+        "is_frontier_direction": true,
+        "is_preferred_frontier_step": false,
+        "summary": "This is an unexplored adjacent direction from the current frontier."
+      }
+    },
+    "current_tile_warp": null,
+    "warp_cautions": [],
+    "frontier_guidance": {
+      "current_tile_is_frontier": true,
+      "prefer_leave_current_frontier": false,
+      "recommended_direction": null,
+      "escape_direction": "down",
+      "discouraged_directions": [],
+      "stronger_frontier_target": {
+        "x": 17,
+        "y": 46
+      },
+      "current_priority_score": -14.5,
+      "stronger_priority_score": -8.6,
+      "priority_gap": 5.9,
+      "summary": null
+    },
+    "known_warps": [],
+    "local_map": [
+      "?????????",
+      "?????????",
+      "?????????",
+      "?????????",
+      "????P????",
+      "????F????",
+      "????F????",
+      "?????????",
+      "?????????"
+    ],
+    "map_snapshot": {
+      "available": true,
+      "map_id": 51,
+      "rows": [
+        "     ",
+        "     ",
+        "  P  ",
+        "  F  ",
+        "  F  ",
+        "     ",
+        "     "
+      ],
+      "prompt_rows": [
+        "?????",
+        "?????",
+        "??P??",
+        "??F??",
+        "??F??",
+        "?????",
+        "?????"
+      ],
+      "bounds": {
+        "min_x": 15,
+        "max_x": 19,
+        "min_y": 43,
+        "max_y": 49,
+        "width": 5,
+        "height": 7
+      },
+      "player": {
+        "x": 17,
+        "y": 45
+      },
+      "explored_count": 3,
+      "frontier_count": 3,
+      "blocked_count": 0,
+      "warp_count": 0,
+      "legend": {
+        " ": "unknown",
+        ".": "explored",
+        "F": "frontier",
+        "#": "confirmed wall",
+        "W": "warp",
+        "P": "player"
+      }
+    }
+  },
+  "deltas": {
+    "position_changed": false,
+    "money_delta": 0,
+    "battle_toggled": false,
+    "movement_stall_turns": 0,
+    "stuck_hint": "ui text or menu is active; lack of movement is expected"
+  },
+  "movement_pattern": {
+    "window_size": 10,
+    "unique_tiles": 3,
+    "bounding_box_width": 1,
+    "bounding_box_height": 3,
+    "current_tile_repeat_count": 6,
+    "micro_loop_warning": false,
+    "warning": null
+  },
+  "battle_summary": {
+    "active": false,
+    "phase": "not_in_battle",
+    "encounter_type": "none",
+    "battle_turns": 0,
+    "enemy_hp_changed": false,
+    "battle_stall_turns": 0,
+    "enemy_species": null,
+    "enemy_level": null,
+    "enemy_current_hp": null,
+    "lead_pokemon": {
+      "species": "Charmander",
+      "level": 8,
+      "current_hp": 10,
+      "max_hp": 25,
+      "hp_percent": 40.0
+    },
+    "focus_hint": null
+  }
+}

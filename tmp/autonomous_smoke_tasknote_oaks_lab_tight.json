@@ -1,0 +1,145 @@
+{
+  "requested_checkpoint": "milestone_oaks_lab",
+  "restored_checkpoint": "milestone_oaks_lab",
+  "llm_primary_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 188090,
+  "end_turn": 188094,
+  "turn_delta": 4,
+  "reached_playable": false,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 3
+  },
+  "decision_path_counts": {
+    "ai": 3
+  },
+  "final_state": {
+    "turn": 188093,
+    "timestamp": "2026-03-31T22:56:52.345837",
+    "position": {
+      "map_id": 40,
+      "x": 5,
+      "y": 3
+    },
+    "badges": 0,
+    "money": 3000,
+    "party_size": 0,
+    "party": [],
+    "in_battle": false,
+    "pre_world": false,
+    "pre_starter_script": true,
+    "visual": {
+      "screen_type": "dialogue",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 188093,
+      "local_analysis_enabled": false,
+      "screen_hash": "843f3595f6a0353ccd6ae917bea7729b"
+    },
+    "exploration": {
+      "current_map": null,
+      "explored_tiles": 0,
+      "total_tiles": 0,
+      "exploration_percent": 0.0
+    },
+    "navigation": {
+      "available": false,
+      "current_visit_count": 0,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 0,
+      "nearest_frontier": null,
+      "local_map": []
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 1,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 1,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": null,
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 188091,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Pokédex-style intro page for Charmander with no choice cursor, so the correct way to continue is to advance the intro text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188092,
+      "action": "a",
+      "reasoning": "The screenshot is still Oak's Pokédex-style Charmander entry with an active text box area and no menu cursor, so the next step is to continue the intro text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    },
+    {
+      "turn": 188093,
+      "action": "a",
+      "reasoning": "The screenshot still shows Oak's Pokédex-style Charmander page with the bottom text box area active and no menu cursor, so the intro should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "screen_type": "dialogue",
+      "observed_screen_type": "dialogue",
+      "phase_hint": "dialogue",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 3
+      },
+      "party_size": 0
+    }
+  ]
+}
