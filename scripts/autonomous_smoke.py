@@ -101,6 +101,7 @@ def _derive_story_markers(
         "highest_party_level": highest_level,
         "got_starter": bool(final_state.get("party_size", 0)),
         "reached_playable": not bool(final_state.get("pre_world") or final_state.get("pre_starter_script")),
+        "reached_route1": 12 in visited_maps,
         "reached_viridian_city": 1 in visited_maps,
         "entered_viridian_mart": 42 in visited_maps,
         "entered_oaks_lab": 40 in visited_maps,
@@ -434,6 +435,8 @@ def main() -> None:
     config.set("ai.request_retry_backoff_seconds", 0.5)
     config.set("ai.api_error_cooldown_seconds", 1)
     config.set("ai.api_error_cooldown_max_seconds", 2)
+    config.set("ai.persistent_api_error_cooldown_seconds", 2)
+    config.set("ai.unreachable_api_error_cooldown_seconds", 2)
     config.set(
         "ai.decision_max_tokens",
         min(int(config.get("ai.decision_max_tokens", args.decision_max_tokens) or args.decision_max_tokens), int(args.decision_max_tokens)),
@@ -474,6 +477,8 @@ def main() -> None:
         config.set("ai.request_retry_backoff_seconds", 0.5)
         config.set("ai.api_error_cooldown_seconds", 1)
         config.set("ai.api_error_cooldown_max_seconds", 2)
+        config.set("ai.persistent_api_error_cooldown_seconds", 2)
+        config.set("ai.unreachable_api_error_cooldown_seconds", 2)
 
     requested_turns = max(1, int(args.turns))
     print(

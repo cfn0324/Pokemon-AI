@@ -27,6 +27,13 @@ class SmokeReportSummaryTests(unittest.TestCase):
                     "party": [{"level": 9}, {"level": 7}],
                 },
                 "story_markers": {
+                    "reached_playable": True,
+                    "got_starter": True,
+                    "reached_route1": True,
+                    "reached_viridian_city": True,
+                    "entered_viridian_mart": True,
+                    "entered_oaks_lab": True,
+                    "obtained_oaks_parcel": True,
                     "got_pokedex": True,
                     "delivered_oaks_parcel": True,
                     "started_post_pokedex_departure": True,
@@ -57,10 +64,13 @@ class SmokeReportSummaryTests(unittest.TestCase):
         )
 
         self.assertEqual(row["highest_party_level"], 9)
+        self.assertTrue(row["obtained_oaks_parcel"])
+        self.assertTrue(row["reached_route1"])
         self.assertTrue(row["got_pokedex"])
         self.assertTrue(row["reached_route2"])
         self.assertFalse(row["reached_viridian_forest"])
         self.assertTrue(row["timeline_valid"])
+        self.assertEqual(row["best_story_progress"], "reached_route2")
         self.assertEqual(row["mode"], "llm-primary+ai-full")
         self.assertEqual(row["ai_authored_turns"], 720)
         self.assertEqual(row["ai_authored_ratio"], 0.8)
@@ -73,7 +83,11 @@ class SmokeReportSummaryTests(unittest.TestCase):
                     "completed_requested_turns": True,
                     "fatal_error": None,
                     "timeline_valid": True,
+                    "obtained_oaks_parcel": True,
+                    "delivered_oaks_parcel": True,
                     "got_pokedex": True,
+                    "started_post_pokedex_departure": True,
+                    "reached_route1": True,
                     "reached_route2": True,
                     "reached_viridian_forest": False,
                     "highest_party_level": 9,
@@ -86,7 +100,11 @@ class SmokeReportSummaryTests(unittest.TestCase):
                     "completed_requested_turns": False,
                     "fatal_error": "boom",
                     "timeline_valid": False,
+                    "obtained_oaks_parcel": False,
+                    "delivered_oaks_parcel": False,
                     "got_pokedex": False,
+                    "started_post_pokedex_departure": False,
+                    "reached_route1": False,
                     "reached_route2": False,
                     "reached_viridian_forest": False,
                     "highest_party_level": 6,
@@ -102,6 +120,9 @@ class SmokeReportSummaryTests(unittest.TestCase):
         self.assertEqual(aggregate["completed_count"], 1)
         self.assertEqual(aggregate["fatal_error_count"], 1)
         self.assertEqual(aggregate["timeline_valid_count"], 1)
+        self.assertEqual(aggregate["obtained_oaks_parcel_count"], 1)
+        self.assertEqual(aggregate["delivered_oaks_parcel_count"], 1)
+        self.assertEqual(aggregate["reached_route1_count"], 1)
         self.assertEqual(aggregate["max_party_level"], 9)
         self.assertEqual(aggregate["ai_dominant_count"], 1)
         self.assertEqual(aggregate["ai_full_control_count"], 1)
@@ -114,6 +135,7 @@ class SmokeReportSummaryTests(unittest.TestCase):
                 {
                     "report_name": "report_a.json",
                     "mode": "llm-primary+ai-full",
+                    "best_story_progress": "reached_route2",
                     "ai_authored_ratio": 0.8,
                     "deterministic_tool_ratio": 0.1556,
                     "turn_delta": 900,
@@ -133,7 +155,11 @@ class SmokeReportSummaryTests(unittest.TestCase):
                 "completed_count": 1,
                 "fatal_error_count": 0,
                 "timeline_valid_count": 1,
+                "obtained_oaks_parcel_count": 1,
+                "delivered_oaks_parcel_count": 1,
                 "got_pokedex_count": 1,
+                "started_post_pokedex_departure_count": 1,
+                "reached_route1_count": 1,
                 "reached_route2_count": 1,
                 "reached_viridian_forest_count": 0,
                 "ai_dominant_count": 1,
@@ -147,8 +173,10 @@ class SmokeReportSummaryTests(unittest.TestCase):
         self.assertIn("# Smoke Report Summary", markdown)
         self.assertIn("report_a.json", markdown)
         self.assertIn("13 (8,71)", markdown)
+        self.assertIn("Reports delivering Oak's Parcel: 1", markdown)
+        self.assertIn("Reports reaching Route 1: 1", markdown)
         self.assertIn("Avg AI-authored ratio: 0.8", markdown)
-        self.assertIn("| report_a.json | llm-primary+ai-full | 80.0% | 15.6% | 900 |", markdown)
+        self.assertIn("| report_a.json | llm-primary+ai-full | reached_route2 | 80.0% | 15.6% | 900 |", markdown)
 
 
 if __name__ == "__main__":

@@ -85,6 +85,19 @@ class MainAgentApiFailureTests(unittest.TestCase):
 
         self.assertFalse(retryable)
 
+    def test_connection_reset_transport_errors_are_same_turn_retryable(self):
+        agent = object.__new__(MainAgent)
+        agent.config = _ConfigStub({})
+
+        retryable = agent._is_retryable_decision_error(
+            RuntimeError(
+                "AI request failed: ('Connection aborted.', "
+                "ConnectionResetError(10054, 'existing connection was forcibly closed'))"
+            )
+        )
+
+        self.assertTrue(retryable)
+
     def test_persistent_provider_errors_use_longer_cooldown(self):
         agent = object.__new__(MainAgent)
         agent.config = _ConfigStub(
@@ -102,6 +115,25 @@ class MainAgentApiFailureTests(unittest.TestCase):
 
         self.assertEqual(agent._api_failure_count, 1)
         self.assertGreaterEqual(agent._api_cooldown_until - before, 14.0)
+
+    def test_persistent_provider_errors_can_use_short_smoke_cooldown_when_configured(self):
+        agent = object.__new__(MainAgent)
+        agent.config = _ConfigStub(
+            {
+                "ai.api_error_cooldown_seconds": 1,
+                "ai.api_error_cooldown_max_seconds": 2,
+                "ai.persistent_api_error_cooldown_seconds": 2,
+            }
+        )
+        agent._api_failure_count = 0
+        agent._api_cooldown_until = 0.0
+
+        before = time.time()
+        agent._register_api_failure("AI request failed with status 500: no available token")
+
+        self.assertEqual(agent._api_failure_count, 1)
+        self.assertGreaterEqual(agent._api_cooldown_until - before, 1.5)
+        self.assertLess(agent._api_cooldown_until - before, 3.5)
 
     def test_unreachable_transport_errors_use_extended_cooldown(self):
         agent = object.__new__(MainAgent)
@@ -122,6 +154,28 @@ class MainAgentApiFailureTests(unittest.TestCase):
 
         self.assertEqual(agent._api_failure_count, 1)
         self.assertGreaterEqual(agent._api_cooldown_until - before, 11.0)
+
+    def test_connection_reset_errors_use_base_cooldown_not_unreachable_cooldown(self):
+        agent = object.__new__(MainAgent)
+        agent.config = _ConfigStub(
+            {
+                "ai.api_error_cooldown_seconds": 1,
+                "ai.api_error_cooldown_max_seconds": 2,
+                "ai.unreachable_api_error_cooldown_seconds": 12,
+            }
+        )
+        agent._api_failure_count = 0
+        agent._api_cooldown_until = 0.0
+
+        before = time.time()
+        agent._register_api_failure(
+            "AI request failed: ('Connection aborted.', "
+            "ConnectionResetError(10054, 'existing connection was forcibly closed'))"
+        )
+
+        self.assertEqual(agent._api_failure_count, 1)
+        self.assertGreaterEqual(agent._api_cooldown_until - before, 0.8)
+        self.assertLess(agent._api_cooldown_until - before, 3.0)
 
     def test_decide_action_returns_ai_error_instead_of_same_turn_retry_for_unreachable_host(self):
         agent = object.__new__(MainAgent)

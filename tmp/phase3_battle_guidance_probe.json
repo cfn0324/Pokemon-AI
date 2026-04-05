@@ -1,0 +1,2730 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 120,
+  "llm_primary_mode": true,
+  "ai_full_control_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": true,
+    "ai_full_control_mode": true,
+    "pure_llm_mode": false,
+    "research_mode": false,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": true
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196033,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 62,
+    "wait_rewrite_ai_error": 3,
+    "wait_rewrite_ai_cooldown": 24,
+    "guided_navigation_escape": 5,
+    "api_unavailable_field_interaction": 26
+  },
+  "decision_path_counts": {
+    "ai": 62,
+    "tool": 32,
+    "fallback": 26
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 62,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 62,
+    "deterministic_tool_turns": 32,
+    "fallback_turns": 26,
+    "main_model_ratio": 0.5167,
+    "ai_authored_ratio": 0.5167,
+    "deterministic_tool_ratio": 0.2667,
+    "fallback_ratio": 0.2167,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 62,
+    "avg_seconds": 5.02,
+    "max_seconds": 11.687,
+    "min_seconds": 2.863,
+    "total_seconds": 311.22,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": false,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 195914,
+    "timeline_last_turn": 196033,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196033,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196033,
+    "timestamp": "2026-04-05T16:22:18.971414",
+    "position": {
+      "map_id": 40,
+      "x": 9,
+      "y": 9
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": false,
+      "menu_active": false,
+      "stale_text_box_flag": true
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196034,
+      "local_analysis_enabled": false,
+      "screen_hash": "d88cc4a50fde75da06aac9c2712df9f7"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 45,
+      "total_tiles": 200,
+      "exploration_percent": 22.5
+    },
+    "navigation": {
+      "current_visit_count": 47,
+      "known_exits": {
+        "up": {
+          "x": 9,
+          "y": 8
+        },
+        "left": {
+          "x": 8,
+          "y": 9
+        },
+        "down": {
+          "x": 9,
+          "y": 10
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "frontier_count": 32,
+      "nearest_frontier": {
+        "target": [
+          9,
+          8
+        ],
+        "path": [
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "left"
+        ],
+        "visit_count": 10,
+        "distance": 1,
+        "local_visit_pressure": 73,
+        "global_novelty_distance": 7,
+        "priority_score": -103.35,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 5,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 13,
+          "priority_score": 42.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "down",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 7,
+          "local_visit_pressure": 11,
+          "global_novelty_distance": 5,
+          "priority_score": 4.55,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            6,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down"
+          ],
+          "visit_count": 1,
+          "distance": 5,
+          "local_visit_pressure": 18,
+          "global_novelty_distance": 7,
+          "priority_score": 0.0,
+          "novelty_label": "medium"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 9,
+            "y": 8
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 10,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 8)."
+        },
+        "down": {
+          "target": {
+            "x": 9,
+            "y": 10
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 13,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 10)."
+        },
+        "left": {
+          "target": {
+            "x": 8,
+            "y": 9
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 3,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 9)."
+        },
+        "right": {
+          "target": {
+            "x": 10,
+            "y": 9
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 4,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 4 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": false,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": null,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [],
+      "local_map": [
+        "F????????",
+        "F????????",
+        "F????????",
+        "F???F????",
+        "F??FP????",
+        "????F????",
+        "FFFFF??F?",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F....F#        ",
+          "   F....F         ",
+          "   FFFF.F         ",
+          "       FF         ",
+          "       FF         ",
+          "       FF   F#    ",
+          "       FF  FP#    ",
+          "       F   #F#    ",
+          "       FFFFFF  F  ",
+          "            #     ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F....F#????????",
+          "???F....F?????????",
+          "???FFFF.F?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????FF???F#????",
+          "???????FF??FP#????",
+          "???????F???#F#????",
+          "???????FFFFFF??F??",
+          "????????????#?????",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 14,
+          "width": 18,
+          "height": 17
+        },
+        "player": {
+          "x": 9,
+          "y": 9
+        },
+        "explored_count": 45,
+        "frontier_count": 32,
+        "blocked_count": 12,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with the player standing above the bottom doorway, so the next mandatory progress is to step down and exit.",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.863,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "The screenshot shows the player inside Oak's Lab standing a few tiles above the bottom exit with no dialogue or menu open, so the next step is to continue downward toward the door.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.034,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 32.0s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After down:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After right:; moved from (4,11) to (5,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After right:; moved from (5,11) to (6,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After right:; moved from (6,11) to (7,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After right:; moved from (7,11) to (8,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After up:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After left:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.5s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score 13.75, pressure 8, visits 4). A stronger frontier at (12, 11) scores 42.85; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "down",
+      "reasoning": "Use local navigation hints to keep exploring via down. Original WAIT reasoning: API cooldown active for 0.1s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "down",
+      "reasoning": "Use local navigation hints to keep exploring via down. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 33.0s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "right",
+      "reasoning": "Use local navigation hints to keep exploring via right. Original WAIT reasoning: API cooldown active for 1.8s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score 2.25, pressure 14, visits 3). A stronger frontier at (12, 11) scores 42.85; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "down",
+      "reasoning": "Auto: replace WAIT with a recovery move to keep field exploration moving. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195942,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195943,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing in Professor Oak's lab with free floor space to the left, so moving left is the best concrete step to break the stall and explore toward the exit.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.092,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing near the right side of Oak's lab with open floor directly above, so moving up is the clearest non-repeating way to reposition and continue toward the lab exit/dialogue flow.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.041,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival NPC directly below the player in Oak’s lab, so pressing A is the best next step to trigger any remaining mandatory intro dialogue.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.057,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile below an NPC and facing up in open floor space, so moving up is the concrete step to engage the remaining mandatory intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.145,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing immediately to the left of the rival in Oak’s lab with open floor below, so moving down is the best new step to get around him after repeated blocked up/left attempts.",
+      "result": "After down:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.933,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival standing immediately to the player’s right while the tile below is open, so moving down is the concrete way to get around him and continue exploring instead of re-trying blocked directions.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.22,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly left of the rival with open floor above, so moving up is the next concrete step to get around him instead of repeating blocked or unchanged inputs.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.24,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "down",
+      "reasoning": "The screenshot shows the player immediately left of the rival with open floor below both sprites, so moving down is the concrete step to get around him instead of retrying blocked directions.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.646,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "up",
+      "reasoning": "The screenshot shows the player immediately left of the rival in Oak’s lab with open floor above the player, so stepping up is the best concrete move to get around him and continue the mandatory intro progression.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.826,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "a",
+      "reasoning": "The screenshot shows the player standing immediately left of the rival in Oak's lab, so pressing A should initiate the mandatory interaction instead of retrying blocked movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.776,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly left of the rival with clear floor below, and moving down is the concrete step that leads back toward the known open path instead of repeating unchanged interactions.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.274,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing immediately left of the rival with open floor continuing to the left, while repeated up/down attempts from here have stalled.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.578,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: Same-turn AI retry budget exhausted after 5 attempts over 32.0s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -38.75, pressure 55, visits 2). A stronger frontier at (12, 11) scores 42.5; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -44.0, pressure 56, visits 3). A stronger frontier at (12, 11) scores 42.5; prefer right instead of probing every adjacent unknown here.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.4s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.1s after recent request failures",
+      "result": "After down:; moved from (9,8) to (9,9) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After left:; moved from (9,9) to (8,9) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.8s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -55.75, pressure 64, visits 3). A stronger frontier at (12, 11) scores 42.15; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "down",
+      "reasoning": "Use local navigation hints to keep exploring via down. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 0.1s after recent request failures",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing directly above-right, so moving up should step adjacent to him to trigger the remaining mandatory lab dialogue or battle.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.757,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving right should place us directly below him to trigger the mandatory lab interaction.",
+      "result": "After right:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.386,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival directly below-left of us, so moving left should place us above him and trigger the pending lab interaction.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.982,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival directly below-left of the player, so moving down should step onto the tile beside him and trigger the remaining lab interaction.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.296,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "up",
+      "reasoning": "The rival is directly above-right with open floor above us, so moving up explores the untried adjacent tile toward the mandatory lab interaction instead of repeating blocked directions.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.056,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing directly above us in the aisle, so moving up should step into him and trigger the remaining lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.317,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing in the right aisle of Oak's lab with open floor directly below toward the room's exit, while repeated attempts upward were blocked.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.714,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "down",
+      "reasoning": "The screenshot shows the player in Oak's lab with open floor directly below toward the visible lower aisle, while up and right were already blocked from this tile.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.511,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival standing one tile above-right while the tile to the player's left appears open and unexplored, making left the best systematic movement instead of repeating blocked down/up.",
+      "result": "After left:; moved from (9,8) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.394,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player in Oak's lab, and moving right should step adjacent to him to trigger the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.588,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player in Oak's lab, and moving up should place us adjacent to him to trigger the mandatory intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.774,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival one tile diagonally up-right with open floor to the left, so exploring left is the concrete untried movement from this stuck spot.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.249,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "down",
+      "reasoning": "The screenshot shows the player directly below-left of the rival with open floor below, so moving down is the untried step that can circle around to approach him from another side.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.157,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player in Oak's lab with open floor to the left, so stepping left is the concrete untried way to reposition toward him.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.148,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "down",
+      "reasoning": "The screenshot shows the rival directly up-right of the player with open floor below-left, so stepping down should move us around him instead of retrying blocked directions from the same tile.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.455,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival directly above-right of the player with open floor to the upper-left, so moving up is the clean next step to reposition toward talking or triggering the intro event.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.225,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "left",
+      "reasoning": "The screenshot shows the player directly below-left of the rival with open floor to the lower-left, so moving left is the concrete next step to circle around him instead of repeating blocked moves.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.407,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival directly above-right with a clear floor tile to the upper-left of the player, so moving up is the best unexplored reposition to get adjacent for the mandatory lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.274,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile above-right and a clear floor tile directly to the player’s right, making right the concrete unexplored reposition instead of repeating blocked up.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.067,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so pressing A is the concrete next step to trigger the required lab dialogue instead of repeating blocked movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.212,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving up should place the player directly below him for the mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.816,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival standing one tile directly above the player and facing downward, so pressing A should trigger the mandatory lab dialogue from directly in front of him.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.79,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving right is the concrete step to stand directly below him for the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.446,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile above-right of the player with open floor between them, so moving right is the concrete step to stand directly below him for the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.152,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival standing one tile above-right of the player, so moving left should test the other open tile instead of repeating the blocked right.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.18,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving up should step onto the open tile directly below him to trigger the mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.837,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so moving right should place the player directly below him to trigger the mandatory interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.378,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival directly one tile above-right, so moving up is the concrete step most likely to stand beside him and trigger the remaining mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.538,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving right should place the player directly below him to trigger the required interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.196,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival positioned one tile up-right of the player, so moving left should test a new adjacent tile instead of repeating blocked up/right and may line up an approach path.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.352,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so moving up is the best new adjacent approach to get beside him and trigger the remaining intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.24,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so moving right should place the player directly below him to trigger the intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.377,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player with open floor directly above, so moving up is the clearest new approach to get adjacent and trigger the remaining intro interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.216,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival directly one tile up-right of the player, so moving right is the concrete step most likely to become adjacent and trigger the remaining intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.69,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving right is the direct step to stand below him and trigger the remaining intro interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.669,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile up-right of the player, so moving up should place the player left of him and trigger the remaining lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.999,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing directly above-right of the player with open floor below him, so moving right is the best concrete step to get adjacent and trigger the remaining lab interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.718,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "a",
+      "reasoning": "The screenshot shows the rival one tile above-right of the player and the repeated failed movement suggests the next checkpoint is likely triggered by talking to him from here.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.89,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival standing one tile up-right of the player, so moving up should place the player directly below him to trigger the lab interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.994,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival directly one tile above-right of the player, so stepping right should place the player below him to trigger the lab interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.639,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "left",
+      "reasoning": "The screenshot shows the rival standing directly above-right of the player with open floor to the left, so stepping left is the concrete unexplored move instead of repeating blocked directions.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.326,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "a",
+      "reasoning": "The screenshot shows the player directly below-left of the rival in Oak's lab, so pressing A should talk to him from the adjacent tile and advance the remaining intro interaction.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.791,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "right",
+      "reasoning": "The screenshot shows the rival standing one tile directly above-right of the player, so moving right should place the player adjacent beneath him to trigger the lab interaction.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.43,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "up",
+      "reasoning": "The screenshot shows the rival one tile directly above the player in Oak's lab, so moving up should make contact and trigger the remaining mandatory interaction.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.851,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "down",
+      "reasoning": "The screenshot shows the player one tile down-left of the rival in Oak's lab, so moving down is the concrete unexplored direction away from the blocked cluster and toward the lab's open floor/exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.687,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "right",
+      "reasoning": "The screenshot shows the player one tile below-left of the rival in Oak's lab, so moving right should place the player directly below him on the open floor.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.07,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "up",
+      "reasoning": "The screenshot shows the player one tile below-left of the rival in Oak's lab, so moving up should step onto the open tile directly left of him and set up the mandatory interaction instead of repeating the blocked right.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.15,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing below-left of the rival with open floor directly to the left, so stepping left explores a new adjacent tile instead of repeating blocked directions.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.104,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    }
+  ]
+}

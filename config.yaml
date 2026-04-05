@@ -74,6 +74,9 @@ actions:
   screenshot_interval: 1
   async_wait_frames: 2
   async_wait_sleep_ms: 33
+  early_battle_button_settle_frames: 30
+  ai_battle_text_button_settle_frames: 24
+  recent_battle_visual_grace_turns: 2
 
 navigation:
   auto_plan_stall_turns: 3

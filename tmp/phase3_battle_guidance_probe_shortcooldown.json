@@ -1,0 +1,2788 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 120,
+  "llm_primary_mode": true,
+  "ai_full_control_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": true,
+    "ai_full_control_mode": true,
+    "pure_llm_mode": false,
+    "research_mode": false,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": true
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196033,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 85,
+    "cached_ai_plan": 16,
+    "post_warp_reentry_guard": 1,
+    "recent_warp_buffer_guard": 6,
+    "guided_navigation_escape": 12
+  },
+  "decision_path_counts": {
+    "ai": 85,
+    "tool": 35
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 85,
+    "ai_plan_turns": 16,
+    "ai_authored_turns": 101,
+    "deterministic_tool_turns": 19,
+    "fallback_turns": 0,
+    "main_model_ratio": 0.7083,
+    "ai_authored_ratio": 0.8417,
+    "deterministic_tool_ratio": 0.1583,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 85,
+    "avg_seconds": 3.61,
+    "max_seconds": 8.869,
+    "min_seconds": 2.648,
+    "total_seconds": 306.885,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0,
+      12
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": true,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 195914,
+    "timeline_last_turn": 196033,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196033,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196033,
+    "timestamp": "2026-04-05T20:47:59.793267",
+    "position": {
+      "map_id": 12,
+      "x": 11,
+      "y": 33
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 34
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "battle",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196034,
+      "local_analysis_enabled": false,
+      "screen_hash": "c6db1ccc207eb2360fdc00f24eba6a80",
+      "observed_screen_type": "naming_screen"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 43,
+      "known_exits": {
+        "down": {
+          "x": 11,
+          "y": 34
+        },
+        "up": {
+          "x": 11,
+          "y": 32
+        }
+      },
+      "blocked_directions": [
+        "right"
+      ],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          9,
+          14
+        ],
+        "path": [
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "left",
+          "left",
+          "left",
+          "up",
+          "up",
+          "right",
+          "right",
+          "up",
+          "up",
+          "right",
+          "down",
+          "right",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "left",
+          "left",
+          "left",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "left"
+        ],
+        "visit_count": 1,
+        "distance": 21,
+        "local_visit_pressure": 6,
+        "global_novelty_distance": 13,
+        "priority_score": 19.9,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 21,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 13,
+          "priority_score": 19.9,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 20,
+          "local_visit_pressure": 7,
+          "global_novelty_distance": 12,
+          "priority_score": 17.25,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 18,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 10,
+          "priority_score": 15.7,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 11,
+            "y": 32
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 74,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (11, 32)."
+        },
+        "down": {
+          "target": {
+            "x": 11,
+            "y": 34
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 2,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (11, 34)."
+        },
+        "left": {
+          "target": {
+            "x": 10,
+            "y": 33
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 118,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (10, 33) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "right": {
+          "target": {
+            "x": 12,
+            "y": 33
+          },
+          "status": "blocked_once",
+          "blocked_attempts": 1,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This move already failed once from the current tile; avoid repeating it blindly."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": {
+          "x": 9,
+          "y": 14
+        },
+        "current_priority_score": -822.5,
+        "stronger_priority_score": 19.9,
+        "priority_gap": 842.4,
+        "summary": "Current tile is a weaker local frontier (score -822.5, pressure 538, visits 43). A stronger frontier at (9, 14) scores 19.9; leave this fringe instead of probing every adjacent unknown here."
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        ".........",
+        ".........",
+        "FFF..FFF.",
+        "???FF????",
+        "???.P????",
+        "???.F????",
+        "???FW????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "        FFFFFFF     ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFF        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F....FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.P         ",
+          "        #.F         ",
+          "         FW         ",
+          "                    ",
+          "                    "
+        ],
+        "prompt_rows": [
+          "????????FFFFFFF?????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFF????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F....FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.P?????????",
+          "????????#.F?????????",
+          "?????????FW?????????",
+          "????????????????????",
+          "????????????????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 14,
+          "max_y": 37,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 11,
+          "y": 33
+        },
+        "explored_count": 105,
+        "frontier_count": 60,
+        "blocked_count": 16,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "wild",
+      "battle_turns": 38,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 37,
+      "enemy_species": "Pidgey",
+      "enemy_level": 2,
+      "enemy_current_hp": 13,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with the player standing near the bottom-center exit, so the next step is to leave the lab and continue the intro route.",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.662,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing inside Oak's Lab just above the bottom exit, so the concrete next step is to move down and leave the building.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.57,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "The screenshot still shows Oak's Lab with the player one tile above the centered bottom doorway, so the next concrete step is to move down into the exit tile.",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.824,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot still shows Oak's Lab with the player one tile above the centered bottom doorway, so the next concrete step is to move down into the exit tile. | follow down, down",
+      "result": "After down:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "right",
+      "reasoning": "The screenshot shows the player inside Oak's Lab standing just above the bottom doorway, and pressing down has already stalled here, so the likely exit tile is to the right on the same row.",
+      "result": "After right:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.338,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "down",
+      "reasoning": "AI plan: The screenshot shows the player inside Oak's Lab standing just above the bottom doorway, and pressing down has already stalled here, so the likely exit tile is to the right on the same row. | follow right, down",
+      "result": "After down:; warped from map 40 (4,11) to map 0 (12,11); screen changed from indoor to overworld",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "wait",
+      "reasoning": "Guard: just warped from map 40 to map 0; doorway exits can auto-step one tile after the map transition. Wait briefly so the exit settles before choosing a safe direction away from the return warp.",
+      "result": "After wait:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "post_warp_reentry_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "left",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action up until you move away from the doorway. Move left instead.",
+      "result": "After left:; moved from (12,12) to (11,12) on map 0",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "down",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action up until you move away from the doorway. Move down instead.",
+      "result": "After down:; position did not change",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "down",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action up until you move away from the doorway. Move down instead.",
+      "result": "After down:; position did not change",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "left",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action up until you move away from the doorway. Move left instead.",
+      "result": "After left:; moved from (11,12) to (10,12) on map 0",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on the east side of Pallet Town below Oak's Lab, and moving up follows the required route around the lab toward the town's north exit.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.966,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "right",
+      "reasoning": "AI plan: The screenshot shows the player on the east side of Pallet Town below Oak's Lab, and moving up follows the required route around the lab toward the town's north exit. | follow up, right, up",
+      "result": "After right:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on the east side of Oak's Lab with open path directly below, while up and right were just blocked, so moving down continues systematic exploration toward the town's north route.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.104,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "left",
+      "reasoning": "The screenshot shows the player just below Oak's Lab with an open path to the left, while up, right, and down were recently blocked, so systematic exploration should continue left around the fence.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.484,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on the narrow east-side path beside Oak's Lab, with open grass path directly above toward the town's north side.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.041,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing south of Oak's Lab fence with a clear path directly left along the open road, while up is blocked by the fence.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.674,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -26.0, pressure 27, visits 8). A stronger frontier at (10, 15) scores 19.45; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -31.25, pressure 28, visits 9). A stronger frontier at (10, 15) scores 19.45; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -36.5, pressure 29, visits 10). A stronger frontier at (10, 15) scores 19.45; prefer down instead of probing every adjacent unknown here.",
+      "result": "After up:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -49.75, pressure 30, visits 11). A stronger frontier at (10, 15) scores 19.45; leave this fringe instead of probing every adjacent unknown here.",
+      "result": "After up:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "left",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via left. Current tile is a weaker local frontier (score -55.0, pressure 31, visits 12). A stronger frontier at (10, 15) scores 19.45; leave this fringe instead of probing every adjacent unknown here.",
+      "result": "After left:; moved from (10,12) to (9,12) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -17.0, pressure 28, visits 1). A stronger frontier at (10, 15) scores 19.1; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,12) to (9,13) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -16.5, pressure 29, visits 1). A stronger frontier at (10, 15) scores 18.2; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score -21.75, pressure 30, visits 2). A stronger frontier at (10, 16) scores 18.1; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; position did not change",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score -27.0, pressure 31, visits 3). A stronger frontier at (10, 16) scores 18.1; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,13) to (9,14) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on the east-side path by Oak's Lab fence with open ground directly below, matching the route toward Pallet Town's north exit.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.345,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "left",
+      "reasoning": "The screenshot shows the player at the bend west of Oak's Lab fence with an open path continuing left and then upward toward the town's north route, while down appears blocked by the lower fence line.",
+      "result": "After left:; moved from (9,14) to (9,15) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.364,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195942,
+      "action": "down",
+      "reasoning": "The screenshot shows the player standing on the west side of Pallet Town with open walkable ground directly below, while left is water and the upper-right area is fenced off.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.132,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195943,
+      "action": "up",
+      "reasoning": "The screenshot shows the player just below the west side of Oak's Lab fence with the open route continuing upward toward Pallet Town's north exit, while down is blocked by the lower fence line and left is water.",
+      "result": "After up:; moved from (9,15) to (9,16) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.295,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "down",
+      "reasoning": "The screenshot shows the player on the west side of Pallet Town with open walkable ground directly below while the fence and water constrain the other paths.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.113,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "left",
+      "reasoning": "The screenshot shows the player on the west path below the northern sign with open walkable ground to the left toward the unseen edge, while going down was just blocked.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.55,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Pallet Town’s west side with open walkable grass directly above toward the northern exit, while left is water and the lower path is fenced off.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.176,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "up",
+      "reasoning": "The screenshot shows open walkable ground directly above the player on the west side path, while left is water and recent attempts suggest this local edge is constrained.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.188,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "right",
+      "reasoning": "The screenshot shows open walkable ground directly to the right of the player while up is occupied by an NPC and left/down are constrained by water and fence posts.",
+      "result": "After right:; moved from (9,16) to (9,15) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.933,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "right",
+      "reasoning": "The screenshot shows an NPC directly above blocking upward movement, while the path to the right is open and is the way around toward Pallet Town’s north exit.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.955,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "left",
+      "reasoning": "The screenshot shows an NPC directly above-right blocking the north path, while the open walkable tile to the left leads around him toward unexplored ground.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.139,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "up",
+      "reasoning": "The screenshot shows the player immediately left of a blocking NPC, and the open path continues upward on the player’s current column.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.793,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "a",
+      "reasoning": "The screenshot shows the player facing a person directly to the right on the path, so the next mandatory progress is likely to talk to them rather than keep bumping blocked movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.581,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "left",
+      "reasoning": "The screenshot shows the player immediately to the left of an NPC while facing up, so moving left is the clear unexplored path around the blocker.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.465,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "a",
+      "reasoning": "The screenshot shows the player immediately left of a likely story NPC facing him, so the next required progress is to talk to that blocker rather than keep testing blocked movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.75,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing directly left of an NPC while facing left, so the unexplored path is to continue left rather than talking again or pushing blocked directions.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.663,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "up",
+      "reasoning": "The screenshot shows the player immediately left of a boy NPC and the open path continues upward along the east-side route toward the town exit.",
+      "result": "After up:; moved from (9,15) to (8,15) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.158,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via up. Current tile is a weaker local frontier (score -11.0, pressure 31, visits 1). A stronger frontier at (9, 8) scores 13.7; prefer up instead of probing every adjacent unknown here.",
+      "result": "After up:; moved from (8,15) to (8,14) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "up",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: follow learned route toward frontier (8, 9) (novelty=high, pressure=7) via up, up, up, up, up",
+      "result": "After up:; moved from (8,14) to (8,13) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "up",
+      "reasoning": "The screenshot shows the northbound path still open directly above the player on Pallet Town’s east side, so continuing up advances toward the required north exit.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.264,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "up",
+      "reasoning": "The screenshot shows the path north is clear from the player’s current position, with no dialogue or NPC blocking directly ahead.",
+      "result": "After up:; moved from (8,13) to (8,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.884,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the path north is clear from the player’s current position, with no dialogue or NPC blocking directly ahead. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on Pallet Town’s east-side path with open ground directly above toward the north exit, so advancing upward is the concrete next step.",
+      "result": "After up:; moved from (8,12) to (8,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.339,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player on Pallet Town’s east-side path with open ground directly above toward the north exit, so advancing upward is the concrete next step. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing just left of the large house with open space directly to the north toward Pallet Town's exit.",
+      "result": "After up:; moved from (8,11) to (8,10) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.808,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player standing just left of the large house with open space directly to the north toward Pallet Town's exit. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "up",
+      "reasoning": "The screenshot shows the player at the northern road with open walkable space directly above and the known exit tile at (8,9) one step north.",
+      "result": "After up:; moved from (8,10) to (8,9) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.977,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player at the northern road with open walkable space directly above and the known exit tile at (8,9) one step north. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "up",
+      "reasoning": "The screenshot shows the player centered on the north path of Pallet Town with open walkable space directly above toward the town exit.",
+      "result": "After up:; moved from (8,9) to (8,8) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.09,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player centered on the north path of Pallet Town with open walkable space directly above toward the town exit. | follow up, up, right",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on the north road of Pallet Town with clear open space directly above toward the route out of town.",
+      "result": "After up:; moved from (8,8) to (8,7) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.336,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player on the north road of Pallet Town with clear open space directly above toward the route out of town. | follow up, up, right",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "up",
+      "reasoning": "The screenshot shows the player on the north road of Pallet Town with open path directly above toward the town exit and the known exit tile at (8,6).",
+      "result": "After up:; moved from (8,7) to (8,6) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.113,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player on the north road of Pallet Town with open path directly above toward the town exit and the known exit tile at (8,6). | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "up",
+      "reasoning": "The screenshot shows the player just below Route 1 with open ground directly above and no dialogue or obstacle blocking the north exit.",
+      "result": "After up:; moved from (8,6) to (8,5) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.107,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player just below Route 1 with open ground directly above and no dialogue or obstacle blocking the north exit. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing on the path in Pallet Town with open space directly above toward the known north exit and no dialogue or NPC blocking movement.",
+      "result": "After up:; moved from (8,5) to (8,4) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.995,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player standing on the path in Pallet Town with open space directly above toward the known north exit and no dialogue or NPC blocking movement. | follow up, up, right",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Pallet Town just below the northern grass entrance with open ground directly above leading toward the known exit tile.",
+      "result": "After up:; moved from (8,4) to (8,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.923,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "right",
+      "reasoning": "The screenshot shows the player at Pallet Town’s north path where the grass entrance is blocked ahead, while the open route continues to the right.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.283,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on the open path below the northern grass with no dialogue active, and the route forward continues to the right along the path edge.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.532,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "right",
+      "reasoning": "The screenshot shows the player on the north path of Pallet Town with open ground directly to the right toward the route entrance and no dialogue active.",
+      "result": "After right:; moved from (8,3) to (9,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.327,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 8,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "right",
+      "reasoning": "The screenshot shows the player just below the northern grass gap in Pallet Town with open path continuing right toward the route exit.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.178,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "down",
+      "reasoning": "The route gate is not immediately visible to the right from the current spot, and the open unexplored tile directly below is the safest systematic next step.",
+      "result": "After down:; moved from (9,3) to (10,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.965,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "right",
+      "reasoning": "AI plan: The route gate is not immediately visible to the right from the current spot, and the open unexplored tile directly below is the safest systematic next step. | follow down, right, right",
+      "result": "After right:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in Pallet Town on the open path above the right house, with clear space directly above to continue systematically exploring toward the north route.",
+      "result": "After up:; moved from (10,3) to (11,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.869,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the player in Pallet Town on the open path above the right house, with clear space directly above to continue systematically exploring toward the north route. | follow up, up, right",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "up",
+      "reasoning": "The screenshot shows the player just below the northern grass opening in Pallet Town with a clear tile directly above leading toward Route 1.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.5,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "left",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via left. Current tile is a weaker local frontier (score -19.5, pressure 25, visits 5). A stronger frontier at (5, 2) scores 15.55; prefer up instead of probing every adjacent unknown here.",
+      "result": "After left:; moved from (11,3) to (11,2) on map 0",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "up",
+      "reasoning": "The screenshot shows the player centered directly below Pallet Town’s north grass opening, so moving up advances toward Route 1 through the visible exit.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.021,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "up",
+      "reasoning": "The screenshot shows the character standing directly below the open north passage into the grass corridor, so moving up advances toward Route 1.",
+      "result": "After up:; moved from (11,2) to (11,1) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.245,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the character standing directly below the open north passage into the grass corridor, so moving up advances toward Route 1. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "up",
+      "reasoning": "The screenshot shows the character at the bottom of the open north grass corridor into Route 1, so moving up continues through the visible exit.",
+      "result": "After up:; moved from (11,1) to (11,0) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.023,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "up",
+      "reasoning": "AI plan: The screenshot shows the character at the bottom of the open north grass corridor into Route 1, so moving up continues through the visible exit. | follow up, up, up",
+      "result": "After up:; position did not change",
+      "decision_source": "cached_ai_plan",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "up",
+      "reasoning": "The screenshot shows the player in the narrow north grass corridor with open space directly above, so continuing upward advances toward Route 1.",
+      "result": "After up:; warped from map 0 (11,0) to map 12 (11,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.961,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "up",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action down until you move away from the doorway. Move up instead.",
+      "result": "After up:; moved from (11,35) to (11,34) on map 12",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "up",
+      "reasoning": "Guard: recently warped into this map; avoid the reverse re-entry action down until you move away from the doorway. Move up instead.",
+      "result": "After up:; moved from (11,34) to (11,33) on map 12; entered battle; screen changed from overworld to battle; text box opened",
+      "decision_source": "recent_warp_buffer_guard",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "a",
+      "reasoning": "The battle screen is up and the state says a text box is active with no menu yet, so the safe next step is to advance the encounter text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.119,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "a",
+      "reasoning": "The battle scene still shows only the encounter sprites with no command menu visible, so the safe step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.695,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild-battle scene without the command menu, so the safe next step is to advance the active battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.369,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "a",
+      "reasoning": "The state still indicates an active battle text box with no battle menu visible, so the safest next step is to advance the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.061,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing on the route with no battle UI or text box, so the encounter has ended and safe exploration can resume upward along the path.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.422,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "a",
+      "reasoning": "The state shows an active wild battle against a Pidgey with the battle text box still active and no menu open, so the safe next step is to advance the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.014,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "a",
+      "reasoning": "The state indicates the battle text box is still active with no command menu open, so the safest next input is to advance the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.232,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "a",
+      "reasoning": "The state still shows an active battle text box with no menu open, so the safest next input is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.849,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with an empty text box and no command menu yet, so the safe next step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.512,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with a blank dialogue box and no battle command menu yet, so the safest input is to advance the stalled text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.787,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with a blank active text box and no command menu visible, so the safest input is to advance the stalled battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.742,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with an empty dialogue box and no command menu visible yet, so the next safe input is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.891,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "a",
+      "reasoning": "The screenshot shows a wild battle with a completely blank dialogue box and no command menu visible, so the safest input is to continue advancing the stalled battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.847,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro text beginning with \"Wild\" in the dialogue box, so the encounter text still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.986,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box mid-message reading \"Wild PIDGEY ap\", so the encounter text still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.99,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "a",
+      "reasoning": "The screenshot shows the encounter text \"Wild PIDGEY appeared!\" with the text box still active, so the battle intro must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.648,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with a blank active text box and no command menu yet, so the encounter/send-out text still needs advancing.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.96,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild Pidgey battle scene with an empty dialogue box and no command menu yet, so the battle text still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.67,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild Pidgey battle with an empty active text box and no command menu visible yet, so the battle text still needs advancing.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.906,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "a",
+      "reasoning": "The battle screen shows an active text box beginning with “G”, so the intro/send-out dialogue still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.892,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle intro text “Go! CHARM” still printing in the text box, so the send-out dialogue needs one more advance.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.866,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “Go! CHARMANDER!” and no four-command battle menu yet, so the send-out text must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.025,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text “Go! CHARMANDER!” in the battle text box, so the dialogue must be advanced before choosing a move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.18,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “Go! CHARMANDER!” and no four-command battle menu yet, so the intro text must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.004,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "a",
+      "reasoning": "The screenshot still shows the active battle text box saying “Go! CHARMANDER!”, so the send-out dialogue must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.128,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box with “Go! CHARMANDER!”, so the send-out text must be advanced before the battle menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.808,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box saying “Go! CHARMANDER!”, so the send-out dialogue must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.312,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "a",
+      "reasoning": "The screenshot still shows the active battle text box saying “Go! CHARMANDER!”, so the send-out dialogue must be advanced before any move can be chosen.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.081,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard battle command menu with the cursor on FIGHT against a wild Pidgey, so the safe next step is to select FIGHT.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.24,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle move list open with the cursor on Scratch, which is the safe damaging choice against the wild Pidgey.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.174,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "a",
+      "reasoning": "The battle screen shows an active text box with only “CHAR” visible, so the attack/result dialogue still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.763,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle text box saying “CHARMANDER use”, so the attack narration is still mid-text and needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.118,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "a",
+      "reasoning": "The screenshot shows battle narration text reading “CHARMANDER used SCRATC”, so the attack text still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.05,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box with “CHARMANDER used SCRATCH!”, so the attack narration still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.132,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text box saying “CHARMANDER used SCRATCH!”, so the attack narration still needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.752,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box reading “CHARMANDER used SCRATCH!”, so the attack narration must be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.884,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box reading “CHARMANDER used SCRATCH!”, so the attack narration needs to be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 2.773,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "battle",
+      "phase_hint": "battle",
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 33
+      },
+      "party_size": 1
+    }
+  ]
+}

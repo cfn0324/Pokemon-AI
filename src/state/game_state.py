@@ -13,6 +13,19 @@ from ..utils.logger import get_logger
 class GameState:
     """Comprehensive game state representation."""
 
+    _LOW_PRIORITY_MOVE_IDS = {28, 39, 43, 45}
+    _MOVE_ID_LABELS = {
+        10: "Scratch",
+        28: "Sand Attack",
+        33: "Tackle",
+        39: "Tail Whip",
+        43: "Leer",
+        45: "Growl",
+        52: "Ember",
+        55: "Water Gun",
+        73: "Leech Seed",
+    }
+
     def __init__(
         self,
         emulator: GameBoyEmulator,
@@ -80,10 +93,12 @@ class GameState:
         preferred: List[str] = []
         cautions: List[str] = []
         unverified: List[str] = []
+        currently_blocked_known_routes = 0
 
         for direction in ("up", "down", "left", "right"):
             info = adjacent_tiles.get(direction) or {}
             status = str(info.get("status") or "unknown").strip().lower() or "unknown"
+            blocked_attempts = int(info.get("blocked_attempts", 0) or 0)
             target_is_warp = bool(
                 info.get("target_is_warp")
                 or info.get("step_triggers_warp")
@@ -97,6 +112,22 @@ class GameState:
                 elif status in {"confirmed_blocked", "blocked_once"}:
                     warp_label = f"warp+{status}"
                 cautions.append(f"{direction}={warp_label}")
+                continue
+
+            if blocked_attempts >= 2:
+                if status == "known_exit":
+                    cautions.append(f"{direction}=known_exit_but_currently_blocked")
+                    currently_blocked_known_routes += 1
+                elif status == "frontier":
+                    cautions.append(f"{direction}=frontier_but_currently_blocked")
+                elif status == "adjacent_explored":
+                    cautions.append(f"{direction}=adjacent_explored_but_currently_blocked")
+                else:
+                    cautions.append(f"{direction}=confirmed_blocked")
+                continue
+
+            if blocked_attempts == 1 and status in {"known_exit", "frontier", "adjacent_explored"}:
+                cautions.append(f"{direction}={status}_blocked_once")
                 continue
 
             if status == "known_exit":
@@ -157,7 +188,14 @@ class GameState:
             and not ui_state.get("text_box_active")
             and not ui_state.get("menu_active")
         ):
-            if not preferred and not unverified:
+            if currently_blocked_known_routes >= 1 and stall_turns >= 1:
+                cues.append(
+                    "  Interaction cue: a route that previously worked is currently blocked "
+                    "from this tile. Suspect an NPC or story lock; if the screenshot shows "
+                    "Oak, the rival, or another blocker nearby, try A instead of repeating "
+                    "the old movement."
+                )
+            elif not preferred and not unverified:
                 cues.append(
                     "  Interaction cue: local movement options look exhausted in memory; "
                     "if the screenshot shows a nearby blocker, NPC, or trigger, press A "
@@ -171,6 +209,224 @@ class GameState:
                 )
 
         return cues
+
+    def _build_story_guidance(
+        self,
+        memory_state: Dict[str, Any],
+    ) -> Optional[Dict[str, Any]]:
+        """Surface narrow early-story objective cues without taking control away from the AI."""
+        if memory_state.get("in_battle"):
+            return None
+
+        events = memory_state.get("events", {}) or {}
+        if any(
+            bool(events.get(name))
+            for name in ("got_oaks_parcel", "oak_got_parcel", "got_pokedex")
+        ):
+            return None
+
+        if int(memory_state.get("badge_count", 0) or 0) != 0:
+            return None
+        if int(memory_state.get("item_count", 0) or 0) != 0:
+            return None
+        if int(memory_state.get("money", 0) or 0) < 3175:
+            return None
+
+        party = list(memory_state.get("party", []) or [])
+        if len(party) != 1:
+            return None
+
+        starter = party[0] or {}
+        if int(starter.get("level", 0) or 0) < 6:
+            return None
+
+        position = memory_state.get("position", {}) or {}
+        map_id_raw = position.get("map_id", -1)
+        x_raw = position.get("x", -1)
+        y_raw = position.get("y", -1)
+        map_id = int(-1 if map_id_raw is None else map_id_raw)
+        x = int(-1 if x_raw is None else x_raw)
+        y = int(-1 if y_raw is None else y_raw)
+
+        if map_id == 40 and 4 <= x <= 5 and 6 <= y <= 11:
+            return {
+                "phase": "post_battle_intro_route",
+                "priority": "high",
+                "summary": (
+                    "Early-story objective: leave Oak's Lab and head for Pallet Town's north exit "
+                    "toward Route 1. Do not treat side tiles inside the lab as the main goal."
+                ),
+            }
+
+        if map_id != 0:
+            return None
+
+        if x < 16 and y >= 12:
+            return {
+                "phase": "post_battle_intro_route",
+                "priority": "medium",
+                "summary": (
+                    "Early-story objective: reach Pallet Town's north exit. First route around "
+                    "Oak's Lab fence onto the east-side path instead of broad town exploration."
+                ),
+            }
+
+        if x >= 16 and y > 2:
+            return {
+                "phase": "post_battle_intro_route",
+                "priority": "medium",
+                "summary": (
+                    "Early-story objective: keep advancing north on Pallet Town's east-side path "
+                    "until the Route 1 grass opening is aligned."
+                ),
+            }
+
+        if 10 <= x <= 12 and y <= 2:
+            return {
+                "phase": "post_battle_intro_route",
+                "priority": "high",
+                "summary": (
+                    "Early-story objective: exit Pallet Town north into Route 1. When aligned under "
+                    "the north grass opening, prioritize UP even if side-town frontier tiles look tempting."
+                ),
+            }
+
+        if 11 <= x <= 16 and 0 <= y <= 3:
+            return {
+                "phase": "post_battle_intro_route",
+                "priority": "medium",
+                "summary": (
+                    "Early-story objective: line up with Pallet Town's north grass opening and keep "
+                    "working toward Route 1 rather than drifting sideways across town."
+                ),
+            }
+
+        return None
+
+    def _describe_move(self, move: Dict[str, Any], slot_index: int) -> Dict[str, Any]:
+        """Normalize move info into prompt-friendly battle labels."""
+        move_id = int((move or {}).get("move_id", 0) or 0)
+        pp = int((move or {}).get("pp", 0) or 0)
+        if move_id <= 0:
+            name = "Unknown"
+        else:
+            name = self._MOVE_ID_LABELS.get(move_id, f"Move#{move_id}")
+        role = "status" if move_id in self._LOW_PRIORITY_MOVE_IDS else "damaging"
+        return {
+            "slot": slot_index,
+            "move_id": move_id,
+            "name": name,
+            "pp": pp,
+            "role": role,
+            "usable": move_id > 0 and pp > 0,
+        }
+
+    def _build_battle_guidance(
+        self,
+        memory_state: Dict[str, Any],
+        battle_summary: Dict[str, Any],
+    ) -> Optional[Dict[str, Any]]:
+        """Turn battle RAM into actionable next-step cues for the model."""
+        phase = str(battle_summary.get("phase") or "not_in_battle").strip().lower()
+        in_battle = bool(memory_state.get("in_battle"))
+        ui_state = memory_state.get("ui", {}) or {}
+        if not in_battle and phase not in {"post_battle_dialogue", "battle_just_ended"}:
+            return None
+
+        party = list(memory_state.get("party", []) or [])
+        lead = party[0] if party else {}
+        usable_moves = [
+            self._describe_move(move, slot_index)
+            for slot_index, move in enumerate((lead or {}).get("moves", []) or [], start=1)
+        ]
+        usable_moves = [move for move in usable_moves if move.get("move_id", 0) > 0]
+        preferred_move = next(
+            (move for move in usable_moves if move.get("usable") and move.get("role") != "status"),
+            None,
+        )
+        fallback_move = next((move for move in usable_moves if move.get("usable")), None)
+        status_moves = [
+            move for move in usable_moves if move.get("usable") and move.get("role") == "status"
+        ]
+
+        enemy_hp_raw = (memory_state.get("battle", {}) or {}).get("enemy_current_hp")
+        try:
+            enemy_hp = None if enemy_hp_raw is None else int(enemy_hp_raw)
+        except (TypeError, ValueError):
+            enemy_hp = None
+
+        summary = ""
+        if phase == "post_battle_dialogue":
+            summary = (
+                "Battle result dialogue is still active. Keep advancing the text with A until "
+                "the result box fully closes before trying to move."
+            )
+        elif phase == "battle_just_ended":
+            summary = (
+                "The battle just ended. Confirm the screenshot is back to the field before "
+                "switching from text advancement to movement."
+            )
+        elif ui_state.get("text_box_active"):
+            summary = (
+                "Battle text is still the active UI. Press A to advance encounter, send-out, "
+                "attack, or result text until a real menu becomes visible."
+            )
+        elif ui_state.get("menu_active") and enemy_hp is not None and enemy_hp <= 0:
+            summary = (
+                "The enemy has already fainted, so any visible menu is probably stale. Press B "
+                "to close it and let the victory text continue."
+            )
+        elif ui_state.get("menu_active"):
+            summary = (
+                "A battle menu is active. If this is the four-command menu, choose FIGHT. If "
+                "the move list is already open, pick the recommended move directly."
+            )
+        else:
+            summary = (
+                "A battle is active but RAM does not show a clean menu yet. Use the screenshot "
+                "to confirm whether battle text is still animating; if no actionable menu is "
+                "visible, A is the safest progress input."
+            )
+
+        menu_cue = None
+        if in_battle and phase in {"entered_battle", "battle_in_progress"} and enemy_hp != 0:
+            menu_cue = (
+                "When the standard four-command battle menu appears, prefer FIGHT over BAG, "
+                "PKMN, or RUN for this ordinary early-game encounter unless the screenshot shows "
+                "a different urgent need."
+            )
+
+        move_cue = None
+        chosen_move = preferred_move or fallback_move
+        if chosen_move:
+            move_cue = (
+                f"When the move list is open, prefer slot {chosen_move['slot']} "
+                f"({chosen_move['name']}, PP {chosen_move['pp']})"
+            )
+            if preferred_move and status_moves:
+                avoided = ", ".join(
+                    f"slot {move['slot']} ({move['name']})" for move in status_moves
+                )
+                move_cue += f"; avoid status-only options like {avoided} while a damaging move still has PP."
+            else:
+                move_cue += "."
+
+        hp_cue = None
+        lead_info = battle_summary.get("lead_pokemon") or {}
+        if float(lead_info.get("hp_percent", 0.0) or 0.0) <= 25.0:
+            hp_cue = (
+                "Your lead Pokemon is low HP, so do not random-walk through menus. Finish text "
+                "cleanly and choose the intended battle option directly."
+            )
+
+        return {
+            "phase": phase,
+            "priority": "high" if in_battle else "medium",
+            "summary": summary,
+            "menu_cue": menu_cue,
+            "move_cue": move_cue,
+            "hp_cue": hp_cue,
+        }
 
     @staticmethod
     def is_pre_world_state(memory_state: Dict[str, Any]) -> bool:
@@ -308,8 +564,10 @@ class GameState:
                 "total_tiles": exploration["total_tiles"],
                 "exploration_percent": exploration["exploration_percent"],
             }
-        movement_pattern = self._analyze_recent_movement(memory_state)
+        story_guidance = None if (pre_world or pre_starter_script) else self._build_story_guidance(memory_state)
         battle_summary = self._analyze_battle_state(memory_state)
+        battle_guidance = self._build_battle_guidance(memory_state, battle_summary)
+        movement_pattern = self._analyze_recent_movement(memory_state)
 
         # Combine into comprehensive state
         state = {
@@ -323,9 +581,11 @@ class GameState:
             "exploration": exploration,
             "map_memory": map_memory_state,
             "navigation": navigation,
+            "story_guidance": story_guidance,
             "deltas": deltas,
             "movement_pattern": movement_pattern,
             "battle_summary": battle_summary,
+            "battle_guidance": battle_guidance,
         }
 
         self._last_memory_state = memory_state
@@ -395,10 +655,13 @@ BADGES: {memory['badge_count']}/8
                 f"  {i}. {pokemon['species']} Lv.{pokemon['level']} - "
                 f"HP: {pokemon['current_hp']}/{pokemon['max_hp']} ({hp_percent:.0f}%)\n"
             )
-            text += "     Moves: "
-            for move in pokemon["moves"]:
-                text += f"[PP:{move['pp']}] "
-            text += "\n"
+            move_chunks = []
+            for slot_index, move in enumerate(pokemon["moves"], start=1):
+                move_info = self._describe_move(move, slot_index)
+                move_chunks.append(
+                    f"{slot_index}:{move_info['name']} [{move_info['role']}, PP:{move_info['pp']}]"
+                )
+            text += "     Moves: " + ("; ".join(move_chunks) if move_chunks else "none") + "\n"
 
         if memory["in_battle"]:
             text += "\nBATTLE: CURRENTLY IN BATTLE\n"
@@ -432,6 +695,21 @@ BADGES: {memory['badge_count']}/8
             if focus_hint:
                 text += f"  Focus hint: {focus_hint}\n"
 
+        battle_guidance = state.get("battle_guidance")
+        if battle_guidance is None:
+            battle_guidance = self._build_battle_guidance(memory, battle_summary)
+        if (battle_guidance or {}).get("summary"):
+            text += "\nBATTLE GUIDANCE:\n"
+            text += f"  Phase: {battle_guidance.get('phase', 'unknown')}\n"
+            text += f"  Priority: {battle_guidance.get('priority', 'unknown')}\n"
+            text += f"  Cue: {battle_guidance.get('summary')}\n"
+            if battle_guidance.get("menu_cue"):
+                text += f"  Menu cue: {battle_guidance.get('menu_cue')}\n"
+            if battle_guidance.get("move_cue"):
+                text += f"  Move cue: {battle_guidance.get('move_cue')}\n"
+            if battle_guidance.get("hp_cue"):
+                text += f"  HP cue: {battle_guidance.get('hp_cue')}\n"
+
         text += "\nUI FLAGS:\n"
         text += f"  Text box active (RAM): {ui_state.get('text_box_active', False)}\n"
         text += f"  Menu active (RAM): {ui_state.get('menu_active', False)}\n"
@@ -449,6 +727,13 @@ BADGES: {memory['badge_count']}/8
             text += "  World-state note: early scripted intro is still active before the first Pokemon. Even if map coordinates are populated, do not treat them as free-movement navigation state yet; rely on the screenshot until control is clearly returned.\n"
         if visual.get("detailed_elements"):
             text += f"  Elements: {', '.join(str(item) for item in visual.get('detailed_elements', [])[:8])}\n"
+
+        story_guidance = state.get("story_guidance") or {}
+        if story_guidance.get("summary"):
+            text += "\nSTORY GUIDANCE:\n"
+            text += f"  Phase: {story_guidance.get('phase', 'unknown')}\n"
+            text += f"  Priority: {story_guidance.get('priority', 'unknown')}\n"
+            text += f"  Cue: {story_guidance.get('summary')}\n"
 
         if vision_hints and vision_hints.get("available"):
             blocked_dirs = ", ".join(vision_hints.get("blocked_directions", [])) or "none"

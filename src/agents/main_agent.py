@@ -119,6 +119,9 @@ Important constraints:
 - If the state text includes a Current-tile warp caution line, step off that warp-source tile before probing unknown directions, and avoid any learned trigger action unless you intentionally want to change maps.
 - If the state text includes a Frontier caution line naming a stronger frontier or recommended escape direction, follow that guidance instead of probing every adjacent unknown around the current fringe.
 - If the state text includes a battle summary, trust it for battle phase: for example, post-battle dialogue means you should finish the text instead of trying to walk away.
+- If the state text includes BATTLE GUIDANCE, treat it as the highest-priority local cue while the fight is active or just ending.
+- In ordinary early-game battles, if the screenshot shows the standard four-command menu and no emergency is visible, choose FIGHT instead of BAG, PKMN, or RUN.
+- If the state text names a preferred damaging move slot, use that move when the move list is open instead of stalling on status-only options.
 - If the exit, stairs, or door is not visible yet, your job is to explore until it becomes visible. Exploration is progress.
 - If the state text reports a loop warning or says recent movement stayed inside a tiny box, treat the current local frontier as suspicious and deliberately change route instead of probing the same edge again.
 - For movement decisions, first do a local visual check of the four directions around the player.
@@ -678,8 +681,6 @@ This is wrong because camera position does not prove walkable floor, and black s
             "newconnectionerror",
             "connection refused",
             "actively refused",
-            "connection aborted",
-            "connection reset",
             "proxyerror",
             "sslerror",
             "name resolution",
@@ -689,6 +690,17 @@ This is wrong because camera position does not prove walkable floor, and black s
         )
         return any(token in lowered for token in unreachable_tokens)
 
+    def _is_transient_transport_error(self, message: str) -> bool:
+        """Detect short-lived transport blips that should stay retryable."""
+        lowered = str(message or "").lower()
+        transient_tokens = (
+            "connection aborted",
+            "connection reset",
+            "winerror 10054",
+            "remote end closed connection without response",
+        )
+        return any(token in lowered for token in transient_tokens)
+
     def _is_retryable_decision_error(self, error: Exception) -> bool:
         """Classify retryable transport/schema failures without masking config bugs."""
         message = str(error or "").lower()
@@ -697,6 +709,8 @@ This is wrong because camera position does not prove walkable floor, and black s
             return True
         if self._is_persistent_provider_error(message):
             return False
+        if self._is_transient_transport_error(message):
+            return True
         if self._is_unreachable_transport_error(message):
             return False
 

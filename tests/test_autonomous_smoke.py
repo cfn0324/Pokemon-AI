@@ -111,6 +111,7 @@ class AutonomousSmokeTimelineTests(unittest.TestCase):
         timeline = [
             {"turn": 10, "decision_source": "viridian_parcel", "position": {"map_id": 1, "x": 19, "y": 20}},
             {"turn": 20, "decision_source": "viridian_parcel", "position": {"map_id": 42, "x": 3, "y": 5}},
+            {"turn": 25, "decision_source": "viridian_parcel", "position": {"map_id": 12, "x": 8, "y": 9}},
             {"turn": 30, "decision_source": "post_pokedex_departure", "position": {"map_id": 13, "x": 8, "y": 71}},
             {"turn": 40, "decision_source": "post_pokedex_departure", "position": {"map_id": 50, "x": 4, "y": 7}},
             {"turn": 50, "decision_source": "post_pokedex_departure", "position": {"map_id": 51, "x": 16, "y": 47}},
@@ -119,6 +120,7 @@ class AutonomousSmokeTimelineTests(unittest.TestCase):
         markers = _derive_story_markers(final_state, timeline)
 
         self.assertTrue(markers["entered_viridian_mart"])
+        self.assertTrue(markers["reached_route1"])
         self.assertTrue(markers["delivered_oaks_parcel"])
         self.assertTrue(markers["got_pokedex"])
         self.assertTrue(markers["started_post_pokedex_departure"])

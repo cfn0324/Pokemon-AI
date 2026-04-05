@@ -1,12 +1,12 @@
 # Evaluation Workflow
 
-This project now has a reproducible smoke-test reporting path for thesis-style early-stage experiments.
+This project now has a reproducible thesis-style evaluation path for short and repeated autonomous smoke experiments.
 
-For thesis-grade AI evaluation, prefer `decision.ai_full_control_mode = true` so the main model owns ordinary battles, route choices, and story progression while deterministic logic remains safety-only.
+For AI-led evaluation, prefer `decision.ai_full_control_mode = true` so the main model owns ordinary field decisions, while deterministic logic remains safety-only and does not silently take over the run.
 
-## 1. Run a smoke report
+## 1. Run one validated smoke report
 
-For AI-led evaluation, use the headless smoke runner from a known checkpoint with a real model endpoint:
+For a single AI-led smoke run from a known checkpoint:
 
 ```powershell
 $env:AI_API_KEY='YOUR_REAL_KEY'
@@ -14,25 +14,55 @@ $env:AI_BASE_URL='YOUR_REAL_ENDPOINT'
 $env:AI_MODEL='YOUR_REAL_MODEL'
 python scripts/autonomous_smoke.py `
   --checkpoint checkpoint_195913 `
-  --turns 900 `
+  --turns 120 `
   --llm-primary `
   --ai-full-control `
-  --output tmp/codex_smoke_900_report.json
+  --reset-context `
+  --decision-max-tokens 384 `
+  --action-plan-max-actions 3 `
+  --output tmp/real_ai_single_report.json
 ```
 
 Preferred reports are `report_version = 2`.
 
-If you run with `AI_API_KEY=dummy`, `AI_BASE_URL=http://localhost`, or another non-working placeholder endpoint, treat that run as resilience-only evidence. It can show that the runtime avoids deadlocks, but it is not valid evidence that the AI actually owned gameplay decisions.
+If you run with `AI_API_KEY=dummy`, `AI_BASE_URL=http://localhost`, or another placeholder endpoint, treat that run as resilience-only evidence. It can show that the runtime avoids deadlocks, but it is not valid evidence that the AI actually owned gameplay decisions.
 
-## 2. Inspect the key fields
+## 2. Run a fixed-protocol repeated batch
 
-Each smoke report now includes:
+For thesis-grade repeated evidence, run multiple experiments with one frozen protocol:
 
-- `story_markers`: early-story milestone booleans such as `got_pokedex`, `delivered_oaks_parcel`, and `started_post_pokedex_departure`
+```powershell
+python scripts/autonomous_smoke_batch.py `
+  --checkpoint checkpoint_195913 `
+  --turns 120 `
+  --runs 3 `
+  --llm-primary `
+  --ai-full-control `
+  --reset-context `
+  --decision-max-tokens 384 `
+  --action-plan-max-actions 3 `
+  --label 2026-04-05_phase2_real_ai_baseline `
+  --summary-markdown docs/thesis_logs/2026-04-05_phase2_real_ai_baseline.md
+```
+
+The batch runner writes:
+
+- one raw JSON report per run
+- one `.out` and `.err` file per run
+- one batch manifest containing the exact protocol and endpoint metadata
+- one JSON summary
+- one Markdown summary suitable for thesis notes
+
+## 3. Inspect the key report fields
+
+Each smoke report includes:
+
+- `story_markers`: early-story milestone booleans such as `reached_route1`, `got_pokedex`, `delivered_oaks_parcel`, `reached_route2`, and `reached_viridian_forest`
 - `report_validation`: internal consistency checks such as timeline monotonicity and whether `final_state.turn == end_turn`
-- `decision_source_counts`: how much control came from scripted tools versus fallback logic
+- `decision_source_counts`: how much control came from the main model, scripted tools, cooldown rewrites, or fallback logic
 - `ai_control_metrics`: how many turns came from the main model, cached AI plans, deterministic tool stages, and fallback logic
 - `final_state`: final position, events, UI flags, party, and battle status
+- `ai_latency_summary`: per-turn latency statistics for true AI decisions
 
 For thesis use, reject or flag reports where:
 
@@ -41,19 +71,19 @@ For thesis use, reject or flag reports where:
 - `fatal_error` is not null
 - `ai_full_control_mode` is false for an experiment that claims AI-owned gameplay
 - `ai_control_metrics.main_model_turns` is `0`
-- `ai_control_metrics.ai_authored_ratio` is too low to support the claim you are making
+- `ai_control_metrics.ai_authored_ratio` is too low for the claim you are making
 
-## 3. Summarize multiple runs
+## 4. Summarize existing reports manually
 
-Generate a Markdown summary table:
+If you already have several report JSON files and only need a thesis table:
 
 ```powershell
 python scripts/smoke_report_summary.py `
   --format markdown `
   --output docs/thesis_logs/latest_smoke_summary.md `
-  tmp/codex_smoke_220_report.json `
-  tmp/codex_smoke_600_report.json `
-  tmp/codex_smoke_900_report.json
+  tmp/report_a.json `
+  tmp/report_b.json `
+  tmp/report_c.json
 ```
 
 The summary includes:
@@ -63,21 +93,31 @@ The summary includes:
 - timeline-valid report count
 - AI-dominant report count
 - average AI-authored ratio and average main-model ratio
-- milestone counts for Pokedex / Route 2 / Viridian Forest
-- a compact per-report table
+- milestone counts for Oak's Parcel / Pokedex / Route 1 / Route 2 / Viridian Forest
+- a compact per-report progress table
 
-## 4. Minimum thesis-ready evidence
+## 5. Minimum thesis-ready evidence package
 
 At minimum, keep the following artifacts together:
 
 - one validated short smoke report
-- one validated longer smoke report
-- one Markdown summary generated by `smoke_report_summary.py`
+- one validated repeated batch under frozen parameters
+- one Markdown summary generated by `smoke_report_summary.py` or `autonomous_smoke_batch.py`
 - the exact checkpoint name and runtime flags used for those runs
-- the exact model endpoint configuration used for AI-led runs
+- the exact model endpoint metadata used for AI-led runs
 
 For a thesis that claims the agent is AI-led rather than fallback-led, also keep:
 
 - at least one report with `llm_primary_mode = true` and `ai_full_control_mode = true`
 - at least one run where `ai_control_metrics.ai_dominant = true`
-- a clear separation between resilience-only dummy-endpoint runs and real-AI evaluation runs
+- a clear separation between resilience-only runs and real-AI runs
+- an explicit note for any failure case where transport errors or cooldown logic distorted AI participation
+
+## 6. Current recommended interpretation
+
+As of the current evaluation pipeline:
+
+- repeated real-AI evidence is possible and now has a standard batch runner
+- transient transport failures must be analyzed separately from decision-quality failures
+- long fallback-dominant runs should be retained as negative evidence, not silently discarded
+- stronger early-story milestones such as `got_pokedex` or `delivered_oaks_parcel` are still the decisive threshold for the next stage

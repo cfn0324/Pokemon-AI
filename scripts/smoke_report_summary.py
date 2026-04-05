@@ -75,6 +75,28 @@ def _describe_mode(report: Dict[str, Any]) -> str:
     return "default"
 
 
+def _best_story_progress(markers: Dict[str, Any]) -> str:
+    """Return the strongest early-story milestone reached by a report."""
+    ordered_milestones = [
+        "reached_viridian_forest",
+        "reached_route2",
+        "started_post_pokedex_departure",
+        "got_pokedex",
+        "delivered_oaks_parcel",
+        "obtained_oaks_parcel",
+        "entered_viridian_mart",
+        "reached_viridian_city",
+        "reached_route1",
+        "entered_oaks_lab",
+        "got_starter",
+        "reached_playable",
+    ]
+    for milestone in ordered_milestones:
+        if markers.get(milestone):
+            return milestone
+    return "no_progress"
+
+
 def _summarize_report(path: Path, report: Dict[str, Any]) -> Dict[str, Any]:
     final_state = report.get("final_state", {}) or {}
     position = final_state.get("position", {}) or {}
@@ -103,11 +125,19 @@ def _summarize_report(path: Path, report: Dict[str, Any]) -> Dict[str, Any]:
         "final_screen": visual.get("screen_type"),
         "final_in_battle": bool(final_state.get("in_battle")),
         "highest_party_level": highest_level,
+        "reached_playable": bool(markers.get("reached_playable")),
+        "got_starter": bool(markers.get("got_starter")),
+        "reached_route1": bool(markers.get("reached_route1")),
+        "reached_viridian_city": bool(markers.get("reached_viridian_city")),
+        "entered_viridian_mart": bool(markers.get("entered_viridian_mart")),
+        "entered_oaks_lab": bool(markers.get("entered_oaks_lab")),
+        "obtained_oaks_parcel": bool(markers.get("obtained_oaks_parcel")),
         "got_pokedex": bool(markers.get("got_pokedex")),
         "delivered_oaks_parcel": bool(markers.get("delivered_oaks_parcel")),
         "started_post_pokedex_departure": bool(markers.get("started_post_pokedex_departure")),
         "reached_route2": bool(markers.get("reached_route2")),
         "reached_viridian_forest": bool(markers.get("reached_viridian_forest")),
+        "best_story_progress": _best_story_progress(markers),
         "mode": _describe_mode(report),
         "llm_primary_mode": bool(report.get("llm_primary_mode")),
         "ai_full_control_mode": bool(report.get("ai_full_control_mode")),
@@ -149,7 +179,13 @@ def _aggregate_rows(rows: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
         "completed_count": sum(1 for row in rows if row.get("completed_requested_turns")),
         "fatal_error_count": sum(1 for row in rows if row.get("fatal_error")),
         "timeline_valid_count": sum(1 for row in rows if row.get("timeline_valid")),
+        "obtained_oaks_parcel_count": sum(1 for row in rows if row.get("obtained_oaks_parcel")),
+        "delivered_oaks_parcel_count": sum(1 for row in rows if row.get("delivered_oaks_parcel")),
         "got_pokedex_count": sum(1 for row in rows if row.get("got_pokedex")),
+        "started_post_pokedex_departure_count": sum(
+            1 for row in rows if row.get("started_post_pokedex_departure")
+        ),
+        "reached_route1_count": sum(1 for row in rows if row.get("reached_route1")),
         "reached_route2_count": sum(1 for row in rows if row.get("reached_route2")),
         "reached_viridian_forest_count": sum(1 for row in rows if row.get("reached_viridian_forest")),
         "ai_dominant_count": sum(1 for row in rows if row.get("ai_dominant")),
@@ -174,7 +210,11 @@ def _render_markdown(rows: List[Dict[str, Any]], aggregate: Dict[str, Any]) -> s
         f"- Completed requested turns: {aggregate['completed_count']}",
         f"- Fatal errors: {aggregate['fatal_error_count']}",
         f"- Timeline-valid reports: {aggregate['timeline_valid_count']}",
+        f"- Reports obtaining Oak's Parcel: {aggregate['obtained_oaks_parcel_count']}",
+        f"- Reports delivering Oak's Parcel: {aggregate['delivered_oaks_parcel_count']}",
         f"- Reports reaching Pokedex: {aggregate['got_pokedex_count']}",
+        f"- Reports starting post-Pokedex departure: {aggregate['started_post_pokedex_departure_count']}",
+        f"- Reports reaching Route 1: {aggregate['reached_route1_count']}",
         f"- Reports reaching Route 2: {aggregate['reached_route2_count']}",
         f"- Reports reaching Viridian Forest: {aggregate['reached_viridian_forest_count']}",
         f"- AI-dominant reports: {aggregate['ai_dominant_count']}",
@@ -183,8 +223,8 @@ def _render_markdown(rows: List[Dict[str, Any]], aggregate: Dict[str, Any]) -> s
         f"- Avg main-model ratio: {avg_main_model_ratio if avg_main_model_ratio is not None else 'n/a'}",
         f"- Max observed party level: {aggregate['max_party_level']}",
         "",
-        "| Report | Mode | AI% | Tool% | Turns | Final Pos | Screen | Pokedex | Route2 | Forest | Fatal | Timeline |",
-        "| --- | --- | ---: | ---: | ---: | --- | --- | --- | --- | --- | --- | --- |",
+        "| Report | Mode | Progress | AI% | Tool% | Turns | Final Pos | Screen | Fatal | Timeline |",
+        "| --- | --- | --- | ---: | ---: | ---: | --- | --- | --- | --- |",
     ]
 
     for row in rows:
@@ -200,17 +240,15 @@ def _render_markdown(rows: List[Dict[str, Any]], aggregate: Dict[str, Any]) -> s
             else "n/a"
         )
         lines.append(
-            "| {report_name} | {mode} | {ai_percent} | {tool_percent} | {turn_delta} | {final_pos} | {final_screen} | {got_pokedex} | {reached_route2} | {reached_viridian_forest} | {fatal_error} | {timeline_valid} |".format(
+            "| {report_name} | {mode} | {best_story_progress} | {ai_percent} | {tool_percent} | {turn_delta} | {final_pos} | {final_screen} | {fatal_error} | {timeline_valid} |".format(
                 report_name=row.get("report_name"),
                 mode=row.get("mode"),
+                best_story_progress=row.get("best_story_progress"),
                 ai_percent=ai_percent,
                 tool_percent=tool_percent,
                 turn_delta=row.get("turn_delta"),
                 final_pos=final_pos,
                 final_screen=row.get("final_screen"),
-                got_pokedex="yes" if row.get("got_pokedex") else "no",
-                reached_route2="yes" if row.get("reached_route2") else "no",
-                reached_viridian_forest="yes" if row.get("reached_viridian_forest") else "no",
                 fatal_error=row.get("fatal_error") or "none",
                 timeline_valid="yes" if row.get("timeline_valid") else "no",
             )

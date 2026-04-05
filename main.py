@@ -102,6 +102,7 @@ class PokemonAIAgent:
         self._scripted_bootstrap_steps: List[Dict[str, str]] = []
         self._scripted_bootstrap_reasoning: str = ""
         self._last_fatal_error: Optional[str] = None
+        self._recent_battle_visual_grace_turns = 0
         self.oak_lab_pre_starter = OakLabPreStarterController()
         self.oak_lab_starter = OakLabStarterController()
         self.oak_lab_post_starter = OakLabPostStarterController()
@@ -800,6 +801,64 @@ class PokemonAIAgent:
 
         return retryable
 
+    def _get_temporarily_avoided_field_recovery_decision(
+        self,
+        current_state: dict,
+        screen_type: Optional[str],
+    ) -> Optional[dict]:
+        """Retry a single known-safe local step before degrading into blind interaction probing."""
+        if screen_type not in {"overworld", "indoor", "memory_only", None}:
+            return None
+
+        memory = current_state.get("memory", {}) or {}
+        if memory.get("in_battle"):
+            return None
+        if self._get_retryable_field_directions(current_state):
+            return None
+
+        navigation = current_state.get("navigation", {}) or {}
+        adjacent_tiles = navigation.get("adjacent_tiles", {}) or {}
+        vision = current_state.get("visual", {}).get("navigation_hints", {}) or {}
+        position = memory.get("position", {}) or {}
+        start_key = (
+            int(position.get("map_id", 0) or 0),
+            int(position.get("x", 0) or 0),
+            int(position.get("y", 0) or 0),
+        )
+        vision_blocked = {
+            str(direction or "").strip().lower()
+            for direction in vision.get("blocked_directions", []) or []
+            if str(direction or "").strip().lower() in {"up", "down", "left", "right"}
+        }
+
+        candidates: List[str] = []
+        for direction in ("up", "down", "left", "right"):
+            if direction in vision_blocked:
+                continue
+            if not self._is_temporarily_avoided_move(start_key, direction):
+                continue
+            info = adjacent_tiles.get(direction) or {}
+            status = str(info.get("status") or "").strip().lower()
+            if status not in {"known_exit", "adjacent_explored"}:
+                continue
+            if info.get("target_is_warp") or info.get("step_triggers_warp"):
+                continue
+            candidates.append(direction)
+
+        if len(candidates) != 1:
+            return None
+
+        direction = candidates[0]
+        return {
+            "action": direction,
+            "reasoning": (
+                "Ordinary local retries are exhausted, but exactly one previously successful "
+                f"non-warp path remains; retry {direction} before blind interaction probing"
+            ),
+            "goal_update": None,
+            "recorded_in_context": False,
+        }
+
     def _get_blocked_field_interaction_decision(
         self,
         current_state: dict,
@@ -983,6 +1042,15 @@ class PokemonAIAgent:
             )
 
         if self._llm_primary_mode_enabled():
+            recovery_decision = self._get_temporarily_avoided_field_recovery_decision(
+                current_state,
+                screen_type,
+            )
+            if recovery_decision:
+                return self._decorate_api_fallback_decision(
+                    recovery_decision,
+                    "api_unavailable_field_recovery",
+                )
             blocked_interaction = self._get_blocked_field_interaction_decision(
                 current_state,
                 screen_type,
@@ -1023,6 +1091,16 @@ class PokemonAIAgent:
             return self._decorate_api_fallback_decision(
                 local_decision,
                 "api_unavailable_local_exploration",
+            )
+
+        recovery_decision = self._get_temporarily_avoided_field_recovery_decision(
+            current_state,
+            screen_type,
+        )
+        if recovery_decision:
+            return self._decorate_api_fallback_decision(
+                recovery_decision,
+                "api_unavailable_field_recovery",
             )
 
         blocked_interaction = self._get_blocked_field_interaction_decision(
@@ -1166,6 +1244,11 @@ class PokemonAIAgent:
                 normalized_screen or screen_type,
             )
             if not replacement:
+                replacement = self._get_temporarily_avoided_field_recovery_decision(
+                    current_state,
+                    normalized_screen or screen_type,
+                )
+            if not replacement:
                 replacement = self._get_blocked_field_interaction_decision(
                     current_state,
                     normalized_screen or screen_type,
@@ -1205,6 +1288,11 @@ class PokemonAIAgent:
                 current_state,
                 normalized_screen or screen_type,
             )
+            if not replacement:
+                replacement = self._get_temporarily_avoided_field_recovery_decision(
+                    current_state,
+                    normalized_screen or screen_type,
+                )
             if not replacement:
                 replacement = self._get_blocked_field_interaction_decision(
                     current_state,
@@ -1905,7 +1993,11 @@ class PokemonAIAgent:
             success = self.action_executor.execute(
                 action,
                 precise=self._should_use_precise_direction_execution(decision, action),
-                settle_frames_override=self._get_action_settle_override(decision, action),
+                settle_frames_override=self._get_action_settle_override(
+                    decision,
+                    action,
+                    current_state=current_state,
+                ),
             )
         if not success:
             self.logger.warning(f"Action failed: {action}")
@@ -1989,6 +2081,10 @@ class PokemonAIAgent:
                 "post_warp_reentry_guard",
                 "recent_warp_buffer_guard",
             }
+            if not deterministic_move_attempt:
+                deterministic_move_attempt = str(
+                    getattr(self, "_last_action_source", "") or ""
+                ).startswith("wait_rewrite_")
             if (
                 same_tile
                 and (not turned_in_place or deterministic_move_attempt)
@@ -3224,6 +3320,7 @@ class PokemonAIAgent:
         self,
         decision: dict,
         action: str,
+        current_state: Optional[dict] = None,
     ) -> Optional[int]:
         """Return an action-specific settle override for fragile scripted states."""
         normalized = str(action or "").strip().lower()
@@ -3232,7 +3329,28 @@ class PokemonAIAgent:
 
         source = str(decision.get("decision_source") or "").strip().lower()
         if source != "early_battle":
-            return None
+            memory = (current_state or {}).get("memory", {}) or {}
+            ui_state = memory.get("ui", {}) or {}
+            battle_phase = str(
+                ((current_state or {}).get("battle_summary", {}) or {}).get("phase") or ""
+            ).strip().lower()
+            battle_text_active = bool(ui_state.get("text_box_active")) and (
+                bool(memory.get("in_battle"))
+                or battle_phase in {
+                    "entered_battle",
+                    "battle_in_progress",
+                    "post_battle_dialogue",
+                    "battle_just_ended",
+                }
+            )
+            if not battle_text_active:
+                return None
+            return max(
+                0,
+                int(
+                    self.config.get("actions.ai_battle_text_button_settle_frames", 24) or 24
+                ),
+            )
 
         return max(
             0,
@@ -3340,6 +3458,11 @@ class PokemonAIAgent:
         if memory.get("in_battle"):
             return False
 
+        remaining_grace = int(getattr(self, "_recent_battle_visual_grace_turns", 0) or 0)
+        if remaining_grace > 0:
+            self._recent_battle_visual_grace_turns = max(0, remaining_grace - 1)
+            return False
+
         battle_summary = current_state.get("battle_summary", {}) or {}
         battle_phase = str(battle_summary.get("phase") or "").strip().lower()
         if battle_phase not in {"", "not_in_battle"}:
@@ -3373,6 +3496,13 @@ class PokemonAIAgent:
 
         return "overworld"
 
+    def _get_recent_battle_visual_grace_limit(self) -> int:
+        """Return the short grace window that protects recent battle frames from false field overrides."""
+        config = getattr(self, "config", None)
+        if config is None or not hasattr(config, "get"):
+            return 2
+        return max(0, int(config.get("actions.recent_battle_visual_grace_turns", 2) or 2))
+
     def _get_control_screen_type(
         self,
         current_state: dict,
@@ -3385,7 +3515,10 @@ class PokemonAIAgent:
         phase_hint = str(current_state.get("phase_hint") or "").strip().lower() or None
 
         if memory.get("in_battle"):
+            self._recent_battle_visual_grace_turns = self._get_recent_battle_visual_grace_limit()
             return "battle"
+        if screen_type != "battle":
+            self._recent_battle_visual_grace_turns = 0
         if (
             screen_type == "naming_screen"
             and self._should_override_false_naming_screen(current_state, phase_hint)
@@ -4583,6 +4716,7 @@ class PokemonAIAgent:
         self._stable_screen_turns = 0
         self._last_screen_signature = None
         self._phase_hint_turns_remaining = 0
+        self._recent_battle_visual_grace_turns = 0
         self._restored_checkpoint_name = checkpoint_dir.name
         self._active_landmark_checkpoints = set()
         self._startup_selection_pending = False

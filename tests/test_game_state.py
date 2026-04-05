@@ -127,6 +127,92 @@ class GameStateBattleSummaryTests(unittest.TestCase):
         self.assertEqual(summary["battle_stall_turns"], 0)
         self.assertIn("finish the text", summary["focus_hint"].lower())
 
+    def test_battle_guidance_prefers_fight_then_damaging_move(self):
+        state = self._make_state()
+
+        guidance = state._build_battle_guidance(
+            {
+                "in_battle": True,
+                "battle": {
+                    "battle_type": "wild",
+                    "enemy_species": "Rattata",
+                    "enemy_level": 3,
+                    "enemy_current_hp": 18,
+                },
+                "party": [
+                    {
+                        "species": "Charmander",
+                        "level": 6,
+                        "current_hp": 21,
+                        "max_hp": 21,
+                        "moves": [
+                            {"move_id": 10, "pp": 35},
+                            {"move_id": 45, "pp": 40},
+                        ],
+                    }
+                ],
+                "ui": {"text_box_active": False, "menu_active": True},
+            },
+            {
+                "phase": "battle_in_progress",
+                "encounter_type": "wild",
+                "lead_pokemon": {
+                    "species": "Charmander",
+                    "level": 6,
+                    "current_hp": 21,
+                    "max_hp": 21,
+                    "hp_percent": 100.0,
+                },
+            },
+        )
+
+        self.assertEqual(guidance["phase"], "battle_in_progress")
+        self.assertIn("choose FIGHT", guidance["summary"])
+        self.assertIn("slot 1 (Scratch, PP 35)", guidance["move_cue"])
+        self.assertIn("slot 2 (Growl)", guidance["move_cue"])
+
+    def test_battle_guidance_marks_post_battle_dialogue(self):
+        state = self._make_state()
+
+        guidance = state._build_battle_guidance(
+            {
+                "in_battle": False,
+                "battle": {
+                    "battle_type": "wild",
+                    "enemy_species": "Rattata",
+                    "enemy_level": 3,
+                    "enemy_current_hp": 0,
+                },
+                "party": [
+                    {
+                        "species": "Charmander",
+                        "level": 6,
+                        "current_hp": 18,
+                        "max_hp": 21,
+                        "moves": [
+                            {"move_id": 10, "pp": 34},
+                            {"move_id": 45, "pp": 40},
+                        ],
+                    }
+                ],
+                "ui": {"text_box_active": True, "menu_active": False},
+            },
+            {
+                "phase": "post_battle_dialogue",
+                "encounter_type": "wild",
+                "lead_pokemon": {
+                    "species": "Charmander",
+                    "level": 6,
+                    "current_hp": 18,
+                    "max_hp": 21,
+                    "hp_percent": 85.7,
+                },
+            },
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_dialogue")
+        self.assertIn("Keep advancing the text with A", guidance["summary"])
+
     def test_text_representation_includes_adjacent_tile_occupancy(self):
         state = self._make_state()
 
@@ -275,6 +361,346 @@ class GameStateBattleSummaryTests(unittest.TestCase):
             text,
         )
         self.assertIn("Frontier caution: Current tile is a weaker local frontier.", text)
+
+    def test_text_representation_marks_known_exit_as_currently_blocked(self):
+        state = self._make_state()
+
+        text = state.get_text_representation(
+            {
+                "turn": 15,
+                "memory": {
+                    "position": {"map_id": 40, "x": 9, "y": 9},
+                    "direction": "up",
+                    "badges": {},
+                    "badge_count": 0,
+                    "party": [
+                        {
+                            "species": "Charmander",
+                            "level": 6,
+                            "current_hp": 21,
+                            "max_hp": 21,
+                            "moves": [
+                                {"move_id": 10, "pp": 35},
+                                {"move_id": 45, "pp": 40},
+                            ],
+                        }
+                    ],
+                    "money": 3175,
+                    "item_count": 0,
+                    "in_battle": False,
+                    "battle": {},
+                    "ui": {"text_box_active": False, "menu_active": False},
+                },
+                "pre_world": False,
+                "pre_starter_script": False,
+                "phase_hint": "indoor",
+                "visual": {
+                    "screen_type": "indoor",
+                    "description": "Oak Lab rival blocker",
+                    "local_analysis_enabled": False,
+                    "navigation_hints": {"available": False},
+                },
+                "story_guidance": None,
+                "exploration": {"nearby_unexplored": []},
+                "map_memory": {
+                    "exploration_percent": 21.0,
+                    "explored_tiles": 42,
+                    "total_tiles": 200,
+                },
+                "navigation": {
+                    "current_visit_count": 12,
+                    "known_exits": {"up": {"x": 9, "y": 8}, "left": {"x": 8, "y": 9}},
+                    "blocked_directions": ["up", "down", "left", "right"],
+                    "frontier_count": 4,
+                    "nearest_frontier": None,
+                    "frontier_candidates": [],
+                    "warp_cautions": [],
+                    "adjacent_tiles": {
+                        "up": {
+                            "status": "known_exit",
+                            "target": {"x": 9, "y": 8},
+                            "blocked_attempts": 2,
+                            "target_visit_count": 4,
+                            "target_is_warp": False,
+                            "is_preferred_frontier_step": False,
+                        },
+                        "down": {
+                            "status": "frontier",
+                            "target": {"x": 9, "y": 10},
+                            "blocked_attempts": 2,
+                            "target_visit_count": 0,
+                            "target_is_warp": False,
+                            "is_preferred_frontier_step": False,
+                        },
+                        "left": {
+                            "status": "adjacent_explored",
+                            "target": {"x": 8, "y": 9},
+                            "blocked_attempts": 1,
+                            "target_visit_count": 2,
+                            "target_is_warp": False,
+                            "is_preferred_frontier_step": False,
+                        },
+                        "right": {
+                            "status": "confirmed_blocked",
+                            "target": {"x": 10, "y": 9},
+                            "blocked_attempts": 2,
+                            "target_visit_count": 0,
+                            "target_is_warp": False,
+                            "is_preferred_frontier_step": False,
+                        },
+                    },
+                    "local_map": [],
+                    "map_snapshot": {"available": False},
+                },
+                "deltas": {
+                    "position_changed": False,
+                    "money_delta": 0,
+                    "battle_toggled": False,
+                    "movement_stall_turns": 2,
+                    "stuck_hint": "possibly stuck",
+                },
+                "movement_pattern": {"window_size": 0},
+                "battle_summary": {"phase": "not_in_battle"},
+            }
+        )
+
+        self.assertIn(
+            (
+                "Immediate movement cautions: up=known_exit_but_currently_blocked, "
+                "down=frontier_but_currently_blocked, "
+                "left=adjacent_explored_blocked_once, right=confirmed_blocked"
+            ),
+            text,
+        )
+        self.assertIn(
+            "Interaction cue: a route that previously worked is currently blocked from this tile.",
+            text,
+        )
+
+    def test_story_guidance_highlights_post_battle_pallet_north_exit(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 0, "x": 11, "y": 2},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("prioritize UP", guidance["summary"])
+        self.assertIn("Route 1", guidance["summary"])
+
+    def test_story_guidance_not_emitted_after_oaks_parcel(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 0, "x": 11, "y": 2},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 1,
+                "in_battle": False,
+                "party": [{"level": 7}],
+                "events": {"got_oaks_parcel": True},
+            }
+        )
+
+        self.assertIsNone(guidance)
+
+    def test_text_representation_includes_story_guidance(self):
+        state = self._make_state()
+
+        text = state.get_text_representation(
+            {
+                "turn": 12,
+                "memory": {
+                    "position": {"map_id": 0, "x": 11, "y": 2},
+                    "direction": "up",
+                    "badges": {},
+                    "badge_count": 0,
+                    "party": [
+                        {
+                            "species": "Charmander",
+                            "level": 6,
+                            "current_hp": 21,
+                            "max_hp": 21,
+                            "moves": [{"pp": 35}, {"pp": 40}],
+                        }
+                    ],
+                    "money": 3175,
+                    "item_count": 0,
+                    "in_battle": False,
+                    "battle": {},
+                    "ui": {"text_box_active": False, "menu_active": False},
+                },
+                "pre_world": False,
+                "pre_starter_script": False,
+                "phase_hint": "overworld",
+                "visual": {
+                    "screen_type": "overworld",
+                    "description": "Pallet Town north edge",
+                    "local_analysis_enabled": False,
+                    "navigation_hints": {"available": False},
+                },
+                "story_guidance": {
+                    "phase": "post_battle_intro_route",
+                    "priority": "high",
+                    "summary": (
+                        "Early-story objective: exit Pallet Town north into Route 1. "
+                        "When aligned under the north grass opening, prioritize UP even if side-town frontier tiles look tempting."
+                    ),
+                },
+                "exploration": {"nearby_unexplored": []},
+                "map_memory": {
+                    "exploration_percent": 20.0,
+                    "explored_tiles": 10,
+                    "total_tiles": 200,
+                },
+                "navigation": {
+                    "current_visit_count": 3,
+                    "known_exits": {},
+                    "blocked_directions": [],
+                    "frontier_count": 2,
+                    "nearest_frontier": None,
+                    "frontier_candidates": [],
+                    "warp_cautions": [],
+                    "adjacent_tiles": {},
+                    "local_map": [],
+                    "map_snapshot": {"available": False},
+                },
+                "deltas": {
+                    "position_changed": False,
+                    "money_delta": 0,
+                    "battle_toggled": False,
+                    "movement_stall_turns": 2,
+                    "stuck_hint": "possibly stuck",
+                },
+                "movement_pattern": {"window_size": 0},
+                "battle_summary": {"phase": "not_in_battle"},
+            }
+        )
+
+        self.assertIn("STORY GUIDANCE:", text)
+        self.assertIn("Phase: post_battle_intro_route", text)
+        self.assertIn("Priority: high", text)
+        self.assertIn("prioritize UP", text)
+
+    def test_text_representation_includes_battle_guidance_and_move_labels(self):
+        state = self._make_state()
+
+        text = state.get_text_representation(
+            {
+                "turn": 18,
+                "memory": {
+                    "position": {"map_id": 12, "x": 11, "y": 32},
+                    "direction": "up",
+                    "badges": {},
+                    "badge_count": 0,
+                    "party": [
+                        {
+                            "species": "Charmander",
+                            "level": 6,
+                            "current_hp": 21,
+                            "max_hp": 21,
+                            "moves": [
+                                {"move_id": 10, "pp": 35},
+                                {"move_id": 45, "pp": 40},
+                            ],
+                        }
+                    ],
+                    "money": 3175,
+                    "item_count": 0,
+                    "in_battle": True,
+                    "battle": {
+                        "battle_type": "wild",
+                        "enemy_species": "Rattata",
+                        "enemy_level": 3,
+                        "enemy_current_hp": 18,
+                    },
+                    "ui": {"text_box_active": False, "menu_active": True},
+                },
+                "pre_world": False,
+                "pre_starter_script": False,
+                "phase_hint": "battle",
+                "visual": {
+                    "screen_type": "battle",
+                    "description": "Wild battle menu",
+                    "local_analysis_enabled": False,
+                    "navigation_hints": {"available": False},
+                },
+                "story_guidance": None,
+                "exploration": {"nearby_unexplored": []},
+                "map_memory": {
+                    "exploration_percent": 52.5,
+                    "explored_tiles": 105,
+                    "total_tiles": 200,
+                },
+                "navigation": {
+                    "current_visit_count": 1,
+                    "known_exits": {},
+                    "blocked_directions": [],
+                    "frontier_count": 0,
+                    "nearest_frontier": None,
+                    "frontier_candidates": [],
+                    "warp_cautions": [],
+                    "adjacent_tiles": {},
+                    "local_map": [],
+                    "map_snapshot": {"available": False},
+                },
+                "deltas": {
+                    "position_changed": False,
+                    "money_delta": 0,
+                    "battle_toggled": False,
+                    "movement_stall_turns": 0,
+                    "stuck_hint": "ui text or menu is active; lack of movement is expected",
+                },
+                "movement_pattern": {"window_size": 0},
+                "battle_summary": {
+                    "phase": "battle_in_progress",
+                    "encounter_type": "wild",
+                    "battle_turns": 6,
+                    "enemy_hp_changed": False,
+                    "battle_stall_turns": 1,
+                    "lead_pokemon": {
+                        "species": "Charmander",
+                        "level": 6,
+                        "current_hp": 21,
+                        "max_hp": 21,
+                        "hp_percent": 100.0,
+                    },
+                    "focus_hint": "A battle is active. Resolve the fight before returning to movement goals.",
+                },
+                "battle_guidance": {
+                    "phase": "battle_in_progress",
+                    "priority": "high",
+                    "summary": (
+                        "A battle menu is active. If this is the four-command menu, choose FIGHT. "
+                        "If the move list is already open, pick the recommended move directly."
+                    ),
+                    "menu_cue": (
+                        "When the standard four-command battle menu appears, prefer FIGHT over BAG, "
+                        "PKMN, or RUN for this ordinary early-game encounter unless the screenshot "
+                        "shows a different urgent need."
+                    ),
+                    "move_cue": (
+                        "When the move list is open, prefer slot 1 (Scratch, PP 35); avoid "
+                        "status-only options like slot 2 (Growl) while a damaging move still has PP."
+                    ),
+                },
+            }
+        )
+
+        self.assertIn("Moves: 1:Scratch [damaging, PP:35]; 2:Growl [status, PP:40]", text)
+        self.assertIn("BATTLE GUIDANCE:", text)
+        self.assertIn("Menu cue: When the standard four-command battle menu appears, prefer FIGHT", text)
+        self.assertIn("Move cue: When the move list is open, prefer slot 1 (Scratch, PP 35)", text)
 
 
 if __name__ == "__main__":

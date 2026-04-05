@@ -669,6 +669,44 @@ class RuntimeSafeguardTests(unittest.TestCase):
         self.assertTrue(current_state["memory"]["ui"]["stale_menu_flag"])
         self.assertTrue(current_state["visual"]["stale_battle_screen_flag"])
 
+    def test_control_screen_type_preserves_recent_battle_observation_during_transient_flag_drop(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"actions.recent_battle_visual_grace_turns": 2})
+        agent._recent_battle_visual_grace_turns = 0
+        agent._prev_screen_type = None
+
+        confirmed_battle = {
+            "pre_world": False,
+            "pre_starter_script": False,
+            "phase_hint": "battle",
+            "battle_summary": {"phase": "battle_in_progress"},
+            "memory": {
+                "in_battle": True,
+                "position": {"map_id": 12, "x": 11, "y": 33},
+                "ui": {"text_box_active": True, "menu_active": False},
+            },
+        }
+        transient_drop = {
+            "pre_world": False,
+            "pre_starter_script": False,
+            "phase_hint": "battle",
+            "battle_summary": {"phase": "not_in_battle"},
+            "memory": {
+                "in_battle": False,
+                "party": [{"species": "Charmander"}],
+                "position": {"map_id": 12, "x": 11, "y": 33},
+                "ui": {"text_box_active": False, "menu_active": False},
+            },
+        }
+
+        self.assertEqual(agent._get_control_screen_type(confirmed_battle, "battle"), "battle")
+        self.assertEqual(agent._recent_battle_visual_grace_turns, 2)
+        self.assertEqual(agent._get_control_screen_type(transient_drop, "battle"), "battle")
+        self.assertEqual(agent._recent_battle_visual_grace_turns, 1)
+        self.assertEqual(agent._get_control_screen_type(transient_drop, "battle"), "battle")
+        self.assertEqual(agent._recent_battle_visual_grace_turns, 0)
+        self.assertEqual(agent._get_control_screen_type(transient_drop, "battle"), "overworld")
+
     def test_normalize_ui_flags_clears_stale_menu_on_field_screen(self):
         agent = object.__new__(PokemonAIAgent)
         agent.game_state = SimpleNamespace(_movement_stall_turns=0)
@@ -1155,6 +1193,42 @@ class RuntimeSafeguardTests(unittest.TestCase):
         )
 
         self.assertEqual(decision["action"], "a")
+
+    def test_temporarily_avoided_field_recovery_retries_single_known_exit(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent._temporarily_avoided_moves = {
+            (40, 8, 11, "right"): 999,
+        }
+        agent._prune_temporarily_avoided_moves = lambda: None
+        agent._is_temporarily_avoided_move = (
+            PokemonAIAgent._is_temporarily_avoided_move.__get__(agent, PokemonAIAgent)
+        )
+        agent._get_retryable_field_directions = (
+            PokemonAIAgent._get_retryable_field_directions.__get__(agent, PokemonAIAgent)
+        )
+
+        decision = agent._get_temporarily_avoided_field_recovery_decision(
+            {
+                "memory": {
+                    "in_battle": False,
+                    "position": {"map_id": 40, "x": 8, "y": 11},
+                },
+                "navigation": {
+                    "blocked_directions": ["up", "down", "left", "right"],
+                    "adjacent_tiles": {
+                        "up": {"status": "confirmed_blocked", "target_is_warp": False, "step_triggers_warp": False},
+                        "down": {"status": "confirmed_blocked", "target_is_warp": False, "step_triggers_warp": False},
+                        "left": {"status": "confirmed_blocked", "target_is_warp": False, "step_triggers_warp": False},
+                        "right": {"status": "known_exit", "target_is_warp": False, "step_triggers_warp": False},
+                    },
+                },
+                "visual": {"navigation_hints": {"blocked_directions": ["up", "down", "left"]}},
+            },
+            "indoor",
+        )
+
+        self.assertEqual(decision["action"], "right")
+        self.assertIn("previously successful non-warp path", decision["reasoning"])
 
     def test_llm_primary_ai_error_fallback_does_not_invoke_navigation_plan(self):
         agent = object.__new__(PokemonAIAgent)
@@ -2458,6 +2532,37 @@ class RuntimeSafeguardTests(unittest.TestCase):
 
         self.assertEqual(agent.map_memory.calls, [(0, 11, 12, "down")])
 
+    def test_wait_rewrite_turn_in_place_records_failed_move(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent._last_observed_state = {
+            "memory": {
+                "position": {"map_id": 40, "x": 8, "y": 11},
+                "direction": "left",
+            }
+        }
+        agent._last_action = "down"
+        agent._last_action_source = "wait_rewrite_ai_cooldown"
+        agent._clear_planned_actions = lambda: None
+        agent.map_memory = _MapMemoryRecordFailedMoveStub()
+        agent.main_agent = SimpleNamespace(record_action_outcome=lambda *_args, **_kwargs: None)
+        agent._summarize_action_outcome = lambda *_args, **_kwargs: None
+        agent._update_trigger_tile_memory = lambda *_args, **_kwargs: None
+        agent._update_recent_warp_exit_guard = lambda *_args, **_kwargs: None
+
+        agent._record_last_action_outcome(
+            {
+                "memory": {
+                    "position": {"map_id": 40, "x": 8, "y": 11},
+                    "direction": "down",
+                    "ui": {"text_box_active": False},
+                    "in_battle": False,
+                }
+            },
+            "indoor",
+        )
+
+        self.assertEqual(agent.map_memory.calls, [(40, 8, 11, "down")])
+
     def test_research_mode_stage_specs_drop_fixed_route_controllers(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub({"decision.research_mode": True})
@@ -2533,6 +2638,42 @@ class RuntimeSafeguardTests(unittest.TestCase):
         )
 
         self.assertEqual(override, 36)
+
+    def test_ai_led_battle_text_uses_extended_button_settle(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"actions.ai_battle_text_button_settle_frames": 24})
+
+        override = agent._get_action_settle_override(
+            {"decision_source": "ai"},
+            "a",
+            current_state={
+                "memory": {
+                    "in_battle": True,
+                    "ui": {"text_box_active": True, "menu_active": False},
+                },
+                "battle_summary": {"phase": "battle_in_progress"},
+            },
+        )
+
+        self.assertEqual(override, 24)
+
+    def test_ai_led_battle_menu_keeps_default_settle_window(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"actions.ai_battle_text_button_settle_frames": 24})
+
+        override = agent._get_action_settle_override(
+            {"decision_source": "ai"},
+            "a",
+            current_state={
+                "memory": {
+                    "in_battle": True,
+                    "ui": {"text_box_active": False, "menu_active": True},
+                },
+                "battle_summary": {"phase": "battle_in_progress"},
+            },
+        )
+
+        self.assertIsNone(override)
 
     def test_default_stage_specs_keep_fixed_route_controllers(self):
         agent = object.__new__(PokemonAIAgent)

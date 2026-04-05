@@ -1,0 +1,2729 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_195913",
+  "restored_checkpoint": "checkpoint_195913",
+  "requested_turns": 120,
+  "llm_primary_mode": true,
+  "ai_full_control_mode": true,
+  "pure_llm_mode": false,
+  "research_mode": false,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": true,
+    "ai_full_control_mode": true,
+    "pure_llm_mode": false,
+    "research_mode": false,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 384,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": true
+  },
+  "latest_checkpoint": "checkpoint_195913",
+  "start_turn": 195913,
+  "end_turn": 196033,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.9,
+  "decision_source_counts": {
+    "wait_rewrite_ai_error": 2,
+    "wait_rewrite_ai_cooldown": 16,
+    "guided_navigation_escape": 2,
+    "api_unavailable_field_interaction": 97,
+    "ai": 3
+  },
+  "decision_path_counts": {
+    "tool": 20,
+    "fallback": 97,
+    "ai": 3
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 3,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 3,
+    "deterministic_tool_turns": 20,
+    "fallback_turns": 97,
+    "main_model_ratio": 0.025,
+    "ai_authored_ratio": 0.025,
+    "deterministic_tool_ratio": 0.1667,
+    "fallback_ratio": 0.8083,
+    "ai_dominant": false
+  },
+  "ai_latency_summary": {
+    "count": 3,
+    "avg_seconds": 4.832,
+    "max_seconds": 4.953,
+    "min_seconds": 4.749,
+    "total_seconds": 14.495,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": false,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 195914,
+    "timeline_last_turn": 196033,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196033,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196033,
+    "timestamp": "2026-04-05T21:51:44.679679",
+    "position": {
+      "map_id": 40,
+      "x": 9,
+      "y": 11
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": false,
+      "menu_active": false,
+      "stale_text_box_flag": true
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "indoor",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196034,
+      "local_analysis_enabled": false,
+      "screen_hash": "eb453c74cdbd4c31a46ca653238718c4"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 42,
+      "total_tiles": 200,
+      "exploration_percent": 21.0
+    },
+    "navigation": {
+      "current_visit_count": 107,
+      "known_exits": {
+        "up": {
+          "x": 9,
+          "y": 10
+        },
+        "left": {
+          "x": 8,
+          "y": 11
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "left",
+        "right",
+        "up"
+      ],
+      "frontier_count": 30,
+      "nearest_frontier": {
+        "target": [
+          8,
+          11
+        ],
+        "path": [
+          "left"
+        ],
+        "unknown_directions": [
+          "up",
+          "down"
+        ],
+        "visit_count": 3,
+        "distance": 1,
+        "local_visit_pressure": 116,
+        "global_novelty_distance": 9,
+        "priority_score": -125.6,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 3,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 13,
+          "priority_score": 43.2,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "down",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 5,
+          "local_visit_pressure": 10,
+          "global_novelty_distance": 5,
+          "priority_score": 6.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            6,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down"
+          ],
+          "visit_count": 1,
+          "distance": 3,
+          "local_visit_pressure": 14,
+          "global_novelty_distance": 7,
+          "priority_score": 5.7,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 9,
+            "y": 10
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 4,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 10)."
+        },
+        "down": {
+          "target": {
+            "x": 9,
+            "y": 12
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 3,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 3 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        },
+        "left": {
+          "target": {
+            "x": 8,
+            "y": 11
+          },
+          "status": "known_exit",
+          "blocked_attempts": 2,
+          "target_visit_count": 3,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 11)."
+        },
+        "right": {
+          "target": {
+            "x": 10,
+            "y": 11
+          },
+          "status": "blocked_once",
+          "blocked_attempts": 1,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This move already failed once from the current tile; avoid repeating it blindly."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": "right",
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": {
+          "x": 12,
+          "y": 11
+        },
+        "current_priority_score": -546.25,
+        "stronger_priority_score": 43.2,
+        "priority_gap": 589.45,
+        "summary": "Current tile is a weaker local frontier (score -546.25, pressure 115, visits 107). A stronger frontier at (12, 11) scores 43.2; prefer right instead of probing every adjacent unknown here."
+      },
+      "known_warps": [],
+      "local_map": [
+        "F????????",
+        "F????????",
+        "F????????",
+        "????F????",
+        "FFFFP??F?",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F....F#        ",
+          "   F....F         ",
+          "   FFFF.F         ",
+          "       FF         ",
+          "       FF         ",
+          "       FF         ",
+          "       FF         ",
+          "       F    F#    ",
+          "       FFFFFP  F  ",
+          "            #     ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F....F#????????",
+          "???F....F?????????",
+          "???FFFF.F?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????F????F#????",
+          "???????FFFFFP??F??",
+          "????????????#?????",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 14,
+          "width": 18,
+          "height": 17
+        },
+        "player": {
+          "x": 9,
+          "y": 11
+        },
+        "explored_count": 42,
+        "frontier_count": 30,
+        "blocked_count": 9,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 1,
+      "stuck_hint": "slight stall"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 195914,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: Error occurred: AI request failed with status 500: {\"error\":{\"message\":\"没有可用token（traceid: b39db1ca397aa3182b7b9a48c8ddf7ef） (request id: 20260405135106740795021p51L3lNk)\",\"type\":\"rix_api_error\",\"param\":\"\",\"code\":null}}",
+      "result": "After down:; moved from (4,8) to (4,9) on map 40; screen changed from overworld to indoor",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "overworld",
+      "observed_screen_type": "overworld",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195915,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.9s after recent request failures",
+      "result": "After down:; moved from (4,9) to (4,10) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "overworld",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195916,
+      "action": "down",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After down:; moved from (4,10) to (4,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195917,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.6s after recent request failures",
+      "result": "After right:; moved from (4,11) to (5,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 4,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195918,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After right:; moved from (5,11) to (6,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195919,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.3s after recent request failures",
+      "result": "After right:; moved from (6,11) to (7,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195920,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After right:; moved from (7,11) to (8,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195921,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 1.0s after recent request failures",
+      "result": "After up:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195922,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.9s after recent request failures",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195923,
+      "action": "up",
+      "reasoning": "Use local navigation hints to keep exploring via up. Original WAIT reasoning: API cooldown active for 0.7s after recent request failures",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195924,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 0.6s after recent request failures",
+      "result": "After left:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195925,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.4s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195926,
+      "action": "right",
+      "reasoning": "Use the learned frontier route instead of probing another weak local loop. Original WAIT reasoning: API cooldown active for 0.3s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195927,
+      "action": "down",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via down. Current tile is a weaker local frontier (score 13.75, pressure 8, visits 4). A stronger frontier at (12, 11) scores 42.85; prefer down instead of probing every adjacent unknown here.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195928,
+      "action": "down",
+      "reasoning": "Use local navigation hints to keep exploring via down. Original WAIT reasoning: Error occurred: AI request failed with status 500: {\"error\":{\"message\":\"没有可用token（traceid: 9019d7803a7aa3182d7b9a4841c1571e） (request id: 202604051351097978762610CJntBXl)\",\"type\":\"rix_api_error\",\"param\":\"\",\"code\":null}}",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_error",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195929,
+      "action": "down",
+      "reasoning": "Use local navigation hints to keep exploring via down. Original WAIT reasoning: API cooldown active for 1.8s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195930,
+      "action": "right",
+      "reasoning": "Use local navigation hints to keep exploring via right. Original WAIT reasoning: API cooldown active for 1.7s after recent request failures",
+      "result": "After right:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195931,
+      "action": "left",
+      "reasoning": "Use local navigation hints to keep exploring via left. Original WAIT reasoning: API cooldown active for 1.5s after recent request failures",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195932,
+      "action": "right",
+      "reasoning": "Planner guard: current local navigation is stalled, looping, or sitting on a risky warp fringe. Planner: leave the weaker local frontier via right. Current tile is a weaker local frontier (score 2.25, pressure 14, visits 3). A stronger frontier at (12, 11) scores 42.85; prefer right instead of probing every adjacent unknown here.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "guided_navigation_escape",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195933,
+      "action": "down",
+      "reasoning": "Auto: replace WAIT with a recovery move to keep field exploration moving. Original WAIT reasoning: API cooldown active for 1.2s after recent request failures",
+      "result": "After down:; position did not change",
+      "decision_source": "wait_rewrite_ai_cooldown",
+      "decision_path": "tool",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195934,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195935,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195936,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195937,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195938,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195939,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195940,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195941,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195942,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195943,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195944,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195945,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195946,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195947,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195948,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195949,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195950,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195951,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195952,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195953,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195954,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195955,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195956,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195957,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195958,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195959,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195960,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195961,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195962,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195963,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195964,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195965,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195966,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195967,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195968,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195969,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195970,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195971,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195972,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195973,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195974,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195975,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with no dialogue box, and repeated A/B did nothing; all adjacent moves from this tile are flagged blocked, so this looks like the rival/Oak story blocker and the next concrete step is to interact instead of shuffling.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.749,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195976,
+      "action": "right",
+      "reasoning": "This is Oak’s Lab with no dialogue box open, and repeated A/B on this tile failed while all adjacent directions are flagged blocked; the stronger frontier is to the right, so the best next probe is to try moving right once instead of pressing A again.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.953,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195977,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195978,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195979,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195980,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195981,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195982,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195983,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195984,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195985,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195986,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195987,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195988,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195989,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195990,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195991,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195992,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195993,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195994,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195995,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195996,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195997,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195998,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 195999,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196000,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196001,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196002,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196003,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196004,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196005,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196006,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196007,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196008,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196009,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196010,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196011,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196012,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196013,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196014,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196015,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196016,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196017,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196018,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196019,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196020,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196021,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196022,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196023,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196024,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196025,
+      "action": "a",
+      "reasoning": "The screenshot shows the lab interior with an NPC directly up-left of the player, and all movement directions from this tile have been failing repeatedly, so this is likely a story blocker that should be interacted with instead of pressing movement again.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.793,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196026,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": "indoor",
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196027,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196028,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196029,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196030,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196031,
+      "action": "b",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with B instead of idling",
+      "result": "After b:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196032,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196033,
+      "action": "a",
+      "reasoning": "Auto fallback while AI is unavailable: All field directions are currently blocked, so probe the stuck scene with A instead of idling",
+      "result": "After a:; no visible state change",
+      "decision_source": "api_unavailable_field_interaction",
+      "decision_path": "fallback",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "indoor",
+      "observed_screen_type": "indoor",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    }
+  ]
+}
