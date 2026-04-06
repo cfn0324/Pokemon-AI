@@ -34,6 +34,7 @@ class AutonomousSmokeBatchTests(unittest.TestCase):
             pure_llm=False,
             research_mode=False,
             ai_full_control=True,
+            disable_runtime_fallbacks=True,
             reset_context=True,
             ai_timeout=25,
             same_turn_budget=30,
@@ -47,6 +48,7 @@ class AutonomousSmokeBatchTests(unittest.TestCase):
         self.assertIn("checkpoint_195913", command)
         self.assertIn("--llm-primary", command)
         self.assertIn("--ai-full-control", command)
+        self.assertIn("--disable-runtime-fallbacks", command)
         self.assertIn("--reset-context", command)
         self.assertIn("--decision-max-tokens", command)
         self.assertIn("384", command)

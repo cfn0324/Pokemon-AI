@@ -64,6 +64,7 @@ def _protocol_from_args(args: argparse.Namespace) -> Dict[str, Any]:
         "pure_llm": bool(args.pure_llm),
         "research_mode": bool(args.research_mode),
         "ai_full_control": args.ai_full_control,
+        "disable_runtime_fallbacks": bool(args.disable_runtime_fallbacks),
         "reset_context": bool(args.reset_context),
         "ai_timeout": int(args.ai_timeout),
         "same_turn_budget": int(args.same_turn_budget),
@@ -102,6 +103,8 @@ def _build_smoke_command(args: argparse.Namespace, output_path: Path) -> List[st
         command.append("--ai-full-control")
     elif args.ai_full_control is False:
         command.append("--disable-ai-full-control")
+    if args.disable_runtime_fallbacks:
+        command.append("--disable-runtime-fallbacks")
     if args.reset_context:
         command.append("--reset-context")
     return command
@@ -186,6 +189,11 @@ def main() -> None:
     parser.add_argument("--pure-llm", action="store_true", help="Enable pure-LLM mode.")
     parser.add_argument("--research-mode", action="store_true", help="Enable research mode.")
     parser.add_argument(
+        "--disable-runtime-fallbacks",
+        action="store_true",
+        help="Disable runtime fallback/tool takeover behavior in each smoke run.",
+    )
+    parser.add_argument(
         "--ai-full-control",
         dest="ai_full_control",
         action="store_true",
@@ -248,7 +256,9 @@ def main() -> None:
     print(
         "[autonomous_smoke_batch] "
         f"label={label}, checkpoint={args.checkpoint}, turns={args.turns}, runs={args.runs}, "
-        f"llm_primary={args.llm_primary}, pure_llm={args.pure_llm}, ai_full_control={args.ai_full_control}"
+        f"llm_primary={args.llm_primary}, pure_llm={args.pure_llm}, "
+        f"disable_runtime_fallbacks={args.disable_runtime_fallbacks}, "
+        f"ai_full_control={args.ai_full_control}"
     )
     print(
         "[autonomous_smoke_batch] "

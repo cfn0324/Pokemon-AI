@@ -1,0 +1,4647 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 220,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "latest_checkpoint": "checkpoint_196183",
+  "start_turn": 196081,
+  "end_turn": 196301,
+  "turn_delta": 220,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 220,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 172,
+    "ai_error": 4,
+    "ai_cooldown": 44
+  },
+  "decision_path_counts": {
+    "ai": 220
+  },
+  "ai_control_metrics": {
+    "total_turns": 220,
+    "main_model_turns": 172,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 172,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 0.7818,
+    "ai_authored_ratio": 0.7818,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 172,
+    "avg_seconds": 5.148,
+    "max_seconds": 22.397,
+    "min_seconds": 3.052,
+    "total_seconds": 885.386,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0,
+      12
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": true,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196301,
+    "timeline_turn_count": 220,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196301,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196301,
+    "timestamp": "2026-04-06T19:27:31.008828",
+    "position": {
+      "map_id": 12,
+      "x": 16,
+      "y": 15
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 15,
+        "current_hp": 15,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 31
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": false,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196302,
+      "local_analysis_enabled": false,
+      "screen_hash": "087f7620350fc6bcc5cdb6c349b31aad"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 108,
+      "total_tiles": 200,
+      "exploration_percent": 54.0
+    },
+    "navigation": {
+      "current_visit_count": 35,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 63,
+      "nearest_frontier": {
+        "target": [
+          16,
+          15
+        ],
+        "path": [],
+        "unknown_directions": [
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 35,
+        "distance": 0,
+        "local_visit_pressure": 221,
+        "global_novelty_distance": 16,
+        "priority_score": -364.25,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 2,
+          "distance": 8,
+          "local_visit_pressure": 11,
+          "global_novelty_distance": 13,
+          "priority_score": 14.2,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 7,
+          "local_visit_pressure": 13,
+          "global_novelty_distance": 12,
+          "priority_score": 10.3,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 9,
+          "local_visit_pressure": 11,
+          "global_novelty_distance": 10,
+          "priority_score": 8.6,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 16,
+            "y": 14
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 3,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (16, 14) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "down": {
+          "target": {
+            "x": 16,
+            "y": 16
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "left": {
+          "target": {
+            "x": 15,
+            "y": 15
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "right": {
+          "target": {
+            "x": 17,
+            "y": 15
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": "left",
+        "escape_direction": "left",
+        "discouraged_directions": [
+          "down",
+          "right"
+        ],
+        "stronger_frontier_target": {
+          "x": 9,
+          "y": 14
+        },
+        "current_priority_score": -364.25,
+        "stronger_priority_score": 14.2,
+        "priority_gap": 378.45,
+        "summary": "Current tile is a weaker local frontier (score -364.25, pressure 221, visits 35). A stronger frontier at (9, 14) scores 14.2; prefer left instead of probing every adjacent unknown here."
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "?????????",
+        "??FF?????",
+        "??FF?????",
+        "FFFFFF???",
+        "????P????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "                    ",
+          "                    ",
+          "             FF     ",
+          "             FF     ",
+          "        FFFFFFFFF   ",
+          "        F      P    ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFF        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F....FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.F         "
+        ],
+        "prompt_rows": [
+          "????????????????????",
+          "????????????????????",
+          "?????????????FF?????",
+          "?????????????FF?????",
+          "????????FFFFFFFFF???",
+          "????????F??????P????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFF????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F....FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.F?????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 10,
+          "max_y": 33,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 16,
+          "y": 15
+        },
+        "explored_count": 108,
+        "frontier_count": 63,
+        "blocked_count": 16,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "moving or in battle"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "wild",
+      "battle_turns": 34,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 33,
+      "enemy_species": "Rattata",
+      "enemy_level": 3,
+      "enemy_current_hp": 15,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 15,
+        "max_hp": 21,
+        "hp_percent": 71.4
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "left",
+      "reasoning": "The lab is visible with no actual dialogue box on screen, and the verified story guidance says the exit is on the bottom row after lining up left first, so I should step left toward the exit columns rather than press A or probe the blocked right side.",
+      "result": "After left:; moved from (7,10) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.581,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "left",
+      "reasoning": "The lab is visible with no real dialogue box on screen, and the verified story guidance says the exit warp is on the bottom row after lining up farther left, so left is the next concrete step.",
+      "result": "After left:; moved from (6,10) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.8,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story cue says the exit warp is directly below on row y=11 near this column, so moving down is the next concrete step.",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.97,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story guidance says I am already lined up on the exit row so pressing down should leave the lab.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.272,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside with no visible dialogue box, and down would return to the lab warp while left and right are blocked by the fence, so up toward the open path is the best progress.",
+      "result": "After up:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.797,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town with no visible dialogue box, and the verified story guidance says to step off the lab doorway tile and move left along the lab frontage toward x=9 rather than going up or re-entering.",
+      "result": "After left:; moved from (12,12) to (11,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.77,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story cue says to keep moving left along the lab frontage toward x=9 while avoiding the right-side lab warp.",
+      "result": "After left:; moved from (11,12) to (10,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.707,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story cue says to continue left along the lab frontage to x=9 while avoiding re-entering the lab.",
+      "result": "After left:; moved from (10,12) to (9,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.742,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "up",
+      "reasoning": "I am outside in Pallet Town with no visible dialogue box, and the verified story cue says that from the west-side lane at x=9 I should keep moving up rather than wandering toward the lab or the southern frontier.",
+      "result": "After up:; moved from (9,12) to (9,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.355,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "up",
+      "reasoning": "I am outside in Pallet Town on the west-side lane, and the screenshot shows clear open ground above while the verified story cue says to keep moving up toward the town exit.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.409,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "up",
+      "reasoning": "I am outside in Pallet Town on the west-side lane, and the screenshot plus story guidance show clear walkable ground continuing upward while the current focus is to leave town by continuing north.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.85,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "up",
+      "reasoning": "I am in Pallet Town outside with no visible dialogue box, and the screenshot shows open ground continuing upward on the west-side lane while the verified story guidance says to keep moving north toward the town exit.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.619,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with clear walkable ground directly above the player, and the verified story guidance says to keep moving up on the west-side lane toward the north exit.",
+      "result": "After up:; moved from (9,8) to (9,7) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.112,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with clear open ground directly above the player, and the current focus plus verified story guidance say to continue north on the west-side lane rather than turning into the houses.",
+      "result": "After up:; moved from (9,7) to (9,6) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.122,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current focus plus verified story guidance say to keep moving up on the west-side lane; up is also the only adjacent frontier tile.",
+      "result": "After up:; moved from (9,6) to (9,5) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.229,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with open path directly above the player, and the current mandatory route guidance says to keep moving north on the west-side lane toward the town exit.",
+      "result": "After up:; moved from (9,5) to (9,4) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.628,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current verified route says to keep moving north on the west-side lane; the path above the player remains open while the houses flank left and right.",
+      "result": "After up:; moved from (9,4) to (9,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.851,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current verified story route says to keep moving up on the west-side lane; the path directly above the player is still open while the houses are to the sides.",
+      "result": "After up:; moved from (9,3) to (9,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.857,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "right",
+      "reasoning": "This is the Pallet Town overworld at the north edge, and the screenshot plus navigation memory show the grass wall blocks up while the verified story route says to shift right to the Route 1 opening.",
+      "result": "After right:; moved from (9,2) to (10,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.274,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town overworld at the north exit, with trees blocking further sideways shortcuts while the verified story guidance and navigation memory both say the opening directly above is the route out of town.",
+      "result": "After up:; moved from (10,2) to (10,1) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.496,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town overworld at the north exit, and the visible path continues directly up between the fences into the route while the current story guidance says to leave town north.",
+      "result": "After up:; moved from (10,1) to (10,0) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.406,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town north exit with continuous path tiles directly above the player between fences, and the current story cue says to leave town by going north rather than exploring sideways.",
+      "result": "After up:; warped from map 0 (10,0) to map 12 (10,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.082,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with the player in the left corridor between fence posts, and the verified story cue says to keep moving up from x=10 rather than stepping right onto the nearby warp back to Pallet.",
+      "result": "After up:; moved from (10,35) to (10,34) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.986,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player in the left corridor, no visible dialogue box despite the stale RAM text flag, and story guidance says to continue upward; left is blocked by the fence while up is the verified route.",
+      "result": "After up:; moved from (10,34) to (10,33) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.07,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player in the left corridor; left is fenced off while the path clearly continues upward, matching the verified guidance to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.692,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player still in the left corridor, fences blocking left and right while the path clearly continues upward, matching the verified guidance to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.413,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player still in the left corridor, and the path visibly continues upward while the story guidance and navigation memory both verify up as the next route tile.",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.073,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld movement, and the visible path continues straight up in the left corridor while the story guidance explicitly says to keep moving up toward the bend near y=28.",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.194,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld movement, and the screenshot plus story guidance show the left corridor continuing upward while the sign and ledges block detours, so the next concrete step is to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.809,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld movement, and the verified guidance says that at y=28 I should shift left before climbing because up from this tile has already failed once while left is a known open path.",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.595,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 overworld movement, and both the visible path and verified story guidance say to keep shifting left at y=28 because up from this tile is confirmed blocked while left is an open route tile.",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.742,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld movement, and both the screenshot and verified story guidance show the path continuing through the north gap at x=8 while the sign and ledges make side movement less useful.",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.668,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with continuous path directly above the player, while right is blocked by the sign/hedge and story guidance says to keep going up through the north gap from x=8.",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.657,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld movement, and the verified story guidance for the current row says to move right toward x=10; the screenshot also shows open path to the right while continuing that alignment is the current mandatory step.",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.827,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld movement, and both the screenshot and verified story guidance show open path to the right while up is partly constrained by the tree line and NPC, so the next mandatory step is to line up with the middle corridor at x=10.",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.631,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with visible path directly above the player, and the verified story guidance says to keep moving up on x=10 toward the next dogleg.",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.162,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show clear path directly above while the top todo is to keep following the main route north through the middle corridor.",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.684,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld movement with open path to the right, and the verified story guidance says the next mandatory dogleg step from (10,24) is right into the narrow bend.",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.589,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "down",
+      "reasoning": "This is Route 1 overworld movement, and the verified story guidance says the next mandatory step from (11,24) is down one tile to open the right-side lane; the screenshot also shows walkable path below the player.",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.854,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld movement, and the verified story guidance says the next mandatory step from (11,25) is right; the screenshot also shows open path to the right while trees and ledges constrain other directions.",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.893,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus verified story guidance show open path continuing upward in the upper-right lane while up is the known successful route and the current task is to keep leaving town along the main path.",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.241,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld movement with clear path continuing upward from the player, and the verified story guidance says to keep moving up on x=12 toward the cross-lane.",
+      "result": "After up:; moved from (12,24) to (12,23) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.58,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "up",
+      "reasoning": "The screenshot shows the Route 1 overworld with clear walkable path continuing upward from the player, and the verified story guidance says to keep moving up on x=12 toward the cross-lane at y=20.",
+      "result": "After up:; moved from (12,23) to (12,22) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.934,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld movement, and the visible path plus verified story guidance both say to continue up from x=12 toward the cross-lane while left is fenced by trees and the grass patch is to the right.",
+      "result": "After up:; moved from (12,22) to (12,21) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.673,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.6s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say the next concrete progress is to move up along x=12 toward the cross-lane.",
+      "result": "After up:; moved from (12,21) to (12,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.141,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, the screenshot shows a rock fence directly above so up is blocked, and the verified guidance says to shift left along y=20 before going north.",
+      "result": "After left:; moved from (12,20) to (11,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.493,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld, the rock fence directly above means up is blocked here, and the verified story guidance says to keep shifting left along y=20 toward x=9 before going north.",
+      "result": "After left:; moved from (11,20) to (10,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.668,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, the rock fence above blocks going up from here, and the verified guidance says to keep moving left along row y=20 to x=9 before heading north.",
+      "result": "After left:; moved from (10,20) to (9,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.606,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and from the current tile the path above is visibly open while the story guidance and navigation memory both say the next mandatory progress is to move up through the known exit at (9,19).",
+      "result": "After up:; moved from (9,20) to (9,19) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.974,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus navigation memory show clear path continuing upward from x=9 while the current focus and story guidance both say to keep moving up toward Viridian.",
+      "result": "After up:; moved from (9,19) to (9,18) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.797,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, the path directly above the player is clearly open grass-path while the story guidance and navigation memory both say the next mandatory progress is to keep moving up through the known exit at (9,17).",
+      "result": "After up:; moved from (9,18) to (9,17) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.746,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld, and the path directly above the player is visibly open while navigation memory and story guidance both verify that up leads along the mandatory route toward Viridian.",
+      "result": "After up:; moved from (9,17) to (9,16) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.766,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the visible path plus navigation memory both show that up continues through the open upper lane toward the known exit at (9,15) while left and right are just side frontier checks.",
+      "result": "After up:; moved from (9,16) to (9,15) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.238,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the visible path plus navigation memory both show that up remains the verified main-route exit from (9,15) toward Viridian while left and right are only side frontiers.",
+      "result": "After up:; moved from (9,15) to (9,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.246,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "right",
+      "reasoning": "This is the Route 1 overworld, and the verified story guidance says the mandatory path is to move right along row y=14; the screenshot also shows open path to the right while the rock fence blocks going straight through above.",
+      "result": "After right:; moved from (9,14) to (10,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.047,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "right",
+      "reasoning": "This is the Route 1 overworld, and both the screenshot and story guidance show the path continuing to the right along the top corridor while the row of trees blocks going straight upward from here.",
+      "result": "After right:; moved from (10,14) to (11,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.931,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "right",
+      "reasoning": "The screenshot shows the Route 1 overworld with open path continuing to the right, and STORY GUIDANCE explicitly says to keep moving right along row y=14 toward x=15 while the trees block going up here.",
+      "result": "After right:; moved from (11,14) to (12,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.901,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and the verified story cue says to keep moving right along y=14; the screenshot shows the path open to the right while up is blocked by the tree/ledge line.",
+      "result": "After right:; moved from (12,14) to (13,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.773,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with open ground continuing to the right, and the verified story guidance says to keep moving right along y=14 toward x=15 while up is just a side opening.",
+      "result": "After right:; moved from (13,14) to (14,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.841,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "right",
+      "reasoning": "The screenshot shows the Route 1 overworld with open path continuing to the right, and the live story guidance explicitly says to keep moving right along y=14 toward the known exit at x=15.",
+      "result": "After right:; moved from (14,14) to (15,14) on map 12; entered battle",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.422,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "a",
+      "reasoning": "A wild battle has just started and the battle guidance says encounter text is active rather than the command menu, so I should press A to advance to the real battle options.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.381,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene without the four-command menu yet, and the battle guidance says text is still active, so I should press A once to advance toward the command menu.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.138,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild battle scene without the four-command menu, and the battle guidance says text is active, so I should press A once more to advance the encounter text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.63,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "a",
+      "reasoning": "The state confirms a wild battle is still active with text box active and no menu visible yet, so the safest next step is to advance the battle text once rather than try movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.591,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "b",
+      "reasoning": "The screenshot is completely black, so I cannot confirm a visible menu or text box, and after several A presses with no visible change the safest way to try to clear a possibly stuck battle text state is B.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.431,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the wild battle scene with an empty text box and no four-command menu yet, and the battle guidance says text is still the active UI, so I should press A to advance toward the real battle menu.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.008,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with an empty bordered text box and no four-command menu yet, so the active UI is still battle text and I should advance it once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.354,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "a",
+      "reasoning": "The screenshot shows an active wild battle with an empty bordered text box and no four-command menu yet, so the battle text still needs to be advanced once to reach the real choice menu.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.989,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows a wild Rattata battle with encounter text still printing in the text box and no four-command menu yet, so the correct next step is to advance the battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.289,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild encounter text “Wild RATTATA appeared!” in the battle text box with no four-command menu visible, so the correct step is to advance the active battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.744,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active wild battle with the encounter text “Wild RATTATA appeared!” still on screen and no four-command menu yet, so the correct step is to advance the battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.006,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "a",
+      "reasoning": "The screenshot shows an active wild battle with only the bordered text box visible and no four-command menu yet, so the current battle text still needs to be advanced once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.328,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "a",
+      "reasoning": "The screenshot still shows a wild Rattata battle with an active empty bordered text box and no four-command menu yet, so the safest next step is to advance the battle text once rather than try movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.721,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "a",
+      "reasoning": "The screenshot still shows battle text with “Go! CHARM…” and no four-command menu visible, so the active send-out text needs one more advance rather than trying movement or menu inputs.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.666,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "a",
+      "reasoning": "The battle screen still shows the send-out text “Go! CHARMANDER!” with a bordered text box and no four-command menu yet, so the correct step is to advance the active battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.374,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with “Go! CHARMANDER!” and no visible four-command menu yet, so I should advance the remaining send-out text once more.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.352,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196182,
+      "action": "a",
+      "reasoning": "The screenshot is still a battle with the send-out text “Go! CHARMANDER!” and no visible four-command menu yet, so the correct step is to advance the active battle text once more.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.806,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196183,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle text box with “Go! CHARMANDER!” and no four-command battle menu visible yet, so the correct step is to advance the active text once more.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.014,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196184,
+      "action": "a",
+      "reasoning": "The standard four-command battle menu is visible with the cursor on FIGHT, and the current focus is to safely progress this wild battle by choosing an attack path instead of stalling on text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.786,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196185,
+      "action": "a",
+      "reasoning": "The battle move list is open with the cursor on Scratch, and the current focus is to stop stalling and use the preferred damaging move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.39,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196186,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with only “CHARMANDER” visible and no four-command menu, so the next safe step is to advance the battle text rather than guess a movement or menu input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.466,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196187,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH,” so the fight is still in text progression and I should advance it rather than guess a menu input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.714,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196188,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196189,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196190,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196191,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196192,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196193,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196194,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196195,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196196,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196197,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196198,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196199,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196200,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER’s attack missed!”, so the highest-priority step is to advance the battle text with A until the command menu reappears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.561,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196201,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy RATT…”, so the current task is to advance the battle text with A until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.353,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196202,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying the enemy Rattata used TACKLE, so the immediate task is to advance the battle text until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.629,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196203,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying the enemy Rattata used TACKLE, so the immediate task is to advance the battle text with A until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 22.397,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196204,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “Enemy RATTATA used TACKLE!”, so the immediate task is still to advance the battle text until the command menu appears.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.633,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196205,
+      "action": "a",
+      "reasoning": "The screenshot still shows battle text saying “Enemy RATTATA used TACKLE!”, so the active UI is a battle dialogue box that should be advanced before choosing FIGHT.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.524,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196206,
+      "action": "a",
+      "reasoning": "The standard four-command battle menu is visible with FIGHT selected, so the next safe step is to confirm FIGHT rather than pressing A blindly through text or changing menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.872,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196207,
+      "action": "a",
+      "reasoning": "The move list is open in battle with the cursor already on Scratch, and the safest progress is to use the damaging move instead of stalling.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.916,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196208,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle text box with only “CHARMANDER” visible and no four-command menu, so battle text is still the active UI and I should advance it with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.134,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196209,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH,” so the current UI is still battle dialogue rather than the command menu and I should advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.891,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196210,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATCH!” with no command menu visible, so the next step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.906,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196211,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!”, so the immediate task is to advance battle text with A until the next menu or result appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.067,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196212,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle text box reading “CHARMANDER used SCRATCH!” with no four-command menu visible, so the immediate task is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.362,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196213,
+      "action": "a",
+      "reasoning": "The screenshot shows active battle text saying “CHARMANDER used SCRATCH!”, so the battle text is still the current UI and I should advance it rather than trying movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.605,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196214,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH!”, with no command menu visible, so the correct immediate step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.081,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196215,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with only the letter “E” visible, so battle text is still the active UI and I should advance it rather than trying menus or movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.648,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196216,
+      "action": "a",
+      "reasoning": "The screenshot is a battle with only a text box visible reading “Enemy RATTATA,” not the four-command menu, so the immediate task is still to advance battle text rather than switch tactics.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.812,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196217,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy RATTATA used TACKLE!” with no four-command menu visible, so the immediate task is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.894,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196218,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “Enemy RATTATA used TACKLE!” with no command menu visible, so the correct step is still to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.641,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196219,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle text box reading “Enemy RATTATA used TACKLE!” with no four-command menu visible, so the immediate task is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.704,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196220,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “Enemy RATTATA used TACKLE!” with no four-command menu visible, so the immediate task remains advancing battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.635,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196221,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-command battle menu with FIGHT already selected, so the stalled text phase is over and the safest progress is to choose FIGHT.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.097,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196222,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list open with Scratch highlighted, so the stalled text phase is over and the correct safe step is to confirm the damaging move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.961,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196223,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with only “CHARMANDE” visible and no four-command menu, so the immediate task is still to advance the battle text rather than move or open menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.715,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196224,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATC”, with no four-command menu visible, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.856,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196225,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATCH!” with no command menu visible, so the current safe step is still to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.885,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196226,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATCH!” with no four-command menu visible, so the correct step is still to advance battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.582,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196227,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.6s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196228,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196229,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196230,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196231,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196232,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196233,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196234,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196235,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196236,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196237,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196238,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196239,
+      "action": "a",
+      "reasoning": "The screenshot shows active battle result text saying Charmander's defense fell, and battle guidance says to press A until the real command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.283,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196240,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-command battle menu with FIGHT already selected, and the current focus is to finish this wild battle safely by attacking instead of stalling.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.589,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196241,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list with Scratch highlighted, and the current focus is to end this stalled wild battle by using the damaging move instead of Growl.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.299,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196242,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with “CHARMANDE…” rather than the four-command menu, so the correct step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.249,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196243,
+      "action": "a",
+      "reasoning": "The screenshot shows active battle text, “CHARMANDER used SCRATCH,” so the move has already been chosen and I should advance the battle text instead of trying movement or menu inputs.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.09,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196244,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH!”, so the correct step is to advance the battle text with A until the next menu or result appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.368,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196245,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “CHARMANDER used SCRATCH!”, so the current task is to advance the battle text rather than try movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.481,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196246,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with “CHARMANDER used SCRATCH!”, so the immediate task is to advance the battle text until the next result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.87,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196247,
+      "action": "a",
+      "reasoning": "The screenshot still shows active battle result text after Charmander used Scratch and the enemy HP is already 0, so the correct step is to advance the battle text with A until the battle fully ends.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.652,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196248,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!”, so the immediate task is to advance the battle text until the result or command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.577,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196249,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with only partial text (“Enemy”), so the current focus is to advance the battle result text rather than switch to movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.371,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196250,
+      "action": "a",
+      "reasoning": "The screenshot is a battle result text box showing “Enemy RATTATA fainted,” so the active UI is still battle text and the correct step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.279,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196251,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows a battle result text box reading “Enemy RATTATA fainted!”, so the active UI is still battle text and the correct step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.088,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196252,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle result text box with “CHARMANDE” visible and no command menu yet, so the active UI is still battle text that should be advanced.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.171,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196253,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle result text box reading “CHARMANDER gained 24 EXP,” so the active UI is battle text and the correct next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.767,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196254,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle result text box with “CHARMANDER gained 24 EXP. Points!” and a prompt arrow, so the active UI is battle text that should be advanced.",
+      "result": "After a:; battle ended; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.086,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196255,
+      "action": "b",
+      "reasoning": "The screenshot shows the overworld with the right-side pause menu column open after the battle, and the current focus is to resume movement toward the known exit north, so I should close the menu instead of pressing A again.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.166,
+      "model_request_count": 1,
+      "screen_type": "menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196256,
+      "action": "start",
+      "reasoning": "The screenshot shows the overworld Route 1 view with the pause menu still open on the right, and the verified next step is to resume movement and go up toward Viridian, so I should close the menu first.",
+      "result": "After start:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.075,
+      "model_request_count": 1,
+      "screen_type": "menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196257,
+      "action": "a",
+      "reasoning": "The screenshot shows Route 1 overworld with a large blank bordered text box still open, so control is not back to free movement yet and I should advance the remaining dialogue instead of walking.",
+      "result": "After a:; text box closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.786,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196258,
+      "action": "start",
+      "reasoning": "The pause menu is open over Route 1, and the verified next step is to continue the final straight north, so I should close the menu before moving up.",
+      "result": "After start:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.477,
+      "model_request_count": 1,
+      "screen_type": "menu",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196259,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no menu or dialogue visible, and the verified story guidance plus navigation memory says up from the current tile is the known successful path toward Viridian while the screenshot also shows walkable grass opening above.",
+      "result": "After up:; position did not change but facing changed from right to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.551,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196260,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with free movement, and both the screenshot and navigation memory show open grass directly above while up is the verified known exit toward Viridian; the last up only turned the player to face up, so repeating it once is appropriate.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.357,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196261,
+      "action": "up",
+      "reasoning": "This is free Route 1 overworld, and the screenshot shows open grass tiles directly above the player with a trainer/NPC just one tile further north, so the next small-step progress is to move up toward that visible path and possible story trigger rather than keep testing side fringes.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.137,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196262,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld with no menu or dialogue, and up is currently blocked by the NPC directly ahead while right shows a clear adjacent grass tile and is a frontier, so I should sidestep instead of pushing up again.",
+      "result": "After right:; moved from (15,14) to (16,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.188,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196263,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld; up is visibly blocked by the nearby NPC, left just returns to the heavily repeated tile, and right shows a clear adjacent grass tile that advances exploration away from the local loop.",
+      "result": "After right:; moved from (16,14) to (17,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.435,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196264,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, and the screenshot shows the NPC immediately blocking up while right is obstructed by the tree-and-post boundary, so left is the best concrete step to escape the cramped dead end and head toward the stronger unexplored frontier.",
+      "result": "After left:; moved from (17,14) to (16,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.742,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 17,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196265,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld in grass; up is blocked by the NPC above, left just returns to the heavily revisited strip, and right is a known successful step that moves toward a frontier with additional unexplored directions.",
+      "result": "After right:; moved from (16,14) to (17,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.384,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196266,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld in grass; up is still blocked by the NPC above, right is cut off by the tree-and-post boundary, and navigation memory warns this local frontier is weak, so left is the best step toward the stronger unexplored route.",
+      "result": "After left:; moved from (17,14) to (16,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.08,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 17,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196267,
+      "action": "down",
+      "reasoning": "This is Route 1 overworld in grass; the screenshot shows open grass below and the navigation memory says this right-side fringe is weak while down is a fresh frontier, so I should step away from the left-right loop and probe downward.",
+      "result": "After down:; moved from (16,14) to (16,15) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.162,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196268,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld in grass, and the screenshot shows clear walkable grass continuing left while right is hemmed in by the post-and-tree boundary and up leads back toward the NPC and revisited area, so left best follows the stronger frontier guidance.",
+      "result": "After left:; position did not change; entered battle",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.129,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196269,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with the encounter just starting and no clear four-command menu visible yet, so the safest progress input is A to advance into the actionable battle menu.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.751,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196270,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene without a visible four-command menu yet, so the safest way to advance the active battle is to press A and continue to the actionable menu or text.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.473,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196271,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle scene with no visible four-command menu yet, so the battle text or transition still needs advancing and A is the safest input.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.174,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196272,
+      "action": "left",
+      "reasoning": "The screenshot shows the Route 1 overworld with the player standing in grass and no battle UI or dialogue box visible, so the prior battle flag appears stale and the best progress is to move toward the stronger frontier to the left rather than keep pressing A.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.724,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196273,
+      "action": "left",
+      "reasoning": "The screenshot shows the Route 1 overworld with no battle UI, and from the visible grass area left looks open while the right side is fenced by posts and trees, so I should move to the stronger frontier on the left instead of repeating A.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.132,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196274,
+      "action": "a",
+      "reasoning": "The screenshot is the wild battle scene with both Pokemon sprites visible and no four-command menu shown yet, so the stalled battle still needs a progress input and A is safest.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.268,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196275,
+      "action": "b",
+      "reasoning": "The screenshot is completely black, so there is no visible battle menu or dialogue to confirm and after several stalled A presses the safest way to recover from a likely blank-transition or hidden menu state is to try B.",
+      "result": "After b:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.999,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196276,
+      "action": "a",
+      "reasoning": "The screenshot is completely black while RAM confirms a wild battle is still active with no clean menu shown, so to safely progress the stalled battle the best input is A rather than more movement or another B.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.129,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196277,
+      "action": "a",
+      "reasoning": "The screenshot is completely black, but RAM confirms an active wild battle with no visible menu or text box, so the safest way to keep the stalled battle progressing is A rather than movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.047,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196278,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle scene with the text box empty and no four-command menu visible, so the battle is still waiting on a progress input rather than movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.052,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196279,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the wild battle scene with both sprites and an empty text box, but no four-command menu yet, so the safest way to advance the stalled battle is to press A to progress it.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.528,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196280,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle scene with the enemy sprite and an empty text box but no four-command menu or move list, so the safest way to advance the stalled battle is to press A.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.569,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196281,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle with an empty text box and no four-command menu or move list visible, so the safest way to advance the stalled battle is still to press A.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.221,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196282,
+      "action": "a",
+      "reasoning": "The screenshot still shows the active battle scene with an empty text box and no four-command menu or move list visible, so the safest way to advance the stalled battle is to press A once more.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.122,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196283,
+      "action": "a",
+      "reasoning": "The screenshot is clearly an active wild battle showing the opening encounter text beginning with “Wi”, so this is battle text rather than a command menu and A is the correct input to advance it.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.301,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196284,
+      "action": "a",
+      "reasoning": "The screenshot shows an active wild battle with opening encounter text reading “Wild RATTA”, not the four-command menu or move list, so the correct input is to advance the battle text.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.313,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196285,
+      "action": "a",
+      "reasoning": "The screenshot shows the opening wild-encounter text “Wild RATTATA appear” still in the battle text box rather than the four-command menu, so the correct step is to advance the text.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.922,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196286,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows the wild battle opening text “Wild RATTATA appeared!” with no four-command menu yet, so the correct way to advance the active battle is to continue the text.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.347,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196287,
+      "action": "a",
+      "reasoning": "This is an active battle showing an empty text box with no four-command menu visible yet, so per the battle guidance the safest way to progress is to advance the battle text/animation with A rather than keep guessing movement.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.203,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196288,
+      "action": "a",
+      "reasoning": "This is an active battle showing a blank text box with no four-command menu visible, so the safest progress input is still A to advance the battle state.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.02,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196289,
+      "action": "b",
+      "reasoning": "The screenshot shows an active battle with an empty text box and no visible four-command menu, and repeated A has not progressed it, so B is the best alternate input to try to clear a stalled hidden battle state.",
+      "result": "After b:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.565,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196290,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active wild battle with the enemy sprite and a text box but no four-command menu, so the safest way to advance the stalled battle state is to continue with A rather than movement or B.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.405,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196291,
+      "action": "a",
+      "reasoning": "This is clearly an active battle intro text state showing only “Go! CHARM” with no four-command menu yet, so the correct way to progress the battle is to advance the send-out text with A.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.483,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196292,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text “Go! CHARMANDER!” with no four-command menu visible yet, so the correct next step is to advance the send-out text with A.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.358,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196293,
+      "action": "a",
+      "reasoning": "The battle screen is active and the bottom box shows only the four-command menu area after the send-out text, so the next safe step is to choose FIGHT rather than keep mashing A.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.518,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196294,
+      "action": "a",
+      "reasoning": "The screenshot shows the battle text “Go! CHARMANDER!” with no visible four-command menu yet, so the correct way to progress is to advance this send-out text instead of guessing another menu input.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.731,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196295,
+      "action": "a",
+      "reasoning": "The battle screen is active and the bottom box shows the standard four-command menu cursor at the top-left option, so the next safe step is to choose FIGHT with A rather than keep stalling.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.82,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196296,
+      "action": "a",
+      "reasoning": "The screenshot still shows the send-out text “Go! CHARMANDER!” rather than the move list, so the correct step is to advance this battle text with A instead of trying movement or other buttons.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.936,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196297,
+      "action": "a",
+      "reasoning": "The screenshot shows a wild battle with the text “Go! CHARMANDER!” still on screen, so the next step is to advance this send-out text rather than guess a direction or menu change.",
+      "result": "After a:; menu remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.179,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196298,
+      "action": "a",
+      "reasoning": "The screenshot shows battle text saying “Go! CHARMANDER!” with no visible four-command menu or move list, so I should advance this send-out text instead of guessing movement or another menu choice.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.531,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196299,
+      "action": "a",
+      "reasoning": "The standard four-command battle menu is clearly visible with the cursor on FIGHT, so the next safe step is to select FIGHT rather than keep stalling.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.311,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196300,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list with the cursor on Scratch, and battle guidance says to use the damaging move in slot 1 to safely finish this wild Rattata fight.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.329,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196301,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle with the text box displaying only the start of battle text (“CHAR”) and no visible four-command menu, so the safest way to advance the stalled battle is to continue the text with A.",
+      "result": "After a:; no visible state change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.011,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 16,
+        "y": 15
+      },
+      "party_size": 1
+    }
+  ]
+}

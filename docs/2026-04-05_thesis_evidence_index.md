@@ -1,5 +1,14 @@
 # 2026-04-05 论文证据索引
 
+## 0. 2026-04-06 最新补充包入口
+
+- 一站式整理索引：`docs/2026-04-06_pure_ai_delivery_index.md`
+- 主补充包文档：`docs/2026-04-06_pure_ai_demo_and_supplement_pack.md`
+- 视频目录：`docs/report_assets/2026-04-06_pure_ai_demo/videos/`
+- 报告目录：`docs/report_assets/2026-04-06_pure_ai_demo/reports/`
+- 图片目录：`docs/img/2026-04-06/`
+- 重复批跑日志：`docs/thesis_logs/2026-04-06_pure_ai_batch_checkpoint_196081_220t_v1.md`
+
 ## 1. 目的
 
 本文档用于把当前项目中与论文相关的关键证据按口径分类，避免写作和答辩时混用。

@@ -1,0 +1,4587 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 220,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "latest_checkpoint": "checkpoint_196183",
+  "start_turn": 196081,
+  "end_turn": 196301,
+  "turn_delta": 220,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 220,
+  "reached_playable": true,
+  "api_cooldown_active": true,
+  "api_cooldown_remaining": 0.9,
+  "decision_source_counts": {
+    "ai": 142,
+    "ai_error": 7,
+    "ai_cooldown": 71
+  },
+  "decision_path_counts": {
+    "ai": 220
+  },
+  "ai_control_metrics": {
+    "total_turns": 220,
+    "main_model_turns": 142,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 142,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 0.6455,
+    "ai_authored_ratio": 0.6455,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 142,
+    "avg_seconds": 5.987,
+    "max_seconds": 14.575,
+    "min_seconds": 3.098,
+    "total_seconds": 850.092,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0,
+      12,
+      1,
+      42
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": true,
+    "reached_viridian_city": true,
+    "entered_viridian_mart": true,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196301,
+    "timeline_turn_count": 220,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196301,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196301,
+    "timestamp": "2026-04-06T19:47:45.555742",
+    "position": {
+      "map_id": 42,
+      "x": 2,
+      "y": 5
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196302,
+      "local_analysis_enabled": false,
+      "screen_hash": "3d3bb04e181f251923c2c3dfbeb93c84"
+    },
+    "exploration": {
+      "current_map": 42,
+      "explored_tiles": 2,
+      "total_tiles": 200,
+      "exploration_percent": 1.0
+    },
+    "navigation": {
+      "current_visit_count": 26,
+      "known_exits": {},
+      "blocked_directions": [
+        "left"
+      ],
+      "frontier_count": 2,
+      "nearest_frontier": {
+        "target": [
+          2,
+          5
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 26,
+        "distance": 0,
+        "local_visit_pressure": 35,
+        "global_novelty_distance": 2,
+        "priority_score": -112.25,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            3,
+            7
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 9,
+          "distance": 3,
+          "local_visit_pressure": 35,
+          "global_novelty_distance": 2,
+          "priority_score": -45.3,
+          "novelty_label": "low"
+        },
+        {
+          "target": [
+            2,
+            5
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 26,
+          "distance": 0,
+          "local_visit_pressure": 35,
+          "global_novelty_distance": 2,
+          "priority_score": -112.25,
+          "novelty_label": "low"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 2,
+            "y": 4
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "down": {
+          "target": {
+            "x": 2,
+            "y": 6
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "left": {
+          "target": {
+            "x": 1,
+            "y": 5
+          },
+          "status": "blocked_once",
+          "blocked_attempts": 1,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This move already failed once from the current tile; avoid repeating it blindly."
+        },
+        "right": {
+          "target": {
+            "x": 3,
+            "y": 5
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": "down",
+        "escape_direction": "down",
+        "discouraged_directions": [
+          "up",
+          "left"
+        ],
+        "stronger_frontier_target": {
+          "x": 3,
+          "y": 7
+        },
+        "current_priority_score": -112.25,
+        "stronger_priority_score": -45.3,
+        "priority_gap": 66.95,
+        "summary": "Current tile is a weaker local frontier (score -112.25, pressure 35, visits 26). A stronger frontier at (3, 7) scores -45.3; prefer down instead of probing every adjacent unknown here."
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "?????????",
+        "?????F???",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 42,
+        "rows": [
+          "      ",
+          "      ",
+          "  P   ",
+          "      ",
+          "   F  ",
+          "      ",
+          "      "
+        ],
+        "prompt_rows": [
+          "??????",
+          "??????",
+          "??P???",
+          "??????",
+          "???F??",
+          "??????",
+          "??????"
+        ],
+        "bounds": {
+          "min_x": 0,
+          "max_x": 5,
+          "min_y": 3,
+          "max_y": 9,
+          "width": 6,
+          "height": 7
+        },
+        "player": {
+          "x": 2,
+          "y": 5
+        },
+        "explored_count": 2,
+        "frontier_count": 2,
+        "blocked_count": 0,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and the verified story guidance says the exit is on the bottom row to the left, so I should first move left toward the exit columns instead of pressing A.",
+      "result": "After left:; moved from (7,10) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.579,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "left",
+      "reasoning": "The lab is visible with no bordered dialogue box on screen, and the current story cue says to keep moving left toward the exit columns before going down.",
+      "result": "After left:; moved from (6,10) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.63,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "down",
+      "reasoning": "The lab is visible with no real dialogue box on the screenshot, and the verified story cue says the exit warp is directly below at y=11 near this column, so moving down is the next concrete step.",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.88,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "down",
+      "reasoning": "The lab is visible with no bordered dialogue box, and the verified story guidance says I am already on the exit column so pressing down should leave Oak's Lab.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.286,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and down would re-enter the lab warp while up is clear path toward the town and main route.",
+      "result": "After up:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.401,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified story cue says to step off the lab doorway area by moving left along the frontage toward x=9 instead of probing the warp tile.",
+      "result": "After left:; moved from (12,12) to (11,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.6,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified route says to keep moving left along the lab frontage while avoiding the right-side lab warp.",
+      "result": "After left:; moved from (11,12) to (10,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.098,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified story route says to keep moving left along the lab frontage to x=9 instead of going up yet or risking re-entry to the right.",
+      "result": "After left:; moved from (10,12) to (9,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.547,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story cue says that from x=9 I should continue straight up along the west-side lane rather than wander or re-enter the lab area.",
+      "result": "After up:; moved from (9,12) to (9,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.738,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story route says to continue straight up along the west-side lane; up shows open ground while going right would drift toward the house instead of the mandatory route.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.59,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route says to keep moving up along the west-side lane; up is open grass path while right moves toward the house instead of the mandatory route.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.626,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town with no visible dialogue box, and the current verified story route says to keep moving up on the west-side lane rather than detour right toward the house.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.701,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route says to keep moving up along the west-side lane; up is open frontier while left and right drift toward houses and fences.",
+      "result": "After up:; moved from (9,8) to (9,7) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.533,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story route plus visible open path both say to keep moving up on the west-side lane rather than detouring right toward houses.",
+      "result": "After up:; moved from (9,7) to (9,6) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.401,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route plus adjacent-tile memory both say up is the open frontier on the west-side lane.",
+      "result": "After up:; moved from (9,6) to (9,5) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.248,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and both the story guidance and adjacent-tile memory say up is the next open mandatory route while left and right just revisit town tiles.",
+      "result": "After up:; moved from (9,5) to (9,4) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.874,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified early-story route says to keep moving up the west-side lane rather than turning right toward the houses.",
+      "result": "After up:; moved from (9,4) to (9,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.815,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the current story guidance says to keep going up the west-side lane toward the mandatory route trigger.",
+      "result": "After up:; moved from (9,3) to (9,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.063,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 35.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 35.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 35.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 35.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 35.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "right",
+      "reasoning": "The screenshot shows the Pallet Town overworld with no visible dialogue box, and from this tile up is blocked by the fence/grass while right is the known route opening toward the mandatory north path.",
+      "result": "After right:; moved from (9,2) to (10,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.131,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town overworld with no visible dialogue box, and the current story guidance says the mandatory next checkpoint is the north exit directly above, so up is the best concrete step.",
+      "result": "After up:; moved from (10,2) to (10,1) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.351,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town overworld with no visible dialogue box, and the current story guidance says the mandatory next checkpoint is directly north through the opening, so up is the best step.",
+      "result": "After up:; moved from (10,1) to (10,0) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.123,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town overworld with no visible dialogue box, and the mandatory next checkpoint is still the north exit directly ahead through the opening, so the best concrete step is to keep moving up.",
+      "result": "After up:; warped from map 0 (10,0) to map 12 (10,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.045,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified guidance says to stay in the left corridor at x=10 and keep moving up from this tile.",
+      "result": "After up:; moved from (10,35) to (10,34) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.644,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the current verified story guidance plus navigation memory both say the left corridor continues upward while left is confirmed blocked.",
+      "result": "After up:; moved from (10,34) to (10,33) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.878,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say this left corridor continues upward while left is blocked.",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.667,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with the player in the left corridor, and up has clear path continuity while the current focus and verified story guidance say to keep moving north toward the bend.",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.627,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current verified story guidance plus navigation memory say the left corridor continues upward while up is the known next tile.",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.722,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and the visible path plus story guidance both say to keep moving up in the left corridor toward the bend.",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.779,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196182,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current high-priority story guidance says to stay in the left corridor and keep moving up toward the bend at y=28.",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.665,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196183,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld at the bend, and the verified story guidance plus navigation memory say up was blocked here once while left is the required shift along visible path tiles.",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.464,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196184,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, and both the screenshot and verified story guidance show the path bending left here while up is already confirmed blocked from this tile, so I should continue left toward x=8.",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.627,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196185,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says that from x=8 the next mandatory step is to go up through the north gap.",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.548,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196186,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and the current verified guidance plus navigation memory both say the next mandatory step from x=8 is to continue up through the north gap while right is confirmed blocked.",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.852,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196187,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says that on row y=26 the next mandatory step is to move right toward x=10 along the visible corridor.",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.576,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196188,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and both the verified story guidance and navigation memory say the next mandatory step from (9,26) is to move right into the known open corridor tile at x=10.",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.918,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196189,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and the verified story guidance plus navigation memory both say the next mandatory step from (10,26) is to continue up along the open corridor toward y=24.",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.289,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196190,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory say the next mandatory step from (10,25) is to continue up to the known open tile at (10,24).",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.483,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196191,
+      "action": "right",
+      "reasoning": "This is the Route 1 overworld with no visible dialogue box, and the verified story guidance says the next mandatory step from (10,24) is to move right into the narrow bend at the known open exit tile.",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.648,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196192,
+      "action": "down",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says the next mandatory step from (11,24) is to go down one tile to open the right-side lane.",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.213,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196193,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says the next mandatory step from (11,25) is to move right into the known open lane while up and left just revisit explored tiles.",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.873,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196194,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld with no visible dialogue box, and the verified story guidance says the mandatory next step from (12,25) is to continue up the upper-right lane toward y=20; up is also the known open exit tile.",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.076,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196195,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance plus navigation memory both say up is the known open lane from (12,24) toward the mandatory cross-lane at y=20 while left/down only revisit explored tiles.",
+      "result": "After up:; moved from (12,24) to (12,23) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.962,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196196,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and the verified story guidance plus navigation memory both say the next mandatory step from (12,23) is to continue up the known open lane at x=12.",
+      "result": "After up:; moved from (12,23) to (12,22) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.657,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196197,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and both the verified story guidance and navigation memory say up is the known open path from (12,22) toward the cross-lane at y=20 while left and right are just side frontier.",
+      "result": "After up:; moved from (12,22) to (12,21) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.33,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196198,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the current focus plus verified story guidance say the next concrete step from (12,21) is to continue up on the known open lane toward the cross-lane at y=20.",
+      "result": "After up:; moved from (12,21) to (12,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.393,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196199,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and both the verified story guidance and navigation memory say up is blocked here while the mandatory next step is to shift left along the y=20 cross-lane toward x=9.",
+      "result": "After left:; moved from (12,20) to (11,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.634,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196200,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory say this cross-lane step should continue left while up was already blocked once here.",
+      "result": "After left:; moved from (11,20) to (10,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.397,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196201,
+      "action": "left",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says to keep shifting left along the y=20 cross-lane to the known exit at x=9 before going up again.",
+      "result": "After left:; moved from (10,20) to (9,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.13,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196202,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory say the next mandatory step from (9,20) is the known exit upward toward Viridian.",
+      "result": "After up:; moved from (9,20) to (9,19) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.35,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196203,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory say the next mandatory step from (9,19) is the known exit upward toward Viridian.",
+      "result": "After up:; moved from (9,19) to (9,18) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.977,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196204,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and both the story guidance and navigation memory say up from x=9 is the verified path toward the Viridian approach while left and right are just weaker frontier checks.",
+      "result": "After up:; moved from (9,18) to (9,17) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.421,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196205,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and both the story guidance and navigation memory mark up as the known exit toward the stronger frontier and Viridian approach.",
+      "result": "After up:; moved from (9,17) to (9,16) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.308,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196206,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and both the story guidance and navigation memory mark up as the known exit toward the stronger frontier and Viridian approach.",
+      "result": "After up:; moved from (9,16) to (9,15) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.888,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196207,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current verified guidance plus navigation memory both say the next mandatory progress is the known exit tile directly up at (9,14).",
+      "result": "After up:; moved from (9,15) to (9,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.983,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196208,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says the mandatory next step is to move right along y=14; right is also the known exit while up and left are just frontier checks.",
+      "result": "After right:; moved from (9,14) to (10,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.182,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196209,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says to keep moving right along y=14; right is open while left only backtracks.",
+      "result": "After right:; moved from (10,14) to (11,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.028,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196210,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says the next mandatory checkpoint is to keep moving right along row y=14; right is the known exit while left only backtracks.",
+      "result": "After right:; moved from (11,14) to (12,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.253,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196211,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says the next mandatory checkpoint is to keep moving right along row y=14; right is open while left backtracks and up/down only probe weaker frontier tiles.",
+      "result": "After right:; moved from (12,14) to (13,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.532,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196212,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says to keep moving right along row y=14; right is the known exit while left backtracks and up/down only probe side grass.",
+      "result": "After right:; moved from (13,14) to (14,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.008,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196213,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say the next mandatory step is the known exit to the right at x=15.",
+      "result": "After right:; moved from (14,14) to (15,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.334,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196214,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 in the overworld with no visible dialogue box, and the verified story guidance says the next mandatory step is to keep moving up from x=15 toward Viridian City's south gate.",
+      "result": "After up:; position did not change but facing changed from right to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.454,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196215,
+      "action": "up",
+      "reasoning": "The screenshot shows the overworld on Route 1 with no visible dialogue box, and the current focus plus story guidance say to keep moving up from x=15; the last up only turned to face up, so repeating up once is the correct next step.",
+      "result": "After up:; moved from (15,14) to (15,13) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.837,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196216,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says this final straight continues upward; left is backtracking while up remains the mandatory route.",
+      "result": "After up:; moved from (15,13) to (15,12) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.782,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196217,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 in the overworld with visible grass and path, no actual dialogue box despite the RAM text flag, and the verified story guidance says the mandatory route continues upward from x=15.",
+      "result": "After up:; moved from (15,12) to (15,11) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.231,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196218,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current verified route cue says the final straight continues upward; up is visible frontier while down is backtracking.",
+      "result": "After up:; moved from (15,11) to (15,10) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.652,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196219,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld with no visible dialogue box, and the verified guidance plus visible open path both indicate the mandatory next step is to continue up while left/right are just side grass detours.",
+      "result": "After up:; moved from (15,10) to (15,9) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.154,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196220,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say the mandatory final straight continues upward while left and right are just frontier side tiles.",
+      "result": "After up:; moved from (15,9) to (15,8) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.924,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196221,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say the mandatory final straight continues upward while left and right are just side frontiers.",
+      "result": "After up:; moved from (15,8) to (15,7) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.472,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196222,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says the mandatory final straight continues upward while up is also the best visible frontier from this tile.",
+      "result": "After up:; moved from (15,7) to (15,6) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.703,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196223,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current high-priority story guidance says the mandatory final straight continues upward while up also has visible open path.",
+      "result": "After up:; moved from (15,6) to (15,5) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.93,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196224,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says the mandatory path is the final straight upward while left and right are just side frontiers.",
+      "result": "After up:; moved from (15,5) to (15,4) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.441,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196225,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance plus navigation memory both say the mandatory path is the final straight upward while up has visible open path.",
+      "result": "After up:; moved from (15,4) to (15,3) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.667,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196226,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld with no visible dialogue box, and the verified story guidance says the mandatory final straight continues upward while up also remains open frontier.",
+      "result": "After up:; moved from (15,3) to (15,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.316,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196227,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld with no visible dialogue box, and the verified story guidance says that at y=2 I should shift left toward x=11 rather than continue straight up.",
+      "result": "After left:; moved from (15,2) to (14,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.688,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196228,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld with no visible dialogue box, and the verified story guidance says that on y=2 I should keep shifting left toward x=11 to line up with the gate.",
+      "result": "After left:; moved from (14,2) to (13,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.296,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196229,
+      "action": "left",
+      "reasoning": "The Route 1 path is visible with no dialogue box on screen, and the verified story guidance says to keep shifting left on y=2 until x=11 to line up with the north gate.",
+      "result": "After left:; moved from (13,2) to (12,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.527,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196230,
+      "action": "left",
+      "reasoning": "The Route 1 path is visible with no dialogue box on the screenshot, and the verified story guidance says to keep shifting left on row y=2 until x=11 to line up with the north gate.",
+      "result": "After left:; moved from (12,2) to (11,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.075,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196231,
+      "action": "up",
+      "reasoning": "The Route 1 overworld is visible with no readable dialogue box on screen, and the verified story guidance says I am lined up with Viridian City's south gate so the next concrete step is to go up.",
+      "result": "After up:; moved from (11,2) to (11,1) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.102,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196232,
+      "action": "up",
+      "reasoning": "The route overworld is visible with no bordered dialogue box on the screenshot, and the verified story guidance says the next checkpoint is straight up through the gate from this aligned position.",
+      "result": "After up:; moved from (11,1) to (11,0) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.25,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196233,
+      "action": "up",
+      "reasoning": "The screenshot shows the outdoor route/gate path with no visible bordered dialogue box, and the current story guidance says the next mandatory checkpoint is straight up through Viridian City's south gate.",
+      "result": "After up:; warped from map 12 (11,0) to map 1 (21,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.07,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196234,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City overworld with the player in the northbound path between fences and no visible bordered dialogue box, and the verified story guidance says to keep moving up from x=21 until the sign blocks the lane.",
+      "result": "After up:; moved from (21,35) to (21,34) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.795,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196235,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City outdoors with the player in the center lane between visible fence posts, and the story guidance says the next mandatory step is to keep moving up until the sign blocks the path.",
+      "result": "After up:; moved from (21,34) to (21,33) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.672,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196236,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City outdoors with the player in the center path between fence posts and visible open path continuing upward toward the sign, so the current mandatory checkpoint is to keep moving up.",
+      "result": "After up:; moved from (21,33) to (21,32) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.656,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196237,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City outdoors with visible path continuing upward toward the sign, and the verified story guidance says to keep moving up on x=21 until the sign blocks the lane.",
+      "result": "After up:; moved from (21,32) to (21,31) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.729,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196238,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City path with continuous walkable ground directly above the player and the verified story cue says to keep moving up on x=21 until the sign blocks the lane.",
+      "result": "After up:; moved from (21,31) to (21,30) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.628,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196239,
+      "action": "left",
+      "reasoning": "The screenshot shows the player outdoors in Viridian City standing just below the sign at the choke point, and the verified story guidance says to step left once here to clear the sign.",
+      "result": "After left:; moved from (21,30) to (20,30) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.893,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196240,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City outdoors with clear path tiles continuing upward from the player, and the verified story guidance says to keep moving up on x=20 until reaching y=28.",
+      "result": "After up:; moved from (20,30) to (20,29) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.741,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196241,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City outdoor path with visible walkable ground continuing upward past the sign, and the verified story guidance says to keep moving up on x=20 toward y=28.",
+      "result": "After up:; moved from (20,29) to (20,28) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.306,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196242,
+      "action": "left",
+      "reasoning": "The screenshot shows the Viridian City overworld with no visible dialogue box, and the verified story guidance says that from (20,28) the next mandatory step is to move left through the hedge opening to x=19.",
+      "result": "After left:; moved from (20,28) to (19,28) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.72,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196243,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City overworld with the player at the hedge opening, and the verified story guidance says the next mandatory step from (19,28) is to go up through the gap onto the main road.",
+      "result": "After up:; moved from (19,28) to (19,27) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.76,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196244,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City road with no visible dialogue box, and the verified story guidance says the mandatory next step is to keep moving up from x=19 along the main road.",
+      "result": "After up:; moved from (19,27) to (19,26) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.443,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196245,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City overworld with no visible dialogue box, and the verified story guidance says to continue north on x=19; up shows clear road while left and right would detour toward buildings or grass.",
+      "result": "After up:; moved from (19,26) to (19,25) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.314,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196246,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving up on x=19; the road clearly continues upward while left and right would detour.",
+      "result": "After up:; moved from (19,25) to (19,24) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.941,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196247,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up continues along the path while left and right would detour toward grass or the building.",
+      "result": "After up:; moved from (19,24) to (19,23) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.701,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196248,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up has clear path continuation while left and right would detour.",
+      "result": "After up:; moved from (19,23) to (19,22) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.462,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196249,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up has clear open path while left and right detour into grass or toward the building.",
+      "result": "After up:; moved from (19,22) to (19,21) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.764,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196250,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up has clear open path while left goes toward a sign and right detours to the mart.",
+      "result": "After up:; moved from (19,21) to (19,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.001,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196251,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City with no visible dialogue box, and the verified story guidance says to continue north on x=19; up has clear path continuation while left goes toward the sign and right detours toward the building.",
+      "result": "After up:; moved from (19,20) to (19,19) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.632,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196252,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19 toward the mart turnoff; up has clear open path while left goes to the sign and right detours toward the house.",
+      "result": "After up:; moved from (19,19) to (19,18) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.227,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196253,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up has clear open path while left goes toward the sign and right detours toward the house.",
+      "result": "After up:; moved from (19,18) to (19,17) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.078,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196254,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian City overworld with no visible dialogue box, and the verified story guidance says to keep moving north on x=19; up is open road while left goes to the sign and right detours toward the house.",
+      "result": "After up:; moved from (19,17) to (19,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.311,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196255,
+      "action": "right",
+      "reasoning": "This is the Viridian overworld with no visible dialogue box, and the verified story guidance says that from y=16 I should move right toward the Pokemart lane; right shows open path while left heads to the sign and up continues past the needed turn.",
+      "result": "After right:; moved from (19,16) to (20,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.946,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196256,
+      "action": "right",
+      "reasoning": "This is the Viridian overworld with no visible dialogue box, and the verified story guidance says to continue right along y=16 toward the Pokemart lane; right shows open path while left just backtracks.",
+      "result": "After right:; moved from (20,16) to (21,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.769,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196257,
+      "action": "right",
+      "reasoning": "The screenshot shows the Viridian overworld in front of a house with no visible dialogue box, and the verified story guidance says to keep moving right along y=16 toward the Pokemart lane; right is open while left only backtracks.",
+      "result": "After right:; moved from (21,16) to (22,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.143,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196258,
+      "action": "right",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to continue right along y=16 toward the Pokemart lane; right has visible open path while left only backtracks.",
+      "result": "After right:; moved from (22,16) to (23,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.678,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 22,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196259,
+      "action": "right",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to keep moving right along y=16 toward the Pokemart lane; right has clear open path while left only backtracks.",
+      "result": "After right:; moved from (23,16) to (24,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.242,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196260,
+      "action": "right",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to keep moving right along y=16 toward x=27; right has clear walkable path while left only backtracks.",
+      "result": "After right:; moved from (24,16) to (25,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.11,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196261,
+      "action": "right",
+      "reasoning": "The screenshot shows open Viridian overworld with no visible dialogue box, and the verified story guidance says to keep moving right on y=16 toward x=27; right still has continuous path while left only backtracks.",
+      "result": "After right:; moved from (25,16) to (26,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.977,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196262,
+      "action": "right",
+      "reasoning": "The screenshot shows normal Viridian overworld with no visible dialogue box, and the verified story cue says to keep moving right on y=16 toward x=27; right has continuous open path while left only backtracks.",
+      "result": "After right:; moved from (26,16) to (27,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.425,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 26,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196263,
+      "action": "down",
+      "reasoning": "The screenshot shows normal Viridian overworld with no visible dialogue box, and the verified story guidance says to move down on x=27 toward the mart lane; down is the mandatory route while left only backtracks.",
+      "result": "After down:; moved from (27,16) to (27,17) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.91,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196264,
+      "action": "down",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to continue down the mart lane on x=27; down is open path while up only backtracks.",
+      "result": "After down:; moved from (27,17) to (27,18) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.155,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196265,
+      "action": "down",
+      "reasoning": "This is the Viridian overworld with no visible dialogue box, and the verified story guidance says to continue down the mart lane on x=27 toward y=20; down is open path while up only backtracks.",
+      "result": "After down:; moved from (27,18) to (27,19) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.923,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196266,
+      "action": "down",
+      "reasoning": "The screenshot shows the Viridian overworld with no visible dialogue box, and the verified story guidance says to continue down the mart lane on x=27; down has visible open path while left and right are side exploration.",
+      "result": "After down:; moved from (27,19) to (27,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.971,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196267,
+      "action": "right",
+      "reasoning": "This is normal overworld movement in Viridian, and the verified story guidance says to move right along y=20 toward the Mart doorway; right shows open path while up backtracks and down/left are just side exploration.",
+      "result": "After right:; moved from (27,20) to (28,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.792,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196268,
+      "action": "right",
+      "reasoning": "The screenshot shows the Viridian overworld with the Mart directly to the right, and the verified story guidance says to continue right to the doorway at x=29.",
+      "result": "After right:; moved from (28,20) to (29,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.624,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 28,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196269,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing outside the Viridian Mart with no visible dialogue box, and the verified story guidance says the next mandatory step is to move up into the Mart entrance.",
+      "result": "After up:; warped from map 1 (29,20) to map 42 (3,7)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.082,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 29,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196270,
+      "action": "a",
+      "reasoning": "The screenshot shows Viridian Mart with an empty dialogue box already open, and the current focus plus story guidance say to advance the clerk script and receive Oak's Parcel.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.11,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196271,
+      "action": "a",
+      "reasoning": "The screenshot shows a real dialogue box in Viridian Mart with the clerk script starting (\"Hey\"), and the current focus is to finish this mandatory dialogue to receive Oak's Parcel.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.741,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196272,
+      "action": "a",
+      "reasoning": "The screenshot shows a real dialogue box in Viridian Mart with the clerk saying \"Hey! You ca\", and the current focus is to finish this mandatory shop script and receive Oak's Parcel.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.664,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196273,
+      "action": "a",
+      "reasoning": "The screenshot shows a real dialogue box in Viridian Mart with the clerk mid-sentence (\"Hey! You came from P\"), and the current mandatory task is to keep advancing this script until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.05,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196274,
+      "action": "a",
+      "reasoning": "The screenshot shows a real dialogue box in Viridian Mart with the clerk mid-sentence, and the current focus is to finish this mandatory script until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.134,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196275,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active bordered text box in Viridian Mart, and the current mandatory task is to continue the clerk’s script until Oak’s Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.167,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196276,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian Mart interior with no visible bordered dialogue box, so the earlier text flag is likely stale and the next mandatory step is to face the clerk at the counter above and interact.",
+      "result": "After up:; moved from (3,7) to (2,5) on map 42",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.984,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196277,
+      "action": "left",
+      "reasoning": "The screenshot shows the Viridian Mart interior with no visible dialogue box, and the clerk is immediately to the player’s left across the counter opening, so the next concrete step is to face and interact with him to trigger the parcel script.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.783,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196278,
+      "action": "a",
+      "reasoning": "The screenshot shows a real bordered dialogue box in Viridian Mart with the clerk speaking, and the current mandatory step is to continue this script until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.154,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196279,
+      "action": "a",
+      "reasoning": "A real bordered text box is visible in Viridian Mart and the story guidance says to continue the clerk’s parcel script, so I should advance the dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.347,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196280,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is visible in the Viridian Mart and the clerk’s parcel script is still in progress, so the next concrete step is to advance the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.258,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196281,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still visible in Viridian Mart with the clerk’s parcel script in progress, so the next concrete step is to advance the text rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.962,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196282,
+      "action": "a",
+      "reasoning": "The screenshot shows a real bordered dialogue box in Viridian Mart with the clerk text still progressing, and the current mandatory step is to continue until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.317,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196283,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is visible in Viridian Mart with the clerk parcel script still active, so the next concrete step is to advance the text rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.783,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196284,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still open in Viridian Mart during the clerk parcel script, and the text is mid-message with a continuation prompt, so the next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.787,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196285,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still open in Viridian Mart with the clerk parcel script mid-sentence (“Will you take it to”), so the next mandatory step is to advance the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.413,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196286,
+      "action": "a",
+      "reasoning": "The screenshot shows a real dialogue box in Viridian Mart with the clerk still speaking (“Will you take it to him?”), and the current mandatory step is to continue the parcel script until it finishes.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.228,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196287,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still open in Viridian Mart with the clerk parcel event active, so the current mandatory step is to continue the text until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.96,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196288,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still open in Viridian Mart and the clerk script is continuing, so the current mandatory step is to advance the parcel dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.266,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196289,
+      "action": "a",
+      "reasoning": "A real dialogue box is open in Viridian Mart and the text says “AAAAAAA got OAK’s”, so the clerk parcel script is still mid-message and should be advanced rather than moving.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.275,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196290,
+      "action": "a",
+      "reasoning": "The screenshot still shows a real dialogue box with the completed item message “AAAAAAA got OAK’s PARCEL!”, so the current mandatory step is to advance this text rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.091,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196291,
+      "action": "b",
+      "reasoning": "A real dialogue box is still open in Viridian Mart showing the item-get message “AAAAAAA got OAK’s PARCEL!”, so the current mandatory step is to advance or close this story text.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.575,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196292,
+      "action": "a",
+      "reasoning": "A real bordered dialogue box is still open in Viridian Mart showing the item-get message “AAAAAAA got OAK’s PARCEL!”, so the current mandatory step is to advance the remaining story text with A rather than move or keep using B.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.476,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196293,
+      "action": "b",
+      "reasoning": "A real dialogue box is still open in Viridian Mart showing the completed item message “AAAAAAA got OAK’s PARCEL!”, and since repeated A did not clear it, I should try B once more to dismiss or advance the stuck text.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.936,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196294,
+      "action": "a",
+      "reasoning": "The screenshot still shows a real bordered dialogue box with the item message “AAAAAAA got OAK’s PARCEL!”, so the current focus is still to finish this active text and A is the normal advance input.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.468,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196295,
+      "action": "start",
+      "reasoning": "The screenshot shows a real dialogue box with “AAAAAAA got OAK’S PARCEL!”, and since repeated A and B have not cleared this item text, pressing Start is the best alternate input to try to dismiss the stuck dialogue state.",
+      "result": "After start:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.495,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196296,
+      "action": "wait",
+      "reasoning": "Same-turn AI retry budget exhausted after 3 attempts over 34.5s: AI request failed: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_error",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196297,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.8s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196298,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196299,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196300,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.3s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196301,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 2,
+        "y": 5
+      },
+      "party_size": 1
+    }
+  ]
+}
