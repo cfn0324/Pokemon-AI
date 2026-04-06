@@ -497,7 +497,147 @@ class GameStateBattleSummaryTests(unittest.TestCase):
         self.assertIn("prioritize UP", guidance["summary"])
         self.assertIn("Route 1", guidance["summary"])
 
-    def test_story_guidance_not_emitted_after_oaks_parcel(self):
+    def test_story_guidance_highlights_oak_lab_exit_alignment(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 40, "x": 6, "y": 11},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("x=4 or x=5", guidance["summary"])
+        self.assertIn("move LEFT", guidance["summary"])
+
+    def test_story_guidance_recovers_when_lab_exit_is_overshot_left(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 40, "x": 2, "y": 11},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("move RIGHT", guidance["summary"])
+        self.assertIn("press DOWN", guidance["summary"])
+
+    def test_story_guidance_highlights_pallet_lab_frontage_west_route(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 0, "x": 12, "y": 12},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("move LEFT", guidance["summary"])
+        self.assertIn("x=9", guidance["summary"])
+
+    def test_story_guidance_highlights_pallet_west_lane_climb(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 0, "x": 9, "y": 8},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("keep moving UP", guidance["summary"])
+        self.assertIn("x=9", guidance["summary"])
+
+    def test_story_guidance_highlights_route1_left_corridor(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 12, "x": 10, "y": 33},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 7}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("Route 1", guidance["summary"])
+        self.assertIn("x=10", guidance["summary"])
+
+    def test_story_guidance_highlights_viridian_mart_entry(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 1, "x": 29, "y": 20},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 7}],
+                "events": {},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "post_battle_intro_route")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("Viridian", guidance["summary"])
+        self.assertIn("enter Viridian Mart", guidance["summary"])
+
+    def test_story_guidance_highlights_parcel_return_route(self):
+        state = self._make_state()
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 12, "x": 14, "y": 7},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 1,
+                "in_battle": False,
+                "party": [{"level": 7}],
+                "events": {"got_oaks_parcel": True},
+            }
+        )
+
+        self.assertEqual(guidance["phase"], "viridian_parcel_return")
+        self.assertEqual(guidance["priority"], "high")
+        self.assertIn("Route 1", guidance["summary"])
+        self.assertIn("keep moving DOWN", guidance["summary"])
+
+    def test_story_guidance_not_emitted_after_oak_got_parcel(self):
         state = self._make_state()
 
         guidance = state._build_story_guidance(
@@ -508,7 +648,7 @@ class GameStateBattleSummaryTests(unittest.TestCase):
                 "item_count": 1,
                 "in_battle": False,
                 "party": [{"level": 7}],
-                "events": {"got_oaks_parcel": True},
+                "events": {"oak_got_parcel": True},
             }
         )
 

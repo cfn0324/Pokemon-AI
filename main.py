@@ -208,7 +208,7 @@ class PokemonAIAgent:
 
     def _init_decision_engine(self) -> None:
         """Initialize the control-layer decision router."""
-        if self._pure_llm_mode_enabled():
+        if self._pure_llm_mode_enabled() or self._runtime_fallbacks_disabled():
             self.decision_engine = DecisionEngine(
                 stages=[],
                 fallback=self._stage_ai_decision,
@@ -254,8 +254,15 @@ class PokemonAIAgent:
         """Return whether fixed route-script controllers should be disabled."""
         return bool(self._config_get("decision.research_mode", False))
 
+    def _runtime_fallbacks_disabled(self) -> bool:
+        """Return whether runtime tool takeovers and fallback rewrites are fully disabled."""
+        return bool(self._config_get("decision.disable_runtime_fallbacks", False))
+
     def _get_decision_stage_specs(self) -> List[tuple]:
         """Build the deterministic stage list for the current runtime mode."""
+        if self._runtime_fallbacks_disabled():
+            return []
+
         ai_owned_stage_names = {
             "oak_lab_pre_starter",
             "oak_lab_starter",
@@ -1122,7 +1129,7 @@ class PokemonAIAgent:
         screen_type: Optional[str],
     ) -> dict:
         """Replace ai_error/ai_cooldown waits with deterministic field-safe actions."""
-        if self._pure_llm_mode_enabled():
+        if self._pure_llm_mode_enabled() or self._runtime_fallbacks_disabled():
             return decision
 
         source = str(decision.get("decision_source") or "").strip().lower()
@@ -1166,6 +1173,8 @@ class PokemonAIAgent:
     ) -> dict:
         """Replace model-origin WAIT actions with progress-preserving behavior."""
         if not isinstance(decision, dict):
+            return decision
+        if self._runtime_fallbacks_disabled():
             return decision
         if decision.get("executor") == "async_background_wait":
             return decision
@@ -2306,6 +2315,8 @@ class PokemonAIAgent:
         curr_memory = current_state.get("memory", {})
         prev_pos = prev_memory.get("position", {})
         curr_pos = curr_memory.get("position", {})
+        prev_direction = str(prev_memory.get("direction") or "").strip().lower()
+        curr_direction = str(curr_memory.get("direction") or "").strip().lower()
         prev_ui = prev_memory.get("ui", {}) or {}
         curr_ui = curr_memory.get("ui", {}) or {}
         prev_screen = previous_state.get("visual", {}).get("screen_type")
@@ -2315,6 +2326,12 @@ class PokemonAIAgent:
 
         prev_tuple = (prev_pos.get("map_id"), prev_pos.get("x"), prev_pos.get("y"))
         curr_tuple = (curr_pos.get("map_id"), curr_pos.get("x"), curr_pos.get("y"))
+        turned_in_place = (
+            action in {"up", "down", "left", "right"}
+            and prev_tuple == curr_tuple
+            and curr_direction == action
+            and prev_direction != curr_direction
+        )
         if prev_tuple != curr_tuple:
             if prev_pos.get("map_id") != curr_pos.get("map_id"):
                 parts.append(
@@ -2327,7 +2344,13 @@ class PokemonAIAgent:
                     f"to ({curr_pos.get('x')},{curr_pos.get('y')}) on map {curr_pos.get('map_id')}"
                 )
         elif action in {"up", "down", "left", "right"}:
-            parts.append("position did not change")
+            if turned_in_place:
+                parts.append(
+                    f"position did not change but facing changed from {prev_direction or 'unknown'} "
+                    f"to {curr_direction}"
+                )
+            else:
+                parts.append("position did not change")
 
         if prev_memory.get("in_battle") != curr_memory.get("in_battle"):
             parts.append("entered battle" if curr_memory.get("in_battle") else "battle ended")
@@ -3308,16 +3331,16 @@ class PokemonAIAgent:
         decision: dict,
         action: str,
     ) -> bool:
-        """Let deterministic tool routing complete one real step in llm-primary mode."""
+        """Let selected directional moves resolve into one real step when the runtime stays AI-owned."""
         normalized = str(action or "").strip().lower()
         if normalized not in {"up", "down", "left", "right"}:
             return False
-        if self._pure_llm_mode_enabled():
-            return False
-        if not self._llm_primary_mode_enabled():
-            return False
 
         source = str(decision.get("decision_source") or "").strip().lower()
+        if self._pure_llm_mode_enabled():
+            return self._runtime_fallbacks_disabled() and source == "ai"
+        if not self._llm_primary_mode_enabled():
+            return False
         return source not in {"ai", "cached_ai_plan"}
 
     def _get_action_settle_override(
@@ -3391,7 +3414,7 @@ class PokemonAIAgent:
 
     def _apply_screen_type_hint(self, current_state: dict, screen_image) -> Optional[str]:
         """Patch memory-only visual state with lightweight UI heuristics."""
-        if self._pure_llm_mode_enabled():
+        if self._pure_llm_mode_enabled() or self._runtime_fallbacks_disabled():
             return None
         screen_type = self._detect_screen_type(screen_image)
         if isinstance(current_state.get("visual"), dict) and screen_type:
@@ -4573,7 +4596,7 @@ class PokemonAIAgent:
         返回:
             包含行动和推理的决策字典
         """
-        if self._pure_llm_mode_enabled():
+        if self._pure_llm_mode_enabled() or self._runtime_fallbacks_disabled():
             return self.main_agent.decide_action(
                 current_state,
                 state_text,
@@ -4746,7 +4769,10 @@ class PokemonAIAgent:
         filename = screenshot_dir / f"turn_{self.turn_count:06d}.png"
 
         screen = self.emulator.get_screen_image()
-        self.vision.save_annotated_screenshot(screen, str(filename))
+        if bool(self.config.get("logging.annotate_screenshots", False)):
+            self.vision.save_annotated_screenshot(screen, str(filename))
+        else:
+            screen.save(str(filename))
 
     def _save_checkpoint(self) -> None:
         """保存检查点。"""

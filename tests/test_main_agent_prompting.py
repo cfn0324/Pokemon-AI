@@ -70,6 +70,24 @@ class MainAgentPromptingTests(unittest.TestCase):
         self.assertIn("RECENT_PROGRESS: After up: moved from (7,6) to (7,5) on map 37", context)
         self.assertIn("AVOID_REPEAT: Do not blindly repeat left", context)
 
+    def test_refresh_task_notebook_allows_repeat_after_facing_change(self):
+        agent = self._build_agent()
+        agent.goals.set_focus("Leave Oak's Lab and head north.", source="system")
+        agent.context.add_turn(
+            1,
+            {},
+            action="left",
+            screen_type="overworld",
+            reasoning="Step off the lab frontage",
+            result="After left: position did not change but facing changed from down to left",
+        )
+
+        agent._refresh_task_notebook()
+        context = agent.context.get_context_for_ai()
+
+        self.assertIn("AVOID_REPEAT: A left press only changed facing", context)
+        self.assertIn("repeating it once is valid", context)
+
     def test_context_prompt_only_renders_recent_turn_window(self):
         context = ContextManager(max_turns=80, keep_recent=2)
         for turn in range(1, 6):

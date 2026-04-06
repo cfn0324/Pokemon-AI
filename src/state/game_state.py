@@ -210,6 +210,414 @@ class GameState:
 
         return cues
 
+    def _story_guidance_payload(
+        self,
+        summary: str,
+        *,
+        phase: str = "post_battle_intro_route",
+        priority: str = "high",
+    ) -> Dict[str, Any]:
+        """Build a consistent story-guidance payload."""
+        return {
+            "phase": phase,
+            "priority": priority,
+            "summary": summary,
+        }
+
+    def _build_outbound_story_guidance(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+    ) -> Optional[Dict[str, Any]]:
+        """Guide the first walk from Oak's Lab to Viridian Mart using text cues only."""
+        if map_id == 40 and 3 <= y <= 11:
+            if y == 11 and x < 4:
+                summary = (
+                    "Early-story verified map fact: Oak's Lab exit warp is on row y=11 at x=4 or x=5. "
+                    "You drifted too far left, so move RIGHT back to x=4 or x=5. Once aligned on those "
+                    "door columns, press DOWN to leave instead of exploring the left wall."
+                )
+            elif y == 11 and x > 5:
+                summary = (
+                    "Early-story verified map fact: Oak's Lab exit warp is on row y=11 at x=4 or x=5. "
+                    "You are already on the bottom row but still to the right of the exit, so move LEFT "
+                    "until you reach x=4 or x=5, then press DOWN to leave instead of exploring deeper into the lab."
+                )
+            elif y == 11:
+                summary = (
+                    "Early-story verified map fact: you are already standing on Oak's Lab exit columns "
+                    "x=4 or x=5 on row y=11. Press DOWN now to leave the lab."
+                )
+            elif x < 4:
+                summary = (
+                    "Early-story verified map fact: Oak's Lab exit warp is on row y=11 at x=4 or x=5. "
+                    "First move RIGHT toward the exit columns, then work DOWN to the bottom row."
+                )
+            elif x > 5:
+                summary = (
+                    "Early-story verified map fact: Oak's Lab exit warp is on row y=11 at x=4 or x=5. "
+                    "First line up by moving LEFT toward the exit columns, then work DOWN to the bottom row."
+                )
+            else:
+                summary = (
+                    "Early-story verified map fact: Oak's Lab exit warp is on row y=11 at x=4 or x=5. "
+                    "You are already near the correct columns, so work DOWN toward the bottom exit instead "
+                    "of re-exploring the upper aisles."
+                )
+            return self._story_guidance_payload(summary)
+
+        if map_id == 0:
+            if x > 9 and y >= 12:
+                return self._story_guidance_payload(
+                    "Early-story verified route from the latest post-rival checkpoint: outside Oak's Lab, "
+                    "do not drift around the east side. Along the lab frontage near y=12, move LEFT until "
+                    "you reach x=9; on these doorway tiles, UP usually does not advance north yet and "
+                    "stepping back onto the lab doorway risks re-entry."
+                )
+            if x == 9 and y > 2:
+                return self._story_guidance_payload(
+                    "Early-story verified route: once you reach Pallet Town's west-side lane at x=9, "
+                    "keep moving UP repeatedly until about y=2 instead of wandering back toward the lab."
+                )
+            if x < 9 and y > 2:
+                return self._story_guidance_payload(
+                    "Early-story recovery route: you are left of Pallet Town's intended west-side lane. "
+                    "Shift RIGHT back toward x=9, then continue UP toward the north exit.",
+                    priority="medium",
+                )
+            if x < 10 and y <= 2:
+                return self._story_guidance_payload(
+                    "Early-story verified route near Pallet Town's north edge: shift RIGHT toward x=10, "
+                    "then press UP through the Route 1 opening."
+                )
+            if 10 <= x <= 11 and y <= 2:
+                return self._story_guidance_payload(
+                    "Early-story objective: exit Pallet Town north into Route 1. You are aligned with "
+                    "the north opening now, so prioritize UP over sideways town exploration."
+                )
+            if x > 11 and y <= 2:
+                return self._story_guidance_payload(
+                    "Early-story objective: line up with Pallet Town's north opening. Shift LEFT toward "
+                    "x=10 or x=11, then keep working UP into Route 1.",
+                    priority="medium",
+                )
+            return None
+
+        if map_id == 12:
+            if y >= 34 and x > 10:
+                return self._story_guidance_payload(
+                    "Early-story verified Route 1 entry: from the south opening, first shift LEFT into "
+                    "the left corridor around x=10, then continue UP instead of fighting the hedge from the "
+                    "far-right edge."
+                )
+            if x == 10 and 28 < y <= 35:
+                return self._story_guidance_payload(
+                    "Verified Route 1 segment: stay in the left corridor at x=10 and keep moving UP until "
+                    "you reach the bend near y=28."
+                )
+            if y == 28 and 8 < x <= 11:
+                return self._story_guidance_payload(
+                    "Verified Route 1 bend: on row y=28, shift LEFT until x=8 before trying to climb again."
+                )
+            if x == 8 and 26 < y <= 28:
+                return self._story_guidance_payload(
+                    "Verified Route 1 opening: once aligned at x=8, press UP through the first north gap."
+                )
+            if y == 26 and 8 <= x < 10:
+                return self._story_guidance_payload(
+                    "Verified Route 1 cross-lane: on row y=26, move RIGHT to x=10 to line up with the "
+                    "middle corridor."
+                )
+            if x == 10 and 24 < y <= 26:
+                return self._story_guidance_payload(
+                    "Verified Route 1 middle corridor: keep moving UP on x=10 until the dogleg at y=24."
+                )
+            if (x, y) == (10, 24):
+                return self._story_guidance_payload(
+                    "Verified Route 1 dogleg: step RIGHT once from (10,24) to enter the narrow bend."
+                )
+            if (x, y) == (11, 24):
+                return self._story_guidance_payload(
+                    "Verified Route 1 dogleg: from (11,24), go DOWN one tile to (11,25) so the right-side "
+                    "lane opens."
+                )
+            if (x, y) == (11, 25):
+                return self._story_guidance_payload(
+                    "Verified Route 1 dogleg: from (11,25), go RIGHT once to enter the upper-right lane."
+                )
+            if x == 12 and 20 < y <= 25:
+                return self._story_guidance_payload(
+                    "Verified Route 1 upper-right lane: keep moving UP on x=12 until the cross-lane at y=20."
+                )
+            if y == 20 and 9 < x <= 12:
+                return self._story_guidance_payload(
+                    "Verified Route 1 upper cross-lane: on row y=20, shift LEFT to x=9 before climbing again."
+                )
+            if x == 9 and 14 < y <= 20:
+                return self._story_guidance_payload(
+                    "Verified Route 1 upper-left lane: keep moving UP on x=9 toward the Viridian approach."
+                )
+            if y == 14 and 9 <= x < 15:
+                return self._story_guidance_payload(
+                    "Verified Route 1 top corridor: move RIGHT along row y=14 until x=15."
+                )
+            if x == 15 and 2 < y <= 14:
+                return self._story_guidance_payload(
+                    "Verified Route 1 final straight: keep moving UP on x=15 toward Viridian City's south gate."
+                )
+            if y == 2 and 11 < x <= 15:
+                return self._story_guidance_payload(
+                    "Verified Route 1 north exit: on row y=2, shift LEFT until x=11 to line up with the gate."
+                )
+            if x == 11 and y <= 2:
+                return self._story_guidance_payload(
+                    "Verified Route 1 objective: you are aligned with Viridian City's south gate now, so "
+                    "prioritize UP through the north exit."
+                )
+            return None
+
+        if map_id == 1:
+            if x == 21 and 30 < y <= 35:
+                return self._story_guidance_payload(
+                    "Verified Viridian south gate: keep moving UP on x=21 until the sign blocks the center lane."
+                )
+            if (x, y) == (21, 30):
+                return self._story_guidance_payload(
+                    "Verified Viridian choke point: from (21,30), step LEFT once to clear the south sign."
+                )
+            if x == 20 and 28 < y <= 30:
+                return self._story_guidance_payload(
+                    "Verified Viridian south approach: keep moving UP on x=20 until you reach y=28."
+                )
+            if (x, y) == (20, 28):
+                return self._story_guidance_payload(
+                    "Verified Viridian hedge opening: from (20,28), step LEFT once to x=19."
+                )
+            if (x, y) == (19, 28):
+                return self._story_guidance_payload(
+                    "Verified Viridian hedge opening: from (19,28), go UP through the gap onto the main road."
+                )
+            if x == 19 and 16 < y <= 27:
+                return self._story_guidance_payload(
+                    "Verified Viridian main road: keep moving UP on x=19 until the mart turnoff at y=16."
+                )
+            if x == 19 and 14 <= y < 16:
+                return self._story_guidance_payload(
+                    "Verified Viridian mart turnoff: if you overshoot above y=16 on x=19, step DOWN back to y=16 "
+                    "before moving east."
+                )
+            if y == 16 and 19 <= x < 27:
+                return self._story_guidance_payload(
+                    "Verified Viridian mart road: on row y=16, move RIGHT toward x=27 to reach the Pokemart lane."
+                )
+            if x == 27 and 16 <= y < 20:
+                return self._story_guidance_payload(
+                    "Verified Viridian mart lane: move DOWN on x=27 until y=20."
+                )
+            if y == 20 and 27 <= x < 29:
+                return self._story_guidance_payload(
+                    "Verified Viridian mart approach: move RIGHT along row y=20 until the doorway at x=29."
+                )
+            if x == 29 and y == 20:
+                return self._story_guidance_payload(
+                    "Verified Viridian objective: step UP from (29,20) to enter Viridian Mart."
+                )
+            return None
+
+        if map_id == 42:
+            return self._story_guidance_payload(
+                "Inside Viridian Mart before Oak's Parcel: stay in front of the clerk long enough for the "
+                "script to start, then press A through the dialogue until Oak's Parcel is received."
+            )
+
+        return None
+
+    def _build_parcel_return_story_guidance(
+        self,
+        map_id: int,
+        x: int,
+        y: int,
+        ui_state: Dict[str, Any],
+    ) -> Optional[Dict[str, Any]]:
+        """Guide the first parcel return trip back to Oak using text cues only."""
+        phase = "viridian_parcel_return"
+
+        if map_id == 42:
+            if bool(ui_state.get("text_box_active")):
+                return self._story_guidance_payload(
+                    "Parcel return scene: dialogue is active in Viridian Mart, so keep pressing A until the "
+                    "handoff finishes and control returns.",
+                    phase=phase,
+                )
+            if x < 3:
+                return self._story_guidance_payload(
+                    "Parcel return route: inside Viridian Mart, move RIGHT until you line up with the exit warp "
+                    "columns around x=3.",
+                    phase=phase,
+                )
+            if y < 7:
+                return self._story_guidance_payload(
+                    "Parcel return route: once lined up with the exit columns, move DOWN toward the mart door "
+                    "warp on the bottom row.",
+                    phase=phase,
+                )
+            return self._story_guidance_payload(
+                "Parcel return objective: leave Viridian Mart, then head south through Route 1 to Oak's Lab.",
+                phase=phase,
+            )
+
+        if map_id == 1:
+            if (x, y) == (29, 19):
+                return self._story_guidance_payload(
+                    "Parcel return route: from Viridian Mart's doorway tile, step DOWN once before heading west.",
+                    phase=phase,
+                )
+            if y == 20 and 19 < x <= 29:
+                return self._story_guidance_payload(
+                    "Parcel return route: on Viridian City's lower east lane, move LEFT back toward the main road "
+                    "at x=19.",
+                    phase=phase,
+                )
+            if x == 19 and 20 <= y < 28:
+                return self._story_guidance_payload(
+                    "Parcel return route: keep moving DOWN on x=19 toward Viridian City's south exit.",
+                    phase=phase,
+                )
+            if x == 19 and y == 28:
+                return self._story_guidance_payload(
+                    "Parcel return route: from (19,28), step RIGHT to re-enter the south gate lane.",
+                    phase=phase,
+                )
+            if x == 20 and 28 <= y < 30:
+                return self._story_guidance_payload(
+                    "Parcel return route: move DOWN on x=20 until y=30.",
+                    phase=phase,
+                )
+            if x == 20 and y == 30:
+                return self._story_guidance_payload(
+                    "Parcel return route: from (20,30), step RIGHT once back into the center exit lane.",
+                    phase=phase,
+                )
+            if x == 21 and 30 <= y <= 35:
+                return self._story_guidance_payload(
+                    "Parcel return objective: keep moving DOWN on x=21 to leave Viridian City through the south gate.",
+                    phase=phase,
+                )
+            return None
+
+        if map_id == 12:
+            if x == 11 and 0 <= y < 3:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: keep moving DOWN on x=11 until the path opens east at y=3.",
+                    phase=phase,
+                )
+            if y == 3 and 11 <= x < 14:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: on row y=3, move RIGHT until x=14 to enter the southbound lane.",
+                    phase=phase,
+                )
+            if x == 14 and 3 <= y < 14:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: keep moving DOWN on x=14 through the long right corridor.",
+                    phase=phase,
+                )
+            if y == 14 and 9 < x <= 14:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: on row y=14, shift LEFT until x=9.",
+                    phase=phase,
+                )
+            if x == 9 and 14 <= y < 20:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: keep moving DOWN on x=9 toward the mid-route opening.",
+                    phase=phase,
+                )
+            if y == 20 and 9 <= x < 12:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: on row y=20, move RIGHT toward x=12.",
+                    phase=phase,
+                )
+            if x == 12 and 20 <= y < 24:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: keep moving DOWN on x=12 to the lower bend.",
+                    phase=phase,
+                )
+            if y == 24 and 8 < x <= 12:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: on row y=24, shift LEFT until x=8.",
+                    phase=phase,
+                )
+            if x == 8 and 24 <= y < 28:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: keep moving DOWN on x=8 through the lower-left passage.",
+                    phase=phase,
+                )
+            if y == 28 and 8 <= x < 11:
+                return self._story_guidance_payload(
+                    "Parcel return Route 1 segment: on row y=28, move RIGHT until x=11 to line up with the south exit.",
+                    phase=phase,
+                )
+            if x == 11 and 28 <= y <= 35:
+                return self._story_guidance_payload(
+                    "Parcel return objective: keep moving DOWN on x=11 to re-enter Pallet Town.",
+                    phase=phase,
+                )
+            return None
+
+        if map_id == 0:
+            if x == 11 and 0 <= y < 2:
+                return self._story_guidance_payload(
+                    "Parcel return route in Pallet Town: step DOWN out of the north gate grass before turning east.",
+                    phase=phase,
+                )
+            if y == 2 and 1 <= x < 16:
+                return self._story_guidance_payload(
+                    "Parcel return route in Pallet Town: move RIGHT along the north path until x=16.",
+                    phase=phase,
+                )
+            if x == 16 and 2 <= y < 12:
+                return self._story_guidance_payload(
+                    "Parcel return route in Pallet Town: keep moving DOWN on x=16 toward Oak's Lab.",
+                    phase=phase,
+                )
+            if y == 12 and 12 < x <= 16:
+                return self._story_guidance_payload(
+                    "Parcel return route in Pallet Town: on row y=12, move LEFT until x=12 to line up with Oak's Lab.",
+                    phase=phase,
+                )
+            if x == 12 and y == 12:
+                return self._story_guidance_payload(
+                    "Parcel return objective: press UP from (12,12) to re-enter Oak's Lab.",
+                    phase=phase,
+                )
+            return None
+
+        if map_id == 40:
+            if x < 5 and 3 < y <= 11:
+                return self._story_guidance_payload(
+                    "Parcel return route in Oak's Lab: move RIGHT until x=5 to line up with Oak's aisle.",
+                    phase=phase,
+                )
+            if x == 5 and 3 < y <= 11:
+                return self._story_guidance_payload(
+                    "Parcel return route in Oak's Lab: keep moving UP on x=5 until you stand directly below Oak.",
+                    phase=phase,
+                )
+            if x == 5 and y == 3:
+                if bool(ui_state.get("text_box_active")):
+                    return self._story_guidance_payload(
+                        "Parcel return scene: Oak dialogue is active, so keep pressing A until the parcel and "
+                        "Pokedex sequence finishes.",
+                        phase=phase,
+                    )
+                return self._story_guidance_payload(
+                    "Parcel return objective: press A while facing Oak at (5,3) to start the delivery scene.",
+                    phase=phase,
+                )
+            return None
+
+        return None
+
     def _build_story_guidance(
         self,
         memory_state: Dict[str, Any],
@@ -219,16 +627,15 @@ class GameState:
             return None
 
         events = memory_state.get("events", {}) or {}
-        if any(
-            bool(events.get(name))
-            for name in ("got_oaks_parcel", "oak_got_parcel", "got_pokedex")
-        ):
+        got_oaks_parcel = bool(events.get("got_oaks_parcel"))
+        oak_got_parcel = bool(events.get("oak_got_parcel"))
+        got_pokedex = bool(events.get("got_pokedex"))
+        if got_pokedex or oak_got_parcel:
             return None
 
         if int(memory_state.get("badge_count", 0) or 0) != 0:
             return None
-        if int(memory_state.get("item_count", 0) or 0) != 0:
-            return None
+        item_count = int(memory_state.get("item_count", 0) or 0)
         if int(memory_state.get("money", 0) or 0) < 3175:
             return None
 
@@ -237,10 +644,12 @@ class GameState:
             return None
 
         starter = party[0] or {}
-        if int(starter.get("level", 0) or 0) < 6:
+        starter_level = int(starter.get("level", 0) or 0)
+        if starter_level < 6 or starter_level > 10:
             return None
 
         position = memory_state.get("position", {}) or {}
+        ui_state = memory_state.get("ui", {}) or {}
         map_id_raw = position.get("map_id", -1)
         x_raw = position.get("x", -1)
         y_raw = position.get("y", -1)
@@ -248,60 +657,10 @@ class GameState:
         x = int(-1 if x_raw is None else x_raw)
         y = int(-1 if y_raw is None else y_raw)
 
-        if map_id == 40 and 4 <= x <= 5 and 6 <= y <= 11:
-            return {
-                "phase": "post_battle_intro_route",
-                "priority": "high",
-                "summary": (
-                    "Early-story objective: leave Oak's Lab and head for Pallet Town's north exit "
-                    "toward Route 1. Do not treat side tiles inside the lab as the main goal."
-                ),
-            }
+        if got_oaks_parcel or item_count > 0:
+            return self._build_parcel_return_story_guidance(map_id, x, y, ui_state)
 
-        if map_id != 0:
-            return None
-
-        if x < 16 and y >= 12:
-            return {
-                "phase": "post_battle_intro_route",
-                "priority": "medium",
-                "summary": (
-                    "Early-story objective: reach Pallet Town's north exit. First route around "
-                    "Oak's Lab fence onto the east-side path instead of broad town exploration."
-                ),
-            }
-
-        if x >= 16 and y > 2:
-            return {
-                "phase": "post_battle_intro_route",
-                "priority": "medium",
-                "summary": (
-                    "Early-story objective: keep advancing north on Pallet Town's east-side path "
-                    "until the Route 1 grass opening is aligned."
-                ),
-            }
-
-        if 10 <= x <= 12 and y <= 2:
-            return {
-                "phase": "post_battle_intro_route",
-                "priority": "high",
-                "summary": (
-                    "Early-story objective: exit Pallet Town north into Route 1. When aligned under "
-                    "the north grass opening, prioritize UP even if side-town frontier tiles look tempting."
-                ),
-            }
-
-        if 11 <= x <= 16 and 0 <= y <= 3:
-            return {
-                "phase": "post_battle_intro_route",
-                "priority": "medium",
-                "summary": (
-                    "Early-story objective: line up with Pallet Town's north grass opening and keep "
-                    "working toward Route 1 rather than drifting sideways across town."
-                ),
-            }
-
-        return None
+        return self._build_outbound_story_guidance(map_id, x, y)
 
     def _describe_move(self, move: Dict[str, Any], slot_index: int) -> Dict[str, Any]:
         """Normalize move info into prompt-friendly battle labels."""

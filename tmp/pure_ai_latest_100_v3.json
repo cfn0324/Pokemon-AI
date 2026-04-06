@@ -1,0 +1,2387 @@
+{
+  "report_version": 2,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 100,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "effective_settings": {
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "same_turn_retry_timeout_seconds": 30,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "latest_checkpoint": "checkpoint_196081",
+  "start_turn": 196081,
+  "end_turn": 196181,
+  "turn_delta": 100,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 100,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 100
+  },
+  "decision_path_counts": {
+    "ai": 100
+  },
+  "ai_control_metrics": {
+    "total_turns": 100,
+    "main_model_turns": 100,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 100,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 1.0,
+    "ai_authored_ratio": 1.0,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 100,
+    "avg_seconds": 4.418,
+    "max_seconds": 14.763,
+    "min_seconds": 3.446,
+    "total_seconds": 441.789,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": false,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196181,
+    "timeline_turn_count": 100,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196181,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196181,
+    "timestamp": "2026-04-06T03:35:57.872297",
+    "position": {
+      "map_id": 0,
+      "x": 13,
+      "y": 12
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196182,
+      "local_analysis_enabled": false,
+      "screen_hash": "22c4ff5d8d17e21e4038fa78f24aa83d"
+    },
+    "exploration": {
+      "current_map": 0,
+      "explored_tiles": 63,
+      "total_tiles": 200,
+      "exploration_percent": 31.5
+    },
+    "navigation": {
+      "current_visit_count": 40,
+      "known_exits": {
+        "right": {
+          "x": 14,
+          "y": 12
+        },
+        "left": {
+          "x": 12,
+          "y": 12
+        }
+      },
+      "blocked_directions": [
+        "down",
+        "up"
+      ],
+      "frontier_count": 57,
+      "nearest_frontier": {
+        "target": [
+          12,
+          12
+        ],
+        "path": [
+          "left"
+        ],
+        "unknown_directions": [
+          "down"
+        ],
+        "visit_count": 13,
+        "distance": 1,
+        "local_visit_pressure": 91,
+        "global_novelty_distance": 11,
+        "priority_score": -138.85,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 5,
+          "local_visit_pressure": 8,
+          "global_novelty_distance": 7,
+          "priority_score": 20.5,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            10,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 6,
+          "local_visit_pressure": 10,
+          "global_novelty_distance": 12,
+          "priority_score": 18.4,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            10,
+            16
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 7,
+          "local_visit_pressure": 9,
+          "global_novelty_distance": 13,
+          "priority_score": 17.05,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 13,
+            "y": 11
+          },
+          "status": "blocked_once",
+          "blocked_attempts": 1,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This move already failed once from the current tile; avoid repeating it blindly."
+        },
+        "down": {
+          "target": {
+            "x": 13,
+            "y": 13
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 2,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 2 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        },
+        "left": {
+          "target": {
+            "x": 12,
+            "y": 12
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 13,
+          "target_known_explored": true,
+          "target_is_warp": true,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (12, 12). The target tile is also a known warp point. Avoid stepping on it unless you intentionally want to warp."
+        },
+        "right": {
+          "target": {
+            "x": 14,
+            "y": 12
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 27,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (14, 12)."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [
+        {
+          "direction": "left",
+          "target": {
+            "x": 12,
+            "y": 12
+          },
+          "destination": {
+            "map_id": 40,
+            "x": 12,
+            "y": 11
+          },
+          "summary": "left is a known warp tile at (12, 12) leading to map 40 (12, 11); do not step on it unless you intentionally want to change maps."
+        }
+      ],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": true,
+        "recommended_direction": "up",
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": {
+          "x": 9,
+          "y": 11
+        },
+        "current_priority_score": -239.75,
+        "stronger_priority_score": 20.5,
+        "priority_gap": 260.25,
+        "summary": "Current tile is a weaker local frontier (score -239.75, pressure 87, visits 40). A stronger frontier at (9, 11) scores 20.5; prefer up instead of probing every adjacent unknown here."
+      },
+      "known_warps": [
+        {
+          "src_map": 0,
+          "src_x": 5,
+          "src_y": 6,
+          "dest_map": 37,
+          "dest_x": 2,
+          "dest_y": 7,
+          "count": 1
+        },
+        {
+          "src_map": 0,
+          "src_x": 12,
+          "src_y": 12,
+          "dest_map": 40,
+          "dest_x": 12,
+          "dest_y": 11,
+          "count": 3,
+          "trigger_action": "down"
+        }
+      ],
+      "local_map": [
+        "F????????",
+        "?????????",
+        "?????????",
+        "F??F?????",
+        "?FFWPF???",
+        "?????????",
+        "FF???????",
+        "?F???????",
+        "?F???????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 0,
+        "rows": [
+          "                   ",
+          "                   ",
+          "  #                ",
+          "                   ",
+          "   #       #FF     ",
+          "  #.FFFFFFF..F     ",
+          "   FF    #.FFF     ",
+          "   FF     F        ",
+          "   FF  F  F F#     ",
+          "   F.FFW  F F      ",
+          "   F.F F  F        ",
+          "   FFFFF  FF       ",
+          "       #  F        ",
+          "          F        ",
+          "          FF  F    ",
+          "          F FFWPF  ",
+          "          F #  #   ",
+          "          FFF      ",
+          "            F      ",
+          "            F      ",
+          "          # #      ",
+          "                   ",
+          "                   "
+        ],
+        "prompt_rows": [
+          "???????????????????",
+          "???????????????????",
+          "??#????????????????",
+          "???????????????????",
+          "???#???????#FF?????",
+          "??#.FFFFFFF..F?????",
+          "???FF????#.FFF?????",
+          "???FF?????F????????",
+          "???FF??F??F?F#?????",
+          "???F.FFW??F?F??????",
+          "???F.F?F??F????????",
+          "???FFFFF??FF???????",
+          "???????#??F????????",
+          "??????????F????????",
+          "??????????FF??F????",
+          "??????????F?FFWPF??",
+          "??????????F?#??#???",
+          "??????????FFF??????",
+          "????????????F??????",
+          "????????????F??????",
+          "??????????#?#??????",
+          "???????????????????",
+          "???????????????????"
+        ],
+        "bounds": {
+          "min_x": -2,
+          "max_x": 16,
+          "min_y": -3,
+          "max_y": 19,
+          "width": 19,
+          "height": 23
+        },
+        "player": {
+          "x": 13,
+          "y": 12
+        },
+        "explored_count": 63,
+        "frontier_count": 57,
+        "blocked_count": 11,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 3,
+      "bounding_box_width": 3,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 4,
+      "micro_loop_warning": false,
+      "warning": null
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and the verified story guidance says to move left first toward the exit columns while right is already known blocked.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.433,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and the current focus plus story guidance says to line up with the exit by moving left; the last left only turned to face left, which is not a true block.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.069,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, but RAM says text is active and left already failed twice here, so the likely mandatory next step is to advance hidden post-battle dialogue instead of pushing movement again.",
+      "result": "After a:; moved from (7,10) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.352,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and the verified post-battle guidance says to keep lining up with the exit by moving left toward x=4 or x=5 before going down.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.856,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left has already failed from this tile, and story guidance says to line up with the exit columns then go down, so the next concrete step is to move down from x=6 toward the exit row.",
+      "result": "After down:; moved from (6,10) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.89,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story guidance says the exit warp is directly below on row y=11 near the current column, so the next concrete step is to keep moving down.",
+      "result": "After down:; position did not change but facing changed from left to down",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.279,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since the last down only changed facing while STORY GUIDANCE says the exit warp is directly below near x=5, repeating down once is the correct next step.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.621,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, but RAM says a text box is active and the movement stall is expected, so the safest next step for the top todo is to advance any hidden remaining post-battle dialogue with A instead of forcing more blocked movement.",
+      "result": "After a:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.016,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the current story guidance says the mandatory next step is to leave through the bottom exit from row y=11, so I should continue stepping down now that I am on the exit row.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.365,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside the lab with no visible dialogue box, and down is the lab warp I should avoid, while up is open grass-town ground that advances the next required route out of town.",
+      "result": "After up:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.489,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town, and the verified story guidance says to step off this lab warp tile and move left along the lab frontage toward x=9 rather than probing down or re-entering.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.189,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town, and the verified story guidance plus the screenshot both support moving left along the lab frontage to get off the warp tile instead of going back up to the door or probing the east side.",
+      "result": "After left:; position did not change but facing changed from down to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.484,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "up",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left has already failed here, and the navigation memory explicitly says this warp tile has stronger frontier progress by stepping up rather than re-probing blocked or risky directions.",
+      "result": "After up:; position did not change but facing changed from left to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.809,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified route says not to drift east or re-enter the door; left is already blocked here while moving up should step off the doorway warp tile toward the stronger frontier.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.818,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "down",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and since left and up have already stalled from this warp tile, the safest concrete progress is to step down off the lab doorway area onto the visible path.",
+      "result": "After down:; warped from map 0 (12,12) to map 40 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.522,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "a",
+      "reasoning": "The screenshot shows the outdoor map with a text box active but no movement progress, so the immediate task is to advance the mandatory story dialogue rather than keep testing directions from the same tile.",
+      "result": "After a:; moved from (12,11) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.158,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since down is the warp back outside from this current tile, the correct next step is to move off the warp and follow the known exit path to the right.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.94,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified local guidance says I am standing on the bottom warp tile at (5,11), so I should step off it by moving right toward the exit route instead of pressing A or down.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.76,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since down is the warp back outside while right has already failed twice from this warp tile, the best step is to move off the warp onto the visible floor to the left.",
+      "result": "After left:; position did not change but facing changed from up to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.862,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, down is the warp back outside, right is already confirmed blocked from this tile, and the guidance says to step off the warp first, so moving up is the safest progress on visible floor.",
+      "result": "After up:; position did not change but facing changed from left to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.168,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, I am still standing on the bottom warp tile, down would re-exit the lab, right is already confirmed blocked here, and the note says one up press only turned me, so repeating up once is the best way to step off the warp onto visible floor.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.065,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, down would trigger the warp back outside, right has already failed repeatedly, and left is the safest visible floor step to get off the warp tile.",
+      "result": "After left:; moved from (5,11) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.01,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story guidance says the mandatory next step is to use the bottom exit warp, which is directly down from here.",
+      "result": "After down:; position did not change but facing changed from up to down",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.93,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story guidance says the next mandatory step is to take the bottom exit warp directly below me, so I should repeat down once after the first press only changed facing.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.976,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the verified story guidance says the mandatory next step is to use the bottom exit warp directly below at y=11, so from (5,10) I should step down onto it.",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.735,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, I am standing on the bottom exit warp tile, and story guidance says to leave through this exit, so pressing down should trigger the warp out of the lab.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.449,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "left",
+      "reasoning": "I am outside in Pallet Town facing the lab, and down is the known warp back inside while left is a stronger frontier with visible ground, so I should move away from the door and continue leaving town.",
+      "result": "After left:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.173,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town, standing on the lab doorway warp tile, and the verified route says to move left along the lab frontage toward x=9 rather than risk re-entering or probing this weak local frontier.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.1,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left and up have already failed from this tile, down would re-enter the lab warp, and right is the only fresh visible step to get off the warp tile.",
+      "result": "After right:; position did not change but facing changed from down to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.669,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left is confirmed blocked from this tile, down would re-enter the lab warp, and the movement hint says right is the one fresh step to get off the warp tile after the first right only changed facing.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.148,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "b",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left and up are already blocked here, down risks the lab warp, and right is the only open step to get off this warp tile and break the local loop.",
+      "result": "After b:; moved from (12,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.038,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "up",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would step back onto the lab warp, and the verified story route says to move left along the lab frontage toward x=9, so from this tile the concrete step is to go up to align with that westward path instead of drifting east.",
+      "result": "After up:; position did not change but facing changed from right to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.888,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "up",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would step onto the lab warp, and the verified story guidance says to work west along the lab frontage by taking the valid northward step from this tile rather than drifting east or re-entering.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.004,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "down",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left is the lab warp to avoid, and the verified route says to work west along the lab frontage, so from this tile the next concrete progress step is down to get onto the westward path instead of repeating blocked up.",
+      "result": "After down:; position did not change but facing changed from up to down",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.954,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "down",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would step onto the lab doorway warp, up has already failed here, and the story guidance says not to drift around the east side, so the safest concrete progress is to try the remaining visible frontage step downward.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.475,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "down",
+      "reasoning": "This is the overworld outside Oak's Lab; left is the known lab warp to avoid, up has already failed here, and the current focus plus navigation memory say the remaining concrete progress step is to probe the visible frontier downward instead of repeating blocked moves.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.842,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "right",
+      "reasoning": "The screenshot shows the overworld outside Oak's Lab, left is the lab doorway warp to avoid, up and down have already failed here, and the navigation guidance marks right as the only safe frontier step.",
+      "result": "After right:; position did not change but facing changed from down to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.705,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "left",
+      "reasoning": "The screenshot shows the overworld outside Oak's Lab with no visible dialogue box, left is the lab doorway warp to avoid, up/down have already failed here, and the live guidance says the remaining concrete step is to continue left along the lab frontage toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.906,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left is the known lab doorway warp, up and down have already failed here, and right is the only untested visible frontier from this tile.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.763,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "left",
+      "reasoning": "This is the overworld outside Oak's Lab, and the verified story guidance says not to drift around the east side here; the next concrete progress is to move left along the lab frontage toward x=9 while avoiding re-entering the doorway.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.65,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "right",
+      "reasoning": "The screenshot shows the overworld outside Oak's Lab with no visible dialogue box, left would step onto the known lab doorway warp, up/down have already failed here, and right is the only adjacent visible frontier that can test progress.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.768,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left is the known lab doorway warp to avoid, up and down have already failed here, and the live navigation memory says right is the only adjacent frontier from this tile.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.866,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "a",
+      "reasoning": "The screenshot shows the outdoor map in front of Oak's Lab with no visible dialogue box, but RAM says a text box is active and movement from all non-warp directions has failed here, so this is likely a hidden script state and I should press A to advance it instead of repeating blocked movement.",
+      "result": "After a:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.137,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "left",
+      "reasoning": "This is the overworld outside Oak's Lab with no visible dialogue box, and the verified route says to move left along the lab frontage rather than drift east or re-enter the doorway.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.612,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "left",
+      "reasoning": "The screenshot shows the outdoor map in front of Oak's Lab with no visible dialogue box, and the verified story cue says to move left along the lab frontage toward x=9 rather than probing up, down, or right here.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.962,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "a",
+      "reasoning": "The screenshot shows the outdoor town in front of Oak's Lab with no visible dialogue box, but RAM says a text box is active and the recent hidden-script A press was what restored progress, so I should advance that likely invisible script instead of repeating blocked movement.",
+      "result": "After a:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.769,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified local route says to avoid the left warp back into the lab and use the known successful tile to the right so I can continue along the frontage instead of looping on the doorway edge.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.909,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the live guidance plus navigation memory say left is the lab warp while right is the known successful step to the next frontier tile.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.368,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "a",
+      "reasoning": "The screenshot shows the town outside Oak's Lab with no visible dialogue box, and the verified route plus tile memory say left is the lab warp while right is the only known successful step off this script-sticky spot.",
+      "result": "After a:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.948,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story route says to move left along the lab frontage toward x=9 instead of drifting around the east side or re-testing right.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.543,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified story guidance says this doorway-side tile should continue left along the lab frontage toward x=9, with the last left only turning to face that way.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.691,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and after repeated failed left attempts the current focus plus frontier caution say to stop looping here and try the visible frontier above instead of re-entering the lab or pushing the same side again.",
+      "result": "After up:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.443,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified local guidance plus tile memory say left is the lab warp while right is the only safe step off this looped doorway-side tile toward the stronger frontier.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.011,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and state guidance says left is the lab warp while right is the known safe step off this looped frontage tile.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.41,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified local guidance says left is the lab warp while right is the only safe step off this looped tile toward the stronger frontier.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.776,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town, and the verified story guidance says not to drift on the east side here but to move left along the lab frontage toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.693,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story guidance says to move left along the lab frontage toward x=9 instead of probing the east-side frontier.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.096,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, left has already looped between two frontage tiles, and the live navigation caution says this weak frontier should be abandoned in favor of moving up toward the stronger route.",
+      "result": "After up:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.574,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would step onto the lab warp, up and down have recently failed from this tile, and right is the only confirmed non-warp move that advances toward a better frontier.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.533,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "right",
+      "reasoning": "This is the Pallet Town overworld outside Oak's Lab; left would step onto the lab warp, up and down are currently flagged blocked from this tile, and the navigation memory says right is the known exit that should lead to a better frontier.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.172,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would re-enter the lab warp, and the verified local guidance plus navigation memory say the only safe progress from this tile is to step right to the known exit tile before continuing along the route.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.769,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "left",
+      "reasoning": "This is the Pallet Town overworld outside Oak's Lab, and the live story guidance says not to drift around the east side here but to move left along the lab frontage toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.544,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story guidance says this east-side tile is a weak loop spot so I should move left along the lab frontage toward x=9 rather than probing up, down, or right here.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.145,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified route guidance says this east-side spot is a loop trap so I should move left along the lab frontage toward x=9 instead of probing more frontier here.",
+      "result": "After left:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.203,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab in Pallet Town, and with left being the lab warp plus up/down already failing here, the safest concrete progress is to step right onto the known exit tile and then continue away from this loop spot.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.857,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the current tile's right side is the known safe exit while left is the lab warp and up/down have already failed here.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.837,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and since this tile is a loop spot with left being the lab warp while the verified route says to move left along the lab frontage toward x=9, I should first step off the current tile via the known safe exit on the right.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.311,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story guidance says this east-side spot is a loop trap, so the correct progress is to move left along the lab frontage rather than probe more frontier here.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.81,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story guidance says to move left along the lab frontage toward x=9 instead of drifting on this east-side loop; the last left only changed facing, so repeating left once is valid.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.182,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the high-priority story guidance says not to drift on this east side but to move left along the lab frontage toward x=9.",
+      "result": "After left:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.696,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the immediate path cue says right is the known safe step off this loop tile while left risks the lab warp and up/down are already blocked here.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.715,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the live navigation memory says up and down are blocked here while left is the lab warp, so the safest progress is to step right to the known exit tile and break out of this 2-tile loop.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.273,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified route says to move left along the lab frontage toward x=9 while avoiding stepping onto the lab door warp.",
+      "result": "After left:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.75,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with free movement visible, and the high-priority story guidance says to move left along the lab frontage toward x=9 instead of probing this high-pressure east-side loop.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.828,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "left",
+      "reasoning": "The screenshot shows free overworld movement outside Oak's Lab with no visible dialogue box, and the verified story route says to move left along the lab frontage toward x=9 rather than keep looping on the east side.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.612,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "left",
+      "reasoning": "The screenshot shows the player outside Oak's Lab with no visible dialogue box, and the high-priority story guidance says to move left along the lab frontage toward x=9 instead of probing the east-side frontier.",
+      "result": "After left:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.551,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and both the screenshot and navigation memory show left is the lab door warp while right is the safe open path to leave this 2-tile loop and continue along the route.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.967,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "right",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, left would re-enter the lab warp, and the verified local route plus navigation memory say the only productive step from this loop is to move right to the known exit tile before continuing away from town.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.757,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "right",
+      "reasoning": "The screenshot shows free movement outside Oak's Lab with no visible dialogue box, and from this tile left is the lab warp while right is the only known safe step that exits the current 2-tile loop toward the stronger frontier.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.649,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "left",
+      "reasoning": "I am outside on the overworld by Oak's Lab, and the high-priority story guidance says to move left along the lab frontage toward x=9 instead of probing this weak local frontier.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.5,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story guidance says to move left along the lab frontage toward x=9 rather than probing the weak east-side frontier.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.446,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing outside Oak's Lab with open path tiles to the right of the sign and no visible dialogue box, and after repeated left/right looping the best small progress is to test the stronger frontier by moving up.",
+      "result": "After up:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.84,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outside Oak's Lab with no visible dialogue box, left would step onto the lab warp, and the verified route says to get off this weak loop by moving right first rather than repeating blocked left/up attempts here.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.931,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outside Oak's Lab with no visible dialogue box, left would re-enter the lab doorway warp, and both story guidance and navigation memory say the next concrete progress from this loop tile is to move right to the known exit tile.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.861,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outside Oak's Lab with no visible dialogue box, left would risk the lab warp, and navigation memory marks right as the known exit from this loop tile while up and down have already failed here.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.921,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "left",
+      "reasoning": "The screenshot shows the player standing outside Oak's Lab with no visible dialogue box, and the verified story route says to stop drifting on the east side and move left along the lab frontage toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.616,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "left",
+      "reasoning": "This is the outdoor town view with no visible dialogue box, and the verified route says that from outside Oak's Lab along y=12 I should move left toward x=9 rather than keep looping on the east side.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.791,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "left",
+      "reasoning": "This is the outdoor town view in front of Oak's Lab with no visible dialogue box, and the verified route says not to drift on the east side here, so I should take the known safe step left along the lab frontage instead of probing more frontier from this loop tile.",
+      "result": "After left:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.155,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "right",
+      "reasoning": "The screenshot shows the player outside Oak's Lab with no visible dialogue box, and left would step onto the lab doorway warp while the verified route says to continue along the frontage toward the stronger frontier by first moving right from this loop tile.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.011,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "right",
+      "reasoning": "The screenshot is the outdoor town view in front of Oak's Lab with no visible dialogue box, and the verified local route plus navigation memory say left is the lab warp while right is the known safe step to continue along the frontage.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.108,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "right",
+      "reasoning": "The screenshot shows the outdoor town view with no visible dialogue box, and left would risk the lab warp while navigation memory says up and down are blocked here, so the only productive step is the known safe exit to the right.",
+      "result": "After right:; moved from (13,12) to (14,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.743,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "left",
+      "reasoning": "The screenshot shows the outdoor town in front of Oak's Lab with no visible dialogue box, and the verified story guidance says not to drift on the east side here but to move left along the lab frontage toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.702,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "left",
+      "reasoning": "The screenshot shows the outdoor town with no visible dialogue box, and the verified story guidance says to move left along Oak's Lab frontage toward x=9 rather than drifting to the east-side frontier.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.741,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "left",
+      "reasoning": "This is the outdoor town view in front of Oak's Lab with no visible dialogue box, and the verified story guidance says not to drift around the east side here but to move left along the lab frontage toward x=9.",
+      "result": "After left:; moved from (14,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.256,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 14,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "left",
+      "reasoning": "This is the outdoor town in front of Oak's Lab with no visible dialogue box, and the verified story route says to move left along the lab frontage toward x=9 while avoiding the lab warp.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.162,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "right",
+      "reasoning": "The screenshot shows the player standing outside Oak's Lab with no visible dialogue box, and left would re-enter the lab warp while up/down are already blocked here, so the best concrete progress is to step right to the known exit tile and break out of this 2-tile loop.",
+      "result": "After right:; moved from (13,12) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.555,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "right",
+      "reasoning": "This is the outdoor town in front of Oak's Lab, and the screenshot plus navigation memory show left and up are blocked here while down would re-enter the lab warp, so the safe progress is to step right off the doorway tile and continue toward the stronger frontier instead of probing this weak loop.",
+      "result": "After right:; position did not change but facing changed from left to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.653,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "right",
+      "reasoning": "The screenshot shows the outdoor town view in front of Oak's Lab with no visible dialogue box, and since RAM text is likely stale while left and up are known blocked here and down is the lab warp, the best progress is to step right off this warp-adjacent tile.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.045,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and from this warp-source tile left and up are already blocked while down would re-enter the lab, so the only concrete step to leave this weak loop is right.",
+      "result": "After right:; moved from (12,12) to (13,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.36,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story cue says not to drift east here; from this frontage tile, up and down are blocked while left is the next step along the lab front toward x=9.",
+      "result": "After left:; position did not change but facing changed from right to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.095,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 13,
+        "y": 12
+      },
+      "party_size": 1
+    }
+  ]
+}

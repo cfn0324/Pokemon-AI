@@ -93,6 +93,7 @@ Important constraints:
 - If RAM says a text box is active but the screenshot does not show a real bordered dialogue panel with readable text or a prompt arrow, suspect a stale UI flag and trust the room/map screenshot instead.
 - If the screenshot is still Oak's intro, a naming screen, a title/menu, or another scripted scene, report that SCREEN_TYPE directly even if RAM already shows room coordinates.
 - In boot/title/new-game flow, use the visible UI on the screenshot. Do not switch from START to movement or random buttons unless the screen visibly changes.
+- If a recent result says "position did not change but facing changed...", that usually means the first directional press only turned the player. Do not treat that as a hard collision; repeating the same direction once can still complete the intended step.
 - The screenshot is a moving camera viewport, not a full-room map. Do not treat the current frame as a complete fixed layout of the whole room.
 - In overworld movement, the camera usually follows the player. The player being near the lower part of the screen does NOT imply there is more walkable room below.
 - Off-screen or unrendered space is unknown. Black screen-edge space is not evidence of walkable floor.
@@ -102,8 +103,11 @@ Important constraints:
 - If control has returned in the bedroom or house, prefer stairs, doors, and route exits over furniture inspection.
 - Merely facing an object does not make it the correct target. If movement is available and no text box is open, step toward the exit instead of pressing A on optional furniture.
 - When a person, dialogue trigger, or obstacle is clearly blocking progress, treat it as the current task.
+- If the state text includes STORY GUIDANCE or BATTLE GUIDANCE, treat those sections as verified local cues derived from live game facts. They override stale todo items, old summaries, and generic frontier exploration advice when they conflict.
+- If STORY GUIDANCE gives a short coordinate route segment, follow that local route literally until the coordinates clearly enter the next described segment instead of second-guessing it after one uncertain turn.
 - In Oak's Lab before obtaining a Pokemon, if the door/exit approach bounces you back or immediately hands control to a story scene, treat that as Oak's trigger and go to Oak instead of re-exploring the room perimeter.
 - In Oak's Lab right after choosing a starter, if repeated movement from the tile below Oak or the rival fails, assume the rival pickup/dialogue/battle sequence is still pending and interact with the blocker instead of shuffling in place.
+- Right after the first rival battle in Oak's Lab, the mandatory task is to leave the lab through the bottom exit rather than exploring the upper or right frontier of the room.
 - If two or more nearby movement directions from the same tile just failed, treat the scene as script-locked or NPC-blocked rather than as open free movement.
 - Do not wander because of the long-term mission. Near-term progression is always more important than distant plans.
 - On player-name or rival-name screens, minimize wasted turns. Prefer a short simple name or a visible preset choice if that ends the naming step faster.
@@ -115,6 +119,7 @@ Important constraints:
 - If navigation memory says a direction from the current tile is blocked, treat it as blocked even if the screenshot alone makes it look open.
 - If most directions are blocked and the remaining space is occupied by Oak, the rival, or another story blocker, switch from movement to interaction with A.
 - If the state text includes frontier novelty or revisit-pressure metrics, use them to avoid repeatedly probing a locally exhausted frontier when better alternatives exist.
+- During a mandatory story bottleneck, do not let frontier novelty or revisit-pressure cues pull you away from the verified exit or blocker named in STORY GUIDANCE.
 - If the state text includes a Warp caution line, do not step onto that adjacent warp tile unless you intentionally want to change maps.
 - If the state text includes a Current-tile warp caution line, step off that warp-source tile before probing unknown directions, and avoid any learned trigger action unless you intentionally want to change maps.
 - If the state text includes a Frontier caution line naming a stronger frontier or recommended escape direction, follow that guidance instead of probing every adjacent unknown around the current fringe.
@@ -159,7 +164,7 @@ Guidelines:
 14. If the visible patterned floor continues upward but fades into black downward, upward is the better exploration direction even if the player sprite is currently low on the screen.
 15. Before choosing a direction, ask: "Do I see actual floor tiles continuing there?" If not, do not move that way.
 16. Only issue GOAL_UPDATE commands when current evidence strongly supports the update. Do not rewrite goals from speculation.
-17. If a recent result says your last move failed or produced no movement, do not repeat the same blocked movement unless new evidence appears.
+17. If a recent result says your last move failed or produced no movement without a facing change, do not repeat the same blocked movement unless new evidence appears.
 18. If a recent result says repeated A caused no visible state change and the screenshot still looks like a room, reclassify the screen as indoor/overworld instead of dialogue and try movement or B.
 19. If recent results show multiple movement directions failing from the same tile near Oak or the rival in Oak's Lab, switch from navigation to interaction or the mandatory story blocker.
 20. If the lab exit route keeps failing before you have a Pokemon, stop treating the room as a free-exploration puzzle; the correct task is the Oak story trigger.
@@ -337,7 +342,19 @@ This is wrong because camera position does not prove walkable floor, and black s
             lowered = result.lower()
             if not recent_progress and any(token in lowered for token in progress_tokens):
                 recent_progress = self._compact_text(result, max_chars=220)
-            if not avoid and any(token in lowered for token in stall_tokens):
+            if not avoid and "position did not change but facing changed" in lowered:
+                action = (turn.action or "").strip().lower()
+                if action:
+                    avoid = (
+                        f"A {action} press only changed facing; that is not a hard collision. "
+                        f"If STORY GUIDANCE or visible floor still supports {action}, repeating it once is valid."
+                    )
+                else:
+                    avoid = (
+                        "A facing-only movement result is not a hard collision. "
+                        "Repeating the same direction once can still complete the step."
+                    )
+            elif not avoid and any(token in lowered for token in stall_tokens):
                 action = (turn.action or "").strip().lower()
                 if action:
                     avoid = f"Do not blindly repeat {action} if the scene still looks unchanged."

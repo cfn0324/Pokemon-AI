@@ -1,7 +1,10 @@
 import unittest
+import tempfile
+from pathlib import Path
 from types import SimpleNamespace
 
 import numpy as np
+from PIL import Image
 
 from main import PokemonAIAgent
 from src.control.post_battle_intro_route import PostBattleIntroRouteController
@@ -2469,6 +2472,28 @@ class RuntimeSafeguardTests(unittest.TestCase):
             )
         )
 
+    def test_pure_llm_with_runtime_fallbacks_disabled_uses_precise_direction_for_ai(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "decision.pure_llm_mode": True,
+                "decision.disable_runtime_fallbacks": True,
+            }
+        )
+
+        self.assertTrue(
+            agent._should_use_precise_direction_execution(
+                {"decision_source": "ai"},
+                "left",
+            )
+        )
+        self.assertFalse(
+            agent._should_use_precise_direction_execution(
+                {"decision_source": "cached_ai_plan"},
+                "left",
+            )
+        )
+
     def test_deterministic_turn_in_place_records_failed_move(self):
         agent = object.__new__(PokemonAIAgent)
         agent._last_observed_state = {
@@ -2563,6 +2588,40 @@ class RuntimeSafeguardTests(unittest.TestCase):
 
         self.assertEqual(agent.map_memory.calls, [(40, 8, 11, "down")])
 
+    def test_action_outcome_reports_turn_in_place_separately(self):
+        agent = object.__new__(PokemonAIAgent)
+
+        result = agent._summarize_action_outcome(
+            {
+                "memory": {
+                    "position": {"map_id": 0, "x": 12, "y": 12},
+                    "direction": "left",
+                    "ui": {"text_box_active": False, "menu_active": False},
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "money": 0,
+                    "party": [],
+                },
+                "visual": {"screen_type": "overworld"},
+            },
+            {
+                "memory": {
+                    "position": {"map_id": 0, "x": 12, "y": 12},
+                    "direction": "up",
+                    "ui": {"text_box_active": False, "menu_active": False},
+                    "in_battle": False,
+                    "badge_count": 0,
+                    "money": 0,
+                    "party": [],
+                },
+                "visual": {"screen_type": "overworld"},
+            },
+            "up",
+            "overworld",
+        )
+
+        self.assertIn("position did not change but facing changed from left to up", result)
+
     def test_research_mode_stage_specs_drop_fixed_route_controllers(self):
         agent = object.__new__(PokemonAIAgent)
         agent.config = _ConfigStub({"decision.research_mode": True})
@@ -2627,6 +2686,74 @@ class RuntimeSafeguardTests(unittest.TestCase):
                 "text_entry_api_cooldown",
             ],
         )
+
+    def test_disable_runtime_fallbacks_drops_all_stage_specs(self):
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub({"decision.disable_runtime_fallbacks": True})
+
+        stage_names = [name for name, _ in agent._get_decision_stage_specs()]
+
+        self.assertEqual(stage_names, [])
+
+    def test_save_screenshot_writes_raw_image_when_annotations_disabled(self):
+        class _EmulatorStub:
+            def get_screen_image(self):
+                return Image.new("RGB", (2, 2), color=(12, 34, 56))
+
+        class _VisionStub:
+            def __init__(self):
+                self.calls = 0
+
+            def save_annotated_screenshot(self, image, filepath):
+                self.calls += 1
+                image.save(filepath)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            agent = object.__new__(PokemonAIAgent)
+            agent.config = _ConfigStub(
+                {
+                    "logging.screenshot_dir": tmpdir,
+                    "logging.annotate_screenshots": False,
+                }
+            )
+            agent.turn_count = 7
+            agent.emulator = _EmulatorStub()
+            agent.vision = _VisionStub()
+
+            agent._save_screenshot()
+
+            self.assertEqual(agent.vision.calls, 0)
+            self.assertTrue(Path(tmpdir, "turn_000007.png").exists())
+
+    def test_save_screenshot_uses_annotated_writer_when_enabled(self):
+        class _EmulatorStub:
+            def get_screen_image(self):
+                return Image.new("RGB", (2, 2), color=(12, 34, 56))
+
+        class _VisionStub:
+            def __init__(self):
+                self.calls = 0
+
+            def save_annotated_screenshot(self, image, filepath):
+                self.calls += 1
+                image.save(filepath)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            agent = object.__new__(PokemonAIAgent)
+            agent.config = _ConfigStub(
+                {
+                    "logging.screenshot_dir": tmpdir,
+                    "logging.annotate_screenshots": True,
+                }
+            )
+            agent.turn_count = 8
+            agent.emulator = _EmulatorStub()
+            agent.vision = _VisionStub()
+
+            agent._save_screenshot()
+
+            self.assertEqual(agent.vision.calls, 1)
+            self.assertTrue(Path(tmpdir, "turn_000008.png").exists())
 
     def test_early_battle_stage_uses_extended_button_settle(self):
         agent = object.__new__(PokemonAIAgent)

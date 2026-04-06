@@ -375,6 +375,11 @@ def main() -> None:
         help="Keep generic safeguards but disable fixed route-script controllers.",
     )
     parser.add_argument(
+        "--disable-runtime-fallbacks",
+        action="store_true",
+        help="Disable runtime tool takeovers, WAIT rewrites, and AI-unavailable fallbacks.",
+    )
+    parser.add_argument(
         "--ai-full-control",
         dest="ai_full_control",
         action="store_true",
@@ -461,10 +466,14 @@ def main() -> None:
     if args.research_mode:
         config.set("decision.research_mode", True)
 
+    if args.disable_runtime_fallbacks:
+        config.set("decision.disable_runtime_fallbacks", True)
+
     if args.pure_llm:
         config.set("decision.pure_llm_mode", True)
         config.set("decision.llm_primary_mode", False)
         config.set("decision.ai_full_control_mode", False)
+        config.set("decision.disable_runtime_fallbacks", True)
         config.set("decision.retry_same_turn_on_ai_error", True)
         config.set("decision.same_turn_retry_max_attempts", 30)
         config.set("decision.same_turn_retry_timeout_seconds", max(1, int(args.same_turn_budget)))
@@ -492,6 +501,7 @@ def main() -> None:
     print(
         f"[autonomous_smoke] checkpoint={args.checkpoint!r}, turns={requested_turns}, "
         f"llm_primary={args.llm_primary}, pure_llm={args.pure_llm}, research_mode={args.research_mode}, "
+        f"disable_runtime_fallbacks={bool(config.get('decision.disable_runtime_fallbacks', False))}, "
         f"ai_full_control={bool(config.get('decision.ai_full_control_mode', False))}, "
         f"reset_context={args.reset_context}, ai_timeout={args.ai_timeout}, "
         f"same_turn_budget={args.same_turn_budget}, decision_max_tokens={args.decision_max_tokens}, "
@@ -531,12 +541,14 @@ def main() -> None:
         "ai_full_control_mode": bool(config.get("decision.ai_full_control_mode", False)),
         "pure_llm_mode": bool(config.get("decision.pure_llm_mode", False)),
         "research_mode": bool(config.get("decision.research_mode", False)),
+        "disable_runtime_fallbacks": bool(config.get("decision.disable_runtime_fallbacks", False)),
         "reset_context": bool(args.reset_context),
         "effective_settings": {
             "llm_primary_mode": config.get("decision.llm_primary_mode"),
             "ai_full_control_mode": config.get("decision.ai_full_control_mode"),
             "pure_llm_mode": config.get("decision.pure_llm_mode"),
             "research_mode": config.get("decision.research_mode"),
+            "disable_runtime_fallbacks": config.get("decision.disable_runtime_fallbacks"),
             "ai_timeout_seconds": config.get("ai.request_timeout_seconds"),
             "same_turn_retry_timeout_seconds": config.get("decision.same_turn_retry_timeout_seconds"),
             "decision_max_tokens": config.get("ai.decision_max_tokens"),

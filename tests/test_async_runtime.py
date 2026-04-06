@@ -133,6 +133,23 @@ class AsyncRealtimeTests(unittest.TestCase):
         self.assertEqual(len(main_agent.calls), 1)
         self.assertEqual(agent.async_ai.requests, [])
 
+    def test_disable_runtime_fallbacks_forces_sync_model_path_even_if_async_is_enabled(self):
+        main_agent = _MainAgentStub()
+        agent = self._make_agent(
+            config={
+                "performance.async_decisions": True,
+                "decision.disable_runtime_fallbacks": True,
+            },
+            async_ai=_AsyncAIStub(running=True, thinking=False, decision=None, queue_ok=True),
+            main_agent=main_agent,
+        )
+
+        decision = agent._get_ai_decision_responsive({"turn": 4}, "state", b"img")
+
+        self.assertEqual(decision["action"], "a")
+        self.assertEqual(len(main_agent.calls), 1)
+        self.assertEqual(agent.async_ai.requests, [])
+
     def test_llm_primary_mode_uses_async_model_path_when_async_is_enabled(self):
         main_agent = _MainAgentStub()
         agent = self._make_agent(
@@ -215,6 +232,24 @@ class AsyncRealtimeTests(unittest.TestCase):
 
         self.assertEqual(decision["action"], "wait")
         self.assertTrue(decision["allow_wait"])
+
+    def test_disable_runtime_fallbacks_preserves_wait_without_rewrite(self):
+        agent = self._make_agent(
+            config={"decision.disable_runtime_fallbacks": True}
+        )
+
+        decision = agent._rewrite_wait_decision(
+            {
+                "action": "wait",
+                "reasoning": "API cooldown active",
+                "decision_source": "ai_cooldown",
+            },
+            {"memory": {"ui": {"text_box_active": True}}},
+            "dialogue",
+        )
+
+        self.assertEqual(decision["action"], "wait")
+        self.assertEqual(decision["decision_source"], "ai_cooldown")
 
 
 if __name__ == "__main__":
