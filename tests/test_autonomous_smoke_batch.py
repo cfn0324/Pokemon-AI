@@ -1,5 +1,4 @@
 import json
-import tempfile
 import unittest
 from argparse import Namespace
 from pathlib import Path
@@ -40,6 +39,8 @@ class AutonomousSmokeBatchTests(unittest.TestCase):
             same_turn_budget=30,
             decision_max_tokens=384,
             action_plan_max_actions=3,
+            story_guidance=None,
+            battle_guidance=None,
         )
 
         command = _build_smoke_command(args, Path("tmp/report.json"))
@@ -53,6 +54,29 @@ class AutonomousSmokeBatchTests(unittest.TestCase):
         self.assertIn("--decision-max-tokens", command)
         self.assertIn("384", command)
         self.assertNotIn("--pure-llm", command)
+
+    def test_build_smoke_command_propagates_guidance_ablation_flags(self):
+        args = Namespace(
+            checkpoint="checkpoint_196081",
+            turns=120,
+            llm_primary=False,
+            pure_llm=True,
+            research_mode=False,
+            ai_full_control=None,
+            disable_runtime_fallbacks=True,
+            reset_context=True,
+            ai_timeout=25,
+            same_turn_budget=30,
+            decision_max_tokens=256,
+            action_plan_max_actions=3,
+            story_guidance=False,
+            battle_guidance=False,
+        )
+
+        command = _build_smoke_command(args, Path("tmp/report.json"))
+
+        self.assertIn("--disable-story-guidance", command)
+        self.assertIn("--disable-battle-guidance", command)
 
     def test_environment_snapshot_never_exposes_api_key_value(self):
         snapshot = _environment_snapshot(
@@ -69,62 +93,83 @@ class AutonomousSmokeBatchTests(unittest.TestCase):
         self.assertNotIn("secret-value", json.dumps(snapshot, ensure_ascii=False))
 
     def test_summarize_reports_builds_aggregate_and_markdown(self):
-        with tempfile.TemporaryDirectory() as tmpdir:
-            report_path = Path(tmpdir) / "report.json"
-            report_path.write_text(
-                json.dumps(
-                    {
-                        "requested_checkpoint": "checkpoint_195913",
-                        "turn_delta": 120,
-                        "completed_requested_turns": True,
-                        "fatal_error": None,
-                        "llm_primary_mode": True,
-                        "ai_full_control_mode": True,
-                        "pure_llm_mode": False,
-                        "final_state": {
-                            "position": {"map_id": 40, "x": 4, "y": 5},
-                            "visual": {"screen_type": "overworld"},
-                            "in_battle": False,
-                            "party": [{"level": 6}],
-                        },
-                        "story_markers": {
-                            "obtained_oaks_parcel": True,
-                            "delivered_oaks_parcel": False,
-                            "got_pokedex": False,
-                            "started_post_pokedex_departure": False,
-                            "reached_route2": False,
-                            "reached_viridian_forest": False,
-                        },
-                        "report_validation": {
-                            "timeline_turns_monotonic": True,
-                            "final_state_matches_end_turn": True,
-                            "timeline_last_turn_matches_end_turn": True,
-                        },
-                        "ai_control_metrics": {
-                            "total_turns": 120,
-                            "main_model_turns": 90,
-                            "ai_plan_turns": 10,
-                            "ai_authored_turns": 100,
-                            "deterministic_tool_turns": 15,
-                            "fallback_turns": 5,
-                            "main_model_ratio": 0.75,
-                            "ai_authored_ratio": 0.8333,
-                            "deterministic_tool_ratio": 0.125,
-                            "fallback_ratio": 0.0417,
-                            "ai_dominant": True,
-                        },
+        workspace_tmp = Path("tmp/test_autonomous_smoke_batch_case").resolve()
+        workspace_tmp.mkdir(parents=True, exist_ok=True)
+        report_path = workspace_tmp / "report.json"
+        report_path.write_text(
+            json.dumps(
+                {
+                    "requested_checkpoint": "checkpoint_195913",
+                    "turn_delta": 120,
+                    "completed_requested_turns": True,
+                    "fatal_error": None,
+                    "llm_primary_mode": True,
+                    "ai_full_control_mode": True,
+                    "pure_llm_mode": False,
+                    "final_state": {
+                        "position": {"map_id": 40, "x": 4, "y": 5},
+                        "visual": {"screen_type": "overworld"},
+                        "in_battle": False,
+                        "party": [{"level": 6}],
                     },
-                    ensure_ascii=False,
-                ),
-                encoding="utf-8",
-            )
+                    "story_markers": {
+                        "reached_route1": True,
+                        "reached_viridian_city": True,
+                        "entered_viridian_mart": True,
+                        "obtained_oaks_parcel": True,
+                        "delivered_oaks_parcel": False,
+                        "got_pokedex": False,
+                        "started_post_pokedex_departure": False,
+                        "reached_route2": False,
+                        "reached_viridian_forest": False,
+                    },
+                    "decision_source_counts": {
+                        "ai": 100,
+                        "ai_error": 2,
+                        "ai_cooldown": 3,
+                    },
+                    "report_validation": {
+                        "timeline_turns_monotonic": True,
+                        "final_state_matches_end_turn": True,
+                        "timeline_last_turn_matches_end_turn": True,
+                    },
+                    "ai_control_metrics": {
+                        "total_turns": 120,
+                        "main_model_turns": 90,
+                        "ai_plan_turns": 10,
+                        "ai_authored_turns": 100,
+                        "deterministic_tool_turns": 15,
+                        "fallback_turns": 5,
+                        "main_model_ratio": 0.75,
+                        "ai_authored_ratio": 0.8333,
+                        "deterministic_tool_ratio": 0.125,
+                        "fallback_ratio": 0.0417,
+                        "ai_dominant": True,
+                    },
+                    "ai_latency_summary": {
+                        "count": 100,
+                        "avg_seconds": 5.25,
+                        "max_seconds": 12.5,
+                        "min_seconds": 2.5,
+                        "total_seconds": 525.0,
+                        "avg_request_count": 1.0,
+                    },
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
 
-            payload = _summarize_reports([report_path])
+        payload = _summarize_reports([report_path])
 
         self.assertEqual(payload["aggregate"]["report_count"], 1)
         self.assertEqual(payload["aggregate"]["obtained_oaks_parcel_count"], 1)
+        self.assertEqual(payload["aggregate"]["reached_viridian_city_count"], 1)
+        self.assertEqual(payload["aggregate"]["entered_viridian_mart_count"], 1)
         self.assertEqual(payload["aggregate"]["delivered_oaks_parcel_count"], 0)
-        self.assertIn("obtained_oaks_parcel", payload["markdown"])
+        self.assertEqual(payload["reports"][0]["ai_error_turns"], 2)
+        self.assertEqual(payload["reports"][0]["ai_cooldown_turns"], 3)
+        self.assertIn("Reports reaching Viridian City: 1/1", payload["markdown"])
 
 
 if __name__ == "__main__":

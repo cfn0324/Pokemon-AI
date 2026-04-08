@@ -161,7 +161,8 @@ class PokemonAIAgent:
             self.memory_reader,
             self.vision,
             self.map_memory,
-            visual_enabled=self.config.get('performance.visual_enabled', False)
+            visual_enabled=self.config.get('performance.visual_enabled', False),
+            config=self.config,
         )
 
         self.logger.info("状态系统初始化完成")

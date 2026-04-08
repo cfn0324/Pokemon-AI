@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -17,6 +18,16 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from src.utils.config import get_config
 from src.utils.env import apply_env_aliases
+
+
+def _environment_snapshot(env: Dict[str, str] | None = None) -> Dict[str, Any]:
+    """Capture reproducibility-relevant environment fields without exposing secrets."""
+    env = env or os.environ
+    return {
+        "AI_BASE_URL": env.get("AI_BASE_URL"),
+        "AI_MODEL": env.get("AI_MODEL"),
+        "AI_API_KEY_present": bool(env.get("AI_API_KEY")),
+    }
 
 
 def _simplify_state(state: Dict[str, Any] | None) -> Dict[str, Any]:
@@ -421,6 +432,32 @@ def main() -> None:
         default=3,
         help="Maximum actions to keep from ACTION_PLAN for this smoke run.",
     )
+    parser.add_argument(
+        "--story-guidance",
+        dest="story_guidance",
+        action="store_true",
+        default=None,
+        help="Explicitly enable STORY GUIDANCE generation for this smoke run.",
+    )
+    parser.add_argument(
+        "--disable-story-guidance",
+        dest="story_guidance",
+        action="store_false",
+        help="Disable STORY GUIDANCE generation for this smoke run.",
+    )
+    parser.add_argument(
+        "--battle-guidance",
+        dest="battle_guidance",
+        action="store_true",
+        default=None,
+        help="Explicitly enable BATTLE GUIDANCE generation for this smoke run.",
+    )
+    parser.add_argument(
+        "--disable-battle-guidance",
+        dest="battle_guidance",
+        action="store_false",
+        help="Disable BATTLE GUIDANCE generation for this smoke run.",
+    )
     args = parser.parse_args()
 
     config = get_config()
@@ -451,6 +488,10 @@ def main() -> None:
         min(int(config.get("ai.action_plan_max_actions", args.action_plan_max_actions) or args.action_plan_max_actions), int(args.action_plan_max_actions)),
     )
     config.set("testing.disable_stuck_critique", True)
+    if args.story_guidance is not None:
+        config.set("state.story_guidance_enabled", bool(args.story_guidance))
+    if args.battle_guidance is not None:
+        config.set("state.battle_guidance_enabled", bool(args.battle_guidance))
     if args.ai_full_control is not None:
         config.set("decision.ai_full_control_mode", bool(args.ai_full_control))
     if args.llm_primary:
@@ -502,6 +543,8 @@ def main() -> None:
         f"[autonomous_smoke] checkpoint={args.checkpoint!r}, turns={requested_turns}, "
         f"llm_primary={args.llm_primary}, pure_llm={args.pure_llm}, research_mode={args.research_mode}, "
         f"disable_runtime_fallbacks={bool(config.get('decision.disable_runtime_fallbacks', False))}, "
+        f"story_guidance={bool(config.get('state.story_guidance_enabled', True))}, "
+        f"battle_guidance={bool(config.get('state.battle_guidance_enabled', True))}, "
         f"ai_full_control={bool(config.get('decision.ai_full_control_mode', False))}, "
         f"reset_context={args.reset_context}, ai_timeout={args.ai_timeout}, "
         f"same_turn_budget={args.same_turn_budget}, decision_max_tokens={args.decision_max_tokens}, "
@@ -532,8 +575,9 @@ def main() -> None:
     story_markers = _derive_story_markers(final_state, timeline)
     report_validation = _build_report_validation(final_state, timeline, end_turn)
     ai_control_metrics = _summarize_ai_control(timeline)
+    environment_info = _environment_snapshot()
     report = {
-        "report_version": 2,
+        "report_version": 3,
         "requested_checkpoint": args.checkpoint,
         "restored_checkpoint": agent._restored_checkpoint_name,
         "requested_turns": requested_turns,
@@ -543,17 +587,57 @@ def main() -> None:
         "research_mode": bool(config.get("decision.research_mode", False)),
         "disable_runtime_fallbacks": bool(config.get("decision.disable_runtime_fallbacks", False)),
         "reset_context": bool(args.reset_context),
+        "environment": environment_info,
         "effective_settings": {
+            "ai_model": config.get("ai.model"),
+            "main_agent_model": config.get("ai.agents.main.model"),
+            "main_agent_temperature": config.get("ai.agents.main.temperature"),
             "llm_primary_mode": config.get("decision.llm_primary_mode"),
             "ai_full_control_mode": config.get("decision.ai_full_control_mode"),
             "pure_llm_mode": config.get("decision.pure_llm_mode"),
             "research_mode": config.get("decision.research_mode"),
             "disable_runtime_fallbacks": config.get("decision.disable_runtime_fallbacks"),
             "ai_timeout_seconds": config.get("ai.request_timeout_seconds"),
+            "ai_request_retries": config.get("ai.request_retries"),
+            "ai_request_retry_backoff_seconds": config.get("ai.request_retry_backoff_seconds"),
             "same_turn_retry_timeout_seconds": config.get("decision.same_turn_retry_timeout_seconds"),
+            "same_turn_retry_max_attempts": config.get("decision.same_turn_retry_max_attempts"),
+            "story_guidance_enabled": config.get("state.story_guidance_enabled", True),
+            "battle_guidance_enabled": config.get("state.battle_guidance_enabled", True),
             "decision_max_tokens": config.get("ai.decision_max_tokens"),
             "action_plan_max_actions": config.get("ai.action_plan_max_actions"),
             "llm_primary_action_plan_enabled": config.get("decision.llm_primary_action_plan_enabled"),
+        },
+        "config_snapshot": {
+            "game": {
+                "rom_path": config.get("game.rom_path"),
+                "headless": config.get("game.headless"),
+                "speed": config.get("game.speed"),
+            },
+            "ai": {
+                "model": config.get("ai.model"),
+                "main_model": config.get("ai.agents.main.model"),
+                "main_temperature": config.get("ai.agents.main.temperature"),
+                "decision_max_tokens": config.get("ai.decision_max_tokens"),
+                "request_timeout_seconds": config.get("ai.request_timeout_seconds"),
+                "request_retries": config.get("ai.request_retries"),
+                "request_retry_backoff_seconds": config.get("ai.request_retry_backoff_seconds"),
+            },
+            "decision": {
+                "llm_primary_mode": config.get("decision.llm_primary_mode"),
+                "ai_full_control_mode": config.get("decision.ai_full_control_mode"),
+                "pure_llm_mode": config.get("decision.pure_llm_mode"),
+                "research_mode": config.get("decision.research_mode"),
+                "disable_runtime_fallbacks": config.get("decision.disable_runtime_fallbacks"),
+                "retry_same_turn_on_ai_error": config.get("decision.retry_same_turn_on_ai_error"),
+                "same_turn_retry_max_attempts": config.get("decision.same_turn_retry_max_attempts"),
+                "same_turn_retry_timeout_seconds": config.get("decision.same_turn_retry_timeout_seconds"),
+                "same_turn_retry_min_delay_seconds": config.get("decision.same_turn_retry_min_delay_seconds"),
+            },
+            "state": {
+                "story_guidance_enabled": config.get("state.story_guidance_enabled", True),
+                "battle_guidance_enabled": config.get("state.battle_guidance_enabled", True),
+            },
         },
         "latest_checkpoint": latest_checkpoint.get("name") if latest_checkpoint else None,
         "start_turn": start_turn,

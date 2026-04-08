@@ -33,6 +33,7 @@ class GameState:
         vision_processor: Optional[VisionProcessor],
         map_memory: MapMemory,
         visual_enabled: bool = False,
+        config: Optional[Any] = None,
     ):
         """Initialize game state processor.
 
@@ -42,12 +43,14 @@ class GameState:
             vision_processor: Vision processor instance
             map_memory: Map memory instance
             visual_enabled: Whether to run pixel-level vision analysis
+            config: Optional shared configuration instance
         """
         self.emulator = emulator
         self.memory_reader = memory_reader
         self.vision = vision_processor
         self.map_memory = map_memory
         self.visual_enabled = visual_enabled
+        self.config = config
         self.logger = get_logger("GameState")
 
         self.turn_count = 0
@@ -59,6 +62,17 @@ class GameState:
         self._battle_stall_turns = 0
         self._phase_hint: Optional[str] = None
         self._pre_starter_script_latched = False
+
+    def _feature_enabled(self, path: str, default: bool = True) -> bool:
+        """Return whether a feature flag is enabled in config."""
+        config = getattr(self, "config", None)
+        getter = getattr(config, "get", None)
+        if callable(getter):
+            value = getter(path, default)
+            if value is None:
+                return bool(default)
+            return bool(value)
+        return bool(default)
 
     def _build_navigation_decision_cues(
         self,
@@ -623,6 +637,8 @@ class GameState:
         memory_state: Dict[str, Any],
     ) -> Optional[Dict[str, Any]]:
         """Surface narrow early-story objective cues without taking control away from the AI."""
+        if not self._feature_enabled("state.story_guidance_enabled", True):
+            return None
         if memory_state.get("in_battle"):
             return None
 
@@ -686,6 +702,8 @@ class GameState:
         battle_summary: Dict[str, Any],
     ) -> Optional[Dict[str, Any]]:
         """Turn battle RAM into actionable next-step cues for the model."""
+        if not self._feature_enabled("state.battle_guidance_enabled", True):
+            return None
         phase = str(battle_summary.get("phase") or "not_in_battle").strip().lower()
         in_battle = bool(memory_state.get("in_battle"))
         ui_state = memory_state.get("ui", {}) or {}
@@ -1055,7 +1073,7 @@ BADGES: {memory['badge_count']}/8
                 text += f"  Focus hint: {focus_hint}\n"
 
         battle_guidance = state.get("battle_guidance")
-        if battle_guidance is None:
+        if battle_guidance is None and self._feature_enabled("state.battle_guidance_enabled", True):
             battle_guidance = self._build_battle_guidance(memory, battle_summary)
         if (battle_guidance or {}).get("summary"):
             text += "\nBATTLE GUIDANCE:\n"

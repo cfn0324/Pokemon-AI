@@ -3,6 +3,14 @@ import unittest
 from src.state.game_state import GameState
 
 
+class _ConfigStub:
+    def __init__(self, values=None):
+        self.values = values or {}
+
+    def get(self, path, default=None):
+        return self.values.get(path, default)
+
+
 class GameStateBattleSummaryTests(unittest.TestCase):
     def _make_state(self):
         state = object.__new__(GameState)
@@ -212,6 +220,65 @@ class GameStateBattleSummaryTests(unittest.TestCase):
 
         self.assertEqual(guidance["phase"], "post_battle_dialogue")
         self.assertIn("Keep advancing the text with A", guidance["summary"])
+
+    def test_story_guidance_can_be_disabled_by_config(self):
+        state = self._make_state()
+        state.config = _ConfigStub({"state.story_guidance_enabled": False})
+
+        guidance = state._build_story_guidance(
+            {
+                "position": {"map_id": 0, "x": 11, "y": 2},
+                "badge_count": 0,
+                "money": 3175,
+                "item_count": 0,
+                "in_battle": False,
+                "party": [{"level": 6}],
+                "events": {},
+            }
+        )
+
+        self.assertIsNone(guidance)
+
+    def test_battle_guidance_can_be_disabled_by_config(self):
+        state = self._make_state()
+        state.config = _ConfigStub({"state.battle_guidance_enabled": False})
+
+        guidance = state._build_battle_guidance(
+            {
+                "in_battle": True,
+                "battle": {
+                    "battle_type": "wild",
+                    "enemy_species": "Rattata",
+                    "enemy_level": 3,
+                    "enemy_current_hp": 18,
+                },
+                "party": [
+                    {
+                        "species": "Charmander",
+                        "level": 6,
+                        "current_hp": 21,
+                        "max_hp": 21,
+                        "moves": [
+                            {"move_id": 10, "pp": 35},
+                        ],
+                    }
+                ],
+                "ui": {"text_box_active": False, "menu_active": True},
+            },
+            {
+                "phase": "battle_in_progress",
+                "encounter_type": "wild",
+                "lead_pokemon": {
+                    "species": "Charmander",
+                    "level": 6,
+                    "current_hp": 21,
+                    "max_hp": 21,
+                    "hp_percent": 100.0,
+                },
+            },
+        )
+
+        self.assertIsNone(guidance)
 
     def test_text_representation_includes_adjacent_tile_occupancy(self):
         state = self._make_state()

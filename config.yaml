@@ -66,6 +66,10 @@ memory:
   map_memory_enabled: true
   save_interval: 50
 
+state:
+  story_guidance_enabled: true
+  battle_guidance_enabled: true
+
 actions:
   direction_repeat_attempts: 4
   delay_ms: 100

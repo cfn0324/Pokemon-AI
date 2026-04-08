@@ -1,0 +1,2815 @@
+{
+  "report_version": 3,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 120,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "environment": {
+    "AI_BASE_URL": "https://api.ququ233.com/v1",
+    "AI_MODEL": "gpt-5.4",
+    "AI_API_KEY_present": true
+  },
+  "effective_settings": {
+    "ai_model": "gpt-5.4",
+    "main_agent_model": "gpt-5.4",
+    "main_agent_temperature": 0.0,
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "ai_request_retries": 1,
+    "ai_request_retry_backoff_seconds": 0.5,
+    "same_turn_retry_timeout_seconds": 60,
+    "same_turn_retry_max_attempts": 30,
+    "story_guidance_enabled": true,
+    "battle_guidance_enabled": true,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "config_snapshot": {
+    "game": {
+      "rom_path": "PokemonRed.gb",
+      "headless": true,
+      "speed": 0
+    },
+    "ai": {
+      "model": "gpt-5.4",
+      "main_model": "gpt-5.4",
+      "main_temperature": 0.0,
+      "decision_max_tokens": 256,
+      "request_timeout_seconds": 25,
+      "request_retries": 1,
+      "request_retry_backoff_seconds": 0.5
+    },
+    "decision": {
+      "llm_primary_mode": false,
+      "ai_full_control_mode": false,
+      "pure_llm_mode": true,
+      "research_mode": false,
+      "disable_runtime_fallbacks": true,
+      "retry_same_turn_on_ai_error": true,
+      "same_turn_retry_max_attempts": 30,
+      "same_turn_retry_timeout_seconds": 60,
+      "same_turn_retry_min_delay_seconds": 0.25
+    },
+    "state": {
+      "story_guidance_enabled": true,
+      "battle_guidance_enabled": true
+    }
+  },
+  "latest_checkpoint": "checkpoint_196183",
+  "start_turn": 196081,
+  "end_turn": 196201,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 120
+  },
+  "decision_path_counts": {
+    "ai": 120
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 120,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 120,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 1.0,
+    "ai_authored_ratio": 1.0,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 120,
+    "avg_seconds": 6.171,
+    "max_seconds": 17.402,
+    "min_seconds": 3.464,
+    "total_seconds": 740.569,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0,
+      12
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": true,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196201,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196201,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196201,
+    "timestamp": "2026-04-07T01:38:25.866702",
+    "position": {
+      "map_id": 12,
+      "x": 8,
+      "y": 28
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 15,
+        "current_hp": 15,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 32
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": true,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196202,
+      "local_analysis_enabled": false,
+      "screen_hash": "563df5826f05f75e69af13fdd72d6d5f"
+    },
+    "exploration": {
+      "current_map": 12,
+      "explored_tiles": 105,
+      "total_tiles": 200,
+      "exploration_percent": 52.5
+    },
+    "navigation": {
+      "current_visit_count": 30,
+      "known_exits": {
+        "up": {
+          "x": 8,
+          "y": 27
+        },
+        "down": {
+          "x": 8,
+          "y": 29
+        }
+      },
+      "blocked_directions": [],
+      "frontier_count": 60,
+      "nearest_frontier": {
+        "target": [
+          9,
+          14
+        ],
+        "path": [
+          "up",
+          "up",
+          "right",
+          "right",
+          "up",
+          "up",
+          "right",
+          "down",
+          "right",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "left",
+          "left",
+          "left",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up",
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "left"
+        ],
+        "visit_count": 1,
+        "distance": 15,
+        "local_visit_pressure": 6,
+        "global_novelty_distance": 13,
+        "priority_score": 22.0,
+        "novelty_label": "high"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            9,
+            14
+          ],
+          "unknown_directions": [
+            "up",
+            "left"
+          ],
+          "visit_count": 1,
+          "distance": 15,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 13,
+          "priority_score": 22.0,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            15
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 14,
+          "local_visit_pressure": 7,
+          "global_novelty_distance": 12,
+          "priority_score": 19.35,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            9,
+            17
+          ],
+          "unknown_directions": [
+            "left",
+            "right"
+          ],
+          "visit_count": 1,
+          "distance": 12,
+          "local_visit_pressure": 6,
+          "global_novelty_distance": 10,
+          "priority_score": 17.8,
+          "novelty_label": "high"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 8,
+            "y": 27
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 15,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 27)."
+        },
+        "down": {
+          "target": {
+            "x": 8,
+            "y": 29
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 6,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (8, 29)."
+        },
+        "left": {
+          "target": {
+            "x": 7,
+            "y": 28
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 2,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (7, 28) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "right": {
+          "target": {
+            "x": 9,
+            "y": 28
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 15,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (9, 28) has been explored, but this exact step is not yet confirmed from the current tile."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": false,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": null,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [
+        {
+          "src_map": 12,
+          "src_x": 16,
+          "src_y": 29,
+          "dest_map": 0,
+          "dest_x": 5,
+          "dest_y": 6,
+          "count": 1
+        },
+        {
+          "src_map": 12,
+          "src_x": 11,
+          "src_y": 35,
+          "dest_map": 0,
+          "dest_x": 11,
+          "dest_y": 0,
+          "count": 12
+        }
+      ],
+      "local_map": [
+        "...FF?FFF",
+        "F...F?FFF",
+        "FF...FF??",
+        "??F..????",
+        "?F..P.FF.",
+        "??F......",
+        "??F......",
+        "???FFF..F",
+        "??????FF?"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 12,
+        "rows": [
+          "        FFFFFFF     ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F           ",
+          "        F  #        ",
+          "        FFFF        ",
+          "           F        ",
+          "           F        ",
+          "   ###     F        ",
+          "  #...FF FFF        ",
+          "   F...F FFF        ",
+          "   FF...FF          ",
+          "     F..#  ##   #   ",
+          "    F..P.FF..FFF.#  ",
+          "     F.........WF   ",
+          "     F..........F   ",
+          "      FFF..FFF...#  ",
+          "         FF   ###   ",
+          "        #.F         ",
+          "        #.F         ",
+          "         FW         ",
+          "                    ",
+          "                    "
+        ],
+        "prompt_rows": [
+          "????????FFFFFFF?????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F???????????",
+          "????????F??#????????",
+          "????????FFFF????????",
+          "???????????F????????",
+          "???????????F????????",
+          "???###?????F????????",
+          "??#...FF?FFF????????",
+          "???F...F?FFF????????",
+          "???FF...FF??????????",
+          "?????F..#??##???#???",
+          "????F..P.FF..FFF.#??",
+          "?????F.........WF???",
+          "?????F..........F???",
+          "??????FFF..FFF...#??",
+          "?????????FF???###???",
+          "????????#.F?????????",
+          "????????#.F?????????",
+          "?????????FW?????????",
+          "????????????????????",
+          "????????????????????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 20,
+          "min_y": 14,
+          "max_y": 37,
+          "width": 20,
+          "height": 24
+        },
+        "player": {
+          "x": 8,
+          "y": 28
+        },
+        "explored_count": 105,
+        "frontier_count": 60,
+        "blocked_count": 16,
+        "warp_count": 2,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 10,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": true,
+      "phase": "battle_in_progress",
+      "encounter_type": "wild",
+      "battle_turns": 21,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 20,
+      "enemy_species": "Rattata",
+      "enemy_level": 3,
+      "enemy_current_hp": 15,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 15,
+        "max_hp": 21,
+        "hp_percent": 71.4
+      },
+      "focus_hint": "Battle progress has stalled for several turns. Re-check the screenshot instead of repeating the same guess."
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "left",
+      "reasoning": "The lab is visible with no dialogue box on screen, and the verified story cue says to line up with the exit by moving left before going down.",
+      "result": "After left:; moved from (7,10) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.078,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "down",
+      "reasoning": "The lab is visible with no dialogue box on screen, and the verified story cue says the exit is on the bottom row near x=4 or x=5, so after lining up by moving left I should now go down toward the exit row.",
+      "result": "After down:; moved from (6,10) to (6,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.487,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "left",
+      "reasoning": "The lab is visible with no bordered dialogue box on the screenshot, and the verified story cue says I am on the bottom row to the right of the exit, so I should move left toward x=4 or x=5 rather than probe other directions.",
+      "result": "After left:; moved from (6,11) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.991,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "down",
+      "reasoning": "The lab is visible with no readable dialogue box on screen, and the verified story guidance says I am already aligned with Oak's Lab exit on row y=11, so the next concrete step is to go down to leave.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.01,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "up",
+      "reasoning": "I am outside Oak's Lab in Pallet Town with no visible dialogue box, and down would step back onto the lab warp while left, right, and up are open; moving up explores town and advances leaving the building area.",
+      "result": "After up:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.857,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified story route says to step off this warp area by moving left along the lab frontage toward x=9 rather than probing up or re-entering.",
+      "result": "After left:; moved from (12,12) to (11,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.818,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab with no visible dialogue box, and the verified route says to continue left along the lab frontage toward x=9 while avoiding the right-side lab warp.",
+      "result": "After left:; moved from (11,12) to (10,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.764,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no visible dialogue box, and the verified story cue says to keep moving left along the lab frontage from x=10 toward x=9 instead of going up or re-entering the lab.",
+      "result": "After left:; moved from (10,12) to (9,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.602,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "up",
+      "reasoning": "I am in Pallet Town on the west-side lane at x=9 with no visible dialogue box, and the verified story guidance says to keep moving up from here rather than wandering or stepping back toward the lab.",
+      "result": "After up:; moved from (9,12) to (9,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.085,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story route plus visible open path both say to continue up along the west-side lane rather than turning right toward the lab.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.192,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story route plus visible open path say to keep moving up along the west-side lane rather than turning right toward the lab.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.672,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the current mandatory story guidance says to keep moving up along the west-side lane rather than turning right toward the frontier by the house.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.647,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route says to keep moving up on the west-side lane; up is a visible frontier while down and left are already explored.",
+      "result": "After up:; moved from (9,8) to (9,7) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.669,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and both the current story guidance and adjacent-tile memory say up is the next frontier on the mandatory west-side route.",
+      "result": "After up:; moved from (9,7) to (9,6) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.257,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the current verified story route plus adjacent-tile memory both say up is the next frontier on the mandatory west-side path.",
+      "result": "After up:; moved from (9,6) to (9,5) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.139,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route plus adjacent-tile memory both say up is the next mandatory frontier while left, right, and down are already explored.",
+      "result": "After up:; moved from (9,5) to (9,4) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.537,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, and the verified story route says to keep moving up along the west-side lane toward the mandatory north trigger.",
+      "result": "After up:; moved from (9,4) to (9,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.68,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the current verified story route says to keep moving up from the west-side lane toward the mandatory north trigger.",
+      "result": "After up:; moved from (9,3) to (9,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.191,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "right",
+      "reasoning": "The screenshot shows Pallet Town overworld with no visible dialogue box, up is blocked by the fence/grass edge, and the verified story guidance says to shift right to the Route 1 opening.",
+      "result": "After right:; moved from (9,2) to (10,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.224,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current story guidance plus navigation memory both say the aligned north opening is directly up as the known exit.",
+      "result": "After up:; moved from (10,2) to (10,1) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.939,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current story guidance says the mandatory next step is to exit north through the opening directly above.",
+      "result": "After up:; moved from (10,1) to (10,0) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.577,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current focus plus story guidance say to continue through the north opening directly ahead.",
+      "result": "After up:; warped from map 0 (10,0) to map 12 (10,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.453,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with no visible dialogue box, and the verified story guidance says the mandatory next step is to stay in the left corridor at x=10 and continue upward; right is the nearby warp back to town and should be avoided.",
+      "result": "After up:; moved from (10,35) to (10,34) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.703,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the current story guidance plus navigation memory agree that up is the known clear path in the left corridor while left is confirmed blocked.",
+      "result": "After up:; moved from (10,34) to (10,33) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.463,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story guidance says to stay in the left corridor at x=10 and keep moving up; left is also confirmed blocked by the posts.",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12; entered battle",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.283,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "a",
+      "reasoning": "A wild battle intro is on screen with no four-command menu yet, and the battle guidance says to advance the encounter text first.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.25,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "a",
+      "reasoning": "The screen is still a battle scene and the guidance says battle text is active rather than the command menu, so I should press A once to advance to the next battle state.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.02,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "a",
+      "reasoning": "The battle is still active and the screenshot does not show the four-command menu yet, so the safest next step is to advance the remaining battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.071,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "a",
+      "reasoning": "The game state confirms an active wild battle with text still active and no visible command menu, so the correct next step is to advance the battle text once with A instead of trying movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.791,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "a",
+      "reasoning": "The screenshot is completely black so I cannot confirm a visible menu, but memory says battle text is still active and the current focus is to advance the stalled battle text rather than switch tactics.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.972,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "a",
+      "reasoning": "The screenshot still shows a wild battle with an empty text box area and no four-command menu yet, so the active task is to keep advancing battle text rather than switch actions.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.681,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild Pidgey encounter with a bordered battle text box and no four-command menu yet, so the correct move is to advance the active battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.485,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "a",
+      "reasoning": "The screenshot still shows a wild battle with the Pidgey sprite and a bordered text box but no four-command menu, so the correct step is to advance the active battle text once with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.92,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "a",
+      "reasoning": "The screenshot still shows a wild Pidgey battle with a bordered text box reading “Wild PIDG”, so battle text is active and the correct step is to advance it once rather than try movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.439,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild Pidgey encounter text with a bordered battle text box and no four-command menu yet, so the correct step is still to advance the active battle text once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.731,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "a",
+      "reasoning": "The screenshot is still a wild battle with an empty bordered text box and no four-command menu visible yet, so the active battle text/cue should be advanced once with A rather than trying movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.67,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active wild battle with Pidgey and a bordered battle text box but no four-command menu, so the correct step is to advance the battle text once with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.512,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild Pidgey battle with a bordered text box reading “Go! CHAR”, so battle text is active and the correct step is to advance it once until the real battle menu appears.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.266,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle text box with “Go! CHARMANDER!” and no four-command menu yet, so the active send-out text should be advanced once with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.216,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "a",
+      "reasoning": "The screenshot is still a wild battle with the send-out text box “Go! CHARMANDER!” and no four-command menu visible yet, so the active battle text should be advanced once with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.672,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "a",
+      "reasoning": "The screenshot still shows a bordered battle text box reading “Go! CHARMANDER!” with no four-command command menu visible, so the active send-out text should be advanced once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.741,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild Pidgey battle with a bordered text box saying “Go! CHARMANDER!”, so battle text is active and I should advance it once until the real command menu appears.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.631,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "a",
+      "reasoning": "The standard four-command battle menu is visible with the cursor on FIGHT, and the current focus is to finish this wild battle safely, so selecting FIGHT is the correct next step.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.969,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "a",
+      "reasoning": "The move list is open in battle with the cursor already on Scratch, and the current focus is to make progress safely by using the damaging move instead of stalling on Growl.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.958,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with “CHARMANDE” and no four-command menu visible, so the stalled battle should be advanced by clearing the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.521,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “CHARMANDER used SCRATC”, so the immediate task is to advance the battle text until the next result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.818,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!” with no command menu visible, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.561,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "a",
+      "reasoning": "The screenshot is still an active battle text box showing “CHARMANDER used SCRATCH!”, so the safest immediate progress is to advance the battle text until the result or command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.766,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!” with no four-command menu visible, so the correct immediate step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.481,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “CHARMANDER used SCRATCH!” with no command menu visible, so I should advance the battle text rather than try movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.589,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle text box “CHARMANDER used SCRATCH!” with no four-command menu visible, so the correct immediate step is to advance the active battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.237,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with the partial result “Critic”, so the current task is to advance the battle text until the command menu or next result appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.848,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Critical hit!” with the prompt arrow and no command menu visible, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.78,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "a",
+      "reasoning": "The screenshot is still an active battle text box showing only the start of a message (“Ene”), with no four-command menu visible, so the safest next step is to advance the battle text rather than switch actions.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.683,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “Enemy PIDGEY used” with no four-command menu visible, so the correct immediate step is to advance the battle text rather than switch actions.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.361,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy PIDGEY used GUST!” with no four-command menu visible, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.488,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “Enemy PIDGEY used GUST!” with no command menu visible, so the correct immediate step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.35,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “Enemy PIDGEY used GUST!” with no four-command menu visible, so the correct immediate step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.707,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle text box saying “Enemy PIDGEY used GUST!” with no command menu visible, so the immediate task is still to advance battle text.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.318,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "a",
+      "reasoning": "The screenshot still shows battle text reading “Enemy PIDGEY used GUST!” with no four-command menu visible, so the correct immediate step is to advance the active battle text.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.117,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “Enemy PIDGEY used GUST!” with no four-command menu visible, so the correct immediate step is to advance the battle text once more.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.941,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-command battle menu with FIGHT already selected, so the stalled text sequence is over and the next safe step is to enter the move menu.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.156,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list with the cursor on Scratch, and the current focus is to finish this wild battle safely by using the damaging move instead of stalling.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.05,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with “CHARMANDE” visible rather than the four-command menu, so the correct safe step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.363,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATC”, so the battle is still in text-advance phase and I should press A once to continue until the next result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.99,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH!”, so the battle is still in text-advance phase and the correct safe input is to continue the text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.735,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATCH!”, so the battle is still in text-advance phase and I should continue it until the result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.911,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with “CHARMANDER used SCRATCH!”, so the current safe step is to advance the battle text until the result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.122,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "a",
+      "reasoning": "The screenshot shows battle text reading “CHARMANDER used SCRATCH!”, so the text box is still the active UI and the next safe step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.441,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!”, and the battle guidance says to advance battle text until a real menu or result appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.519,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with only the start of a line (“Enem”), so battle text is still the active UI and the safest next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.162,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “Enemy PIDGEY used”, so the current safe step is to advance the battle text rather than try movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.581,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “Enemy PIDGEY used GUST!”, so the current task is still to advance battle text until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.707,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy PIDGEY used GUST!”, so the current safe step is to advance the battle text until the command menu returns.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.239,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy PIDGEY used GUST!”, so the current safe step is to advance the battle text until the command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.952,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows an active battle text box saying “Enemy PIDGEY used GUST!”, so the immediate task is still to advance battle text until the command menu appears.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.763,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box saying “Enemy PIDGEY used GUST!”, and the current priority is to advance this text until the battle menu or move list appears.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.542,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “Enemy PIDGEY used GUST!”, so the correct immediate step is to advance the battle text until the command menu returns.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.727,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-command battle menu with FIGHT already selected, and the current focus is to finish this stalled wild battle safely by choosing an attack.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.626,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list open with Scratch highlighted, and the current focus is to finish this wild battle by using the damaging move instead of stalling.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.775,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box with “CHARMANDE”, not the four-command menu, so the correct step is to advance the battle text with A rather than guessing movement or menu navigation.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.702,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATC”, so the immediate task is still to advance battle text until the next result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.408,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box saying “CHARMANDER used SCRATCH!”, so the current task is to advance the battle text until the result or menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.678,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle text box reading “CHARMANDER used SCRATCH!”, so the current safe step is still to advance the battle text until the result or command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.307,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with “CHARMANDER used SCRATCH!”, not the four-command menu, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.738,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle text box with “CHARMANDER used SCRATCH!” and the enemy Pidgey is at 0 HP, so the correct step is to advance the result text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.993,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box reading “CHARMANDER used SCRATCH!”, so the highest-priority safe step is to advance the result text until the next battle state appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.327,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "a",
+      "reasoning": "The screenshot shows a battle result text box reading “Enemy P” with the enemy at 0 HP, so the current safe step is still to advance the battle text rather than move or open menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.929,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows a battle result text box reading “Enemy PIDGEY fainted,” so the active UI is still battle text and the safest next step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.713,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "a",
+      "reasoning": "The screenshot still shows the battle result text “Enemy PIDGEY fainted!” with a prompt arrow, so the active UI is still battle text and the correct step is to advance it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.202,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle text box with “CHARMAND…” and no command menu, so the safest step is to keep advancing the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.836,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle result text box reading “CHARMANDER gained 23 EXP,” so the safest step is to advance the battle text rather than try movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.99,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle results text box with “CHARMANDER gained 23 EXP. Points!” and a prompt arrow, so the active UI is still battle text and the correct next step is to advance it.",
+      "result": "After a:; battle ended; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.61,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "a",
+      "reasoning": "The state says the battle just ended but post-battle result dialogue/menu is still active, so the correct next step is to clear the remaining battle text instead of moving on Route 1 yet.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.649,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box or menu, and the verified story cue says to stay in the left corridor at x=10 and keep moving up from this tile.",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.39,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player in the left corridor, and up has clear path continuation while the story guidance explicitly says to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.618,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld movement with visible path continuing upward, and the verified story guidance says to stay in the left corridor at x=10 and keep moving up toward the bend.",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.991,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld movement with no visible dialogue box, and the verified story guidance says to stay in the left corridor and continue up toward the bend; up is the clear path while the other directions are just side tiles.",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.141,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld movement, and the verified story cue says that at y=28 I should shift left before climbing because up from this tile has already failed once while left is a known open path.",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.972,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld movement, and both the screenshot and story guidance show the path bending left here; up is confirmed blocked from this tile while left is a known open step toward x=8.",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12; entered battle",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.666,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196182,
+      "action": "a",
+      "reasoning": "The screenshot shows the wild battle encounter scene with battle HUD circles and no four-command menu yet, so the active task is to advance the opening battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.232,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196183,
+      "action": "a",
+      "reasoning": "The screen is still in a wild battle transition/text state with no visible four-command menu yet, and the battle guidance says to advance the active battle text with A until a real menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.899,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196184,
+      "action": "a",
+      "reasoning": "The state shows a wild battle is still active and the screenshot is not an overworld scene to navigate, so I should advance the battle text with A until the real command menu appears.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.936,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196185,
+      "action": "a",
+      "reasoning": "The screenshot is completely black, but memory confirms an active wild battle with text still active, so the safest next step is to advance the battle text rather than try movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.271,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196186,
+      "action": "a",
+      "reasoning": "The screenshot is completely black, but the live state still confirms an active wild battle with text box active and the current focus is to finish the battle safely, so the best step is to advance the battle text with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.611,
+      "model_request_count": 1,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196187,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle with an empty bordered text box and no four-command menu yet, so the current stalled battle text should be advanced with A.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.624,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196188,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle scene with an empty bordered text box and no four-command menu yet, so the next safe step is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 13.357,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196189,
+      "action": "a",
+      "reasoning": "The screenshot shows an active battle with a bordered text box and no four-command menu yet, so the safest next step is still to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.464,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196190,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild encounter text “Wild RAT...” in a bordered battle text box with no four-command menu visible yet, so the correct step is to advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.885,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196191,
+      "action": "a",
+      "reasoning": "The screenshot still shows the wild encounter text box “Wild RATTATA appeared!” with no four-command battle menu visible yet, so the correct next step is to advance the active battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.68,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196192,
+      "action": "a",
+      "reasoning": "The screenshot is still an active battle showing the encounter text “Wild RATTATA appeared!” with a prompt arrow and no four-command menu yet, so I should advance the battle text.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.106,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196193,
+      "action": "a",
+      "reasoning": "The screenshot is still a battle with an empty bordered text box and no four-command menu visible, so the current focus is to advance the pending battle text rather than guess a move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.557,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196194,
+      "action": "a",
+      "reasoning": "The screenshot is still an active battle with a bordered text box and no four-command menu visible, so the correct step is to advance the pending battle text rather than switch to movement or menus.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.728,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196195,
+      "action": "a",
+      "reasoning": "The screenshot is still an active battle showing the send-out text “Go! CHARM...” with a bordered text box and no four-command menu yet, so I should advance the battle text once more.",
+      "result": "After a:; menu opened",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.939,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196196,
+      "action": "a",
+      "reasoning": "The screenshot still shows a battle with the send-out text “Go! CHARMANDER!” in the dialogue box and no four-command battle menu visible yet, so I should advance the battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.845,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196197,
+      "action": "a",
+      "reasoning": "The screenshot is an active battle showing the send-out text “Go! CHARMANDER!” with no four-command menu visible yet, so the correct step is to advance the battle text once more.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.661,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196198,
+      "action": "a",
+      "reasoning": "The screenshot shows an active wild battle with the text box “Go! CHARMANDER!” still on screen and no four-command battle menu visible yet, so the correct step is to advance the pending battle text.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.158,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196199,
+      "action": "a",
+      "reasoning": "The screenshot still shows an active battle with the text box “Go! CHARMANDER!” and no four-command command menu, so the correct step is to advance the battle text once more.",
+      "result": "After a:; menu closed",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.07,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196200,
+      "action": "a",
+      "reasoning": "The screenshot shows the standard four-command battle menu with FIGHT already selected, so the next safe step is to confirm FIGHT instead of stalling.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 17.402,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196201,
+      "action": "a",
+      "reasoning": "The screenshot shows the move list open in battle with the cursor already on Scratch, and the current focus is to finish the fight safely using a damaging move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.044,
+      "model_request_count": 1,
+      "screen_type": "battle",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    }
+  ]
+}

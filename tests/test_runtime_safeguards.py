@@ -2708,22 +2708,27 @@ class RuntimeSafeguardTests(unittest.TestCase):
                 self.calls += 1
                 image.save(filepath)
 
-        with tempfile.TemporaryDirectory() as tmpdir:
-            agent = object.__new__(PokemonAIAgent)
-            agent.config = _ConfigStub(
-                {
-                    "logging.screenshot_dir": tmpdir,
-                    "logging.annotate_screenshots": False,
-                }
-            )
-            agent.turn_count = 7
-            agent.emulator = _EmulatorStub()
-            agent.vision = _VisionStub()
+        screenshot_dir = Path("tmp/test_runtime_safeguards/raw").resolve()
+        screenshot_dir.mkdir(parents=True, exist_ok=True)
+        target = screenshot_dir / "turn_000007.png"
+        if target.exists():
+            target.unlink()
 
-            agent._save_screenshot()
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "logging.screenshot_dir": str(screenshot_dir),
+                "logging.annotate_screenshots": False,
+            }
+        )
+        agent.turn_count = 7
+        agent.emulator = _EmulatorStub()
+        agent.vision = _VisionStub()
 
-            self.assertEqual(agent.vision.calls, 0)
-            self.assertTrue(Path(tmpdir, "turn_000007.png").exists())
+        agent._save_screenshot()
+
+        self.assertEqual(agent.vision.calls, 0)
+        self.assertTrue(target.exists())
 
     def test_save_screenshot_uses_annotated_writer_when_enabled(self):
         class _EmulatorStub:
@@ -2738,22 +2743,27 @@ class RuntimeSafeguardTests(unittest.TestCase):
                 self.calls += 1
                 image.save(filepath)
 
-        with tempfile.TemporaryDirectory() as tmpdir:
-            agent = object.__new__(PokemonAIAgent)
-            agent.config = _ConfigStub(
-                {
-                    "logging.screenshot_dir": tmpdir,
-                    "logging.annotate_screenshots": True,
-                }
-            )
-            agent.turn_count = 8
-            agent.emulator = _EmulatorStub()
-            agent.vision = _VisionStub()
+        screenshot_dir = Path("tmp/test_runtime_safeguards/annotated").resolve()
+        screenshot_dir.mkdir(parents=True, exist_ok=True)
+        target = screenshot_dir / "turn_000008.png"
+        if target.exists():
+            target.unlink()
 
-            agent._save_screenshot()
+        agent = object.__new__(PokemonAIAgent)
+        agent.config = _ConfigStub(
+            {
+                "logging.screenshot_dir": str(screenshot_dir),
+                "logging.annotate_screenshots": True,
+            }
+        )
+        agent.turn_count = 8
+        agent.emulator = _EmulatorStub()
+        agent.vision = _VisionStub()
 
-            self.assertEqual(agent.vision.calls, 1)
-            self.assertTrue(Path(tmpdir, "turn_000008.png").exists())
+        agent._save_screenshot()
+
+        self.assertEqual(agent.vision.calls, 1)
+        self.assertTrue(target.exists())
 
     def test_early_battle_stage_uses_extended_button_settle(self):
         agent = object.__new__(PokemonAIAgent)

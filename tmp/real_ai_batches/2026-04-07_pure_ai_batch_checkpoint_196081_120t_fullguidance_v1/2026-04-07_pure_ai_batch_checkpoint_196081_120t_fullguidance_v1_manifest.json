@@ -1,0 +1,252 @@
+{
+  "batch_version": 1,
+  "label": "2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1",
+  "created_at_utc": "2026-04-06T17:11:47+00:00",
+  "completed_at_utc": "2026-04-06T17:52:12+00:00",
+  "project_root": "D:\\bysj\\p-ai",
+  "python_executable": "D:\\anaconda\\python.exe",
+  "batch_dir": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1",
+  "protocol": {
+    "checkpoint": "checkpoint_196081",
+    "turns": 120,
+    "runs": 3,
+    "llm_primary": false,
+    "pure_llm": true,
+    "research_mode": false,
+    "ai_full_control": null,
+    "disable_runtime_fallbacks": true,
+    "reset_context": true,
+    "ai_timeout": 25,
+    "same_turn_budget": 60,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "story_guidance": true,
+    "battle_guidance": true,
+    "stop_on_failure": false
+  },
+  "environment": {
+    "AI_BASE_URL": "https://api.ququ233.com/v1",
+    "AI_MODEL": "gpt-5.4",
+    "AI_API_KEY_present": true
+  },
+  "run_count_requested": 3,
+  "run_count_completed": 3,
+  "report_count": 3,
+  "summary_markdown_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_summary.md",
+  "summary_json_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_summary.json",
+  "runs": [
+    {
+      "started_at_utc": "2026-04-06T17:11:47+00:00",
+      "completed_at_utc": "2026-04-06T17:23:55+00:00",
+      "duration_seconds": 727.538,
+      "return_code": 0,
+      "command": [
+        "D:\\anaconda\\python.exe",
+        "D:\\bysj\\p-ai\\scripts\\autonomous_smoke.py",
+        "--checkpoint",
+        "checkpoint_196081",
+        "--turns",
+        "120",
+        "--output",
+        "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run01.json",
+        "--ai-timeout",
+        "25",
+        "--same-turn-budget",
+        "60",
+        "--decision-max-tokens",
+        "256",
+        "--action-plan-max-actions",
+        "3",
+        "--pure-llm",
+        "--disable-runtime-fallbacks",
+        "--reset-context",
+        "--story-guidance",
+        "--battle-guidance"
+      ],
+      "report_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run01.json",
+      "stdout_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run01.out",
+      "stderr_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run01.err",
+      "report_exists": true,
+      "run_name": "2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run01"
+    },
+    {
+      "started_at_utc": "2026-04-06T17:23:55+00:00",
+      "completed_at_utc": "2026-04-06T17:38:26+00:00",
+      "duration_seconds": 870.857,
+      "return_code": 0,
+      "command": [
+        "D:\\anaconda\\python.exe",
+        "D:\\bysj\\p-ai\\scripts\\autonomous_smoke.py",
+        "--checkpoint",
+        "checkpoint_196081",
+        "--turns",
+        "120",
+        "--output",
+        "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run02.json",
+        "--ai-timeout",
+        "25",
+        "--same-turn-budget",
+        "60",
+        "--decision-max-tokens",
+        "256",
+        "--action-plan-max-actions",
+        "3",
+        "--pure-llm",
+        "--disable-runtime-fallbacks",
+        "--reset-context",
+        "--story-guidance",
+        "--battle-guidance"
+      ],
+      "report_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run02.json",
+      "stdout_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run02.out",
+      "stderr_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run02.err",
+      "report_exists": true,
+      "run_name": "2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run02"
+    },
+    {
+      "started_at_utc": "2026-04-06T17:38:26+00:00",
+      "completed_at_utc": "2026-04-06T17:52:12+00:00",
+      "duration_seconds": 826.761,
+      "return_code": 0,
+      "command": [
+        "D:\\anaconda\\python.exe",
+        "D:\\bysj\\p-ai\\scripts\\autonomous_smoke.py",
+        "--checkpoint",
+        "checkpoint_196081",
+        "--turns",
+        "120",
+        "--output",
+        "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run03.json",
+        "--ai-timeout",
+        "25",
+        "--same-turn-budget",
+        "60",
+        "--decision-max-tokens",
+        "256",
+        "--action-plan-max-actions",
+        "3",
+        "--pure-llm",
+        "--disable-runtime-fallbacks",
+        "--reset-context",
+        "--story-guidance",
+        "--battle-guidance"
+      ],
+      "report_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run03.json",
+      "stdout_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run03.out",
+      "stderr_path": "D:\\bysj\\p-ai\\tmp\\real_ai_batches\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1\\2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run03.err",
+      "report_exists": true,
+      "run_name": "2026-04-07_pure_ai_batch_checkpoint_196081_120t_fullguidance_v1_run03"
+    }
+  ],
+  "aggregate": {
+    "report_count": 3,
+    "completed_count": 3,
+    "fatal_error_count": 0,
+    "timeline_valid_count": 3,
+    "obtained_oaks_parcel_count": 0,
+    "delivered_oaks_parcel_count": 0,
+    "got_pokedex_count": 0,
+    "started_post_pokedex_departure_count": 0,
+    "reached_route1_count": 3,
+    "reached_viridian_city_count": 2,
+    "entered_viridian_mart_count": 2,
+    "reached_route2_count": 0,
+    "reached_viridian_forest_count": 0,
+    "ai_dominant_count": 3,
+    "ai_full_control_count": 0,
+    "avg_ai_authored_ratio": 1.0,
+    "avg_main_model_ratio": 1.0,
+    "ai_authored_ratio_stats": {
+      "count": 3,
+      "mean": 1.0,
+      "median": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "main_model_ratio_stats": {
+      "count": 3,
+      "mean": 1.0,
+      "median": 1.0,
+      "stdev": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "ai_latency_avg_seconds_stats": {
+      "count": 3,
+      "mean": 6.0363,
+      "median": 6.171,
+      "stdev": 0.295,
+      "min": 5.698,
+      "max": 6.24
+    },
+    "ai_error_turns_stats": {
+      "count": 3,
+      "mean": 0.0,
+      "median": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "ai_cooldown_turns_stats": {
+      "count": 3,
+      "mean": 0.0,
+      "median": 0.0,
+      "stdev": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "milestone_statistics": {
+      "reached_route1": {
+        "count": 3,
+        "total": 3,
+        "rate": 1.0,
+        "ci95_low": 0.4385,
+        "ci95_high": 1.0
+      },
+      "reached_viridian_city": {
+        "count": 2,
+        "total": 3,
+        "rate": 0.6667,
+        "ci95_low": 0.2077,
+        "ci95_high": 0.9385
+      },
+      "entered_viridian_mart": {
+        "count": 2,
+        "total": 3,
+        "rate": 0.6667,
+        "ci95_low": 0.2077,
+        "ci95_high": 0.9385
+      },
+      "obtained_oaks_parcel": {
+        "count": 0,
+        "total": 3,
+        "rate": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.5615
+      },
+      "got_pokedex": {
+        "count": 0,
+        "total": 3,
+        "rate": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.5615
+      },
+      "reached_route2": {
+        "count": 0,
+        "total": 3,
+        "rate": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.5615
+      },
+      "reached_viridian_forest": {
+        "count": 0,
+        "total": 3,
+        "rate": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.5615
+      }
+    },
+    "max_party_level": 6
+  }
+}

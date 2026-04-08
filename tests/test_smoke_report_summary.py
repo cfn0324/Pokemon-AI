@@ -160,6 +160,8 @@ class SmokeReportSummaryTests(unittest.TestCase):
                 "got_pokedex_count": 1,
                 "started_post_pokedex_departure_count": 1,
                 "reached_route1_count": 1,
+                "reached_viridian_city_count": 1,
+                "entered_viridian_mart_count": 1,
                 "reached_route2_count": 1,
                 "reached_viridian_forest_count": 0,
                 "ai_dominant_count": 1,
@@ -176,7 +178,7 @@ class SmokeReportSummaryTests(unittest.TestCase):
         self.assertIn("Reports delivering Oak's Parcel: 1", markdown)
         self.assertIn("Reports reaching Route 1: 1", markdown)
         self.assertIn("Avg AI-authored ratio: 0.8", markdown)
-        self.assertIn("| report_a.json | llm-primary+ai-full | reached_route2 | 80.0% | 15.6% | 900 |", markdown)
+        self.assertIn("| report_a.json | llm-primary+ai-full | reached_route2 | 80.0% | n/a | 15.6% |", markdown)
 
 
 if __name__ == "__main__":

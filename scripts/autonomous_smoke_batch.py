@@ -70,6 +70,8 @@ def _protocol_from_args(args: argparse.Namespace) -> Dict[str, Any]:
         "same_turn_budget": int(args.same_turn_budget),
         "decision_max_tokens": int(args.decision_max_tokens),
         "action_plan_max_actions": int(args.action_plan_max_actions),
+        "story_guidance": args.story_guidance,
+        "battle_guidance": args.battle_guidance,
         "stop_on_failure": bool(args.stop_on_failure),
     }
 
@@ -107,6 +109,14 @@ def _build_smoke_command(args: argparse.Namespace, output_path: Path) -> List[st
         command.append("--disable-runtime-fallbacks")
     if args.reset_context:
         command.append("--reset-context")
+    if args.story_guidance is True:
+        command.append("--story-guidance")
+    elif args.story_guidance is False:
+        command.append("--disable-story-guidance")
+    if args.battle_guidance is True:
+        command.append("--battle-guidance")
+    elif args.battle_guidance is False:
+        command.append("--disable-battle-guidance")
     return command
 
 
@@ -215,6 +225,32 @@ def main() -> None:
         type=int,
         default=3,
         help="Maximum actions kept from each ACTION_PLAN.",
+    )
+    parser.add_argument(
+        "--story-guidance",
+        dest="story_guidance",
+        action="store_true",
+        default=None,
+        help="Explicitly enable STORY GUIDANCE in each smoke run.",
+    )
+    parser.add_argument(
+        "--disable-story-guidance",
+        dest="story_guidance",
+        action="store_false",
+        help="Disable STORY GUIDANCE in each smoke run.",
+    )
+    parser.add_argument(
+        "--battle-guidance",
+        dest="battle_guidance",
+        action="store_true",
+        default=None,
+        help="Explicitly enable BATTLE GUIDANCE in each smoke run.",
+    )
+    parser.add_argument(
+        "--disable-battle-guidance",
+        dest="battle_guidance",
+        action="store_false",
+        help="Disable BATTLE GUIDANCE in each smoke run.",
     )
     parser.add_argument(
         "--stop-on-failure",

@@ -1,0 +1,2699 @@
+{
+  "report_version": 3,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 120,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "environment": {
+    "AI_BASE_URL": "https://api.ququ233.com/v1",
+    "AI_MODEL": "gpt-5.4",
+    "AI_API_KEY_present": true
+  },
+  "effective_settings": {
+    "ai_model": "gpt-5.4",
+    "main_agent_model": "gpt-5.4",
+    "main_agent_temperature": 0.0,
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "ai_request_retries": 1,
+    "ai_request_retry_backoff_seconds": 0.5,
+    "same_turn_retry_timeout_seconds": 60,
+    "same_turn_retry_max_attempts": 30,
+    "story_guidance_enabled": true,
+    "battle_guidance_enabled": true,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "config_snapshot": {
+    "game": {
+      "rom_path": "PokemonRed.gb",
+      "headless": true,
+      "speed": 0
+    },
+    "ai": {
+      "model": "gpt-5.4",
+      "main_model": "gpt-5.4",
+      "main_temperature": 0.0,
+      "decision_max_tokens": 256,
+      "request_timeout_seconds": 25,
+      "request_retries": 1,
+      "request_retry_backoff_seconds": 0.5
+    },
+    "decision": {
+      "llm_primary_mode": false,
+      "ai_full_control_mode": false,
+      "pure_llm_mode": true,
+      "research_mode": false,
+      "disable_runtime_fallbacks": true,
+      "retry_same_turn_on_ai_error": true,
+      "same_turn_retry_max_attempts": 30,
+      "same_turn_retry_timeout_seconds": 60,
+      "same_turn_retry_min_delay_seconds": 0.25
+    },
+    "state": {
+      "story_guidance_enabled": true,
+      "battle_guidance_enabled": true
+    }
+  },
+  "latest_checkpoint": "checkpoint_196183",
+  "start_turn": 196081,
+  "end_turn": 196201,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 120
+  },
+  "decision_path_counts": {
+    "ai": 120
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 120,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 120,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 1.0,
+    "ai_authored_ratio": 1.0,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 120,
+    "avg_seconds": 6.24,
+    "max_seconds": 30.452,
+    "min_seconds": 3.368,
+    "total_seconds": 748.83,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40,
+      0,
+      12,
+      1,
+      42
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": true,
+    "reached_viridian_city": true,
+    "entered_viridian_mart": true,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196201,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196201,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196201,
+    "timestamp": "2026-04-07T01:52:12.596093",
+    "position": {
+      "map_id": 42,
+      "x": 3,
+      "y": 7
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196202,
+      "local_analysis_enabled": false,
+      "screen_hash": "aca41aab50f47a93e97c71cdbc76c069"
+    },
+    "exploration": {
+      "current_map": 42,
+      "explored_tiles": 1,
+      "total_tiles": 200,
+      "exploration_percent": 0.5
+    },
+    "navigation": {
+      "current_visit_count": 8,
+      "known_exits": {},
+      "blocked_directions": [],
+      "frontier_count": 1,
+      "nearest_frontier": {
+        "target": [
+          3,
+          7
+        ],
+        "path": [],
+        "unknown_directions": [
+          "up",
+          "down",
+          "left",
+          "right"
+        ],
+        "visit_count": 8,
+        "distance": 0,
+        "local_visit_pressure": 8,
+        "global_novelty_distance": 0,
+        "priority_score": -10.0,
+        "novelty_label": "medium"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            3,
+            7
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 8,
+          "distance": 0,
+          "local_visit_pressure": 8,
+          "global_novelty_distance": 0,
+          "priority_score": -10.0,
+          "novelty_label": "medium"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 3,
+            "y": 6
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "down": {
+          "target": {
+            "x": 3,
+            "y": 8
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "left": {
+          "target": {
+            "x": 2,
+            "y": 7
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        },
+        "right": {
+          "target": {
+            "x": 4,
+            "y": 7
+          },
+          "status": "frontier",
+          "blocked_attempts": 0,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": true,
+          "is_preferred_frontier_step": false,
+          "summary": "This is an unexplored adjacent direction from the current frontier."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": true,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": -10.0,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [],
+      "local_map": [
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "????P????",
+        "?????????",
+        "?????????",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 42,
+        "rows": [
+          "     ",
+          "     ",
+          "  P  ",
+          "     ",
+          "     "
+        ],
+        "prompt_rows": [
+          "?????",
+          "?????",
+          "??P??",
+          "?????",
+          "?????"
+        ],
+        "bounds": {
+          "min_x": 1,
+          "max_x": 5,
+          "min_y": 5,
+          "max_y": 9,
+          "width": 5,
+          "height": 5
+        },
+        "player": {
+          "x": 3,
+          "y": 7
+        },
+        "explored_count": 1,
+        "frontier_count": 1,
+        "blocked_count": 0,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 8,
+      "unique_tiles": 1,
+      "bounding_box_width": 1,
+      "bounding_box_height": 1,
+      "current_tile_repeat_count": 8,
+      "micro_loop_warning": true,
+      "warning": "high - last 8 same-map positions stayed within a 1x1 box covering only 1 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and the verified story guidance says to move left first toward the exit columns while right is already known blocked.",
+      "result": "After left:; moved from (7,10) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.695,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "left",
+      "reasoning": "The lab is visible with no dialogue box, and the verified local route says to keep lining up with the exit columns by moving left before heading down.",
+      "result": "After left:; moved from (6,10) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.421,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "down",
+      "reasoning": "The lab is visible with no readable dialogue panel on-screen, and the verified story guidance says the exit warp is directly below at x=4 or x=5, so moving down is the next concrete step.",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.816,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "down",
+      "reasoning": "The lab interior is visible with no bordered dialogue box on the screenshot, and the verified story guidance says I am already lined up on the exit columns so pressing down should leave Oak's Lab.",
+      "result": "After down:; warped from map 40 (5,11) to map 0 (12,11)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.906,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town outside with no visible dialogue box, and down would re-enter the lab warp while up has clear open ground toward the house and town path.",
+      "result": "After up:; moved from (12,11) to (12,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.891,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "left",
+      "reasoning": "The screenshot shows Pallet Town outside Oak's Lab with no dialogue box, and because I am standing on the lab warp tile the verified guidance says to step left along the lab frontage instead of probing up or re-entering.",
+      "result": "After left:; moved from (12,12) to (11,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.129,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 12,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town with no visible dialogue box, and the verified route says to continue left along the lab frontage while avoiding the right-side warp back into the lab.",
+      "result": "After left:; moved from (11,12) to (10,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.563,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 11,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "left",
+      "reasoning": "I am outside Oak's Lab in Pallet Town with no visible dialogue box, and the verified story route says to keep moving left along the lab frontage until x=9 rather than going up or right.",
+      "result": "After left:; moved from (10,12) to (9,12) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.999,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story cue says that from x=9 on the west-side lane I should continue up rather than wander back toward the lab or into side frontiers.",
+      "result": "After up:; moved from (9,12) to (9,11) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.647,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified early-story route says to keep moving up from the west-side lane at x=9; up also leads onto visible open path while the house blocks the right side.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.202,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld, and the current focus plus story guidance says to keep going up the west-side lane; the screenshot shows open path above while the building blocks the right side.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.511,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the verified story route says to keep moving up the west-side lane toward the north exit rather than exploring right by the house.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.036,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the current focus plus verified story guidance says to keep moving up the west-side lane; the screenshot shows open path above while houses mainly block the sides.",
+      "result": "After up:; moved from (9,8) to (9,7) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.549,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and the current verified route says to keep moving up the west-side lane; up shows open path while the houses are off to the sides.",
+      "result": "After up:; moved from (9,7) to (9,6) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.069,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "up",
+      "reasoning": "This is Pallet Town overworld with no visible dialogue box, and both the screenshot and story guidance show open path continuing upward on the west-side lane while the houses block the sides.",
+      "result": "After up:; moved from (9,6) to (9,5) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.091,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "up",
+      "reasoning": "I am in Pallet Town overworld with open path and grass visible above, and the current verified route says to keep moving up the west-side lane toward the north exit rather than detouring by the houses.",
+      "result": "After up:; moved from (9,5) to (9,4) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.601,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current verified route says to keep moving up the west-side lane toward the north exit rather than detouring right between the houses.",
+      "result": "After up:; moved from (9,4) to (9,3) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.654,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld with no visible dialogue box, and the current verified route says to keep moving up the west-side lane toward the north exit; up shows open path while the houses and fences are to the sides.",
+      "result": "After up:; moved from (9,3) to (9,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.432,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "right",
+      "reasoning": "This is the Pallet Town overworld at the north edge, and the screenshot plus navigation memory show up is blocked by the fence/grass opening wall while right is the verified opening toward Route 1.",
+      "result": "After right:; moved from (9,2) to (10,2) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.621,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 9,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "up",
+      "reasoning": "The screenshot shows Pallet Town overworld at the north opening, and both the story guidance and navigation memory mark up as the known exit to Route 1 while sideways movement would just continue town exploration.",
+      "result": "After up:; moved from (10,2) to (10,1) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.842,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "up",
+      "reasoning": "The screenshot shows the Pallet Town north exit with the player already aligned at the opening, and the current focus plus story guidance say to leave town by continuing up rather than turning sideways.",
+      "result": "After up:; moved from (10,1) to (10,0) on map 0",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.378,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "up",
+      "reasoning": "This is the Pallet Town overworld at the north opening, and the visible path continues straight up between the fence posts while the current story guidance says to exit town north into Route 1.",
+      "result": "After up:; warped from map 0 (10,0) to map 12 (10,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.381,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 0,
+        "x": 10,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with the player in the left corridor, and the verified story guidance says to keep moving up here while right is a warp back to town.",
+      "result": "After up:; moved from (10,35) to (10,34) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.938,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the visible grass corridor plus navigation guidance both say the path continues straight up while left is confirmed blocked by the posts.",
+      "result": "After up:; moved from (10,34) to (10,33) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.714,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player in the fenced left corridor, and up is the clear visible path while left is blocked by posts and the current guidance says to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,33) to (10,32) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.633,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld in the fenced left corridor, and both the visible path and story guidance say the next concrete step is to keep moving up toward the bend near y=28.",
+      "result": "After up:; moved from (10,32) to (10,31) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.983,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 in the left corridor, with visible path continuing upward and the verified story guidance says to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,31) to (10,30) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.469,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with the player still in the left corridor, and both the visible path and verified story guidance say the next step is to keep moving up toward the bend.",
+      "result": "After up:; moved from (10,30) to (10,29) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.633,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with the player in the left corridor, and the visible path plus the verified story guidance both say to continue upward toward the bend.",
+      "result": "After up:; moved from (10,29) to (10,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.594,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, and the visible path at y=28 bends left while up is already flagged blocked once, so I should follow the verified bend by moving left.",
+      "result": "After left:; moved from (10,28) to (9,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 30.452,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, and the verified story guidance says the bend on y=28 must be followed left to x=8; up is also confirmed blocked from this tile.",
+      "result": "After left:; moved from (9,28) to (8,28) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.904,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the verified story guidance says that after reaching x=8 the next mandatory step is to go up through the north gap; the visible path also continues upward while the sign blocks the tile to the right.",
+      "result": "After up:; moved from (8,28) to (8,27) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.945,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the visible path plus navigation memory both show up as the open continuation through the north gap while right is blocked by the sign.",
+      "result": "After up:; moved from (8,27) to (8,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.368,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and the verified story guidance says that from y=26 the next mandatory step is to move right toward x=10 to line up with the middle corridor; the path to the right is visible while up would just continue into the side area.",
+      "result": "After right:; moved from (8,26) to (9,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.355,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 8,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and the verified story guidance says the next mandatory step from (9,26) is to continue right to the known exit tile at (10,26); the screenshot also shows open path to the right while left just backtracks.",
+      "result": "After right:; moved from (9,26) to (10,26) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.619,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and both the visible path and verified story guidance show the middle corridor continuing upward from x=10 while left backtracks, right is just side exploration, and the next mandatory checkpoint is up.",
+      "result": "After up:; moved from (10,26) to (10,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.743,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the visible path plus STORY GUIDANCE both show the middle corridor continuing upward from x=10 while left heads into side grass and down backtracks.",
+      "result": "After up:; moved from (10,25) to (10,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 14.402,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld with open path to the right and trees blocking up, and the verified story guidance says to step right once from (10,24) into the bend.",
+      "result": "After right:; moved from (10,24) to (11,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.327,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "down",
+      "reasoning": "This is Route 1 overworld, and the verified story guidance says the next mandatory step from (11,24) is to go down one tile to open the right-side lane; the screenshot also shows clear path below while up is grass and left just backtracks.",
+      "result": "After down:; moved from (11,24) to (11,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.863,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and both the screenshot and verified story guidance show open path to the right while up is blocked by the grass/ledge edge and left just backtracks, so the next concrete step is to enter the upper-right lane.",
+      "result": "After right:; moved from (11,25) to (12,25) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.266,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show clear walkable path continuing up while left backtracks and the nearby grass/trees constrain other options, so the next concrete step is to keep moving up the upper-right lane.",
+      "result": "After up:; moved from (12,25) to (12,24) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.383,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with clear path continuing upward from the player, while left is lined by trees and right is just side grass/frontier; the verified story guidance says to keep moving up on x=12 toward the cross-lane.",
+      "result": "After up:; moved from (12,24) to (12,23) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.761,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with visible path continuing upward from the player, and the current story guidance explicitly says to keep moving up on x=12 toward the cross-lane at y=20.",
+      "result": "After up:; moved from (12,23) to (12,22) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.619,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the screenshot plus verified story guidance show clear walkable path continuing upward while down backtracks and left/right are just side frontiers off the main lane.",
+      "result": "After up:; moved from (12,22) to (12,21) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.913,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show clear walkable path continuing upward from the player while down backtracks and left/right only probe side edges.",
+      "result": "After up:; moved from (12,21) to (12,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.337,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, the screenshot shows the upper cross-lane, and story guidance plus navigation memory say up is confirmed blocked here while left is the verified route to shift toward x=9 before continuing north.",
+      "result": "After left:; moved from (12,20) to (11,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.878,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld cross-lane, and the screenshot plus story guidance show open path to the left while up has already failed once from this tile and the current focus is to keep following the main route out of town.",
+      "result": "After left:; moved from (11,20) to (10,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.992,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "left",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show the horizontal lane still open to the left while the current focus is to follow the verified upper cross-lane to x=9 before going north again.",
+      "result": "After left:; moved from (10,20) to (9,20) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.796,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, and both the screenshot and story guidance show clear walkable path continuing up from x=9 while left only probes a side edge and right backtracks.",
+      "result": "After up:; moved from (9,20) to (9,19) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.213,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the screenshot plus navigation memory show clear path continuing upward from the player while STORY GUIDANCE explicitly says to keep moving up on x=9 toward Viridian.",
+      "result": "After up:; moved from (9,19) to (9,18) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.568,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with clear grass path continuing upward from the player, and both story guidance and navigation memory say up is the verified route toward Viridian while left and right only probe side frontier.",
+      "result": "After up:; moved from (9,18) to (9,17) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.92,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with clear walkable path continuing upward, and both story guidance and navigation memory mark up as the verified exit toward Viridian while left and right are only side frontiers.",
+      "result": "After up:; moved from (9,17) to (9,16) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.019,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with clear walkable ground continuing upward, and both story guidance and navigation memory mark up as the verified route toward Viridian while left and right are only side frontiers.",
+      "result": "After up:; moved from (9,16) to (9,15) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.767,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with clear walkable ground continuing upward from the player, and both story guidance and navigation memory mark up as the verified route toward Viridian while left and right are only side frontiers.",
+      "result": "After up:; moved from (9,15) to (9,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.175,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 15
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "right",
+      "reasoning": "This is the Route 1 overworld, and the screenshot plus story guidance show a clear horizontal corridor with rocks blocking up while right remains the verified path along y=14 toward the next checkpoint.",
+      "result": "After right:; moved from (9,14) to (10,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.934,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 9,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show the top corridor continuing to the right while up is blocked by the rock/tree line and left just backtracks.",
+      "result": "After right:; moved from (10,14) to (11,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.894,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 10,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "right",
+      "reasoning": "This is Route 1 overworld, and the screenshot plus story guidance show the clear path continuing right along the top corridor while up is blocked by the rock/tree line and left only backtracks.",
+      "result": "After right:; moved from (11,14) to (12,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.7,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld with clear walkable path continuing to the right, while the rock/tree line blocks upward and the live story guidance explicitly says to keep moving right along y=14 toward x=15.",
+      "result": "After right:; moved from (12,14) to (13,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.991,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "right",
+      "reasoning": "The screenshot shows the Route 1 overworld, and the live story guidance plus visible path indicate the mandatory top corridor continues to the right while left only backtracks.",
+      "result": "After right:; moved from (13,14) to (14,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.37,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "right",
+      "reasoning": "The screenshot shows Route 1 overworld, and the current focus plus verified story guidance say to continue right along y=14; left backtracks while right is the known exit tile with visible path continuation.",
+      "result": "After right:; moved from (14,14) to (15,14) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.565,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the verified story guidance plus navigation memory say the mandatory path is to keep moving up from x=15 toward Viridian City while left backtracks and the grass patch does not block the northbound route.",
+      "result": "After up:; moved from (15,14) to (15,13) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.144,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 14
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with no visible dialogue box, and the verified story cue says this is the final straight to Viridian so the clear next step is to keep moving up from x=15.",
+      "result": "After up:; moved from (15,13) to (15,12) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.046,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 13
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the visible path plus verified story guidance show that up is the clear continuation toward Viridian while down backtracks and the side directions are less certain.",
+      "result": "After up:; moved from (15,12) to (15,11) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.698,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 12
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, and the visible path plus verified story guidance show that up continues the final straight toward Viridian while down backtracks and the side tiles are just frontier grass edges.",
+      "result": "After up:; moved from (15,11) to (15,10) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.83,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld and the visible path continues upward while the story guidance explicitly says the final straight to Viridian is to keep moving up on x=15.",
+      "result": "After up:; moved from (15,10) to (15,9) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.647,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with open grass path above the player, and the current focus plus verified story guidance say to continue the final straight north toward Viridian on x=15.",
+      "result": "After up:; moved from (15,9) to (15,8) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.626,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 overworld with visible walkable ground continuing upward, while the current focus and verified story guidance both say to keep going north on x=15 toward Viridian.",
+      "result": "After up:; moved from (15,8) to (15,7) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.642,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with clear walkable grass path continuing upward, and the verified story guidance says the mandatory progress is to keep moving up on x=15 toward Viridian City.",
+      "result": "After up:; moved from (15,7) to (15,6) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.767,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, the visible path continues upward, and the verified story guidance says the mandatory progress is to keep moving up on x=15 toward Viridian City's south gate.",
+      "result": "After up:; moved from (15,6) to (15,5) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.335,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 6
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "up",
+      "reasoning": "The screenshot shows Route 1 with clear walkable path continuing upward at x=15, while left and right are bordered by ledges or trees, so the current mandatory step is to keep going north toward Viridian.",
+      "result": "After up:; moved from (15,5) to (15,4) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.762,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 5
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "up",
+      "reasoning": "This is Route 1 overworld, the visible path continues upward between the fences, and the live story guidance explicitly says to keep moving up on x=15 toward Viridian City's south gate.",
+      "result": "After up:; moved from (15,4) to (15,3) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.358,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 4
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld and the visible open path continues upward while the story guidance explicitly says to keep moving up on x=15 toward Viridian City's south gate.",
+      "result": "After up:; moved from (15,3) to (15,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.67,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 3
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld, the screenshot shows the path blocked straight ahead by the horizontal fence while visible open ground continues left, and the verified story guidance says to shift left on y=2 toward x=11.",
+      "result": "After left:; moved from (15,2) to (14,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.287,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 15,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld, the screenshot shows the path north blocked by a horizontal fence while open ground continues left, and the verified story guidance says to keep shifting left along y=2 toward x=11.",
+      "result": "After left:; moved from (14,2) to (13,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.405,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 14,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld, the fence blocks moving up from here, open path continues left, and the verified story guidance says to keep shifting left on y=2 until x=11 to reach the north exit line.",
+      "result": "After left:; moved from (13,2) to (12,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.101,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 13,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "left",
+      "reasoning": "This is the Route 1 overworld, the horizontal fence blocks moving up from here, visible path continues left, and the verified story guidance says to keep shifting left on y=2 until x=11.",
+      "result": "After left:; moved from (12,2) to (11,2) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.791,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 12,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "up",
+      "reasoning": "This is the Route 1 overworld, the screenshot shows open path continuing upward between the fence posts, and the verified story guidance says the north exit is directly up from this aligned position.",
+      "result": "After up:; moved from (11,2) to (11,1) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.739,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 2
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "up",
+      "reasoning": "The screenshot shows the Route 1 overworld with open path continuing upward between fence posts, and the verified story guidance says the next mandatory step is to go up through Viridian City's north exit.",
+      "result": "After up:; moved from (11,1) to (11,0) on map 12",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.627,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 1
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "up",
+      "reasoning": "The screenshot shows the Route 1 overworld with the path still open directly upward between fence posts, and the current focus plus story guidance says to continue through Viridian City's north exit.",
+      "result": "After up:; warped from map 12 (11,0) to map 1 (21,35)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.899,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 12,
+        "x": 11,
+        "y": 0
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld gate path, and the verified story guidance says the next mandatory step is to keep moving up on x=21 toward the center sign.",
+      "result": "After up:; moved from (21,35) to (21,34) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.707,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 35
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "up",
+      "reasoning": "The screenshot shows the outdoor gate path with open walkable space continuing upward between the posts, and the verified story guidance says to keep moving up on x=21 until the sign blocks the lane.",
+      "result": "After up:; moved from (21,34) to (21,33) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.924,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 34
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "up",
+      "reasoning": "The screenshot shows the outdoor Viridian gate path with clear walkable ground continuing upward on x=21 between the posts, and the verified story guidance says to keep moving up until the sign blocks the lane.",
+      "result": "After up:; moved from (21,33) to (21,32) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.618,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 33
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian outdoor path with clear walkable ground continuing upward between the fences, and the current story guidance says to keep moving up on x=21 until the sign blocks the lane.",
+      "result": "After up:; moved from (21,32) to (21,31) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.034,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 32
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian outdoor path with clear walkable ground continuing upward between the posts, and the verified story guidance says to keep moving up on x=21 until the sign blocks the center lane.",
+      "result": "After up:; moved from (21,31) to (21,30) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.676,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 31
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "left",
+      "reasoning": "This is the Viridian outdoor choke point, and the visible sign is directly above blocking further upward movement, while the verified story guidance says to step left once to get around the south sign.",
+      "result": "After left:; moved from (21,30) to (20,30) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.675,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "up",
+      "reasoning": "This is the overworld south approach in Viridian, the sign is just to the upper right and the visible path continues upward on x=20, matching the verified guidance to keep moving up until y=28.",
+      "result": "After up:; moved from (20,30) to (20,29) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.853,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 30
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld south path, and the visible road continues upward from the player while the current verified story guidance says to keep moving up on x=20 until y=28.",
+      "result": "After up:; moved from (20,29) to (20,28) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.141,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 29
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "left",
+      "reasoning": "This is the overworld in Viridian, and the verified story guidance for the current checkpoint says that from (20,28) the next concrete step is left through the hedge opening.",
+      "result": "After left:; moved from (20,28) to (19,28) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.138,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "up",
+      "reasoning": "This is the overworld in Viridian, and the verified story guidance says the mandatory next step from (19,28) is to go up through the hedge gap onto the main road; the screenshot shows open path above while left is hedge and right goes back.",
+      "result": "After up:; moved from (19,28) to (19,27) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.134,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 28
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld main road, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff; the road continues upward while down only backtracks.",
+      "result": "After up:; moved from (19,27) to (19,26) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.972,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 27
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld main road, and the verified story guidance says to keep moving up on x=19 toward y=16; the path visibly continues upward while down only backtracks.",
+      "result": "After up:; moved from (19,26) to (19,25) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.024,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 26
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld main road, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff; the path above the player is open while down only backtracks.",
+      "result": "After up:; moved from (19,25) to (19,24) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.215,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 25
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "up",
+      "reasoning": "The screenshot shows Viridian overworld with continuous road/path tiles directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff.",
+      "result": "After up:; moved from (19,24) to (19,23) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 15.13,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 24
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "up",
+      "reasoning": "This is the Viridian overworld, and the verified story guidance says to keep moving up on x=19; the path directly above the player is visible and open while down only backtracks.",
+      "result": "After up:; moved from (19,23) to (19,22) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.342,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 23
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian overworld with open path tiles directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff.",
+      "result": "After up:; moved from (19,22) to (19,21) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.247,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 22
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian overworld with open path directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff at y=16.",
+      "result": "After up:; moved from (19,21) to (19,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.281,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 21
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "up",
+      "reasoning": "The screenshot shows the outdoor town road with clear walkable ground directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff.",
+      "result": "After up:; moved from (19,20) to (19,19) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.211,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "up",
+      "reasoning": "The town overworld is visible with open path directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff.",
+      "result": "After up:; moved from (19,19) to (19,18) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.19,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "up",
+      "reasoning": "The town overworld is visible with clear walkable ground directly above the player, and the verified story guidance says to keep moving up on x=19 toward the mart turnoff at y=16.",
+      "result": "After up:; moved from (19,18) to (19,17) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.279,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "up",
+      "reasoning": "The screenshot shows the Viridian overworld with clear path directly above the player, and the verified story guidance says to keep moving up on x=19 to the mart turnoff at y=16.",
+      "result": "After up:; moved from (19,17) to (19,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.165,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196182,
+      "action": "right",
+      "reasoning": "The town overworld is visible with the player on row y=16, and the verified story guidance says the next mandatory step is to move right along this road toward the Pokemart lane.",
+      "result": "After right:; moved from (19,16) to (20,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.476,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 19,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196183,
+      "action": "right",
+      "reasoning": "The screenshot shows Viridian Town overworld, and the high-priority story guidance says this exact row y=16 should continue right toward the Pokemart lane; right has visible path while the house and sign are just nearby landmarks.",
+      "result": "After right:; moved from (20,16) to (21,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.695,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 20,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196184,
+      "action": "right",
+      "reasoning": "The screenshot shows the town overworld in front of a house, and the verified story guidance says to continue right on y=16 toward the Pokemart lane; right has visible open ground while left just backtracks.",
+      "result": "After right:; moved from (21,16) to (22,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.617,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 21,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196185,
+      "action": "right",
+      "reasoning": "The screenshot shows Viridian Town overworld with open ground continuing to the right on the same row, and the verified story guidance says to keep moving right along y=16 toward the Pokemart lane.",
+      "result": "After right:; moved from (22,16) to (23,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.826,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 22,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196186,
+      "action": "right",
+      "reasoning": "The screenshot shows the town overworld with open ground continuing to the right, and the verified story guidance says to keep moving right on row y=16 toward the Pokemart lane.",
+      "result": "After right:; moved from (23,16) to (24,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.527,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 23,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196187,
+      "action": "right",
+      "reasoning": "This is the town overworld, and the verified story guidance says to continue right along row y=16 toward x=27; the screenshot shows open path to the right while left only backtracks.",
+      "result": "After right:; moved from (24,16) to (25,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.692,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 24,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196188,
+      "action": "right",
+      "reasoning": "This is the Viridian overworld with open path continuing to the right, and the verified story guidance says to keep moving right along y=16 toward x=27 for the Pokemart lane.",
+      "result": "After right:; moved from (25,16) to (26,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.828,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 25,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196189,
+      "action": "right",
+      "reasoning": "This is the town overworld, and the verified story guidance says to continue right along row y=16 toward x=27; the screenshot shows open ground to the right while left only backtracks.",
+      "result": "After right:; moved from (26,16) to (27,16) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.491,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 26,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196190,
+      "action": "down",
+      "reasoning": "The screenshot shows the Viridian town overworld near the Pokemart, and the verified story guidance says the next mandatory step is to move down along x=27 toward y=20; down is the priority route while left just backtracks.",
+      "result": "After down:; moved from (27,16) to (27,17) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.789,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 16
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196191,
+      "action": "down",
+      "reasoning": "The screenshot shows Viridian City overworld beside the Pokemart, and the verified story guidance says to continue DOWN on x=27 toward y=20; the tile below appears open while up only backtracks.",
+      "result": "After down:; moved from (27,17) to (27,18) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.041,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 17
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196192,
+      "action": "down",
+      "reasoning": "This is the town overworld beside the Pokemart, and the verified story guidance says to continue down on x=27 toward y=20; the ground below the player is open while up only backtracks.",
+      "result": "After down:; moved from (27,18) to (27,19) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.28,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 18
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196193,
+      "action": "down",
+      "reasoning": "This is the town overworld by the Pokemart, and the verified story guidance says to continue down on x=27 toward y=20; the path below the player is open while up just backtracks.",
+      "result": "After down:; moved from (27,19) to (27,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.865,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 19
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196194,
+      "action": "right",
+      "reasoning": "This is the town overworld by the Viridian Mart, and the verified story guidance says to move right along y=20 toward the doorway at x=29; right shows open ground while up backtracks.",
+      "result": "After right:; moved from (27,20) to (28,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.722,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 27,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196195,
+      "action": "right",
+      "reasoning": "This is the town overworld in front of the Viridian Mart, and the verified story guidance says to continue RIGHT from (28,20) to the doorway at x=29; right shows the next open tile while left only backtracks.",
+      "result": "After right:; moved from (28,20) to (29,20) on map 1",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.953,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 28,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196196,
+      "action": "up",
+      "reasoning": "The screenshot shows the player standing directly in front of the Viridian Mart door, and the verified story guidance says the next mandatory step is to move up into the Mart.",
+      "result": "After up:; warped from map 1 (29,20) to map 42 (3,7)",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.448,
+      "model_request_count": 1,
+      "screen_type": "overworld",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 1,
+        "x": 29,
+        "y": 20
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196197,
+      "action": "a",
+      "reasoning": "The screenshot shows the Viridian Mart interior with a blank text box already open, and the story guidance says to advance the clerk script here until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.343,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196198,
+      "action": "a",
+      "reasoning": "The Mart clerk scene has an active text box showing “Hey,” and the verified story cue says to continue the clerk script here until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.564,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196199,
+      "action": "a",
+      "reasoning": "The Mart clerk script is visibly active with text reading “Hey! You ca”, and the current mandatory focus is to continue this dialogue until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.811,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196200,
+      "action": "a",
+      "reasoning": "The Mart clerk dialogue box is visibly active with the text “Hey! You came from P”, and the current mandatory step is to keep advancing this script until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.408,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196201,
+      "action": "a",
+      "reasoning": "The Mart clerk dialogue is visibly active with the text “Hey! You came from PALLET TO”, and the current mandatory step is to keep advancing this script until Oak's Parcel is received.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.687,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 42,
+        "x": 3,
+        "y": 7
+      },
+      "party_size": 1
+    }
+  ]
+}

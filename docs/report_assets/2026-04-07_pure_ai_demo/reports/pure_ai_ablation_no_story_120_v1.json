@@ -1,0 +1,2757 @@
+{
+  "report_version": 3,
+  "requested_checkpoint": "checkpoint_196081",
+  "restored_checkpoint": "checkpoint_196081",
+  "requested_turns": 120,
+  "llm_primary_mode": false,
+  "ai_full_control_mode": false,
+  "pure_llm_mode": true,
+  "research_mode": false,
+  "disable_runtime_fallbacks": true,
+  "reset_context": true,
+  "environment": {
+    "AI_BASE_URL": "https://api.ququ233.com/v1",
+    "AI_MODEL": "gpt-5.4",
+    "AI_API_KEY_present": true
+  },
+  "effective_settings": {
+    "ai_model": "gpt-5.4",
+    "main_agent_model": "gpt-5.4",
+    "main_agent_temperature": 0.0,
+    "llm_primary_mode": false,
+    "ai_full_control_mode": false,
+    "pure_llm_mode": true,
+    "research_mode": false,
+    "disable_runtime_fallbacks": true,
+    "ai_timeout_seconds": 25,
+    "ai_request_retries": 1,
+    "ai_request_retry_backoff_seconds": 0.5,
+    "same_turn_retry_timeout_seconds": 60,
+    "same_turn_retry_max_attempts": 30,
+    "story_guidance_enabled": false,
+    "battle_guidance_enabled": true,
+    "decision_max_tokens": 256,
+    "action_plan_max_actions": 3,
+    "llm_primary_action_plan_enabled": false
+  },
+  "config_snapshot": {
+    "game": {
+      "rom_path": "PokemonRed.gb",
+      "headless": true,
+      "speed": 0
+    },
+    "ai": {
+      "model": "gpt-5.4",
+      "main_model": "gpt-5.4",
+      "main_temperature": 0.0,
+      "decision_max_tokens": 256,
+      "request_timeout_seconds": 25,
+      "request_retries": 1,
+      "request_retry_backoff_seconds": 0.5
+    },
+    "decision": {
+      "llm_primary_mode": false,
+      "ai_full_control_mode": false,
+      "pure_llm_mode": true,
+      "research_mode": false,
+      "disable_runtime_fallbacks": true,
+      "retry_same_turn_on_ai_error": true,
+      "same_turn_retry_max_attempts": 30,
+      "same_turn_retry_timeout_seconds": 60,
+      "same_turn_retry_min_delay_seconds": 0.25
+    },
+    "state": {
+      "story_guidance_enabled": false,
+      "battle_guidance_enabled": true
+    }
+  },
+  "latest_checkpoint": "checkpoint_196183",
+  "start_turn": 196081,
+  "end_turn": 196201,
+  "turn_delta": 120,
+  "completed_requested_turns": true,
+  "fatal_error": null,
+  "timeline_length": 120,
+  "reached_playable": true,
+  "api_cooldown_active": false,
+  "api_cooldown_remaining": 0.0,
+  "decision_source_counts": {
+    "ai": 110,
+    "ai_cooldown": 10
+  },
+  "decision_path_counts": {
+    "ai": 120
+  },
+  "ai_control_metrics": {
+    "total_turns": 120,
+    "main_model_turns": 110,
+    "ai_plan_turns": 0,
+    "ai_authored_turns": 110,
+    "deterministic_tool_turns": 0,
+    "fallback_turns": 0,
+    "main_model_ratio": 0.9167,
+    "ai_authored_ratio": 0.9167,
+    "deterministic_tool_ratio": 0.0,
+    "fallback_ratio": 0.0,
+    "ai_dominant": true
+  },
+  "ai_latency_summary": {
+    "count": 110,
+    "avg_seconds": 6.947,
+    "max_seconds": 12.009,
+    "min_seconds": 3.385,
+    "total_seconds": 764.164,
+    "avg_request_count": 1.0
+  },
+  "story_markers": {
+    "visited_maps": [
+      40
+    ],
+    "highest_party_level": 6,
+    "got_starter": true,
+    "reached_playable": true,
+    "reached_route1": false,
+    "reached_viridian_city": false,
+    "entered_viridian_mart": false,
+    "entered_oaks_lab": true,
+    "obtained_oaks_parcel": false,
+    "delivered_oaks_parcel": false,
+    "got_pokedex": false,
+    "started_post_pokedex_departure": false,
+    "reached_route2": false,
+    "reached_viridian_forest_south_gate": false,
+    "reached_viridian_forest": false
+  },
+  "report_validation": {
+    "timeline_first_turn": 196082,
+    "timeline_last_turn": 196201,
+    "timeline_turn_count": 120,
+    "timeline_turns_monotonic": true,
+    "final_state_turn": 196201,
+    "final_state_matches_end_turn": true,
+    "timeline_last_turn_matches_end_turn": true
+  },
+  "final_state": {
+    "turn": 196201,
+    "timestamp": "2026-04-07T02:11:47.298197",
+    "position": {
+      "map_id": 40,
+      "x": 8,
+      "y": 9
+    },
+    "badges": 0,
+    "money": 3175,
+    "item_count": 0,
+    "party_size": 1,
+    "party": [
+      {
+        "species_id": 176,
+        "species": "Charmander",
+        "name": "Charmander",
+        "display_name": "Charmander",
+        "level": 6,
+        "hp": 21,
+        "current_hp": 21,
+        "max_hp": 21,
+        "moves": [
+          {
+            "move_id": 10,
+            "pp": 35
+          },
+          {
+            "move_id": 45,
+            "pp": 40
+          }
+        ],
+        "stats": {
+          "attack": 12,
+          "defense": 11,
+          "speed": 14,
+          "special": 11
+        }
+      }
+    ],
+    "in_battle": false,
+    "events": {
+      "got_pokedex": false,
+      "oak_got_parcel": false,
+      "got_oaks_parcel": false
+    },
+    "ui": {
+      "text_box_active": true,
+      "menu_active": false
+    },
+    "pre_world": false,
+    "pre_starter_script": false,
+    "visual": {
+      "screen_type": "unknown",
+      "description": "Harness-side pixel heuristics are disabled. The raw screenshot is still attached separately for model vision.",
+      "screen_size": [
+        160,
+        144
+      ],
+      "frame_number": 196202,
+      "local_analysis_enabled": false,
+      "screen_hash": "a642bd542be5639b2050c03af068f0e9"
+    },
+    "exploration": {
+      "current_map": 40,
+      "explored_tiles": 53,
+      "total_tiles": 200,
+      "exploration_percent": 26.5
+    },
+    "navigation": {
+      "current_visit_count": 22,
+      "known_exits": {
+        "right": {
+          "x": 9,
+          "y": 9
+        }
+      },
+      "blocked_directions": [
+        "down"
+      ],
+      "frontier_count": 34,
+      "nearest_frontier": {
+        "target": [
+          9,
+          8
+        ],
+        "path": [
+          "right",
+          "up"
+        ],
+        "unknown_directions": [
+          "up",
+          "right"
+        ],
+        "visit_count": 11,
+        "distance": 2,
+        "local_visit_pressure": 128,
+        "global_novelty_distance": 6,
+        "priority_score": -178.2,
+        "novelty_label": "low"
+      },
+      "frontier_candidates": [
+        {
+          "target": [
+            12,
+            11
+          ],
+          "unknown_directions": [
+            "up",
+            "down",
+            "left",
+            "right"
+          ],
+          "visit_count": 2,
+          "distance": 6,
+          "local_visit_pressure": 2,
+          "global_novelty_distance": 12,
+          "priority_score": 40.4,
+          "novelty_label": "high"
+        },
+        {
+          "target": [
+            4,
+            11
+          ],
+          "unknown_directions": [
+            "down",
+            "left"
+          ],
+          "visit_count": 4,
+          "distance": 6,
+          "local_visit_pressure": 82,
+          "global_novelty_distance": 5,
+          "priority_score": -95.85,
+          "novelty_label": "low"
+        },
+        {
+          "target": [
+            4,
+            10
+          ],
+          "unknown_directions": [
+            "left"
+          ],
+          "visit_count": 6,
+          "distance": 5,
+          "local_visit_pressure": 110,
+          "global_novelty_distance": 4,
+          "priority_score": -148.25,
+          "novelty_label": "low"
+        }
+      ],
+      "adjacent_tiles": {
+        "up": {
+          "target": {
+            "x": 8,
+            "y": 8
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 11,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (8, 8) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "down": {
+          "target": {
+            "x": 8,
+            "y": 10
+          },
+          "status": "confirmed_blocked",
+          "blocked_attempts": 2,
+          "target_visit_count": 0,
+          "target_known_explored": false,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move failed 2 times from the current tile; treat it as a wall or solid blocker until evidence changes."
+        },
+        "left": {
+          "target": {
+            "x": 7,
+            "y": 9
+          },
+          "status": "adjacent_explored",
+          "blocked_attempts": 0,
+          "target_visit_count": 9,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "Neighbor tile (7, 9) has been explored, but this exact step is not yet confirmed from the current tile."
+        },
+        "right": {
+          "target": {
+            "x": 9,
+            "y": 9
+          },
+          "status": "known_exit",
+          "blocked_attempts": 0,
+          "target_visit_count": 19,
+          "target_known_explored": true,
+          "target_is_warp": false,
+          "step_triggers_warp": false,
+          "is_frontier_direction": false,
+          "is_preferred_frontier_step": false,
+          "summary": "This move previously succeeded and led to explored tile (9, 9)."
+        }
+      },
+      "current_tile_warp": null,
+      "warp_cautions": [],
+      "frontier_guidance": {
+        "current_tile_is_frontier": false,
+        "prefer_leave_current_frontier": false,
+        "recommended_direction": null,
+        "escape_direction": null,
+        "discouraged_directions": [],
+        "stronger_frontier_target": null,
+        "current_priority_score": null,
+        "stronger_priority_score": null,
+        "priority_gap": 0.0,
+        "summary": null
+      },
+      "known_warps": [],
+      "local_map": [
+        ".F???????",
+        "FF???????",
+        "FF???????",
+        "F.FFFF???",
+        "F...PF???",
+        "F..F?F???",
+        "FFFFFF??F",
+        "?????????",
+        "?????????"
+      ],
+      "map_snapshot": {
+        "available": true,
+        "map_id": 40,
+        "rows": [
+          "                  ",
+          "                  ",
+          "       ##         ",
+          "   #  #.F         ",
+          "  #.FF.F#         ",
+          "   F....F#        ",
+          "   F....F         ",
+          "   FFFF.F         ",
+          "       FF         ",
+          "       FF         ",
+          "       F.FFFF     ",
+          "       F...PF     ",
+          "       F..F#F#    ",
+          "       FFFFFF# F  ",
+          "                  ",
+          "                  "
+        ],
+        "prompt_rows": [
+          "??????????????????",
+          "??????????????????",
+          "???????##?????????",
+          "???#??#.F?????????",
+          "??#.FF.F#?????????",
+          "???F....F#????????",
+          "???F....F?????????",
+          "???FFFF.F?????????",
+          "???????FF?????????",
+          "???????FF?????????",
+          "???????F.FFFF?????",
+          "???????F...PF?????",
+          "???????F..F#F#????",
+          "???????FFFFFF#?F??",
+          "??????????????????",
+          "??????????????????"
+        ],
+        "bounds": {
+          "min_x": -3,
+          "max_x": 14,
+          "min_y": -2,
+          "max_y": 13,
+          "width": 18,
+          "height": 16
+        },
+        "player": {
+          "x": 8,
+          "y": 9
+        },
+        "explored_count": 53,
+        "frontier_count": 34,
+        "blocked_count": 10,
+        "warp_count": 0,
+        "legend": {
+          " ": "unknown",
+          ".": "explored",
+          "F": "frontier",
+          "#": "confirmed wall",
+          "W": "warp",
+          "P": "player"
+        }
+      }
+    },
+    "deltas": {
+      "position_changed": false,
+      "money_delta": 0,
+      "battle_toggled": false,
+      "movement_stall_turns": 0,
+      "stuck_hint": "ui text or menu is active; lack of movement is expected"
+    },
+    "movement_pattern": {
+      "window_size": 10,
+      "unique_tiles": 4,
+      "bounding_box_width": 2,
+      "bounding_box_height": 2,
+      "current_tile_repeat_count": 6,
+      "micro_loop_warning": true,
+      "warning": "high - last 10 same-map positions stayed within a 2x2 box covering only 4 tiles"
+    },
+    "battle_summary": {
+      "active": false,
+      "phase": "not_in_battle",
+      "encounter_type": "none",
+      "battle_turns": 0,
+      "enemy_hp_changed": false,
+      "battle_stall_turns": 0,
+      "enemy_species": null,
+      "enemy_level": null,
+      "enemy_current_hp": null,
+      "lead_pokemon": {
+        "species": "Charmander",
+        "level": 6,
+        "current_hp": 21,
+        "max_hp": 21,
+        "hp_percent": 100.0
+      },
+      "focus_hint": null
+    }
+  },
+  "timeline": [
+    {
+      "turn": 196082,
+      "action": "down",
+      "reasoning": "The screenshot shows free movement in a building with no visible dialogue box, and navigation memory says down is the known exit from this repeatedly visited tile while right has already been blocked once.",
+      "result": "After down:; moved from (7,10) to (7,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.768,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196083,
+      "action": "left",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and from this tile down/right/up are already blocked while left is the only reliable open step toward the lab exit side.",
+      "result": "After left:; moved from (7,11) to (6,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.578,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196084,
+      "action": "up",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible dialogue box, and from this tile up is a known open floor tile while right has already failed repeatedly and the bottom of the screen is black void, so the safest progress is to move up along visible floor.",
+      "result": "After up:; moved from (6,11) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.858,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196085,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is marked currently blocked while left is an unexplored frontier on visible floor, so probing left advances the next checkpoint better than re-pressing a blocked direction.",
+      "result": "After left:; moved from (6,10) to (5,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.502,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196086,
+      "action": "down",
+      "reasoning": "The screenshot shows free movement in Oak's Lab with no visible bordered dialogue box, and the current focus is to finish any remaining intro sequence by progressing toward the lab exit rather than re-pressing text; from here down is visible floor toward the lower aisle.",
+      "result": "After down:; moved from (5,10) to (5,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.682,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196087,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the current tile is a weak local frontier while right is a known open path toward the stronger unexplored area and possible exit-side progress.",
+      "result": "After right:; moved from (5,11) to (6,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.599,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 5,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196088,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is a known blocked direction from this tile, and up is clear visible floor plus the preferred known exit, so the next safe step is to move up instead of re-probing the blocked right side.",
+      "result": "After up:; moved from (6,11) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.758,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196089,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is already a known blocked direction while left and right are open floor; following the suggested frontier route, moving right is the best concrete step to escape this revisited spot.",
+      "result": "After right:; moved from (6,10) to (7,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.883,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196090,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from this tile right is a known failed step while down is the known path toward the lab exit and the stronger frontier route.",
+      "result": "After down:; moved from (7,10) to (7,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.539,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196091,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up, right, and down have recent blockage while left is the only clearly available known exit, so the safest progress is to step left out of this revisited spot.",
+      "result": "After left:; moved from (7,11) to (6,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.292,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196092,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile right is a known blocked direction while up is clear visible floor and the best step to escape this heavily revisited spot.",
+      "result": "After up:; moved from (6,11) to (6,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.016,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196093,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from the current tile up has already failed while right is open floor and matches the suggested route toward a less revisited frontier.",
+      "result": "After right:; moved from (6,10) to (7,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.028,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196094,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.6s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196095,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196096,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196097,
+      "action": "wait",
+      "reasoning": "API cooldown active for 1.1s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196098,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.9s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196099,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.7s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196100,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.5s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196101,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.4s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196102,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.2s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196103,
+      "action": "wait",
+      "reasoning": "API cooldown active for 0.0s after recent request failures",
+      "result": "After wait:; text box remains active",
+      "decision_source": "ai_cooldown",
+      "decision_path": "ai",
+      "model_latency_seconds": null,
+      "model_request_count": null,
+      "screen_type": "unknown",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196104,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's lab with the player facing the rival and RAM says a text box is still active, so the immediate task is to advance the remaining mandatory dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.686,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196105,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab without any visible bordered text box, and the player is standing next to the rival facing right, so the stale text flag should be ignored and I should move toward the known bottom exit instead of pressing A again.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.406,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196106,
+      "action": "a",
+      "reasoning": "The screenshot clearly shows a bordered text box with the rival speaking in Oak's Lab, so the top priority is to advance the remaining mandatory dialogue instead of trying to move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.745,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196107,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered text box, and navigation memory says down and right are blocked from this tile while up and left remain open, so I should stop pressing A and step to an open tile.",
+      "result": "After up:; moved from (7,10) to (7,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.218,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196108,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and right is the known exit while repeated local shuffling has not helped, so I should move toward the exit instead of pressing A again.",
+      "result": "After right:; moved from (7,9) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.186,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196109,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile down is confirmed blocked while right is a known open exit direction that matches the stronger frontier guidance.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.953,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196110,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and navigation memory says right was blocked once while down is the known exit and the recommended route away from this overvisited tile.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.431,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196111,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, right is confirmed blocked from this tile, and down is the known exit direction so I should continue leaving instead of probing the weak local frontier.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 3.385,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196112,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from this tile up, down, and right are already flagged blocked while left is the only known open step on visible floor.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.941,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196113,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is confirmed blocked by the nearby NPC/table area, and down is the only adjacent unexplored floor tile that can advance us toward leaving the lab.",
+      "result": "After down:; position did not change but facing changed from left to down",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.338,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196114,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from this tile up is confirmed blocked while down has visible floor and was only a facing change last turn, so repeating down is the correct small-step check.",
+      "result": "After down:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.265,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196115,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, down has now failed twice from this tile, and the navigation memory says this local fringe is weak while right leads back toward a stronger open frontier on visible floor.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.041,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196116,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile left is the only adjacent direction confirmed open on visible floor while up and right are blocked and down already failed here.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.087,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196117,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is confirmed blocked by the top fixtures and down has already failed here, so I should follow the stronger visible-floor frontier route by stepping right.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.803,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196118,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile left is the only adjacent direction confirmed open while up and right are blocked and down was already tested, so I should leave this weak fringe by moving left.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.097,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196119,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is confirmed blocked by the top counter area and this tile is a weak loop point, so I should follow the stronger frontier route by moving right toward the suggested unexplored path.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.378,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196120,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and movement has looped in a tiny area while RAM says a text box flag is active, so the likely remaining mandatory step is to interact with the nearby story blocker instead of shuffling again.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.305,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196121,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and since RAM still says text is active after pressing A while movement has looped in place near a likely story blocker, the safest next step is to advance the pending script with A instead of shuffling again.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.596,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196122,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile left is the only adjacent direction confirmed open while up, right, and down have all failed recently, so I should leave this loop tile by moving left.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.054,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196123,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from this tile up is confirmed blocked while left/right only continue the loop, so the best concrete progress is to probe the suggested frontier by moving right toward the up path.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 4.688,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196124,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from the current tile down and right are black or confirmed blocked while left is the only clearly open step that breaks the immediate dead end.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.043,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196125,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and this tile is stuck in a left-right loop while the navigation memory says the better frontier is to the right toward a possible up opening.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.349,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196126,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from the current tile right is visibly clipped/blocked while navigation memory says left is the only confirmed open step to escape this 2-tile loop.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.154,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196127,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is confirmed blocked while left and right only continue the 2-tile loop, so I should follow the stronger frontier guidance by moving right toward the possible up opening from the next tile.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.144,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196128,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile left is the only confirmed open movement while right is blocked and repeated left-right shuffling has not advanced the mandatory sequence.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.859,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196129,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box; right is confirmed blocked, down is the known backtrack tile, and the current focus is to advance by exploring the next open tile rather than continue the local loop.",
+      "result": "After left:; position did not change but facing changed from up to left",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.38,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196130,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from the current tile right is confirmed blocked while the last left press only turned to face left, so repeating left once is the correct small-step probe toward the remaining frontier.",
+      "result": "After left:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.376,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196131,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left and right have already produced a tiny loop, and the navigation guidance says the stronger frontier is away from this fringe with up as the best immediate non-blocked move.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.96,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196132,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is mostly black/unclear and was already blocked once, while up has visible floor and is the current frontier tile for continuing the mandatory sequence.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.064,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196133,
+      "action": "up",
+      "reasoning": "This is Oak's Lab with no visible dialogue box, and from the current tile up shows continuous floor above the player while left is lined by bookshelves and right is black void, so continuing upward is the safest concrete exploration step.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.804,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196134,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up just failed from this tile, left is lined with bookshelves, and the navigation caution says this local frontier is weak and to prefer right toward the stronger unexplored area.",
+      "result": "After right:; position did not change but facing changed from up to right",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.422,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196135,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is already blocked once, left is lined with bookshelves, and the guidance specifically says right is still a valid frontier because the last right only changed facing.",
+      "result": "After right:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.898,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196136,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up and right have already failed here, and left shows continuous floor beside the bookshelves while the top todo says to finish any remaining intro dialogue if movement stalls near a story blocker.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.236,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196137,
+      "action": "b",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered text box even though RAM says text is active, and after the last A the scene still looks like the room, so I should dismiss a likely stale or hidden text state with B instead of blindly pressing A again.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.319,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196138,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from this tile up and right have already failed while left still shows visible floor beside the bookshelves, so the next concrete progress step is to explore left instead of repeating blocked directions or B.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.202,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196139,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left has just succeeded and still shows continuous floor under the bookshelves while up is partly blocked by the shelf row, so the next concrete exploration step is to continue left.",
+      "result": "After left:; moved from (8,8) to (7,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.368,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196140,
+      "action": "up",
+      "reasoning": "This is Oak's Lab with no visible dialogue box, and from the current tile left is partly clipped by the screen edge while up still shows continuous floor toward an unexplored frontier, so the next careful step is to move up rather than keep probing this low-value left edge.",
+      "result": "After up:; position did not change but facing changed from left to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.953,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196141,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab without a visible bordered dialogue box, and from this tile left still has clear floor while up was only a facing change last turn and remains a valid frontier directly in front of the player, so repeating up once is the careful next step.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.983,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196142,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and up has already failed twice from this tile while left still has visible floor and is the remaining unexplored adjacent direction.",
+      "result": "After left:; moved from (7,8) to (6,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.451,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196143,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from this tile up still leads to the only adjacent frontier while left, right, and down are already explored.",
+      "result": "After up:; position did not change but facing changed from left to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.314,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196144,
+      "action": "right",
+      "reasoning": "There is no visible bordered dialogue box, and from the current tile up has already failed while right stays on clear floor and follows the navigation caution toward the stronger frontier instead of re-probing this weak spot.",
+      "result": "After right:; moved from (6,8) to (7,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.21,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 6,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196145,
+      "action": "right",
+      "reasoning": "This is Oak's Lab with no visible bordered dialogue box, and the screenshot shows clear floor continuing to the right while up from this tile is already flagged as blocked and this local frontier has high revisit pressure.",
+      "result": "After right:; moved from (7,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.733,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196146,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from the current tile up still has visible floor and is the only adjacent frontier while left/right are already revisited tiles.",
+      "result": "After up:; position did not change but facing changed from right to up",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.224,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196147,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from the current tile up is still the only immediate frontier on visible floor while the previous first up only turned the character and should be retried once.",
+      "result": "After up:; position did not change",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.029,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196148,
+      "action": "down",
+      "reasoning": "There is no visible dialogue box despite the stale text flag, and from this tile up has already failed twice into the bookcases while down stays on visible floor and follows the navigation caution toward a stronger frontier.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.268,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196149,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and navigation memory marks right as the known exit from this tile while down is confirmed blocked.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.288,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196150,
+      "action": "down",
+      "reasoning": "There is no visible dialogue box or battle UI, and from this tile right is already flagged blocked while down leads toward the stronger unexplored frontier and likely the lab exit area.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.825,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196151,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile left and right are poor while down is the known exit path on visible floor toward leaving the lab.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.835,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196152,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile down and right are already blocked while left is the only other known open floor besides backtracking up.",
+      "result": "After left:; moved from (9,11) to (8,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.092,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196153,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is confirmed blocked while the navigation caution says this local frontier is weak and recommends moving right toward the stronger exit/frontier.",
+      "result": "After right:; moved from (8,11) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.041,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196154,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile right is confirmed blocked while this right-side fringe is high-pressure and weak, so I should leave it via the known open path upward toward the better frontier.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.322,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196155,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak’s Lab with no visible dialogue box, and from this tile left and right are poor while the navigation memory recommends moving up toward the next frontier at (9,8) instead of lingering on this high-pressure fringe.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.473,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196156,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since the top todo says to finish any remaining intro dialogue while RAM text-box status may be stale, the next concrete step is to interact with the nearby story NPC instead of looping on movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.344,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196157,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since pressing A just left the text-box flag stale while movement is available, the next concrete step is to move toward the recommended known exit/frontier above rather than repeat A.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.71,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196158,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from this tile up and right have already failed while left is the known open path and the navigation caution says to move down toward a stronger frontier instead of probing this exhausted corner.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.427,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196159,
+      "action": "down",
+      "reasoning": "This is Oak’s Lab with no visible dialogue box, and from the current tile up has already failed while left and down are known open, so I should move down toward the stronger unexplored area instead of re-probing the blocked top edge.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.453,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196160,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, the NPC is directly above me blocking the path, and down is memory-confirmed blocked, so the next concrete step is to interact with the nearby story blocker.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.374,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196161,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak’s Lab with no visible dialogue box, and the live guidance says to finish any remaining intro dialogue by interacting with the nearby story blocker instead of wandering or repeating blocked movement.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.598,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196162,
+      "action": "a",
+      "reasoning": "A real dialogue box is visible with Oak speaking (\"I st\"), and the current focus says to finish remaining intro dialogue rather than move away.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.145,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196163,
+      "action": "a",
+      "reasoning": "A real dialogue box is visible with Oak speaking (“I study POKE”), so the current mandatory step is to advance the remaining intro dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 11.274,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196164,
+      "action": "a",
+      "reasoning": "A real dialogue box is visible with Oak still speaking (“I study POKEMON as PR”), so the current mandatory step is to advance the remaining dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.028,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196165,
+      "action": "a",
+      "reasoning": "A real dialogue box is visible with Oak still speaking (“I study POKEMON as PROF. OAK’S”), so the current mandatory step is to continue the intro dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 10.392,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196166,
+      "action": "a",
+      "reasoning": "A real dialogue box is still visible with Oak's text continuing (\"I study POKEMON as PROF. OAK'S AIDE.\"), so the current mandatory step is to advance the remaining intro dialogue.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.19,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196167,
+      "action": "right",
+      "reasoning": "The screenshot shows no visible bordered dialogue box despite the stale text flag, and from this tile down is known blocked while right is a known successful exit path, so I should move toward the exit instead of pressing A again.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.425,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196168,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's lab with no visible dialogue box, and from this tile right has already failed while up is a known successful path toward the nearby frontier and away from this high-repeat 2x2 loop.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.603,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196169,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up and right were already probed while navigation memory says left is the known successful path and down leads back into the tiny 2x2 loop.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 9.097,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196170,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible bordered dialogue box, and from the current tile up is already cautioned as blocked while left is a known successful exit toward less-stale movement than this 2x2 loop.",
+      "result": "After left:; moved from (8,8) to (7,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 8.392,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196171,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is already cautioned as blocked once, and the navigation guidance says this local frontier is weak and to prefer moving right toward the better frontier route.",
+      "result": "After right:; moved from (7,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.807,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196172,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is a previously failed move into the bookcases, and the guidance says this local tile is a weak frontier so I should follow the suggested route by stepping down first.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.79,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196173,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, the rival is directly below me as a blocker, and after the first rival battle the mandatory next step is to leave through the bottom exit, so I should step right along the clear floor toward that route.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.978,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196174,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is already a known failed push into the wall/void side, and the navigation guidance says to leave this weak local frontier by moving down toward the stronger exit route.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.962,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196175,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left and right are cramped by the wall/void and navigation already marks right blocked, so the clearest progress is to continue down along the known exit path toward the bottom door.",
+      "result": "After down:; moved from (9,10) to (9,11) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.857,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196176,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is black/blocked and down has already failed once from this tile, while up is a confirmed open tile on visible floor and matches the suggested route away from this weak fringe.",
+      "result": "After up:; moved from (9,11) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.444,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 11
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196177,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box; left is occupied by Oak, right is black/blocked, and navigation memory says the current weak fringe should be abandoned by taking the known open route up toward the next frontier.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.521,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196178,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, Oak is directly below-left and movement is free, so the best concrete step is to go down toward the stronger frontier and likely lab exit route instead of re-probing the blocked right side.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.885,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196179,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab without a visible dialogue box, and from this tile left and right are already poor while navigation memory marks up and down as the only reliable exits, with the stronger advised route being up toward the next frontier.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.796,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196180,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and the current focus says to finish any remaining intro dialogue if movement stalls; Oak is directly below-left, so interacting is the best concrete check instead of looping between nearby tiles.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.369,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196181,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box despite the RAM text flag, and from this tile right is black/previously blocked while down is the known route toward the stronger frontier and likely exit path.",
+      "result": "After down:; moved from (9,9) to (9,10) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.929,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196182,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left and right are poor from this tile, and the live guidance says to finish any remaining intro dialogue before more wandering, so I should advance the likely hidden text with A once.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.152,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196183,
+      "action": "b",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and since RAM still says text is active while recent A presses produced no visible change, the safest way to clear a likely stale hidden text state is to press B instead of wandering or repeating A.",
+      "result": "After b:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.138,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196184,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, left and right are poor from this tile, and navigation memory says the best local step is the known exit route upward toward the suggested frontier at (9,8) rather than looping at the lower fringe.",
+      "result": "After up:; moved from (9,10) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.521,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 10
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196185,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up and down are known open while right has already failed once; to push the mandatory checkpoint without repeating stale A/B on an unseen text flag, I should follow the suggested open route upward.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.592,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196186,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up and right have both been warned as blocked while left is the known open path that best advances leaving the lab after the intro sequence.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.744,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196187,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is a previously failed step into the bookcase area, and left is the clear visible-floor path that continues the known route toward the lab exit.",
+      "result": "After left:; moved from (8,8) to (7,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.145,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196188,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is warned blocked from this tile by both the screenshot bookcase line and navigation memory, and the stronger route away from this weak local frontier is to move right along the open floor.",
+      "result": "After right:; moved from (7,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.475,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 7,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196189,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is cautioned as previously blocked by the bookcase while down is a known open exit path that best advances leaving the lab after the rival sequence.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.096,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196190,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, down is confirmed blocked from this tile, and the navigation memory marks right as the known open route toward the next frontier and likely lab exit path.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.833,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196191,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is already cautioned as blocked from this tile, and up is a known open step toward the next visible frontier while we finish the immediate post-intro progression.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.96,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196192,
+      "action": "left",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, and from this tile up is occupied by the bookcase while left is clear open floor toward the known route out and avoids re-probing blocked directions.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.87,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196193,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is blocked by the bookcases, and the stronger known route is to move down toward the lower-right area and likely exit path instead of looping at this weak frontier.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.104,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196194,
+      "action": "right",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, down is confirmed blocked from this tile, and right is the known open route toward the suggested frontier at (9,8) to continue exploring for the exit.",
+      "result": "After right:; moved from (8,9) to (9,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.634,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196195,
+      "action": "up",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, right is partly black and already failed once, while up is a known open tile and the suggested safe step toward the next visible frontier.",
+      "result": "After up:; moved from (9,9) to (9,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.237,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196196,
+      "action": "left",
+      "reasoning": "This is Oak's Lab with no visible dialogue box, and from the current tile up is blocked by the bookcase while left is the known open route that starts moving away from this over-visited dead-end toward the lab exit area.",
+      "result": "After left:; moved from (9,8) to (8,8) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.884,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 9,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196197,
+      "action": "down",
+      "reasoning": "The screenshot shows Oak's Lab with no visible dialogue box, up is blocked by the bookcases, and the current tile is heavily revisited, so I should follow the known open route down toward the lower area instead of probing the blocked top edge again.",
+      "result": "After down:; moved from (8,8) to (8,9) on map 40",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.366,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 8
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196198,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak standing directly above me in the lab with no visible dialogue box, and since I have been looping in a tiny area after getting the starter, the mandatory next step is likely to interact with the story blocker instead of shuffling around.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 6.209,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196199,
+      "action": "a",
+      "reasoning": "The screenshot shows Oak standing directly in front of me in the lab with no visible bordered text box, and since the last A reported that text remains active, I should press A once more to advance the mandatory dialogue rather than resume the movement loop.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 12.009,
+      "model_request_count": 1,
+      "screen_type": "indoor",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196200,
+      "action": "a",
+      "reasoning": "A bordered text box is clearly open in Oak's Lab showing “I st”, so the current focus is to finish the remaining mandatory dialogue by advancing it.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 7.845,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    },
+    {
+      "turn": 196201,
+      "action": "a",
+      "reasoning": "A bordered dialogue box is clearly open in Oak's Lab showing “I study POKé”, so the current top todo is to advance the mandatory dialogue rather than move.",
+      "result": "After a:; text box remains active",
+      "decision_source": "ai",
+      "decision_path": "ai",
+      "model_latency_seconds": 5.835,
+      "model_request_count": 1,
+      "screen_type": "dialogue",
+      "observed_screen_type": "unknown",
+      "phase_hint": null,
+      "position": {
+        "map_id": 40,
+        "x": 8,
+        "y": 9
+      },
+      "party_size": 1
+    }
+  ]
+}
