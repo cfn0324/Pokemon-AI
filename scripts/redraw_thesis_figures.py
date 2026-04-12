@@ -1,3 +1,4 @@
+import math
 from pathlib import Path
 
 import matplotlib
@@ -159,6 +160,41 @@ def draw_bullet_block(
         y += bullet_gap
 
 
+def draw_arrow_line(
+    draw: ImageDraw.ImageDraw,
+    start: tuple[int, int],
+    end: tuple[int, int],
+    color: tuple[int, int, int],
+    width: int = 4,
+    head_length: int = 18,
+    head_half_width: int = 8,
+) -> None:
+    draw.line((*start, *end), fill=color, width=width)
+
+    dx = end[0] - start[0]
+    dy = end[1] - start[1]
+    length = math.hypot(dx, dy)
+    if length == 0:
+        return
+
+    ux = dx / length
+    uy = dy / length
+    px = -uy
+    py = ux
+    base_x = end[0] - ux * head_length
+    base_y = end[1] - uy * head_length
+    left = (base_x + px * head_half_width, base_y + py * head_half_width)
+    right = (base_x - px * head_half_width, base_y - py * head_half_width)
+    draw.polygon(
+        [
+            (int(end[0]), int(end[1])),
+            (int(left[0]), int(left[1])),
+            (int(right[0]), int(right[1])),
+        ],
+        fill=color,
+    )
+
+
 def redraw_fig07() -> None:
     target = FIGURE_DIR_20260406 / "fig07_decision_chain_annotation.png"
     canvas = Image.new("RGB", (1600, 900), "white")
@@ -226,20 +262,12 @@ def redraw_fig07() -> None:
             )
             y += 10
 
-    draw.line((360, 240, 430, 240), fill=line_color, width=4)
-    draw.line((730, 240, 800, 240), fill=line_color, width=4)
-    draw.line((1100, 240, 1170, 240), fill=line_color, width=4)
-    draw.line((1320, 320, 1320, 430), fill=line_color, width=4)
-    draw.line((1320, 430, 400, 520), fill=line_color, width=4)
-    draw.line((550, 600, 620, 600), fill=line_color, width=4)
-    draw.line((920, 600, 990, 600), fill=line_color, width=4)
-
-    draw.polygon([(430, 240), (415, 232), (415, 248)], fill=line_color)
-    draw.polygon([(800, 240), (785, 232), (785, 248)], fill=line_color)
-    draw.polygon([(1170, 240), (1155, 232), (1155, 248)], fill=line_color)
-    draw.polygon([(400, 520), (408, 505), (416, 518)], fill=line_color)
-    draw.polygon([(620, 600), (605, 592), (605, 608)], fill=line_color)
-    draw.polygon([(990, 600), (975, 592), (975, 608)], fill=line_color)
+    draw_arrow_line(draw, (360, 240), (430, 240), line_color)
+    draw_arrow_line(draw, (730, 240), (800, 240), line_color)
+    draw_arrow_line(draw, (1100, 240), (1170, 240), line_color)
+    draw_arrow_line(draw, (1245, 320), (500, 520), line_color)
+    draw_arrow_line(draw, (550, 600), (620, 600), line_color)
+    draw_arrow_line(draw, (920, 600), (990, 600), line_color)
 
     canvas.save(target)
 
@@ -507,6 +535,587 @@ def redraw_fig08() -> None:
     plt.close(fig)
 
 
+def redraw_fig09() -> None:
+    target = FIGURE_DIR_20260406 / "fig09_system_layered_architecture.png"
+    svg_target = target.with_suffix(".svg")
+
+    thesis_font_path = Path(r"C:\Windows\Fonts\simsun.ttc")
+    if not thesis_font_path.exists():
+        thesis_font_path = REGULAR_FONT_PATH
+
+    title_fp = fm.FontProperties(fname=str(BOLD_FONT_PATH), size=12)
+    layer_fp = fm.FontProperties(fname=str(BOLD_FONT_PATH), size=10.0)
+    body_fp = fm.FontProperties(fname=str(thesis_font_path), size=7.5)
+    side_fp = fm.FontProperties(fname=str(BOLD_FONT_PATH), size=9.2)
+    side_body_fp = fm.FontProperties(fname=str(thesis_font_path), size=7.4)
+    note_fp = fm.FontProperties(fname=str(thesis_font_path), size=7.6)
+
+    fig = plt.figure(figsize=(1680 / 180, 1180 / 180), dpi=180, facecolor="white")
+    ax = fig.add_subplot(111)
+    fig.subplots_adjust(left=0.02, right=0.98, bottom=0.04, top=0.97)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    line_color = "#202020"
+    text_color = "#1F1F1F"
+    muted_text = "#5C5C5C"
+    fill_a = "#FAFAFA"
+    fill_b = "#F0F0F0"
+    fill_highlight = "#E8E8E8"
+    outer_fill = "#FFFFFF"
+
+    runtime_x0, runtime_y0 = 0.20, 0.08
+    runtime_w, runtime_h = 0.56, 0.84
+
+    outer = patches.FancyBboxPatch(
+        (runtime_x0, runtime_y0),
+        runtime_w,
+        runtime_h,
+        boxstyle="round,pad=0.012,rounding_size=0.012",
+        linewidth=1.5,
+        edgecolor=line_color,
+        facecolor=outer_fill,
+    )
+    ax.add_patch(outer)
+
+    ax.text(
+        runtime_x0 + 0.02,
+        runtime_y0 + runtime_h + 0.022,
+        "PokemonAIAgent 运行时主协调器",
+        fontproperties=title_fp,
+        color=text_color,
+        ha="left",
+        va="bottom",
+    )
+
+    layers = [
+        (
+            "审计与评估层",
+            "Logger / GameVisualizer / 批量评估脚本\n时间线校验、汇总统计与结构化报告输出",
+            fill_a,
+        ),
+        (
+            "执行与稳定化层",
+            "ActionExecutor / 动作合法化 / 同回合同观测重试\n将模型动作稳定映射为模拟器可执行输入",
+            fill_b,
+        ),
+        (
+            "主决策层",
+            "MainAgent / AIClient / DecisionEngine\n普通回合动作生成、请求发送与来源记录",
+            fill_highlight,
+        ),
+        (
+            "上下文与目标层",
+            "ContextManager / Summarizer / GoalManager\n近期回合、摘要历史、任务焦点与待办组织",
+            fill_b,
+        ),
+        (
+            "状态构造层",
+            "GameState / MapMemory / VisionProcessor\n将截图、RAM 与地图记忆整理为任务化状态",
+            fill_a,
+        ),
+        (
+            "环境接入层",
+            "GameBoyEmulator / MemoryReader / 检查点恢复\nROM 运行、截图采样与 RAM 语义读取",
+            fill_b,
+        ),
+    ]
+
+    # Use explicit symmetric inner margins so the stacked boxes remain
+    # visually centered inside the runtime frame after export.
+    inner_margin_x = 0.040
+    inner_margin_y = 0.074
+    gap = 0.022
+    layer_w = runtime_w - inner_margin_x * 2
+    layer_x0 = runtime_x0 + inner_margin_x
+    layer_h = (runtime_h - inner_margin_y * 2 - (len(layers) - 1) * gap) / len(layers)
+    stack_bottom = runtime_y0 + inner_margin_y
+
+    layer_boxes: list[tuple[float, float, float, float]] = []
+    prev_bottom = None
+    for idx, (title, body, fill) in enumerate(layers):
+        y0 = stack_bottom + (len(layers) - 1 - idx) * (layer_h + gap)
+        patch = patches.FancyBboxPatch(
+            (layer_x0, y0),
+            layer_w,
+            layer_h,
+            boxstyle="round,pad=0.008,rounding_size=0.010",
+            linewidth=1.0 if title != "主决策层" else 1.4,
+            edgecolor=line_color,
+            facecolor=fill,
+        )
+        ax.add_patch(patch)
+        ax.text(
+            layer_x0 + 0.02,
+            y0 + layer_h * 0.72,
+            title,
+            fontproperties=layer_fp,
+            color=text_color,
+            ha="left",
+            va="center",
+        )
+        ax.text(
+            layer_x0 + 0.02,
+            y0 + layer_h * 0.28,
+            body,
+            fontproperties=body_fp,
+            color=muted_text,
+            ha="left",
+            va="center",
+            linespacing=1.32,
+        )
+        cx = layer_x0 + layer_w / 2
+        cy = y0 + layer_h / 2
+        layer_boxes.append((layer_x0, y0, layer_x0 + layer_w, y0 + layer_h))
+
+        if prev_bottom is not None:
+            arrow = patches.FancyArrowPatch(
+                (cx, prev_bottom - 0.004),
+                (cx, y0 + layer_h + 0.004),
+                arrowstyle="-|>",
+                mutation_scale=12,
+                linewidth=1.1,
+                color=line_color,
+            )
+            ax.add_patch(arrow)
+        prev_bottom = y0
+
+    def add_side_box(
+        x0: float,
+        y0: float,
+        w: float,
+        h: float,
+        title: str,
+        body: str,
+    ) -> None:
+        patch = patches.FancyBboxPatch(
+            (x0, y0),
+            w,
+            h,
+            boxstyle="round,pad=0.008,rounding_size=0.010",
+            linewidth=1.1,
+            edgecolor=line_color,
+            facecolor="#FBFBFB",
+        )
+        ax.add_patch(patch)
+        ax.text(
+            x0 + w / 2,
+            y0 + h * 0.67,
+            title,
+            fontproperties=side_fp,
+            color=text_color,
+            ha="center",
+            va="center",
+            linespacing=1.2,
+        )
+        ax.text(
+            x0 + w / 2,
+            y0 + h * 0.30,
+            body,
+            fontproperties=side_body_fp,
+            color=muted_text,
+            ha="center",
+            va="center",
+            linespacing=1.22,
+        )
+
+    audit_box = layer_boxes[0]
+    execute_box = layer_boxes[1]
+    decision_box = layer_boxes[2]
+    state_box = layer_boxes[4]
+    access_box = layer_boxes[5]
+
+    left_box_w, left_box_h = 0.13, 0.18
+    right_box_w, right_box_h = 0.14, 0.16
+    side_gap = 0.05
+    left_box_x0 = runtime_x0 - side_gap - left_box_w
+    right_box_x0 = runtime_x0 + runtime_w + side_gap
+
+    env_center_y = ((state_box[1] + state_box[3]) / 2 + (access_box[1] + access_box[3]) / 2) / 2
+    decision_center_y = (decision_box[1] + decision_box[3]) / 2
+    audit_center_y = (audit_box[1] + audit_box[3]) / 2
+
+    env_box = (left_box_x0, env_center_y - left_box_h / 2, left_box_w, left_box_h)
+    model_box = (right_box_x0, decision_center_y - right_box_h / 2, right_box_w, right_box_h)
+    output_box = (right_box_x0, audit_center_y - right_box_h / 2, right_box_w, right_box_h)
+
+    add_side_box(*env_box, "PyBoy +\nPokemon Red", "游戏环境\n状态读取与动作写回")
+    add_side_box(*model_box, "外部模型服务", "LLM API\n文本与图像输入")
+    add_side_box(*output_box, "结构化证据输出", "JSON 报告 / 截图 / 视频\n批量汇总与正文主图")
+
+    def connect(
+        start: tuple[float, float],
+        end: tuple[float, float],
+        label: str | None = None,
+        label_offset: tuple[float, float] = (0.0, 0.0),
+        bidirectional: bool = False,
+    ) -> None:
+        arrow = patches.FancyArrowPatch(
+            start,
+            end,
+            arrowstyle="<->" if bidirectional else "-|>",
+            mutation_scale=12,
+            linewidth=1.1,
+            color=line_color,
+            connectionstyle="arc3,rad=0.0",
+        )
+        ax.add_patch(arrow)
+        if label:
+            xm = (start[0] + end[0]) / 2 + label_offset[0]
+            ym = (start[1] + end[1]) / 2 + label_offset[1]
+            ax.text(
+                xm,
+                ym,
+                label,
+                fontproperties=note_fp,
+                color=muted_text,
+                ha="center",
+                va="center",
+                bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.10},
+            )
+
+    connect_direct = connect
+
+    def connect_elbow(
+        start: tuple[float, float],
+        end: tuple[float, float],
+        *,
+        elbow_x: float,
+        label: str | None = None,
+        label_pos: tuple[float, float] | None = None,
+    ) -> None:
+        points = [
+            start,
+            (elbow_x, start[1]),
+            (elbow_x, end[1]),
+            end,
+        ]
+        for p0, p1 in zip(points[:-2], points[1:-1]):
+            ax.plot(
+                [p0[0], p1[0]],
+                [p0[1], p1[1]],
+                color=line_color,
+                linewidth=1.1,
+                solid_capstyle="round",
+            )
+        arrow = patches.FancyArrowPatch(
+            points[-2],
+            points[-1],
+            arrowstyle="-|>",
+            mutation_scale=12,
+            linewidth=1.1,
+            color=line_color,
+            connectionstyle="arc3,rad=0.0",
+        )
+        ax.add_patch(arrow)
+        if label and label_pos is not None:
+            ax.text(
+                label_pos[0],
+                label_pos[1],
+                label,
+                fontproperties=note_fp,
+                color=muted_text,
+                ha="center",
+                va="center",
+                bbox={"facecolor": "white", "edgecolor": "none", "pad": 0.10},
+            )
+
+    env_right = env_box[0] + env_box[2]
+    access_left = (layer_x0, (access_box[1] + access_box[3]) / 2)
+    execute_left = (layer_x0, (execute_box[1] + execute_box[3]) / 2)
+    env_upper_anchor = (env_right, env_box[1] + left_box_h * 0.72)
+    env_lower_anchor = (env_right, access_left[1])
+    env_write_channel_x = runtime_x0 - 0.030
+    connect_elbow(
+        execute_left,
+        env_upper_anchor,
+        elbow_x=env_write_channel_x,
+        label="写回动作",
+        label_pos=(env_write_channel_x - 0.006, (execute_left[1] + env_upper_anchor[1]) / 2 + 0.010),
+    )
+    connect_direct(
+        env_lower_anchor,
+        access_left,
+        "读取状态",
+        (0.0, -0.028),
+    )
+
+    decision_right = (layer_x0 + layer_w, decision_center_y)
+    model_left = (model_box[0], model_box[1] + model_box[3] / 2)
+    connect_direct(decision_right, model_left, "请求 / 返回", (0.00, 0.03), bidirectional=True)
+
+    audit_right = (layer_x0 + layer_w, audit_center_y)
+    output_left = (output_box[0], output_box[1] + output_box[3] / 2)
+    connect_direct(audit_right, output_left, "沉淀证据", (0.0, 0.03))
+
+    ax.text(
+        runtime_x0 + runtime_w / 2,
+        runtime_y0 - 0.03,
+        "普通回合主路径：状态构造 → 上下文与目标 → 主决策 → 执行与稳定化 → 审计与评估",
+        fontproperties=note_fp,
+        color=muted_text,
+        ha="center",
+        va="top",
+    )
+
+    fig.savefig(target, dpi=180, facecolor="white")
+    fig.savefig(svg_target, facecolor="white")
+    plt.close(fig)
+
+
+def redraw_fig10() -> None:
+    target = FIGURE_DIR_20260406 / "fig10_system_overall_architecture.png"
+    svg_target = target.with_suffix(".svg")
+
+    thesis_font_path = pick_font_path(FONT_REGULAR_CANDIDATES)
+    title_fp = fm.FontProperties(fname=str(BOLD_FONT_PATH), size=12)
+    node_title_fp = fm.FontProperties(fname=str(BOLD_FONT_PATH), size=10.0)
+    node_body_fp = fm.FontProperties(fname=str(thesis_font_path), size=7.4)
+    note_fp = fm.FontProperties(fname=str(thesis_font_path), size=7.4)
+
+    fig = plt.figure(figsize=(1840 / 200, 1180 / 200), dpi=200, facecolor="white")
+    ax = fig.add_subplot(111)
+    fig.subplots_adjust(left=0.02, right=0.98, bottom=0.04, top=0.97)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis("off")
+
+    line_color = "#202020"
+    text_color = "#1F1F1F"
+    muted_text = "#555555"
+    fill_panel = "#FAFAFA"
+    fill_alt = "#F2F2F2"
+    fill_focus = "#EAEAEA"
+
+    runtime_x0, runtime_y0 = 0.23, 0.08
+    runtime_w, runtime_h = 0.54, 0.80
+    runtime = patches.FancyBboxPatch(
+        (runtime_x0, runtime_y0),
+        runtime_w,
+        runtime_h,
+        boxstyle="round,pad=0.012,rounding_size=0.015",
+        linewidth=1.5,
+        edgecolor=line_color,
+        facecolor="white",
+    )
+    ax.add_patch(runtime)
+    ax.text(
+        runtime_x0 + 0.02,
+        runtime_y0 + runtime_h + 0.022,
+        "PokemonAIAgent 运行时主协调器",
+        fontproperties=title_fp,
+        color=text_color,
+        ha="left",
+        va="bottom",
+    )
+
+    def add_box(
+        x0: float,
+        y0: float,
+        w: float,
+        h: float,
+        title: str,
+        body: str,
+        *,
+        fill: str = fill_panel,
+    ) -> tuple[float, float, float, float]:
+        patch = patches.FancyBboxPatch(
+            (x0, y0),
+            w,
+            h,
+            boxstyle="round,pad=0.008,rounding_size=0.012",
+            linewidth=1.1,
+            edgecolor=line_color,
+            facecolor=fill,
+        )
+        ax.add_patch(patch)
+        ax.text(
+        x0 + 0.016,
+        y0 + h * 0.68,
+        title,
+        fontproperties=node_title_fp,
+        color=text_color,
+            ha="left",
+            va="center",
+        )
+        ax.text(
+        x0 + 0.016,
+        y0 + h * 0.32,
+        body,
+        fontproperties=node_body_fp,
+        color=muted_text,
+            ha="left",
+            va="center",
+            linespacing=1.28,
+        )
+        return (x0, y0, x0 + w, y0 + h)
+
+    def center_left(box: tuple[float, float, float, float]) -> tuple[float, float]:
+        x0, y0, _, y1 = box
+        return (x0, (y0 + y1) / 2)
+
+    def center_right(box: tuple[float, float, float, float]) -> tuple[float, float]:
+        _, y0, x1, y1 = box
+        return (x1, (y0 + y1) / 2)
+
+    def center_top(box: tuple[float, float, float, float]) -> tuple[float, float]:
+        x0, _, x1, y1 = box
+        return ((x0 + x1) / 2, y1)
+
+    def center_bottom(box: tuple[float, float, float, float]) -> tuple[float, float]:
+        x0, y0, x1, _ = box
+        return ((x0 + x1) / 2, y0)
+
+    def center_x(box: tuple[float, float, float, float]) -> float:
+        x0, _, x1, _ = box
+        return (x0 + x1) / 2
+
+    def center_y(box: tuple[float, float, float, float]) -> float:
+        _, y0, _, y1 = box
+        return (y0 + y1) / 2
+
+    def add_arrow(
+        start: tuple[float, float],
+        end: tuple[float, float],
+        *,
+        style: str = "-|>",
+        curve: float | None = None,
+        linewidth: float = 1.1,
+    ) -> None:
+        kwargs = {
+            "arrowstyle": style,
+            "mutation_scale": 12,
+            "linewidth": linewidth,
+            "color": line_color,
+        }
+        if curve is not None:
+            kwargs["connectionstyle"] = f"arc3,rad={curve}"
+        ax.add_patch(patches.FancyArrowPatch(start, end, **kwargs))
+
+    def add_vertical_flow(
+        upper: tuple[float, float, float, float],
+        lower: tuple[float, float, float, float],
+    ) -> None:
+        add_arrow(
+            (center_x(upper), upper[1]),
+            (center_x(lower), lower[3]),
+            linewidth=1.2,
+        )
+
+    access = add_box(
+        runtime_x0 + 0.12,
+        runtime_y0 + 0.62,
+        0.30,
+        0.10,
+        "环境接入层",
+        "GameBoyEmulator + MemoryReader\nROM 运行、截图采样与 RAM 语义读取",
+        fill=fill_alt,
+    )
+    state = add_box(
+        runtime_x0 + 0.12,
+        runtime_y0 + 0.48,
+        0.30,
+        0.10,
+        "状态构造层",
+        "GameState + MapMemory + VisionProcessor\n将截图、RAM 与地图记忆整理为任务化状态",
+        fill=fill_panel,
+    )
+    memorygoal = add_box(
+        runtime_x0 + 0.12,
+        runtime_y0 + 0.34,
+        0.30,
+        0.10,
+        "记忆与目标层",
+        "ContextManager + Summarizer + GoalManager\n近期回合、摘要历史与任务焦点维护",
+        fill=fill_panel,
+    )
+    decision = add_box(
+        runtime_x0 + 0.12,
+        runtime_y0 + 0.20,
+        0.30,
+        0.10,
+        "决策路由层",
+        "DecisionEngine + AsyncDecisionMaker + MainAgent\n模型调用、动作生成与来源记录",
+        fill=fill_focus,
+    )
+    support = add_box(
+        runtime_x0 + 0.12,
+        runtime_y0 + 0.06,
+        0.30,
+        0.10,
+        "执行与运行时支撑层",
+        "ActionExecutor + ProgressTracker + Logger + GameVisualizer\n动作执行、检查点、日志与可视化",
+        fill=fill_alt,
+    )
+
+    resources = add_box(
+        0.03,
+        0.69,
+        0.16,
+        0.12,
+        "配置与运行资源",
+        "config.yaml / .env / PokemonRed.gb\n检查点存档",
+    )
+    scripts = add_box(
+        0.03,
+        0.46,
+        0.16,
+        0.12,
+        "实验脚本",
+        "autonomous_smoke.py\ncapture_evidence_run.py\nsmoke_report_summary.py",
+    )
+    researcher = add_box(
+        0.03,
+        0.23,
+        0.16,
+        0.12,
+        "研究者 / 控制端",
+        "运行控制、过程观察\n与结果复核",
+    )
+    model = add_box(
+        0.83,
+        center_y(decision) - 0.06,
+        0.14,
+        0.12,
+        "外部模型服务",
+        "AIClient 调用的\n主模型推理接口",
+    )
+    outputs = add_box(
+        0.83,
+        center_y(support) - 0.07,
+        0.14,
+        0.14,
+        "结构化证据输出",
+        "JSON 报告 / Markdown 汇总\n截图 / 视频 / 正文主图",
+    )
+
+    add_vertical_flow(access, state)
+    add_vertical_flow(state, memorygoal)
+    add_vertical_flow(memorygoal, decision)
+    add_vertical_flow(decision, support)
+
+    add_arrow(center_right(resources), center_left(access), linewidth=1.1)
+    add_arrow(center_right(scripts), center_left(state), linewidth=1.1)
+    add_arrow(center_right(researcher), center_left(support), style="<|-|>", linewidth=1.1)
+    add_arrow(center_right(decision), center_left(model), style="<|-|>", linewidth=1.1)
+    add_arrow(center_right(support), center_left(outputs), linewidth=1.1)
+
+    ax.text(
+        runtime_x0 + runtime_w / 2,
+        runtime_y0 - 0.032,
+        "主路径按中轴自上而下展开，外部资源、脚本、模型服务与证据输出通过侧向接口接入。",
+        fontproperties=note_fp,
+        color=muted_text,
+        ha="center",
+        va="top",
+    )
+
+    fig.savefig(target, dpi=200, facecolor="white")
+    fig.savefig(svg_target, facecolor="white")
+    plt.close(fig)
+
+
 def sanitize_fig01_dashboard() -> None:
     target = FIGURE_DIR_20260405 / "fig01_dashboard_desktop.png"
     canvas = Image.new("RGB", (1600, 1100), (9, 18, 31))
@@ -690,6 +1299,8 @@ def main() -> None:
     redraw_fig06()
     redraw_fig07()
     redraw_fig08()
+    redraw_fig09()
+    redraw_fig10()
 
 
 if __name__ == "__main__":
